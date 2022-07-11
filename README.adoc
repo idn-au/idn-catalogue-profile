@@ -1,3 +1,25 @@
-= IDN Dataset Profile
+= IDN Catalogue Profile
 
-_coming_
+This repository contains the Role Codes, that is the types of roles Agents - People and Organisations - play in relation to data, used by the https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network[Indigenous Data Network (IDN)].
+
+These Role Codes are presented in a Semantic Web vocabulary that is an extension to the ISO' Geospatial Metadata standard's http://iso.kurrawong.net/vocab/CI_RoleCode[CI Role Codes] vocabulary (also known as a codelist) that is also available online in Semantic Web form.
+
+This vocabulary is 
+
+
+== License & Rights
+
+The contents of this repository is licensed under Creative Commons 4.0 International. See the LICENSE file in the repository for details. Note that much of the content of this vocabulary is taken directly from the ISO's CI Role Codes codelist.
+
+
+== Contacts
+
+Initial technical development of this work is being undertaken by the following, for the Indigenous Data Network:
+
+**Nicholas J. Car** +
+*Data Architect* +
+nick@kurrawong.net  
+
+**Sandra Silcot** +
+*Analyst* +
+Indigenous Data Network +

@@ -1,0 +1,43 @@
+PREFIX addr: <https://w3id.org/profile/anz-address/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sdo: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX skosxl: <http://www.w3.org/2008/05/skos-xl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+<https://linked.data.gov.au/def/idn-catalogue-profile>
+    a owl:Ontology ;
+    dcterms:provenance "This profile of DCAT was made for the Indigenous Data Network's 2021/2022 Catalogue project."@en ;
+    owl:versionIRI addr:0.0.1 ;
+    owl:versionInfo "0.0.1" ;
+    skos:definition ""@en ;
+    skos:prefLabel "IDN Catalogue Profile"@en ;
+    sdo:codeRespository "https://github.com/idn-au/idn-dcat"^^xsd:anyURI ;
+    sdo:copyrightHolder <https://orcid.org/0000-0002-8742-7730> ;
+    sdo:copyrightNotice "(c) Nicholas J. Car, 2022" ;
+    sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
+    sdo:dateCreated "2021-12-16"^^xsd:date ;
+    sdo:dateIssued "2000-01-01"^^xsd:date ;
+    sdo:dateModified "2022-06-22"^^xsd:date ;
+    sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
+    sdo:publisher <https://orcid.org/0000-0002-8742-7730> ;
+.
+
+<https://orcid.org/0000-0002-8742-7730>
+    a sdo:Person ;
+    sdo:name "Nicholas J. Car"@en ;
+    sdo:email "nick@kurrawong.net"^^xsd:anyURI ;
+.
+
+:indigenousOrganization
+    a rdfs:Class ;
+    rdfs:label "Indigenous Organization" ;
+    rdfs:comment "An organization of, or representing, indigenous persons" ;
+    rdfs:subClassOf schema:Organization ;
+    rdfs:isDefinedBy : ;
+.

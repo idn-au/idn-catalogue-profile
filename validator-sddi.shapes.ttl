@@ -19,7 +19,7 @@
 <https://w3id.org/idnau/dp/shapes/sddi>
     a owl:Ontology ;
     skos:prefLabel "Standard Descriptors for Data Inventories IDN Validator" ;
-    skos:definition "A SHACL validator to assess Datasets presented according to the Indigenous Data Network's Dataset Profile of DCAT according to the Standard Descriptors for Data Inventories defined by the Office of the National Data Commissioer"@en ;
+    skos:definition "A SHACL validator to assess Datasets presented according to the Indigenous Data Network's Dataset Profile of DCAT according to the Standard Descriptors for Data Inventories defined by the Office of the National Data Commissioner"@en ;
     sdo:creator <https://linked.data.gov.au/org/idn> ;
     sdo:publisher <https://linked.data.gov.au/org/idn> ;
     sdo:dateCreated "2022-04-04"^^xsd:date ;
