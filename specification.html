@@ -23,6 +23,10 @@
         <h1>IDN Catalogue Profile - Specification</h1>
         <h2>Description</h2>
         <div id="description">The specification of normative requirements for data conforming to the <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a>.</div>
+        <div id="overview" class="figure" style="text-align:center;">
+            <a href="style/overview.png"><img src="style/overview.png" style="width:500px;"/></a>
+            <p class="caption">Overview of elements of the DCAT, PROV & SKOS models and relationships between them used in this profile</p>
+        </div>
         <section id="metadata">
             <h2 style="display:none;">Metadata</h2>
             <dl>
@@ -56,7 +60,7 @@
         </section>
         <section id="abstract">
             <h2>Abstract <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-            <p>This is the specification document of the <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a> which is a profile of <a href="https://www.w3.org/TR/prov-o/">DCAT, the Data Catalog Vocabulary</a>. Where DCAT is designed for the representation of data catalogues and their content in general, this profile of it aims to cater for the enhanced representation of indigeous data governance.</p>
+            <p>This is the specification document of the <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a> which is a profile of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>. Where DCAT is designed for the representation of data catalogues and their content in general, this profile of it aims to cater for the enhanced representation of indigeous data governance.</p>
             <p>This document specifies requirements of data that must be met in order for that data to claim conformance to the IDN Catalogue Profile. Data that conforms to this profile necissarily conforms to DCAT also.</p>
             <p>This specification document is <em>not</em> to be used for the automated testing of conformance of RDF resources to this profile. That role belongs to the machine-readable <em>validation</em> resource within this profile:</p>
             <ul>
@@ -66,7 +70,7 @@
             <p>The first validator above contains tests for this profile's requirements on top of DCAT's. The second contains this profile's tests and DCAT's.</p>
             <p>For the list of all resources within this profile, see the profile definition:</p>
             <ul>
-                <li><a href="https://linked.data.gov.au/def/idncp">https://linked.data.gov.au/def/idncp</a></li>
+                <li><a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile Definition</a></li>
             </ul>
         </section>
         <section id="namespaces">
@@ -95,31 +99,50 @@
                 <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
             </dl>
         </section>
+        <section id="conformance">
+            <h2>Conformance <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+            <p>The key words MAY, MUST, MUST NOT, and SHOULD are to be interpreted as described in <a href="#rfc2119">RFC2119</a>.</p>
+        </section>
         <section id="intro">
             <h2>1. Introduction <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-            <p>The <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a> defines specialised forms of the <code>prov:Activity</code> class, which are temporal events, specifically for describing workflows. These specialisations are:</p>
-            <ol>
-                <li><code>provwf:Workflow</code> - "A Workflow is a PROV Activity that contains one or more Blocks. Workflows represent a complete system task that will likely be composed of multiple steps that should be represented by Blocks."</li>
-                <li><code>provwf:Block</code> - "A Block is a PROV Activity that is a part of a Workflow. Blocks are discrete tasks that use inputs and produce outputs."</li>
-            </ol>
-            <p>There are a few properties required for use with <code>Workflow</code> &amp; <code>Block</code>, such as <code>provwf:hadBlock</code>, to ensure correct correct association between instances of them.</p>
-            <p>These definitions and the complete Semantic Web IDN Catalogue model are contained within the <a href="https://linked.data.gov.au/def/idncp/ont">IDN Catalogue Ontology</a> and individual rules -requirements - for their use are listed below.</p>
+            <p>The <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a> follows standard patterns of use of elements of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>, such as <code>Catalog</code>, <code>Dataset</code> and so on and some DCAT-recommended ways of expressing relationships from catalogue elements to <code>Agent</code> instances (people & organisations) using <a href="https://www.w3.org/TR/prov-o/">PROV, the Provenance Ontology</a>, and <a href="https://www.w3.org/TR/skos-reference/">SKOS, SKOS Simple Knowledge Organization System</a>.</p>
+            <p>To cater for indigenous data governance concerns, this profile requires, or at least expects/promotes the use, of specific catalogues of <code>Agent</code> instances and specific vocabularies of <code>Concept</code> instances for to classify <code>Dataset</code> instances with.</p>
+            <p>So, where using regular DCAT, you might indicate that a <code>Dataset</code> is themed as being about <em>water</em> where <em>water</em> is selected from a data theming vocabulary, you would also indicate that the dataset is themed as being <em>culturally sensitive</em> using a particular <code>Concept</code> from this profile's <a href="https://linked.data.gov.au/def/tk-labels">TK Labels vocabulary</a>.</p>
+            <p>Where using DCAT, with PROV, you might indicate that a <code>Dataset</code> is related to an <code>Agent</code> by the property <code>dcterms:contributor</code> (i.e. the <code>Agent</code> referenced contributed to the dataset), using this profile you would use the alternate DCAT-recommended qualified agent relations pattern and say that the <code>Dataset</code> is attributed to the <code>Agent</code> with the role of <em>contributor</em> where the role referenced is taken from this profile's <a href="https://linked.data.gov.au/def/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
+            <p>In addition to requireing the use of some DCAT-promoted patterns over others and recommended use of particular reference catalogues & vocabularies, this profile also constrains the ways in which several other DCAT properties should be used. All the contraints are still standard DCAT.</p>            
         </section>
         <section id="requirements">
             <h2>2. Requirements <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-            <p><em>Where model objects are indicated in </em><code>code</code><em> and no namespace is indicated, presume the <code>provwf</code> namespace is to be used.</em></p>
-            <p class="req">2.1. Each <code>Workflow</code> &amp; <code>Block</code> instance must link to at least one input which is understood to be a <code>prov:Entity</code>, and which it must indicate the property <code>prov:used</code> or a semantically equivalent construct</p>
-            <p>NOTE: Semantic equivalence here would be a construct that, through inference, can lead to the assertion of <code>prov:used</code>. For example, specialised forms of <code>prov:used</code></p>
-            <p class="req">2.2. Each <code>Workflow</code> &amp; <code>Block</code> instance must link to at least one output which is understood to be a <code>prov:Entity</code>, and which it must indicate the property <code>prov:generate</code> or a semantically equivalent construct</p>
-            <p class="req">2.3. Each <code>Workflow</code> &amp; <code>Block</code> instance must link to the time it started with the property <code>prov:startedAtTime</code> and the time it ended with the property <code>prov:endedAtTime</code> which must indicate allowed Semantic Web date/time properties</p>
-            <p class="req">2.3.a Allowed Semantic Web date/time properties are <code>xsd:date</code>, <code>xsd:dateTime</code>, <code>xsd:dateTimeStamp</code>, <code>time:Interval</code></p>
-            <p class="req">2.4. Each <code>Workflow</code> instance must indicate at least one <code>Block</code> instance within it using the property <code>hadBlock</code></p>
-            <p class="req">2.5. Each <code>Block</code> instance must be indicated as being within one and only one <code>Workflow</code> instance with the <code>Workflow</code> indicating the association with the <code> via the </code> <code>hadBlock</code> property</p>
-            <p>NOTE: Req. 2.4 & 2.5 are expected to be satisfied by simply ensuring that all <code>Blcok</code> instnaces are <em>within</em> <code>Workflow</code> instances</p>
+            <p>The requirements for data to conform to this profile are listed here. The requirement are organised initiall per object class, where 'class' is one of the classes in this profile's overview (see Figure at top), and then by rule where the rules are not related to one class.</p>
+            <p><em>Where model objects are indicated in </em><code>code</code><em> and no namespace is indicated, presume the <code>dcat</code>, <code>prov</code> or <code>skos</code> namespaces are used. There are no class/property overlaps between those models, so there can be no confusion if the object is looked up in those standards.</em></p>
+            <h4><code>Catalogue</code></h4>
+            <p class="req"><strong>Req C1:</strong> Each <code>Catalog</code> instance MUST provide basic <code>Resource</code> metadata so that exactly one of each of the following properties is required with ange value as per <code>Resource</code> requirements: <code>title</code>, <code>description</code>, <code>created</code> &amp; <code>modified</code>.</p>
+            <p class="req"><strong>Req C2:</strong> Each <code>Catalog</code> instance MUST indicate <code>Agent</code> roles not with direct DCAT properties (e.g. <code>publisher</code>) but with the DCAT-recommended PROV <em>qualified attribution</em> pattern.</p>
+            <p class="req"><strong>Req C3:</strong> The roles of <code>Agent</code> instances with relation to a <code>Catalog</code> MUST be indicated with the <code>hasRole</code> property and selected from the <a href="https://linked.data.gov.au/def/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
+            <p class="req"><strong>Req C4:</strong> Each <code>Catalog</code> Must contain at least one <code>Resource</code> indicated by the <code>hasPart</code> property.</p>
+            <h4><code>Resource</code></h4>
+            <li>
+                <li>C1</li>
+                <li>C2</li>
+                <li>R2.a</li>
+                <li>C3</li>
+                <li>specialised resource types via <code>dcterms:type</code></li>
+            </li>
+            <p class="req"><strong>Req R2.a:</strong> Allowed Semantic Web date/time properties are <code>xsd:date</code>, <code>xsd:dateTime</code>, <code>xsd:dateTimeStamp</code>, <code>time:Interval</code></p>
+            <h4><code>Dataset</code></h4>
+            <h4><code>Attribution</code></h4>
+            <h4><code>Concept</code></h4>
+            <h4><code>ConceptScheme</code></h4>
+        </section>
+        <section id="examples">
+            <h2>3. Examples <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+            <p><em>Coming!</em></p>
         </section>
         <section id="references">
-          <h2>3. References <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+          <h2>4. References <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
           <dl>
+            <dt><a id="rfc2119"></a>RFC2119</dt>
+            <dd>Bradner, S. <em>Key words for use in RFCs to Indicate Requirement Levels</em>. March 1997. Internet Engineering Task Force. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119 </a></dd>
             <dt><a id="prof"></a>PROF</dt>
             <dd>Rob Atkinson; Nicholas J. Car (eds.). <em>The Profiles Vocabulary</em>. 18 December 2019. W3C Working Group Note. URL: <a href="https://www.w3.org/TR/dx-prof/">https://www.w3.org/TR/dx-prof/</a></dd>
             <dt><a id="prov"></a>PROV</dt>

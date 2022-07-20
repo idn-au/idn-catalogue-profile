@@ -31,12 +31,17 @@ body {
 }
 
 #idn-title {
-    font-size: 60px;
+    font-size: 4em;
+    line-height: 1em;
     font-weight: 400;
     color: #2f2f2f;
 
     display: flex;
     align-items: center;
+}
+
+#description {
+    padding: 10px;
 }
 
 #nav a {
@@ -48,10 +53,8 @@ body {
 
 #metadata {
     font-size: small;
-    line-height: 0.9em;
     padding-left: 20px;
 }
-
 
 #content {
     margin-top: 30px;
@@ -104,11 +107,6 @@ section {
 }
 dt {
     font-weight: bold;
-    margin-bottom: 5px;
-}
-
-dd {
-    margin-bottom: 1em;
 }
 
 p.quote {
@@ -118,7 +116,8 @@ p.quote {
 }
 
 p.req {
-    color: red;
+    background-color: #eee;
+    padding:20px;
 }
 
 code {
@@ -170,8 +169,16 @@ code {
     color:rgb(50, 50, 50);
 }
 
-#namespaces dt,
-#namespaces dd {
+#namespaces dl {
     font-size: small;
     padding-left: 20px;
+}
+
+.figure {
+    padding: 10px;
+}
+
+.figure .caption {
+    font-size: small;
+    font-style: italic;
 }
