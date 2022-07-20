@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head lang="en">
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="style/idn-logo-64.ico">
+    <link href="style/idn.css" rel='stylesheet' type='text/css'>
+
+    <title>IDN Catalogue Profile Specification</title>
+  </head>
+<body>
+    <div class="header" style="grid-column:1;"></div>
+    <div id="header" class="header" style="grid-column:2; display:grid; grid-template-columns:300px auto;">
+        <div id="logo" style="grid-column:1; padding:3px;">
+          <img src="style/idn-logo-250.png" />
+        </div>
+        <div id="idn-title" style="grid-column:2;">
+          Indigenous Data Network
+        </div>        
+    </div>
+    </div><!-- #header -->
+    <div class="header" style="grid-column:3;"></div>
+    <div id="content" style="grid-column:2;">
+        <h1>IDN Catalogue Profile - Specification</h1>
+        <h2>Description</h2>
+        <div id="description">The specification of normative requirements for data conforming to the <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a>.</div>
+        <section id="metadata">
+            <h2 style="display:none;">Metadata</h2>
+            <dl>
+                <dt>URI</dt>
+                <dd><code>https://linked.data.gov.au/def/idncp/spec</code></dd>
+                <dt><a class="proplink" title="sdo:name" href="https://schema.org/name">Name</a></dt>
+                <dd>IDN Catalogue Profile - Specification</dd>
+                <dt><a class="proplink" title="sdo:description" href="https://schema.org/description">Description</a></dt>
+                <dd>The normative specification of requirements for data to meet to be conformant with the IDN Catalogue Profile</dd>
+                <dt><a class="proplink" title="sdo:publisher" href="https://schema.org/publisher">Publisher</a>(s)</dt>
+                <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a><br/></dd>
+                <dt><a class="proplink" title="sdo:creator" href="https://schema.org/creator">Creator</a>(s)</dt>
+                <dd><a href="">Nicholas J. Car</a><br/></dd>
+                <dt><a class="proplink" title="sdo:created" href="https://schema.org/created">Created</a></dt>
+                <dd>2022-03-18</dd>
+                <dt><a class="proplink" title="sdo:dateModified" href="https://schema.org/dateModified">Modified</a></dt>
+                <dd>2022-07-20</dd>
+                <dt><a class="proplink" title="sdo:dateIssued" href="https://schema.org/dateIssued">Issued</a></dt>
+                <dd>2022-07-19</dd>
+                <dt><a class="proplink" title="owl#versionInfo" href="http://www.w3.org/2002/07/owl#versionInfo">Version Information</a></dt>
+                <dd>0.0.1</dd>
+                <dt><a class="proplink" title="owl#versionIRI" href="http://www.w3.org/2002/07/owl#versionIRI">Version IRI</a></dt>
+                <dd><a href="https://linked.data.gov.au/def/idncp/0.0.1">https://linked.data.gov.au/def/idncp/0.0.1</a></dd>
+                <dt><a class="proplink" title="sdo:license" href="https://schema.org/license">License</a></dt>
+                <dd><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a></dd>
+                <dt><a class="proplink" title="sdo:copyrightHolderame" href="https://schema.org/copyrightHolder">Copyright Holder</a></dt>
+                <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a></dd>
+                <dt><a class="proplink" title="sdo:copyrightYear" href="https://schema.org/copyrightYear">Copyright Year</a></dt>
+                <dd>2022</dd>
+            </dl>
+        </section>
+        <section id="abstract">
+            <h2>Abstract <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+            <p>This is the specification document of the <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a> which is a profile of <a href="https://www.w3.org/TR/prov-o/">DCAT, the Data Catalog Vocabulary</a>. Where DCAT is designed for the representation of data catalogues and their content in general, this profile of it aims to cater for the enhanced representation of indigeous data governance.</p>
+            <p>This document specifies requirements of data that must be met in order for that data to claim conformance to the IDN Catalogue Profile. Data that conforms to this profile necissarily conforms to DCAT also.</p>
+            <p>This specification document is <em>not</em> to be used for the automated testing of conformance of RDF resources to this profile. That role belongs to the machine-readable <em>validation</em> resource within this profile:</p>
+            <ul>
+                <li><a href="https://linked.data.gov.au/def/idncp/validator">SHACL Validator</a></li>
+                <li><a href="https://linked.data.gov.au/def/idncp/validator-compounded">Compounded Validator</a></li>
+            </ul>
+            <p>The first validator above contains tests for this profile's requirements on top of DCAT's. The second contains this profile's tests and DCAT's.</p>
+            <p>For the list of all resources within this profile, see the profile definition:</p>
+            <ul>
+                <li><a href="https://linked.data.gov.au/def/idncp">https://linked.data.gov.au/def/idncp</a></li>
+            </ul>
+        </section>
+        <section id="namespaces">
+            <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+            <p>This document refers to elements of various ontologies by short codes using namespace prefixes. The prefixes and their corresponding namespaces' URIs are:</p>
+            <dl>
+                <dt>idncp</dt>
+                <dd><code>https://linked.data.gov.au/def/idncp</code></dd>
+                <dt>dcterms</dt>
+                <dd><code>http://purl.org/dc/terms/</code></dd>
+                <dt>owl</dt>
+                <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+                <dt>prof</dt>
+                <dd><code>http://www.w3.org/ns/dx/prof/</code></dd>
+                <dt>rdf</dt>
+                <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
+                <dt>rdfs</dt>
+                <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+                <dt>role</dt>
+                <dd><code>http://www.w3.org/ns/dx/prof/role/</code></dd>
+                <dt>sdo</dt>
+                <dd><code>https://schema.org/</code></dd>
+                <dt>skos</dt>
+                <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
+                <dt>xsd</dt>
+                <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
+            </dl>
+        </section>
+        <section id="intro">
+            <h2>1. Introduction <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+            <p>The <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a> defines specialised forms of the <code>prov:Activity</code> class, which are temporal events, specifically for describing workflows. These specialisations are:</p>
+            <ol>
+                <li><code>provwf:Workflow</code> - "A Workflow is a PROV Activity that contains one or more Blocks. Workflows represent a complete system task that will likely be composed of multiple steps that should be represented by Blocks."</li>
+                <li><code>provwf:Block</code> - "A Block is a PROV Activity that is a part of a Workflow. Blocks are discrete tasks that use inputs and produce outputs."</li>
+            </ol>
+            <p>There are a few properties required for use with <code>Workflow</code> &amp; <code>Block</code>, such as <code>provwf:hadBlock</code>, to ensure correct correct association between instances of them.</p>
+            <p>These definitions and the complete Semantic Web IDN Catalogue model are contained within the <a href="https://linked.data.gov.au/def/idncp/ont">IDN Catalogue Ontology</a> and individual rules -requirements - for their use are listed below.</p>
+        </section>
+        <section id="requirements">
+            <h2>2. Requirements <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+            <p><em>Where model objects are indicated in </em><code>code</code><em> and no namespace is indicated, presume the <code>provwf</code> namespace is to be used.</em></p>
+            <p class="req">2.1. Each <code>Workflow</code> &amp; <code>Block</code> instance must link to at least one input which is understood to be a <code>prov:Entity</code>, and which it must indicate the property <code>prov:used</code> or a semantically equivalent construct</p>
+            <p>NOTE: Semantic equivalence here would be a construct that, through inference, can lead to the assertion of <code>prov:used</code>. For example, specialised forms of <code>prov:used</code></p>
+            <p class="req">2.2. Each <code>Workflow</code> &amp; <code>Block</code> instance must link to at least one output which is understood to be a <code>prov:Entity</code>, and which it must indicate the property <code>prov:generate</code> or a semantically equivalent construct</p>
+            <p class="req">2.3. Each <code>Workflow</code> &amp; <code>Block</code> instance must link to the time it started with the property <code>prov:startedAtTime</code> and the time it ended with the property <code>prov:endedAtTime</code> which must indicate allowed Semantic Web date/time properties</p>
+            <p class="req">2.3.a Allowed Semantic Web date/time properties are <code>xsd:date</code>, <code>xsd:dateTime</code>, <code>xsd:dateTimeStamp</code>, <code>time:Interval</code></p>
+            <p class="req">2.4. Each <code>Workflow</code> instance must indicate at least one <code>Block</code> instance within it using the property <code>hadBlock</code></p>
+            <p class="req">2.5. Each <code>Block</code> instance must be indicated as being within one and only one <code>Workflow</code> instance with the <code>Workflow</code> indicating the association with the <code> via the </code> <code>hadBlock</code> property</p>
+            <p>NOTE: Req. 2.4 & 2.5 are expected to be satisfied by simply ensuring that all <code>Blcok</code> instnaces are <em>within</em> <code>Workflow</code> instances</p>
+        </section>
+        <section id="references">
+          <h2>3. References <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+          <dl>
+            <dt><a id="prof"></a>PROF</dt>
+            <dd>Rob Atkinson; Nicholas J. Car (eds.). <em>The Profiles Vocabulary</em>. 18 December 2019. W3C Working Group Note. URL: <a href="https://www.w3.org/TR/dx-prof/">https://www.w3.org/TR/dx-prof/</a></dd>
+            <dt><a id="prov"></a>PROV</dt>
+            <dd>Timothy Lebo, Satya Sahoo, Deborah McGuinness (eds.). <em>PROV-O: The PROV Ontology</em>. 30 April 2013. W3C Recommendation. URL: <a href="https://www.w3.org/TR/prov-o/">https://www.w3.org/TR/prov-o/</a></dd>
+            <dt><a id="semantic-web"></a>Semantic Web</dt>
+            <dd>World Wide Web Consortium. <em>Semantic Web</em> 2015. Web Page. URL: <a href="https://www.w3.org/standards/semanticweb/">https://www.w3.org/standards/semanticweb/</a>, accessed 2020-06-14</dd>
+          </dl>
+        </section>
+    </div><!-- #content -->
+    <div class="footer" style="grid-column:1;"></div>
+    <div class="footer" style="grid-column:2; display:grid; grid-column:70% 30%;">
+        <div style="grid-column:1;">
+          The <a href="https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network">Indigenous Data Network (IDN)</a> is within the <a href="https://www.unimelb.edu.au">University of Melbourne</a>. It was established in 2018 to support and coordinate the governance of Indigenous data for Aboriginal and Torres Strait Islander peoples and empower Aboriginal and Torres Strait Islander communities to decide their own local data priorities.</a> 
+        </div>
+        <div style="grid-column:2;">
+        </div>
+    </div><!-- #footer -->
+    <div class="footer" style="grid-column:3;"></div>
+</body>
+</html>

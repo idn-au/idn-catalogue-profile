@@ -1,19 +1,21 @@
-PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
-PREFIX geo: <http://www.opengis.net/ont/geosparql#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX prof: <http://www.w3.org/ns/dx/prof/>
 PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX provwf: <https://w3id.org/profile/provwf/>
+PREFIX provwfo: <https://data.surroundaustralia.com/def/provworkflow/>
+PREFIX provwfv: <https://w3id.org/profile/provwf/validator-compounded/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX role: <http://www.w3.org/ns/dx/prof/role/>
 PREFIX sdo: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX time: <http://www.w3.org/2006/time#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 
-<http://linked.data.gov.au/def/idncp>
-    a owl:Ontology , prof:Profile ;
-    dcterms:provenance "This profile of DCAT was made within the IDN's ID Catalogue project 2021 - 2022."@en ;
+<https://w3id.org/profile/provwf/validator-compounded>
+    a owl:Ontology ;
+    dcterms:provenance "This validator for the IDN Catalogue Profile was made within the IDN's ID Catalogue project 2021 - 2022."@en ;
     owl:versionIRI <http://linked.data.gov.au/def/idncp/0.0.1> ;
     owl:versionInfo "0.0.1" ;    
     sdo:codeRespository "https://github.com/idn-au/idn-catalogue-profile/"^^xsd:anyURI ;
@@ -23,35 +25,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
     sdo:dateCreated "2022-07-18"^^xsd:date ;
     sdo:dateIssued "2022-07-19"^^xsd:date ;
-    sdo:dateModified "2022-07-20"^^xsd:date ;
-    sdo:description "A profile of cataloguing, provenance and vocabulary standards designed for the representation of indigeous data governance"@en ;
+    sdo:dateModified "2022-07-19"^^xsd:date ;
+    sdo:description "A SHACL validator IDN Catalogue Profile."@en ;
     sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
-    sdo:name "IDN Catalogue Profile"@en ;
+    sdo:name "IDN CP Validator"@en ;
     sdo:publisher <https://linked.data.gov.au/org/idn> ;
-    prov:hasResource [
-        rdfs:label "Specification Document" ;
-        prof:hasArtifact <https://linked.data.gov.au/def/idncp/spec> ;
-        dcterms:format "text/html" ;
-        prof:hasRole role:specification ;
-    ] ,
-    [
-        rdfs:label "SHACL Validator" ;
-        prof:hasArtifact <https://linked.data.gov.au/def/idncp/validator> ;
-        dcterms:format "text/turtle" ;
-        prof:hasRole role:validation ;
-    ], 
-    [
-        rdfs:label "Compounded Validator" ;
-        rdfs:comment "A validator that contains the IDN Catalogue Profile validator and those of Standards that the IDN Catalogue Profile profiles, particularly DCAT (the DCAT Null Profile)"@en ;
-        prof:hasArtifact <https://linked.data.gov.au/def/idncp/compounded-validator> ;
-        dcterms:format "text/turtle" ;
-        prof:hasRole role:validation ;
-    ],     
-    [
-        rdfs:label "Code Repository" ;
-        prof:hasArtifact <https://linked.data.gov.au/def/idncp/repo> ;
-        prof:hasRole role:repository ;
-    ] ;
 .
 
 <https://orcid.org/0000-0002-8742-7730>

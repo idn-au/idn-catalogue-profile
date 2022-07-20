@@ -1,16 +1,25 @@
 = IDN Catalogue Profile
 
-This repository contains the Role Codes, that is the types of roles Agents - People and Organisations - play in relation to data, used by the https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network[Indigenous Data Network (IDN)].
+This repository contains the https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network[Indigenous Data Network (IDN)]'s profile of https://www.w3.org/TR/vocab-dcat/[the Data Catalog Vocabulary (DCAT)] which is a metadata model for describing datasets.
 
-These Role Codes are presented in a Semantic Web vocabulary that is an extension to the ISO' Geospatial Metadata standard's http://iso.kurrawong.net/vocab/CI_RoleCode[CI Role Codes] vocabulary (also known as a codelist) that is also available online in Semantic Web form.
+The intentions of this profile are to:
 
-This vocabulary is 
+1. mandata a minimum set of metadata elements related to indigenous data governance & soverinty
+2. allow for the modelling of certain person and organisation roles in relation to data important for indigenous governance
+3. provide mappings from DCAT metadata to data rating systems such as https://www.go-fair.org/fair-principles/[FAIR] and https://doi.org/10.5334/dsj-2020-043[CARE]
+
+The profile will be used in demonstration and production data catalogues.
+
+This profile consists of a number of resources which are all described and linked to from the profile's formal definition which is available in both human- and machine-readable for at it's persistent web identifier location:
+
+**http://linked.data.gov.au/def/idncp**
 
 
 == License & Rights
 
-The contents of this repository is licensed under Creative Commons 4.0 International. See the LICENSE file in the repository for details. Note that much of the content of this vocabulary is taken directly from the ISO's CI Role Codes codelist.
+The contents of this repository is licensed under Creative Commons 4.0 International. See the LICENSE file in the repository for details.
 
+All content is &copy; Indigenous Data Network, 2022
 
 == Contacts
 
@@ -18,8 +27,10 @@ Initial technical development of this work is being undertaken by the following,
 
 **Nicholas J. Car** +
 *Data Architect* +
+https://kurrawong.net[Kurrawong AI] +
 nick@kurrawong.net  
 
 **Sandra Silcot** +
 *Analyst* +
+University of Melbourne +
 Indigenous Data Network +
