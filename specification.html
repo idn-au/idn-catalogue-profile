@@ -119,18 +119,34 @@
             <p class="req"><strong>Req C1:</strong> Each <code>Catalog</code> instance MUST provide basic <code>Resource</code> metadata so that exactly one of each of the following properties is required with ange value as per <code>Resource</code> requirements: <code>title</code>, <code>description</code>, <code>created</code> &amp; <code>modified</code>.</p>
             <p class="req"><strong>Req C2:</strong> Each <code>Catalog</code> instance MUST indicate <code>Agent</code> roles not with direct DCAT properties (e.g. <code>publisher</code>) but with the DCAT-recommended PROV <em>qualified attribution</em> pattern.</p>
             <p class="req"><strong>Req C3:</strong> The roles of <code>Agent</code> instances with relation to a <code>Catalog</code> MUST be indicated with the <code>hasRole</code> property and selected from the <a href="https://linked.data.gov.au/def/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
-            <p class="req"><strong>Req C4:</strong> Each <code>Catalog</code> Must contain at least one <code>Resource</code> indicated by the <code>hasPart</code> property.</p>
+            <p class="req"><strong>Req C4:</strong> Each <code>Catalog</code> instance MUST contain at least one <code>Resource</code> indicated by the <code>hasPart</code> property.</p>
+            
             <h4><code>Resource</code></h4>
-            <li>
-                <li>C1</li>
-                <li>C2</li>
-                <li>R2.a</li>
-                <li>C3</li>
-                <li>specialised resource types via <code>dcterms:type</code></li>
-            </li>
-            <p class="req"><strong>Req R2.a:</strong> Allowed Semantic Web date/time properties are <code>xsd:date</code>, <code>xsd:dateTime</code>, <code>xsd:dateTimeStamp</code>, <code>time:Interval</code></p>
+            <p class="req"><strong>Req R1:</strong> Each <code>Resource</code> instance SHOULD indicate a persistent identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the <code>Dataset</code> instance's IRI, if it is an HTTP/HTTPS IRI, or else it SHOULD be quoted as a literal value, indicated with the property <code>dcterms:identifier</code> of datatype <code>xsd:token</code>.            
+            <p class="req"><strong>Req R2:</strong> Each <code>Resource</code> instance MUST provide basic <code>Resource</code> metadata so that exactly one of each of the following properties is required with ange value as per <code>Resource</code> requirements: <code>title</code>, <code>description</code>, <code>created</code> &amp; <code>modified</code>.</p>
+            <p class="req"><strong>Req R3.a:</strong> Allowed Semantic Web date/time properties for <code>created</code> & <code>modified</code> properties are <code>xsd:date</code>, <code>xsd:dateTime</code>, <code>xsd:dateTimeStamp</code>, <code>time:Interval</code></p>
+            <p class="req"><strong>Req R4:</strong> Each <code>Resource</code> instance MUST indicate <code>Agent</code> roles not with direct DCAT properties (e.g. <code>publisher</code>) but with the DCAT-recommended PROV <em>qualified attribution</em> pattern.</p>
+            <p class="req"><strong>Req R5:</strong> The roles of <code>Agent</code> instances with relation to a <code>Resource</code> MUST be indicated with the <code>hasRole</code> property and selected from the <a href="https://linked.data.gov.au/def/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
+            <p class="req"><strong>Req R6:</strong> Each <code>Resource</code> instance MUST be indicated as being within at least one <code>Catalog</code> instance indeicated with an in-bound <code>hasPart</code> property from a <code>Catalog</code> instance.</p>
+            <p class="req"><strong>Req R7:</strong> Each <code>Resource</code> instance MAY indicate that it is a specific type of resource by use of the <code>dcterms:type</code> property. Catalogued <code>Dataset</code> instances are equivalent to catalogued <code>Resource</code> instances of <code>dcterms:type</code> <code>Dataset</code>.
+            
             <h4><code>Dataset</code></h4>
+            <p>There are no requirements specifically for <code>Dataset</code> instances: the requirements for <code>Resource</code> also apply to <code>Dataset</code>.</p>
+
             <h4><code>Attribution</code></h4>
+            <p class="req"><strong>Req A1:</strong> Each <code>Attribution</code> instance MUST indicate an <code>Agent</code> instance with the property <code>prov:agent</code> and a role for that <code>Agent</code> in relation to the attributing entity with the <code>hasRole</code> property.</p>
+            <p class="eg">
+                <span>Example</span>
+    &lt;http://example.com/resource/x&gt;
+        a dcat:Resource ;
+        prov:qualifiedAttribution [
+            a prov:Attribution;
+            prov:agent &lt;http://example.com/resource/central-lands-council&gt; ;
+            ex:hadRole :custodian ;
+        ] ;
+    ...
+            </p>
+
             <h4><code>Concept</code></h4>
             <h4><code>ConceptScheme</code></h4>
         </section>

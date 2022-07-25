@@ -120,6 +120,23 @@ p.req {
     padding:20px;
 }
 
+p.eg {
+    background-color: #ccc;
+    padding:20px;
+
+    font-family: monospace;
+    white-space: pre;
+    font-size: 1.1em;
+
+    position: relative;
+}
+p.eg span {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    color: #999;
+}
+
 code {
     font-size: 1.2em;
 }
