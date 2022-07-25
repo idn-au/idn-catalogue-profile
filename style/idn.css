@@ -22,6 +22,14 @@ body {
     border-bottom:solid 10px #ccc;
     background-color: #eee;
 }
+#menu > h4 {
+    margin-left: 10px;
+}
+#menu ul {
+    margin-left: 0; 
+    padding-left: 20px;
+    list-style-type: none;
+}
 
 #header {
     overflow: hidden;
