@@ -19,13 +19,15 @@
             <li>
                 <a href="#requirements">2. Requirements</a>
                 <ul>
-                    <li><a href="#catalogue">2.1 Catalogue</a></li>
+                    <li><a href="#structural">2.1 Structural</a></li>
+                    <li><a href="#values">2.2 Values</a></li>
+                    <!-- <li><a href="#catalogue">2.1 Catalogue</a></li>
                     <li><a href="#resource">2.2 Resource</a></li>
                     <li><a href="#dataset">2.3 Dataset</a></li>
                     <li><a href="#attribution">2.4 Attribution</a></li>
                     <li><a href="#agent">2.5 Agent</a></li>
                     <li><a href="#concept">2.6 Concept</a></li>
-                    <li><a href="#conceptscheme">2.7 Concept Scheme</a></li>
+                    <li><a href="#conceptscheme">2.7 Concept Scheme</a></li> -->
                 </ul>
             </li>
             <li><a href="#examples">3. Examples</a></li>
@@ -51,7 +53,7 @@
             <p class="caption">Overview of elements of the DCAT, PROV & SKOS models and relationships between them used in this profile</p>
         </div>
         <section id="metadata">
-            <h2 style="display:none;">Metadata</h2>
+            <h2>Metadata</h2>
             <dl>
                 <dt>URI</dt>
                 <dd><code>https://linked.data.gov.au/def/idncp/spec</code> <a href="https://linked.data.gov.au/def/idncp/spec" style="font-size:1.5em">&#x2197;</a></dd>
@@ -137,142 +139,155 @@
         </section>
         <section id="requirements">
             <h2>2. Requirements <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-            <p>The requirements for data to conform to this profile are listed here. The requirement are organised initiall per object class, where 'class' is one of the classes in this profile's overview (see Figure at top), and then by rule where the rules are not related to one class.</p>
+            <p>The requirements for data to conform to this profile are listed here. They are organised into the following subsections:</p>
+            <ul>
+                <li><strong>Structural Requirements</strong> - specifying data "shapes" which are the classes and properties needed to make IDN Profile metadata.</li>
+                <li><strong>Values Requirements</strong> - specifying particular property values, for example, classification of Resources according to specific vocabularies</li>
+            </ul>                
             <p><em>Where model objects are indicated in </em><code>code</code><em> and no namespace is indicated, presume the <code>dcat</code>, <code>prov</code> or <code>skos</code> namespaces are used. There are no class/property overlaps between those models, so there can be no confusion if the object is looked up in those standards.</em></p>
-            <section id="catalogue">
-                <h4>2.1 <code>Catalogue</code></h4>
-                <p class="req"><strong>Req C1:</strong> Each <code>Catalog</code> instance MUST provide basic <code>Resource</code> metadata so that exactly one of each of the following properties is required with range value as per <code>Resource</code> requirements: <code>title</code>, <code>description</code>, <code>created</code> &amp; <code>modified</code>.</p>
-                <p class="req"><strong>Req C2:</strong> Each <code>Catalog</code> instance MUST indicate <code>Agent</code> roles not with direct DCAT properties (e.g. <code>publisher</code>) but with the DCAT-recommended PROV <em>qualified attribution</em> pattern.</p>
-                <p class="req"><strong>Req C3:</strong> The roles of <code>Agent</code> instances with relation to a <code>Catalog</code> MUST be indicated with the <code>hasRole</code> property and selected from the <a href="https://linked.data.gov.au/def/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
-                <p class="req"><strong>Req C4:</strong> Each <code>Catalog</code> instance MUST contain at least one <code>Resource</code> indicated by the <code>hasPart</code> property.</p>
-                <p class="eg">
-                    <span>Example: A Catalogue instance with minimum required metadata</span>
-        &lt;https://doi.org/a-doi-for-the-catalogue&gt;
-            a dcat:Catalog ;
+            <section id="structural">
+                <h3>2.1 Structural Requirements</h3>
+                <p>The following sub-subsections are per object class, where 'class' is one of the classes in this profile's structural overview (see Figure at top).</p>
+                <p>The general idea is that objects of the various class types in the overview diagram are needed for IDN metadata and this section describes their required properties and relations. For example, all <code>Resource</code> instances must be related to at least one <code>Catalogue</code> instnace.</p>
+                <section id="catalogue">
+                    <h4>2.1.1 <code>Catalogue</code></h4>
+                    <p class="req"><strong>Req C1:</strong> Each <code>Catalog</code> instance MUST provide basic <code>Resource</code> metadata so that exactly one of each of the following properties is required with range value as per <code>Resource</code> requirements: <code>title</code>, <code>description</code>, <code>created</code> &amp; <code>modified</code>.</p>
+                    <p class="req"><strong>Req C2:</strong> Each <code>Catalog</code> instance MUST indicate <code>Agent</code> roles not with direct DCAT properties (e.g. <code>publisher</code>) but with the DCAT-recommended PROV <em>qualified attribution</em> pattern.</p>
+                    <p class="req"><strong>Req C3:</strong> The roles of <code>Agent</code> instances with relation to a <code>Catalog</code> MUST be indicated with the <code>hasRole</code> property and selected from the <a href="https://linked.data.gov.au/def/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
+                    <p class="req"><strong>Req C4:</strong> Each <code>Catalog</code> instance MUST contain at least one <code>Resource</code> indicated by the <code>hasPart</code> property.</p>
+                    <p class="eg">
+                        <span>Example: A Catalogue instance with minimum required metadata</span>
+            &lt;https://doi.org/a-doi-for-the-catalogue&gt;
+                a dcat:Catalog ;
 
-            dcterms:title "Catalogue X" ;
-            dcterms:description "An example catalogue"@en ;
-            dcterms:created "2022-07-21"^^xsd:date ;
-            dcterms:modified "2022-07-25T20:15:21"^^xsd:dateTime ;
+                dcterms:title "Catalogue X" ;
+                dcterms:description "An example catalogue"@en ;
+                dcterms:created "2022-07-21"^^xsd:date ;
+                dcterms:modified "2022-07-25T20:15:21"^^xsd:dateTime ;
 
-            prov:qualifiedAttribution [
-                a prov:Attribution;
-                prov:agent &lt;https://linked.data.gov.au/org/idn&gt; ;  # Indigenous Data Network's PID
-                ex:hadRole :custodian ;
-            ] ,
-            [
-                a prov:Attribution;
-                prov:agent &lt;https://orcid.org/0000-0002-8742-7730&gt; ;  # Nicholas Car's IRI
-                ex:hadRole :pointOfContact ;
-            ] ;
+                prov:qualifiedAttribution [
+                    a prov:Attribution;
+                    prov:agent &lt;https://linked.data.gov.au/org/idn&gt; ;  # Indigenous Data Network's PID
+                    ex:hadRole :custodian ;
+                ] ,
+                [
+                    a prov:Attribution;
+                    prov:agent &lt;https://orcid.org/0000-0002-8742-7730&gt; ;  # Nicholas Car's IRI
+                    ex:hadRole :pointOfContact ;
+                ] ;
 
-            dcterms:hasPart
-                ex:some-resource-y ,
-                ex:some-resource-z ,
+                dcterms:hasPart
+                    ex:some-resource-y ,
+                    ex:some-resource-z ,
+                    ...
+                .
+                    </p>                
+                </section>
+                <section id="resource">
+                    <h4>2.1.2 <code>Resource</code></h4>
+                    <p class="req"><strong>Req R1:</strong> Each <code>Resource</code> instance SHOULD indicate a persistent identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the <code>Dataset</code> instance's IRI, if it is an HTTP/HTTPS IRI, or else it SHOULD be quoted as a literal value, indicated with the property <code>dcterms:identifier</code> of datatype <code>xsd:token</code>.            
+                    <p class="req"><strong>Req R2:</strong> Each <code>Resource</code> instance MUST provide basic <code>Resource</code> metadata so that exactly one of each of the following properties is required with range value as per <code>Resource</code> requirements: <code>title</code>, <code>description</code>, <code>created</code> &amp; <code>modified</code>.</p>
+                    <p class="req"><strong>Req R3.a:</strong> Allowed Semantic Web date/time properties for <code>created</code> & <code>modified</code> properties are <code>xsd:date</code>, <code>xsd:dateTime</code>, <code>xsd:dateTimeStamp</code>, <code>time:Interval</code></p>
+                    <p class="req"><strong>Req R4:</strong> Each <code>Resource</code> instance MUST indicate <code>Agent</code> roles not with direct DCAT properties (e.g. <code>publisher</code>) but with the DCAT-recommended PROV <em>qualified attribution</em> pattern.</p>
+                    <p class="req"><strong>Req R5:</strong> The roles of <code>Agent</code> instances with relation to a <code>Resource</code> MUST be indicated with the <code>hasRole</code> property and selected from the <a href="https://linked.data.gov.au/def/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
+                    <p class="req"><strong>Req R6:</strong> Each <code>Resource</code> instance MUST be indicated as being within at least one <code>Catalog</code> instance indeicated with an in-bound <code>hasPart</code> property from a <code>Catalog</code> instance.</p>
+                    <p class="req"><strong>Req R7:</strong> Each <code>Resource</code> instance MAY indicate that it is a specific type of resource by use of the <code>dcterms:type</code> property. Catalogued <code>Dataset</code> instances are equivalent to catalogued <code>Resource</code> instances of <code>dcterms:type</code> <code>Dataset</code>.
+                    <p class="eg">
+                        <span>Example: A Resource instance with minimum required metadata</span>
+            &lt;http://example.com/resource/x&gt;
+                a dcat:Resource ;
+                dcterm:identifier "CAT::2-3-4::X"^^xsd:token ;  # Dummy catalogue number
+
+                dcterms:title "Resource X" ;
+                dcterms:description "An example Resource"@en ;
+                dcterms:created "2022-07-21"^^xsd:date ;
+                dcterms:modified "2022-07-25T20:15:21"^^xsd:dateTime ;
+
+                prov:qualifiedAttribution [
+                    a prov:Attribution;
+                    prov:agent &lt;http://example.com/org/clc&gt; ;  # Example Indigenous org PID
+                    ex:hadRole :custodian ;
+                ] ,
+                [
+                    a prov:Attribution;
+                    prov:agent &lt;http://example.com/academic/person-x&gt; ;  # An academic
+                    ex:hadRole :author ;
+                ] ,
+                [
+                    a prov:Attribution;
+                    prov:agent &lt;http://example.com/org/xyz-people&gt; ;  # An indigenous group
+                    ex:hadRole :subjectAgent ;
+                ] ;
+                
+                dcterms:type ex:map ;  # An example specialised resource - a map - from some vocabularty of types
+            .
+
+            &lt;https://doi.org/a-doi-for-a-catalogue&gt;  # a catalogue indicating this Resource is a part of it
+                dcterms:hasPart
+                    &lt;http://example.com/resource/x&gt; ;
+            .
+                    </p>
+                    <p class="req"><strong>Req R8:</strong> Each <code>Resource</code> instance SHOULD be categorised according to .</p>
+                </section>
+                <section id="dataset">
+                    <h4>2.1.3 <code>Dataset</code></h4>
+                    <p>There are no requirements specifically for <code>Dataset</code> instances: the requirements for <code>Resource</code> also apply to <code>Dataset</code>.</p>
+                </section>
+                <section id="attribution">
+                    <h4>2.1.4 <code>Attribution</code></h4>
+                    <p class="req"><strong>Req A1:</strong> Each <code>Attribution</code> instance MUST indicate an <code>Agent</code> instance with the property <code>prov:agent</code> and a role for that <code>Agent</code> in relation to the attributing entity with the <code>hasRole</code> property.</p>
+                    <p class="eg">
+                        <span>Example: A Resource with a qualified Attribution</span>
+            &lt;http://example.com/resource/x&gt;
+                a dcat:Resource ;
+                ...
+                prov:qualifiedAttribution [
+                    a prov:Attribution;
+                    prov:agent &lt;http://example.com/resource/central-lands-council&gt; ;
+                    ex:hadRole :custodian ;
+                ] ;
                 ...
             .
-                </p>                
-            </section>
-            <section id="resource">
-                <h4>2.2 <code>Resource</code></h4>
-                <p class="req"><strong>Req R1:</strong> Each <code>Resource</code> instance SHOULD indicate a persistent identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the <code>Dataset</code> instance's IRI, if it is an HTTP/HTTPS IRI, or else it SHOULD be quoted as a literal value, indicated with the property <code>dcterms:identifier</code> of datatype <code>xsd:token</code>.            
-                <p class="req"><strong>Req R2:</strong> Each <code>Resource</code> instance MUST provide basic <code>Resource</code> metadata so that exactly one of each of the following properties is required with range value as per <code>Resource</code> requirements: <code>title</code>, <code>description</code>, <code>created</code> &amp; <code>modified</code>.</p>
-                <p class="req"><strong>Req R3.a:</strong> Allowed Semantic Web date/time properties for <code>created</code> & <code>modified</code> properties are <code>xsd:date</code>, <code>xsd:dateTime</code>, <code>xsd:dateTimeStamp</code>, <code>time:Interval</code></p>
-                <p class="req"><strong>Req R4:</strong> Each <code>Resource</code> instance MUST indicate <code>Agent</code> roles not with direct DCAT properties (e.g. <code>publisher</code>) but with the DCAT-recommended PROV <em>qualified attribution</em> pattern.</p>
-                <p class="req"><strong>Req R5:</strong> The roles of <code>Agent</code> instances with relation to a <code>Resource</code> MUST be indicated with the <code>hasRole</code> property and selected from the <a href="https://linked.data.gov.au/def/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
-                <p class="req"><strong>Req R6:</strong> Each <code>Resource</code> instance MUST be indicated as being within at least one <code>Catalog</code> instance indeicated with an in-bound <code>hasPart</code> property from a <code>Catalog</code> instance.</p>
-                <p class="req"><strong>Req R7:</strong> Each <code>Resource</code> instance MAY indicate that it is a specific type of resource by use of the <code>dcterms:type</code> property. Catalogued <code>Dataset</code> instances are equivalent to catalogued <code>Resource</code> instances of <code>dcterms:type</code> <code>Dataset</code>.
-                <p class="eg">
-                    <span>Example: A Resource instance with minimum required metadata</span>
-        &lt;http://example.com/resource/x&gt;
-            a dcat:Resource ;
-            dcterm:identifier "CAT::2-3-4::X"^^xsd:token ;  # Dummy catalogue number
+                    </p>
+                </section>
+                <section id="agent">
+                    <h4>2.1.5 <code>Agent</code></h4>
+                    <p><em>Agents are the Organisations &amp; People that have Roles in relation to Catalogues and Resources.</em></p>
+                    <p class="req"><strong>Req AG1:</strong> Each <code>Agent</code> instance MUST indicate an <code>Agent</code> instance with the property <code>prov:agent</code> and a role for that <code>Agent</code> in relation to the attributing entity with the <code>hasRole</code> property.</p>
+                </section>
+                <section id="concept">
+                    <h4>2.1.5 <code>Concept</code></h4>
+                    <p>This profile is a profile of <a href="https://w3id.org/profile/vocpub">Vocabulary Publications Profile, VocPub</a>, among other specifications. VocPub sets requirements for <code>Concept</code> and <code>ConceptScheme</code> instances.</p>
+                    <p>See the VocPub <code>Concept</code> requirements listed in its Specification:</p>
+                    <ul>
+                        <li><a href="https://w3id.org/profile/vocpub/spec#concept">VocPub Specification: Concept</a></li>
+                    </ul>
+                    <p class="eg">
+                        <span>Example: A Concept with basic VocPub requirements met</span>
+            &lt;http://example.com/concept/x&gt;
+                a skos:Concept ;
+                rdfs:isDefinedBy &lt;http://example.com/concept-scheme/y&gt; ;  # Indicating the vocabulary that defines this term
 
-            dcterms:title "Resource X" ;
-            dcterms:description "An example Resource"@en ;
-            dcterms:created "2022-07-21"^^xsd:date ;
-            dcterms:modified "2022-07-25T20:15:21"^^xsd:dateTime ;
+                skos:prefLabel "Concept X"@en ;  # The Concepts preferred label
+                skos:altLabel "Xxx"@en ;  # A synonym/alias
+                skos:definition "An example Concept"@en ;  # The Concept's definition
 
-            prov:qualifiedAttribution [
-                a prov:Attribution;
-                prov:agent &lt;http://example.com/org/clc&gt; ;  # Example Indigenous org PID
-                ex:hadRole :custodian ;
-            ] ,
-            [
-                a prov:Attribution;
-                prov:agent &lt;http://example.com/academic/person-x&gt; ;  # An academic
-                ex:hadRole :author ;
-            ] ,
-            [
-                a prov:Attribution;
-                prov:agent &lt;http://example.com/org/xyz-people&gt; ;  # An indigenous group
-                ex:hadRole :subjectAgent ;
-            ] ;
-            
-            dcterms:type ex:map ;  # An example specialised resource - a map - from some vocabularty of types
-        .
-
-        &lt;https://doi.org/a-doi-for-a-catalogue&gt;  # a catalogue indicating this Resource is a part of it
-            dcterms:hasPart
-                &lt;http://example.com/resource/x&gt; ;
-        .
-                </p>
-                <p class="req"><strong>Req R8:</strong> Each <code>Resource</code> instance SHOULD be categorised according to .</p>
+                skos:narrower &lt;http://example.com/concept/x.1&gt; ;
+            .
+                    </p>                 
+                </section>
+                <section id="conceptscheme">
+                    <h4>2.1.6 <code>ConceptScheme</code></h4>
+                    <p>This profile is a profile of <a href="https://w3id.org/profile/vocpub">Vocabulary Publications Profile, VocPub</a>, among other specifications. VocPub sets requirements for <code>Concept</code> and <code>ConceptScheme</code> instances.</p>
+                    <p>See the VocPub <code>ConceptScheme</code> requirements listed in its Specification's <em>Vocabulary</em> section:</p>
+                    <ul>
+                        <li><a href="https://w3id.org/profile/vocpub/spec#vocabulary">VocPub Specification: Vocabulary</a></li>
+                    </ul>
+                </section>
             </section>
-            <section id="dataset">
-                <h4>2.3 <code>Dataset</code></h4>
-                <p>There are no requirements specifically for <code>Dataset</code> instances: the requirements for <code>Resource</code> also apply to <code>Dataset</code>.</p>
-            </section>
-            <section id="attribution">
-                <h4>2.4 <code>Attribution</code></h4>
-                <p class="req"><strong>Req A1:</strong> Each <code>Attribution</code> instance MUST indicate an <code>Agent</code> instance with the property <code>prov:agent</code> and a role for that <code>Agent</code> in relation to the attributing entity with the <code>hasRole</code> property.</p>
-                <p class="eg">
-                    <span>Example: A Resource with a qualified Attribution</span>
-        &lt;http://example.com/resource/x&gt;
-            a dcat:Resource ;
-            ...
-            prov:qualifiedAttribution [
-                a prov:Attribution;
-                prov:agent &lt;http://example.com/resource/central-lands-council&gt; ;
-                ex:hadRole :custodian ;
-            ] ;
-            ...
-        .
-                </p>
-            </section>
-            <section id="agent">
-                <h4>2.5 <code>Agent</code></h4>
-                <p><em>Agents are the Organisations &amp; People that have Roles in relation to Catalogues and Resources.</em></p>
-                <p class="req"><strong>Req AG1:</strong> Each <code>Agent</code> instance MUST indicate an <code>Agent</code> instance with the property <code>prov:agent</code> and a role for that <code>Agent</code> in relation to the attributing entity with the <code>hasRole</code> property.</p>
-            </section>
-            <section id="concept">
-                <h4>2.5 <code>Concept</code></h4>
-                <p>This profile is a profile of <a href="https://w3id.org/profile/vocpub">Vocabulary Publications Profile, VocPub</a>, among other specifications. VocPub sets requirements for <code>Concept</code> and <code>ConceptScheme</code> instances.</p>
-                <p>See the VocPub <code>Concept</code> requirements listed in its Specification:</p>
-                <ul>
-                    <li><a href="https://w3id.org/profile/vocpub/spec#concept">VocPub Specification: Concept</a></li>
-                </ul>
-                <p class="eg">
-                    <span>Example: A Concept with basic VocPub requirements met</span>
-        &lt;http://example.com/concept/x&gt;
-            a skos:Concept ;
-            rdfs:isDefinedBy &lt;http://example.com/concept-scheme/y&gt; ;  # Indicating the vocabulary that defines this term
-
-            skos:prefLabel "Concept X"@en ;  # The Concepts preferred label
-            skos:altLabel "Xxx"@en ;  # A synonym/alias
-            skos:definition "An example Concept"@en ;  # The Concept's definition
-
-            skos:narrower &lt;http://example.com/concept/x.1&gt; ;
-        .
-                </p>                 
-            </section>
-            <section id="conceptscheme">
-                <h4>2.6 <code>ConceptScheme</code></h4>
-                <p>This profile is a profile of <a href="https://w3id.org/profile/vocpub">Vocabulary Publications Profile, VocPub</a>, among other specifications. VocPub sets requirements for <code>Concept</code> and <code>ConceptScheme</code> instances.</p>
-                <p>See the VocPub <code>ConceptScheme</code> requirements listed in its Specification's <em>Vocabulary</em> section:</p>
-                <ul>
-                    <li><a href="https://w3id.org/profile/vocpub/spec#vocabulary">VocPub Specification: Vocabulary</a></li>
-                </ul>
+            <section id="values">
+                <h3>2.2 Values Requirements</h3>
+                <p>IDN metadata must be represented according to certain classes with certain properties, including relations between classes, as defined in the section above. This section defines the requirements for particular properties to indicate particular values. These values are mostly items in particular vocabularies and catalogues managed by the IDN itself and the result of these requirements is to ensure that IDN metadata is related to values understood by the IDN.</p>
             </section>
         </section>
         <section id="examples">
