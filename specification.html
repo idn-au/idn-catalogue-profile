@@ -6,388 +6,422 @@
     <link href="style/idn.css" rel='stylesheet' type='text/css'>
     <title>IDN Catalogue Profile Specification</title>
   </head>
-<body>
-    <div id="menu">
-        <h4>Contents</h4>
-        <ul>
-            <li><a href="#overview">Overview</a></li>
-            <li><a href="#metadata">Metadata</a></li>
-            <li><a href="#abstract">Abstract</a></li>
-            <li><a href="#namespaces">Namespaces</a></li>
-            <li><a href="#conformance">Conformance</a></li>
-            <li><a href="#intro">1. Introduction</a></li>
-            <li>
-                <a href="#requirements">2. Requirements</a>
+    <body>
+        <div id="menu" style="grid-column:1;">
+            <h4>Contents</h4>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#metadata">Metadata</a></li>
+                <li><a href="#abstract">Abstract</a></li>
+                <li><a href="#namespaces">Namespaces</a></li>
+                <li><a href="#conformance">Conformance</a></li>
+                <li><a href="#intro">1. Introduction</a></li>
+                <li>
+                    <a href="#requirements">2. Requirements</a>
+                    <ul>
+                        <li><a href="#structural">2.1 Structural</a></li>
+                        <li><a href="#values">2.2 Values</a></li>
+                        <!-- <li><a href="#catalogue">2.1 Catalogue</a></li>
+                        <li><a href="#resource">2.2 Resource</a></li>
+                        <li><a href="#dataset">2.3 Dataset</a></li>
+                        <li><a href="#attribution">2.4 Attribution</a></li>
+                        <li><a href="#agent">2.5 Agent</a></li>
+                        <li><a href="#concept">2.6 Concept</a></li>
+                        <li><a href="#conceptscheme">2.7 Concept Scheme</a></li> -->
+                    </ul>
+                </li>
+                <li><a href="#example">3. Examples</a></li>
+                <li><a href="#references">References</a></li>
+            </ul>
+        </div>
+        <div class="header" style="grid-column:1; grid-row:1;"></div>
+        <div class="header" id="header"  style="grid-column:2; grid-row:1; display:grid; grid-template-columns:300px auto;">
+            <div id="logo" style="grid-column:1; padding:3px;">
+              <img src="style/idn-logo-250.png" alt="IDN logo" />
+            </div>
+            <div id="idn-title" style="grid-column:2;">
+              Indigenous Data Network
+            </div>
+        </div><!-- #header -->
+        <div class="header" style="grid-column:3; grid-row:1;"></div>
+        <div class="content" style="grid-column:1; grid-row:2;"></div>
+        <div class="content" id="content" style="grid-column:2; grid-row:2;">
+            <h1>IDN Catalogue Profile - Specification</h1>
+            <!-- <h2>Description</h2> -->
+            <div id="description">The specification of normative requirements for data conforming to the <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a>.</div>
+            <div id="overview" class="figure">
+                <a href="style/overview.png"><img src="style/overview.png" style="width:600px;" alt="Profile class structure overview" /></a>
+                <p class="caption"><strong>Figure 1:</strong> Overview of elements of the DCAT, PROV & SKOS models and relationships between them used in this profile. Classes of object are shown as chamfered rectangles except for <code>Agent</code> which is shown as a 'house'. Enclosed arrows indicate the <code>rdfs:subClassOf</code> relationship. Pink arrows indicate specific value properties.</p>
+            </div>
+            <section id="metadata">
+                <h2>Metadata</h2>
+                <dl>
+                    <dt>URI</dt>
+                    <dd><code>https://linked.data.gov.au/def/idncp/spec</code> <a href="https://linked.data.gov.au/def/idncp/spec" style="font-size:1.5em">&#x2197;</a></dd>
+                    <dt><a class="proplink" title="sdo:name" href="https://schema.org/name">Name</a></dt>
+                    <dd>IDN Catalogue Profile - Specification</dd>
+                    <dt><a class="proplink" title="sdo:description" href="https://schema.org/description">Description</a></dt>
+                    <dd>The specification of normative requirements for data conforming to the IDN Catalogue Profile.</dd>
+                    <dt><a class="proplink" title="sdo:publisher" href="https://schema.org/publisher">Publisher</a>(s)</dt>
+                    <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a><br/></dd>
+                    <dt><a class="proplink" title="sdo:creator" href="https://schema.org/creator">Creator</a>(s)</dt>
+                    <dd><a href="">Nicholas J. Car</a><br/></dd>
+                    <dt><a class="proplink" title="sdo:created" href="https://schema.org/created">Created</a></dt>
+                    <dd>2022-03-18</dd>
+                    <dt><a class="proplink" title="sdo:dateModified" href="https://schema.org/dateModified">Modified</a></dt>
+                    <dd>2022-07-20</dd>
+                    <dt><a class="proplink" title="sdo:dateIssued" href="https://schema.org/dateIssued">Issued</a></dt>
+                    <dd>2022-07-19</dd>
+                    <dt><a class="proplink" title="owl#versionInfo" href="http://www.w3.org/2002/07/owl#versionInfo">Version Information</a></dt>
+                    <dd>0.0.1</dd>
+                    <dt><a class="proplink" title="owl#versionIRI" href="http://www.w3.org/2002/07/owl#versionIRI">Version IRI</a></dt>
+                    <dd><a href="https://linked.data.gov.au/def/idncp/0.0.1">https://linked.data.gov.au/def/idncp/0.0.1</a></dd>
+                    <dt><a class="proplink" title="sdo:license" href="https://schema.org/license">License</a></dt>
+                    <dd><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a></dd>
+                    <dt><a class="proplink" title="sdo:copyrightHolderame" href="https://schema.org/copyrightHolder">Copyright Holder</a></dt>
+                    <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a></dd>
+                    <dt><a class="proplink" title="sdo:copyrightYear" href="https://schema.org/copyrightYear">Copyright Year</a></dt>
+                    <dd>2022</dd>
+                </dl>
+            </section>
+            <section id="abstract">
+                <h2>Abstract <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                <p>This is the specification document of the <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a> which is a profile of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>. Where DCAT is designed for the representation of data catalogues and their content in general, this profile of it aims to cater for the enhanced representation of indigeous data governance.</p>
+                <p>This document specifies requirements of data that must be met in order for that data to claim conformance to the IDN Catalogue Profile. Data that conforms to this profile necissarily conforms to DCAT also.</p>
+                <p>This specification document is <em>not</em> to be used for the automated testing of conformance of RDF resources to this profile. That role belongs to the machine-readable <em>validation</em> resource within this profile:</p>
                 <ul>
-                    <li><a href="#structural">2.1 Structural</a></li>
-                    <li><a href="#values">2.2 Values</a></li>
-                    <!-- <li><a href="#catalogue">2.1 Catalogue</a></li>
-                    <li><a href="#resource">2.2 Resource</a></li>
-                    <li><a href="#dataset">2.3 Dataset</a></li>
-                    <li><a href="#attribution">2.4 Attribution</a></li>
-                    <li><a href="#agent">2.5 Agent</a></li>
-                    <li><a href="#concept">2.6 Concept</a></li>
-                    <li><a href="#conceptscheme">2.7 Concept Scheme</a></li> -->
+                    <li><a href="https://linked.data.gov.au/def/idncp/validator">SHACL Validator</a></li>
+                    <li><a href="https://linked.data.gov.au/def/idncp/validator-compounded">Compounded Validator</a></li>
                 </ul>
-            </li>
-            <li><a href="#example">3. Examples</a></li>
-            <li><a href="#references">References</a></li>
-        </ul>
-    </div>
-    <div class="header" style="grid-column:1;"></div>
-    <div id="header" class="header" style="grid-column:2; display:grid; grid-template-columns:300px auto;">
-        <div id="logo" style="grid-column:1; padding:3px;">
-          <img src="style/idn-logo-250.png" />
-        </div>
-        <div id="idn-title" style="grid-column:2;">
-          Indigenous Data Network
-        </div>
-    </div><!-- #header -->
-    <div class="header" style="grid-column:3;"></div>
-    <div id="content" style="grid-column:2;">
-        <h1>IDN Catalogue Profile - Specification</h1>
-        <!-- <h2>Description</h2> -->
-        <div id="description">The specification of normative requirements for data conforming to the <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a>.</div>
-        <div id="overview" class="figure">
-            <a href="style/overview.png"><img src="style/overview.png" style="width:600px;"/></a>
-            <p class="caption"><strong>Figure 1:</strong> Overview of elements of the DCAT, PROV & SKOS models and relationships between them used in this profile. Classes of object are shown as chamfered rectangles except for <code>Agent</code> which is shown as a 'house'. Enclosed arrows indicate the <code>rdfs:subClassOf</code> relationship. Pink arrows indicate specific value properties.</p>
-        </div>
-        <section id="metadata">
-            <h2>Metadata</h2>
-            <dl>
-                <dt>URI</dt>
-                <dd><code>https://linked.data.gov.au/def/idncp/spec</code> <a href="https://linked.data.gov.au/def/idncp/spec" style="font-size:1.5em">&#x2197;</a></dd>
-                <dt><a class="proplink" title="sdo:name" href="https://schema.org/name">Name</a></dt>
-                <dd>IDN Catalogue Profile - Specification</dd>
-                <dt><a class="proplink" title="sdo:description" href="https://schema.org/description">Description</a></dt>
-                <dd>The specification of normative requirements for data conforming to the IDN Catalogue Profile.</dd>
-                <dt><a class="proplink" title="sdo:publisher" href="https://schema.org/publisher">Publisher</a>(s)</dt>
-                <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a><br/></dd>
-                <dt><a class="proplink" title="sdo:creator" href="https://schema.org/creator">Creator</a>(s)</dt>
-                <dd><a href="">Nicholas J. Car</a><br/></dd>
-                <dt><a class="proplink" title="sdo:created" href="https://schema.org/created">Created</a></dt>
-                <dd>2022-03-18</dd>
-                <dt><a class="proplink" title="sdo:dateModified" href="https://schema.org/dateModified">Modified</a></dt>
-                <dd>2022-07-20</dd>
-                <dt><a class="proplink" title="sdo:dateIssued" href="https://schema.org/dateIssued">Issued</a></dt>
-                <dd>2022-07-19</dd>
-                <dt><a class="proplink" title="owl#versionInfo" href="http://www.w3.org/2002/07/owl#versionInfo">Version Information</a></dt>
-                <dd>0.0.1</dd>
-                <dt><a class="proplink" title="owl#versionIRI" href="http://www.w3.org/2002/07/owl#versionIRI">Version IRI</a></dt>
-                <dd><a href="https://linked.data.gov.au/def/idncp/0.0.1">https://linked.data.gov.au/def/idncp/0.0.1</a></dd>
-                <dt><a class="proplink" title="sdo:license" href="https://schema.org/license">License</a></dt>
-                <dd><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a></dd>
-                <dt><a class="proplink" title="sdo:copyrightHolderame" href="https://schema.org/copyrightHolder">Copyright Holder</a></dt>
-                <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a></dd>
-                <dt><a class="proplink" title="sdo:copyrightYear" href="https://schema.org/copyrightYear">Copyright Year</a></dt>
-                <dd>2022</dd>
-            </dl>
-        </section>
-        <section id="abstract">
-            <h2>Abstract <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-            <p>This is the specification document of the <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a> which is a profile of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>. Where DCAT is designed for the representation of data catalogues and their content in general, this profile of it aims to cater for the enhanced representation of indigeous data governance.</p>
-            <p>This document specifies requirements of data that must be met in order for that data to claim conformance to the IDN Catalogue Profile. Data that conforms to this profile necissarily conforms to DCAT also.</p>
-            <p>This specification document is <em>not</em> to be used for the automated testing of conformance of RDF resources to this profile. That role belongs to the machine-readable <em>validation</em> resource within this profile:</p>
-            <ul>
-                <li><a href="https://linked.data.gov.au/def/idncp/validator">SHACL Validator</a></li>
-                <li><a href="https://linked.data.gov.au/def/idncp/validator-compounded">Compounded Validator</a></li>
-            </ul>
-            <p>The first validator above contains tests for this profile's requirements on top of DCAT's. The second contains this profile's tests and DCAT's.</p>
-            <p>For the list of all resources within this profile, see the profile definition:</p>
-            <ul>
-                <li><a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile Definition</a></li>
-            </ul>
-        </section>
-        <section id="namespaces">
-            <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-            <p>This document refers to elements of various ontologies by short codes using namespace prefixes. The prefixes and their corresponding namespaces' URIs are:</p>
-            <dl>
-                <dt>idncp</dt>
-                <dd><code>https://linked.data.gov.au/def/idncp</code></dd>
-                <dt>dcterms</dt>
-                <dd><code>http://purl.org/dc/terms/</code></dd>
-                <dt>owl</dt>
-                <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
-                <dt>prof</dt>
-                <dd><code>http://www.w3.org/ns/dx/prof/</code></dd>
-                <dt>rdf</dt>
-                <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
-                <dt>rdfs</dt>
-                <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
-                <dt>role</dt>
-                <dd><code>http://www.w3.org/ns/dx/prof/role/</code></dd>
-                <dt>sdo</dt>
-                <dd><code>https://schema.org/</code></dd>
-                <dt>skos</dt>
-                <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
-                <dt>xsd</dt>
-                <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
-            </dl>
-        </section>
-        <section id="conformance">
-            <h2>Conformance <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-            <p>The key words MAY, MUST, MUST NOT, and SHOULD are to be interpreted as described in <a href="#rfc2119">RFC2119</a>.</p>
-            <p>The Examples in this document are snippets of RDF data formulated according to the <a href="#turtle">Turtle syntax</a>.</p>
-        </section>
-        <section id="intro">
-            <h2>1. Introduction <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-            <p>The <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a> follows standard patterns of use of elements of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>, such as <code>Catalog</code>, <code>Dataset</code> and so on and some DCAT-recommended ways of expressing relationships from catalogue elements to <code>Agent</code> instances (people & organisations) using <a href="https://www.w3.org/TR/prov-o/">PROV, the Provenance Ontology</a>, and <a href="https://www.w3.org/TR/skos-reference/">SKOS, SKOS Simple Knowledge Organization System</a>.</p>
-            <p>To cater for indigenous data governance concerns, this profile requires, or at least expects/promotes the use, of specific catalogues of <code>Agent</code> instances and specific vocabularies of <code>Concept</code> instances for to classify <code>Dataset</code> instances with.</p>
-            <p>So, where using regular DCAT, you might indicate that a <code>Dataset</code> is themed as being about <em>water</em> where <em>water</em> is selected from a data theming vocabulary, you would also indicate that the dataset is themed as being <em>culturally sensitive</em> using a particular <code>Concept</code> from this profile's <a href="https://linked.data.gov.au/def/tk-labels">TK Labels vocabulary</a>.</p>
-            <p>Where using DCAT, with PROV, you might indicate that a <code>Dataset</code> is related to an <code>Agent</code> by the property <code>dcterms:contributor</code> (i.e. the <code>Agent</code> referenced contributed to the dataset), using this profile you would use the alternate DCAT-recommended qualified agent relations pattern and say that the <code>Dataset</code> is attributed to the <code>Agent</code> with the role of <em>contributor</em> where the role referenced is taken from this profile's <a href="https://linked.data.gov.au/def/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
-            <p>In addition to requireing the use of some DCAT-promoted patterns over others and recommended use of particular reference catalogues & vocabularies, this profile also constrains the ways in which several other DCAT properties should be used. All the contraints are still standard DCAT.</p>            
-        </section>
-        <section id="requirements">
-            <h2>2. Requirements <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-            <p>The requirements for data to conform to this profile are listed here. They are organised into the following subsections:</p>
-            <ul>
-                <li><strong>Structural Requirements</strong> - specifying data "shapes" which are the patterns of classes and properties needed</li>
-                <li><strong>Values Requirements</strong> - specifying particular property values, i.e. classification of Resources according to specific vocabularies</li>
-            </ul>                
-            <p><em>Where model objects are indicated in </em><code>code</code><em> and no namespace is indicated, presume the <code>dcat</code>, <code>prov</code> or <code>skos</code> namespaces are used. There are no class/property overlaps between those models, so there can be no confusion if the object is looked up in those standards.</em></p>
-            <section id="structural">
-                <h3>2.1 Structural Requirements</h3>
-                <p>The following sub-subsections are per object class, where 'class' is one of the classes in this profile's structural overview (see Figure at top).</p>
-                <p>The general idea is that objects of the various class types in the overview diagram are needed for IDN metadata and this section describes their required properties and relations. For example, all <code>Resource</code> instances must be related to at least one <code>Catalog</code> instance.</p>
-                <section id="catalogue">
-                    <h4>2.1.2 <code>Catalogue</code></h4>
-                    <p class="req"><strong>Req C1:</strong> Being a <code>Resource</code>, each <code>Catalog</code> instance MUST also adhere to the <code>Resource</code> Requirements R1, R2, R3 &amp; R4.</p>
-                    <p class="req"><strong>Req C2:</strong> Each <code>Catalog</code> instance MUST contain at least one <code>Resource</code> indicated by the <code>hasPart</code> property.</p>
-                    <p class="eg">
-                        <span>Example: A Catalogue instance with minimum required metadata</span>
-            &lt;https://doi.org/a-doi-for-the-catalogue&gt;
-                a dcat:Catalog ;
+                <p>The first validator above contains tests for this profile's requirements on top of DCAT's. The second contains this profile's tests and DCAT's.</p>
+                <p>For the list of all resources within this profile, see the profile definition:</p>
+                <ul>
+                    <li><a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile Definition</a></li>
+                </ul>
+            </section>
+            <section id="namespaces">
+                <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                <p>This document refers to elements of various ontologies by short codes using namespace prefixes. The prefixes and their corresponding namespaces' URIs are:</p>
+                <dl>
+                    <dt>idncp</dt>
+                    <dd><code>https://linked.data.gov.au/def/idncp</code></dd>
+                    <dt>dcterms</dt>
+                    <dd><code>http://purl.org/dc/terms/</code></dd>
+                    <dt>owl</dt>
+                    <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+                    <dt>prof</dt>
+                    <dd><code>http://www.w3.org/ns/dx/prof/</code></dd>
+                    <dt>rdf</dt>
+                    <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
+                    <dt>rdfs</dt>
+                    <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+                    <dt>role</dt>
+                    <dd><code>http://www.w3.org/ns/dx/prof/role/</code></dd>
+                    <dt>sdo</dt>
+                    <dd><code>https://schema.org/</code></dd>
+                    <dt>skos</dt>
+                    <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
+                    <dt>xsd</dt>
+                    <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
+                </dl>
+            </section>
+            <section id="conformance">
+                <h2>Conformance <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                <p>The key words MAY, MUST, MUST NOT, and SHOULD are to be interpreted as described in <a href="#rfc2119">RFC2119</a>.</p>
+                <p>The Examples in this document are snippets of RDF data formulated according to the <a href="#turtle">Turtle syntax</a>.</p>
+            </section>
+            <section id="intro">
+                <h2>1. Introduction <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                <p>The <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a> follows standard patterns of use of elements of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>, such as <code>Catalog</code>, <code>Dataset</code> and so on and some DCAT-recommended ways of expressing relationships from catalogue elements to <code>Agent</code> instances (people & organisations) using <a href="https://www.w3.org/TR/prov-o/">PROV, the Provenance Ontology</a>, and <a href="https://www.w3.org/TR/skos-reference/">SKOS, SKOS Simple Knowledge Organization System</a>.</p>
+                <p>To cater for indigenous data governance concerns, this profile requires, or at least expects/promotes the use, of specific catalogues of <code>Agent</code> instances and specific vocabularies of <code>Concept</code> instances for to classify <code>Dataset</code> instances with.</p>
+                <p>So, where using regular DCAT, you might indicate that a <code>Dataset</code> is themed as being about <em>water</em> where <em>water</em> is selected from a data theming vocabulary, you would also indicate that the dataset is themed as being <em>culturally sensitive</em> using a particular <code>Concept</code> from this profile's <a href="https://linked.data.gov.au/def/tk-labels">TK Labels vocabulary</a>.</p>
+                <p>Where using DCAT, with PROV, you might indicate that a <code>Dataset</code> is related to an <code>Agent</code> by the property <code>dcterms:contributor</code> (i.e. the <code>Agent</code> referenced contributed to the dataset), using this profile you would use the alternate DCAT-recommended qualified agent relations pattern and say that the <code>Dataset</code> is attributed to the <code>Agent</code> with the role of <em>contributor</em> where the role referenced is taken from this profile's <a href="https://linked.data.gov.au/def/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
+                <p>In addition to requireing the use of some DCAT-promoted patterns over others and recommended use of particular reference catalogues & vocabularies, this profile also constrains the ways in which several other DCAT properties should be used. All the contraints are still standard DCAT.</p>
+            </section>
+            <section id="requirements">
+                <h2>2. Requirements <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                <p>The requirements for data to conform to this profile are listed here. They are organised into the following subsections:</p>
+                <ul>
+                    <li><strong>Structural Requirements</strong> - specifying data "shapes" which are the patterns of classes and properties needed</li>
+                    <li><strong>Values Requirements</strong> - specifying particular property values, i.e. classification of Resources according to specific vocabularies</li>
+                </ul>
+                <p><em>Where model objects are indicated in </em><code>code</code><em> and no namespace is indicated, presume the <code>dcat</code>, <code>prov</code> or <code>skos</code> namespaces are used. There are no class/property overlaps between those models, so there can be no confusion if the object is looked up in those standards.</em></p>
+                <section id="structural">
+                    <h3>2.1 Structural Requirements</h3>
+                    <p>The following sub-subsections are per object class, where 'class' is one of the classes in this profile's structural overview (see Figure at top).</p>
+                    <p>The general idea is that objects of the various class types in the overview diagram are needed for IDN metadata and this section describes their required properties and relations. For example, all <code>Resource</code> instances must be related to at least one <code>Catalog</code> instance.</p>
+                    <section id="catalogue">
+                        <h4>2.1.2 <code>Catalogue</code></h4>
+                        <p class="req"><strong>Req C1:</strong> Being a <code>Resource</code>, each <code>Catalog</code> instance MUST also adhere to the <code>Resource</code> Requirements R1, R2, R3 &amp; R4.</p>
+                        <p class="req"><strong>Req C2:</strong> Each <code>Catalog</code> instance MUST contain at least one <code>Resource</code> indicated by the <code>hasPart</code> property.</p>
+                        <p class="eg">
+                            <span>Example: A Catalogue instance with minimum required metadata</span>
+                &lt;https://doi.org/a-doi-for-the-catalogue&gt;
+                    a dcat:Catalog ;
 
-                dcterms:title "Catalogue X" ;
-                dcterms:description "An example catalogue"@en ;
-                dcterms:created "2022-07-21"^^xsd:date ;
-                dcterms:modified "2022-07-25T20:15:21"^^xsd:dateTime ;
+                    dcterms:title "Catalogue X" ;
+                    dcterms:description "An example catalogue"@en ;
+                    dcterms:created "2022-07-21"^^xsd:date ;
+                    dcterms:modified "2022-07-25T20:15:21"^^xsd:dateTime ;
 
-                prov:qualifiedAttribution [
-                    a prov:Attribution;
-                    prov:agent &lt;https://linked.data.gov.au/org/idn&gt; ;  # Indigenous Data Network's PID
-                    ex:hadRole :custodian ;
-                ] ,
-                [
-                    a prov:Attribution;
-                    prov:agent &lt;https://orcid.org/0000-0002-8742-7730&gt; ;  # Nicholas Car's IRI
-                    ex:hadRole :pointOfContact ;
-                ] ;
+                    prov:qualifiedAttribution [
+                        a prov:Attribution;
+                        prov:agent &lt;https://linked.data.gov.au/org/idn&gt; ;  # Indigenous Data Network's PID
+                        ex:hadRole :custodian ;
+                    ] ,
+                    [
+                        a prov:Attribution;
+                        prov:agent &lt;https://orcid.org/0000-0002-8742-7730&gt; ;  # Nicholas Car's IRI
+                        ex:hadRole :pointOfContact ;
+                    ] ;
 
-                dcterms:hasPart
-                    ex:some-resource-y ,
-                    ex:some-resource-z ,
+                    dcterms:hasPart
+                        ex:some-resource-y ,
+                        ex:some-resource-z ,
+                        ...
+                    .
+                        </p>
+                    </section>
+                    <section id="resource">
+                        <h4>2.1.3 <code>Resource</code></h4>
+                        <p class="req"><strong>Req R1:</strong> Each <code>Resource</code> instance SHOULD indicate a persistent identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the <code>Dataset</code> instance's IRI, if it is an HTTP/HTTPS IRI, or else it SHOULD be quoted as a literal value, indicated with the property <code>dcterms:identifier</code> of datatype <code>xsd:token</code>.</p>
+                        <p class="req"><strong>Req R2:</strong> Each <code>Resource</code> instance MUST provide basic <code>Resource</code> metadata so that exactly one of each of the following properties is required with range value as per <code>Resource</code> requirements: <code>title</code>, <code>description</code>, <code>created</code> &amp; <code>modified</code>.</p>
+                        <p class="req"><strong>Req R3:</strong> Allowed Semantic Web date/time properties for <code>created</code> & <code>modified</code> properties are <code>xsd:date</code>, <code>xsd:dateTime</code>, <code>xsd:dateTimeStamp</code>, <code>time:Interval</code></p>
+                        <p class="req"><strong>Req R4:</strong> Each <code>Resource</code> instance MUST NOT indicate <code>Agent</code> roles with direct DCAT properties (e.g. <code>publisher</code>) and MUST indicate them with the DCAT-recommended PROV <em>qualified attribution</em> pattern with each <code>prov:Attribution</code> indicated with the property <code>prov:qualifiedAttribution</code>.</p>
+                        <p class="req"><strong>Req R5:</strong> Each <code>Resource</code> instance, if it is not a <code>Catalog</code> instance MUST and if it is a <code>Catalog</code> instance MAY indicate that it is within at least one <code>Catalog</code> instance with an in-bound <code>hasPart</code> property from a <code>Catalog</code> instance.</p>
+                        <p class="req"><strong>Req R6:</strong> Each <code>Resource</code> instance MAY indicate that it is a specific type of resource by use of the <code>dcterms:type</code> property. Catalogued <code>Dataset</code> instances are equivalent to catalogued <code>Resource</code> instances of <code>dcterms:type</code> <code>Dataset</code>.
+                        <p class="eg">
+                            <span>Example: A Resource instance with minimum required metadata</span>
+                &lt;http://example.com/resource/x&gt;
+                    a dcat:Resource ;
+                    dcterm:identifier "CAT::2-3-4::X"^^xsd:token ;  # Dummy catalogue number
+
+                    dcterms:title "Resource X" ;
+                    dcterms:description "An example Resource"@en ;
+                    dcterms:created "2022-07-21"^^xsd:date ;
+                    dcterms:modified "2022-07-25T20:15:21"^^xsd:dateTime ;
+
+                    prov:qualifiedAttribution [
+                        a prov:Attribution;
+                        prov:agent &lt;http://example.com/org/clc&gt; ;  # Example Indigenous org PID
+                        ex:hadRole :custodian ;
+                    ] ,
+                    [
+                        a prov:Attribution;
+                        prov:agent &lt;http://example.com/academic/person-x&gt; ;  # An academic
+                        ex:hadRole :author ;
+                    ] ,
+                    [
+                        a prov:Attribution;
+                        prov:agent &lt;http://example.com/org/xyz-people&gt; ;  # An indigenous group
+                        ex:hadRole :subjectAgent ;
+                    ] ;
+
+                    dcterms:type ex:map ;  # An example specialised resource - a map - from some vocabularty of types
+                .
+
+                &lt;https://doi.org/a-doi-for-a-catalogue&gt;  # a catalogue indicating this Resource is a part of it
+                    dcterms:hasPart
+                        &lt;http://example.com/resource/x&gt; ;
+                .
+                        </p>
+                    </section>
+                    <section id="dataset">
+                        <h4>2.1.3 <code>Dataset</code></h4>
+                        <p>There are no structural requirements specifically for <code>Dataset</code> instances: the requirements for <code>Resource</code> also apply to <code>Dataset</code>.</p>
+                        <p>Note that there are <em>values</em> requirements for <code>Dataset</code> instnaces, as per the next section.</p>
+                    </section>
+                    <section id="attribution">
+                        <h4>2.1.1 <code>Attribution</code></h4>
+                        <p class="req"><strong>Req A1:</strong> Each <code>Attribution</code> instance MUST indicate an <code>Agent</code> instance with the property <code>prov:agent</code> and a role for that <code>Agent</code>, as a <code>skos:Concept</code>, in relation to the attributing entity, with the <code>hadRole</code> property.</p>
+                        <p class="eg">
+                            <span>Example: A Resource with a qualified Attribution</span>
+                &lt;http://example.com/resource/x&gt;
+                    a dcat:Resource ;
+                    ...
+                    prov:qualifiedAttribution [
+                        a prov:Attribution;
+                        prov:agent &lt;http://example.com/resource/central-lands-council&gt; ;
+                        dcat:hadRole :custodian ;
+                    ] ;
                     ...
                 .
-                    </p>                
-                </section>
-                <section id="resource">
-                    <h4>2.1.3 <code>Resource</code></h4>
-                    <p class="req"><strong>Req R1:</strong> Each <code>Resource</code> instance SHOULD indicate a persistent identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the <code>Dataset</code> instance's IRI, if it is an HTTP/HTTPS IRI, or else it SHOULD be quoted as a literal value, indicated with the property <code>dcterms:identifier</code> of datatype <code>xsd:token</code>.</p>
-                    <p class="req"><strong>Req R2:</strong> Each <code>Resource</code> instance MUST provide basic <code>Resource</code> metadata so that exactly one of each of the following properties is required with range value as per <code>Resource</code> requirements: <code>title</code>, <code>description</code>, <code>created</code> &amp; <code>modified</code>.</p>
-                    <p class="req"><strong>Req R3:</strong> Allowed Semantic Web date/time properties for <code>created</code> & <code>modified</code> properties are <code>xsd:date</code>, <code>xsd:dateTime</code>, <code>xsd:dateTimeStamp</code>, <code>time:Interval</code></p>
-                    <p class="req"><strong>Req R4:</strong> Each <code>Resource</code> instance MUST NOT indicate <code>Agent</code> roles with direct DCAT properties (e.g. <code>publisher</code>) and MUST indicate them with the DCAT-recommended PROV <em>qualified attribution</em> pattern with each <code>prov:Attribution</code> indicated with the property <code>prov:qualifiedAttribution</code>.</p>
-                    <p class="req"><strong>Req R5:</strong> Each <code>Resource</code> instance, if it is not a <code>Catalog</code> instance MUST and if it is a <code>Catalog</code> instance MAY indicate that it is within at least one <code>Catalog</code> instance with an in-bound <code>hasPart</code> property from a <code>Catalog</code> instance.</p>
-                    <p class="req"><strong>Req R6:</strong> Each <code>Resource</code> instance MAY indicate that it is a specific type of resource by use of the <code>dcterms:type</code> property. Catalogued <code>Dataset</code> instances are equivalent to catalogued <code>Resource</code> instances of <code>dcterms:type</code> <code>Dataset</code>.
-                    <p class="eg">
-                        <span>Example: A Resource instance with minimum required metadata</span>
-            &lt;http://example.com/resource/x&gt;
-                a dcat:Resource ;
-                dcterm:identifier "CAT::2-3-4::X"^^xsd:token ;  # Dummy catalogue number
+                        </p>
+                    </section>
+                    <section id="agent">
+                        <h4>2.1.5 <code>Agent</code></h4>
+                        <p><em>Agents are the Organisations &amp; People that have Roles in relation to Catalogues and Resources.</em></p>
+                        <p class="req"><strong>Req AG1:</strong> Each <code>Agent</code> instance MUST be either an <code>sdo:Organization</code> or a <code>sdo:Person</code> instance.</p>
+                        <p class="req"><strong>Req AG2:</strong> Each <code>Agent</code> instance MUST be described with at least the <code>sdo:name</code> property and, if an <code>sdo:Organization</code>, also an <code>sdo:url</code> property with a <code>xsd:anyURI</code> value or, if a <code>sdo:Person</code>, an <code>sdo:email</code> property with a <code>xsd:anyURI</code> value.</p>
+                        <p class="req"><strong>Req AG3:</strong> Each <code>Agent</code> instance SHOULD be described with a <code>sdo:description</code> property and, if the <code>Agent</code> has them, identifiers for it should be indicated with <code>sdo:identifier</code> with <code>xsd:anyURI</code> or <code>xsd:token</code> values.</p>
+                        <p class="req"><strong>Req AG4:</strong> Each <code>Agent</code> MAY relate other information using <em>schema.org</em> properties, for example <code>sdo:affiliation</code> to link a <code>sdo:Person</code> to an <code>sdo:Organization</code>.</p>
+                        <p class="eg">
+                            <span>Example: An Organization with an example Australian Business Number identifer and a Person affiliated with it</span>
+                &lt;https://kurrawong.net&gt;
+                    a sdo:Organization ;
+                    sdo:identifier "31 353 542 036"^^ex:ABN ;
+                    sdo:name "Kurrawong AI" ;
+                    sdo:description "Kurrawong AI is a small, Artificial Intelligence, company in Australia specialising in Knowledge Graphs." ;
+                    sdo:url "https://kurrawong.net"^^xsd:anyURI ;
+                .
 
-                dcterms:title "Resource X" ;
-                dcterms:description "An example Resource"@en ;
-                dcterms:created "2022-07-21"^^xsd:date ;
-                dcterms:modified "2022-07-25T20:15:21"^^xsd:dateTime ;
+                &lt;https://orcid.org/0000-0002-8742-7730&gt;
+                    a sdo:Person ;
+                    sdo:name "Nicholas J. Car"@en ;
+                    sdo:email "nick@kurrawong.net"^^xsd:anyURI ;
+                    sdo:affiliation &lt;https://kurrawong.net&gt; ;
+                .
+                        </p>
+                    </section>
+                    <section id="concept">
+                        <h4>2.1.5 <code>Concept</code></h4>
+                        <p>This profile is a profile of <a href="https://w3id.org/profile/vocpub">Vocabulary Publications Profile, VocPub</a>, among other specifications. VocPub sets requirements for <code>Concept</code> and <code>ConceptScheme</code> instances.</p>
+                        <p>See the VocPub <code>Concept</code> requirements listed in its Specification:</p>
+                        <ul>
+                            <li><a href="https://w3id.org/profile/vocpub/spec#concept">VocPub Specification: Concept</a></li>
+                        </ul>
+                        <p class="eg">
+                            <span>Example: A Concept with basic VocPub requirements met</span>
+                &lt;http://example.com/concept/x&gt;
+                    a skos:Concept ;
+                    rdfs:isDefinedBy &lt;http://example.com/concept-scheme/y&gt; ;  # Indicating the vocabulary that defines this term
 
-                prov:qualifiedAttribution [
-                    a prov:Attribution;
-                    prov:agent &lt;http://example.com/org/clc&gt; ;  # Example Indigenous org PID
-                    ex:hadRole :custodian ;
-                ] ,
-                [
-                    a prov:Attribution;
-                    prov:agent &lt;http://example.com/academic/person-x&gt; ;  # An academic
-                    ex:hadRole :author ;
-                ] ,
-                [
-                    a prov:Attribution;
-                    prov:agent &lt;http://example.com/org/xyz-people&gt; ;  # An indigenous group
-                    ex:hadRole :subjectAgent ;
-                ] ;
-                
-                dcterms:type ex:map ;  # An example specialised resource - a map - from some vocabularty of types
-            .
+                    skos:prefLabel "Concept X"@en ;  # The Concepts preferred label
+                    skos:altLabel "Xxx"@en ;  # A synonym/alias
+                    skos:definition "An example Concept"@en ;  # The Concept's definition
 
-            &lt;https://doi.org/a-doi-for-a-catalogue&gt;  # a catalogue indicating this Resource is a part of it
-                dcterms:hasPart
-                    &lt;http://example.com/resource/x&gt; ;
-            .
-                    </p>
+                    skos:narrower &lt;http://example.com/concept/x.1&gt; ;
+                .
+                        </p>
+                    </section>
+                    <section id="conceptscheme">
+                        <h4>2.1.6 <code>ConceptScheme</code></h4>
+                        <p>This profile is a profile of <a href="https://w3id.org/profile/vocpub">Vocabulary Publications Profile, VocPub</a>, among other specifications. VocPub sets requirements for <code>Concept</code> and <code>ConceptScheme</code> instances.</p>
+                        <p>See the VocPub <code>ConceptScheme</code> requirements listed in its Specification's <em>Vocabulary</em> section:</p>
+                        <ul>
+                            <li><a href="https://w3id.org/profile/vocpub/spec#vocabulary">VocPub Specification: Vocabulary</a></li>
+                        </ul>
+                    </section>
                 </section>
-                <section id="dataset">
-                    <h4>2.1.3 <code>Dataset</code></h4>
-                    <p>There are no structural requirements specifically for <code>Dataset</code> instances: the requirements for <code>Resource</code> also apply to <code>Dataset</code>.</p>
-                    <p>Note that there are <em>values</em> requirements for <code>Dataset</code> instnaces, as per the next section.</p>
-                </section>
-                <section id="attribution">
-                    <h4>2.1.1 <code>Attribution</code></h4>
-                    <p class="req"><strong>Req A1:</strong> Each <code>Attribution</code> instance MUST indicate an <code>Agent</code> instance with the property <code>prov:agent</code> and a role for that <code>Agent</code>, as a <code>skos:Concept</code>, in relation to the attributing entity, with the <code>hadRole</code> property.</p>
+                <section id="values">
+                    <h3>2.2 Values Requirements</h3>
+                    <p>IDN metadata must be represented according to certain classes with certain properties, including relations between classes, as defined in the section above. This section defines the requirements for particular properties to indicate particular values. These values are mostly items in particular vocabularies and catalogues managed by the IDN itself and the result of these requirements is to ensure that IDN metadata is related to values understood by the IDN.</p>
+                    <p class="req"><strong>Req V1:</strong> Each <code>Resource</code> instance MUST be categorised with at least one value from the <a>IDN Data Themes</a> vocabulary, indicated with a <code>theme</code> property.</p>
+                    <p class="req"><strong>Req V2:</strong> The roles of <code>Agent</code> instances with relation to a <code>Resource</code> MUST be indicated with the <code>hasRole</code> property and selected from the <a href="https://linked.data.gov.au/def/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
+                    <p class="req"><strong>Req V3:</strong> Each <code>Agent</code> instance referenced by an <code>Attribution</code> instance, if the <code>Agent</code> is indigenous SHOULD be registered within the <a>IDN Agents Catalogue</a>.</p>
                     <p class="eg">
                         <span>Example: A Resource with a qualified Attribution</span>
-            &lt;http://example.com/resource/x&gt;
-                a dcat:Resource ;
-                ...
-                prov:qualifiedAttribution [
-                    a prov:Attribution;
-                    prov:agent &lt;http://example.com/resource/central-lands-council&gt; ;
-                    dcat:hadRole :custodian ;
-                ] ;
-                ...
-            .
+                &lt;http://example.com/resource/x&gt;
+                    a dcat:Resource ;
+                    ...
+                    dcat:theme idth:indigenous-demographics ;   # Concept within the IDN Data Themes Vocabulary
+                    ...
+                    prov:qualifiedAttribution [
+                        a prov:Attribution;
+                        # Example Agent that could be registered in the IDN Agents Catalogue
+                        prov:agent &lt;http://example.com/resource/central-lands-council&gt; ;
+                        dcat:hadRole :custodian ;  # Role from the IDN Role Codes Vocabulary
+                    ] ;
+                .
                     </p>
-                </section>                
-                <section id="agent">
-                    <h4>2.1.5 <code>Agent</code></h4>
-                    <p><em>Agents are the Organisations &amp; People that have Roles in relation to Catalogues and Resources.</em></p>
-                    <p class="req"><strong>Req AG1:</strong> Each <code>Agent</code> instance MUST be either an <code>sdo:Organization</code> or a <code>sdo:Person</code> instance.</p>
-                    <p class="req"><strong>Req AG2:</strong> Each <code>Agent</code> instance MUST be described with at least the <code>sdo:name</code> property and, if an <code>sdo:Organization</code>, also an <code>sdo:url</code> property with a <code>xsd:anyURI</code> value or, if a <code>sdo:Person</code>, an <code>sdo:email</code> property with a <code>xsd:anyURI</code> value.</p>
-                    <p class="req"><strong>Req AG3:</strong> Each <code>Agent</code> instance SHOULD be described with a <code>sdo:description</code> property and, if the <code>Agent</code> has them, identifiers for it should be indicated with <code>sdo:identifier</code> with <code>xsd:anyURI</code> or <code>xsd:token</code> values.</p>
-                    <p class="req"><strong>Req AG4:</strong> Each <code>Agent</code> MAY relate other information using <em>schema.org</em> properties, for example <code>sdo:affiliation</code> to link a <code>sdo:Person</code> to an <code>sdo:Organization</code>.</p>
-                    <p class="eg">
-                        <span>Example: An Organization with an example Australian Business Number identifer and a Person affiliated with it</span>
-            &lt;https://kurrawong.net&gt;
-                a sdo:Organization ;
-                sdo:identifier "31 353 542 036"^^ex:ABN ;
-                sdo:name "Kurrawong AI" ;
-                sdo:description "Kurrawong AI is a small, Artificial Intelligence, company in Australia specialising in Knowledge Graphs." ;
-                sdo:url "https://kurrawong.net"^^xsd:anyURI ;
+                </section>
+            </section>
+            <section id="example">
+                <h2>3. Extended Example <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                <p>Snippet examples for many of the Requirements of this Specification are given in the individual Requirements' sections. This section contains a single, larger, example that makes a complete <code>Catalog</code> instances with content: it is a part of the IDN's Dataset Catalogue.</p>
+                <p>The IDN Dataset Catalogue that this example is extracted from is online at:</p>
+                <ul>
+                    <li><a href="">IDN Dataset Catalogue Homepage</a></li>
+                </ul>
+                <p class="eg">
+                    <span>Example: Partial content of the IDN Dataset Catalogue</span>
+            &lt;http://linked.data.gov.au/dataset/idndc&gt;
+                a dcat:Catalog ;
+                    dcterms:title "IDC Dataset Catalogue" ;
+                    dcterms:description """The Indigenous Data Network's catalogue of datasets. This catalogue contains records of datasets in Australia, most of which have some relation to indigenous Australia.
+
+The purpose of this catalogue is not to act as a master catalogue of indigenous data in Australia to demonstrate improved metadata models and rating systems for data and metadata in order to improve indigenous data governance.
+
+The content of this catalogue conforms to the Indigenous Data Network's Catalogue Profile which is a profile of the DCAT, SKOS and PROV data models."""@en ;
+                    dcterms:created "2022-07-31"^^xsd:date ;
+                    dcterms:modified "2022-07-31"^^xsd:date ;
+                    prov:qualifiedAttribution [
+                        a prov:Attribution;
+                        prov:agent &lt;https://linked.data.gov.au/org/idn&gt; ;
+                        dcat:hadRole :author , :owner , :custodian ;
+                    ] ;
+                    dcterms:hasPart
+                        &lt;http://example.com/resource/x&gt; ;
             .
 
+            &lt;http://example.com/resource/x&gt;
+                a dcat:Dataset ;
+                dcterms:title "Example Dataset 1" ;
+                dcterms:description """This example dataset has a minimalist metadata record that is valid according to the Indigenous Data Network's Catalogue Profile"@en ;
+                dcterms:created "2022-07-31"^^xsd:date ;
+                dcterms:modified "2022-07-31"^^xsd:date ;
+                dcat:theme idth:indigenous-demographics ;
+                prov:qualifiedAttribution [
+                    a prov:Attribution;
+                    prov:agent &lt;https://orcid.org/0000-0002-8742-7730&gt; ;
+                    dcat:hadRole :author ;  # not being a real dataset, it has no roles other than 'author' for Agents associated with it
+                ] ;
+            .
+
+            # From the IDN Agents Catalogue
+            &lt;https://linked.data.gov.au/org/idn&gt;
+                a sdo:Organization ;
+                sdo:name "Indigenous Data Network" ;
+                sdo:description "The IDN is within the University of Melbourne. It was established in 2018 to support and coordinate the governance of Indigenous data for Aboriginal and Torres Strait Islander peoples and empower Aboriginal and Torres Strait Islander communities to decide their own local data priorities." ;
+                sdo:url "https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network"^^xsd:anyURI ;
+            .
+
+            # From the IDN Agents Catalogue
             &lt;https://orcid.org/0000-0002-8742-7730&gt;
                 a sdo:Person ;
                 sdo:name "Nicholas J. Car"@en ;
                 sdo:email "nick@kurrawong.net"^^xsd:anyURI ;
                 sdo:affiliation &lt;https://kurrawong.net&gt; ;
             .
-                    </p>                    
-                </section>
-                <section id="concept">
-                    <h4>2.1.5 <code>Concept</code></h4>
-                    <p>This profile is a profile of <a href="https://w3id.org/profile/vocpub">Vocabulary Publications Profile, VocPub</a>, among other specifications. VocPub sets requirements for <code>Concept</code> and <code>ConceptScheme</code> instances.</p>
-                    <p>See the VocPub <code>Concept</code> requirements listed in its Specification:</p>
-                    <ul>
-                        <li><a href="https://w3id.org/profile/vocpub/spec#concept">VocPub Specification: Concept</a></li>
-                    </ul>
-                    <p class="eg">
-                        <span>Example: A Concept with basic VocPub requirements met</span>
-            &lt;http://example.com/concept/x&gt;
-                a skos:Concept ;
-                rdfs:isDefinedBy &lt;http://example.com/concept-scheme/y&gt; ;  # Indicating the vocabulary that defines this term
 
-                skos:prefLabel "Concept X"@en ;  # The Concepts preferred label
-                skos:altLabel "Xxx"@en ;  # A synonym/alias
-                skos:definition "An example Concept"@en ;  # The Concept's definition
-
-                skos:narrower &lt;http://example.com/concept/x.1&gt; ;
-            .
-                    </p>                 
-                </section>
-                <section id="conceptscheme">
-                    <h4>2.1.6 <code>ConceptScheme</code></h4>
-                    <p>This profile is a profile of <a href="https://w3id.org/profile/vocpub">Vocabulary Publications Profile, VocPub</a>, among other specifications. VocPub sets requirements for <code>Concept</code> and <code>ConceptScheme</code> instances.</p>
-                    <p>See the VocPub <code>ConceptScheme</code> requirements listed in its Specification's <em>Vocabulary</em> section:</p>
-                    <ul>
-                        <li><a href="https://w3id.org/profile/vocpub/spec#vocabulary">VocPub Specification: Vocabulary</a></li>
-                    </ul>
-                </section>
-            </section>
-            <section id="values">
-                <h3>2.2 Values Requirements</h3>
-                <p>IDN metadata must be represented according to certain classes with certain properties, including relations between classes, as defined in the section above. This section defines the requirements for particular properties to indicate particular values. These values are mostly items in particular vocabularies and catalogues managed by the IDN itself and the result of these requirements is to ensure that IDN metadata is related to values understood by the IDN.</p>
-                <p class="req"><strong>Req V1:</strong> Each <code>Resource</code> instance MUST be categorised with at least one value from the <a>IDN Data Themes</a> vocabulary, indicated with a <code>theme</code> property.</p>
-                <p class="req"><strong>Req V2:</strong> The roles of <code>Agent</code> instances with relation to a <code>Resource</code> MUST be indicated with the <code>hasRole</code> property and selected from the <a href="https://linked.data.gov.au/def/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>                
-                <p class="req"><strong>Req V3:</strong> Each <code>Agent</code> instance referenced by an <code>Attribution</code> instance, if the <code>Agent</code> is indigenous SHOULD be registered within the <a>IDN Indigenous Agents Catalogue</a>.</p>
-                <p class="eg">
-                    <span>Example: A Resource with a qualified Attribution</span>
-            &lt;http://example.com/resource/x&gt;
-                a dcat:Resource ;
-                ...
-                dcat:theme idt:indigenous-demographics ;   # Concept within the IDN Data Themes Vocabulary
-                ...
-                prov:qualifiedAttribution [
-                    a prov:Attribution;
-                    # Example Agent that could be registered in the IDN Indigenous Agents Catalogue
-                    prov:agent &lt;http://example.com/resource/central-lands-council&gt; ;
-                    dcat:hadRole :custodian ;  # Role from the IDN Role Codes Vocabulary
-                ] ;
+            # From the IDN Agents Catalogue
+            &lt;https://kurrawong.net&gt;
+                a sdo:Organization ;
+                sdo:name "Kurrawong AI" ;
+                sdo:description "Kurrawong AI is a small, Artificial Intelligence, company in Australia specialising in Knowledge Graphs." ;
+                sdo:url "https://kurrawong.net"^^xsd:anyURI ;
             .
                 </p>
+                <p>The content for the example above can be accessed online from the IDN Dataset Catalogue's content repository:</p>
+                <ul>
+                    <li><a href="https://github.com/idn-au/catalogue-data">IDN Catalogue Data</a></li>
+                </ul>
             </section>
-        </section>
-        <section id="example">
-            <h2>3. Extended Example <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-            <p>Snippet examples for many of the Requirements of this Specification are given in the individual Requirements' sections. This section contains a single, larger, example that makes a complete <code>Catalog</code> instances with content: it is a part of the IDN's Dataset Catalogue.</p>
-            <p>The IDN Dataset Catalogue that this example is extracted from is online at:</p>
-            <ul>
-                <li><a href="">IDN Dataset Catalogue Homepage</a></li>
-            </ul>
-            <p class="eg">
-                <span>Example: Partial content of the IDN Dataset Catalogue</span>
-        &lt;http://linked.data.gov.au/dataset/idndc&gt;
-            a dcat:Catalog ;
-                dcterms:title
-                dcterms:description """The Indigenous Data Network's catalogue of datasets. This catalogue contains records of datasets in Australia, most of which have some relation to indigenous Australia.
-
-The purpose of this catalogue is not to act as a master catalogue of indigenous data in Australia to demonstrate improved metadata models and rating systems for data and metadata in order to improve indigenous data governance.
-
-The content of this catalogue conforms to the Indigenous Data Network's Catalogue Profile which is a profile of the DCAT, SKOS and PROV data models."""@en ;
-                dcterms:created "2022-07-31"^^xsd:date ;
-                dcterms:modified "2022-07-31"^^xsd:date ;
-        .
-
-        &lt;http://example.com/resource/x&gt;
-            a dcat:Resource ;
-            ...
-            dcat:theme idt:indigenous-demographics ;   # Concept within the IDN Data Themes Vocabulary
-            ...
-            prov:qualifiedAttribution [
-                a prov:Attribution;
-                # Example Agent that could be registered in the IDN Indigenous Agents Catalogue
-                prov:agent &lt;http://example.com/resource/central-lands-council&gt; ;
-                dcat:hadRole :custodian ;  # Role from the IDN Role Codes Vocabulary
-            ] ;
-        .
-            </p>
-            <p>The content for the example above can be accessed online from the IDN Dataset Catalogue's content repository:</p>
-            <ul>
-                <li><a h=ref="https://github.com/idn-au/catalogue-data">IDN Catalogue Data</a></li>
-            </ul>
-        </section>
-        <section id="references">
-          <h2>References <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-          <dl>
-            <dt><a id="rfc2119"></a>RFC2119</dt>
-            <dd>Bradner, S. <em>Key words for use in RFCs to Indicate Requirement Levels</em>. March 1997. Internet Engineering Task Force. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119 </a></dd>
-            <dt><a id="prof"></a>PROF</dt>
-            <dd>Rob Atkinson; Nicholas J. Car (eds.). <em>The Profiles Vocabulary</em>. 18 December 2019. W3C Working Group Note. URL: <a href="https://www.w3.org/TR/dx-prof/">https://www.w3.org/TR/dx-prof/</a></dd>
-            <dt><a id="prov"></a>PROV</dt>
-            <dd>Timothy Lebo, Satya Sahoo, Deborah McGuinness (eds.). <em>PROV-O: The PROV Ontology</em>. 30 April 2013. W3C Recommendation. URL: <a href="https://www.w3.org/TR/prov-o/">https://www.w3.org/TR/prov-o/</a></dd>
-            <dt><a id="semantic-web"></a>Semantic Web</dt>
-            <dd>World Wide Web Consortium. <em>Semantic Web</em> 2015. Web Page. URL: <a href="https://www.w3.org/standards/semanticweb/">https://www.w3.org/standards/semanticweb/</a>, accessed 2020-06-14</dd>
-            <dt><a id="turtle"></a>Turtle</dt>
-            <dd>World Wide Web Consortium. <em>RDF 1.1 Turtle Terse RDF Triple Language</em>, W3C Recommendation (25 February 2014). URL: <a href="https://www.w3.org/standards/semanticweb/">https://www.w3.org/standards/semanticweb/</a></dd>
-          </dl>
-        </section>
-    </div><!-- #content -->
-    <div class="footer" style="grid-column:1;"></div>
-    <div class="footer" style="grid-column:2; display:grid; grid-template-columns:70% 30%;">
-        <div style="grid-column:1;">
-          The <a href="https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network">Indigenous Data Network (IDN)</a> is within the <a href="https://www.unimelb.edu.au">University of Melbourne</a>. It was established in 2018 to support and coordinate the governance of Indigenous data for Aboriginal and Torres Strait Islander peoples and empower Aboriginal and Torres Strait Islander communities to decide their own local data priorities.</a> 
-        </div>
-        <div style="grid-column:2;">
-        </div>
-    </div><!-- #footer -->
-    <div class="footer" style="grid-column:3;"></div>
-</body>
+            <section id="references">
+              <h2>References <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+              <dl>
+                <dt><a id="rfc2119"></a>RFC2119</dt>
+                <dd>Bradner, S. <em>Key words for use in RFCs to Indicate Requirement Levels</em>. March 1997. Internet Engineering Task Force. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119 </a></dd>
+                <dt><a id="prof"></a>PROF</dt>
+                <dd>Rob Atkinson; Nicholas J. Car (eds.). <em>The Profiles Vocabulary</em>. 18 December 2019. W3C Working Group Note. URL: <a href="https://www.w3.org/TR/dx-prof/">https://www.w3.org/TR/dx-prof/</a></dd>
+                <dt><a id="prov"></a>PROV</dt>
+                <dd>Timothy Lebo, Satya Sahoo, Deborah McGuinness (eds.). <em>PROV-O: The PROV Ontology</em>. 30 April 2013. W3C Recommendation. URL: <a href="https://www.w3.org/TR/prov-o/">https://www.w3.org/TR/prov-o/</a></dd>
+                <dt><a id="semantic-web"></a>Semantic Web</dt>
+                <dd>World Wide Web Consortium. <em>Semantic Web</em> 2015. Web Page. URL: <a href="https://www.w3.org/standards/semanticweb/">https://www.w3.org/standards/semanticweb/</a>, accessed 2020-06-14</dd>
+                <dt><a id="turtle"></a>Turtle</dt>
+                <dd>World Wide Web Consortium. <em>RDF 1.1 Turtle Terse RDF Triple Language</em>, W3C Recommendation (25 February 2014). URL: <a href="https://www.w3.org/standards/semanticweb/">https://www.w3.org/standards/semanticweb/</a></dd>
+              </dl>
+            </section>
+        </div><!-- #content -->
+        <div class="content" style="grid-column:3; grid-row:2;"></div>
+        <div class="footer" style="grid-column:1;"></div>
+        <div class="footer" id="footer" style="grid-column:2; display:grid; grid-template-columns:70% 30%;">
+            <div style="grid-column:1;">
+                <p>The <a href="https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network">Indigenous Data Network (IDN)</a> is within the <a href="https://www.unimelb.edu.au">University of Melbourne</a>. It was established in 2018 to support and coordinate the governance of Indigenous data for Aboriginal and Torres Strait Islander peoples and empower Aboriginal and Torres Strait Islander communities to decide their own local data priorities.</p>
+            </div>
+            <div style="grid-column:2;">
+            </div>
+        </div><!-- #footer -->
+        <div class="footer" style="grid-column:3;"></div>
+    </body>
 </html>

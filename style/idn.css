@@ -5,8 +5,8 @@ body, html {
 }
 
 body {
-    display:grid;
-    grid-template-columns: 1fr 3fr 1fr ;
+    display: grid;
+    grid-template-columns: 180px 80% 1fr ;
     grid-template-rows: 280px auto 100px;
 
     color: rgb(50, 50, 50);
@@ -145,7 +145,7 @@ p.eg {
     padding:20px;
 
     font-family: monospace;
-    white-space: pre;
+    white-space: pre-wrap;
     font-size: 1.1em;
 
     position: relative;
