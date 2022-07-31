@@ -30,7 +30,7 @@
                     <li><a href="#conceptscheme">2.7 Concept Scheme</a></li> -->
                 </ul>
             </li>
-            <li><a href="#examples">3. Examples</a></li>
+            <li><a href="#example">3. Examples</a></li>
             <li><a href="#references">References</a></li>
         </ul>
     </div>
@@ -308,36 +308,61 @@
                 <p class="req"><strong>Req V1:</strong> Each <code>Resource</code> instance MUST be categorised with at least one value from the <a>IDN Data Themes</a> vocabulary, indicated with a <code>theme</code> property.</p>
                 <p class="req"><strong>Req V2:</strong> The roles of <code>Agent</code> instances with relation to a <code>Resource</code> MUST be indicated with the <code>hasRole</code> property and selected from the <a href="https://linked.data.gov.au/def/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>                
                 <p class="req"><strong>Req V3:</strong> Each <code>Agent</code> instance referenced by an <code>Attribution</code> instance, if the <code>Agent</code> is indigenous SHOULD be registered within the <a>IDN Indigenous Agents Catalogue</a>.</p>
+                <p class="eg">
+                    <span>Example: A Resource with a qualified Attribution</span>
+            &lt;http://example.com/resource/x&gt;
+                a dcat:Resource ;
+                ...
+                dcat:theme idt:indigenous-demographics ;   # Concept within the IDN Data Themes Vocabulary
+                ...
+                prov:qualifiedAttribution [
+                    a prov:Attribution;
+                    # Example Agent that could be registered in the IDN Indigenous Agents Catalogue
+                    prov:agent &lt;http://example.com/resource/central-lands-council&gt; ;
+                    dcat:hadRole :custodian ;  # Role from the IDN Role Codes Vocabulary
+                ] ;
+            .
+                </p>
             </section>
         </section>
-        <section id="examples">
-            <h2>3. Complete Examples <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-            <p>Complete, valid, examples of data for each of the classes shown in the <a href="#overview">Overview diagram</a> are present in the <em>IDN Dataset Catalogue</em> which is online at:</p>
+        <section id="example">
+            <h2>3. Extended Example <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+            <p>Snippet examples for many of the Requirements of this Specification are given in the individual Requirements' sections. This section contains a single, larger, example that makes a complete <code>Catalog</code> instances with content: it is a part of the IDN's Dataset Catalogue.</p>
+            <p>The IDN Dataset Catalogue that this example is extracted from is online at:</p>
             <ul>
                 <li><a href="">IDN Dataset Catalogue Homepage</a></li>
             </ul>
-            <p>In addition to the online content of the <em>IDN Dataset Catalogue</em>, static instances taken from it are reproduced below.</p>
-            <section id="eg-catalog">
-                <h3>Example: <code>Catalog</code></h3>
-            </section>
-            <section id="eg-resource">
-                <h3>Example: <code>Resource</code></h3>
-            </section>
-            <section id="eg-dataset">
-                <h3>Example: <code>Dataset</code></h3>
-            </section>
-            <section id="eg-attribution">
-                <h3>Example: <code>Attribution</code></h3>
-            </section>
-            <section id="eg-agent">
-                <h3>Example: <code>Agent</code></h3>
-            </section>
-            <section id="eg-concept">
-                <h3>Example: <code>Concept</code></h3>
-            </section>
-            <section id="eg-conceptscheme">
-                <h3>Example: <code>ConceptScheme</code></h3>
-            </section>            
+            <p class="eg">
+                <span>Example: Partial content of the IDN Dataset Catalogue</span>
+        &lt;http://linked.data.gov.au/dataset/idndc&gt;
+            a dcat:Catalog ;
+                dcterms:title
+                dcterms:description """The Indigenous Data Network's catalogue of datasets. This catalogue contains records of datasets in Australia, most of which have some relation to indigenous Australia.
+
+The purpose of this catalogue is not to act as a master catalogue of indigenous data in Australia to demonstrate improved metadata models and rating systems for data and metadata in order to improve indigenous data governance.
+
+The content of this catalogue conforms to the Indigenous Data Network's Catalogue Profile which is a profile of the DCAT, SKOS and PROV data models."""@en ;
+                dcterms:created "2022-07-31"^^xsd:date ;
+                dcterms:modified "2022-07-31"^^xsd:date ;
+        .
+
+        &lt;http://example.com/resource/x&gt;
+            a dcat:Resource ;
+            ...
+            dcat:theme idt:indigenous-demographics ;   # Concept within the IDN Data Themes Vocabulary
+            ...
+            prov:qualifiedAttribution [
+                a prov:Attribution;
+                # Example Agent that could be registered in the IDN Indigenous Agents Catalogue
+                prov:agent &lt;http://example.com/resource/central-lands-council&gt; ;
+                dcat:hadRole :custodian ;  # Role from the IDN Role Codes Vocabulary
+            ] ;
+        .
+            </p>
+            <p>The content for the example above can be accessed online from the IDN Dataset Catalogue's content repository:</p>
+            <ul>
+                <li><a h=ref="https://github.com/idn-au/catalogue-data">IDN Catalogue Data</a></li>
+            </ul>
         </section>
         <section id="references">
           <h2>References <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
@@ -356,7 +381,7 @@
         </section>
     </div><!-- #content -->
     <div class="footer" style="grid-column:1;"></div>
-    <div class="footer" style="grid-column:2; display:grid; grid-column:70% 30%;">
+    <div class="footer" style="grid-column:2; display:grid; grid-template-columns:70% 30%;">
         <div style="grid-column:1;">
           The <a href="https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network">Indigenous Data Network (IDN)</a> is within the <a href="https://www.unimelb.edu.au">University of Melbourne</a>. It was established in 2018 to support and coordinate the governance of Indigenous data for Aboriginal and Torres Strait Islander peoples and empower Aboriginal and Torres Strait Islander communities to decide their own local data priorities.</a> 
         </div>

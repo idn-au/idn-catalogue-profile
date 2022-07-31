@@ -22,13 +22,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sdo:copyrightYear "2022"^^xsd:gYear ;
     sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
     sdo:dateCreated "2022-07-18"^^xsd:date ;
-    sdo:dateIssued "2022-07-19"^^xsd:date ;
+    sdo:dateIssued "2022-07-31"^^xsd:date ;
     sdo:dateModified "2022-07-20"^^xsd:date ;
-    sdo:description "A profile of cataloguing, provenance and vocabulary standards designed for the representation of indigeous data governance"@en ;
+    sdo:description "A profile of cataloguing, provenance and vocabulary standards designed for the representation of indigenous data governance"@en ;
     sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
     sdo:name "IDN Catalogue Profile"@en ;
     sdo:publisher <https://linked.data.gov.au/org/idn> ;
-    prov:hasResource [
+    prof:hasResource [
         rdfs:label "Specification Document" ;
         prof:hasArtifact <https://linked.data.gov.au/def/idncp/spec> ;
         dcterms:format "text/html" ;
@@ -52,6 +52,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         prof:hasArtifact <https://linked.data.gov.au/def/idncp/repo> ;
         prof:hasRole role:repository ;
     ] ;
+    prof:isProfileOf
+        <https://www.w3.org/TR/vocab-dcat/> ,
+        <https://www.w3.org/TR/skos-reference/> ,
+        <https://www.w3.org/TR/prov-o/> ;
 .
 
 <https://orcid.org/0000-0002-8742-7730>

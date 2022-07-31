@@ -15,8 +15,8 @@ body {
 
 #menu {
     position: fixed;
-    top:0px;
-    left:0px;
+    top:0;
+    left:0;
     width:10em;
     border-right:solid 10px #ccc;
     border-bottom:solid 10px #ccc;
