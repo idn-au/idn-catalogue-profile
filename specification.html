@@ -48,9 +48,9 @@
         <h1>IDN Catalogue Profile - Specification</h1>
         <!-- <h2>Description</h2> -->
         <div id="description">The specification of normative requirements for data conforming to the <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a>.</div>
-        <div id="overview" class="figure" style="text-align:center;">
+        <div id="overview" class="figure">
             <a href="style/overview.png"><img src="style/overview.png" style="width:600px;"/></a>
-            <p class="caption">Overview of elements of the DCAT, PROV & SKOS models and relationships between them used in this profile</p>
+            <p class="caption"><strong>Figure 1:</strong> Overview of elements of the DCAT, PROV & SKOS models and relationships between them used in this profile. Classes of object are shown as chamfered rectangles except for <code>Agent</code> which is shown as a 'house'. Enclosed arrows indicate the <code>rdfs:subClassOf</code> relationship. Pink arrows indicate specific value properties.</p>
         </div>
         <section id="metadata">
             <h2>Metadata</h2>
@@ -141,20 +141,18 @@
             <h2>2. Requirements <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
             <p>The requirements for data to conform to this profile are listed here. They are organised into the following subsections:</p>
             <ul>
-                <li><strong>Structural Requirements</strong> - specifying data "shapes" which are the classes and properties needed to make IDN Profile metadata.</li>
-                <li><strong>Values Requirements</strong> - specifying particular property values, for example, classification of Resources according to specific vocabularies</li>
+                <li><strong>Structural Requirements</strong> - specifying data "shapes" which are the patterns of classes and properties needed</li>
+                <li><strong>Values Requirements</strong> - specifying particular property values, i.e. classification of Resources according to specific vocabularies</li>
             </ul>                
             <p><em>Where model objects are indicated in </em><code>code</code><em> and no namespace is indicated, presume the <code>dcat</code>, <code>prov</code> or <code>skos</code> namespaces are used. There are no class/property overlaps between those models, so there can be no confusion if the object is looked up in those standards.</em></p>
             <section id="structural">
                 <h3>2.1 Structural Requirements</h3>
                 <p>The following sub-subsections are per object class, where 'class' is one of the classes in this profile's structural overview (see Figure at top).</p>
-                <p>The general idea is that objects of the various class types in the overview diagram are needed for IDN metadata and this section describes their required properties and relations. For example, all <code>Resource</code> instances must be related to at least one <code>Catalogue</code> instnace.</p>
+                <p>The general idea is that objects of the various class types in the overview diagram are needed for IDN metadata and this section describes their required properties and relations. For example, all <code>Resource</code> instances must be related to at least one <code>Catalog</code> instance.</p>
                 <section id="catalogue">
-                    <h4>2.1.1 <code>Catalogue</code></h4>
-                    <p class="req"><strong>Req C1:</strong> Each <code>Catalog</code> instance MUST provide basic <code>Resource</code> metadata so that exactly one of each of the following properties is required with range value as per <code>Resource</code> requirements: <code>title</code>, <code>description</code>, <code>created</code> &amp; <code>modified</code>.</p>
-                    <p class="req"><strong>Req C2:</strong> Each <code>Catalog</code> instance MUST indicate <code>Agent</code> roles not with direct DCAT properties (e.g. <code>publisher</code>) but with the DCAT-recommended PROV <em>qualified attribution</em> pattern.</p>
-                    <p class="req"><strong>Req C3:</strong> The roles of <code>Agent</code> instances with relation to a <code>Catalog</code> MUST be indicated with the <code>hasRole</code> property and selected from the <a href="https://linked.data.gov.au/def/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
-                    <p class="req"><strong>Req C4:</strong> Each <code>Catalog</code> instance MUST contain at least one <code>Resource</code> indicated by the <code>hasPart</code> property.</p>
+                    <h4>2.1.2 <code>Catalogue</code></h4>
+                    <p class="req"><strong>Req C1:</strong> Being a <code>Resource</code>, each <code>Catalog</code> instance MUST also adhere to the <code>Resource</code> Requirements R1, R2, R3 &amp; R4.</p>
+                    <p class="req"><strong>Req C2:</strong> Each <code>Catalog</code> instance MUST contain at least one <code>Resource</code> indicated by the <code>hasPart</code> property.</p>
                     <p class="eg">
                         <span>Example: A Catalogue instance with minimum required metadata</span>
             &lt;https://doi.org/a-doi-for-the-catalogue&gt;
@@ -184,14 +182,13 @@
                     </p>                
                 </section>
                 <section id="resource">
-                    <h4>2.1.2 <code>Resource</code></h4>
-                    <p class="req"><strong>Req R1:</strong> Each <code>Resource</code> instance SHOULD indicate a persistent identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the <code>Dataset</code> instance's IRI, if it is an HTTP/HTTPS IRI, or else it SHOULD be quoted as a literal value, indicated with the property <code>dcterms:identifier</code> of datatype <code>xsd:token</code>.            
+                    <h4>2.1.3 <code>Resource</code></h4>
+                    <p class="req"><strong>Req R1:</strong> Each <code>Resource</code> instance SHOULD indicate a persistent identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the <code>Dataset</code> instance's IRI, if it is an HTTP/HTTPS IRI, or else it SHOULD be quoted as a literal value, indicated with the property <code>dcterms:identifier</code> of datatype <code>xsd:token</code>.</p>
                     <p class="req"><strong>Req R2:</strong> Each <code>Resource</code> instance MUST provide basic <code>Resource</code> metadata so that exactly one of each of the following properties is required with range value as per <code>Resource</code> requirements: <code>title</code>, <code>description</code>, <code>created</code> &amp; <code>modified</code>.</p>
-                    <p class="req"><strong>Req R3.a:</strong> Allowed Semantic Web date/time properties for <code>created</code> & <code>modified</code> properties are <code>xsd:date</code>, <code>xsd:dateTime</code>, <code>xsd:dateTimeStamp</code>, <code>time:Interval</code></p>
-                    <p class="req"><strong>Req R4:</strong> Each <code>Resource</code> instance MUST indicate <code>Agent</code> roles not with direct DCAT properties (e.g. <code>publisher</code>) but with the DCAT-recommended PROV <em>qualified attribution</em> pattern.</p>
-                    <p class="req"><strong>Req R5:</strong> The roles of <code>Agent</code> instances with relation to a <code>Resource</code> MUST be indicated with the <code>hasRole</code> property and selected from the <a href="https://linked.data.gov.au/def/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
-                    <p class="req"><strong>Req R6:</strong> Each <code>Resource</code> instance MUST be indicated as being within at least one <code>Catalog</code> instance indeicated with an in-bound <code>hasPart</code> property from a <code>Catalog</code> instance.</p>
-                    <p class="req"><strong>Req R7:</strong> Each <code>Resource</code> instance MAY indicate that it is a specific type of resource by use of the <code>dcterms:type</code> property. Catalogued <code>Dataset</code> instances are equivalent to catalogued <code>Resource</code> instances of <code>dcterms:type</code> <code>Dataset</code>.
+                    <p class="req"><strong>Req R3:</strong> Allowed Semantic Web date/time properties for <code>created</code> & <code>modified</code> properties are <code>xsd:date</code>, <code>xsd:dateTime</code>, <code>xsd:dateTimeStamp</code>, <code>time:Interval</code></p>
+                    <p class="req"><strong>Req R4:</strong> Each <code>Resource</code> instance MUST NOT indicate <code>Agent</code> roles with direct DCAT properties (e.g. <code>publisher</code>) and MUST indicate them with the DCAT-recommended PROV <em>qualified attribution</em> pattern with each <code>prov:Attribution</code> indicated with the property <code>prov:qualifiedAttribution</code>.</p>
+                    <p class="req"><strong>Req R5:</strong> Each <code>Resource</code> instance, if it is not a <code>Catalog</code> instance MUST and if it is a <code>Catalog</code> instance MAY indicate that it is within at least one <code>Catalog</code> instance with an in-bound <code>hasPart</code> property from a <code>Catalog</code> instance.</p>
+                    <p class="req"><strong>Req R6:</strong> Each <code>Resource</code> instance MAY indicate that it is a specific type of resource by use of the <code>dcterms:type</code> property. Catalogued <code>Dataset</code> instances are equivalent to catalogued <code>Resource</code> instances of <code>dcterms:type</code> <code>Dataset</code>.
                     <p class="eg">
                         <span>Example: A Resource instance with minimum required metadata</span>
             &lt;http://example.com/resource/x&gt;
@@ -227,15 +224,15 @@
                     &lt;http://example.com/resource/x&gt; ;
             .
                     </p>
-                    <p class="req"><strong>Req R8:</strong> Each <code>Resource</code> instance SHOULD be categorised according to .</p>
                 </section>
                 <section id="dataset">
                     <h4>2.1.3 <code>Dataset</code></h4>
-                    <p>There are no requirements specifically for <code>Dataset</code> instances: the requirements for <code>Resource</code> also apply to <code>Dataset</code>.</p>
+                    <p>There are no structural requirements specifically for <code>Dataset</code> instances: the requirements for <code>Resource</code> also apply to <code>Dataset</code>.</p>
+                    <p>Note that there are <em>values</em> requirements for <code>Dataset</code> instnaces, as per the next section.</p>
                 </section>
                 <section id="attribution">
-                    <h4>2.1.4 <code>Attribution</code></h4>
-                    <p class="req"><strong>Req A1:</strong> Each <code>Attribution</code> instance MUST indicate an <code>Agent</code> instance with the property <code>prov:agent</code> and a role for that <code>Agent</code> in relation to the attributing entity with the <code>hasRole</code> property.</p>
+                    <h4>2.1.1 <code>Attribution</code></h4>
+                    <p class="req"><strong>Req A1:</strong> Each <code>Attribution</code> instance MUST indicate an <code>Agent</code> instance with the property <code>prov:agent</code> and a role for that <code>Agent</code>, as a <code>skos:Concept</code>, in relation to the attributing entity, with the <code>hadRole</code> property.</p>
                     <p class="eg">
                         <span>Example: A Resource with a qualified Attribution</span>
             &lt;http://example.com/resource/x&gt;
@@ -244,16 +241,36 @@
                 prov:qualifiedAttribution [
                     a prov:Attribution;
                     prov:agent &lt;http://example.com/resource/central-lands-council&gt; ;
-                    ex:hadRole :custodian ;
+                    dcat:hadRole :custodian ;
                 ] ;
                 ...
             .
                     </p>
-                </section>
+                </section>                
                 <section id="agent">
                     <h4>2.1.5 <code>Agent</code></h4>
                     <p><em>Agents are the Organisations &amp; People that have Roles in relation to Catalogues and Resources.</em></p>
-                    <p class="req"><strong>Req AG1:</strong> Each <code>Agent</code> instance MUST indicate an <code>Agent</code> instance with the property <code>prov:agent</code> and a role for that <code>Agent</code> in relation to the attributing entity with the <code>hasRole</code> property.</p>
+                    <p class="req"><strong>Req AG1:</strong> Each <code>Agent</code> instance MUST be either an <code>sdo:Organization</code> or a <code>sdo:Person</code> instance.</p>
+                    <p class="req"><strong>Req AG2:</strong> Each <code>Agent</code> instance MUST be described with at least the <code>sdo:name</code> property and, if an <code>sdo:Organization</code>, also an <code>sdo:url</code> property with a <code>xsd:anyURI</code> value or, if a <code>sdo:Person</code>, an <code>sdo:email</code> property with a <code>xsd:anyURI</code> value.</p>
+                    <p class="req"><strong>Req AG3:</strong> Each <code>Agent</code> instance SHOULD be described with a <code>sdo:description</code> property and, if the <code>Agent</code> has them, identifiers for it should be indicated with <code>sdo:identifier</code> with <code>xsd:anyURI</code> or <code>xsd:token</code> values.</p>
+                    <p class="req"><strong>Req AG4:</strong> Each <code>Agent</code> MAY relate other information using <em>schema.org</em> properties, for example <code>sdo:affiliation</code> to link a <code>sdo:Person</code> to an <code>sdo:Organization</code>.</p>
+                    <p class="eg">
+                        <span>Example: An Organization with an example Australian Business Number identifer and a Person affiliated with it</span>
+            &lt;https://kurrawong.net&gt;
+                a sdo:Organization ;
+                sdo:identifier "31 353 542 036"^^ex:ABN ;
+                sdo:name "Kurrawong AI" ;
+                sdo:description "Kurrawong AI is a small, Artificial Intelligence, company in Australia specialising in Knowledge Graphs." ;
+                sdo:url "https://kurrawong.net"^^xsd:anyURI ;
+            .
+
+            &lt;https://orcid.org/0000-0002-8742-7730&gt;
+                a sdo:Person ;
+                sdo:name "Nicholas J. Car"@en ;
+                sdo:email "nick@kurrawong.net"^^xsd:anyURI ;
+                sdo:affiliation &lt;https://kurrawong.net&gt; ;
+            .
+                    </p>                    
                 </section>
                 <section id="concept">
                     <h4>2.1.5 <code>Concept</code></h4>
@@ -288,11 +305,39 @@
             <section id="values">
                 <h3>2.2 Values Requirements</h3>
                 <p>IDN metadata must be represented according to certain classes with certain properties, including relations between classes, as defined in the section above. This section defines the requirements for particular properties to indicate particular values. These values are mostly items in particular vocabularies and catalogues managed by the IDN itself and the result of these requirements is to ensure that IDN metadata is related to values understood by the IDN.</p>
+                <p class="req"><strong>Req V1:</strong> Each <code>Resource</code> instance MUST be categorised with at least one value from the <a>IDN Data Themes</a> vocabulary, indicated with a <code>theme</code> property.</p>
+                <p class="req"><strong>Req V2:</strong> The roles of <code>Agent</code> instances with relation to a <code>Resource</code> MUST be indicated with the <code>hasRole</code> property and selected from the <a href="https://linked.data.gov.au/def/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>                
+                <p class="req"><strong>Req V3:</strong> Each <code>Agent</code> instance referenced by an <code>Attribution</code> instance, if the <code>Agent</code> is indigenous SHOULD be registered within the <a>IDN Indigenous Agents Catalogue</a>.</p>
             </section>
         </section>
         <section id="examples">
-            <h2>3. Examples <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-            <p><em>Coming!</em></p>
+            <h2>3. Complete Examples <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+            <p>Complete, valid, examples of data for each of the classes shown in the <a href="#overview">Overview diagram</a> are present in the <em>IDN Dataset Catalogue</em> which is online at:</p>
+            <ul>
+                <li><a href="">IDN Dataset Catalogue Homepage</a></li>
+            </ul>
+            <p>In addition to the online content of the <em>IDN Dataset Catalogue</em>, static instances taken from it are reproduced below.</p>
+            <section id="eg-catalog">
+                <h3>Example: <code>Catalog</code></h3>
+            </section>
+            <section id="eg-resource">
+                <h3>Example: <code>Resource</code></h3>
+            </section>
+            <section id="eg-dataset">
+                <h3>Example: <code>Dataset</code></h3>
+            </section>
+            <section id="eg-attribution">
+                <h3>Example: <code>Attribution</code></h3>
+            </section>
+            <section id="eg-agent">
+                <h3>Example: <code>Agent</code></h3>
+            </section>
+            <section id="eg-concept">
+                <h3>Example: <code>Concept</code></h3>
+            </section>
+            <section id="eg-conceptscheme">
+                <h3>Example: <code>ConceptScheme</code></h3>
+            </section>            
         </section>
         <section id="references">
           <h2>References <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>

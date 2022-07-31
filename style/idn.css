@@ -21,6 +21,7 @@ body {
     border-right:solid 10px #ccc;
     border-bottom:solid 10px #ccc;
     background-color: #eee;
+    z-index: 100;
 }
 #menu > h4 {
     margin-left: 10px;
@@ -212,9 +213,12 @@ code {
 
 .figure {
     padding: 10px;
+    text-align: center;
 }
 
 .figure .caption {
     font-size: small;
     font-style: italic;
+    width: 50%;
+    margin: 0 auto;
 }
