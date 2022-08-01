@@ -156,30 +156,30 @@
                         <p class="req"><strong>Req C2:</strong> Each <code>Catalog</code> instance MUST contain at least one <code>Resource</code> indicated by the <code>hasPart</code> property.</p>
                         <p class="eg">
                             <span>Example: A Catalogue instance with minimum required metadata</span>
-                &lt;https://doi.org/a-doi-for-the-catalogue&gt;
-                    a dcat:Catalog ;
+&lt;https://doi.org/a-doi-for-the-catalogue&gt;
+    a dcat:Catalog ;
 
-                    dcterms:title "Catalogue X" ;
-                    dcterms:description "An example catalogue"@en ;
-                    dcterms:created "2022-07-21"^^xsd:date ;
-                    dcterms:modified "2022-07-25T20:15:21"^^xsd:dateTime ;
+    dcterms:title "Catalogue X" ;
+    dcterms:description "An example catalogue"@en ;
+    dcterms:created "2022-07-21"^^xsd:date ;
+    dcterms:modified "2022-07-25T20:15:21"^^xsd:dateTime ;
 
-                    prov:qualifiedAttribution [
-                        a prov:Attribution;
-                        prov:agent &lt;https://linked.data.gov.au/org/idn&gt; ;  # Indigenous Data Network's PID
-                        ex:hadRole :custodian ;
-                    ] ,
-                    [
-                        a prov:Attribution;
-                        prov:agent &lt;https://orcid.org/0000-0002-8742-7730&gt; ;  # Nicholas Car's IRI
-                        ex:hadRole :pointOfContact ;
-                    ] ;
+    prov:qualifiedAttribution [
+        a prov:Attribution;
+        prov:agent &lt;https://linked.data.gov.au/org/idn&gt; ;  # Indigenous Data Network's PID
+        ex:hadRole :custodian ;
+    ] ,
+    [
+        a prov:Attribution;
+        prov:agent &lt;https://orcid.org/0000-0002-8742-7730&gt; ;  # Nicholas Car's IRI
+        ex:hadRole :pointOfContact ;
+    ] ;
 
-                    dcterms:hasPart
-                        ex:some-resource-y ,
-                        ex:some-resource-z ,
-                        ...
-                    .
+    dcterms:hasPart
+        ex:some-resource-y ,
+        ex:some-resource-z ,
+        ...
+    .
                         </p>
                     </section>
                     <section id="resource">
@@ -192,38 +192,38 @@
                         <p class="req"><strong>Req R6:</strong> Each <code>Resource</code> instance MAY indicate that it is a specific type of resource by use of the <code>dcterms:type</code> property. Catalogued <code>Dataset</code> instances are equivalent to catalogued <code>Resource</code> instances of <code>dcterms:type</code> <code>Dataset</code>.
                         <p class="eg">
                             <span>Example: A Resource instance with minimum required metadata</span>
-                &lt;http://example.com/resource/x&gt;
-                    a dcat:Resource ;
-                    dcterm:identifier "CAT::2-3-4::X"^^xsd:token ;  # Dummy catalogue number
+&lt;http://example.com/resource/x&gt;
+    a dcat:Resource ;
+    dcterm:identifier "CAT::2-3-4::X"^^xsd:token ;  # Dummy catalogue number
 
-                    dcterms:title "Resource X" ;
-                    dcterms:description "An example Resource"@en ;
-                    dcterms:created "2022-07-21"^^xsd:date ;
-                    dcterms:modified "2022-07-25T20:15:21"^^xsd:dateTime ;
+    dcterms:title "Resource X" ;
+    dcterms:description "An example Resource"@en ;
+    dcterms:created "2022-07-21"^^xsd:date ;
+    dcterms:modified "2022-07-25T20:15:21"^^xsd:dateTime ;
 
-                    prov:qualifiedAttribution [
-                        a prov:Attribution;
-                        prov:agent &lt;http://example.com/org/clc&gt; ;  # Example Indigenous org PID
-                        ex:hadRole :custodian ;
-                    ] ,
-                    [
-                        a prov:Attribution;
-                        prov:agent &lt;http://example.com/academic/person-x&gt; ;  # An academic
-                        ex:hadRole :author ;
-                    ] ,
-                    [
-                        a prov:Attribution;
-                        prov:agent &lt;http://example.com/org/xyz-people&gt; ;  # An indigenous group
-                        ex:hadRole :subjectAgent ;
-                    ] ;
+    prov:qualifiedAttribution [
+        a prov:Attribution;
+        prov:agent &lt;http://example.com/org/clc&gt; ;  # Example Indigenous org PID
+        ex:hadRole :custodian ;
+    ] ,
+    [
+        a prov:Attribution;
+        prov:agent &lt;http://example.com/academic/person-x&gt; ;  # An academic
+        ex:hadRole :author ;
+    ] ,
+    [
+        a prov:Attribution;
+        prov:agent &lt;http://example.com/org/xyz-people&gt; ;  # An indigenous group
+        ex:hadRole :subjectAgent ;
+    ] ;
 
-                    dcterms:type ex:map ;  # An example specialised resource - a map - from some vocabularty of types
-                .
+    dcterms:type ex:map ;  # An example specialised resource - a map - from some vocabularty of types
+.
 
-                &lt;https://doi.org/a-doi-for-a-catalogue&gt;  # a catalogue indicating this Resource is a part of it
-                    dcterms:hasPart
-                        &lt;http://example.com/resource/x&gt; ;
-                .
+&lt;https://doi.org/a-doi-for-a-catalogue&gt;  # a catalogue indicating this Resource is a part of it
+    dcterms:hasPart
+        &lt;http://example.com/resource/x&gt; ;
+.
                         </p>
                     </section>
                     <section id="dataset">
@@ -236,16 +236,16 @@
                         <p class="req"><strong>Req A1:</strong> Each <code>Attribution</code> instance MUST indicate an <code>Agent</code> instance with the property <code>prov:agent</code> and a role for that <code>Agent</code>, as a <code>skos:Concept</code>, in relation to the attributing entity, with the <code>hadRole</code> property.</p>
                         <p class="eg">
                             <span>Example: A Resource with a qualified Attribution</span>
-                &lt;http://example.com/resource/x&gt;
-                    a dcat:Resource ;
-                    ...
-                    prov:qualifiedAttribution [
-                        a prov:Attribution;
-                        prov:agent &lt;http://example.com/resource/central-lands-council&gt; ;
-                        dcat:hadRole :custodian ;
-                    ] ;
-                    ...
-                .
+&lt;http://example.com/resource/x&gt;
+    a dcat:Resource ;
+    ...
+    prov:qualifiedAttribution [
+        a prov:Attribution;
+        prov:agent &lt;http://example.com/resource/central-lands-council&gt; ;
+        dcat:hadRole :custodian ;
+    ] ;
+    ...
+.
                         </p>
                     </section>
                     <section id="agent">
@@ -257,20 +257,20 @@
                         <p class="req"><strong>Req AG4:</strong> Each <code>Agent</code> MAY relate other information using <em>schema.org</em> properties, for example <code>sdo:affiliation</code> to link a <code>sdo:Person</code> to an <code>sdo:Organization</code>.</p>
                         <p class="eg">
                             <span>Example: An Organization with an example Australian Business Number identifer and a Person affiliated with it</span>
-                &lt;https://kurrawong.net&gt;
-                    a sdo:Organization ;
-                    sdo:identifier "31 353 542 036"^^ex:ABN ;
-                    sdo:name "Kurrawong AI" ;
-                    sdo:description "Kurrawong AI is a small, Artificial Intelligence, company in Australia specialising in Knowledge Graphs." ;
-                    sdo:url "https://kurrawong.net"^^xsd:anyURI ;
-                .
+&lt;https://kurrawong.net&gt;
+    a sdo:Organization ;
+    sdo:identifier "31 353 542 036"^^ex:ABN ;
+    sdo:name "Kurrawong AI" ;
+    sdo:description "Kurrawong AI is a small, Artificial Intelligence, company in Australia specialising in Knowledge Graphs." ;
+    sdo:url "https://kurrawong.net"^^xsd:anyURI ;
+.
 
-                &lt;https://orcid.org/0000-0002-8742-7730&gt;
-                    a sdo:Person ;
-                    sdo:name "Nicholas J. Car"@en ;
-                    sdo:email "nick@kurrawong.net"^^xsd:anyURI ;
-                    sdo:affiliation &lt;https://kurrawong.net&gt; ;
-                .
+&lt;https://orcid.org/0000-0002-8742-7730&gt;
+    a sdo:Person ;
+    sdo:name "Nicholas J. Car"@en ;
+    sdo:email "nick@kurrawong.net"^^xsd:anyURI ;
+    sdo:affiliation &lt;https://kurrawong.net&gt; ;
+.
                         </p>
                     </section>
                     <section id="concept">
@@ -282,16 +282,16 @@
                         </ul>
                         <p class="eg">
                             <span>Example: A Concept with basic VocPub requirements met</span>
-                &lt;http://example.com/concept/x&gt;
-                    a skos:Concept ;
-                    rdfs:isDefinedBy &lt;http://example.com/concept-scheme/y&gt; ;  # Indicating the vocabulary that defines this term
+&lt;http://example.com/concept/x&gt;
+    a skos:Concept ;
+    rdfs:isDefinedBy &lt;http://example.com/concept-scheme/y&gt; ;  # Indicating the vocabulary that defines this term
 
-                    skos:prefLabel "Concept X"@en ;  # The Concepts preferred label
-                    skos:altLabel "Xxx"@en ;  # A synonym/alias
-                    skos:definition "An example Concept"@en ;  # The Concept's definition
+    skos:prefLabel "Concept X"@en ;  # The Concepts preferred label
+    skos:altLabel "Xxx"@en ;  # A synonym/alias
+    skos:definition "An example Concept"@en ;  # The Concept's definition
 
-                    skos:narrower &lt;http://example.com/concept/x.1&gt; ;
-                .
+    skos:narrower &lt;http://example.com/concept/x.1&gt; ;
+.
                         </p>
                     </section>
                     <section id="conceptscheme">
@@ -311,18 +311,18 @@
                     <p class="req"><strong>Req V3:</strong> Each <code>Agent</code> instance referenced by an <code>Attribution</code> instance, if the <code>Agent</code> is indigenous SHOULD be registered within the <a>IDN Agents Catalogue</a>.</p>
                     <p class="eg">
                         <span>Example: A Resource with a qualified Attribution</span>
-                &lt;http://example.com/resource/x&gt;
-                    a dcat:Resource ;
-                    ...
-                    dcat:theme idth:indigenous-demographics ;   # Concept within the IDN Data Themes Vocabulary
-                    ...
-                    prov:qualifiedAttribution [
-                        a prov:Attribution;
-                        # Example Agent that could be registered in the IDN Agents Catalogue
-                        prov:agent &lt;http://example.com/resource/central-lands-council&gt; ;
-                        dcat:hadRole :custodian ;  # Role from the IDN Role Codes Vocabulary
-                    ] ;
-                .
+&lt;http://example.com/resource/x&gt;
+    a dcat:Resource ;
+    ...
+    dcat:theme idth:indigenous-demographics ;   # Concept within the IDN Data Themes Vocabulary
+    ...
+    prov:qualifiedAttribution [
+        a prov:Attribution;
+        # Example Agent that could be registered in the IDN Agents Catalogue
+        prov:agent &lt;http://example.com/resource/central-lands-council&gt; ;
+        dcat:hadRole :custodian ;  # Role from the IDN Role Codes Vocabulary
+    ] ;
+.
                     </p>
                 </section>
             </section>
@@ -335,62 +335,99 @@
                 </ul>
                 <p class="eg">
                     <span>Example: Partial content of the IDN Dataset Catalogue</span>
-            &lt;http://linked.data.gov.au/dataset/idndc&gt;
-                a dcat:Catalog ;
-                    dcterms:title "IDC Dataset Catalogue" ;
-                    dcterms:description """The Indigenous Data Network's catalogue of datasets. This catalogue contains records of datasets in Australia, most of which have some relation to indigenous Australia.
+PREFIX dcat: &lt;http://www.w3.org/ns/dcat#&gt;
+PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
+PREFIX idnth: &lt;https://linked.data.gov.au/def/idn-data-themes/&gt;
+PREFIX idnroles: &lt;https://linked.data.gov.au/def/idn-role-codes/&gt;
+PREFIX isoroles: &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX prov: &lt;http://www.w3.org/ns/prov#&gt;
+PREFIX sdo: &lt;https://schema.org/&gt;
+PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+
+&lt;http://linked.data.gov.au/dataset/idndc&gt;
+    a dcat:Catalog ;
+        dcterms:title "IDC Dataset Catalogue" ;
+        dcterms:description """The Indigenous Data Network's catalogue of datasets. This catalogue contains records of datasets in Australia, most of which have some relation to indigenous Australia.
 
 The purpose of this catalogue is not to act as a master catalogue of indigenous data in Australia to demonstrate improved metadata models and rating systems for data and metadata in order to improve indigenous data governance.
 
 The content of this catalogue conforms to the Indigenous Data Network's Catalogue Profile which is a profile of the DCAT, SKOS and PROV data models."""@en ;
-                    dcterms:created "2022-07-31"^^xsd:date ;
-                    dcterms:modified "2022-07-31"^^xsd:date ;
-                    prov:qualifiedAttribution [
-                        a prov:Attribution;
-                        prov:agent &lt;https://linked.data.gov.au/org/idn&gt; ;
-                        dcat:hadRole :author , :owner , :custodian ;
-                    ] ;
-                    dcterms:hasPart
-                        &lt;http://example.com/resource/x&gt; ;
-            .
+        dcterms:created "2022-07-31"^^xsd:date ;
+        dcterms:modified "2022-07-31"^^xsd:date ;
+        prov:qualifiedAttribution [
+            a prov:Attribution;
+            prov:agent &lt;https://linked.data.gov.au/org/idn&gt; ;
+            dcat:hadRole isoroles:author , isoroles:owner , isoroles:custodian ;
+        ] ;
+        dcterms:hasPart
+            &lt;http://example.com/resource/x&gt; ;
+.
 
-            &lt;http://example.com/resource/x&gt;
-                a dcat:Dataset ;
-                dcterms:title "Example Dataset 1" ;
-                dcterms:description """This example dataset has a minimalist metadata record that is valid according to the Indigenous Data Network's Catalogue Profile"@en ;
-                dcterms:created "2022-07-31"^^xsd:date ;
-                dcterms:modified "2022-07-31"^^xsd:date ;
-                dcat:theme idth:indigenous-demographics ;
-                prov:qualifiedAttribution [
-                    a prov:Attribution;
-                    prov:agent &lt;https://orcid.org/0000-0002-8742-7730&gt; ;
-                    dcat:hadRole :author ;  # not being a real dataset, it has no roles other than 'author' for Agents associated with it
-                ] ;
-            .
+&lt;http://example.com/resource/x&gt;
+    a dcat:Dataset ;
+    dcterms:title "Example Dataset 1" ;
+    dcterms:description "This example dataset has a minimalist metadata record that is valid according to the Indigenous Data Network's Catalogue Profile"@en ;
+    dcterms:created "2022-07-31"^^xsd:date ;
+    dcterms:modified "2022-07-31"^^xsd:date ;
+    dcat:theme idnth:indigenous-demographics ;
+    prov:qualifiedAttribution [
+        a prov:Attribution ;
+        prov:agent &lt;https://orcid.org/0000-0002-8742-7730&gt; ;
+        dcat:hadRole isoroles:author ;  # not being a real dataset, it has no roles other than 'author' for Agents associated with it
+    ] ;
+.
 
-            # From the IDN Agents Catalogue
-            &lt;https://linked.data.gov.au/org/idn&gt;
-                a sdo:Organization ;
-                sdo:name "Indigenous Data Network" ;
-                sdo:description "The IDN is within the University of Melbourne. It was established in 2018 to support and coordinate the governance of Indigenous data for Aboriginal and Torres Strait Islander peoples and empower Aboriginal and Torres Strait Islander communities to decide their own local data priorities." ;
-                sdo:url "https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network"^^xsd:anyURI ;
-            .
+# From the IDN Agents Catalogue
+&lt;https://linked.data.gov.au/org/idn&gt;
+    a sdo:Organization ;
+    sdo:name "Indigenous Data Network" ;
+    sdo:description "The IDN is within the University of Melbourne. It was established in 2018 to support and coordinate the governance of Indigenous data for Aboriginal and Torres Strait Islander peoples and empower Aboriginal and Torres Strait Islander communities to decide their own local data priorities." ;
+    sdo:url "https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network"^^xsd:anyURI ;
+.
 
-            # From the IDN Agents Catalogue
-            &lt;https://orcid.org/0000-0002-8742-7730&gt;
-                a sdo:Person ;
-                sdo:name "Nicholas J. Car"@en ;
-                sdo:email "nick@kurrawong.net"^^xsd:anyURI ;
-                sdo:affiliation &lt;https://kurrawong.net&gt; ;
-            .
+# From the IDN Agents Catalogue
+&lt;https://orcid.org/0000-0002-8742-7730&gt;
+    a sdo:Person ;
+    sdo:name "Nicholas J. Car"@en ;
+    sdo:email "nick@kurrawong.net"^^xsd:anyURI ;
+    sdo:affiliation &lt;https://kurrawong.net&gt; ;
+.
+&lt;https://kurrawong.net&gt;
+    a sdo:Organization ;
+    sdo:name "Kurrawong AI" ;
+    sdo:description "Kurrawong AI is a small, Artificial Intelligence, company in Australia specialising in Knowledge Graphs." ;
+    sdo:url "https://kurrawong.net"^^xsd:anyURI ;
+.
 
-            # From the IDN Agents Catalogue
-            &lt;https://kurrawong.net&gt;
-                a sdo:Organization ;
-                sdo:name "Kurrawong AI" ;
-                sdo:description "Kurrawong AI is a small, Artificial Intelligence, company in Australia specialising in Knowledge Graphs." ;
-                sdo:url "https://kurrawong.net"^^xsd:anyURI ;
-            .
+# From the IDN Data Themes Vocabulary
+idnth:indigenous-demographics
+    a skos:Concept ;
+    skos:prefLabel "Indigenous Demographics"@en ;
+    skos:definition "Concerned with the demographics of indigenous people in Australia"@en ;
+    skos:inScheme &lt;https://linked.data.gov.au/def/idn-data-themes&gt; ;
+.
+
+# From the IDN Role Codes Vocabulary
+isoroles:author
+    a skos:Concept ;
+    skos:prefLabel "Author"@en ;
+    skos:definition "party who authored the resource"@en ;
+    skos:inScheme &lt;https://linked.data.gov.au/def/idn-role-codes&gt; ;
+.
+isoroles:owner
+    a skos:Concept ;
+    skos:prefLabel "Owner"@en ;
+    skos:definition "party that owns the resource"@en ;
+    skos:inScheme &lt;https://linked.data.gov.au/def/idn-role-codes&gt; ;
+.
+isoroles:custodian
+    a skos:Concept ;
+    skos:prefLabel "Custodian"@en ;
+    skos:definition "party that accepts accountability and responsibility for the resource and ensures appropriate care and maintenance of the resource"@en ;
+    skos:inScheme &lt;https://linked.data.gov.au/def/idn-role-codes&gt; ;
+.
                 </p>
                 <p>The content for the example above can be accessed online from the IDN Dataset Catalogue's content repository:</p>
                 <ul>

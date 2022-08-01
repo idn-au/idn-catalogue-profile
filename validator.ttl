@@ -53,7 +53,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 .
 
 #
-#   Node Shapoes
+#   Node Shapes
 #
 
 :catalog
@@ -179,7 +179,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sh:maxCount 1 ;
     sh:or (
         [ sh:datatype xsd:string ]
-        [ sh:datatype rdf:LangString ]
+        [ sh:datatype rdf:langString ]
     ) ;
     sh:message "Req R2: Each Resource instance MUST provide basic Resource metadata so that exactly one of each of the following properties is required with range value as per Resource requirements: title, description, created & modified. The particular validator violated here is for title." ;
 .
@@ -192,7 +192,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sh:maxCount 1 ;
     sh:or (
         [ sh:datatype xsd:string ]
-        [ sh:datatype rdf:LangString ]
+        [ sh:datatype rdf:langString ]
     ) ;
     sh:message "Req R2: Each Resource instance MUST provide basic Resource metadata so that exactly one of each of the following properties is required with range value as per Resource requirements: title, description, created & modified. The particular validator violated here is for description." ;
 .
@@ -282,7 +282,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         [ sh:class sdo:Organization ]
         [ sh:class sdo:Person ]
     ) ;
-    sh:message "Req A1: Each Attribution instance MUST indicate an Agent instance with the property prov:agent and a role for that Agent, as a skos:Concept, in relation to the attributing entity, with the hasRole property." ;
+    sh:message "Req A1: Each Attribution instance MUST indicate an Agent instance with the property prov:agent and a role for that Agent, as a skos:Concept, in relation to the attributing entity, with the hadRole property." ;
 .
 
 :attribution-hadRole
@@ -290,9 +290,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     rdfs:label "Attribution Role" ;
     sh:path dcat:hadRole ;
     sh:minCount 1 ;
-    sh:maxCount 1 ;
     sh:class skos:Concept ;
-    sh:message "Req A1: Each Attribution instance MUST indicate an Agent instance with the property prov:agent and a role for that Agent, as a skos:Concept, in relation to the attributing entity, with the hasRole property." ;
+    sh:message "Req A1: Each Attribution instance MUST indicate an Agent instance with the property prov:agent and a role for that Agent, as a skos:Concept, in relation to the attributing entity, with the hadRole property." ;
 .
 
 :agent-as-org-or-person
@@ -316,7 +315,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sh:maxCount 1 ;
     sh:or (
         [ sh:datatype xsd:string ]
-        [ sh:datatype rdf:LangString ]
+        [ sh:datatype rdf:langString ]
     ) ;
     sh:message "Req AG2: Each Agent instance MUST be described with at least the sdo:name property and, if an sdo:Organization, also an sdo:url property with a xsd:anyURI value or, if a sdo:Person, an sdo:email property with a xsd:anyURI value." ;  
 .
@@ -341,11 +340,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     a sh:PropertyShape ;
     rdfs:label "Agent description" ;
     sh:path sdo:description ;
-    sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:or (
         [ sh:datatype xsd:string ]
-        [ sh:datatype rdf:LangString ]
+        [ sh:datatype rdf:langString ]
     ) ;
     sh:message "Req AG3: Each Agent instance SHOULD be described with a sdo:description property and, if the Agent has them, identifiers for it should be indicated with dcterms:identifier with xsd:anyURI or xsd:token values." ;
 .
@@ -354,11 +352,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     a sh:PropertyShape ;
     rdfs:label "Agent identifier" ;
     sh:path sdo:identifier ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
     sh:or (
         [ sh:datatype xsd:string ]
-        [ sh:datatype rdf:LangString ]
+        [ sh:datatype rdf:langString ]
     ) ;
     sh:message "Req AG3: Each Agent instance SHOULD be described with a sdo:description property and, if the Agent has them, identifiers for it should be indicated with sdo:identifier with xsd:anyURI or xsd:token values." ;
 .
@@ -370,7 +366,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:datatype xsd:anyURI ;
-    sh:message "Req AG2: Each Agent instance MUST be described with at least the sdo:name property and, if an sdo:Organization, also an sdo:url property with a xsd:anyURI value or, if a sdo:Person, an sdo:email property with a xsd:anyURI value." ;
+    sh:message "Req AG2: (organization-email) Each Agent instance MUST be described with at least the sdo:name property and, if an sdo:Organization, also an sdo:url property with a xsd:anyURI value or, if a sdo:Person, an sdo:email property with a xsd:anyURI value." ;
 .
 
 :agent-identifier
@@ -391,5 +387,5 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:datatype xsd:anyURI ;
-    sh:message "Req AG2: Each Agent instance MUST be described with at least the sdo:name property and, if an sdo:Organization, also an sdo:url property with a xsd:anyURI value or, if a sdo:Person, an sdo:email property with a xsd:anyURI value." ;
+    sh:message "Req AG2: (person-email) Each Agent instance MUST be described with at least the sdo:name property and, if an sdo:Organization, also an sdo:url property with a xsd:anyURI value or, if a sdo:Person, an sdo:email property with a xsd:anyURI value." ;
 .
