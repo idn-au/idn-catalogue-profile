@@ -32,6 +32,10 @@ body {
     list-style-type: none;
 }
 
+#menu li {
+    margin-top: 5px;
+}
+
 #header {
     overflow: hidden;
 }

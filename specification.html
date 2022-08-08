@@ -12,9 +12,14 @@
             <ul>
                 <li><a href="#overview">Overview</a></li>
                 <li><a href="#metadata">Metadata</a></li>
-                <li><a href="#abstract">Abstract</a></li>
-                <li><a href="#namespaces">Namespaces</a></li>
-                <li><a href="#conformance">Conformance</a></li>
+                <li>
+                    <a href="#preamble">Preamble</a>
+                    <ul>
+                        <li><a href="#abstract">Abstract</a></li>
+                        <li><a href="#namespaces">Namespaces</a></li>
+                        <li><a href="#conformance">Conformance</a></li>
+                    </ul>
+                </li>
                 <li><a href="#intro">1. Introduction</a></li>
                 <li>
                     <a href="#requirements">2. Requirements</a>
@@ -31,6 +36,13 @@
                     </ul>
                 </li>
                 <li><a href="#example">3. Examples</a></li>
+                <li><a href="#annex-a">A: Mappings</a></li>
+                <li>
+                    <a href="#annex-b">B: Assessment Models</a>
+                    <ul>
+                        <li><a href="#lc-model">B.4 Local Contexts Model</a></li>
+                    </ul>
+                </li>
                 <li><a href="#references">References</a></li>
             </ul>
         </div>
@@ -48,10 +60,10 @@
         <div class="content" id="content" style="grid-column:2; grid-row:2;">
             <h1>IDN Catalogue Profile - Specification</h1>
             <!-- <h2>Description</h2> -->
-            <div id="description">The specification of normative requirements for data conforming to the <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a>.</div>
+            <div id="description">This is the specification of normative requirements for data conforming to the <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a>. Also presented are mapping from this profile to other models</div>
             <div id="overview" class="figure">
-                <a href="style/overview.png"><img src="style/overview.png" style="width:600px;" alt="Profile class structure overview" /></a>
-                <p class="caption"><strong>Figure 1:</strong> Overview of elements of the DCAT, PROV & SKOS models and relationships between them used in this profile. Classes of object are shown as chamfered rectangles except for <code>Agent</code> which is shown as a 'house'. Enclosed arrows indicate the <code>rdfs:subClassOf</code> relationship. Pink arrows indicate specific value properties.</p>
+                <a href="style/venn.png"><img src="style/venn.png" style="width:600px;" alt="Venn diagram of this profile's concerns" /></a>
+                <p class="caption"><strong>Figure 1:</strong> This profile overlaps concerns with the DCAT and PROV models and provides for the description of data according to several other assessment models, such as FAIR, CARE etc. The overlaps do indicate which models are needed to cover requirements of the assessment models.</p>
             </div>
             <section id="metadata">
                 <h2>Metadata</h2>
@@ -86,51 +98,57 @@
                     <dd>2022</dd>
                 </dl>
             </section>
-            <section id="abstract">
-                <h2>Abstract <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-                <p>This is the specification document of the <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a> which is a profile of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>. Where DCAT is designed for the representation of data catalogues and their content in general, this profile of it aims to cater for the enhanced representation of indigeous data governance.</p>
-                <p>This document specifies requirements of data that must be met in order for that data to claim conformance to the IDN Catalogue Profile. Data that conforms to this profile necissarily conforms to DCAT also.</p>
-                <p>This specification document is <em>not</em> to be used for the automated testing of conformance of RDF resources to this profile. That role belongs to the machine-readable <em>validation</em> resource within this profile:</p>
-                <ul>
+            <section id="preamble">
+                <h2>Preamble <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                <section id="abstract">
+                    <h3>Abstract <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <p>This is the specification document of the <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a> which is a profile of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>. Where DCAT is designed for the representation of data catalogues and their content in general, this profile of it aims to cater for the enhanced representation of indigenous data governance.</p>
+                    <p>This document specifies requirements of data that must be met for that data to claim conformance to the IDN Catalogue Profile. Data that conforms to this profile necessarily conforms to DCAT also. This profile also provides mappings from it to models of assessments of principles such as <a href="https://force11.org/info/the-fair-data-principles/">FAIR</a> and <a href="https://www.gida-global.org/care">CARE</a> so it also specifies additional sub-profiles' requirements necissary for those and other mappings.</p>
+                    <p>This specification document is <em>not</em> to be used for the automated testing of conformance of RDF data to this profile. That role belongs to the machine-readable <em>validation</em> resource:</p>
+                    <ul>
                     <li><a href="https://linked.data.gov.au/def/idncp/validator">SHACL Validator</a></li>
                     <li><a href="https://linked.data.gov.au/def/idncp/validator-compounded">Compounded Validator</a></li>
-                </ul>
-                <p>The first validator above contains tests for this profile's requirements on top of DCAT's. The second contains this profile's tests and DCAT's.</p>
-                <p>For the list of all resources within this profile, see the profile definition:</p>
-                <ul>
+                    <li>FAIR, CARE and other mappings' validators</li>
+                    </ul>
+                    <p>The first validator above contains tests for this profile's requirements on top of DCAT's. The second contains this profile's tests as well as those from the standards this profile, profiles: DCAT etc. The third - <em>not available yet</em> - contains tests for different FIAR and CARE etc scores, based on the mappings from this profile to models of those assessment systems.</p>
+                    <p>For the list of all resources within this profile, see the profile definition:</p>
+                    <ul>
                     <li><a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile Definition</a></li>
-                </ul>
-            </section>
-            <section id="namespaces">
-                <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-                <p>This document refers to elements of various ontologies by short codes using namespace prefixes. The prefixes and their corresponding namespaces' URIs are:</p>
-                <dl>
-                    <dt>idncp</dt>
-                    <dd><code>https://linked.data.gov.au/def/idncp</code></dd>
-                    <dt>dcterms</dt>
-                    <dd><code>http://purl.org/dc/terms/</code></dd>
-                    <dt>owl</dt>
-                    <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
-                    <dt>prof</dt>
-                    <dd><code>http://www.w3.org/ns/dx/prof/</code></dd>
-                    <dt>rdf</dt>
-                    <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
-                    <dt>rdfs</dt>
-                    <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
-                    <dt>role</dt>
-                    <dd><code>http://www.w3.org/ns/dx/prof/role/</code></dd>
-                    <dt>sdo</dt>
-                    <dd><code>https://schema.org/</code></dd>
-                    <dt>skos</dt>
-                    <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
-                    <dt>xsd</dt>
-                    <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
-                </dl>
-            </section>
-            <section id="conformance">
-                <h2>Conformance <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-                <p>The key words MAY, MUST, MUST NOT, and SHOULD are to be interpreted as described in <a href="#rfc2119">RFC2119</a>.</p>
-                <p>The Examples in this document are snippets of RDF data formulated according to the <a href="#turtle">Turtle syntax</a>.</p>
+                    </ul>
+                </section>
+                <section id="namespaces">
+                    <h3>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <p>This document refers to elements of various ontologies by short codes using namespace prefixes. The prefixes and their corresponding namespaces' URIs are:</p>
+                    <dl>
+                        <dt>idncp</dt>
+                        <dd><code>https://linked.data.gov.au/def/idncp</code></dd>
+                        <dt>dcat</dt>
+                        <dd>http://www.w3.org/ns/dcat#</dd>
+                        <dt>dcterms</dt>
+                        <dd><code>http://purl.org/dc/terms/</code></dd>
+                        <dt>owl</dt>
+                        <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+                        <dt>prof</dt>
+                        <dd><code>http://www.w3.org/ns/dx/prof/</code></dd>
+                        <dt>rdf</dt>
+                        <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
+                        <dt>rdfs</dt>
+                        <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+                        <dt>role</dt>
+                        <dd><code>http://www.w3.org/ns/dx/prof/role/</code></dd>
+                        <dt>sdo</dt>
+                        <dd><code>https://schema.org/</code></dd>
+                        <dt>skos</dt>
+                        <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
+                        <dt>xsd</dt>
+                        <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
+                    </dl>
+                </section>
+                <section id="conformance">
+                <h3>Conformance <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <p>The key words MAY, MUST, MUST NOT, and SHOULD are to be interpreted as described in <a href="#rfc2119">RFC2119</a>.</p>
+                    <p>The Examples in this document are snippets of RDF data formulated according to the <a href="#turtle">Turtle syntax</a>.</p>
+                </section>
             </section>
             <section id="intro">
                 <h2>1. Introduction <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
@@ -150,7 +168,11 @@
                 <p><em>Where model objects are indicated in </em><code>code</code><em> and no namespace is indicated, presume the <code>dcat</code>, <code>prov</code> or <code>skos</code> namespaces are used. There are no class/property overlaps between those models, so there can be no confusion if the object is looked up in those standards.</em></p>
                 <section id="structural">
                     <h3>2.1 Structural Requirements</h3>
-                    <p>The following sub-subsections are per object class, where 'class' is one of the classes in this profile's structural overview (see Figure at top).</p>
+                    <div id="structural-figure" class="figure">
+                        <a href="style/overview.png"><img src="style/overview.png" style="width:600px;" alt="Profile class structure overview" /></a>
+                        <p class="caption"><strong>Figure 2:</strong> Overview of elements of the DCAT, PROV & SKOS models and relationships between them used in this profile. Classes of object are shown as chamfered rectangles except for <code>Agent</code> which is shown as a 'house'. Enclosed arrows indicate the <code>rdfs:subClassOf</code> relationship. Pink arrows indicate specific value properties.</p>
+                    </div>
+                    <p>The following sub-subsections are per object class, where 'class' is one of the classes in this profile's structural overview (see Figure 2 above).</p>
                     <p>The general idea is that objects of the various class types in the overview diagram are needed for IDN metadata and this section describes their required properties and relations. For example, all <code>Resource</code> instances must be related to at least one <code>Catalog</code> instance.</p>
                     <section id="catalogue">
                         <h4>2.1.2 <code>Catalogue</code></h4>
@@ -435,6 +457,102 @@ isoroles:custodian
                 <ul>
                     <li><a href="https://github.com/idn-au/catalogue-data">IDN Catalogue Data</a></li>
                 </ul>
+            </section>
+            <section id="annex-a">
+                <h2>Annex A. Mappings<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                <p>This Annex defines mappings between this Profile and assessment models.</p>
+                <section id="fair-mapping">
+                    <h4>A.1. FAIR Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h4>
+                </section>
+                <section id="indigeneity-mapping">
+                    <h4>A.2. Indigeneity Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h4>
+                </section>
+                <section id="care-mapping">
+                    <h4>A.3. CARE Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h4>
+                </section>
+                <section id="lc-mapping">
+                    <h4>A.4. Local Context Labels Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h4>
+                </section>
+            </section>
+            <section id="annex-b">
+                <h2>Annex B. Assessment Models<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                <section id="fair-model">
+                    <h3>B.1. FAIR Model<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                </section>
+                <section id="indigeneity-model">
+                    <h3>B.2. Indigeneity Model<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                </section>
+                <section id="care-model">
+                    <h3>B.3. CARE Model<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                </section>
+                <section id="lc-model">
+                    <h3>B.4. Local Context Labels Model<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <ul>
+                        <li><a href="#b.4.1">Introduction</a></li>
+                        <li><a href="#b.4.2">Definitions</a></li>
+                        <li><a href="#b.4.3"><code>LocalContextLabel</code> instances</a></li>
+                        <li><a href="#b.4.4">Example of a <code>Resource</code> with a LC label</a></li>
+                    </ul>
+                    <section id="b.4.1">
+                        <h4>B.4.1 Introduction</h4>
+                        <div style="width:50%; text-align:center;">
+                            <p style="margin:0 auto; text-align:left; font-style:italic;">"The primary objectives of Local Contexts are to enhance and legitimize locally based decision-making and Indigenous governance frameworks for determining ownership, access, and culturally appropriate conditions for sharing historical, contemporary and future collections of cultural heritage and Indigenous data"</p>
+                            <p style="margin:0 auto; text-align:right;">&ndash; <a href="https://localcontexts.org/about/about-local-contexts/">About Local Contexts web page</a></p>
+                        </div>
+                        <p>This Local Context model is a small ontology providing just a few classes and properties to indicate how to attach LC labels to objects catalogued according to this profile.</p>
+                        <p>The machine-readable version of this model is available at:<ul><li><a style="font-weight:bold; text-decoration:line-through;" href="https://linked.data.gov.au/def/lc-contexts">https://linked.data.gov.au/def/lc-contexts</a></li></ul></p>
+                        <p>Figure B.4.1 overviews the model.</p>
+                        <div id="lc-model-figure" class="figure">
+                            <a href="style/lc-model.png"><img src="style/lc-model.png" style="width:600px;" alt="Local Context model" /></a>
+                            <p class="caption"><strong>Figure B.4.1:</strong> Overview of elements of the Local Context Model. </p>
+                        </div>
+                        <p>This model requires that a <code>LocalContextLabel</code>, which is a specialised <code>skos:Concept</code>, is assigned to a catalogued <code>dcat:Resource</code> via an intermediate node of type <code>QualifiedLocalContext</code>. This use of the <a href="https://patterns.dataincubator.org/book/qualified-relation.html">"Qualified Relations" graph modelling pattern</a> allows for the nature of the <code>Resource</code>/<code>LocalContextLabel</code> relationship to be defined.</p>
+                    </section>
+                    <section id="b.4.2">
+                        <h4>B.4.2 Definitions</h4>
+                        <section id="b.4.2.1">
+                            <h4>B.4.2 <code>LocalContextLabel</code> class definition</h4>
+                            <p>Blah</p>
+                        </section>
+                        <section id="b.4.2.2">
+                            <h4>B.4.2.2 <code>QualifiedLocalContext</code> class definition</h4>
+                            <p>Blah</p>
+                        </section>
+                        <section id="b.4.2.3">
+                            <h4>B.4.2.3 <code>requirement</code> property definition</h4>
+                            <p>Blah</p>
+                        </section>
+                    </section>
+                    <section id="b.4.3">
+                        <h4>B.4.3 <code>LocalContextLabel</code> instances</h4>
+                        <p><code>LocalContextLabel</code> instances for all defined TK & BC labels are given in two vocabularies:</p>
+                        <ol>
+                            <li><a href="https://linked.data.gov.au/def/BC-labels" style="text-decoration:line-through;">BC Labels Vocabulary</a></li>
+                            <li><a href="https://linked.data.gov.au/def/tk-labels" style="text-decoration:line-through;">TK Labels Vocabulary</a></li>
+                        </ol>
+                        <p>An example of RDF data for one of these labels is:</p>
+                        <p class="eg">
+    PREFIX tk: &lt;https://linked.data.gov.au/def/tk-labels/&gt;
+
+    tk:women-restricted
+        a
+            skos:Concept , lc:TKLabel ;
+        dcterms:identifier "women-restricted"^^xsd:token ;
+        dcterms:source "https://localcontexts.org/label/tk-women-restricted/"^^xsd:anyURI ;
+        rdfs:isDefinedBy cs: ;
+        skos:definition "This Label should be used when you want to let external users know that the material circulating freely is actually of a highly restricted nature. This is a Women’s Highly Restricted Label and indicates that there are restrictions of access and use based on customary law. This Label can be used to help external users recognize that with this material there are very specific protocols and conditions of use. This Label is designed to recognize that some knowledge is gendered, and that certain knowledge expressions can only be shared among specific members of the community. Only authorized [and/or initiated] women within the community should be using this material."@en ;
+        skos:inScheme cs: ;
+        skos:notation "TK WR" ;
+        skos:prefLabel "Women Restricted"@en ;
+    .
+                        </p>
+                    </section>
+                    <section id="b.4.4">
+                        <h4>B.4.4 Example of a <code>Resource</code> with a LC label</h4>
+                        <p>Blah</p>
+                        <p class="eg"></p>
+                    </section>
+                </section>
             </section>
             <section id="references">
               <h2>References <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
