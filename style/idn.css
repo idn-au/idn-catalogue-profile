@@ -226,3 +226,22 @@ code {
     width: 50%;
     margin: 0 auto;
 }
+
+table.properties {
+    border-collapse: collapse;
+}
+
+table.properties th,
+table.properties td {
+    text-align: left;
+    padding: 10px;
+}
+
+
+table.properties tr:nth-child(odd){
+    background: #ccc;
+}
+
+table.properties tr:nth-child(even){
+    background: #eee;
+}
