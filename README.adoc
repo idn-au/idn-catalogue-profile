@@ -4,7 +4,7 @@ This repository contains the https://mspgh.unimelb.edu.au/centres-institutes/cen
 
 The intentions of this profile are to:
 
-1. mandata a minimum set of metadata elements related to indigenous data governance & soverinty
+1. mandata a minimum set of metadata elements related to indigenous data governance & sovereignty
 2. allow for the modelling of certain person and organisation roles in relation to data important for indigenous governance
 3. provide mappings from DCAT metadata to data rating systems such as https://www.go-fair.org/fair-principles/[FAIR] and https://doi.org/10.5334/dsj-2020-043[CARE]
 
