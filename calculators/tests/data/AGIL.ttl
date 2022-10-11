@@ -1,0 +1,57 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX ex: <https://example.com/>
+PREFIX iso: <http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+<https://linked.data.gov.au/dataset/idndc>
+    dcterms:hasPart <https://data.gov.au/data/dataset/34b1c164-fbe8-44a0-84fd-467dba645aa7> ;
+.
+
+<https://data.gov.au/data/dataset/34b1c164-fbe8-44a0-84fd-467dba645aa7>
+    a dcat:Resource ;
+    dcterms:created "2013-12-02"^^xsd:date ;
+    dcterms:description """This dataset has been developed by the Australian Government as an authoritative source of indigenous location names across Australia. It is sponsored by the Spatial Policy Branch within the Department of Communications and managed solely by the Department of Human Services.
+The dataset is designed to support the accurate positioning, consistent reporting, and effective delivery of Australian Government programs and services to indigenous locations.
+The dataset contains Preferred and Alternate names for indigenous locations where Australian Government programs and services have been, are being, or may be provided. The Preferred name will always default to a State or Territory jurisdiction's gazetted name so the term 'preferred' does not infer that this is the locally known name for the location. Similarly, locational details are aligned, where possible, with those published in State and Territory registers.
+This dataset is NOT a complete listing of all locations at which indigenous people reside. Town and city names are not included in the dataset. The dataset contains names that represent indigenous communities, outstations, defined indigenous areas within a town or city or locations where services have been provided.""" ;
+    dcterms:format "xslx" ;
+    dcterms:identifier "AGIL"^^xsd:token ;
+    dcterms:issued "2013-12-02"^^xsd:date ;
+    dcterms:license <https://purl.org/NET/rdflicense/cc-by4.0> ;
+    dcterms:modified "2013-12-02"^^xsd:date ;
+    dcterms:rights "None" ;
+    dcterms:spatial <https://linked.data.gov.au/dataset/asgsed3/AUS/AUS> ;
+    dcterms:temporal [
+            prov:endedAtTime "2019"^^xsd:gYear ;
+            prov:startedAtTime "2008"^^xsd:gYear
+        ] ;
+    dcterms:title "Australian Government Indigenous Programs & Policy Locations (AGIL) dataset" ;
+    dcterms:type "dataset" ;
+    dcterms:accessRights <https://linked.data.gov.au/def/data-access-rights> ;
+    dcat:distribution [
+            dcat:accessURL "https://data.gov.au/data/dataset/34b1c164-fbe8-44a0-84fd-467dba645aa7/resource/d891a36f-57f6-41f7-ada6-fc65069103dc/download/agil20190208.xlsx"^^xsd:anyURI
+        ] ;
+    dcat:theme
+        <https://linked.data.gov.au/def/idn-th/place> ,
+        <https://linked.data.gov.au/def/indigeneity/about-indigenous-things> ;
+    prov:qualifiedAttribution
+        [
+            dcat:hadRole iso:custodian ;
+            prov:agent <https://linked.data.gov.au/org/sa>
+        ] ,
+        [
+            dcat:hadRole iso:rightsHolder ;
+            prov:agent "AUGOV"
+        ] ,
+        [
+            dcat:hadRole iso:originator ;
+            prov:agent "Australian Government Indigenous Locations Working Group 2007-2012"
+        ] ;
+    ex:home "data.gov.au" ;
+    ex:localContext "Attribution Incomplete Notice" ;
+    ex:notes "AGIL@servicesaustralia.gov.au contacted regarding data management plan which is not currently downloadable (ie 404 error)" ;
+
+    dcterms:isPartOf <https://linked.data.gov.au/dataset/idndc> ;
+.
