@@ -82,8 +82,19 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         :resource-created ,
         :resource-modified ,
         :resource-direct-roles ,
-        :resource-hasPart ,
         :resource-type ;
+    sh:or (
+        [
+            sh:path [ sh:inversePath dcterms:hasPart ] ;
+            sh:maxCount 1 ;
+            sh:class dcat:Catalog ;
+        ]
+        [
+            sh:path dcterms:isPartOf ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+        ]
+    ) ;
 .
 
 :dataset
@@ -264,7 +275,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sh:path [ sh:inversePath dcterms:hasPart ] ;
     sh:maxCount 1 ;
     sh:class dcat:Catalog ;
-    sh:message "Req R5: Each Resource instance, if it is not a Catalog instance MUST and if it is a Catalog instance MAY indicate that it is within at least one Catalog instance with an in-bound hasPart property from a Catalog instance." ;
+    sh:message "Req R5: Each Resource instance, if it is not a Catalog instance MUST, and if it is a Catalog instance MAY, indicate that it is within at least one Catalog instance with an in-bound hasPart property from a Catalog instance." ;
 .
 
 :resource-type

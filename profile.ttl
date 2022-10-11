@@ -17,7 +17,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     owl:versionIRI <http://linked.data.gov.au/def/idncp/0.0.1> ;
     owl:versionInfo "0.0.1" ;    
     sdo:codeRespository "https://github.com/idn-au/idn-catalogue-profile/"^^xsd:anyURI ;
-    sdo:copyrightHolder <https://orcid.org/0000-0002-8742-7730> ;
+    sdo:copyrightHolder <https://linked.data.gov.au/org/idn> ;
     sdo:copyrightNotice "(c) Indigenous Data Network, 2022" ;
     sdo:copyrightYear "2022"^^xsd:gYear ;
     sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
