@@ -1,0 +1,174 @@
+# A small ontology to hold various scores for DCAT Resources
+# such as FAIR and CARE scores
+PREFIX : <https://linked.data.gov.au/def/idncp/validator/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sdo: <https://schema.org/>
+PREFIX scores: <https://linked.data.gov.au/def/scores/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+<https://linked.data.gov.au/def/scores>
+    a owl:Ontology ;
+    skos:prefLabel "Scores Ontology"@en ;
+    skos:definition "This is an ontology designed to represent the scores that have been calculated for catalogues resources according to various principles, such as the CARE and FAIR principles. The ontology also provides properties to link Resources to scores."@en ;
+    sdo:dateCreated "2022-09-11"^^xsd:date ;
+    sdo:dateModified "2022-09-11"^^xsd:date ;
+    sdo:dateIssued "2022-09-11"^^xsd:date ;
+    sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
+    sdo:publisher <https://linked.data.gov.au/org/idn> ;
+    dcterms:provenance "This ontology was developed as part of the Indigenous Data Network's Catalogue Profile (https://linked.data.gov.au/def/idncp) in 2022. The structures of the various Scores - FAIR, CARE etc. - reflect those principles' structures." ;
+    sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
+    owl:versionIRI <https://linked.data.gov.au/def/scores/0.0.1> ;
+    owl:versionInfo "0.0.1" ;
+    sdo:codeRespository "https://github.com/idn-au/idn-catalogue-profile/"^^xsd:anyURI ;
+    sdo:copyrightHolder <https://linked.data.gov.au/org/idn> ;
+    sdo:copyrightNotice "(c) Indigenous Data Network, 2022" ;
+    sdo:copyrightYear "2022"^^xsd:gYear ;
+.
+
+<https://linked.data.gov.au/org/idn>
+    a sdo:Organization ;
+    sdo:name "Indigenous Data Network" ;
+    sdo:description "The IDN is within the University of Melbourne. It was established in 2018 to support and coordinate the governance of Indigenous data for Aboriginal and Torres Strait Islander peoples and empower Aboriginal and Torres Strait Islander communities to decide their own local data priorities." ;
+    sdo:url "https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network"^^xsd:anyURI ;
+.
+
+<https://orcid.org/0000-0002-8742-7730>
+    a sdo:Person ;
+    sdo:name "Nicholas J. Car"@en ;
+    sdo:email "nick@kurrawong.net"^^xsd:anyURI ;
+.
+
+scores:Score
+    a owl:Class ;
+    skos:prefLabel "Score"@en ;
+    skos:definition "A Score is a value, or set of values, for a catalogues Resource that has been calculated from metadata or data elements known for the resource in accordance with a scoring principles or metric system, such as the FAIR principles"@en ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/scores> ;
+    skos:example """
+        <http://example.com/resource/x>
+            a dcat:Resource ;
+            scores:hasScore <http://example.com/score/y> ;
+        .
+
+        <http://example.com/score/y>
+            a scores:Score ;
+        .
+        """ ;
+.
+
+scores:CareScore
+    a owl:Class ;
+    skos:prefLabel "CARE Score"@en ;
+    skos:definition "A score according to the CARE Principles for Indigenous Data Governance (CARE: https://www.gida-global.org/care) principles"@en ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/scores> ;
+    skos:example """
+        <http://example.com/resource/x>
+            a dcat:Resource ;
+            scores:hasScore <http://example.com/score/y> ;
+        .
+
+        <http://example.com/score/y>
+            a scores:CareScore ;
+        .
+        """ ;
+.
+
+scores:FairScore
+    a owl:Class ;
+    skos:prefLabel "FAIR Score"@en ;
+    skos:definition "A score according to the Findable, Accessible, Interoperable and Reusable (FAIR: https://www.go-fair.org/fair-principles/) principles"@en ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/scores> ;
+    skos:example """
+        <http://example.com/resource/x>
+            a dcat:Resource ;
+            scores:hasScore <http://example.com/score/y> ;
+        .
+
+        <http://example.com/score/y>
+            a scores:FairScore ;
+        .
+        """ ;
+.
+
+scores:LcLabelsScore
+    a owl:Class ;
+    skos:prefLabel "Local Context Labels Score"@en ;
+    skos:definition "A score according to the Local Context Labels (LC Labels: https://localcontexts.org/)"@en ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/scores> ;
+    skos:example """
+        <http://example.com/resource/x>
+            a dcat:Resource ;
+            scores:hasScore <http://example.com/score/y> ;
+        .
+
+        <http://example.com/score/y>
+            a scores:LcLabelsScore ;
+        .
+        """ ;
+.
+
+scores:ScoreForTime
+    a owl:Class ;
+    skos:prefLabel "Score For Time"@en ;
+    skos:definition "A Score over some period of time"@en ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/scores> ;
+    skos:example """
+        <http://example.com/resource/x>
+            a dcat:Resource ;
+            scores:hasScoreForTime <http://example.com/score/z> ;
+        .
+
+        <http://example.com/score/z>
+            a scores:ScoreForTime ;
+        .
+        """ ;
+.
+
+scores:hasScore
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf dcterms:relation ;
+    rdfs:domain dcat:Resource ;
+    rdfs:range scores:Score ;
+    skos:prefLabel "has score"@en ;
+    skos:definition "The subject Resource has a Score calculated for it from its metadata"@en ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/scores> ;
+    skos:example """
+        <http://example.com/resource/x>
+            a dcat:Resource ;
+            scores:hasScore <http://example.com/score/y> ;
+        .
+
+        <http://example.com/score/y>
+            a scores:Score ;
+        .
+        """ ;
+.
+
+scores:hasScoreForTime
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf dcterms:relation ;
+    rdfs:domain dcat:Resource ;
+    rdfs:range scores:ScoreForTime ;
+    skos:prefLabel "has score for time"@en ;
+    skos:definition "The subject Resource has a Score calculated for it from its metadata for a given time period"@en ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/scores> ;
+    skos:example """
+        <http://example.com/resource/x>
+            a dcat:Resource ;
+            scores:hasScoreForTime <http://example.com/score/z> ;
+        .
+
+        <http://example.com/score/z>
+            a scores:ScoreForTime ;
+        .
+        """ ;
+.
+
