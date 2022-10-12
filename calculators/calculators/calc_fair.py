@@ -6,10 +6,14 @@ import os
 import argparse
 from pathlib import Path
 import httpx
-from rdflib import Graph, URIRef
+from rdflib import Graph, URIRef, BNode, Namespace, Literal
+from rdflib.term import Node
 from typing import Optional, Union
 from pyshacl import validate as val
-from rdflib.namespace import DCAT, DCTERMS, RDF
+from rdflib.namespace import DCAT, DCTERMS, RDF, TIME, XSD
+from _SCORES import SCORES
+
+QB = Namespace("http://purl.org/linked-data/cube#")
 
 
 RDF_FILE_SUFFIXES = {
@@ -20,7 +24,13 @@ RDF_FILE_SUFFIXES = {
 }
 
 
-def create_parser():
+EXTRA_PREFIXES = {
+    "scores": SCORES,
+    "qb": QB,
+}
+
+
+def _create_parser():
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
@@ -49,14 +59,16 @@ def create_parser():
     return parser
 
 
-def output_is_format(s: str):
+def _output_is_format(s: str):
+    """Checks to see if a string is a known format or a graph"""
+
     if s in RDF_FILE_SUFFIXES.keys() or s == "graph":
         return True
     else:
         return False
 
 
-def get_valid_output_dir(path: Path):
+def _get_valid_output_dir(path: Path):
     """Checks that a specified output directory is an existing directory and returns the directory if valid"""
 
     if not os.path.isdir(path.parent):
@@ -67,7 +79,7 @@ def get_valid_output_dir(path: Path):
     return path.parent
 
 
-def get_valid_output_file_and_type(path: Path):
+def _get_valid_output_file_and_type(path: Path):
     """Checks that a specified output file has a known file type extension and returns it and the corresponding
     RDF Media Type if it is"""
 
@@ -81,18 +93,20 @@ def get_valid_output_file_and_type(path: Path):
     return path.name, RDF_FILE_SUFFIXES[path.suffix]
 
 
-def input_is_a_file(s: str):
+def _input_is_a_file(s: str):
+    """Checks if a string is a path to an existing file"""
+
     if Path(s).is_file():
         return True
     else:
         return False
 
 
-def load_input_graph(path_or_url: Union[Path, str]) -> Graph:
+def _load_input_graph(path_or_url: Union[Path, str]) -> Graph:
     """Parses a file at the path location or download the data from a given URL and returns an RDFLib Graph"""
 
     g = Graph()
-    if input_is_a_file(path_or_url):
+    if _input_is_a_file(path_or_url):
         g.parse(path_or_url)
     else:
         d = httpx.get(path_or_url, follow_redirects=True)
@@ -101,7 +115,10 @@ def load_input_graph(path_or_url: Union[Path, str]) -> Graph:
     return g
 
 
-def forward_chain_dcat(g: Graph):
+def _forward_chain_dcat(g: Graph):
+    """Builds out a DCAT graph with RDFS & OWL rules.
+
+    Only builds as necessary for scoring, i.e. not a complete RDFS or OWL inference"""
     for s in g.subjects(RDF.type, DCAT.Dataset):
         g.add((s, RDF.type, DCAT.Resource))
 
@@ -112,7 +129,33 @@ def forward_chain_dcat(g: Graph):
         g.add((o, DCTERMS.isPartOf, s))
 
 
-def calculate_f(g: Graph) -> Graph:
+def _bind_extra_prefixes(g: Graph, prefixes: dict):
+    for k, v in prefixes.items():
+        g.bind(k, v)
+
+
+def calculate_f(g: Graph, r: URIRef, score: Node) -> Graph:
+    f = Graph()
+    f_score = BNode()
+    f.add((f_score, RDF.type, QB.Observation))
+    f.add((f_score, SCORES.refResource, r))
+    t = BNode()
+    # TODO: decide on the type of Temporal Entity here
+    f.add((t, RDF.type, TIME.ProperInterval))
+    b = BNode()
+    f.add((b, RDF.type, TIME.Instant))
+    f.add((b, TIME.inXSDDate, Literal("2022-10-12", datatype=XSD.date)))
+    f.add((t, TIME.hasBeginning, b))
+    e = BNode()
+    f.add((e, RDF.type, TIME.Instant))
+    f.add((e, TIME.inXSDDate, Literal("2022-10-13", datatype=XSD.date)))
+    f.add((t, TIME.hasEnd, e))
+    f.add((f_score, SCORES.refTime, t))
+    f.add((f_score, SCORES.fairFScore, Literal(42)))
+
+    f.add((score, QB.observation, f_score))
+
+
     # Does the dataset have any identifiers assigned?
     ## No identifier
     ## Local identifier
@@ -126,35 +169,48 @@ def calculate_f(g: Graph) -> Graph:
     # How is the data described with metadata?
 
     # What type of repository or registry is the metadata record in?
-    pass
+    return f
 
 
-def calculate_a(g: Graph) -> Graph:
-    pass
+def calculate_a(g: Graph, r: URIRef, score: Node) -> Graph:
+    a = Graph()
+    return a
 
 
-def calculate_i(g: Graph) -> Graph:
-    pass
+def calculate_i(g: Graph, r: URIRef, score: Node) -> Graph:
+    i = Graph()
+    return i
 
 
-def calculate_r(g: Graph) -> Graph:
-    pass
+def calculate_r(g: Graph, r: URIRef, score: Node) -> Graph:
+    r = Graph()
+    return r
 
 
-def calculate_fair(g: Graph, resource_iri: URIRef) -> Graph:
-    score = Graph()
-    score.add((
-        resource_iri,
-    ))
+def calculate_fair(g: Graph, r: URIRef) -> Graph:
+    s = Graph(bind_namespaces="rdflib")
+    _bind_extra_prefixes(s, EXTRA_PREFIXES)
+
+    s.add((r, RDF.type, DCAT.Resource))
+    score = BNode()
+    s.add((r, SCORES.hasScore, score))
+    s.add((score, RDF.type, SCORES.FairScore))
+    s.add((score, RDF.type, QB.ObservationGroup))
+
+    s += calculate_f(g, r, score)
+    s += calculate_a(g, r, score)
+    s += calculate_i(g, r, score)
+    s += calculate_r(g, r, score)
+
+    return s
 
 
 def calculate_fair_per_resource(g: Graph) -> Graph:
-    scores = Graph()
-    scores.bind("dcat", DCAT)
-    scores.bind("dcterms", DCTERMS)
+    scores = Graph(bind_namespaces="rdflib")
+    _bind_extra_prefixes(scores, EXTRA_PREFIXES)
 
     for r in g.subjects(RDF.type, DCAT.Resource):
-        scores.add((r, RDF.type, DCAT.Resource))
+        scores += calculate_fair(g, r)  # type: ignore
 
     return scores
 
@@ -168,10 +224,10 @@ def main(input: Union[Path, str, Graph], output: Optional[str] = "text/turtle", 
     if isinstance(input, Graph):
         g = input
     else:
-        g = load_input_graph(input)
+        g = _load_input_graph(input)
 
     # build out input
-    forward_chain_dcat(g)
+    _forward_chain_dcat(g)
 
     # validate
     if validate:
@@ -192,8 +248,8 @@ def main(input: Union[Path, str, Graph], output: Optional[str] = "text/turtle", 
     # write to file
     elif output.endswith(tuple(RDF_FILE_SUFFIXES.keys())):
         p = Path(output)
-        output_dir = get_valid_output_dir(p)
-        output_file, output_format = get_valid_output_file_and_type(p)
+        output_dir = _get_valid_output_dir(p)
+        output_file, output_format = _get_valid_output_file_and_type(p)
         return scores.serialize(destination=p, format="longturtle" if output_format == "text/turtle" else output_format)
     # return Graph object
     else:
@@ -201,7 +257,7 @@ def main(input: Union[Path, str, Graph], output: Optional[str] = "text/turtle", 
 
 
 if __name__ == "__main__":
-    args = create_parser().parse_args()
+    args = _create_parser().parse_args()
 
     main(args.input, args.output, args.validate)
 
