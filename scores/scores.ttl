@@ -142,6 +142,7 @@ scores:hasScore
 
 scores:refResource
     a qb:DimensionProperty ;
+    rdf:domain qb:Observation ;
     rdfs:range dcat:Resource ;
     skos:prefLabel "Reference Resource"@en ;
     skos:definition "The catalogued Resource that the Score is for"@en ;
@@ -150,6 +151,7 @@ scores:refResource
 scores:refTime
     a qb:DimensionProperty ;
     rdfs:subPropertyOf time:hasTime ;
+    rdf:domain qb:Observation ;
     rdfs:range time:TemporalEntity ;
     skos:prefLabel "Reference Time"@en ;
     skos:definition "The Temporal Entity that the Score is for"@en ;
@@ -160,6 +162,7 @@ scores:scoreValue
     rdfs:subPropertyOf
         sdmxm:obsValue ,
         owl:DatatypeProperty ;
+    rdf:domain qb:Observation ;
     skos:prefLabel "score value"@en ;
     skos:definition "The value of a dimension of a Score"@en ;
 .
