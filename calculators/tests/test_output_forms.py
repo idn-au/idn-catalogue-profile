@@ -1,8 +1,9 @@
 import os
-from pathlib import Path
 import subprocess
-from rdflib import Graph
 import sys
+from pathlib import Path
+
+from rdflib import Graph
 
 CALC_MODULE_PATH = Path(__file__).parent.parent / "calculators"
 sys.path.append(str(CALC_MODULE_PATH))
@@ -12,12 +13,8 @@ TEST_DATA_DIR = Path(__file__).parent / "data"
 
 def test_cli_output_to_stdout():
     proc = subprocess.Popen(
-        [
-            "python",
-            FAIR_CALCULATOR,
-            TEST_DATA_DIR / "test_input_invalid_01.ttl"
-        ],
-        stdout=subprocess.PIPE
+        ["python", FAIR_CALCULATOR, TEST_DATA_DIR / "test_input_invalid_01.ttl"],
+        stdout=subprocess.PIPE,
     )
     assert Graph().parse(data=proc.stdout.read().decode())
 
@@ -29,9 +26,9 @@ def test_cli_output_to_stdout_json_ld():
             FAIR_CALCULATOR,
             TEST_DATA_DIR / "test_input_invalid_01.ttl",
             "-o",
-            "application/ld+json"
+            "application/ld+json",
         ],
-        stdout=subprocess.PIPE
+        stdout=subprocess.PIPE,
     )
     assert Graph().parse(data=proc.stdout.read().decode(), format="application/ld+json")
 
@@ -44,7 +41,7 @@ def test_cli_output_to_file():
             FAIR_CALCULATOR,
             TEST_DATA_DIR / "test_input_invalid_01.ttl",
             "-o",
-            output_file
+            output_file,
         ]
     ).communicate()
     assert Graph().parse(output_file)
@@ -53,5 +50,6 @@ def test_cli_output_to_file():
 
 def test_cli_output_graph():
     from calculators import fair
+
     g = fair.main(TEST_DATA_DIR / "test_input_invalid_01.ttl", "graph")
     assert isinstance(g, Graph)

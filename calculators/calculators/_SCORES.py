@@ -32,4 +32,3 @@ class SCORES(DefinedNamespace):
     careAScore: URIRef
     careRScore: URIRef
     careEScore: URIRef
-

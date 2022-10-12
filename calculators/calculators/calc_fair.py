@@ -1,16 +1,37 @@
 """
-~$ python calc_fair.py [-o]
+Calculates the FAIR score of a resource.
 
+usage: calc_fair.py [-h] [-o OUTPUT] [-v VALIDATE] input
+
+positional arguments:
+  input                 The path of an RDF file or URL of RDF data online.
+
+options:
+  -h, --help            show this help message and exit
+  -o OUTPUT, --output OUTPUT
+                        A path for an output file or an output format. If set to a file
+                        path, the output will be written to the file, rather than returned
+                        to standard out. If a format is given, that format will be returned
+                        to. standard out. For a given output file path, the file extension
+                        determines the format and must be one of .ttl, .rdf, .json-ld, .nt
+                        for Turtle, RDF/XML, JSON-LD or N-Ttripes. If a format is given, it
+                        must be one of text/turtle, application/rdf+xml,
+                        application/ld+json, text/nt
+  -v VALIDATE, --validate VALIDATE
+                        Validate the input with the IDN CP's validator before trying to
+                        score it
 """
-import os
 import argparse
+import os
 from pathlib import Path
-import httpx
-from rdflib import Graph, URIRef, BNode, Namespace, Literal
-from rdflib.term import Node
 from typing import Optional, Union
+
+import httpx
 from pyshacl import validate as val
+from rdflib import Graph, URIRef, BNode, Namespace, Literal
 from rdflib.namespace import DCAT, DCTERMS, PROV, RDF, TIME, XSD
+from rdflib.term import Node
+
 from _SCORES import SCORES
 
 QB = Namespace("http://purl.org/linked-data/cube#")
@@ -42,10 +63,10 @@ def _create_parser():
         "-o",
         "--output",
         help="A path for an output file or an output format. If set to a file path, the output will be written to "
-             "the file, rather than returned to standard out. If a format is given, that format will be returned to. "
-             "standard out. For a given output file path, the file extension determines the format and must be one "
-             f"of {', '.join(RDF_FILE_SUFFIXES.keys())} for Turtle, RDF/XML, JSON-LD or N-Ttripes. "
-             f"If a format is given, it must be one of {', '.join(RDF_FILE_SUFFIXES.values())}",
+        "the file, rather than returned to standard out. If a format is given, that format will be returned to. "
+        "standard out. For a given output file path, the file extension determines the format and must be one "
+        f"of {', '.join(RDF_FILE_SUFFIXES.keys())} for Turtle, RDF/XML, JSON-LD or N-Ttripes. "
+        f"If a format is given, it must be one of {', '.join(RDF_FILE_SUFFIXES.values())}",
         default="text/turtle",
     )
 
@@ -178,7 +199,7 @@ def calculate_f(g: Graph, r: URIRef, score: Node) -> Graph:
         "ark:",
         "purl.org",
         "linked.data.gov.au",
-        "handle.net"
+        "handle.net",
     ]
     for pi in pid_indicators:
         if pi in str(r):
@@ -239,7 +260,11 @@ def calculate_f(g: Graph, r: URIRef, score: Node) -> Graph:
             "application/n-quads",
             "application/rdf+xml",
         ]
-        x = httpx.get(catalogue, headers={"Accept": ", ".join(RDF_MEDIA_TYPES)}, follow_redirects=True)
+        x = httpx.get(
+            catalogue,
+            headers={"Accept": ", ".join(RDF_MEDIA_TYPES)},
+            follow_redirects=True,
+        )
         if x.is_success:
             f_value += 4
 
@@ -291,7 +316,11 @@ def calculate_fair_per_resource(g: Graph) -> Graph:
     return scores
 
 
-def main(input: Union[Path, str, Graph], output: Optional[str] = "text/turtle", validate: bool = False):
+def main(
+    input: Union[Path, str, Graph],
+    output: Optional[str] = "text/turtle",
+    validate: bool = False,
+):
     """The main function of this module. Accepts a path to an RDF file, a URL leading to RDF or an RDFLib graph
     as input and returns either an RDFLib Graph object, an RDF stream in the given format or writes RDF to a file with
     format specified by file ending"""
@@ -322,11 +351,11 @@ def main(input: Union[Path, str, Graph], output: Optional[str] = "text/turtle", 
     if output in RDF_FILE_SUFFIXES.values():
         if output == "application/ld+json":
             jsonld_context = {
-                    "@vocab": "https://linked.data.gov.au/def/scores/",
-                    "dcat": "http://www.w3.org/ns/dcat#",
-                    "qb": "http://purl.org/linked-data/cube#",
-                    "time": "http://www.w3.org/2006/time#",
-                    "xsd": "http://www.w3.org/2001/XMLSchema#"
+                "@vocab": "https://linked.data.gov.au/def/scores/",
+                "dcat": "http://www.w3.org/ns/dcat#",
+                "qb": "http://purl.org/linked-data/cube#",
+                "time": "http://www.w3.org/2006/time#",
+                "xsd": "http://www.w3.org/2001/XMLSchema#",
             }
 
             # adding all prefixes bound to the graph to the JSON-LD context seems not to work
@@ -335,20 +364,24 @@ def main(input: Union[Path, str, Graph], output: Optional[str] = "text/turtle", 
 
             print(
                 scores.serialize(
-                    format=output,
-                    indent=4,
-                    context=jsonld_context,
-                    auto_compact=True
+                    format=output, indent=4, context=jsonld_context, auto_compact=True
                 )
             )
         else:
-            print(scores.serialize(format="longturtle" if output == "text/turtle" else output))
+            print(
+                scores.serialize(
+                    format="longturtle" if output == "text/turtle" else output
+                )
+            )
     # write to file
     elif output.endswith(tuple(RDF_FILE_SUFFIXES.keys())):
         p = Path(output)
         output_dir = _get_valid_output_dir(p)
         output_file, output_format = _get_valid_output_file_and_type(p)
-        return scores.serialize(destination=p, format="longturtle" if output_format == "text/turtle" else output_format)
+        return scores.serialize(
+            destination=p,
+            format="longturtle" if output_format == "text/turtle" else output_format,
+        )
     # return Graph object
     else:
         return scores
@@ -358,4 +391,3 @@ if __name__ == "__main__":
     args = _create_parser().parse_args()
 
     main(args.input, args.output, args.validate)
-

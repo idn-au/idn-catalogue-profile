@@ -1,8 +1,8 @@
-import os
-from pathlib import Path
-import subprocess
-from rdflib import Graph
 import sys
+from pathlib import Path
+
+from rdflib import Graph
+
 calc_module_path = Path(Path(__file__).parent.parent / "calculators").absolute()
 sys.path.insert(0, str(calc_module_path))
 import pytest
