@@ -244,7 +244,29 @@ def main(input: Union[Path, str, Graph], output: Optional[str] = "text/turtle", 
     # generate output
     # std out
     if output in RDF_FILE_SUFFIXES.values():
-        print(scores.serialize(format="longturtle" if output == "text/turtle" else output))
+        if output == "application/ld+json":
+            jsonld_context = {
+                    "@vocab": "https://linked.data.gov.au/def/scores/",
+                    "dcat": "http://www.w3.org/ns/dcat#",
+                    "qb": "http://purl.org/linked-data/cube#",
+                    "time": "http://www.w3.org/2006/time#",
+                    "xsd": "http://www.w3.org/2001/XMLSchema#"
+            }
+
+            # adding all prefixes bound to the graph to the JSON-LD context seems not to work
+            # for prefix, namespace in scores.namespace_manager.namespaces():
+            #     jsonld_context[prefix] = namespace
+
+            print(
+                scores.serialize(
+                    format=output,
+                    indent=4,
+                    context=jsonld_context,
+                    auto_compact=True
+                )
+            )
+        else:
+            print(scores.serialize(format="longturtle" if output == "text/turtle" else output))
     # write to file
     elif output.endswith(tuple(RDF_FILE_SUFFIXES.keys())):
         p = Path(output)
