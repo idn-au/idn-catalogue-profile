@@ -1,1 +1,0 @@
-from calculators.calculators import calc_fair as fair

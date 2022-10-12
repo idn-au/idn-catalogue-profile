@@ -10,7 +10,7 @@ from rdflib import Graph, URIRef, BNode, Namespace, Literal
 from rdflib.term import Node
 from typing import Optional, Union
 from pyshacl import validate as val
-from rdflib.namespace import DCAT, DCTERMS, RDF, TIME, XSD
+from rdflib.namespace import DCAT, DCTERMS, PROV, RDF, TIME, XSD
 from _SCORES import SCORES
 
 QB = Namespace("http://purl.org/linked-data/cube#")
@@ -135,6 +135,12 @@ def _bind_extra_prefixes(g: Graph, prefixes: dict):
 
 
 def calculate_f(g: Graph, r: URIRef, score: Node) -> Graph:
+    """
+    F1. (meta)data are assigned a globally unique and eternally persistent identifier.
+    F2. data are described with rich metadata.
+    F3. (meta)data are registered or indexed in a searchable resource.
+    F4. metadata specify the data identifier.
+    """
     f = Graph()
     f_score = BNode()
     f.add((f_score, RDF.type, QB.Observation))
@@ -151,24 +157,94 @@ def calculate_f(g: Graph, r: URIRef, score: Node) -> Graph:
     f.add((e, TIME.inXSDDate, Literal("2022-10-13", datatype=XSD.date)))
     f.add((t, TIME.hasEnd, e))
     f.add((f_score, SCORES.refTime, t))
-    f.add((f_score, SCORES.fairFScore, Literal(42)))
-
     f.add((score, QB.observation, f_score))
 
+    f_value = 0
+    # from https://ardc.edu.au/resource/fair-data-self-assessment-tool/
 
     # Does the dataset have any identifiers assigned?
-    ## No identifier
-    ## Local identifier
-    ## Web address (URL)
-    ## Globally Unique, citable and persistent (e.g. DOI, PURL, ARK or Handle)
+    # 0 No identifier
+    # 1 Local identifier
+    # 3 Web address (URL)
+    # 8 Globally Unique, citable and persistent (e.g. DOI, PURL, ARK or Handle)
 
+    # score will always be 3 or 8 for catalogued resources in RDF
+    f_value += 3
 
+    # if the URL is a DOI etc, +1:
+    pid_indicators = [
+        "doi:",
+        "doi.org",
+        "ark:",
+        "purl.org",
+        "linked.data.gov.au",
+        "handle.net"
+    ]
+    for pi in pid_indicators:
+        if pi in str(r):
+            f_value += 5
+            break
 
     # Is the dataset identifier included in all metadata records/files describing the data?
+    # 0 No
+    # 1 Yes
+
+    # always yes for now
+    f_value += 1
 
     # How is the data described with metadata?
+    # 0 The data is not described
+    # 1 Brief title and description
+    # 3 Comprehensively, but in a text-based, non-standard format
+    # 4 Comprehensively (see suggestion) using a recognised formal machine-readable metadata schema
+
+    # IDN CP data will always be at least +1 here, +3 if more DCTERMS elements are present other than title & desc,
+    # and +4 if all the following are present: title, description, created, modified, type qualifiedAttribution (1+)
+    f_value += 1
+    c = 0
+    for p in g.predicates(r, None):
+        if p == DCTERMS.created:
+            c += 1
+        elif p == DCTERMS.modified:
+            c += 1
+        elif p == DCTERMS.type:
+            c += 1
+        elif p == PROV.qualifiedAttribution:
+            c += 1
+    if c == 1:
+        f_value += 1
+    elif c == 2:
+        f_value += 2
+    elif c > 2:
+        f_value += 3
 
     # What type of repository or registry is the metadata record in?
+    # 0 The data is not described in any repository
+    # 2 Local institutional repository
+    # 2 Domain-specific repository
+    # 2 Generalist public repository
+    # 4 Data is in one place but discoverable through several registries
+
+    # If a catalogue is indicated, +2. If the catalogue responds to a ping for RDF, +4
+    catalogue = None
+    for o in g.objects(r, DCTERMS.isPartOf):
+        catalogue = str(o)
+    if catalogue is not None:
+        f_value += 2
+        RDF_MEDIA_TYPES = [
+            "text/turtle",
+            "text/n3",
+            "application/ld+json",
+            "application/n-triples",
+            "application/n-quads",
+            "application/rdf+xml",
+        ]
+        x = httpx.get(catalogue, headers={"Accept": ", ".join(RDF_MEDIA_TYPES)}, follow_redirects=True)
+        if x.is_success:
+            f_value += 4
+
+    f.add((f_score, SCORES.fairFScore, Literal(f_value)))
+
     return f
 
 
