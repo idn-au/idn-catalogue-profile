@@ -24,12 +24,12 @@ options:
 import argparse
 import os
 from pathlib import Path
-from typing import Optional, Union
+from typing import Optional, Union, Tuple
 
 import httpx
 from pyshacl import validate as val
 from rdflib import Graph, URIRef, BNode, Namespace, Literal
-from rdflib.namespace import DCAT, DCTERMS, PROV, RDF, TIME, XSD
+from rdflib.namespace import DCAT, DCTERMS, PROV, RDF, TIME
 from rdflib.term import Node
 
 from _SCORES import SCORES
@@ -155,31 +155,77 @@ def _bind_extra_prefixes(g: Graph, prefixes: dict):
         g.bind(k, v)
 
 
-def calculate_f(g: Graph, r: URIRef, score: Node) -> Graph:
+def _create_observation_group(
+    resource: URIRef,
+    score_class: URIRef,
+    beginning: Optional[Literal] = None,
+    end: Optional[Literal] = None,
+) -> Tuple[Node, Graph]:
+    """Creates a Score (ObservationGroup) object to hold multiple Score Dimension measured values (Observations)
+
+    :param resource: The catalogued Resource being scored
+    :param score_class: The class of the Score, e.g. scores:FairScore
+    :param beginning: A date from which this Score is relevant
+    :param end: A date until which this score was relevant
+    :return: The ID of the Score and the Score total Graph
+    """
+    g = Graph()
+
+    g.add((resource, RDF.type, DCAT.Resource))
+    score = BNode()
+    g.add((resource, SCORES.hasScore, score))
+    g.add((score, RDF.type, score_class))
+    g.add((score, RDF.type, QB.ObservationGroup))
+    g.add((score, SCORES.refResource, resource))
+
+    if beginning is not None or end is not None:
+        t = BNode()
+        # TODO: decide on the type of Temporal Entity here
+        g.add((t, RDF.type, TIME.ProperInterval))
+        g.add((score, SCORES.refTime, t))
+
+        if beginning is not None:
+            b = BNode()
+            g.add((b, RDF.type, TIME.Instant))
+            g.add((b, TIME.inXSDDate, beginning))
+            g.add((t, TIME.hasBeginning, b))
+        if end is not None:
+            e = BNode()
+            g.add((e, RDF.type, TIME.Instant))
+            g.add((e, TIME.inXSDDate, end))
+            g.add((t, TIME.hasEnd, e))
+
+    return score, g
+
+
+def _create_observation(
+    score_container: Node, score_property: URIRef, score_value: Union[URIRef, Literal]
+) -> Graph:
+    """Creates the Observation RDF container for a Score's value for a Resource
+
+    :param resource: the catalogued resource being scored
+    :param score_container: the overall Score object (e.g. FAIR for F dimension)
+    :param score_property: the Scores Ontology qb:MeasureProperty that defines this score dimension, e.g. scores:fairFScore
+    :param score_value: the value of this dimension of the score, e.g. 12 for "F" in FAIR
+    :return: a graph of the Observation
+    """
+    g = Graph()
+    obs = BNode()
+    g.add((obs, RDF.type, QB.Observation))
+    g.add((score_container, QB.observation, obs))
+
+    g.add((obs, score_property, score_value))
+
+    return g
+
+
+def calculate_f(metadata: Graph, resource: URIRef, score_container: Node) -> Graph:
     """
     F1. (meta)data are assigned a globally unique and eternally persistent identifier.
     F2. data are described with rich metadata.
     F3. (meta)data are registered or indexed in a searchable resource.
     F4. metadata specify the data identifier.
     """
-    f = Graph()
-    f_score = BNode()
-    f.add((f_score, RDF.type, QB.Observation))
-    f.add((f_score, SCORES.refResource, r))
-    t = BNode()
-    # TODO: decide on the type of Temporal Entity here
-    f.add((t, RDF.type, TIME.ProperInterval))
-    b = BNode()
-    f.add((b, RDF.type, TIME.Instant))
-    f.add((b, TIME.inXSDDate, Literal("2022-10-12", datatype=XSD.date)))
-    f.add((t, TIME.hasBeginning, b))
-    e = BNode()
-    f.add((e, RDF.type, TIME.Instant))
-    f.add((e, TIME.inXSDDate, Literal("2022-10-13", datatype=XSD.date)))
-    f.add((t, TIME.hasEnd, e))
-    f.add((f_score, SCORES.refTime, t))
-    f.add((score, QB.observation, f_score))
-
     f_value = 0
     # from https://ardc.edu.au/resource/fair-data-self-assessment-tool/
 
@@ -200,11 +246,14 @@ def calculate_f(g: Graph, r: URIRef, score: Node) -> Graph:
         "purl.org",
         "linked.data.gov.au",
         "handle.net",
+        "w3id.org",
     ]
     for pi in pid_indicators:
-        if pi in str(r):
+        if pi in str(resource):
             f_value += 5
             break
+
+    # TODO: should we test the URL/PID to see if it resolves?
 
     # Is the dataset identifier included in all metadata records/files describing the data?
     # 0 No
@@ -223,7 +272,7 @@ def calculate_f(g: Graph, r: URIRef, score: Node) -> Graph:
     # and +4 if all the following are present: title, description, created, modified, type qualifiedAttribution (1+)
     f_value += 1
     c = 0
-    for p in g.predicates(r, None):
+    for p in metadata.predicates(resource, None):
         if p == DCTERMS.created:
             c += 1
         elif p == DCTERMS.modified:
@@ -248,7 +297,7 @@ def calculate_f(g: Graph, r: URIRef, score: Node) -> Graph:
 
     # If a catalogue is indicated, +2. If the catalogue responds to a ping for RDF, +4
     catalogue = None
-    for o in g.objects(r, DCTERMS.isPartOf):
+    for o in metadata.objects(resource, DCTERMS.isPartOf):
         catalogue = str(o)
     if catalogue is not None:
         f_value += 2
@@ -268,40 +317,73 @@ def calculate_f(g: Graph, r: URIRef, score: Node) -> Graph:
         if x.is_success:
             f_value += 4
 
-    f.add((f_score, SCORES.fairFScore, Literal(f_value)))
-
-    return f
+    return _create_observation(score_container, SCORES.fairFScore, Literal(f_value))
 
 
-def calculate_a(g: Graph, r: URIRef, score: Node) -> Graph:
-    a = Graph()
-    return a
+def calculate_a(metadata: Graph, resource: URIRef, score_container: Node) -> Graph:
+    a_value = 0
+
+    # How accessible is the data?
+    # 0. No access to data or metadata
+    # 1. Access to metadata only
+    # 2. Unspecified conditional access e.g. contact the data custodian for access
+    # 3. Embargoed access after a specified date
+    # 4. A de-identified / modified subset of the data is publicly accessible
+    # 5. Fully accessible to persons who meet explicitly stated conditions, e.g. ethics approval for sensitive data
+
+    # look for a declared availability classification
+    declared = False
+    DAR = Namespace("https://linked.data.gov.au/def/data-access-rights/")
+    for o in metadata.objects(resource, DCAT.theme):
+        declared = True
+
+        if o in [DAR.protected, DAR.restricted]:
+            a_value += 0
+        elif o == DAR["metadata-only"]:
+            a_value += 1
+        elif o == DAR.conditional:
+            a_value += 2
+        elif o == DAR.embargoed:
+            a_value += 3
+        # 4
+        elif o == DAR.open:
+            a_value += 5
+
+    if not declared:
+        # TODO: try some other method
+        pass
+
+    # Is the data available online without requiring specialised protocols or tools once access has been approved?
+    # 0. No access to data
+    # 1. By individual arrangement
+    # 2. File download from online location
+    # 3. Non-standard web service (e.g. OpenAPI/Swagger/informal API)
+    # 4. Standard web service API (e.g. OGC)
+
+    return _create_observation(score_container, SCORES.fairAScore, Literal(a_value))
 
 
-def calculate_i(g: Graph, r: URIRef, score: Node) -> Graph:
+def calculate_i(metadata: Graph, resource: URIRef, score_container: Node) -> Graph:
     i = Graph()
     return i
 
 
-def calculate_r(g: Graph, r: URIRef, score: Node) -> Graph:
+def calculate_r(metadata: Graph, resource: URIRef, score_container: Node) -> Graph:
     r = Graph()
     return r
 
 
-def calculate_fair(g: Graph, r: URIRef) -> Graph:
+def calculate_fair(g: Graph, resource: URIRef) -> Graph:
     s = Graph(bind_namespaces="rdflib")
     _bind_extra_prefixes(s, EXTRA_PREFIXES)
 
-    s.add((r, RDF.type, DCAT.Resource))
-    score = BNode()
-    s.add((r, SCORES.hasScore, score))
-    s.add((score, RDF.type, SCORES.FairScore))
-    s.add((score, RDF.type, QB.ObservationGroup))
+    og_node, og_graph = _create_observation_group(resource, SCORES.FairScore)
+    s += og_graph
 
-    s += calculate_f(g, r, score)
-    s += calculate_a(g, r, score)
-    s += calculate_i(g, r, score)
-    s += calculate_r(g, r, score)
+    s += calculate_f(g, resource, og_node)
+    s += calculate_a(g, resource, og_node)
+    s += calculate_i(g, resource, og_node)
+    s += calculate_r(g, resource, og_node)
 
     return s
 
