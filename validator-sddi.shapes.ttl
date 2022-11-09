@@ -1,4 +1,4 @@
-# baseURI: https://w3id.org/idnau/dp/shapes/sddi
+# baseURI: https://w3id.org/idn/shapes/sddi
 
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -16,7 +16,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
-<https://w3id.org/idnau/dp/shapes/sddi>
+<https://w3id.org/idn/shapes/sddi>
     a owl:Ontology ;
     skos:prefLabel "Standard Descriptors for Data Inventories IDN Validator" ;
     skos:definition "A SHACL validator to assess Datasets presented according to the Indigenous Data Network's Dataset Profile of DCAT according to the Standard Descriptors for Data Inventories defined by the Office of the National Data Commissioner"@en ;
@@ -37,163 +37,163 @@
 .
 
 
-<https://w3id.org/idnau/dp/shapes/sddi/C-01>
+<https://w3id.org/idn/shapes/sddi/C-01>
     a sh:NodeShape ;
     skos:prefLabel "SDDI C-01"@en ;
     dcterms:identifier "SDDI-C-01"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/C-02>
+<https://w3id.org/idn/shapes/C-02>
     a sh:NodeShape ;
     skos:prefLabel "SDDI C-02"@en ;
     dcterms:identifier "SDDI-C-02"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/C-03>
+<https://w3id.org/idn/shapes/C-03>
     a sh:NodeShape ;
     skos:prefLabel "SDDI C-03"@en ;
     dcterms:identifier "SDDI-C-03"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/C-04>
+<https://w3id.org/idn/shapes/C-04>
     a sh:NodeShape ;
     skos:prefLabel "SDDI C-04"@en ;
     dcterms:identifier "SDDI-C-04"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/C-05>
+<https://w3id.org/idn/shapes/C-05>
     a sh:NodeShape ;
     skos:prefLabel "SDDI C-05"@en ;
     dcterms:identifier "SDDI-C-05"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/C-06>
+<https://w3id.org/idn/shapes/C-06>
     a sh:NodeShape ;
     skos:prefLabel "SDDI C-06"@en ;
     dcterms:identifier "SDDI-C-06"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/C-07>
+<https://w3id.org/idn/shapes/C-07>
     a sh:NodeShape ;
     skos:prefLabel "SDDI C-07"@en ;
     dcterms:identifier "SDDI-C-07"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/C-08>
+<https://w3id.org/idn/shapes/C-08>
     a sh:NodeShape ;
     skos:prefLabel "SDDI C-08"@en ;
     dcterms:identifier "SDDI-C-08"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/C-09>
+<https://w3id.org/idn/shapes/C-09>
     a sh:NodeShape ;
     skos:prefLabel "SDDI C-09"@en ;
     dcterms:identifier "SDDI-C-09"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/C-10>
+<https://w3id.org/idn/shapes/C-10>
     a sh:NodeShape ;
     skos:prefLabel "SDDI C-10"@en ;
     dcterms:identifier "SDDI-C-10"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/C-11>
+<https://w3id.org/idn/shapes/C-11>
     a sh:NodeShape ;
     skos:prefLabel "SDDI C-11"@en ;
     dcterms:identifier "SDDI-C-11"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/C-12>
+<https://w3id.org/idn/shapes/C-12>
     a sh:NodeShape ;
     skos:prefLabel "SDDI C-12"@en ;
     dcterms:identifier "SDDI-C-12"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/C-13>
+<https://w3id.org/idn/shapes/C-13>
     a sh:NodeShape ;
     skos:prefLabel "SDDI C-13"@en ;
     dcterms:identifier "SDDI-C-13"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/C-14>
+<https://w3id.org/idn/shapes/C-14>
     a sh:NodeShape ;
     skos:prefLabel "SDDI C-14"@en ;
     dcterms:identifier "SDDI-C-14"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/C-15>
+<https://w3id.org/idn/shapes/C-15>
     a sh:NodeShape ;
     skos:prefLabel "SDDI C-15"@en ;
     dcterms:identifier "SDDI-C-15"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/C-16>
+<https://w3id.org/idn/shapes/C-16>
     a sh:NodeShape ;
     skos:prefLabel "SDDI C-16"@en ;
     dcterms:identifier "SDDI-C-16"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/S-01>
+<https://w3id.org/idn/shapes/S-01>
     a sh:NodeShape ;
     skos:prefLabel "SDDI S-01"@en ;
     dcterms:identifier "SDDI-S-01"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/S-02>
+<https://w3id.org/idn/shapes/S-02>
     a sh:NodeShape ;
     skos:prefLabel "SDDI S-02"@en ;
     dcterms:identifier "SDDI-S-02"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/S-03>
+<https://w3id.org/idn/shapes/S-03>
     a sh:NodeShape ;
     skos:prefLabel "SDDI S-03"@en ;
     dcterms:identifier "SDDI-S-03"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/S-04>
+<https://w3id.org/idn/shapes/S-04>
     a sh:NodeShape ;
     skos:prefLabel "SDDI S-04"@en ;
     dcterms:identifier "SDDI-S-04"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/S-05>
+<https://w3id.org/idn/shapes/S-05>
     a sh:NodeShape ;
     skos:prefLabel "SDDI S-05"@en ;
     dcterms:identifier "SDDI-S-05"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/S-06>
+<https://w3id.org/idn/shapes/S-06>
     a sh:NodeShape ;
     skos:prefLabel "SDDI S-06"@en ;
     dcterms:identifier "SDDI-S-06"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/S-07>
+<https://w3id.org/idn/shapes/S-07>
     a sh:NodeShape ;
     skos:prefLabel "SDDI S-07"@en ;
     dcterms:identifier "SDDI-S-07"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/S-08>
+<https://w3id.org/idn/shapes/S-08>
     a sh:NodeShape ;
     skos:prefLabel "SDDI S-08"@en ;
     dcterms:identifier "SDDI-S-08"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/S-09>
+<https://w3id.org/idn/shapes/S-09>
     a sh:NodeShape ;
     skos:prefLabel "SDDI S-09"@en ;
     dcterms:identifier "SDDI-S-09"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/S-10>
+<https://w3id.org/idn/shapes/S-10>
     a sh:NodeShape ;
     skos:prefLabel "SDDI S-10"@en ;
     dcterms:identifier "SDDI-S-10"^^xsd:token ;
 .
 
-<https://w3id.org/idnau/dp/shapes/X-01>
+<https://w3id.org/idn/shapes/X-01>
     a sh:NodeShape ;
     skos:prefLabel "SDDI X-01"@en ;
     dcterms:identifier "SDDI-X-01"^^xsd:token ;

@@ -12,7 +12,7 @@ The profile will be used in demonstration and production data catalogues.
 
 This profile consists of a number of resources which are all described and linked to from the profile's formal definition which is available in both human- and machine-readable for at it's persistent web identifier location:
 
-**http://linked.data.gov.au/def/idncp**
+**http://w3id.org/idn/def/cp**
 
 
 == License & Rights

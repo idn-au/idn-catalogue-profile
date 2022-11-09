@@ -60,7 +60,7 @@
         <div class="content" id="content" style="grid-column:2; grid-row:2;">
             <h1>IDN Catalogue Profile - Specification</h1>
             <!-- <h2>Description</h2> -->
-            <div id="description">This is the specification of normative requirements for data conforming to the <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a>. Also presented are mapping from this profile to other models</div>
+            <div id="description">This is the specification of normative requirements for data conforming to the <a href="https://w3id.org/idn/def/cp">IDN Catalogue Profile</a>. Also presented are mapping from this profile to other models</div>
             <div id="overview" class="figure">
                 <a href="style/venn.png"><img src="style/venn.png" style="width:600px;" alt="Venn diagram of this profile's concerns" /></a>
                 <p class="caption"><strong>Figure 1:</strong> This profile overlaps concerns with the DCAT and PROV models and provides for the description of data according to several other assessment models, such as FAIR, CARE etc. The overlaps do indicate which models are needed to cover requirements of the assessment models.</p>
@@ -69,11 +69,11 @@
                 <h2>Metadata</h2>
                 <dl>
                     <dt>URI</dt>
-                    <dd><code>https://linked.data.gov.au/def/idncp/spec</code> <a href="https://linked.data.gov.au/def/idncp/spec" style="font-size:1.5em">&#x2197;</a></dd>
+                    <dd><code>https://w3id.org/idn/def/cp/spec</code> <a href="https://w3id.org/idn/def/cp/spec" style="font-size:1.5em">&#x2197;</a></dd>
                     <dt><a class="proplink" title="sdo:name" href="https://schema.org/name">Name</a></dt>
                     <dd>IDN Catalogue Profile - Specification</dd>
                     <dt><a class="proplink" title="sdo:isPartOf" href="https://schema.org/isPartOf">Is Part Of</a></dt>
-                    <dd><a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a></dd>
+                    <dd><a href="https://w3id.org/idn/def/cp">IDN Catalogue Profile</a></dd>
                     <dt><a class="proplink" title="sdo:description" href="https://schema.org/description">Description</a></dt>
                     <dd>The specification of normative requirements for data conforming to the IDN Catalogue Profile.</dd>
                     <dt><a class="proplink" title="sdo:publisher" href="https://schema.org/publisher">Publisher</a>(s)</dt>
@@ -89,7 +89,7 @@
                     <dt><a class="proplink" title="owl#versionInfo" href="http://www.w3.org/2002/07/owl#versionInfo">Version Information</a></dt>
                     <dd>0.0.1</dd>
                     <dt><a class="proplink" title="owl#versionIRI" href="http://www.w3.org/2002/07/owl#versionIRI">Version IRI</a></dt>
-                    <dd><a href="https://linked.data.gov.au/def/idncp/0.0.1">https://linked.data.gov.au/def/idncp/0.0.1</a></dd>
+                    <dd><a href="https://w3id.org/idn/def/cp/spec/0.0.1">https://w3id.org/idn/def/cp/spec/0.0.1</a></dd>
                     <dt><a class="proplink" title="sdo:license" href="https://schema.org/license">License</a></dt>
                     <dd><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a></dd>
                     <dt><a class="proplink" title="sdo:copyrightHolder" href="https://schema.org/copyrightHolder">Copyright Holder</a></dt>
@@ -102,18 +102,18 @@
                 <h2>Preamble <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
                 <section id="abstract">
                     <h3>Abstract <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-                    <p>This is the specification document of the <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a> which is a profile of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>. Where DCAT is designed for the representation of data catalogues and their content in general, this profile of it aims to cater for the enhanced representation of indigenous data governance.</p>
+                    <p>This is the specification document of the <a href="https://w3id.org/idn/def/cp">IDN Catalogue Profile</a> which is a profile of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>. Where DCAT is designed for the representation of data catalogues and their content in general, this profile of it aims to cater for the enhanced representation of indigenous data governance.</p>
                     <p>This document specifies requirements of data that must be met for that data to claim conformance to the IDN Catalogue Profile. Data that conforms to this profile necessarily conforms to DCAT also. This profile also provides mappings from it to models of assessments of principles such as <a href="https://force11.org/info/the-fair-data-principles/">FAIR</a> and <a href="https://www.gida-global.org/care">CARE</a> so it also specifies additional sub-profiles' requirements necissary for those and other mappings.</p>
                     <p>This specification document is <em>not</em> to be used for the automated testing of conformance of RDF data to this profile. That role belongs to the machine-readable <em>validation</em> resource:</p>
                     <ul>
-                    <li><a href="https://linked.data.gov.au/def/idncp/validator">SHACL Validator</a></li>
-                    <li><a href="https://linked.data.gov.au/def/idncp/validator-compounded">Compounded Validator</a></li>
+                    <li><a href="https://w3id.org/idn/def/cp/validator">SHACL Validator</a></li>
+                    <li><a href="https://w3id.org/idn/def/cp/validator-compounded">Compounded Validator</a></li>
                     <li>FAIR, CARE and other mappings' validators</li>
                     </ul>
                     <p>The first validator above contains tests for this profile's requirements on top of DCAT's. The second contains this profile's tests as well as those from the standards this profile, profiles: DCAT etc. The third - <em>not available yet</em> - contains tests for different FIAR and CARE etc scores, based on the mappings from this profile to models of those assessment systems.</p>
                     <p>For the list of all resources within this profile, see the profile definition:</p>
                     <ul>
-                    <li><a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile Definition</a></li>
+                    <li><a href="https://w3id.org/idn/def/cp">IDN Catalogue Profile Definition</a></li>
                     </ul>
                 </section>
                 <section id="namespaces">
@@ -121,7 +121,7 @@
                     <p>This document refers to elements of various ontologies by short codes using namespace prefixes. The prefixes and their corresponding namespaces' URIs are:</p>
                     <dl>
                         <dt>idncp</dt>
-                        <dd><code>https://linked.data.gov.au/def/idncp</code></dd>
+                        <dd><code>https://w3id.org/idn/def/cp</code></dd>
                         <dt>dcat</dt>
                         <dd><code>http://www.w3.org/ns/dcat#</code></dd>
                         <dt>dcterms</dt>
@@ -152,11 +152,11 @@
             </section>
             <section id="intro">
                 <h2>1. Introduction <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-                <p>The <a href="https://linked.data.gov.au/def/idncp">IDN Catalogue Profile</a> follows standard patterns of use of elements of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>, such as <code>Catalog</code>, <code>Dataset</code> and so on and some DCAT-recommended ways of expressing relationships from catalogue elements to <code>Agent</code> instances (people & organisations) using <a href="https://www.w3.org/TR/prov-o/">PROV, the Provenance Ontology</a>, and <a href="https://www.w3.org/TR/skos-reference/">SKOS, SKOS Simple Knowledge Organization System</a>.</p>
+                <p>The <a href="https://w3id.org/idn/def/cp">IDN Catalogue Profile</a> follows standard patterns of use of elements of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>, such as <code>Catalog</code>, <code>Dataset</code> and so on and some DCAT-recommended ways of expressing relationships from catalogue elements to <code>Agent</code> instances (people & organisations) using <a href="https://www.w3.org/TR/prov-o/">PROV, the Provenance Ontology</a>, and <a href="https://www.w3.org/TR/skos-reference/">SKOS, SKOS Simple Knowledge Organization System</a>.</p>
                 <p>To cater for indigenous data governance concerns, this profile requires, or at least expects/promotes the use, of specific catalogues of <code>Agent</code> instances and specific vocabularies of <code>Concept</code> instances for to classify <code>Dataset</code> instances with.</p>
-                <p>So, where using regular DCAT, you might indicate that a <code>Dataset</code> is themed as being about <em>water</em> where <em>water</em> is selected from a data theming vocabulary, you would also indicate that the dataset is themed as being <em>culturally sensitive</em> using a particular <code>Concept</code> from this profile's <a href="https://linked.data.gov.au/def/tk-labels">TK Labels vocabulary</a>.</p>
-                <p>Where using DCAT, with PROV, you might indicate that a <code>Dataset</code> is related to an <code>Agent</code> by the property <code>dcterms:contributor</code> (i.e. the <code>Agent</code> referenced contributed to the dataset), using this profile you would use the alternate DCAT-recommended qualified agent relations pattern and say that the <code>Dataset</code> is attributed to the <code>Agent</code> with the role of <em>contributor</em> where the role referenced is taken from this profile's <a href="https://linked.data.gov.au/def/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
-                <p>In addition to requireing the use of some DCAT-promoted patterns over others and recommended use of particular reference catalogues & vocabularies, this profile also constrains the ways in which several other DCAT properties should be used. All the contraints are still standard DCAT.</p>
+                <p>So, where using regular DCAT, you might indicate that a <code>Dataset</code> is themed as being about <em>water</em> where <em>water</em> is selected from a data theming vocabulary, you would also indicate that the dataset is themed as being <em>culturally sensitive</em> using a particular <code>Concept</code> from this profile's <a href="https://w3id.org/idn/def/tk-labels">TK Labels vocabulary</a>.</p>
+                <p>Where using DCAT, with PROV, you might indicate that a <code>Dataset</code> is related to an <code>Agent</code> by the property <code>dcterms:contributor</code> (i.e. the <code>Agent</code> referenced contributed to the dataset), using this profile you would use the alternate DCAT-recommended qualified agent relations pattern and say that the <code>Dataset</code> is attributed to the <code>Agent</code> with the role of <em>contributor</em> where the role referenced is taken from this profile's <a href="https://w3id.org/idn/def/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
+                <p>In addition to requireing the use of some DCAT-promoted patterns over others and recommended use of particular reference catalogues & vocabularies, this profile also constrains the ways in which several other DCAT properties should be used. All the constraints are still standard DCAT.</p>
             </section>
             <section id="requirements">
                 <h2>2. Requirements <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
@@ -331,7 +331,7 @@
                     <h3>2.2 Values Requirements</h3>
                     <p>IDN metadata must be represented according to certain classes with certain properties, including relations between classes, as defined in the section above. This section defines the requirements for particular properties to indicate particular values. These values are mostly items in particular vocabularies and catalogues managed by the IDN itself and the result of these requirements is to ensure that IDN metadata is related to values understood by the IDN.</p>
                     <p class="req"><strong>Req V1:</strong> Each <code>Resource</code> instance MUST be categorised with at least one value from the <a>IDN Data Themes</a> vocabulary, indicated with a <code>theme</code> property.</p>
-                    <p class="req"><strong>Req V2:</strong> The roles of <code>Agent</code> instances with relation to a <code>Resource</code> MUST be indicated with the <code>hadRole</code> property and selected from the <a href="https://linked.data.gov.au/def/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
+                    <p class="req"><strong>Req V2:</strong> The roles of <code>Agent</code> instances with relation to a <code>Resource</code> MUST be indicated with the <code>hadRole</code> property and selected from the <a href="https://w3id.org/idn/def/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
                     <p class="req"><strong>Req V3:</strong> Each <code>Agent</code> instance referenced by an <code>Attribution</code> instance, if the <code>Agent</code> is indigenous SHOULD be registered within the <a>IDN Agents Catalogue</a>.</p>
                     <p class="eg">
                         <span>Example: A Resource with a qualified Attribution</span>
@@ -361,8 +361,8 @@
                     <span>Example: Partial content of the IDN Dataset Catalogue</span>
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#&gt;
 PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
-PREFIX idnth: &lt;https://linked.data.gov.au/def/idn-data-themes/&gt;
-PREFIX idnroles: &lt;https://linked.data.gov.au/def/idn-role-codes/&gt;
+PREFIX idnth: &lt;https://w3id.org/idn/def/idn-data-themes/&gt;
+PREFIX idnroles: &lt;https://w3id.org/idn/def/idn-role-codes/&gt;
 PREFIX isoroles: &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/&gt;
 PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
 PREFIX prov: &lt;http://www.w3.org/ns/prov#&gt;
@@ -370,16 +370,16 @@ PREFIX sdo: &lt;https://schema.org/&gt;
 PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
 PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 
-&lt;http://linked.data.gov.au/dataset/idndc&gt;
+&lt;http://w3id.org/idn/dataset/democat&gt;
     a dcat:Catalog ;
-        dcterms:title "IDC Dataset Catalogue" ;
+        dcterms:title "IDN Demonstration Catalogue" ;
         dcterms:description """The Indigenous Data Network's catalogue of datasets. This catalogue contains records of datasets in Australia, most of which have some relation to indigenous Australia.
 
 The purpose of this catalogue is not to act as a master catalogue of indigenous data in Australia to demonstrate improved metadata models and rating systems for data and metadata in order to improve indigenous data governance.
 
 The content of this catalogue conforms to the Indigenous Data Network's Catalogue Profile which is a profile of the DCAT, SKOS and PROV data models."""@en ;
         dcterms:created "2022-07-31"^^xsd:date ;
-        dcterms:modified "2022-07-31"^^xsd:date ;
+        dcterms:modified "2022-11-09"^^xsd:date ;
         prov:qualifiedAttribution [
             a prov:Attribution;
             prov:agent &lt;https://linked.data.gov.au/org/idn&gt; ;
@@ -430,7 +430,7 @@ idnth:indigenous-demographics
     a skos:Concept ;
     skos:prefLabel "Indigenous Demographics"@en ;
     skos:definition "Concerned with the demographics of indigenous people in Australia"@en ;
-    skos:inScheme &lt;https://linked.data.gov.au/def/idn-data-themes&gt; ;
+    skos:inScheme &lt;https://w3id.org/idn/def/idn-data-themes&gt; ;
 .
 
 # From the IDN Role Codes Vocabulary
@@ -438,19 +438,19 @@ isoroles:author
     a skos:Concept ;
     skos:prefLabel "Author"@en ;
     skos:definition "party who authored the resource"@en ;
-    skos:inScheme &lt;https://linked.data.gov.au/def/idn-role-codes&gt; ;
+    skos:inScheme &lt;https://w3id.org/idn/def/idn-role-codes&gt; ;
 .
 isoroles:owner
     a skos:Concept ;
     skos:prefLabel "Owner"@en ;
     skos:definition "party that owns the resource"@en ;
-    skos:inScheme &lt;https://linked.data.gov.au/def/idn-role-codes&gt; ;
+    skos:inScheme &lt;https://w3id.org/idn/def/idn-role-codes&gt; ;
 .
 isoroles:custodian
     a skos:Concept ;
     skos:prefLabel "Custodian"@en ;
     skos:definition "party that accepts accountability and responsibility for the resource and ensures appropriate care and maintenance of the resource"@en ;
-    skos:inScheme &lt;https://linked.data.gov.au/def/idn-role-codes&gt; ;
+    skos:inScheme &lt;https://w3id.org/idn/def/idn-role-codes&gt; ;
 .
                 </p>
                 <p>The content for the example above can be accessed online from the IDN Dataset Catalogue's content repository:</p>
@@ -501,8 +501,8 @@ isoroles:custodian
                         </div>
                         <p>This Local Context model is a small ontology providing just a few classes and properties to indicate how to attach LC labels to objects catalogued according to this profile.</p>
                         <p>The machine-readable version of this model is available at:</p>
-                        <ul><li><a style="font-weight:bold; text-decoration:line-through;" href="https://linked.data.gov.au/def/lc-contexts">https://linked.data.gov.au/def/lc-contexts</a></li></ul>
-                        <p>The prefix <code>lc:</code> is used in this section for the namespace of this model: <code>https://linked.data.gov.au/def/lc-contexts/</code>.</p>
+                        <ul><li><a style="font-weight:bold; text-decoration:line-through;" href="https://w3id.org/idn/def/lc-contexts">https://w3id.org/idn/def/lc-contexts</a></li></ul>
+                        <p>The prefix <code>lc:</code> is used in this section for the namespace of this model: <code>https://w3id.org/idn/def/lc-contexts/</code>.</p>
                         <p>Figure B.4.1 overviews the model.</p>
                         <div id="lc-model-figure" class="figure">
                             <a href="style/lc-model.png"><img src="style/lc-model.png" style="width:600px;" alt="Local Context model" /></a>
@@ -518,7 +518,7 @@ isoroles:custodian
                                 <tr><th>Property</th><th>Value</th></tr>
                                 <tr>
                                     <td>IRI</td>
-                                    <td><code>https://linked.data.gov.au/def/lc-contexts/LocalContextLabel</code></td>
+                                    <td><code>https://w3id.org/idn/def/lc-contexts/LocalContextLabel</code></td>
                                 </tr>
                                 <tr>
                                     <td><a href="https://www.w3.org/TR/skos-reference/#prefLabel" title="The preferred lexical label for a resource, in a given language">Preferred Label</a></td>
@@ -548,7 +548,7 @@ isoroles:custodian
                                 <tr><th>Property</th><th>Value</th></tr>
                                 <tr>
                                     <td>IRI</td>
-                                    <td><code>https://linked.data.gov.au/def/lc-contexts/QualifiedLocalContext</code></td>
+                                    <td><code>https://w3id.org/idn/def/lc-contexts/QualifiedLocalContext</code></td>
                                 </tr>
                                 <tr>
                                     <td><a href="https://www.w3.org/TR/skos-reference/#prefLabel" title="The preferred lexical label for a resource, in a given language">Preferred Label</a></td>
@@ -584,7 +584,7 @@ isoroles:custodian
                                 <tr><th>Property</th><th>Value</th></tr>
                                 <tr>
                                     <td>IRI</td>
-                                    <td><code>https://linked.data.gov.au/def/lc-contexts/requirement</code></td>
+                                    <td><code>https://w3id.org/idn/def/lc-contexts/requirement</code></td>
                                 </tr>
                                 <tr>
                                     <td><a href="https://www.w3.org/TR/skos-reference/#prefLabel" title="The preferred lexical label for a resource, in a given language">Preferred Label</a></td>
@@ -613,12 +613,12 @@ isoroles:custodian
                         <h4>B.4.3 <code>LocalContextLabel</code> instances</h4>
                         <p><code>LocalContextLabel</code> instances for all defined TK & BC labels are given in two vocabularies:</p>
                         <ol>
-                            <li><a href="https://linked.data.gov.au/def/BC-labels" style="text-decoration:line-through;">BC Labels Vocabulary</a></li>
-                            <li><a href="https://linked.data.gov.au/def/tk-labels" style="text-decoration:line-through;">TK Labels Vocabulary</a></li>
+                            <li><a href="https://w3id.org/idn/def/BC-labels" style="text-decoration:line-through;">BC Labels Vocabulary</a></li>
+                            <li><a href="https://w3id.org/idn/def/tk-labels" style="text-decoration:line-through;">TK Labels Vocabulary</a></li>
                         </ol>
                         <p>An example of RDF data for one of these labels is:</p>
                         <p class="eg">
-    PREFIX tk: &lt;https://linked.data.gov.au/def/tk-labels/&gt;
+    PREFIX tk: &lt;https://w3id.org/idn/def/tk-labels/&gt;
 
     tk:women-restricted
         a

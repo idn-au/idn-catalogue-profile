@@ -11,10 +11,10 @@ PREFIX sdo: <https://schema.org/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 
-<http://linked.data.gov.au/def/idncp>
+<http://w3id.org/idn/def/cp>
     a owl:Ontology , prof:Profile ;
     dcterms:provenance "This profile of DCAT was made within the IDN's ID Catalogue project 2021 - 2022."@en ;
-    owl:versionIRI <http://linked.data.gov.au/def/idncp/0.0.1> ;
+    owl:versionIRI <http://w3id.org/idn/def/cp/0.0.1> ;
     owl:versionInfo "0.0.1" ;    
     sdo:codeRespository "https://github.com/idn-au/idn-catalogue-profile/"^^xsd:anyURI ;
     sdo:copyrightHolder <https://linked.data.gov.au/org/idn> ;
@@ -30,26 +30,26 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sdo:publisher <https://linked.data.gov.au/org/idn> ;
     prof:hasResource [
         rdfs:label "Specification Document" ;
-        prof:hasArtifact <https://linked.data.gov.au/def/idncp/spec> ;
+        prof:hasArtifact <https://w3id.org/idn/def/cp/spec> ;
         dcterms:format "text/html" ;
         prof:hasRole role:specification ;
     ] ,
     [
         rdfs:label "SHACL Validator" ;
-        prof:hasArtifact <https://linked.data.gov.au/def/idncp/validator> ;
+        prof:hasArtifact <https://w3id.org/idn/def/cp/validator> ;
         dcterms:format "text/turtle" ;
         prof:hasRole role:validation ;
     ], 
     [
         rdfs:label "Compounded Validator" ;
         rdfs:comment "A validator that contains the IDN Catalogue Profile validator and those of Standards that the IDN Catalogue Profile profiles, particularly DCAT (the DCAT Null Profile)"@en ;
-        prof:hasArtifact <https://linked.data.gov.au/def/idncp/compounded-validator> ;
+        prof:hasArtifact <https://w3id.org/idn/def/cp/compounded-validator> ;
         dcterms:format "text/turtle" ;
         prof:hasRole role:validation ;
     ],     
     [
         rdfs:label "Code Repository" ;
-        prof:hasArtifact <https://linked.data.gov.au/def/idncp/repo> ;
+        prof:hasArtifact <https://w3id.org/idn/def/cp/repo> ;
         prof:hasRole role:repository ;
     ] ;
     prof:isProfileOf
