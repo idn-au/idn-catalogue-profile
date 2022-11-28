@@ -38,7 +38,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         <https://w3id.org/idn/shapes/sddi/S-10> ,
         <https://w3id.org/idn/shapes/sddi/X-01> ;
     dcterms:provenance "This ontology has been made as part of the Indigenous Data Network catalogue project, 2022" ;
-    owl:versionIRI <https://linked.data.gov.au/def/abisdm/0.1.1> ;
+    owl:versionIRI <https://w3id.org/idn/shapes/sddi/sddi/0.1.0> ;
     owl:versionInfo "0.1.0" ;
     skos:definition "A SHACL validator to assess Datasets presented according to the Indigenous Data Network's Dataset Profile of DCAT according to the Standard Descriptors for Data Inventories defined by the Office of the National Data Commissioner" ;
     sdo:codeRespository "https://github.com/idn-au/idn-dataset-profile"^^xsd:anyURI ;
