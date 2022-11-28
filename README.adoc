@@ -2,17 +2,9 @@
 
 This repository contains the https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network[Indigenous Data Network (IDN)]'s profile of https://www.w3.org/TR/vocab-dcat/[the Data Catalog Vocabulary (DCAT)] which is a metadata model for describing datasets.
 
-The intentions of this profile are to:
+For all details, see this Profile's main defining document which is in this repository (profile.html) but rendered online at it's persistent web location:
 
-1. mandata a minimum set of metadata elements related to indigenous data governance & sovereignty
-2. allow for the modelling of certain person and organisation roles in relation to data important for indigenous governance
-3. provide mappings from DCAT metadata to data rating systems such as https://www.go-fair.org/fair-principles/[FAIR] and https://doi.org/10.5334/dsj-2020-043[CARE]
-
-The profile will be used in demonstration and production data catalogues.
-
-This profile consists of a number of resources which are all described and linked to from the profile's formal definition which is available in both human- and machine-readable for at it's persistent web identifier location:
-
-**http://w3id.org/idn/def/cp**
+* **http://w3id.org/idn/def/cp**
 
 
 == License & Rights
