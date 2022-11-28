@@ -1,200 +1,189 @@
-# baseURI: https://w3id.org/idn/shapes/sddi
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sdo: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ex: <http://example.com/thing/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix sdo: <https://schema.org/> .
-@prefix sosa: <http://www.w3.org/ns/sosa/> .
-@prefix tern: <https://w3id.org/tern/ontologies/tern/> .
-@prefix time: <http://www.w3.org/2006/time#> .
-@prefix void: <http://rdfs.org/ns/void#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-
-<https://w3id.org/idn/shapes/sddi>
+<https://w3id.org/idn/shapes/sddi/sddi>
     a owl:Ontology ;
-    skos:prefLabel "Standard Descriptors for Data Inventories IDN Validator" ;
-    skos:definition "A SHACL validator to assess Datasets presented according to the Indigenous Data Network's Dataset Profile of DCAT according to the Standard Descriptors for Data Inventories defined by the Office of the National Data Commissioner"@en ;
-    sdo:creator <https://linked.data.gov.au/org/idn> ;
-    sdo:publisher <https://linked.data.gov.au/org/idn> ;
-    sdo:dateCreated "2022-04-04"^^xsd:date ;
-    sdo:dateModified "2022-04-04"^^xsd:date ;
-    sdo:dateIssued "2000-01-01"^^xsd:date ;
-    sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
-    sdo:copyrightHolder <https://linked.data.gov.au/org/idn> ;
-    sdo:copyrightNotice "(c) Commonwealth of Australia (Indigenous Data Network), 2022" ;
-    dcterms:provenance "This ontology has been made as part of the Indigenous Data Network catalogue project, 2022"@en ;
+    rdfs:label "Standard Descriptors for Data Inventories IDN Validator" ;
+    dcterms:hasPart
+        <https://w3id.org/idn/shapes/sddi/C-01> ,
+        <https://w3id.org/idn/shapes/sddi/C-02> ,
+        <https://w3id.org/idn/shapes/sddi/C-03> ,
+        <https://w3id.org/idn/shapes/sddi/C-04> ,
+        <https://w3id.org/idn/shapes/sddi/C-05> ,
+        <https://w3id.org/idn/shapes/sddi/C-06> ,
+        <https://w3id.org/idn/shapes/sddi/C-07> ,
+        <https://w3id.org/idn/shapes/sddi/C-08> ,
+        <https://w3id.org/idn/shapes/sddi/C-09> ,
+        <https://w3id.org/idn/shapes/sddi/C-10> ,
+        <https://w3id.org/idn/shapes/sddi/C-11> ,
+        <https://w3id.org/idn/shapes/sddi/C-12> ,
+        <https://w3id.org/idn/shapes/sddi/C-13> ,
+        <https://w3id.org/idn/shapes/sddi/C-14> ,
+        <https://w3id.org/idn/shapes/sddi/C-15> ,
+        <https://w3id.org/idn/shapes/sddi/C-16> ,
+        <https://w3id.org/idn/shapes/sddi/S-01> ,
+        <https://w3id.org/idn/shapes/sddi/S-02> ,
+        <https://w3id.org/idn/shapes/sddi/S-03> ,
+        <https://w3id.org/idn/shapes/sddi/S-04> ,
+        <https://w3id.org/idn/shapes/sddi/S-05> ,
+        <https://w3id.org/idn/shapes/sddi/S-06> ,
+        <https://w3id.org/idn/shapes/sddi/S-07> ,
+        <https://w3id.org/idn/shapes/sddi/S-08> ,
+        <https://w3id.org/idn/shapes/sddi/S-09> ,
+        <https://w3id.org/idn/shapes/sddi/S-10> ,
+        <https://w3id.org/idn/shapes/sddi/X-01> ;
+    dcterms:provenance "This ontology has been made as part of the Indigenous Data Network catalogue project, 2022" ;
     owl:versionIRI <https://linked.data.gov.au/def/abisdm/0.1.1> ;
     owl:versionInfo "0.1.0" ;
+    skos:definition "A SHACL validator to assess Datasets presented according to the Indigenous Data Network's Dataset Profile of DCAT according to the Standard Descriptors for Data Inventories defined by the Office of the National Data Commissioner" ;
     sdo:codeRespository "https://github.com/idn-au/idn-dataset-profile"^^xsd:anyURI ;
-    dcterms:hasPart
-
+    sdo:copyrightHolder <https://linked.data.gov.au/org/idn> ;
+    sdo:copyrightNotice "(c) Commonwealth of Australia (Indigenous Data Network), 2022" ;
+    sdo:creator <https://linked.data.gov.au/org/idn> ;
+    sdo:dateCreated "2022-04-04"^^xsd:date ;
+    sdo:dateIssued "2000-01-01"^^xsd:date ;
+    sdo:dateModified "2022-04-04"^^xsd:date ;
+    sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
+    sdo:publisher <https://linked.data.gov.au/org/idn> ;
 .
-
 
 <https://w3id.org/idn/shapes/sddi/C-01>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI C-01"@en ;
-    dcterms:identifier "SDDI-C-01"^^xsd:token ;
+    rdfs:label "SDDI C-01" ;
 .
 
-<https://w3id.org/idn/shapes/C-02>
+<https://w3id.org/idn/shapes/sddi/C-02>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI C-02"@en ;
-    dcterms:identifier "SDDI-C-02"^^xsd:token ;
+    rdfs:label "SDDI C-02" ;
 .
 
-<https://w3id.org/idn/shapes/C-03>
+<https://w3id.org/idn/shapes/sddi/C-03>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI C-03"@en ;
-    dcterms:identifier "SDDI-C-03"^^xsd:token ;
+    rdfs:label "SDDI C-03" ;
 .
 
-<https://w3id.org/idn/shapes/C-04>
+<https://w3id.org/idn/shapes/sddi/C-04>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI C-04"@en ;
-    dcterms:identifier "SDDI-C-04"^^xsd:token ;
+    rdfs:label "SDDI C-04" ;
 .
 
-<https://w3id.org/idn/shapes/C-05>
+<https://w3id.org/idn/shapes/sddi/C-05>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI C-05"@en ;
-    dcterms:identifier "SDDI-C-05"^^xsd:token ;
+    rdfs:label "SDDI C-05" ;
 .
 
-<https://w3id.org/idn/shapes/C-06>
+<https://w3id.org/idn/shapes/sddi/C-06>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI C-06"@en ;
-    dcterms:identifier "SDDI-C-06"^^xsd:token ;
+    rdfs:label "SDDI C-06" ;
 .
 
-<https://w3id.org/idn/shapes/C-07>
+<https://w3id.org/idn/shapes/sddi/C-07>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI C-07"@en ;
-    dcterms:identifier "SDDI-C-07"^^xsd:token ;
+    rdfs:label "SDDI C-07" ;
 .
 
-<https://w3id.org/idn/shapes/C-08>
+<https://w3id.org/idn/shapes/sddi/C-08>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI C-08"@en ;
-    dcterms:identifier "SDDI-C-08"^^xsd:token ;
+    rdfs:label "SDDI C-08" ;
 .
 
-<https://w3id.org/idn/shapes/C-09>
+<https://w3id.org/idn/shapes/sddi/C-09>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI C-09"@en ;
-    dcterms:identifier "SDDI-C-09"^^xsd:token ;
+    rdfs:label "SDDI C-09" ;
 .
 
-<https://w3id.org/idn/shapes/C-10>
+<https://w3id.org/idn/shapes/sddi/C-10>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI C-10"@en ;
-    dcterms:identifier "SDDI-C-10"^^xsd:token ;
+    rdfs:label "SDDI C-10" ;
 .
 
-<https://w3id.org/idn/shapes/C-11>
+<https://w3id.org/idn/shapes/sddi/C-11>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI C-11"@en ;
-    dcterms:identifier "SDDI-C-11"^^xsd:token ;
+    rdfs:label "SDDI C-11" ;
 .
 
-<https://w3id.org/idn/shapes/C-12>
+<https://w3id.org/idn/shapes/sddi/C-12>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI C-12"@en ;
-    dcterms:identifier "SDDI-C-12"^^xsd:token ;
+    rdfs:label "SDDI C-12" ;
 .
 
-<https://w3id.org/idn/shapes/C-13>
+<https://w3id.org/idn/shapes/sddi/C-13>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI C-13"@en ;
-    dcterms:identifier "SDDI-C-13"^^xsd:token ;
+    rdfs:label "SDDI C-13" ;
 .
 
-<https://w3id.org/idn/shapes/C-14>
+<https://w3id.org/idn/shapes/sddi/C-14>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI C-14"@en ;
-    dcterms:identifier "SDDI-C-14"^^xsd:token ;
+    rdfs:label "SDDI C-14" ;
 .
 
-<https://w3id.org/idn/shapes/C-15>
+<https://w3id.org/idn/shapes/sddi/C-15>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI C-15"@en ;
-    dcterms:identifier "SDDI-C-15"^^xsd:token ;
+    rdfs:label "SDDI C-15" ;
 .
 
-<https://w3id.org/idn/shapes/C-16>
+<https://w3id.org/idn/shapes/sddi/C-16>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI C-16"@en ;
-    dcterms:identifier "SDDI-C-16"^^xsd:token ;
+    rdfs:label "SDDI C-16" ;
 .
 
-<https://w3id.org/idn/shapes/S-01>
+<https://w3id.org/idn/shapes/sddi/S-01>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI S-01"@en ;
-    dcterms:identifier "SDDI-S-01"^^xsd:token ;
+    rdfs:label "SDDI S-01" ;
 .
 
-<https://w3id.org/idn/shapes/S-02>
+<https://w3id.org/idn/shapes/sddi/S-02>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI S-02"@en ;
-    dcterms:identifier "SDDI-S-02"^^xsd:token ;
+    rdfs:label "SDDI S-02" ;
 .
 
-<https://w3id.org/idn/shapes/S-03>
+<https://w3id.org/idn/shapes/sddi/S-03>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI S-03"@en ;
-    dcterms:identifier "SDDI-S-03"^^xsd:token ;
+    rdfs:label "SDDI S-03" ;
 .
 
-<https://w3id.org/idn/shapes/S-04>
+<https://w3id.org/idn/shapes/sddi/S-04>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI S-04"@en ;
-    dcterms:identifier "SDDI-S-04"^^xsd:token ;
+    rdfs:label "SDDI S-04" ;
 .
 
-<https://w3id.org/idn/shapes/S-05>
+<https://w3id.org/idn/shapes/sddi/S-05>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI S-05"@en ;
-    dcterms:identifier "SDDI-S-05"^^xsd:token ;
+    rdfs:label "SDDI S-05" ;
 .
 
-<https://w3id.org/idn/shapes/S-06>
+<https://w3id.org/idn/shapes/sddi/S-06>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI S-06"@en ;
-    dcterms:identifier "SDDI-S-06"^^xsd:token ;
+    rdfs:label "SDDI S-06" ;
 .
 
-<https://w3id.org/idn/shapes/S-07>
+<https://w3id.org/idn/shapes/sddi/S-07>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI S-07"@en ;
-    dcterms:identifier "SDDI-S-07"^^xsd:token ;
+    rdfs:label "SDDI S-07" ;
 .
 
-<https://w3id.org/idn/shapes/S-08>
+<https://w3id.org/idn/shapes/sddi/S-08>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI S-08"@en ;
-    dcterms:identifier "SDDI-S-08"^^xsd:token ;
+    rdfs:label "SDDI S-08" ;
 .
 
-<https://w3id.org/idn/shapes/S-09>
+<https://w3id.org/idn/shapes/sddi/S-09>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI S-09"@en ;
-    dcterms:identifier "SDDI-S-09"^^xsd:token ;
+    rdfs:label "SDDI S-09" ;
 .
 
-<https://w3id.org/idn/shapes/S-10>
+<https://w3id.org/idn/shapes/sddi/S-10>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI S-10"@en ;
-    dcterms:identifier "SDDI-S-10"^^xsd:token ;
+    rdfs:label "SDDI S-10" ;
 .
 
-<https://w3id.org/idn/shapes/X-01>
+<https://w3id.org/idn/shapes/sddi/X-01>
     a sh:NodeShape ;
-    skos:prefLabel "SDDI X-01"@en ;
-    dcterms:identifier "SDDI-X-01"^^xsd:token ;
+    rdfs:label "SDDI X-01" ;
 .
+
