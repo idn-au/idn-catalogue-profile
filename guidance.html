@@ -11,6 +11,7 @@
             <h3>Contents</h3>
             <ul>
                 <li><a href="#minimum">Minimum Metadata</a></li>
+                <li><a href="#format">Format</a></li>
                 <li><a href="#identifiers">Identifiers</a></li>
                 <li><a href="#roles">Roles</a></li>
                 <li><a href="#agents">Agents</a></li>
@@ -33,7 +34,8 @@
             <h1>IDN Catalogue Profile - Guidance</h1>
             <!-- <h2>Description</h2> -->
             <div id="description">
-                <p>This is a how-to guide to assist you with creating metadata for datasets according to the <a href="https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network">Indigenous Data Network</a> (IDN)'s <a href="https://w3id.org/idn/def/cp">Catalogue Profile</a>, which is a metadata standard.</p>
+                <p>This is a guide to assist you with creating metadata for catalogued items according to the <a href="https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network">Indigenous Data Network</a> (IDN)'s <a href="https://w3id.org/idn/def/cp">Catalogue Profile</a>.</p>
+                <p><em>If you are after the formal statement of requirements for the Profile, see the <a href="https://w3id.org/idn/def/cp/spec">Specification Document</a>.</em></p>
             </div>
             <section id="minimum">
                 <h2>Minimum Metadata <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
@@ -53,7 +55,7 @@
                     </tr>
                     <tr>
                         <th>Description</th>
-                        <td>A sentence up to multiple paragraphs. Just text though.</td>
+                        <td>A single sentence at least, up to multiple paragraphs. Just plain text though.</td>
                     </tr>
                     <tr>
                         <th>Creator</th>
@@ -67,20 +69,35 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>Created time</th>
+                        <th>Created</th>
                         <td>
                             <p>The date/year etc. the data was created.</p>
+                            <p>This property is recommended but optional: If you really don't know this, leave it out.</p>
                             <p>See the <a href="#dating">Dating</a> section below</p>
                         </td>
                     </tr>
                     <tr>
-                        <th>Modified Date</th>
+                        <th>Modified</th>
                         <td>
                             <p>The date/year etc. the data was last modified/updated.</p>
+                            <p>This property is recommended but optional: If you really don't know this, leave it out.</p>
                             <p>See the <a href="#dating">Dating</a> section below</p>
                         </td>
                     </tr>
                 </table>
+            </section>
+            <section id="format">
+                <h2>Format <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                <p>The IDN Catalogue Profile uses a particular, machine-readable, data type for all metadata: RDF.</p>
+                <p>It's critical that metadata is either supplied in one of the RDF formats or that it be able to be converted into it.</p>
+                <h4>Supplying non-RDF data</h4>
+                <p>Unless someone else is going to convert your metadata into RDF, you should use the:</p>
+                <ul>
+                    <li><a href="https://idn-au.github.io/idn-metadata-creator/">IDN Metadata Creator tool</a></li>
+                </ul>
+                <h4>Supplying RDF data</h4>
+                <p>If you want to supply RDF metadata to the IDN, or just make your own RDF metadata generally, see what the <a href="https://idn-au.github.io/idn-metadata-creator/">IDN Metadata Creator tool</a> does - it can show off RDF metadata.</p>
+                <p>You can also see the <a href="#eg-technical">Technical Example</a> below.</p>
             </section>
             <section id="identifiers">
                 <h2>Identifiers <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
@@ -134,34 +151,40 @@
             </section>
             <section id="examples">
                 <h2>Examples <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-                <h3>Minimal</h3>
-                <p>A dataset with minimal metadata:</p>
-                <ul>
-                    <li><a href="https://w3id.org/idn/resource/BSA">Briscoe-Smith Archive</a></li>
-                </ul>
-                <p>For this dataset we have only:</p>
-                <table class="properties">
-                    <tr>
-                        <th>Property</th>
-                        <th>Value</th>
-                    </tr>
-                    <tr>
-                        <td>Title</td>
-                        <td>Briscoe-Smith Archive</td>
-                    </tr>
-                    <tr>
-                        <td>Description</td>
-                        <td>Historical population data and biographical records</td>
-                    </tr>
-                    <tr>
-                        <td>Identifier</td>
-                        <td><code>https://w3id.org/idn/resource/BSA</code></td>
-                    </tr>
-                    <tr>
-                        <td>Agent/Role</td>
-                        <td><a href="https://linked.data.gov.au/org/ada">Australian Data Archive</a> / <a href="http://iso.kurrawong.net/vocab/CI_RoleCode/custodian">custodian</a></td>
-                    </tr>
-                </table>
+                <section id="eg-minimal">
+                    <h3>Minimal <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <p>A dataset with minimal metadata:</p>
+                    <ul>
+                        <li><a href="https://w3id.org/idn/resource/BSA">Briscoe-Smith Archive</a></li>
+                    </ul>
+                    <p>For this dataset we have only:</p>
+                    <table class="properties">
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                        </tr>
+                        <tr>
+                            <td>Title</td>
+                            <td>Briscoe-Smith Archive</td>
+                        </tr>
+                        <tr>
+                            <td>Description</td>
+                            <td>Historical population data and biographical records</td>
+                        </tr>
+                        <tr>
+                            <td>Identifier</td>
+                            <td><code>https://w3id.org/idn/resource/BSA</code></td>
+                        </tr>
+                        <tr>
+                            <td>Agent/Role</td>
+                            <td><a href="https://linked.data.gov.au/org/ada">Australian Data Archive</a> / <a href="http://iso.kurrawong.net/vocab/CI_RoleCode/custodian">custodian</a></td>
+                        </tr>
+                    </table>
+                </section>
+                <section id="eg-technical">
+                    <h3>Technical <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+
+                </section>
             </section>
             <p>&nbsp;</p>
         </div><!-- #content -->
