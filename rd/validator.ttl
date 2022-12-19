@@ -164,7 +164,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 .
 
 
-:concept
+:conceptScheme
     a sh:NodeShape ;
     sh:targetClass skos:ConceptScheme ;
     rdfs:label "IDN shape for ConceptScheme" ;
@@ -172,7 +172,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 .
 
 #
-#   Property Shapoes
+#   Property Shapes
 #
 
 :resource-identifier

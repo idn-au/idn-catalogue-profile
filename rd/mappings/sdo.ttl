@@ -63,3 +63,31 @@ dqv:QualityMeasurement owl:equivalentClass sdo:QuantitativeValue .
 # TODO: dcterms:RightsStatement copyrightNotice
 
 # dcterms:Standard
+
+# From the IDN CP Specification
+
+dcterms:type
+
+dcterms:title owl:equivalentProperty sdo:name .
+
+dcterms:description owl:equivalentProperty sdo:description .
+
+dcterms:created owl:equivalentProperty sdo:dateCreated .
+
+dcterms:modified owl:equivalentProperty sdo:dateModified .
+
+dcterms:issued owl:equivalentProperty sdo:datePublished .
+
+dcterms:license owl:equivalentProperty sdo:description .
+
+dcterms:rights owl:equivalentProperty sdo:description .
+
+dcterms:accessRights
+
+dcat:accessURL
+
+dcterms:spatial
+
+dcterms:temporal
+
+prov:qualifiedAttribution

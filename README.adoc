@@ -1,11 +1,12 @@
 = IDN Catalogue Profile
 
-This repository contains the https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network[Indigenous Data Network (IDN)]'s profile of https://www.w3.org/TR/vocab-dcat/[the Data Catalog Vocabulary (DCAT)] which is a metadata model for describing datasets.
+This repository contains the https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network[Indigenous Data Network (IDN)]'s _Profile_ of the https://www.w3.org/TR/vocab-dcat/[Data Catalog Vocabulary (DCAT)], the https://www.w3.org/TR/prov-o/[Provenance Ontology (PROV-O)] and some other well-known https://www.w3.org/standards/semanticweb/[Semantic Web] information models used for describing catalogued resources.
 
-For all details, see this Profile's main defining document which is in this repository (profile.html) but rendered online at it's persistent web location:
+This Profile's main defining document which is in this repository (profile.html) is rendered online at its persistent web location:
 
-* **http://w3id.org/idn/def/cp**
+* **https://w3id.org/idn/def/cp**
 
+That document contains a list of the various resources provided by this profile, most of which are stored in this repository within the `rd/` folder.
 
 == License & Rights
 

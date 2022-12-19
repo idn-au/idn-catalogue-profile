@@ -2,8 +2,8 @@
 <html lang="en">
     <head lang="en">
     <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="style/idn-logo-64.ico">
-    <link href="style/idn.css" rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/x-icon" href="https://idn-au.github.io/idn-catalogue-profile/style/idn-logo-64.ico">
+    <link href="https://idn-au.github.io/idn-catalogue-profile/style/idn.css" rel='stylesheet' type='text/css'>
     <title>IDN Catalogue Profile Specification</title>
   </head>
     <body>
@@ -49,7 +49,7 @@
         <div class="header" style="grid-column:1; grid-row:1;"></div>
         <div class="header" id="header"  style="grid-column:2; grid-row:1; display:grid; grid-template-columns:300px auto;">
             <div id="logo" style="grid-column:1; padding:3px;">
-              <img src="style/idn-logo-250.png" alt="IDN logo" />
+              <img src="https://idn-au.github.io/idn-catalogue-profile/style/idn-logo-250.png" alt="IDN logo" />
             </div>
             <div id="idn-title" style="grid-column:2;">
               Indigenous Data Network
@@ -62,10 +62,10 @@
             <!-- <h2>Description</h2> -->
             <div id="description">
                 <p>This is the specification of normative requirements for data conforming to the <a href="https://w3id.org/idn/def/cp">IDN Catalogue Profile</a>. Also presented are mappings from this profile to other models.</p>
-                <p style="width:50%; border:solid 3px black; padding:10px; background-color:#ccc;"><strong>Metadata Requirements</strong>:<br />If you want to know how to create meatadata according to this profile, see the <a href="https://w3id.org/idn/def/cp/guide">Guidance Document</a>.</p>
+                <p style="width:50%; border:solid 3px black; padding:10px; background-color:#ccc;"><strong>Metadata Requirements</strong>:<br />If you want to get started creating information (catalogued item metadata) according to this profile, see the <a href="https://w3id.org/idn/def/cp/guide">Guidance Document</a>.</p>
             </div>
             <div id="overview" class="figure">
-                <a href="style/venn.png"><img src="style/venn.png" style="width:600px;" alt="Venn diagram of this profile's concerns" /></a>
+                <a href="https://idn-au.github.io/idn-catalogue-profile/style/venn.png"><img src="https://idn-au.github.io/idn-catalogue-profile/style/venn.png" style="width:600px;" alt="Venn diagram of this profile's concerns" /></a>
                 <p class="caption"><strong>Figure 1:</strong> This profile overlaps concerns with the DCAT and PROV models and provides for the description of data according to several other assessment models, such as FAIR, CARE etc. The overlaps do indicate which models are needed to cover requirements of the assessment models.</p>
             </div>
             <section id="metadata">
@@ -172,7 +172,7 @@
                 <section id="structural">
                     <h3>2.1 Structural Requirements</h3>
                     <div id="structural-figure" class="figure">
-                        <a href="style/overview.png"><img src="style/overview.png" style="width:600px;" alt="Profile class structure overview" /></a>
+                        <a href="https://idn-au.github.io/idn-catalogue-profile/style/overview.png"><img src="https://idn-au.github.io/idn-catalogue-profile/style/overview.png" style="width:600px;" alt="Profile class structure overview" /></a>
                         <p class="caption"><strong>Figure 2:</strong> Overview of elements of the DCAT, PROV & SKOS models and relationships between them used in this profile. Classes of object are shown as chamfered rectangles except for <code>Agent</code> which is shown as a 'house'. Enclosed arrows indicate the <code>rdfs:subClassOf</code> relationship. Pink arrows indicate specific value properties.</p>
                     </div>
                     <p>The following sub-subsections are per object class, where 'class' is one of the classes in this profile's structural overview (see Figure 2 above).</p>
@@ -508,7 +508,7 @@ isoroles:custodian
                         <p>The prefix <code>lc:</code> is used in this section for the namespace of this model: <code>https://w3id.org/idn/def/lc-contexts/</code>.</p>
                         <p>Figure B.4.1 overviews the model.</p>
                         <div id="lc-model-figure" class="figure">
-                            <a href="style/lc-model.png"><img src="style/lc-model.png" style="width:600px;" alt="Local Context model" /></a>
+                            <a href="https://idn-au.github.io/idn-catalogue-profile/style/lc-model.png"><img src="https://idn-au.github.io/idn-catalogue-profile/style/lc-model.png" style="width:600px;" alt="Local Context model" /></a>
                             <p class="caption"><strong>Figure B.4.1:</strong> Overview of elements of the Local Context Model. </p>
                         </div>
                         <p>This model requires that a <code>LocalContextLabel</code>, which is a specialised <code>skos:Concept</code>, is assigned to a catalogued <code>dcat:Resource</code> via an intermediate node of type <code>QualifiedLocalContext</code>. This use of the <a href="https://patterns.dataincubator.org/book/qualified-relation.html">"Qualified Relations" graph modelling pattern</a> allows for the nature of the <code>Resource</code>/<code>LocalContextLabel</code> relationship to be defined.</p>
