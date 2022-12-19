@@ -1,0 +1,65 @@
+# RDF/OWL mappings between IDN Catalogue Profile elements and schema.org elements
+#
+# https://w3id.org/idn/cp/sdo.ttl
+#
+# see https://ec-jrc.github.io/dcat-ap-to-schema-org/
+# see https://schema.org/docs/data-and-datasets.html
+
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dqv: <http://www.w3.org/ns/dqv#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sdo: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+
+sdo:Organization rdfs:subClassOf prov:Agent .
+
+sdo:Person rdfs:subClassOf prov:Agent .
+
+dcat:Dataset owl:equivalentClass sdo:Dataset .
+
+skos:Concept rdfs:subClassOf sdo:Thing .
+
+skos:ConceptScheme rdfs:subClassOf sdo:Enumeration .
+
+sdo:DataDownload rdfs:subClassOf dcat:Distribution .
+
+# dcterms:LicenseDocument
+# locn:Address
+# vcard:Address
+# dcat:CatalogRecord
+# spdx:Checksum
+
+sdo:WebAPI rdfs:subClassOf dcat:DataService .
+
+# foaf:Document
+# adms:Identifier
+
+vcard:Kind owl:equivalentClass sdo:ContactPoint .
+
+dcterms:Location owl:equivalentClass sdo:Place .
+
+# dcterms:MediaTypeOrExtent
+
+[]
+    owl:unionOf (
+        sdo:Text
+        sdo:URL
+    ) ;
+    rdfs:subClassOf dcterms:MediaType ;
+.
+
+dcterms:PeriodOfTime owl:equivalentClass sdo:DateTime .
+
+# dcterms:ProvenanceStatement
+
+dqv:QualityMeasurement owl:equivalentClass sdo:QuantitativeValue .
+
+# dcterms:RightsStatement
+
+# TODO: dcterms:RightsStatement copyrightNotice
+
+# dcterms:Standard

@@ -23,7 +23,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
     sdo:dateCreated "2022-07-18"^^xsd:date ;
     sdo:dateIssued "2022-07-31"^^xsd:date ;
-    sdo:dateModified "2022-07-20"^^xsd:date ;
+    sdo:dateModified "2022-12-19"^^xsd:date ;
     sdo:description "A profile of cataloguing, provenance and vocabulary standards designed for the representation of indigenous data governance"@en ;
     sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
     sdo:name "IDN Catalogue Profile"@en ;
@@ -51,6 +51,16 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         rdfs:label "Code Repository" ;
         prof:hasArtifact <https://w3id.org/idn/def/cp/repo> ;
         prof:hasRole role:repository ;
+    ] ,
+    [
+        rdfs:label "schema.org mapping description" ;
+        prof:hasArtifact <https://w3id.org/idn/def/cp/sdo> ;
+        prof:hasRole role:mapping ;
+    ] ;
+    [
+        rdfs:label "schema.org RDF mapping" ;
+        prof:hasArtifact <https://w3id.org/idn/def/cp/sdo.ttl> ;
+        prof:hasRole role:mapping ;
     ] ;
     prof:isProfileOf
         <https://www.w3.org/TR/vocab-dcat/> ,
