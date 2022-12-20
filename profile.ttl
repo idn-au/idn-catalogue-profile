@@ -49,17 +49,26 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     ],     
     [
         rdfs:label "Code Repository" ;
+        rdfs:comment "An online Git version control repository that contains most of this Profile's content in files" ;
         prof:hasArtifact <https://w3id.org/idn/def/cp/repo> ;
         prof:hasRole role:repository ;
     ] ,
     [
         rdfs:label "schema.org mapping description" ;
+        rdfs:comment "Description of the mappings between IDN CP elements and schema.org elements" ;
         prof:hasArtifact <https://w3id.org/idn/def/cp/sdo> ;
         prof:hasRole role:mapping ;
-    ] ;
+    ] ,
     [
         rdfs:label "schema.org RDF mapping" ;
+        rdfs:comment "RDF/OWL mappings between IDN CP elements and schema.org elements" ;
         prof:hasArtifact <https://w3id.org/idn/def/cp/sdo.ttl> ;
+        prof:hasRole role:mapping ;
+    ] ,
+    [
+        rdfs:label "RIF-CS mapping description" ;
+        rdfs:comment "Description of the mappings between IDN CP elements and RIF-CS elements" ;
+        prof:hasArtifact <https://w3id.org/idn/def/cp/rif-cs> ;
         prof:hasRole role:mapping ;
     ] ;
     prof:isProfileOf
