@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="https://idn-au.github.io/idn-catalogue-profile/style/idn-logo-64.ico">
+    <link href="https://idn-au.github.io/idn-catalogue-profile/style/idn.css" rel="stylesheet" type="text/css">
+    <title>IDN Catalogue Profile - SDO mapping</title>
+</head>
+<body>
+<div id="menu" style="grid-column:1;">
+    <h3>Contents</h3>
+    <ul>
+        <li><a href="#metadata">Metadata</a></li>
+        <li>
+            <a href="#mapping">Mapping</a>
+            <ul>
+                <li><a href="#minimal">Minimal</a></li>
+                <li><a href="#full">RolesFull</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="header" style="grid-column:1;"></div>
+<div id="header" class="header" style="grid-column:2; display:grid; grid-template-columns:300px auto;">
+    <div id="logo" style="grid-column:1; padding:3px;">
+        <img src="https://idn-au.github.io/idn-catalogue-profile/style/idn-logo-250.png"/>
+    </div>
+    <div id="idn-title" style="grid-column:2;">
+        Indigenous Data Network
+    </div>
+</div>
+</div><!-- #header -->
+<div class="header" style="grid-column:3;"></div>
+<div id="content" style="grid-column:2;">
+    <h1>IDN CP - RIF-CS Mapping</h1>
+    <div id="description">
+        <p>This document defines the <a href="https://w3id.org/idn/def/cp">IDN CP</a>'s official mapping between its elements and <a href="https://archive-intranet.ardc.edu.au/display/DOC/About+RIF-CS">RIF-CS</a>'s elements.</p>
+    </div>
+    <section id="metadata">
+        <h2>Metadata <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+        <dl>
+            <dt>URI</dt>
+            <dd><code>https://w3id.org/idn/def/cp/rif-cs</code> <a href="https://w3id.org/idn/def/cp/rif-cs" style="font-size:1.5em">&#x2197;</a>
+            </dd>
+            <dt><a class="proplink" title="sdo:name" href="https://schema.org/name">Name</a></dt>
+            <dd>IDN CP &rarr; RIF-CS Mapping</dd>
+            <dt><a class="proplink" title="sdo:description" href="https://schema.org/description">Description</a></dt>
+            <dd>This document defines the <a href="https://w3id.org/idn/def/cp">IDN CP</a>'s official mapping between its elements and <a href="https://archive-intranet.ardc.edu.au/display/DOC/About+RIF-CS">RIF-CS</a>'s elements.</dd>
+            <dt><a href="https://schema.org/isPartOf">Is Part Of</a> (a <a href="https://www.w3.org/TR/dx-prof/#Class:ResourceDescriptor">Profile Resource Descriptor</a> of)</a></dt>
+            <dd><a href="https://w3id.org/idn/def/cp">IDN's Catalogue Profile</a><br/></dd>
+            <dt><a class="proplink" title="sdo:publisher" href="https://schema.org/publisher">Publisher</a>(s)</dt>
+            <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a><br/></dd>
+            <dt><a class="proplink" title="sdo:creator" href="https://schema.org/creator">Creator</a>(s)</dt>
+            <dd><a href="">Nicholas J. Car</a><br/></dd>
+            <dt><a class="proplink" title="sdo:created" href="https://schema.org/created">Created</a></dt>
+            <dd>2022-12-20</dd>
+            <dt><a class="proplink" title="sdo:dateModified" href="https://schema.org/dateModified">Modified</a></dt>
+            <dd>2022-12-20</dd>
+            <dt><a class="proplink" title="sdo:dateIssued" href="https://schema.org/dateIssued">Issued</a></dt>
+            <dd>2022-12-20</dd>
+            <dt><a class="proplink" title="owl#versionInfo" href="http://www.w3.org/2002/07/owl#versionInfo">Version
+                Information</a></dt>
+            <dd>0.0.1</dd>
+            <dt><a class="proplink" title="owl#versionIRI" href="http://www.w3.org/2002/07/owl#versionIRI">Version
+                IRI</a></dt>
+            <dd><a href="https://w3id.org/idn/def/cp/0.0.1">https://w3id.org/idn/def/cp/sdo/0.0.1</a></dd>
+            <dt><a class="proplink" title="sdo:license" href="https://schema.org/license">License</a></dt>
+            <dd><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a>
+            </dd>
+            <dt><a class="proplink" title="sdo:copyrightHolderame" href="https://schema.org/copyrightHolder">Copyright
+                Holder</a></dt>
+            <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a></dd>
+            <dt><a class="proplink" title="sdo:copyrightYear" href="https://schema.org/copyrightYear">Copyright Year</a>
+            </dt>
+            <dd>2022</dd>
+            <dt><a class="proplink" title="sdo:codeRespository" href="https://schema.org/codeRespository">Code
+                Repository</a></dt>
+            <dd><a href="https://github.com/idn-au/idn-catalogue-profile/">https://github.com/idn-au/idn-catalogue-profile/</a>
+            </dd>
+        </dl>
+    </section>
+    <section id="mapping">
+        <h2>Mapping <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+        <p>The following namespace prefixes are used in the mapping table below:</p>
+        <dl>
+            <dt>dcat</dt>
+            <dd><code>http://www.w3.org/ns/dcat#</code></dd>
+            <dt>dcterms</dt>
+            <dd><code>http://purl.org/dc/terms/</code></dd>
+            <dt>geo</dt>
+            <dd><code>http://www.opengis.net/ont/geosparql#</code></dd>
+            <dt>idn-role</dt>
+            <dd><code>https://w3id.org/idn/def/idn-role-codes/subjectAgent</code></dd>
+            <dt>org</dt>
+            <dd><code>https://linked.data.gov.au/org/</code></dd>
+            <dt>owl</dt>
+            <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+            <dt>rdfs</dt>
+            <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+            <dt>role</dt>
+            <dd><code>http://www.w3.org/ns/dx/prof/role/</code></dd>
+            <dt>sdo</dt>
+            <dd><code>https://schema.org/</code></dd>
+            <dt>skos</dt>
+            <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
+            <dt>xsd</dt>
+            <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
+        </dl>
+        <section id="minmal">
+            <h3>Minimal</h3>
+            <p>This first mapping is for the elements of <em>Minimal Metadata</em> as per the IDN CP's <a href="https://w3id.org/idn/def/cp/guide">Guide</a>. The examples used are also from the Guide's minimal example.</p>
+            <h4>Coded Equivalents</h4>
+            <p>The following is a slightly extended version of the <a href="https://w3id.org/idn/def/cp/guide">Guide</a>'s mimimal example:</p>
+            <h5>IDN CP</h5>
+            <p class="eg">
+PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
+PREFIX dcterms:&lt;http://purl.org/dc/terms/>
+PREFIX iso: &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/>
+PREFIX prov: &lt;http://www.w3.org/ns/prov#>
+
+&lt;https://w3id.org/idn/resource/BSA>
+    a dcat:Resource ;
+    dcterms:title "Briscoe-Smith Archive" ;
+    dcterms:description "Historical population data and biographical records" ;
+    prov:qualifiedAttribution [
+        dcat:hadRole iso:custodian ;
+        prov:agent &lt;https://linked.data.gov.au/org/ada>
+    ] ;
+    dcterms:create "2022-12-19"^^xsd:date ;
+    dcterms:modified "2022-12-20"^^xsd:date ;
+.
+            </p>
+            <h5>RIF-CS</h5>
+            <p class="eg">
+&lt;registryObject>
+  &lt;key>BSA&lt;/key>
+  &lt;originatingSource>https://w3id.org/idn/resource/BSA&lt;/originatingSource>
+  &lt;collection type="dataset" dateModified="2022-12-20">
+    &lt;name type="primary">
+      &lt;namePart>Briscoe-Smith Archive&lt;/namePart>
+    &lt;/name>
+    &lt;description type="brief">Historical population data and biographical records&lt;/description>
+    &lt;identifier type="uri">https://w3id.org/idn/resource/BSA&lt;/identifier>
+    &lt;dates type="dc.created">
+      &lt;date type="dateFrom" dateFormat="W3CDTF">2022-12-19&lt;/date>
+    &lt;/dates>
+    &lt;relatedObject>
+      &lt;key>Contributor:Australian Data Archive&lt;/key>
+      &lt;relation type="isManagedBy"/>
+    &lt;/relatedObject>
+  &lt;/collection>
+&lt;/registryObject>
+            </p>
+        </section>
+        <section id="full">
+            <h3>Full</h3>
+            <p>This second mapping is for the elements of <em>Full Metadata</em> as per the IDN CP's <a href="https://w3id.org/idn/def/cp/guide">Guide</a>. The examples used are also from the Guide's full example.</p>
+            <h5>IDN CP</h5>
+            <p class="eg">
+PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
+PREFIX dcterms:&lt;http://purl.org/dc/terms/>
+PREFIX idnth: &lt;https://w3id.org/idn/def/idn-data-themes/&gt;
+PREFIX iso: &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/>
+PREFIX prov: &lt;http://www.w3.org/ns/prov#>
+
+&lt;https://linked.data.gov.au/dataset/asgsed3/ILOC>
+    a dcat:Resource ;
+    sdo:additionalType geo:FeatureCollection ;
+    dcterms:title "Indigenous Locations within the Australian Statistical Geography Standard (ASGS) Edition 3" ;
+dcterms:description """This is a reference geospatial dataset developed by the Australian Bureau of Statistics... This enables the release of Census of Population and Housing data and other data for Aboriginal and Torres Strait Islander communities in a meaningful way, while balancing confidentiality and statistical requirements. ..."""@en ;
+    dcterms:created "2021-10-06"^^xsd:date ;
+    dcterms:modified "2021-10-06"^^xsd:date ;
+    dcterms:identifier "ILOC"^^xsd:token ;
+    dcterms:source "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/indigenous-structure/indigenous-locations"^^xsd:anyURI ;
+    dcterms:issued "2021-10-06"^^xsd:date ;
+    dcterms:license &lt;https://purl.org/NET/rdflicense/cc-by4.0> ;
+    dcterms:rights "Copyright © Commonwealth of Australia (Australian Bureau of Statistics) 2021" ;
+    dcterms:accessRights &lt;https://linked.data.gov.au/def/data-access-rights/open> ;
+    dcterms:spatial &lt;https://linked.data.gov.au/dataset/asgsed3/AUS/AUS> ,
+    [
+        geo:asWKT "POLYGON ((96 -45, 96 -9, 168  -9, 168 -45, 96 -45))"^^geo:wktLiteral ;
+    ] ;
+    dcterms:temporal [
+            prov:endedAtTime "2026"^^xsd:gYear ;
+            prov:startedAtTime "2021"^^xsd:gYear
+        ] ;
+    dcat:accessURL "https://linked.data.gov.au/dataset/asgsed3/ILOC"^^xsd:anyURI ;
+    dcat:theme
+        idnth:indigenous-demographics ,
+        &lt;https://w3id.org/idn/def/idn-th/place> ,
+        &lt;https://w3id.org/idn/def/indigeneity/about-indigenous-things> ;
+    prov:qualifiedAttribution
+        [
+            dcat:hadRole iso:custodian ;
+            prov:agent &lt;https://linked.data.gov.au/org/abs>
+        ] ,
+        [
+            dcat:hadRole iso:rightsHolder ;
+            prov:agent &lt;https://linked.data.gov.au/org/abs>
+        ] ,
+        [
+            dcat:hadRole &lt;https://w3id.org/def/idn-role-codes/subjectAgentRepresentatitve> ;
+            prov:agent &lt;https://w3id.org/idn/agent/abs-coatsis> ;
+        ] ;
+.
+              </p>
+            <h5>RIF CS</h5>
+            <!--
+                https://archive-intranet.ardc.edu.au/display/DOC/Collection
+                "hasAssociationWith" together with a description to refine the relation "isManagedBy", "hasCollector", "isOwnedBy", "hasPrincipalInvestigator" or "isEnrichedBy"
+                "hasAssociationWith" together with a description to refine the relation
+            -->
+            <p class="eg">
+&lt;registryObject>
+    &lt;key>ILOC&lt;/key>
+    &lt;originatingSource>https://linked.data.gov.au/dataset/asgsed3/ILOC&lt;/originatingSource>
+    &lt;collection type="dataset">
+      &lt;name type="primary">
+        &lt;namePart>Indigenous Locations within the Australian Statistical Geography Standard (ASGS) Edition 3&lt;/namePart>
+      &lt;/name>
+      &lt;description type="brief">This is a reference geospatial dataset developed by the Australian Bureau of Statistics... This enables the release of Census of Population and Housing data and other data for Aboriginal and Torres Strait Islander communities in a meaningful way, while balancing confidentiality and statistical requirements. ...&lt;/description>
+      &lt;dates type="dc.created">
+        &lt;date type="dateFrom" dateFormat="W3CDTF">2021-10-06&lt;/date>
+      &lt;/dates>
+      &lt;dates type="dc.modified">
+        &lt;date type="dateFrom" dateFormat="W3CDTF">2021-10-06&lt;/date>
+      &lt;/dates>
+      &lt;dates type="dc.issued">
+        &lt;date type="dateFrom" dateFormat="W3CDTF">2021-10-06&lt;/date>
+      &lt;/dates>
+      &lt;rights>
+        &lt;rightsStatement>Copyright © Commonwealth of Australia (Australian Bureau of Statistics) 2021&lt;/rightsStatement>
+        &lt;licence type="CC-BY" rightsUri="https://purl.org/NET/rdflicense/cc-by4.0"/>
+        &lt;accessRights type="open" rightsUri="https://linked.data.gov.au/def/data-access-rights/open">open&lt;/accessRights>
+      &lt;/rights>
+      &lt;identifier type="uri">https://linked.data.gov.au/dataset/asgsed3/ILOC&lt;/identifier>
+      &lt;coverage>
+        &lt;spatial type="iso19139dcmiBox"> northlimit=-9; southlimit=-45; westlimit=96; eastlimit=168&lt;/spatial>
+        &lt;temporal>
+          &lt;date type="dateFrom" dateFormat="W3CDTF">2021&lt;/date>
+          &lt;date type="dateTo" dateFormat="W3CDTF">2026&lt;/date>
+        &lt;/temporal>
+      &lt;/coverage>
+      &lt;subject type="local">https://w3id.org/idn/def/idn-data-themes/indigenous-demographics&lt;/subject>
+      &lt;subject type="local">https://w3id.org/idn/def/idn-th/place&lt;/subject>
+      &lt;subject type="local">https://w3id.org/idn/def/indigeneity/about-indigenous-things&lt;/subject>
+      &lt;subject type="local">water quality monitoring&lt;/subject>
+      &lt;relatedObject>
+        &lt;key>https://linked.data.gov.au/org/abs&lt;/key>
+        &lt;relation type="isManagedBy"/>
+      &lt;/relatedObject>
+      &lt;relatedObject>
+        &lt;key>https://linked.data.gov.au/org/abs-coatsis&lt;/key>
+        &lt;relation type="hasAssociationWith"/>
+      &lt;/relatedObject>
+    &lt;/collection>
+&lt;/registryObject>
+            </p>
+        </section>
+    </section>
+</div><!-- #content -->
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="footer" style="grid-column:1;"></div>
+<div class="footer" style="grid-column:2; display:grid; grid-template-columns:70% 30%;">
+    <div style="grid-column:1;">
+        The <a href="https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network">Indigenous Data Network (IDN)</a> is within the <a href="https://www.unimelb.edu.au">University of Melbourne</a>. It was established in 2018 to support and coordinate the governance of Indigenous data for Aboriginal and Torres Strait Islander peoples and empower Aboriginal and Torres Strait Islander communities to decide their own local data priorities.</a>
+    </div>
+    <div style="grid-column:2;">
+    </div>
+</div><!-- #footer -->
+<div class="footer" style="grid-column:3;"></div>
+</body>
+</html>
