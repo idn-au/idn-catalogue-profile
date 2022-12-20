@@ -7,6 +7,19 @@
     <title>IDN Catalogue Profile - SDO mapping</title>
 </head>
 <body>
+<div id="menu" style="grid-column:1;">
+    <h3>Contents</h3>
+    <ul>
+        <li><a href="#metadata">Metadata</a></li>
+        <li>
+            <a href="#mapping">Mapping</a>
+            <ul>
+                <li><a href="#minimal">Minimal</a></li>
+                <li><a href="#full">RolesFull</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
 <div class="header" style="grid-column:1;"></div>
 <div id="header" class="header" style="grid-column:2; display:grid; grid-template-columns:300px auto;">
     <div id="logo" style="grid-column:1; padding:3px;">
@@ -24,6 +37,7 @@
         <p>This document defines the <a href="https://w3id.org/idn/def/cp">IDN CP</a>'s official mapping between its elements and <a href="https://schema.org">schema.org</a>'s elements.</p>
         <p>For the RDF element-to-element mapping, see:</p>
         <ul><li><a href="https://w3id.org/idn/def/cp/sdo.ttl">schema.org RDF mapping</a></li></ul>
+        <p>Currently this mapping is generally IDN CP &rarr; schema.org and not so much the other way around. This is because IDN CP is more expressive than schema.org so that the mapping is lossy and thus a reverse mapping won't be deterministic. A more complete reverse mapping will be developed as needed.</p>
     </div>
     <section id="metadata">
         <h2>Metadata <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
@@ -46,7 +60,7 @@
             <dt><a class="proplink" title="sdo:dateModified" href="https://schema.org/dateModified">Modified</a></dt>
             <dd>2022-12-19</dd>
             <dt><a class="proplink" title="sdo:dateIssued" href="https://schema.org/dateIssued">Issued</a></dt>
-            <dd>2022-12-19</dd>
+            <dd>2022-12-20</dd>
             <dt><a class="proplink" title="owl#versionInfo" href="http://www.w3.org/2002/07/owl#versionInfo">Version
                 Information</a></dt>
             <dd>0.0.1</dd>
@@ -70,22 +84,381 @@
     </section>
     <section id="mapping">
         <h2>Mapping <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-        <table class="properties">
-            <tr>
-                <th>IDN CP Element</th>
-                <th>schema.org Element</th>
-                <th>Relation</th>
-                <th>IDN CP example</th>
-                <th>schema.org example</th>
-            </tr>
-            <tr>
-                <td><code>dcterms:title</code></td>
-                <td><code>sdo:name</code></td>
-                <td>equivalent property</td>
-                <td><code>dcterms:title "Indigenous Locations within the Australian Statistical Geography Standard (ASGS) Edition 3" ;</code></td>
-                <td><code>sdo:name "Indigenous Locations within the Australian Statistical Geography Standard (ASGS) Edition 3" ;</code></td>
-            </tr>
-        </table>
+        <p>The following namespace prefixes are used in the mapping table below:</p>
+        <dl>
+            <dt>dcat</dt>
+            <dd><code>http://www.w3.org/ns/dcat#</code></dd>
+            <dt>dcterms</dt>
+            <dd><code>http://purl.org/dc/terms/</code></dd>
+            <dt>geo</dt>
+            <dd><code>http://www.opengis.net/ont/geosparql#</code></dd>
+            <dt>idn-role</dt>
+            <dd><code>https://w3id.org/idn/def/idn-role-codes/subjectAgent</code></dd>
+            <dt>org</dt>
+            <dd><code>https://linked.data.gov.au/org/</code></dd>
+            <dt>owl</dt>
+            <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+            <dt>rdfs</dt>
+            <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+            <dt>role</dt>
+            <dd><code>http://www.w3.org/ns/dx/prof/role/</code></dd>
+            <dt>sdo</dt>
+            <dd><code>https://schema.org/</code></dd>
+            <dt>skos</dt>
+            <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
+            <dt>xsd</dt>
+            <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
+        </dl>
+        <section id="minmal">
+            <h3>Minimal</h3>
+            <p>This first mapping is for the elements of <em>Minimal Metadata</em> as per the IDN CP's <a href="https://w3id.org/idn/def/cp/guide">Guide</a>. The examples used are also from the Guide's minimal example.</p>
+            <style>
+                table tr td {
+                    vertical-align: top;
+                }
+                table tr td code {
+                    font-size: small;
+                }
+            </style>
+            <table class="properties">
+                <tr>
+                    <th>IDN CP Element</th>
+                    <th>schema.org Element</th>
+                    <th>Relation</th>
+                    <th>IDN CP example</th>
+                    <th>schema.org example</th>
+                </tr>
+                <tr>
+                    <th colspan="5">Classes</th>
+                </tr>
+                <tr>
+                    <td><code>dcat:Resource</code></td>
+                    <td><code>sdo:CreativeWork</code></td>
+                    <td>equivalent class</td>
+                    <td><pre>&lt;https://w3id.org/idn/resource/BSA>
+        a dcat:Resource ;
+    .</pre></td>
+                    <td><pre>&lt;https://w3id.org/idn/resource/BSA>
+        a sdo:CreativeWork ;
+    .</pre></td>
+                </tr>
+                <tr>
+                    <th colspan="5">Properties</th>
+                </tr>
+                <tr>
+                    <td><code>dcterms:title</code></td>
+                    <td><code>sdo:name</code></td>
+                    <td>equivalent property</td>
+                    <td><code>dcterms:title "Briscoe-Smith Archive" ;</code></td>
+                    <td><code>sdo:name "Briscoe-Smith Archive" ;</code></td>
+                </tr>
+                <tr>
+                    <td><code>dcterms:description</code></td>
+                    <td><code>sdo:description</code></td>
+                    <td>equivalent property</td>
+                    <td><code>dcterms:description "Historical population data and biographical records" ;</code></td>
+                    <td><code>sdo:description "Historical population data and biographical records" ;</code></td>
+                </tr>
+                <tr>
+                    <td><code>prov:qualifiedAttribution<br />&nbsp;&nbsp;&nbsp;&nbsp;dcat:hadRole {ROLE}<br />&nbsp;&nbsp;&nbsp;&nbsp;prov:agent {AGENT}</code></td>
+                    <td>
+                        <p>various schema.org direct properties</p>
+                        <code>iso:author</code> &rarr; <code>sdo:author</code><br />
+                        <code>iso:coAuthor</code> &rarr; <code>sdo:participant</code><br />
+                        <code>iso:collaborator</code> &rarr; <code>sdo:contributor</code><br />
+                        <code>iso:contributor</code> &rarr; <code>sdo:contributor</code><br />
+                        <code>iso:custodian</code> &rarr; <code>sdo:maintainer</code><br />
+                        <code>iso:distributor</code> &rarr; <code>sdo:broker</code><br />
+                        <code>iso:editor</code> &rarr; <code>sdo:editor</code><br />
+                        <code>iso:funder</code> &rarr; <code>sdo:funder</code><br />
+                        <code>iso:mediator</code> &rarr; <code>sdo:broker</code><br />
+                        <code>iso:originator</code> &rarr; <code>sdo:creator</code><br />
+                        <code>iso:owner</code> inverse of <code>sdo:owns</code><br />
+                        <code>iso:pointOfContact</code> &rarr; <code>sdo:contactPoint</code><br />
+                        <code>iso:principalInvestigator</code> &rarr; <code>sdo:participant</code>?<br />
+                        <code>iso:processor</code> &rarr; <code>sdo:contributor</code><br />
+                        <code>iso:publisher</code> &rarr; <code>sdo:publisher</code><br />
+                        <code>iso:resourceProvider</code> &rarr; <code>sdo:broker</code><br />
+                        <code>iso:rightsHolder</code> &rarr; <code>sdo:copyrightHolder</code><br />
+                        <code>iso:sponsor</code> &rarr; <code>sdo:sponsor</code><br />
+                        <code>iso:stakeholder</code> &rarr; <code>sdo:participant</code>?<br />
+                        <code>idn-role:subjectAgent</code> &rarr; <code>sdo:participant</code>?<br />
+                        <code>idn-role:subjectAgentRepresentative</code> &rarr; <code>sdo:participant</code>?<br />
+                        <code>iso:user</code> &rarr; ?
+                    </td>
+                    <td>equivalent property chain</td>
+                    <td><pre>prov:qualifiedAttribution [
+        dcat:hadRole iso:custodian ;
+        prov:agent org:ada ;
+    ] ;</pre></td>
+                    <td><code>sdo:maintainer org:ada ;</code></td>
+                </tr>
+                <tr>
+                    <td><code>dcterms:created</code></td>
+                    <td><code>sdo:dateCreated</code></td>
+                    <td>equivalent property</td>
+                    <td><code>dcterms:created "2022-12-19"^^xsd:date ;</code></td>
+                    <td><code>sdo:dateCreated "2022-12-19" ;</code></td>
+                </tr>
+                <tr>
+                    <td><code>dcterms:modified</code></td>
+                    <td><code>sdo:dateModified</code></td>
+                    <td>equivalent property</td>
+                    <td><code>dcterms:modified "2022-12-20"^^xsd:date ;</code></td>
+                    <td><code>sdo:dateModified "2022-12-20" ;</code></td>
+                </tr>
+            </table>
+            <h4>Coded Equivalents</h4>
+            <p>The following is a slightly extended version of the <a href="https://w3id.org/idn/def/cp/guide">Guide</a>'s mimimal example:</p>
+            <h5>IDN CP</h5>
+            <p class="eg">
+PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
+PREFIX dcterms:&lt;http://purl.org/dc/terms/>
+PREFIX iso: &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/>
+PREFIX prov: &lt;http://www.w3.org/ns/prov#>
+
+&lt;https://w3id.org/idn/resource/BSA>
+    a dcat:Resource ;
+    dcterms:title "Briscoe-Smith Archive" ;
+    dcterms:description "Historical population data and biographical records" ;
+    prov:qualifiedAttribution [
+        dcat:hadRole iso:custodian ;
+        prov:agent &lt;https://linked.data.gov.au/org/ada>
+    ] ;
+    dcterms:create "2022-12-19"^^xsd:date ;
+    dcterms:modified "2022-12-20"^^xsd:date ;
+.
+            </p>
+            <h5>schema.org</h5>
+            <p class="eg">
+PREFIX sdo: &lt;https://schema.org/>
+
+&lt;https://w3id.org/idn/resource/BSA>
+    a sdo:CreativeWork ;
+    sdo:name "Briscoe-Smith Archive" ;
+    sdo:description "Historical population data and biographical records" ;
+    sdo:maintainer org:ada ;
+    sdo:dateCreate "2022-12-19" ;
+    sdo:dateModified "2022-12-20" ;
+.
+            </p>
+        </section>
+        <section id="full">
+            <h3>Full</h3>
+            <p>This second mapping is for the elements of <em>Full Metadata</em> as per the IDN CP's <a href="https://w3id.org/idn/def/cp/guide">Guide</a>. The examples used are also from the Guide's full example.</p>
+            <p><strong>NOTE</strong>: the elements already covered in the minimal mapping above are not repeated in the table</p>
+            <style>
+                table tr td {
+                    vertical-align: top;
+                }
+                table tr td code {
+                    font-size: small;
+                }
+            </style>
+            <table class="properties">
+                <tr>
+                    <th>IDN CP Element</th>
+                    <th>schema.org Element</th>
+                    <th>Relation</th>
+                    <th>IDN CP example</th>
+                    <th>schema.org example</th>
+                </tr>
+                <tr>
+                    <th colspan="5">Properties</th>
+                </tr>
+                <tr>
+                    <td><code>dcterms:type</code></td>
+                    <td><code>sdo:additionalType</code></td>
+                    <td>equivalent property</td>
+                    <td><pre>&lt;https://linked.data.gov.au/dataset/asgsed3/ILOC>
+        a dcat:Resource ;
+        dcterms:type geo:FeatureCollection ;
+    .</pre></td>
+                    <td><pre>&lt;https://linked.data.gov.au/dataset/asgsed3/ILOC>
+        a sdo:Dataset ;  # note Dataset used
+        sdo:additionalType geo:FeatureCollection ;
+    .</pre></td>
+                </tr>
+                <tr>
+                    <td><code>dcterms:license</code></td>
+                    <td><code>sdo:license</code></td>
+                    <td>equivalent property</td>
+                    <td><code>dcterms:license &lt;https://purl.org/NET/rdflicense/cc-by4.0> ;</code></td>
+                    <td><code>sdo:license "Creative Commons 4.0" ;</code></td>
+                </tr>
+                <tr>
+                    <td><code>dcterms:rights</code></td>
+                    <td><code>sdo:copyrightNotice</code></td>
+                    <td>sub property</td>
+                    <td><code>dcterms:rights "Copyright © Commonwealth of Australia (Australian Bureau of Statistics) 2021" ;</code></td>
+                    <td><code>sdo:copyrightNotice "Copyright © Commonwealth of Australia (Australian Bureau of Statistics) 2021" ;</code></td>
+                </tr>
+                <tr>
+                    <td><code>dcterms:source</code></td>
+                    <td><code>sdo:isBasedOn</code></td>
+                    <td>sub property</td>
+                    <td><code>dcterms:source "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/indigenous-structure/indigenous-locations"^^xsd:anyURI ;</code></td>
+                    <td><code>sdo:isBasedOn "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/indigenous-structure/indigenous-locations" ;</code></td>
+                </tr>
+                <tr>
+                    <td><code>prov:wasDerivedFrom</code></td>
+                    <td><code>sdo:isBasedOn</code></td>
+                    <td>sub property</td>
+                    <td><code>prov:wasDerivedFrom &lt;http://example.com/other/resource> ;</code></td>
+                    <td><code>sdo:isBasedOn &lt;http://example.com/other/resource> ;</code></td>
+                </tr>
+                <tr>
+                    <td><code>dcterms:spatial {FEATURE}</code></td>
+                    <td><code>sdo:spatialCoverage {FEATURE}</code><br />where a geospatial feature is indicated as the spatial area directly</td>
+                    <td>equivalent property</td>
+                    <td><code>dcterms:spatial &lt;https://linked.data.gov.au/dataset/asgsed3/AUS/AUS> ;  # Australia</code></td>
+                    <td><code>sdo:spatialCoverage &lt;https://linked.data.gov.au/dataset/asgsed3/AUS/AUS> ;</code></td>
+                </tr>
+                <tr>
+                    <td><code>dcterms:spatial {GEOMETRY}</code></td>
+                    <td><code>sdo:spatialCoverage {GEOMETRY}</code><br />where a geospatial feature is indicated as the spatial area directly</td>
+                    <td>equivalent property</td>
+                    <td><pre>dcterms:spatial [
+    geo:asWKT "POLYGON ((96 -45, 96 -9, 168
+                        -9, 168 -45, 96 -45))"
+                        ^^geo:wktLiteral ;
+]</pre></td>
+                    <td><pre>sdo:spatialCoverage [
+    a sdo:Place ;
+    sdo:additionalProperty
+        [
+            a sdo:PropertyValue ;
+            sdo:name "well-known text (WKT)
+                      representation of geometry" ;
+            sdo:propertyID "http://www.wikidata.org/
+                      entity/Q4018860" ;
+            sdo:value "POLYGON ((96 -45, 96 -9,
+                      168 -9, 168 -45, 96 -45))" ;
+        ] ;
+] ;</pre></td>
+                </tr>
+                <tr>
+                    <td><code>dcterms:temporal </code></td>
+                    <td><code>sdo:temporalCoverage</code></td>
+                    <td>equivalent property</td>
+                    <td><pre>dcterms:temporal [
+    prov:endedAtTime "2026"^^xsd:gYear ;
+    prov:startedAtTime "2021"^^xsd:gYear
+] ;</pre></td>
+                    <td><code>sdo:temporalCoverage "2021/2026" ;</code></td>
+                </tr>
+                    <td><code>dcterms:accessRights</code></td>
+                    <td><code>sdo:conditionsOfAccess</code></td>
+                    <td>equivalent property</td>
+                    <td><code>dcterms:accessRights &lt;https://linked.data.gov.au/def/data-access-rights/open> ;</code></td>
+                    <td><code>sdo:conditionsOfAccess "open" ;</code></td>
+                </tr>
+                </tr>
+                    <td><code>dcterms:accessURL</code></td>
+                    <td><code>sdo:url</code></td>
+                    <td>equivalent property</td>
+                    <td><code>dcat:accessURL "https://linked.data.gov.au/dataset/asgsed3/ILOC"^^xsd:anyURI ;</code></td>
+                    <td><code>sdo:url "https://linked.data.gov.au/dataset/asgsed3/ILOC" ;</code></td>
+                </tr>
+                </tr>
+                    <td><code>dcterms:theme</code></td>
+                    <td><code>sdo:keywords</code></td>
+                    <td>equivalent elements</td>
+                    <td><code>dcterms:theme &lt;https://w3id.org/idn/def/idn-th/place></code></td>
+                    <td><pre>sdo:keywords [
+    a sdo:DefinedTerm ;
+    sdo:name "Place" ;
+    sdo:url &lt;https://w3id.org/idn/def/idn-th/place> ;
+] ;</pre></td>
+                </tr>
+            </table>
+            <h5>IDN CP</h5>
+            <p class="eg">
+PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
+PREFIX dcterms:&lt;http://purl.org/dc/terms/>
+PREFIX idnth: &lt;https://w3id.org/idn/def/idn-data-themes/&gt;
+PREFIX iso: &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/>
+PREFIX prov: &lt;http://www.w3.org/ns/prov#>
+
+&lt;https://linked.data.gov.au/dataset/asgsed3/ILOC>
+    a dcat:Resource ;
+    dcterms:title "Indigenous Locations within the Australian Statistical Geography Standard (ASGS) Edition 3" ;
+dcterms:description """This is a reference geospatial dataset developed by the Australian Bureau of Statistics... This enables the release of Census of Population and Housing data and other data for Aboriginal and Torres Strait Islander communities in a meaningful way, while balancing confidentiality and statistical requirements. ..."""@en ;
+    dcterms:created "2021-10-06"^^xsd:date ;
+    dcterms:modified "2021-10-06"^^xsd:date ;
+    dcterms:identifier "ILOC"^^xsd:token ;
+    dcterms:source "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/indigenous-structure/indigenous-locations"^^xsd:anyURI ;
+    dcterms:issued "2021-10-06"^^xsd:date ;
+    dcterms:license &lt;https://purl.org/NET/rdflicense/cc-by4.0> ;
+    dcterms:rights "Copyright © Commonwealth of Australia (Australian Bureau of Statistics) 2021" ;
+    dcterms:spatial &lt;https://linked.data.gov.au/dataset/asgsed3/AUS/AUS> ;
+    dcterms:temporal [
+            prov:endedAtTime "2026"^^xsd:gYear ;
+            prov:startedAtTime "2021"^^xsd:gYear
+        ] ;
+    sdo:additionalType geo:FeatureCollection ;
+    dcterms:accessRights dar:open ;
+    dcat:accessURL "https://linked.data.gov.au/dataset/asgsed3/ILOC"^^xsd:anyURI ;
+    dcat:theme
+        idnth:indigenous-demographics ,
+        &lt;https://w3id.org/idn/def/idn-th/place> ,
+        &lt;https://w3id.org/idn/def/indigeneity/about-indigenous-things> ;
+    prov:qualifiedAttribution
+        [
+            dcat:hadRole iso:custodian ;
+            prov:agent &lt;https://linked.data.gov.au/org/abs>
+        ] ,
+        [
+            dcat:hadRole iso:rightsHolder ;
+            prov:agent &lt;https://linked.data.gov.au/org/abs>
+        ] ,
+        [
+            dcat:hadRole &lt;https://w3id.org/def/idn-role-codes/subjectAgentRepresentatitve> ;
+            prov:agent &lt;https://w3id.org/idn/agent/abs-coatsis> ;
+        ] ;
+.
+              </p>
+            <h5>schema.org</h5>
+            <p class="eg">
+PREFIX sdo: &lt;https://schema.org/>
+
+&lt;https://linked.data.gov.au/dataset/asgsed3/ILOC>
+    a dcat:Resource ;
+    sdo:additionalType geo:FeatureCollection ;
+    sdo:name "Indigenous Locations within the Australian Statistical Geography Standard (ASGS) Edition 3" ;
+    sdo:description """This is a reference geospatial dataset developed by the Australian Bureau of Statistics... This enables the release of Census of Population and Housing data and other data for Aboriginal and Torres Strait Islander communities in a meaningful way, while balancing confidentiality and statistical requirements. ..."""@en ;
+    sdo:dateCreated "2021-10-06" ;
+    sdo:dateModified "2021-10-06" ;
+    sdo:identifier "ILOC" ;
+    sdo:isBasedOn "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/indigenous-structure/indigenous-locations" ;
+    sdo:datePublished "2021-10-06" ;
+    sdo:license "Creative Commons 4.0" ;
+    sdo:rights "Copyright © Commonwealth of Australia (Australian Bureau of Statistics) 2021" ;
+    sdo:spatial &lt;https://linked.data.gov.au/dataset/asgsed3/AUS/AUS> ;
+    sdo:temporalCoverage "2021/2026" ;
+    sdo:accessRights "open" ;
+    sdo:url "https://linked.data.gov.au/dataset/asgsed3/ILOC" ;
+    sdo:keywords [
+        a sdo:DefinedTerm ;
+        sdo:name "Indigenous Demographics" ;
+        sdo:url &lt;https://w3id.org/idn/def/idn-data-themes/indigenous-demographics> ;
+    ] ,
+    [
+        a sdo:DefinedTerm ;
+        sdo:name "Place" ;
+        sdo:url &lt;https://w3id.org/idn/def/idn-th/place> ;
+    ] ,
+    [
+        a sdo:DefinedTerm ;
+        sdo:name "About Indigenous Things" ;
+        sdo:url &lt;https://w3id.org/idn/def/indigeneity/about-indigenous-things> ;
+    ] ;
+    sdo:maintainer &lt;https://linked.data.gov.au/org/abs> ;
+    sdo:rightsHolder &lt;https://linked.data.gov.au/org/abs> ;
+    sdo:participant &lt;https://w3id.org/idn/agent/abs-coatsis> ;
+.
+            </p>
+        </section>
     </section>
 </div><!-- #content -->
 <p>&nbsp;</p>

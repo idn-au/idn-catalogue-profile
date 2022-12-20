@@ -19,6 +19,8 @@ sdo:Organization rdfs:subClassOf prov:Agent .
 
 sdo:Person rdfs:subClassOf prov:Agent .
 
+dcat:Resource owl:equivalentClass sdo:CreativeWork .
+
 dcat:Dataset owl:equivalentClass sdo:Dataset .
 
 skos:Concept rdfs:subClassOf sdo:Thing .
@@ -66,7 +68,7 @@ dqv:QualityMeasurement owl:equivalentClass sdo:QuantitativeValue .
 
 # From the IDN CP Specification
 
-dcterms:type
+dcterms:type owl:equivalentProperty sdo:additionalType .
 
 dcterms:title owl:equivalentProperty sdo:name .
 
@@ -78,11 +80,11 @@ dcterms:modified owl:equivalentProperty sdo:dateModified .
 
 dcterms:issued owl:equivalentProperty sdo:datePublished .
 
-dcterms:license owl:equivalentProperty sdo:description .
+dcterms:license owl:equivalentProperty sdo:license .
 
-dcterms:rights owl:equivalentProperty sdo:description .
+schema:copyrightNotice rdfs:subPropertyOf dcterms:rights .
 
-dcterms:accessRights
+dcterms:accessRights owl:equivalentProperty sdo:conditionsOfAccess .
 
 dcat:accessURL
 
@@ -91,3 +93,5 @@ dcterms:spatial
 dcterms:temporal
 
 prov:qualifiedAttribution
+
+# dcterms:provenance --> add to sdo:description
