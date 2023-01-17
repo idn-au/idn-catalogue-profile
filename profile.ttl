@@ -68,7 +68,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     [
         rdfs:label "schema.org conversion script" ;
         rdfs:comment "A Python script that converts IDN CP RDF to schema.org RDF" ;
-        prof:hasArtifact <https://w3id.org/idn/def/cp/idncp-to-sdo.py> ;
+        prof:hasArtifact <https://w3id.org/idn/def/cp/sdo.py> ;
         prof:hasRole role:mapping ;
     ] ,
     [
