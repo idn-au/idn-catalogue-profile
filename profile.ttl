@@ -66,6 +66,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         prof:hasRole role:mapping ;
     ] ,
     [
+        rdfs:label "schema.org conversion script" ;
+        rdfs:comment "A Python script that converts IDN CP RDF to schema.org RDF" ;
+        prof:hasArtifact <https://w3id.org/idn/def/cp/idncp-to-sdo.py> ;
+        prof:hasRole role:mapping ;
+    ] ,
+    [
         rdfs:label "RIF-CS mapping description" ;
         rdfs:comment "Description of the mappings between IDN CP elements and RIF-CS elements" ;
         prof:hasArtifact <https://w3id.org/idn/def/cp/rif-cs> ;
