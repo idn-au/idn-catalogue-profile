@@ -122,6 +122,32 @@ def convert(g: Graph) -> Graph:
         g2.add((bn, RDF.type, SDO.DefinedTerm))
         g2.add((bn, SDO.url, o))
 
+    # Catalogues
+    for s in g.subjects(RDF.type, DCAT.Catalog):
+        g2.add((s, RDF.type, SDO.DataCatalog))
+
+    # catalogue membership
+    # handle inverse
+    for s, o in g.subject_objects(DCTERMS.hasPart):
+        g.add((o, DCTERMS.isPartOf, s))
+
+    for s, o in g.subject_objects(DCTERMS.isPartOf):
+        # unqualified catalogue membership
+        if type(o) == URIRef:
+            # check domain, don't bother with range as unlikely to have class info
+            if (s, RDF.type, DCAT.Resource) in g or (s, RDF.type, DCAT.Dataset) in g:
+                g2.add((s, SDO.includedInDataCatalog, o))
+        # qualified catalogue membership
+        # following schema.org Role modelling with double properties:
+        # http://blog.schema.org/2014/06/introducing-role.html
+        elif type(o) == BNode:
+            for o2 in g.objects(o, PROV.entity):
+                g2.add((s, SDO.includedInDataCatalog, o))
+                g2.add((o, RDF.type, SDO.Role))
+                g2.add((o, SDO.includedInDataCatalog, o2))
+                for o3 in g.objects(o, DCAT.hadRole):
+                    g2.add((o, SDO.roleName, o3))
+
     return g2
 
 

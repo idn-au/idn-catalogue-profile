@@ -95,3 +95,9 @@ dcterms:temporal
 prov:qualifiedAttribution
 
 # dcterms:provenance --> add to sdo:description
+
+#
+# IDN Additions
+#
+
+sdo:includedInDataCatalog rdfs:subPropertyOf dcterms:isPartOf .  # only relevant to Resource/Dataset --> Catalog

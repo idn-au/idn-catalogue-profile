@@ -1,7 +1,3 @@
-#   Example schema.org converted file
-#
-#   Original: https://github.com/idn-au/catalogue-data/blob/main/data/resources/AGIL.ttl
-
 PREFIX sdo: <https://schema.org/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
@@ -16,14 +12,21 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 The dataset is designed to support the accurate positioning, consistent reporting, and effective delivery of Australian Government programs and services to indigenous locations.
 The dataset contains Preferred and Alternate names for indigenous locations where Australian Government programs and services have been, are being, or may be provided. The Preferred name will always default to a State or Territory jurisdiction's gazetted name so the term 'preferred' does not infer that this is the locally known name for the location. Similarly, locational details are aligned, where possible, with those published in State and Territory registers.
 This dataset is NOT a complete listing of all locations at which indigenous people reside. Town and city names are not included in the dataset. The dataset contains names that represent indigenous communities, outstations, defined indigenous areas within a town or city or locations where services have been provided.""" ;
+    sdo:includedInDataCatalog
+        [
+            a sdo:Role ;
+            sdo:includedInDataCatalog <https://data.gov.au> ;
+            sdo:roleName <https://w3id.org/idn/vocab/cat-roles/home>
+        ] ,
+        <https://w3id.org/idn/dataset/democat> ;
     sdo:keywords
         [
             a sdo:DefinedTerm ;
-            sdo:url <https://w3id.org/idn/vocab/idn-th/place>
+            sdo:url <https://w3id.org/idn/vocab/indigeneity/about-indigenous-things>
         ] ,
         [
             a sdo:DefinedTerm ;
-            sdo:url <https://w3id.org/idn/vocab/indigeneity/about-indigenous-things>
+            sdo:url <https://w3id.org/idn/vocab/idn-th/place>
         ] ;
     sdo:license <https://purl.org/NET/rdflicense/cc-by4.0> ;
     sdo:name "Australian Government Indigenous Programs & Policy Locations (AGIL) dataset" ;
@@ -40,3 +43,9 @@ This dataset is NOT a complete listing of all locations at which indigenous peop
         <https://linked.data.gov.au/dataset/asgsed3/AUS/AUS> ;
     sdo:url "https://data.gov.au/data/dataset/34b1c164-fbe8-44a0-84fd-467dba645aa7/resource/d891a36f-57f6-41f7-ada6-fc65069103dc/download/agil20190208.xlsx"^^xsd:anyURI ;
 .
+
+<https://w3id.org/idn/dataset/democat>
+    a sdo:DataCatalog ;
+.
+
+
