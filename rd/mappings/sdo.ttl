@@ -82,17 +82,17 @@ dcterms:issued owl:equivalentProperty sdo:datePublished .
 
 dcterms:license owl:equivalentProperty sdo:license .
 
-schema:copyrightNotice rdfs:subPropertyOf dcterms:rights .
+sdo:copyrightNotice rdfs:subPropertyOf dcterms:rights .
 
 dcterms:accessRights owl:equivalentProperty sdo:conditionsOfAccess .
 
-dcat:accessURL
+dcat:accessURL rdfs:subPropertyOf sdo:url .
 
-dcterms:spatial
+dcterms:spatial owl:equivalentProperty sdo:spatialCoverage .
 
-dcterms:temporal
+dcterms:temporal owl:equivalentProperty sdo:temporalCoverage .
 
-prov:qualifiedAttribution
+# TODO: prov:qualifiedAttribution
 
 # dcterms:provenance --> add to sdo:description
 
@@ -100,4 +100,5 @@ prov:qualifiedAttribution
 # IDN Additions
 #
 
+dcat:Catalog owl:equivalentClass sdo:DataCatalog . 
 sdo:includedInDataCatalog rdfs:subPropertyOf dcterms:isPartOf .  # only relevant to Resource/Dataset --> Catalog
