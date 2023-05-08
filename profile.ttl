@@ -11,10 +11,10 @@ PREFIX sdo: <https://schema.org/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 
-<http://w3id.org/idn/def/cp>
+<https://data.idnau.org/cp>
     a owl:Ontology , prof:Profile ;
     dcterms:provenance "This profile of DCAT was made within the IDN's ID Catalogue project 2021 - 2022."@en ;
-    owl:versionIRI <http://w3id.org/idn/def/cp/0.0.1> ;
+    owl:versionIRI <https://data.idnau.org/cp/0.0.1> ;
     owl:versionInfo "0.0.1" ;    
     sdo:codeRespository "https://github.com/idn-au/idn-catalogue-profile/"^^xsd:anyURI ;
     sdo:copyrightHolder <https://linked.data.gov.au/org/idn> ;
@@ -23,58 +23,58 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
     sdo:dateCreated "2022-07-18"^^xsd:date ;
     sdo:dateIssued "2022-07-31"^^xsd:date ;
-    sdo:dateModified "2022-12-19"^^xsd:date ;
+    sdo:dateModified "2023-05-08"^^xsd:date ;
     sdo:description "A profile of cataloguing, provenance and vocabulary standards designed for the representation of indigenous data governance"@en ;
     sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
     sdo:name "IDN Catalogue Profile"@en ;
     sdo:publisher <https://linked.data.gov.au/org/idn> ;
     prof:hasResource [
         rdfs:label "Specification Document" ;
-        prof:hasArtifact <https://w3id.org/idn/def/cp/spec> ;
+        prof:hasArtifact <https://data.idnau.org/cp/spec> ;
         dcterms:format "text/html" ;
         prof:hasRole role:specification ;
     ] ,
     [
         rdfs:label "SHACL Validator" ;
-        prof:hasArtifact <https://w3id.org/idn/def/cp/validator> ;
+        prof:hasArtifact <https://data.idnau.org/cp/validator> ;
         dcterms:format "text/turtle" ;
         prof:hasRole role:validation ;
     ], 
     [
         rdfs:label "Compounded Validator" ;
         rdfs:comment "A validator that contains the IDN Catalogue Profile validator and those of Standards that the IDN Catalogue Profile profiles, particularly DCAT (the DCAT Null Profile)"@en ;
-        prof:hasArtifact <https://w3id.org/idn/def/cp/compounded-validator> ;
+        prof:hasArtifact <https://data.idnau.org/cp/compounded-validator> ;
         dcterms:format "text/turtle" ;
         prof:hasRole role:validation ;
     ],     
     [
         rdfs:label "Code Repository" ;
         rdfs:comment "An online Git version control repository that contains most of this Profile's content in files" ;
-        prof:hasArtifact <https://w3id.org/idn/def/cp/repo> ;
+        prof:hasArtifact <https://data.idnau.org/cp/repo> ;
         prof:hasRole role:repository ;
     ] ,
     [
         rdfs:label "schema.org mapping description" ;
         rdfs:comment "Description of the mappings between IDN CP elements and schema.org elements" ;
-        prof:hasArtifact <https://w3id.org/idn/def/cp/sdo> ;
+        prof:hasArtifact <https://data.idnau.org/cp/sdo> ;
         prof:hasRole role:mapping ;
     ] ,
     [
         rdfs:label "schema.org RDF mapping" ;
         rdfs:comment "RDF/OWL mappings between IDN CP elements and schema.org elements" ;
-        prof:hasArtifact <https://w3id.org/idn/def/cp/sdo.ttl> ;
+        prof:hasArtifact <https://data.idnau.org/cp/sdo.ttl> ;
         prof:hasRole role:mapping ;
     ] ,
     [
         rdfs:label "schema.org conversion script" ;
         rdfs:comment "A Python script that converts IDN CP RDF to schema.org RDF" ;
-        prof:hasArtifact <https://w3id.org/idn/def/cp/sdo.py> ;
+        prof:hasArtifact <https://data.idnau.org/cp/sdo.py> ;
         prof:hasRole role:mapping ;
     ] ,
     [
         rdfs:label "RIF-CS mapping description" ;
         rdfs:comment "Description of the mappings between IDN CP elements and RIF-CS elements" ;
-        prof:hasArtifact <https://w3id.org/idn/def/cp/rif-cs> ;
+        prof:hasArtifact <https://data.idnau.org/cp/rif-cs> ;
         prof:hasRole role:mapping ;
     ] ;
     prof:isProfileOf
@@ -87,14 +87,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     a sdo:Person ;
     sdo:name "Nicholas J. Car"@en ;
     sdo:email "nick@kurrawong.net"^^xsd:anyURI ;
-    sdo:affiliation <https://kurrawong.net> ;
+    sdo:affiliation <https://kurrawong.ai> ;
 .
 
-<https://kurrawong.net>
+<https://kurrawong.ai>
     a sdo:Organization ;
-    sdo:name "Kurrawong AI" ;
-    sdo:description "Kurrawong AI is a small, Artificial Intelligence, company in Australia specialising in Knowledge Graphs." ;
-    sdo:url "https://kurrawong.net"^^xsd:anyURI ;
+    sdo:name "KurrawongAI" ;
+    sdo:description "KurrawongAI is a small, Artificial Intelligence, company in Australia specialising in Knowledge Graphs." ;
+    sdo:url "https://kurrawong.ai"^^xsd:anyURI ;
 .
 
 <https://linked.data.gov.au/org/idn>

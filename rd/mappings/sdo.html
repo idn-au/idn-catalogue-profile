@@ -34,23 +34,23 @@
 <div id="content" style="grid-column:2;">
     <h1>IDN CP - schema.org Mapping</h1>
     <div id="description">
-        <p>This document defines the <a href="https://w3id.org/idn/def/cp">IDN CP</a>'s official mapping between its elements and <a href="https://schema.org">schema.org</a>'s elements.</p>
+        <p>This document defines the <a href="https://data.idnau.org/cp">IDN CP</a>'s official mapping between its elements and <a href="https://schema.org">schema.org</a>'s elements.</p>
         <p>For the RDF element-to-element mapping, see:</p>
-        <ul><li><a href="https://w3id.org/idn/def/cp/sdo.ttl">schema.org RDF mapping</a></li></ul>
+        <ul><li><a href="https://data.idnau.org/cp/sdo.ttl">schema.org RDF mapping</a></li></ul>
         <p>Currently this mapping is generally IDN CP &rarr; schema.org and not so much the other way around. This is because IDN CP is more expressive than schema.org so that the mapping is lossy and thus a reverse mapping won't be deterministic. A more complete reverse mapping will be developed as needed.</p>
     </div>
     <section id="metadata">
         <h2>Metadata <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
         <dl>
             <dt>URI</dt>
-            <dd><code>https://w3id.org/idn/def/cp/sdo</code> <a href="https://w3id.org/idn/def/cp/sdo" style="font-size:1.5em">&#x2197;</a>
+            <dd><code>https://data.idnau.org/cp/sdo</code> <a href="https://data.idnau.org/cp/sdo" style="font-size:1.5em">&#x2197;</a>
             </dd>
             <dt><a class="proplink" title="sdo:name" href="https://schema.org/name">Name</a></dt>
             <dd>IDN CP &rarr; schema.org Mapping</dd>
             <dt><a class="proplink" title="sdo:description" href="https://schema.org/description">Description</a></dt>
-            <dd>This document defines the <a href="https://w3id.org/idn/def/cp">IDN CP</a>'s official mapping between its elements and <a href="https://schema.org">schema.org</a>'s elements.</dd>
+            <dd>This document defines the <a href="https://data.idnau.org/cp">IDN CP</a>'s official mapping between its elements and <a href="https://schema.org">schema.org</a>'s elements.</dd>
             <dt><a href="https://schema.org/isPartOf">Is Part Of</a> (a <a href="https://www.w3.org/TR/dx-prof/#Class:ResourceDescriptor">Profile Resource Descriptor</a> of)</a></dt>
-            <dd><a href="https://w3id.org/idn/def/cp">IDN's Catalogue Profile</a><br/></dd>
+            <dd><a href="https://data.idnau.org/cp">IDN's Catalogue Profile</a><br/></dd>
             <dt><a class="proplink" title="sdo:publisher" href="https://schema.org/publisher">Publisher</a>(s)</dt>
             <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a><br/></dd>
             <dt><a class="proplink" title="sdo:creator" href="https://schema.org/creator">Creator</a>(s)</dt>
@@ -58,7 +58,7 @@
             <dt><a class="proplink" title="sdo:created" href="https://schema.org/created">Created</a></dt>
             <dd>2022-12-19</dd>
             <dt><a class="proplink" title="sdo:dateModified" href="https://schema.org/dateModified">Modified</a></dt>
-            <dd>2022-12-19</dd>
+            <dd>2023-05-08</dd>
             <dt><a class="proplink" title="sdo:dateIssued" href="https://schema.org/dateIssued">Issued</a></dt>
             <dd>2022-12-20</dd>
             <dt><a class="proplink" title="owl#versionInfo" href="http://www.w3.org/2002/07/owl#versionInfo">Version
@@ -66,7 +66,7 @@
             <dd>0.0.1</dd>
             <dt><a class="proplink" title="owl#versionIRI" href="http://www.w3.org/2002/07/owl#versionIRI">Version
                 IRI</a></dt>
-            <dd><a href="https://w3id.org/idn/def/cp/0.0.1">https://w3id.org/idn/def/cp/sdo/0.0.1</a></dd>
+            <dd><a href="https://data.idnau.org/cp/0.0.1">https://data.idnau.org/cp/sdo/0.0.1</a></dd>
             <dt><a class="proplink" title="sdo:license" href="https://schema.org/license">License</a></dt>
             <dd><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a>
             </dd>
@@ -93,7 +93,7 @@
             <dt>geo</dt>
             <dd><code>http://www.opengis.net/ont/geosparql#</code></dd>
             <dt>idn-role</dt>
-            <dd><code>https://w3id.org/idn/def/idn-role-codes/subjectAgent</code></dd>
+            <dd><code>https://data.idnau.org/pid/vocab/idn-role-codes/subjectAgent</code></dd>
             <dt>org</dt>
             <dd><code>https://linked.data.gov.au/org/</code></dd>
             <dt>owl</dt>
@@ -111,7 +111,7 @@
         </dl>
         <section id="minmal">
             <h3>Minimal</h3>
-            <p>This first mapping is for the elements of <em>Minimal Metadata</em> as per the IDN CP's <a href="https://w3id.org/idn/def/cp/guide">Guide</a>. The examples used are also from the Guide's minimal example.</p>
+            <p>This first mapping is for the elements of <em>Minimal Metadata</em> as per the IDN CP's <a href="https://data.idnau.org/cp/guide">Guide</a>. The examples used are also from the Guide's minimal example.</p>
             <style>
                 table tr td {
                     vertical-align: top;
@@ -135,10 +135,10 @@
                     <td><code>dcat:Resource</code></td>
                     <td><code>sdo:CreativeWork</code></td>
                     <td>equivalent class</td>
-                    <td><pre>&lt;https://w3id.org/idn/resource/BSA>
+                    <td><pre>&lt;https://data.idnau.org/pid/BSA>
         a dcat:Resource ;
     .</pre></td>
-                    <td><pre>&lt;https://w3id.org/idn/resource/BSA>
+                    <td><pre>&lt;https://data.idnau.org/pid/BSA>
         a sdo:CreativeWork ;
     .</pre></td>
                 </tr>
@@ -209,7 +209,7 @@
                 </tr>
             </table>
             <h4>Coded Equivalents</h4>
-            <p>The following is a slightly extended version of the <a href="https://w3id.org/idn/def/cp/guide">Guide</a>'s mimimal example:</p>
+            <p>The following is a slightly extended version of the <a href="https://data.idnau.org/cp/guide">Guide</a>'s mimimal example:</p>
             <h5>IDN CP</h5>
             <p class="eg">
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
@@ -217,7 +217,7 @@ PREFIX dcterms:&lt;http://purl.org/dc/terms/>
 PREFIX iso: &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
 
-&lt;https://w3id.org/idn/resource/BSA>
+&lt;https://data.idnau.org/pid/BSA>
     a dcat:Resource ;
     dcterms:title "Briscoe-Smith Archive" ;
     dcterms:description "Historical population data and biographical records" ;
@@ -233,7 +233,7 @@ PREFIX prov: &lt;http://www.w3.org/ns/prov#>
             <p class="eg">
 PREFIX sdo: &lt;https://schema.org/>
 
-&lt;https://w3id.org/idn/resource/BSA>
+&lt;https://data.idnau.org/pid/BSA>
     a sdo:CreativeWork ;
     sdo:name "Briscoe-Smith Archive" ;
     sdo:description "Historical population data and biographical records" ;
@@ -245,7 +245,7 @@ PREFIX sdo: &lt;https://schema.org/>
         </section>
         <section id="full">
             <h3>Full</h3>
-            <p>This second mapping is for the elements of <em>Full Metadata</em> as per the IDN CP's <a href="https://w3id.org/idn/def/cp/guide">Guide</a>. The examples used are also from the Guide's full example.</p>
+            <p>This second mapping is for the elements of <em>Full Metadata</em> as per the IDN CP's <a href="https://data.idnau.org/cp/guide">Guide</a>. The examples used are also from the Guide's full example.</p>
             <p><strong>NOTE</strong>: the elements already covered in the minimal mapping above are not repeated in the table</p>
             <style>
                 table tr td {
@@ -364,11 +364,11 @@ PREFIX sdo: &lt;https://schema.org/>
                     <td><code>dcterms:theme</code></td>
                     <td><code>sdo:keywords</code></td>
                     <td>equivalent elements</td>
-                    <td><code>dcterms:theme &lt;https://w3id.org/idn/def/idn-th/place></code></td>
+                    <td><code>dcterms:theme &lt;https://data.idnau.org/pid/vocab/idn-th/place></code></td>
                     <td><pre>sdo:keywords [
     a sdo:DefinedTerm ;
     sdo:name "Place" ;
-    sdo:url &lt;https://w3id.org/idn/def/idn-th/place> ;
+    sdo:url &lt;https://data.idnau.org/pid/vocab/idn-th/place> ;
 ] ;</pre></td>
                 </tr>
             </table>
@@ -376,7 +376,7 @@ PREFIX sdo: &lt;https://schema.org/>
             <p class="eg">
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
 PREFIX dcterms:&lt;http://purl.org/dc/terms/>
-PREFIX idnth: &lt;https://w3id.org/idn/def/idn-data-themes/&gt;
+PREFIX idnth: &lt;https://data.idnau.org/pid/vocab/idn-th&gt;
 PREFIX iso: &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
 
@@ -401,8 +401,8 @@ dcterms:description """This is a reference geospatial dataset developed by the A
     dcat:accessURL "https://linked.data.gov.au/dataset/asgsed3/ILOC"^^xsd:anyURI ;
     dcat:theme
         idnth:indigenous-demographics ,
-        &lt;https://w3id.org/idn/def/idn-th/place> ,
-        &lt;https://w3id.org/idn/def/indigeneity/about-indigenous-things> ;
+        &lt;https://data.idnau.org/pid/vocab/idn-th/place> ,
+        &lt;https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-things> ;
     prov:qualifiedAttribution
         [
             dcat:hadRole iso:custodian ;
@@ -413,8 +413,8 @@ dcterms:description """This is a reference geospatial dataset developed by the A
             prov:agent &lt;https://linked.data.gov.au/org/abs>
         ] ,
         [
-            dcat:hadRole &lt;https://w3id.org/def/idn-role-codes/subjectAgentRepresentatitve> ;
-            prov:agent &lt;https://w3id.org/idn/agent/abs-coatsis> ;
+            dcat:hadRole &lt;https://data.idnau.org/pid/vocab/idn-role-codes/subjectAgentRepresentatitve> ;
+            prov:agent &lt;https://data.idnau.org/pid/orgabs-coatsis> ;
         ] ;
 .
               </p>
@@ -441,21 +441,21 @@ PREFIX sdo: &lt;https://schema.org/>
     sdo:keywords [
         a sdo:DefinedTerm ;
         sdo:name "Indigenous Demographics" ;
-        sdo:url &lt;https://w3id.org/idn/def/idn-data-themes/indigenous-demographics> ;
+        sdo:url &lt;https://data.idnau.org/pid/vocab/idn-thindigenous-demographics> ;
     ] ,
     [
         a sdo:DefinedTerm ;
         sdo:name "Place" ;
-        sdo:url &lt;https://w3id.org/idn/def/idn-th/place> ;
+        sdo:url &lt;https://data.idnau.org/pid/vocab/idn-th/place> ;
     ] ,
     [
         a sdo:DefinedTerm ;
         sdo:name "About Indigenous Things" ;
-        sdo:url &lt;https://w3id.org/idn/def/indigeneity/about-indigenous-things> ;
+        sdo:url &lt;https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-things> ;
     ] ;
     sdo:maintainer &lt;https://linked.data.gov.au/org/abs> ;
     sdo:rightsHolder &lt;https://linked.data.gov.au/org/abs> ;
-    sdo:participant &lt;https://w3id.org/idn/agent/abs-coatsis> ;
+    sdo:participant &lt;https://data.idnau.org/pid/orgabs-coatsis> ;
 .
             </p>
         </section>

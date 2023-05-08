@@ -34,20 +34,20 @@
 <div id="content" style="grid-column:2;">
     <h1>IDN CP - RIF-CS Mapping</h1>
     <div id="description">
-        <p>This document defines the <a href="https://w3id.org/idn/def/cp">IDN CP</a>'s official mapping between its elements and <a href="https://archive-intranet.ardc.edu.au/display/DOC/About+RIF-CS">RIF-CS</a>'s elements.</p>
+        <p>This document defines the <a href="https://data.idnau.org/cp">IDN CP</a>'s official mapping between its elements and <a href="https://archive-intranet.ardc.edu.au/display/DOC/About+RIF-CS">RIF-CS</a>'s elements.</p>
     </div>
     <section id="metadata">
         <h2>Metadata <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
         <dl>
             <dt>URI</dt>
-            <dd><code>https://w3id.org/idn/def/cp/rif-cs</code> <a href="https://w3id.org/idn/def/cp/rif-cs" style="font-size:1.5em">&#x2197;</a>
+            <dd><code>https://data.idnau.org/cp/rif-cs</code> <a href="https://data.idnau.org/cp/rif-cs" style="font-size:1.5em">&#x2197;</a>
             </dd>
             <dt><a class="proplink" title="sdo:name" href="https://schema.org/name">Name</a></dt>
             <dd>IDN CP &rarr; RIF-CS Mapping</dd>
             <dt><a class="proplink" title="sdo:description" href="https://schema.org/description">Description</a></dt>
-            <dd>This document defines the <a href="https://w3id.org/idn/def/cp">IDN CP</a>'s official mapping between its elements and <a href="https://archive-intranet.ardc.edu.au/display/DOC/About+RIF-CS">RIF-CS</a>'s elements.</dd>
+            <dd>This document defines the <a href="https://data.idnau.org/cp">IDN CP</a>'s official mapping between its elements and <a href="https://archive-intranet.ardc.edu.au/display/DOC/About+RIF-CS">RIF-CS</a>'s elements.</dd>
             <dt><a href="https://schema.org/isPartOf">Is Part Of</a> (a <a href="https://www.w3.org/TR/dx-prof/#Class:ResourceDescriptor">Profile Resource Descriptor</a> of)</a></dt>
-            <dd><a href="https://w3id.org/idn/def/cp">IDN's Catalogue Profile</a><br/></dd>
+            <dd><a href="https://data.idnau.org/cp">IDN's Catalogue Profile</a><br/></dd>
             <dt><a class="proplink" title="sdo:publisher" href="https://schema.org/publisher">Publisher</a>(s)</dt>
             <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a><br/></dd>
             <dt><a class="proplink" title="sdo:creator" href="https://schema.org/creator">Creator</a>(s)</dt>
@@ -55,7 +55,7 @@
             <dt><a class="proplink" title="sdo:created" href="https://schema.org/created">Created</a></dt>
             <dd>2022-12-20</dd>
             <dt><a class="proplink" title="sdo:dateModified" href="https://schema.org/dateModified">Modified</a></dt>
-            <dd>2022-12-20</dd>
+            <dd>2023-05-08</dd>
             <dt><a class="proplink" title="sdo:dateIssued" href="https://schema.org/dateIssued">Issued</a></dt>
             <dd>2022-12-20</dd>
             <dt><a class="proplink" title="owl#versionInfo" href="http://www.w3.org/2002/07/owl#versionInfo">Version
@@ -63,7 +63,7 @@
             <dd>0.0.1</dd>
             <dt><a class="proplink" title="owl#versionIRI" href="http://www.w3.org/2002/07/owl#versionIRI">Version
                 IRI</a></dt>
-            <dd><a href="https://w3id.org/idn/def/cp/0.0.1">https://w3id.org/idn/def/cp/sdo/0.0.1</a></dd>
+            <dd><a href="https://data.idnau.org/cp/0.0.1">https://data.idnau.org/cp/sdo/0.0.1</a></dd>
             <dt><a class="proplink" title="sdo:license" href="https://schema.org/license">License</a></dt>
             <dd><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a>
             </dd>
@@ -90,7 +90,7 @@
             <dt>geo</dt>
             <dd><code>http://www.opengis.net/ont/geosparql#</code></dd>
             <dt>idn-role</dt>
-            <dd><code>https://w3id.org/idn/def/idn-role-codes/subjectAgent</code></dd>
+            <dd><code>https://data.idnau.org/pid/vocab/idn-role-codes/subjectAgent</code></dd>
             <dt>org</dt>
             <dd><code>https://linked.data.gov.au/org/</code></dd>
             <dt>owl</dt>
@@ -108,9 +108,9 @@
         </dl>
         <section id="minmal">
             <h3>Minimal</h3>
-            <p>This first mapping is for the elements of <em>Minimal Metadata</em> as per the IDN CP's <a href="https://w3id.org/idn/def/cp/guide">Guide</a>. The examples used are also from the Guide's minimal example.</p>
+            <p>This first mapping is for the elements of <em>Minimal Metadata</em> as per the IDN CP's <a href="https://data.idnau.org/cp/guide">Guide</a>. The examples used are also from the Guide's minimal example.</p>
             <h4>Coded Equivalents</h4>
-            <p>The following is a slightly extended version of the <a href="https://w3id.org/idn/def/cp/guide">Guide</a>'s mimimal example:</p>
+            <p>The following is a slightly extended version of the <a href="https://data.idnau.org/cp/guide">Guide</a>'s mimimal example:</p>
             <h5>IDN CP</h5>
             <p class="eg">
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
@@ -118,7 +118,7 @@ PREFIX dcterms:&lt;http://purl.org/dc/terms/>
 PREFIX iso: &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
 
-&lt;https://w3id.org/idn/resource/BSA>
+&lt;https://data.idnau.org/pid/BSA>
     a dcat:Resource ;
     dcterms:title "Briscoe-Smith Archive" ;
     dcterms:description "Historical population data and biographical records" ;
@@ -134,13 +134,13 @@ PREFIX prov: &lt;http://www.w3.org/ns/prov#>
             <p class="eg">
 &lt;registryObject>
   &lt;key>BSA&lt;/key>
-  &lt;originatingSource>https://w3id.org/idn/resource/BSA&lt;/originatingSource>
+  &lt;originatingSource>https://data.idnau.org/pid/BSA&lt;/originatingSource>
   &lt;collection type="dataset" dateModified="2022-12-20">
     &lt;name type="primary">
       &lt;namePart>Briscoe-Smith Archive&lt;/namePart>
     &lt;/name>
     &lt;description type="brief">Historical population data and biographical records&lt;/description>
-    &lt;identifier type="uri">https://w3id.org/idn/resource/BSA&lt;/identifier>
+    &lt;identifier type="uri">https://data.idnau.org/pid/BSA&lt;/identifier>
     &lt;dates type="dc.created">
       &lt;date type="dateFrom" dateFormat="W3CDTF">2022-12-19&lt;/date>
     &lt;/dates>
@@ -154,12 +154,12 @@ PREFIX prov: &lt;http://www.w3.org/ns/prov#>
         </section>
         <section id="full">
             <h3>Full</h3>
-            <p>This second mapping is for the elements of <em>Full Metadata</em> as per the IDN CP's <a href="https://w3id.org/idn/def/cp/guide">Guide</a>. The examples used are also from the Guide's full example.</p>
+            <p>This second mapping is for the elements of <em>Full Metadata</em> as per the IDN CP's <a href="https://data.idnau.org/cp/guide">Guide</a>. The examples used are also from the Guide's full example.</p>
             <h5>IDN CP</h5>
             <p class="eg">
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
 PREFIX dcterms:&lt;http://purl.org/dc/terms/>
-PREFIX idnth: &lt;https://w3id.org/idn/def/idn-data-themes/&gt;
+PREFIX idnth: &lt;https://data.idnau.org/pid/vocab/idn-th&gt;
 PREFIX iso: &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
 
@@ -169,7 +169,7 @@ PREFIX prov: &lt;http://www.w3.org/ns/prov#>
     dcterms:title "Indigenous Locations within the Australian Statistical Geography Standard (ASGS) Edition 3" ;
 dcterms:description """This is a reference geospatial dataset developed by the Australian Bureau of Statistics... This enables the release of Census of Population and Housing data and other data for Aboriginal and Torres Strait Islander communities in a meaningful way, while balancing confidentiality and statistical requirements. ..."""@en ;
     dcterms:created "2021-10-06"^^xsd:date ;
-    dcterms:modified "2021-10-06"^^xsd:date ;
+    dcterms:modified "2023-05-08"^^xsd:date ;
     dcterms:identifier "ILOC"^^xsd:token ;
     dcterms:source "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/indigenous-structure/indigenous-locations"^^xsd:anyURI ;
     dcterms:issued "2021-10-06"^^xsd:date ;
@@ -187,8 +187,8 @@ dcterms:description """This is a reference geospatial dataset developed by the A
     dcat:accessURL "https://linked.data.gov.au/dataset/asgsed3/ILOC"^^xsd:anyURI ;
     dcat:theme
         idnth:indigenous-demographics ,
-        &lt;https://w3id.org/idn/def/idn-th/place> ,
-        &lt;https://w3id.org/idn/def/indigeneity/about-indigenous-things> ;
+        &lt;https://data.idnau.org/pid/vocab/idn-th/place> ,
+        &lt;https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-things> ;
     prov:qualifiedAttribution
         [
             dcat:hadRole iso:custodian ;
@@ -199,8 +199,8 @@ dcterms:description """This is a reference geospatial dataset developed by the A
             prov:agent &lt;https://linked.data.gov.au/org/abs>
         ] ,
         [
-            dcat:hadRole &lt;https://w3id.org/def/idn-role-codes/subjectAgentRepresentatitve> ;
-            prov:agent &lt;https://w3id.org/idn/agent/abs-coatsis> ;
+            dcat:hadRole &lt;https://data.idnau.org/pid/vocab/idn-role-codes/subjectAgentRepresentatitve> ;
+            prov:agent &lt;https://data.idnau.org/pid/orgabs-coatsis> ;
         ] ;
 .
               </p>
@@ -241,9 +241,9 @@ dcterms:description """This is a reference geospatial dataset developed by the A
           &lt;date type="dateTo" dateFormat="W3CDTF">2026&lt;/date>
         &lt;/temporal>
       &lt;/coverage>
-      &lt;subject type="local">https://w3id.org/idn/def/idn-data-themes/indigenous-demographics&lt;/subject>
-      &lt;subject type="local">https://w3id.org/idn/def/idn-th/place&lt;/subject>
-      &lt;subject type="local">https://w3id.org/idn/def/indigeneity/about-indigenous-things&lt;/subject>
+      &lt;subject type="local">https://data.idnau.org/pid/vocab/idn-thindigenous-demographics&lt;/subject>
+      &lt;subject type="local">https://data.idnau.org/pid/vocab/idn-th/place&lt;/subject>
+      &lt;subject type="local">https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-things&lt;/subject>
       &lt;subject type="local">water quality monitoring&lt;/subject>
       &lt;relatedObject>
         &lt;key>https://linked.data.gov.au/org/abs&lt;/key>

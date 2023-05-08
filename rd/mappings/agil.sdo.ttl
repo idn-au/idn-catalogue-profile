@@ -16,17 +16,17 @@ This dataset is NOT a complete listing of all locations at which indigenous peop
         [
             a sdo:Role ;
             sdo:includedInDataCatalog <https://data.gov.au> ;
-            sdo:roleName <https://w3id.org/idn/vocab/cat-roles/home>
+            sdo:roleName <https://data.idnau.org/pid/vocab/cat-roles/home>
         ] ,
-        <https://w3id.org/idn/dataset/democat> ;
+        <https://data.idnau.org/pid/democat> ;
     sdo:keywords
         [
             a sdo:DefinedTerm ;
-            sdo:url <https://w3id.org/idn/vocab/indigeneity/about-indigenous-things>
+            sdo:url <https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-things>
         ] ,
         [
             a sdo:DefinedTerm ;
-            sdo:url <https://w3id.org/idn/vocab/idn-th/place>
+            sdo:url <https://data.idnau.org/pid/vocab/idn-th/place>
         ] ;
     sdo:license <https://purl.org/NET/rdflicense/cc-by4.0> ;
     sdo:name "Australian Government Indigenous Programs & Policy Locations (AGIL) dataset" ;
@@ -44,7 +44,7 @@ This dataset is NOT a complete listing of all locations at which indigenous peop
     sdo:url "https://data.gov.au/data/dataset/34b1c164-fbe8-44a0-84fd-467dba645aa7/resource/d891a36f-57f6-41f7-ada6-fc65069103dc/download/agil20190208.xlsx"^^xsd:anyURI ;
 .
 
-<https://w3id.org/idn/dataset/democat>
+<https://data.idnau.org/pid/democat>
     a sdo:DataCatalog ;
 .
 

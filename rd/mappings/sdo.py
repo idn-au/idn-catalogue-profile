@@ -31,7 +31,7 @@ def _create_parser():
 def convert(g: Graph) -> Graph:
     """Reads an IDN CP graph and produces a schema.org graph.
 
-    Uses mapping logic from https://w3id.org/idn/def/cp/sdo.ttl"""
+    Uses mapping logic from https://data.idnau.org/cp/sdo.ttl"""
     g2 = Graph(bind_namespaces="rdflib")
 
     # classes
