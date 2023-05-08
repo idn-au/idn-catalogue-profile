@@ -10,10 +10,10 @@ PREFIX time: <http://www.w3.org/2006/time#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 
-<https://data.idnau.org/cp/validator-compounded>
+<https://data.idnau.org/pid/cp/validator-compounded>
     a owl:Ontology ;
     dcterms:provenance "This validator for the IDN Catalogue Profile was made within the IDN's ID Catalogue project 2021 - 2022."@en ;
-    owl:versionIRI <https://data.idnau.org/cp/0.0.1> ;
+    owl:versionIRI <https://data.idnau.org/pid/cp/0.0.1> ;
     owl:versionInfo "0.0.1" ;    
     sdo:codeRespository "https://github.com/idn-au/idn-catalogue-profile/"^^xsd:anyURI ;
     sdo:copyrightHolder <https://orcid.org/0000-0002-8742-7730> ;

@@ -4,7 +4,7 @@ This repository contains the https://mspgh.unimelb.edu.au/centres-institutes/cen
 
 This Profile's main defining document which is in this repository (profile.html) is rendered online at its persistent web location:
 
-* **https://data.idnau.org/cp**
+* **https://data.idnau.org/pid/cp**
 
 That document contains a list of the various resources provided by this profile, most of which are stored in this repository within the `rd/` folder.
 

@@ -1,6 +1,6 @@
 # RDF/OWL mappings between IDN Catalogue Profile elements and schema.org elements
 #
-# https://data.idnau.org/cp/sdo.ttl
+# https://data.idnau.org/pid/cp/sdo.ttl
 #
 # see https://ec-jrc.github.io/dcat-ap-to-schema-org/
 # see https://schema.org/docs/data-and-datasets.html

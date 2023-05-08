@@ -61,8 +61,8 @@
             <h1>IDN Catalogue Profile - Specification</h1>
             <!-- <h2>Description</h2> -->
             <div id="description">
-                <p>This is the specification of normative requirements for data conforming to the <a href="https://data.idnau.org/cp">IDN Catalogue Profile</a>. Also presented are mappings from this profile to other models.</p>
-                <p style="width:50%; border:solid 3px black; padding:10px; background-color:#ccc;"><strong>Metadata Requirements</strong>:<br />If you want to get started creating information (catalogued item metadata) according to this profile, see the <a href="https://data.idnau.org/cp/guide">Guidance Document</a>.</p>
+                <p>This is the specification of normative requirements for data conforming to the <a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a>. Also presented are mappings from this profile to other models.</p>
+                <p style="width:50%; border:solid 3px black; padding:10px; background-color:#ccc;"><strong>Metadata Requirements</strong>:<br />If you want to get started creating information (catalogued item metadata) according to this profile, see the <a href="https://data.idnau.org/pid/cp/guide">Guidance Document</a>.</p>
             </div>
             <div id="overview" class="figure">
                 <a href="https://idn-au.github.io/idn-catalogue-profile/style/venn.png"><img src="https://idn-au.github.io/idn-catalogue-profile/style/venn.png" style="width:600px;" alt="Venn diagram of this profile's concerns" /></a>
@@ -72,11 +72,11 @@
                 <h2>Metadata</h2>
                 <dl>
                     <dt>URI</dt>
-                    <dd><code>https://data.idnau.org/cp/spec</code> <a href="https://data.idnau.org/cp/spec" style="font-size:1.5em">&#x2197;</a></dd>
+                    <dd><code>https://data.idnau.org/pid/cp/spec</code> <a href="https://data.idnau.org/pid/cp/spec" style="font-size:1.5em">&#x2197;</a></dd>
                     <dt><a class="proplink" title="sdo:name" href="https://schema.org/name">Name</a></dt>
                     <dd>IDN Catalogue Profile - Specification</dd>
                     <dt><a class="proplink" title="sdo:isPartOf" href="https://schema.org/isPartOf">Is Part Of</a></dt>
-                    <dd><a href="https://data.idnau.org/cp">IDN Catalogue Profile</a></dd>
+                    <dd><a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a></dd>
                     <dt><a class="proplink" title="sdo:description" href="https://schema.org/description">Description</a></dt>
                     <dd>The specification of normative requirements for data conforming to the IDN Catalogue Profile.</dd>
                     <dt><a class="proplink" title="sdo:publisher" href="https://schema.org/publisher">Publisher</a>(s)</dt>
@@ -92,7 +92,7 @@
                     <dt><a class="proplink" title="owl#versionInfo" href="http://www.w3.org/2002/07/owl#versionInfo">Version Information</a></dt>
                     <dd>0.0.1</dd>
                     <dt><a class="proplink" title="owl#versionIRI" href="http://www.w3.org/2002/07/owl#versionIRI">Version IRI</a></dt>
-                    <dd><a href="https://data.idnau.org/cp/spec/0.0.1">https://data.idnau.org/cp/spec/0.0.1</a></dd>
+                    <dd><a href="https://data.idnau.org/pid/cp/spec/0.0.1">https://data.idnau.org/pid/cp/spec/0.0.1</a></dd>
                     <dt><a class="proplink" title="sdo:license" href="https://schema.org/license">License</a></dt>
                     <dd><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a></dd>
                     <dt><a class="proplink" title="sdo:copyrightHolder" href="https://schema.org/copyrightHolder">Copyright Holder</a></dt>
@@ -105,18 +105,18 @@
                 <h2>Preamble <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
                 <section id="abstract">
                     <h3>Abstract <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-                    <p>This is the specification document of the <a href="https://data.idnau.org/cp">IDN Catalogue Profile</a> which is a profile of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>. Where DCAT is designed for the representation of data catalogues and their content in general, this profile of it aims to cater for the enhanced representation of indigenous data governance.</p>
+                    <p>This is the specification document of the <a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a> which is a profile of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>. Where DCAT is designed for the representation of data catalogues and their content in general, this profile of it aims to cater for the enhanced representation of indigenous data governance.</p>
                     <p>This document specifies requirements of data that must be met for that data to claim conformance to the IDN Catalogue Profile. Data that conforms to this profile necessarily conforms to DCAT also. This profile also provides mappings from it to models of assessments of principles such as <a href="https://force11.org/info/the-fair-data-principles/">FAIR</a> and <a href="https://www.gida-global.org/care">CARE</a> so it also specifies additional sub-profiles' requirements necissary for those and other mappings.</p>
                     <p>This specification document is <em>not</em> to be used for the automated testing of conformance of RDF data to this profile. That role belongs to the machine-readable <em>validation</em> resource:</p>
                     <ul>
-                    <li><a href="https://data.idnau.org/cp/validator">SHACL Validator</a></li>
-                    <li><a href="https://data.idnau.org/cp/validator-compounded">Compounded Validator</a></li>
+                    <li><a href="https://data.idnau.org/pid/cp/validator">SHACL Validator</a></li>
+                    <li><a href="https://data.idnau.org/pid/cp/validator-compounded">Compounded Validator</a></li>
                     <li>FAIR, CARE and other mappings' validators</li>
                     </ul>
                     <p>The first validator above contains tests for this profile's requirements on top of DCAT's. The second contains this profile's tests as well as those from the standards this profile, profiles: DCAT etc. The third - <em>not available yet</em> - contains tests for different FIAR and CARE etc scores, based on the mappings from this profile to models of those assessment systems.</p>
                     <p>For the list of all resources within this profile, see the profile definition:</p>
                     <ul>
-                    <li><a href="https://data.idnau.org/cp">IDN Catalogue Profile Definition</a></li>
+                    <li><a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile Definition</a></li>
                     </ul>
                 </section>
                 <section id="namespaces">
@@ -124,7 +124,7 @@
                     <p>This document refers to elements of various ontologies by short codes using namespace prefixes. The prefixes and their corresponding namespaces' URIs are:</p>
                     <dl>
                         <dt>idncp</dt>
-                        <dd><code>https://data.idnau.org/cp</code></dd>
+                        <dd><code>https://data.idnau.org/pid/cp</code></dd>
                         <dt>dcat</dt>
                         <dd><code>http://www.w3.org/ns/dcat#</code></dd>
                         <dt>dcterms</dt>
@@ -155,7 +155,7 @@
             </section>
             <section id="intro">
                 <h2>1. Introduction <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-                <p>The <a href="https://data.idnau.org/cp">IDN Catalogue Profile</a> follows standard patterns of use of elements of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>, such as <code>Catalog</code>, <code>Dataset</code> and so on and some DCAT-recommended ways of expressing relationships from catalogue elements to <code>Agent</code> instances (people & organisations) using <a href="https://www.w3.org/TR/prov-o/">PROV, the Provenance Ontology</a>, and <a href="https://www.w3.org/TR/skos-reference/">SKOS, SKOS Simple Knowledge Organization System</a>.</p>
+                <p>The <a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a> follows standard patterns of use of elements of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>, such as <code>Catalog</code>, <code>Dataset</code> and so on and some DCAT-recommended ways of expressing relationships from catalogue elements to <code>Agent</code> instances (people & organisations) using <a href="https://www.w3.org/TR/prov-o/">PROV, the Provenance Ontology</a>, and <a href="https://www.w3.org/TR/skos-reference/">SKOS, SKOS Simple Knowledge Organization System</a>.</p>
                 <p>To cater for indigenous data governance concerns, this profile requires, or at least expects/promotes the use, of specific catalogues of <code>Agent</code> instances and specific vocabularies of <code>Concept</code> instances for to classify <code>Dataset</code> instances with.</p>
                 <p>So, where using regular DCAT, you might indicate that a <code>Dataset</code> is themed as being about <em>water</em> where <em>water</em> is selected from a data theming vocabulary, you would also indicate that the dataset is themed as being <em>culturally sensitive</em> using a particular <code>Concept</code> from this profile's <a href="https://data.idnau.org/pid/vocab/tk-labels">TK Labels vocabulary</a>.</p>
                 <p>Where using DCAT, with PROV, you might indicate that a <code>Dataset</code> is related to an <code>Agent</code> by the property <code>dcterms:contributor</code> (i.e. the <code>Agent</code> referenced contributed to the dataset), using this profile you would use the alternate DCAT-recommended qualified agent relations pattern and say that the <code>Dataset</code> is attributed to the <code>Agent</code> with the role of <em>contributor</em> where the role referenced is taken from this profile's <a href="https://data.idnau.org/pid/vocab/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
