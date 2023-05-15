@@ -21,7 +21,7 @@ Initial technical development of this work is being undertaken by the following,
 **Nicholas J. Car** +
 *Data Architect* +
 https://kurrawong.ai[KurrawongAI] +
-nick@kurrawong.net  
+nick@kurrawong.ai
 
 **Sandra Silcot** +
 *Analyst* +
