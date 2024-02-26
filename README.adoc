@@ -16,14 +16,18 @@ All content is &copy; Indigenous Data Network, 2022
 
 == Contacts
 
-Initial technical development of this work is being undertaken by the following, for the Indigenous Data Network:
+For technical enquiries:
 
-**Nicholas J. Car** +
-*Data Architect* +
-https://kurrawong.ai[KurrawongAI] +
-nick@kurrawong.ai
-
-**Sandra Silcot** +
-*Analyst* +
-University of Melbourne +
+**Jamie Feiss** +
+*Data Infrastructure Developer* +
 Indigenous Data Network +
+University of Melbourne +
+jamie.feiss@unimelb.edu.au
+
+For policy:
+
+**Levi Murray** +
+*Strategic Data Manager* +
+Indigenous Data Network +
+University of Melbourne +
+levi.murray@unimelb.edu.au
