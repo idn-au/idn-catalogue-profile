@@ -116,21 +116,33 @@ p, li, a, dd, dt, th, td, div {
     font-family: sans-serif;
 }
 
+li + li {
+  margin-top: 10px;
+}
+
 .footer {
     background-color: #eee;
     padding-top:30px;
 }
 
 a {
-    color: rgb(221, 37, 37);
+    color: #990000;
     text-decoration: none;
 }
 
 section {
     margin-top: 2em;
 }
+
 dt {
     font-weight: bold;
+    font-size: medium;
+    margin-top: 20px;
+}
+
+dd {
+    font-size: medium;
+    margin-top: 10px;
 }
 
 p.quote {
@@ -223,7 +235,7 @@ code {
 .figure .caption {
     font-size: small;
     font-style: italic;
-    width: 50%;
+    width: 25%;
     margin: 0 auto;
 }
 
@@ -237,6 +249,9 @@ table.properties td {
     padding: 10px;
 }
 
+table.properties tr {
+    height: 1.5em ;
+}
 
 table.properties tr:nth-child(odd){
     background: #ccc;

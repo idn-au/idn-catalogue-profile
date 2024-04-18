@@ -15,15 +15,22 @@
     <div id="idn-title" style="grid-column:2;">
         Indigenous Data Network
     </div>
-</div>
 </div><!-- #header -->
 <div class="header" style="grid-column:3;"></div>
 <div id="content" style="grid-column:2;">
+    <ul style="width:25%; border-radius:5px; padding:15px 15px 15px 25px; margin-left: 10px; background-color:#ccc; float:right;">
+        <li>
+            <strong>Starting Point</strong>
+            <ul><li>See the <a href="https://data.idnau.org/pid/cp/spec">Guidance Document</a></li></ul>
+        </li>
+        <li>
+            <strong>Metadata Details</strong>
+            <ul><li>See the <a href="https://data.idnau.org/pid/cp/spec">Specification Document</a></li></ul>
+        </li>
+    </ul>
     <h1>IDN Catalogue Profile</h1>
     <div id="description">
-        <p>This is the definitional document of a Profile of cataloguing, provenance and vocabulary information standards designed for the representation of indigenous datasets and their mode of governance.</p>
-        <p>The formal metadata for this Profile is given below, including links to the machine-readable version of this document.</p>
-        <p style="width:50%; border:solid 3px black; padding:10px; background-color:#ccc;"><strong>Metadata Requirements</strong>:<br />If you want to know what the requirements for information are to be conformant to this profile, see the <a href="https://data.idnau.org/pid/cp/spec">Specification Document</a> resource.</p>
+        <p>This document lists all the various parts of the IDN Catalogue Profile.</p>
     </div>
     <section id="metadata">
         <h2>Metadata <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
@@ -31,59 +38,48 @@
             <dt>URI</dt>
             <dd><code>https://data.idnau.org/pid/cp</code> <a href="https://data.idnau.org/pid/cp" style="font-size:1.5em">&#x2197;</a>
             </dd>
-            <dt><a class="proplink" title="sdo:name" href="https://schema.org/name">Name</a></dt>
-            <dd>IDN Catalogue Profile</dd>
-            <dt><a class="proplink" title="sdo:description" href="https://schema.org/description">Description</a></dt>
-            <dd>A profile of cataloguing, provenance and vocabulary standards designed for the representation of indigenous data governance
-            </dd>
-            <dt><a href="https://www.w3.org/TR/dx-prof/#Property:isProfileOf">Is Profile Of</a></dt>
-            <dd><a href="https://data.idnau.org/pid/cp">https://data.idnau.org/pid/cp</a><br/></dd>
+            <dt><a href="https://www.w3.org/TR/dx-prof/#Property:isProfileOf">Is a profile of</a></dt>
+            <dd><a href="https://www.w3.org/TR/vocab-dcat/">DCAT</a><br/></dd>
             <dt><a class="proplink" title="sdo:publisher" href="https://schema.org/publisher">Publisher</a>(s)</dt>
             <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a><br/></dd>
             <dt><a class="proplink" title="sdo:creator" href="https://schema.org/creator">Creator</a>(s)</dt>
             <dd><a href="">Nicholas J. Car</a><br/></dd>
-            <dt><a class="proplink" title="sdo:created" href="https://schema.org/created">Created</a></dt>
-            <dd>2022-03-18</dd>
-            <dt><a class="proplink" title="sdo:dateModified" href="https://schema.org/dateModified">Modified</a></dt>
-            <dd>2023-05-08</dd>
-            <dt><a class="proplink" title="sdo:dateIssued" href="https://schema.org/dateIssued">Issued</a></dt>
-            <dd>2022-07-19</dd>
-            <dt><a class="proplink" title="owl#versionInfo" href="http://www.w3.org/2002/07/owl#versionInfo">Version
-                Information</a></dt>
-            <dd>0.0.1</dd>
-            <dt><a class="proplink" title="owl#versionIRI" href="http://www.w3.org/2002/07/owl#versionIRI">Version
-                IRI</a></dt>
-            <dd><a href="https://data.idnau.org/pid/cp/0.0.1">https://data.idnau.org/pid/cp/0.0.1</a></dd>
+            <dt>Dates</dt>
+            <dd>
+                <table>
+                    <tr>
+                        <td><a class="proplink" title="sdo:created" href="https://schema.org/created">Created</a></td>
+                        <td>2022-03-18</td>
+                    </tr>
+                    <tr>
+                        <td><a class="proplink" title="sdo:dateIssued" href="https://schema.org/dateIssued">Issued</a></td>
+                        <td>2022-07-19</td>
+                    </tr>
+                    <tr>
+                        <td><a class="proplink" title="sdo:dateModified" href="https://schema.org/dateModified">Modified</a></td>
+                        <td>2023-05-08</td>
+                    </tr>
+                </table>
+            </dd>
+            <dt><a class="proplink" title="owl#versionIRI" href="http://www.w3.org/2002/07/owl#versionIRI">Version</a></dt>
+            <dd><a href="https://data.idnau.org/pid/cp/0.0.2">0.0.2</a></dd>
             <dt><a class="proplink" title="sdo:license" href="https://schema.org/license">License</a></dt>
             <dd><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a>
             </dd>
-            <dt><a class="proplink" title="sdo:copyrightHolderame" href="https://schema.org/copyrightHolder">Copyright
-                Holder</a></dt>
-            <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a></dd>
-            <dt><a class="proplink" title="sdo:copyrightYear" href="https://schema.org/copyrightYear">Copyright Year</a>
-            </dt>
-            <dd>2022</dd>
-            <dt><a class="proplink" title="sdo:codeRespository" href="https://schema.org/codeRespository">Code
-                Repository</a></dt>
-            <dd><a href="https://github.com/idn-au/idn-catalogue-profile/">https://github.com/idn-au/idn-catalogue-profile/</a>
-            </dd>
-            <dt>Profile RDF</dt>
-            <dd><a href="https://data.idnau.org/pid/cp.ttl">RDF (turtle)</a></dd>
-            <dt><a class="proplink" href="https://www.w3.org/TR/dx-prof/#Property:hasResource">Has Resource
-                Descriptor(s)</a></dt>
+            <dt><a class="proplink" title="sdo:copyrightHolderame" href="https://schema.org/copyrightHolder">Copyright</a></dt>
+            <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a>, 2022 - 2024</dd>
+            <dt>Source</dt>
             <dd>
-                <a href="#https://data.idnau.org/pid/cp/guide">Guidance Document</a><br/>
-                <a href="#https://data.idnau.org/pid/cp/spec">Specification Document</a><br/>
-                <a href="#https://data.idnau.org/pid/cp/validator">Validator in SHACL</a><br/>
-                <a href="#https://data.idnau.org/pid/cp/validator-compounded">Compounded Validator in SHACL</a><br/>
-                <a href="#https://data.idnau.org/pid/cp/repo">Profile Repository</a><br/>
-                <a href="#https://data.idnau.org/pid/vocab/idn-role-codes">IDN Role Codes Vocabulary</a><br/>
-                <!--<a href="#https://data.idnau.org/pid/vocab/tk-labels">TK Labels Vocabulary</a><br/>-->
-                <a href="#https://data.idnau.org/pid/vocab/care">CARE Vocabulary</a><br/>
-                <a href="https://data.idnau.org/pid/cp/sdo">schema.org mapping description</a><br />
-                <a href="https://data.idnau.org/pid/cp/sdo.ttl">schema.org RDF mapping</a><br />
-                <a href="https://data.idnau.org/pid/cp/sdo.py">schema.org conversion script</a><br />
-                <a href="https://data.idnau.org/pid/cp/rif-cs">RIF-CS mapping description</a><br />
+                <table>
+                    <tr>
+                        <td><a class="proplink" title="sdo:codeRespository" href="https://schema.org/codeRespository">Code Repository</a></td>
+                        <td><a href="https://github.com/idn-au/idn-catalogue-profile/">https://github.com/idn-au/idn-catalogue-profile/</a></td>
+                    </tr>
+                    <tr>
+                        <td>RDF data</td>
+                        <td><a href="https://data.idnau.org/pid/cp.ttl">RDF (turtle)</a></td>
+                    </tr>
+                </table>
             </dd>
         </dl>
     </section>

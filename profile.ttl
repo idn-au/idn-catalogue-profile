@@ -14,8 +14,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 <https://data.idnau.org/pid/cp>
     a owl:Ontology , prof:Profile ;
     dcterms:provenance "This profile of DCAT was made within the IDN's ID Catalogue project 2021 - 2022."@en ;
-    owl:versionIRI <https://data.idnau.org/pid/cp/0.0.1> ;
-    owl:versionInfo "0.0.1" ;    
+    owl:versionIRI <https://data.idnau.org/pid/cp/0.0.2> ;
+    owl:versionInfo "0.0.2: April 2024 - simplified presentation" ;
     sdo:codeRespository "https://github.com/idn-au/idn-catalogue-profile/"^^xsd:anyURI ;
     sdo:copyrightHolder <https://linked.data.gov.au/org/idn> ;
     sdo:copyrightNotice "(c) Indigenous Data Network, 2022" ;
