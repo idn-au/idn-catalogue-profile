@@ -10,13 +10,14 @@
         <div id="menu" style="grid-column:1;">
             <h3>Contents</h3>
             <ul>
-                <ul>
-                    <li><a href="#create">Create Metadata</a></li>
-                    <li><a href="#indicate-indigenous">Indicate Indigenous</a></li>
-                    <li><a href="#calculate-scores">Calculate Scores</a></li>
-                    <li><a href="#improve-scores">Improve Scores</a></li>
-                    <li><a href="#formats">Use Formats</a></li>
-                </ul>
+                <li><a href="#understand">Understand</a></li>
+                <li><a href="#create">Create Metadata</a></li>
+                <li><a href="#indicate-indigenous">Indicate Indigenous</a></li>
+                <li><a href="#calculate-scores">Calculate Scores</a></li>
+                <li><a href="#improve-scores">Improve Scores</a></li>
+                <li><a href="#formats">Use Formats</a></li>
+                <li><a href="#validate">Validate Metadata</a></li>
+                <li><a href="#examples">Examples</a>
             </ul>
         </div>
         <div class="header" style="grid-column:1; grid-row:1;"></div>
@@ -37,7 +38,7 @@
                     <ul><li>See the <a href="specification.html">Specification Document</a></li></ul>
                 </li>
                 <li>
-                    <strong>All Profile Details</strong>
+                    <strong>All Profile Resources</strong>
                     <ul><li>See the <a href="../profile.html">Profile Resources</a></li></ul>
                 </li>
             </ul>
@@ -47,181 +48,150 @@
                 <p>This is a guide to assist you with using the <a href="https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network">Indigenous Data Network</a>'s <a href="https://data.idnau.org/pid/cp/spec">Catalogue Profile</a>.</p>
             </div>
             <section id="how">
-                <h2>How do I... <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                <h2>How do I...</h2>
                 <ol>
-                    <li><a href="">Create metadata according to the profile?</a></li>
-                    <li><a href="">Indicate something in a catalogue is Indigenous?</a></li>
-                    <li><a href="">Calculate FAIR or CARE scores?</a></li>
-                    <li><a href="">Improve my catalogue's FAIR or CARE scores?</a></li>
-                    <li><a href="">Express my catalogue's metadata according to the profile but in other formats?</a></li>
+                    <li><a href="#understand">Understand the CP, at a high level?</a></li>
+                    <li><a href="#create">Create metadata according to the profile?</a></li>
+                    <li><a href="#indicate-indigenous">Indicate something in a catalogue is Indigenous?</a></li>
+                    <li><a href="#calculate-scores">Calculate FAIR or CARE scores?</a></li>
+                    <li><a href="#improve-scores">Improve my catalogue's FAIR or CARE scores?</a></li>
+                    <li><a href="#formats">Express my catalogue's metadata according to the profile but in other formats?</a></li>
+                    <li><a href="#validate">Validate my metadata?</a></li>
+                    <li><a href="#examples">See some examples?</a></li>
                 </ol>
             </section>
+            <section id="understand">
+                <h2>1. Understand the CP, at a high level?</h2>
+            </section>
             <section id="create">
-                <h2>1. Create metadata according to the profile?</h2>
+                <h2>2. Create metadata according to the profile?</h2>
+
+                <a href="https://idn-au.github.io/idn-metadata-creator/">
+                    <img src="../style/metadata-entry-tool.png" style="float:right; width:500px; border:solid 1px #990000;" alt="Metadata Creation Tool  Screenshot" />
+                </a>
+                <p>You can:</p>
+                <ol style="list-style-type:lower-roman">
+                    <li>Use the <a href="https://idn-au.github.io/idn-metadata-creator/">Metadata Entry Form</a></li>
+                    <li>Type out RDF data</li>
+                    <li>Use Software</li>
+                </ol>
+                <h4>i. Use the <a href="https://idn-au.github.io/idn-metadata-creator/">Metadata Entry Form</a></h4>
+                <p>This is our recommended starting point</p>
+                <p>The Indigenous Data Network maintains an online, interactive, tool that you can use to create metadata according to the IDN Catalogue Profile.</p>
+                <p>The tool contains examples you can load, video tutorials and displays the metadata it creates as you fill in form fields.</p>
+                <p>It auto-calculates CARE and FARE scores as you go too.</p>
+                <div style="float:right; width:480px; height:300px; clear:right; margin-top:10px; border:solid 1px #990000; padding:10px; overflow:hidden; font-size:smaller;">
+                    <pre>
+PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
+PREFIX dcterms: &lt;http://purl.org/dc/terms/>
+PREFIX prov: &lt;http://www.w3.org/ns/prov#>
+PREFIX sdo: &lt;https://schema.org/>
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
+
+&lt;https://data.idnau.org/pid/resource/52f6121c-724f-47b4-9adf-b785dbcdae03>
+    dcterms:created "1976-01-01"^^xsd:date ;
+    dcterms:description "Aboriginal and Torres Strait Islander peoples are warned that this resource may contain images, transcripts or names of Aboriginal and Torres Strait Islander peoples now deceased. This resource is not for general viewing, in areas where traditional Aboriginal religion is still significant, this book should be used only after consultation with local male religious leaders as it contains ceremonial and gender specific information. It may also contain historically and culturally sensitive words, terms, and descriptions." ;
+    dcterms:modified "2024-04-28"^^xsd:date ;
+    dcterms:title "Nomads of the Australian desert" ;
+    dcterms:type &lt;https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-people> ;
+    dcat:theme
+        &lt;https://vocabularyserver.com/apais/xml.php?skosTema=7> ,
+        &lt;https://vocabularyserver.com/apais/xml.php?skosTema=8> ;
+    prov:qualifiedAttribution
+        [
+            dcat:hadRole
+                &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/author> ,
+                &lt;https://linked.data.gov.au/def/data-roles/author> ;
+            prov:agent &lt;https://data.idnau.org/pid/person/8cfcfc08-3cec-40e1-a772-a8860c118c9d> ;
+        ] ,
+        [
+            dcat:hadRole
+                &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/custodian> ,
+                &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
+            prov:agent &lt;https://data.idnau.org/pid/organization/29c3e9cb-5ea5-456e-b4fa-a90828207ffc> ;
+        ] ;
+.
+
+&lt;https://data.idnau.org/pid/organization/29c3e9cb-5ea5-456e-b4fa-a90828207ffc>
+    a sdo:Organization ;
+    sdo:name "University of Queensland Library" ;
+.
+
+&lt;https://data.idnau.org/pid/person/8cfcfc08-3cec-40e1-a772-a8860c118c9d>
+    a sdo:Person ;
+    sdo:name "Charles Pearcy Mountford" ;
+.
+
+                    </pre>
+                </div>
+                <h4>ii. Type out RDF data</h4>
+                <p>The metadata format for the IDN's Catalogue Profile is <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework">RDF</a>, which can be created in a plain text file.</p>
+                <p>The <a href="https://idn-au.github.io/idn-metadata-creator/">Metadata Entry Form</a> auto-generates RDF as you fill it out, but you are also able to manually type out data files if you like.</p>
+                <p>See this profile's <a href="specification.html#examples">Specification Document's Examples Section</a> for a complete RDF data file and remember: you can <a href="">validate RDF data files</a> supplied in this profile</p>
+                <p>Since the IDN CP is a profile of <a href="https://www.w3.org/TR/vocab-dcat/">DCAT, the Data Catalog Vocabulary</a>, and reuss many DCAT elements, you can use DCAT's documentation that contains lots of RDF examples too.</p>
+                <h4>Use Software</h4>
+                <p>Lots of catalogue tools are able to export metadata in formats that are compatible with this profile. For example, the open source <a href="https://ckan.org/">CKAN</a> tool can <a href="https://github.com/ckan/ckanext-dcat">implement its own profiles of DCAT</a> which are compatible with this profile! Another example: the <a href="https://emu.axiell.com/">EMu collections management software</a> can export Dublin Core metadata in an XML format that is also interpretable as RDF.</p>
             </section>
             <section id="indicate-indigenous">
-                <h2>2. Indicate something in a catalogue is Indigenous?</h2>
+                <img src="../style/aboriginal-flag.png" style="float:right; width:500px;" alt="Aboriginal Flag" />
+                <h2>3. Indicate something in a catalogue is Indigenous?</h2>
+                <p><strong>Easy or hard?</strong></p>
+                <p>This may be very easy... or very hard! There is no ONE way to indicate whether something is indigenous or not and some things obviously are, others, it's hard to tell.</p>
+                <p><strong>Basic facts</strong></p>
+                <p>We recommend that you record in metadata basic facts about objects <em>that may lead</em> to an understanding about them being indigenous, rather than trying to directly say "this is indigenous". For example, you might record:</p>
+                <p><em>Object X as created by an Indigenous Person</em></p>
+                <pre>:object-x dcterms:created :an-indigenous-person</pre>
+                <p>or</p>
+                <p><em>Dataset Y is about the Wiradjuri Mob - an Indigenous community</em></p>
+                <pre>:dataset-y
+    prov:qualifiedAttribution [
+        prov:agent :wiradjuri-mob ;
+        prov:hadRole drole:subjectAgent ;
+    ]
+                </pre>
+                <p>This profile communicates that something is about a person or a group by indicating a relationship as per the example above that includes both the Agent - the person or group - and their role being that of a <a href="https://linked.data.gov.au/def/data-roles/subjectAgent">Subject Agent</a>.</p>
+                <p>If the object described in metadata is not about an Indigenous person or group, it may still be Indigenous by having been create <em>by</em> an Indigenous person, or it may be about Indigenous things.</p>
+                <p>For detailed information about linking objects in metadata to people and groups, see the <a href="specification.html#agents">Specification Document's Section on <em>Agents</em></a>.</p>
             </section>
             <section id="calculate-scores">
-                <h2>3. Calculate FAIR or CARE scores?</h2>
+                <img src="../style/fair-and-care.png" alt="FAIR and CARE" style="float:right; width:500px;" />
+                <h2>4. Calculate FAIR or CARE scores?</h2>
+                <p>One aim of this catalogue profile is to for it to be able to be used with software to automatically calculate <a href="https://force11.org/info/the-fair-data-principles/">FAIR</a> and <a href="https://www.gida-global.org/care">CARE</a> scores for objects described by metadata. This is so we can calculate scores for large numbers of items.</p>
+                <p><strong>Use the automated tool</strong></p>
+                <p>The <a href="https://idn-au.github.io/idn-metadata-creator/">Metadata Entry Form</a> automatically calculates these scores as you use it, and it details how scores are created too.</p>
+                <p>The IDN also provides the underlying software to calculate scores from IDN CP metadata: <a href="https://github.com/idn-au/scores-calculator">Scores Calculator</a>. If you're technical, you can dive into the weeds of score creation - and please let us know what you think about the methods we have implemented!</p>
+                <p>The FAIR and CARE principles are widely known and many other tools exist for at least FAIR self-assessment, such as the <a href="https://ardc.edu.au/resource/fair-data-self-assessment-tool/">ARDC's FAIR Data Self Assessment Tool</a>, so you can use these tools alongside the IDN's to cross-check.</p>
             </section>
             <section id="improve-scores">
-                <h2>4. Improve my catalogue's FAIR or CARE scores?</h2>
+                <h2>5. Improve my catalogue's FAIR or CARE scores?</h2>
+                <p>Since the <a href="https://idn-au.github.io/idn-metadata-creator/">Metadata Entry Form</a> details how its scores are created, you should be able to see what to do to improve your scores. For example, for the <em>A1</em> part of the <em>Accessibility</em> score of FAIR, if you indicate access using standard terminology such as "Access to metadata", or "Conditional access", you will get some score. If you indicate the most accessible form, "Open access", you will get the best A1 score.</p>
+                <p>If you want to increase score <em>en masse</em>, perhaps across a whole catalogue, have a look at the calculation functions in the IDN's Scores Calculator software. The function used for the <em>A1</em> part of the <em>Assessment</em> FAIR score is <a href="https://github.com/idn-au/scores-calculator/blob/main/calculators/fair.py">calculate_a()</a>.</p>
             </section>
             <section id="formats">
-                <h2>5. Express my catalogue's metadata according to the profile but in other formats?</h2>
-            </section>
-            <section id="minimum">
-                <h2>Minimum Metadata <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-                <p>For catalogue metadata statements of resources according to this profile, we need <em>at least</em> the following information for data:</p>
-                <table class="properties">
-                    <tr>
-                        <th>Property</th>
-                        <th>Notes</th>
-                    </tr>
-                    <tr>
-                        <th>Identifier</th>
-                        <td><p>Either you have one, or we can create one for you.</p><p>See the <a href="#identifiers">Identifiers</a> section below</p></td>
-                    </tr>
-                    <tr>
-                        <th>Title</th>
-                        <td>Just plain text</td>
-                    </tr>
-                    <tr>
-                        <th>Description</th>
-                        <td>A single sentence at least, up to multiple paragraphs. Just plain text though.</td>
-                    </tr>
-                    <tr>
-                        <th>Creator</th>
-                        <td>The ID of a Person or an Organisation in our <a href="#agents">IDN Data Agents DB</a></td>
-                    </tr>
-                    <tr>
-                        <th>Custodian</th>
-                        <td>
-                            <p>As for Creator: the ID of a Person or an Organisation in our <a href="#agents">IDN Data Agents DB</a>.</p>
-                            <p>Can be the same as, or different to, Creator</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Created</th>
-                        <td>
-                            <p>The date/year etc. the data was created.</p>
-                            <p>This property is recommended but optional: If you really don't know this, leave it out.</p>
-                            <p>See the <a href="#dating">Dating</a> section below</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Modified</th>
-                        <td>
-                            <p>The date/year etc. the data was last modified/updated.</p>
-                            <p>This property is recommended but optional: If you really don't know this, leave it out.</p>
-                            <p>See the <a href="#dating">Dating</a> section below</p>
-                        </td>
-                    </tr>
-                </table>
-                <p>See the <a href="#eg-minimal">Minimal Example</a> below for instances of each of the properties.</p>
-            </section>
-            <section id="format">
-                <h2>Format <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-                <p>The IDN Catalogue Profile uses a particular, machine-readable, data type for all metadata: RDF.</p>
-                <p>It's critical that metadata is either supplied in one of the RDF formats or that it be able to be converted into it.</p>
-                <p><em>See the examples below for metadata records in RDF.</em></p>
-                <h3>Supplying non-RDF data</h3>
-                <p>Unless someone else is going to convert your metadata into RDF, you should use the:</p>
+                <h2>6. Express my catalogue's metadata according to the profile but in other formats?</h2>
+                <p>You will need to do two things</p>
                 <ul>
-                    <li><a href="https://idn-au.github.io/idn-metadata-creator/">IDN Metadata Creator tool</a></li>
+                    <li>Work out conceptually how to express elements of your metadata in this profile's terms</li>
+                    <li>Create a technical or an informal (written) mapping</li>
                 </ul>
-                <h3>Supplying RDF data</h3>
-                <p>If you want to supply RDF metadata to the IDN, or just make your own RDF metadata generally, see what the <a href="https://idn-au.github.io/idn-metadata-creator/">IDN Metadata Creator tool</a> does - it can show off RDF metadata.</p>
-                <p>You can also see the machine-readable version of the <a href="#eg-full">Full Example</a> below.</p>
+                <p>If you can work out the first part but cannot implement a technical mapping for automated translation, at least describe your understanding of the mapping in prose. The IDN staff may be able to help.</p>
+                <p>The <a href="specification.html#mappings">Mappings Section of the Specification Document</a> describes some mappings from the IDN CP to other models and just note that, since this profile is a profile of <a href="https://www.w3.org/TR/vocab-dcat/">DCAT</a>, mappings from DCAT to other metadata models are entirely relevant. for example <a href="https://www.w3.org/2015/spatial/wiki/ISO_19115_-_DCAT_-_Schema.html">the W3C's DCAT/ISO mapping</a>.</p>
+                <p>Some systems use very different metadata formats, not just models.</p>
             </section>
-            <section id="identifiers">
-                <h2>Identifiers <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-                <p>This Profile relies on web address-style identifiers for things, so you will to provide, or ask us to create, something like this:</p>
+            <section id="validate">
+                <img src="../style/tick-cross.png" style="float:right; width:500px" alt="Tick Cross" />
+                <h2>7. Validate my metadata?</h2>
+                <p>One of the resources within this profile is a validation data file. It can be used with validation tools to automatically check the validition of metadata.</p>
                 <ul>
-                    <li><a href="https://data.idnau.org/pid/KHRD">https://data.idnau.org/pid/KHRD</a></li>
+                    <li><a href="specification.html#validation">See the Specification Document's Validation Section</a></li>
                 </ul>
-                <p>That is the identifier for the <em>Koori Health Research Database</em> dataset.</p>
-                <p>It's unique ID bit is its acronym 'KHRD' and the <code>https://data.idnau.org/pid/</code> bit is what the IDN uses to make unique ID's into web addresses that work - are clickable.</p>
-                <h3>Existing Identifiers</h3>
-                <p>If you already have a web address for your data, use that. For example, the <em>Australian Government Indigenous Programs & Policy Locations (AGIL) dataset</em> is already listed in the <em>data.gov.au</em> catalogue at <a href="https://data.gov.au/data/dataset/34b1c164-fbe8-44a0-84fd-467dba645aa7">https://data.gov.au/data/dataset/34b1c164-fbe8-44a0-84fd-467dba645aa7</a>, so we continue to use that web identifier. <a href="https://data.idnau.org/pid/AGIL">See our listing of that dataset</a>.</p>
-            </section>
-            <section id="indigeneity">
-                <h2>Indigeneity <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-            </section>
-            <section id="roles">
-                <h2>Roles <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-                <p>All <em>Agents</em>, that is Organisations &amp; People, associated with resources such as datasets in IDN metadata need to have their <em>role</em> defined.</p>
-                <p>Th roles we start with are those defined in the well-known <a href="http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode">ISO's <em>Role Codes</em> vocabulary</a>.</p>
-                <p>This vocabulary contains standard roles such as:</p>
-                <ul>
-                    <li>author</li>
-                    <li>co author</li>
-                    <li>custodian</li>
-                    <li>point of contact</li>
-                </ul>
-                <p>To this vocabulary, we have added:</p>
-                <ul>
-                    <li>subject agent</li>
-                    <li>subject agent representative</li>
-                </ul>
-                <p>Some of these roles are present in the <a href="#eg-full">Full Example</a> below.</p>
-                <p>In the technical versions of the examples below, you will see how pairs of Roles and Agents are grouped together in metadata so multiple Agents and Roles may be described for a single resource.</p>
-            </section>
-            <section id="agents">
-                <h2>Agents <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-                <p>All Agents, that is Persons or Organisations, referred to by IDN metadata <em>MUST</em> be registered within the IDN Data Agents DB which is online at <em><strong>coming soon, Jan, 2023!</strong></em></p>
-                <p>When registered, Agents are given a persistent identifier web address. Such identifiers may have been created elsewhere, or may be assigned by the Data Agents DB.</p>
-                <p>For example, here is the persistent identifier for the <em>Australian Data Archive</em>:</p>
-                <ul>
-                    <li><code><a href="https://linked.data.gov.au/org/ada">https://linked.data.gov.au/org/ada</a></code></li>
-                </ul>
-                <p>This identifier resolves - you can click on it and go to a web page - and it has been assigned by a party other than the IDN, in this case, the <a href="https://www.linked.data.gov.au">Australian Government Linked Data Working Group</a>, which is a source fo many organisational persistent identifiers.</p>
-                <p>This identifier is present in the <a href="#eg-full">Full Example</a> below.</p>
-                <p>Here is an example of an identifier for an Organisation supplied by the IDN:</p>
-                <ul>
-                    <li><code><a href="https://data.idnau.org/pid/orgagilwg">https://data.idnau.org/pid/orgagilwg</a></code> - Australian Government Indigenous Locations Working Group 2007-2012</li>
-                </ul>
-                <p>Note the use of the IDN's namespace, <code>https://data.idnau.org/</code>.</p>
-                <p>If you enter a new Organisation or Person into the Data Agents DB, you will automatically be assigned a new persistent identifier of this form unless you quote an existing one.</p>
-            </section>
-            <section id="dating">
-                <h2>Dating <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-                <p>For <strong>Created</strong> &amp; <strong>Modified</strong> and all other dates, you are free to use any one of the following formats, but you do have to pick one and not make up your own format:</p>
-                <table class="properties">
-                    <tr>
-                        <th>Type</th>
-                        <th>Format</th>
-                        <th>Example</th>
-                    </tr>
-                    <tr>
-                        <td>Date</td>
-                        <td><code>yyyy-mm-dd</code></td>
-                        <td>2021-02-28</td>
-                    </tr>
-                    <tr>
-                        <td>Year</td>
-                        <td><code>yyyy</code></td>
-                        <td>2021</td>
-                    </tr>
-                    <tr>
-                        <td>Year/Month</td>
-                        <td><code>yyyy-mm</code></td>
-                        <td>2021-02</td>
-                    </tr>
-                    <tr>
-                        <td>Date/Time</td>
-                        <td><code>yyyy-mm-ddTHH:MM:SS</code></td>
-                        <td>2021-02-28T14:02:23</td>
-                    </tr>
-                </table>
-                <p>Please do <em>not</em> use junk values like 00:00:00 for time: select a format that effectively conveys what you know about the data.</p>
+                <p>This validator's only able to test for structural and values validation - is the metadata correctly formatted and machine-readable - it can't test for the <em>appropriateness</em> or the <em>goodness</em> of metadata. For that, you will need to try calculating FAIR or CARE scores and compare what you get to your own expectations of your metadata.</p>
             </section>
             <section id="examples">
-                <h2>Examples <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                <h2>8. Examples</h2>
                 <section id="eg-minimal">
-                    <h3>Minimal <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-                    <p>A dataset resource with minimal metadata:</p>
+                    <h3>Minimal</h3>
+                    <p>A dataset resource online with minimal metadata:</p>
                     <ul>
                         <li><a href="https://data.idnau.org/pid/BSA">Briscoe-Smith Archive</a></li>
                     </ul>
@@ -244,16 +214,20 @@
                             <td>Historical population data and biographical records</td>
                         </tr>
                         <tr>
-                            <td>Agent/Role</td>
-                            <td><a href="https://linked.data.gov.au/org/ada">Australian Data Archive</a> / <a href="http://iso.kurrawong.ai/vocab/CI_RoleCode/custodian">custodian</a></td>
+                            <td>Agent / Role</td>
+                            <td>
+                                <p>Gordon Briscoe & Len Smith / <a href="https://linked.data.gov.au/def/data-roles/author">Author</a></p>
+                                <p>Indigenous Australians / <a href="https://linked.data.gov.au/def/data-roles/subjectAgent">Subject Agent</a></p>
+                                <p><a href="https://linked.data.gov.au/org/ada">Australian Data Archive</a> / <a href="https://linked.data.gov.au/def/data-roles/custodian">Custodian</a></p>
+                            </td>
                         </tr>
                     </table>
-                    <p>This resource is identified only in the IDN's catalogue so it has an web address ID using the IDN's namespace of <code>https://data.idnau.org/</code> which is <code>https://data.idnau.org/pid/BSA</code>. It has a simple title, brief description and a single <em>Agent</em> (an organisation) associated with it, the <em>Australian Data Archive</em>, with the role of <em>custodian</em>.</p>
+                    <p>It has a simple title, brief description and several <em>Agent</em> (an organisations & people) associated with it. This item is easily understood to be Indigenous - it's about Indigenous Australians - but it's FAIR and CARE scores aren't great: a lot of simple metadata could easily be added.</p>
                     <p>The machine-readable version of this metadata record is reproduced here in the RDF <a href="https://www.w3.org/TR/turtle/">Turtle</a> format:</p>
                     <p class="eg">
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
 PREFIX dcterms:&lt;http://purl.org/dc/terms/>
-PREFIX iso: &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/>
+PREFIX droles: &lt;https://linked.data.gov.au/def/data-roles/>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
 
 &lt;https://data.idnau.org/pid/BSA>
@@ -261,47 +235,22 @@ PREFIX prov: &lt;http://www.w3.org/ns/prov#>
     dcterms:title "Briscoe-Smith Archive" ;
     dcterms:description "Historical population data and biographical records" ;
     prov:qualifiedAttribution [
-        dcat:hadRole iso:custodian ;
+        dcat:hadRole droles:author ;
+        prov:agent &lt;https://orcid.org/0000-0002-5477-0874> , "Gordon Briscoe" ;
+    ] ,
+    [
+        dcat:hadRole droles:subjectAgent ;
+        prov:agent &lt;https://data.idnau.org/pid/organisation/8cfcfc08-3cec-40e1-a772-a8860c118c9d>
+    ] ,
+    [
+        dcat:hadRole droles:custodian ;
         prov:agent &lt;https://linked.data.gov.au/org/ada>
     ] ;
 .
                     </p>
-                    <p>Note that the reference to the <em>custodian</em>, the ADA, is by persistent identifier web address, <code>https://linked.data.gov.au/org/ada</code>, that resolves to more information about the ADA. Also, this identifier is known in the IDN's <em>Data Agents DB</em>, so the IDN knows even more information about the ADA than just the simple metadata linked to by the identifier.</p>
-                    <p>This metadata record will not score well on most metrics for FAIR access, governance scores and so on since it's minimal, but it's better than nothing!</p>
-                    <p>Here is the same minimal metadata example as above in RDF's <a href="https://json-ld.org/">JSON-LD</a> format, just to shown multiple technical formats:</p>
-                    <p class="eg">
-{
-  "@context": {
-    "dcat": "http://www.w3.org/ns/dcat#",
-    "dcterms": "http://purl.org/dc/terms/",
-    "iso": "http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/",
-    "prov": "http://www.w3.org/ns/prov#"
-  },
-  "@graph": [
-    {
-      "@id": "https://data.idnau.org/pid/BSA",
-      "@type": "dcat:Resource",
-      "dcterms:title": "Briscoe-Smith Archive",
-      "dcterms:description": "Historical population data and biographical records",
-      "prov:qualifiedAttribution": {
-        "@id": "_:n4ed1e6643b704c4188c0e3cd15798563b1"
-      }
-    },
-    {
-      "@id": "_:n4ed1e6643b704c4188c0e3cd15798563b1",
-      "dcat:hadRole": {
-        "@id": "iso:custodian"
-      },
-      "prov:agent": {
-        "@id": "https://linked.data.gov.au/org/ada"
-      }
-    }
-  ]
-}
-                    </p>
                 </section>
                 <section id="eg-full">
-                    <h3>Full <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <h3>Full</h3>
                     <p>A dataset resource with full metadata:</p>
                     <ul>
                         <li><a href="https://data.idnau.org/pid/ILOC">Indigenous Locations within the Australian Statistical Geography Standard (ASGS) Edition 3</a></li>
