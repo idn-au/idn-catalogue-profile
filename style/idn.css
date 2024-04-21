@@ -179,6 +179,7 @@ p.eg span {
 
 code {
     font-size: 1.2em;
+    font-family: monospace;
 }
 
 #toc {
