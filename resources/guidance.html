@@ -61,7 +61,7 @@
                 </ol>
             </section>
             <section id="understand">
-                <div style="float:right; width:500px; height:300px; display:block; border:solid 2px black; margin-left:10px; "></div>
+                <img src="../style/idn-cp-profile.svg" style="float:right; width:500px; height:300px; display:block; border:solid 2px black; margin-left:10px;" />
                 <h2>1. Understand the Catalogue Profile, at a high level</h2>
                 <h3>What</h3>
                 <p>Metadata is used to describe things in catalogues, so they can be discovered, understood and used.</p>
@@ -179,10 +179,10 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
                             <strong>supply tags/keywords about research areas or language groups that are Indigenous</strong>
                             <ul>
                                 <li>
-                                    e.g. <em>Fields of Research</em> codes such as "<span style="background-color:deeppink; color:white;">XXXX</span>" or the AustLang code "<span style="background-color:deeppink; color:white;">XXXX</span>"
+                                    e.g. <em>Fields of Research</em> codes such as "450601" (<em>Aboriginal and Torres Strait Islander astronomy and cosmology</em>) or the AustLang code "A20" (Wilyara):
                                     <ul>
-                                        <li><pre>:resource-x dcat:theme &lt;<span style="background-color:deeppink; color:white;">XXXX</span>&gt;</pre></li>
-                                        <li><pre>:resource-x dcat:theme &lt;<span style="background-color:deeppink; color:white;">E80</span>&gt;</pre></li>
+                                        <li><pre>:resource-x dcat:theme &lt;https://linked.data.gov.au/def/anzsrc-for/2020/450601&gt;</pre></li>
+                                        <li><pre>:resource-x dcat:theme &lt;https://data.idnau.org/pid/ilm/feature/A20&gt;</pre></li>
                                     </ul>
                                 </li>
                                 <li>The IDN provides these terms and many others you can use for this purpose within a collection of vocabularies on the <a href="https://data.idnau.org/v">the IDN reference data platform</a>.</li>
@@ -192,10 +192,10 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
                             <strong>link to Indigenous places</strong>
                             <ul>
                                 <li>
-                                    e.g. indicate the resource is about an Australian Bureau of Statistic <em><span style="background-color:deeppink; color:white;">Indigenous Location</span></em> or a CAPAD <em><span style="background-color:deeppink; color:white;">Region</span></em>
+                                    e.g. indicate the resource is about an Australian Bureau of Statistic Indigenous Location such as 70900503 or a Native Title region like Ooratippra:
                                     <ul>
-                                        <li><pre>:resource-x dcterms:spatial &lt;<span style="background-color:deeppink; color:white;">ILOC-X</span>&gt;</pre></li>
-                                        <li><pre>:resource-x ddcterms:spatial &lt;<span style="background-color:deeppink; color:white;">CAPAD-Y</span>&gt;</pre></li>
+                                        <li><pre>:resource-x dcterms:spatial &lt;https://linked.data.gov.au/dataset/asgsed3/ILOC/70900503&gt;</pre></li>
+                                        <li><pre>:resource-x dcterms:spatial &lt;https://data.idnau.org/pid/nntt/DCD2011-001&gt;</pre></li>
                                     </ul>
                                 </li>
                                 <li>The IDN provides a number of reference datasets of Indigenous location on the <a href="https://data.idnau.org/d">the IDN reference data platform</a> that can be browsed or searched for text or on a map.</li>
@@ -208,7 +208,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
                     <p>You can specifically indicate that a catalogued resource was created by an Indigenous person or that it is about an Indigenous group by linking it to the person/group and supplying a relevant role, like this:</p>
                     <div style="float:right; margin-left:10px; padding:10px; width:480px; border:solid 2px black; background-color: #eee;">
                         <h4>Good Identifiers</h4>
-                        <p>You should use a well-known identifier for an Indigenous person or group, rather than supplying their name in text. For example use the <a href="https://orcide.org">ORCID</a> <code><a href="https://orcid.org/">&lt;https://orcid.org/<span style="background-color:deeppink; color:white;">0000-0000-0000-0000</span>&gt;</a></code> for Marcia Langton, instead of "Marcia Langton"</p>
+                        <p>You should use a well-known identifier for an Indigenous person or group, rather than supplying their name in text. For example use the <a href="https://orcide.org">ORCID</a> <code><a href="https://orcid.org/0000-0002-1398-7524">&lt;https://orcid.org/0000-0002-1398-7524&gt;</a></code> for Prof. Marcia Langton, instead of "Marcia Langton"</p>
                         <p>The IDN supplies a searchable database of such identifiers to assist with this:</p>
                         <ul><li><a href="#"><span style="background-color:deeppink; color:white;">The IDN's Agents DB</span></a></li></ul>
                     </div>
