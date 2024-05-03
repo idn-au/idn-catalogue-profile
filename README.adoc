@@ -6,7 +6,7 @@ This Profile's main defining document which is in this repository (profile.html)
 
 * **https://data.idnau.org/pid/cp**
 
-That document contains a list of the various resources provided by this profile, most of which are stored in this repository within the `rd/` folder.
+That document contains a list of the various resources provided by this profile, most of which are stored in this repository within the `resources/` folder.
 
 == License & Rights
 
