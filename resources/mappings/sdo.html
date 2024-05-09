@@ -90,10 +90,10 @@
             <dd><code>http://www.w3.org/ns/dcat#</code></dd>
             <dt>dcterms</dt>
             <dd><code>http://purl.org/dc/terms/</code></dd>
+            <dt>droles</dt>
+            <dd><code>https://linked.data.gov.au/def/data-roles/</code></dd>
             <dt>geo</dt>
             <dd><code>http://www.opengis.net/ont/geosparql#</code></dd>
-            <dt>idn-role</dt>
-            <dd><code>https://data.idnau.org/pid/vocab/idn-role-codes/subjectAgent</code></dd>
             <dt>org</dt>
             <dd><code>https://linked.data.gov.au/org/</code></dd>
             <dt>owl</dt>
@@ -163,32 +163,32 @@
                     <td><code>prov:qualifiedAttribution<br />&nbsp;&nbsp;&nbsp;&nbsp;dcat:hadRole {ROLE}<br />&nbsp;&nbsp;&nbsp;&nbsp;prov:agent {AGENT}</code></td>
                     <td>
                         <p>various schema.org direct properties</p>
-                        <code>iso:author</code> &rarr; <code>sdo:author</code><br />
-                        <code>iso:coAuthor</code> &rarr; <code>sdo:participant</code><br />
-                        <code>iso:collaborator</code> &rarr; <code>sdo:contributor</code><br />
-                        <code>iso:contributor</code> &rarr; <code>sdo:contributor</code><br />
-                        <code>iso:custodian</code> &rarr; <code>sdo:maintainer</code><br />
-                        <code>iso:distributor</code> &rarr; <code>sdo:broker</code><br />
-                        <code>iso:editor</code> &rarr; <code>sdo:editor</code><br />
-                        <code>iso:funder</code> &rarr; <code>sdo:funder</code><br />
-                        <code>iso:mediator</code> &rarr; <code>sdo:broker</code><br />
-                        <code>iso:originator</code> &rarr; <code>sdo:creator</code><br />
-                        <code>iso:owner</code> inverse of <code>sdo:owns</code><br />
-                        <code>iso:pointOfContact</code> &rarr; <code>sdo:contactPoint</code><br />
-                        <code>iso:principalInvestigator</code> &rarr; <code>sdo:participant</code>?<br />
-                        <code>iso:processor</code> &rarr; <code>sdo:contributor</code><br />
-                        <code>iso:publisher</code> &rarr; <code>sdo:publisher</code><br />
-                        <code>iso:resourceProvider</code> &rarr; <code>sdo:broker</code><br />
-                        <code>iso:rightsHolder</code> &rarr; <code>sdo:copyrightHolder</code><br />
-                        <code>iso:sponsor</code> &rarr; <code>sdo:sponsor</code><br />
-                        <code>iso:stakeholder</code> &rarr; <code>sdo:participant</code>?<br />
-                        <code>idn-role:subjectAgent</code> &rarr; <code>sdo:participant</code>?<br />
-                        <code>idn-role:subjectAgentRepresentative</code> &rarr; <code>sdo:participant</code>?<br />
-                        <code>iso:user</code> &rarr; ?
+                        <code>droles:author</code> &rarr; <code>sdo:author</code><br />
+                        <code>droles:coAuthor</code> &rarr; <code>sdo:participant</code><br />
+                        <code>droles:collaborator</code> &rarr; <code>sdo:contributor</code><br />
+                        <code>droles:contributor</code> &rarr; <code>sdo:contributor</code><br />
+                        <code>droles:custodian</code> &rarr; <code>sdo:maintainer</code><br />
+                        <code>droles:distributor</code> &rarr; <code>sdo:broker</code><br />
+                        <code>droles:editor</code> &rarr; <code>sdo:editor</code><br />
+                        <code>droles:funder</code> &rarr; <code>sdo:funder</code><br />
+                        <code>droles:mediator</code> &rarr; <code>sdo:broker</code><br />
+                        <code>droles:originator</code> &rarr; <code>sdo:creator</code><br />
+                        <code>droles:owner</code> inverse of <code>sdo:owns</code><br />
+                        <code>droles:pointOfContact</code> &rarr; <code>sdo:contactPoint</code><br />
+                        <code>droles:principalInvestigator</code> &rarr; <code>sdo:participant</code>?<br />
+                        <code>droles:processor</code> &rarr; <code>sdo:contributor</code><br />
+                        <code>droles:publisher</code> &rarr; <code>sdo:publisher</code><br />
+                        <code>droles:resourceProvider</code> &rarr; <code>sdo:broker</code><br />
+                        <code>droles:rightsHolder</code> &rarr; <code>sdo:copyrightHolder</code><br />
+                        <code>droles:sponsor</code> &rarr; <code>sdo:sponsor</code><br />
+                        <code>droles:stakeholder</code> &rarr; <code>sdo:participant</code>?<br />
+                        <code>droles:subjectAgent</code> &rarr; <code>sdo:participant</code>?<br />
+                        <code>droles:subjectAgentRepresentative</code> &rarr; <code>sdo:participant</code>?<br />
+                        <code>droles:user</code> &rarr; ?
                     </td>
                     <td>equivalent property chain</td>
                     <td><pre>prov:qualifiedAttribution [
-        dcat:hadRole iso:custodian ;
+        dcat:hadRole droles:custodian ;
         prov:agent org:ada ;
     ] ;</pre></td>
                     <td><code>sdo:maintainer org:ada ;</code></td>
@@ -213,16 +213,17 @@
             <h5>IDN CP</h5>
             <p class="eg">
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
-PREFIX dcterms:&lt;http://purl.org/dc/terms/>
-PREFIX iso: &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/>
+PREFIX dcterms: &lt;http://purl.org/dc/terms/>
+PREFIX droles: &lt;https://linked.data.gov.au/def/data-roles/>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 
 &lt;https://data.idnau.org/pid/BSA>
     a dcat:Resource ;
     dcterms:title "Briscoe-Smith Archive" ;
     dcterms:description "Historical population data and biographical records" ;
     prov:qualifiedAttribution [
-        dcat:hadRole iso:custodian ;
+        dcat:hadRole droles:custodian ;
         prov:agent &lt;https://linked.data.gov.au/org/ada>
     ] ;
     dcterms:create "2022-12-19"^^xsd:date ;
@@ -231,6 +232,7 @@ PREFIX prov: &lt;http://www.w3.org/ns/prov#>
             </p>
             <h5>schema.org</h5>
             <p class="eg">
+PREFIX org: &lt;https://linked.data.gov.au/org/>
 PREFIX sdo: &lt;https://schema.org/>
 
 &lt;https://data.idnau.org/pid/BSA>
@@ -374,16 +376,18 @@ PREFIX sdo: &lt;https://schema.org/>
             </table>
             <h5>IDN CP</h5>
             <p class="eg">
+PREFIX dar: &lt;https://linked.data.gov.au/def/data-access-rights/>
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
-PREFIX dcterms:&lt;http://purl.org/dc/terms/>
+PREFIX dcterms: &lt;http://purl.org/dc/terms/>
+PREFIX droles: &lt;https://linked.data.gov.au/def/data-roles/>
 PREFIX idnth: &lt;https://data.idnau.org/pid/vocab/idn-th&gt;
-PREFIX iso: &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 
 &lt;https://linked.data.gov.au/dataset/asgsed3/ILOC>
     a dcat:Resource ;
     dcterms:title "Indigenous Locations within the Australian Statistical Geography Standard (ASGS) Edition 3" ;
-dcterms:description """This is a reference geospatial dataset developed by the Australian Bureau of Statistics... This enables the release of Census of Population and Housing data and other data for Aboriginal and Torres Strait Islander communities in a meaningful way, while balancing confidentiality and statistical requirements. ..."""@en ;
+    dcterms:description """This is a reference geospatial dataset developed by the Australian Bureau of Statistics... This enables the release of Census of Population and Housing data and other data for Aboriginal and Torres Strait Islander communities in a meaningful way, while balancing confidentiality and statistical requirements. ..."""@en ;
     dcterms:created "2021-10-06"^^xsd:date ;
     dcterms:modified "2021-10-06"^^xsd:date ;
     dcterms:identifier "ILOC"^^xsd:token ;
@@ -405,21 +409,22 @@ dcterms:description """This is a reference geospatial dataset developed by the A
         &lt;https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-things> ;
     prov:qualifiedAttribution
         [
-            dcat:hadRole iso:custodian ;
+            dcat:hadRole droles:custodian ;
             prov:agent &lt;https://linked.data.gov.au/org/abs>
         ] ,
         [
-            dcat:hadRole iso:rightsHolder ;
+            dcat:hadRole droles:rightsHolder ;
             prov:agent &lt;https://linked.data.gov.au/org/abs>
         ] ,
         [
-            dcat:hadRole &lt;https://data.idnau.org/pid/vocab/idn-role-codes/subjectAgentRepresentatitve> ;
+            dcat:hadRole &lt;https://linked.data.gov.au/def/data-roles/subjectAgentRepresentatitve> ;
             prov:agent &lt;https://data.idnau.org/pid/orgabs-coatsis> ;
         ] ;
 .
               </p>
             <h5>schema.org</h5>
             <p class="eg">
+PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
 PREFIX sdo: &lt;https://schema.org/>
 
 &lt;https://linked.data.gov.au/dataset/asgsed3/ILOC>

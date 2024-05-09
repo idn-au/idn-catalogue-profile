@@ -87,10 +87,10 @@
             <dd><code>http://www.w3.org/ns/dcat#</code></dd>
             <dt>dcterms</dt>
             <dd><code>http://purl.org/dc/terms/</code></dd>
+            <dt>droles</dt>
+            <dd><code>https://linked.data.gov.au/def/data-roles/</code></dd>
             <dt>geo</dt>
             <dd><code>http://www.opengis.net/ont/geosparql#</code></dd>
-            <dt>idn-role</dt>
-            <dd><code>https://data.idnau.org/pid/vocab/idn-role-codes/subjectAgent</code></dd>
             <dt>org</dt>
             <dd><code>https://linked.data.gov.au/org/</code></dd>
             <dt>owl</dt>
@@ -114,16 +114,17 @@
             <h5>IDN CP</h5>
             <p class="eg">
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
-PREFIX dcterms:&lt;http://purl.org/dc/terms/>
-PREFIX iso: &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/>
+PREFIX dcterms: &lt;http://purl.org/dc/terms/>
+PREFIX droles: &lt;https://linked.data.gov.au/def/data-roles/>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 
 &lt;https://data.idnau.org/pid/BSA>
     a dcat:Resource ;
     dcterms:title "Briscoe-Smith Archive" ;
     dcterms:description "Historical population data and biographical records" ;
     prov:qualifiedAttribution [
-        dcat:hadRole iso:custodian ;
+        dcat:hadRole droles:custodian ;
         prov:agent &lt;https://linked.data.gov.au/org/ada>
     ] ;
     dcterms:create "2022-12-19"^^xsd:date ;
@@ -158,10 +159,11 @@ PREFIX prov: &lt;http://www.w3.org/ns/prov#>
             <h5>IDN CP</h5>
             <p class="eg">
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
-PREFIX dcterms:&lt;http://purl.org/dc/terms/>
+PREFIX dcterms: &lt;http://purl.org/dc/terms/>
+PREFIX droles: &lt;https://linked.data.gov.au/def/data-roles/>
 PREFIX idnth: &lt;https://data.idnau.org/pid/vocab/idn-th&gt;
-PREFIX iso: &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 
 &lt;https://linked.data.gov.au/dataset/asgsed3/ILOC>
     a dcat:Resource ;
@@ -191,15 +193,15 @@ dcterms:description """This is a reference geospatial dataset developed by the A
         &lt;https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-things> ;
     prov:qualifiedAttribution
         [
-            dcat:hadRole iso:custodian ;
+            dcat:hadRole droles:custodian ;
             prov:agent &lt;https://linked.data.gov.au/org/abs>
         ] ,
         [
-            dcat:hadRole iso:rightsHolder ;
+            dcat:hadRole droles:rightsHolder ;
             prov:agent &lt;https://linked.data.gov.au/org/abs>
         ] ,
         [
-            dcat:hadRole &lt;https://data.idnau.org/pid/vocab/idn-role-codes/subjectAgentRepresentatitve> ;
+            dcat:hadRole &lt;https://linked.data.gov.au/def/data-roles/subjectAgentRepresentatitve> ;
             prov:agent &lt;https://data.idnau.org/pid/orgabs-coatsis> ;
         ] ;
 .
