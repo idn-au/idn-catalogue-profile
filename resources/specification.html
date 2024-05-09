@@ -182,7 +182,7 @@
                 <p>The <a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a> follows standard patterns of use of elements of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>, such as <code>Catalog</code>, <code>Dataset</code> and so on and some DCAT-recommended ways of expressing relationships from catalogue elements to <code>Agent</code> instances (people & organisations) using <a href="https://www.w3.org/TR/prov-o/">PROV, the Provenance Ontology</a>, and <a href="https://www.w3.org/TR/skos-reference/">SKOS, SKOS Simple Knowledge Organization System</a>.</p>
                 <p>To cater for Indigenous data governance concerns, this profile requires, or at least expects/promotes the use, of specific catalogues of <code>Agent</code> instances and specific vocabularies of <code>Concept</code> instances for to classify <code>Dataset</code> instances with.</p>
                 <p>So, where using regular DCAT, you might indicate that a <code>Dataset</code> is themed as being about <em>water</em> where <em>water</em> is selected from a data theming vocabulary, you would also indicate that the dataset is themed as being <em>culturally sensitive</em> using a particular <code>Concept</code> from this profile's <a href="https://data.idnau.org/pid/vocab/tk-labels">TK Labels vocabulary</a>.</p>
-                <p>Where using DCAT, with PROV, you might indicate that a <code>Dataset</code> is related to an <code>Agent</code> by the property <code>dcterms:contributor</code> (i.e. the <code>Agent</code> referenced contributed to the dataset), using this profile you would use the alternate DCAT-recommended qualified agent relations pattern and say that the <code>Dataset</code> is attributed to the <code>Agent</code> with the role of <em>contributor</em> where the role referenced is taken from this profile's <a href="https://data.idnau.org/pid/vocab/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
+                <p>Where using DCAT, with PROV, you might indicate that a <code>Dataset</code> is related to an <code>Agent</code> by the property <code>dcterms:contributor</code> (i.e. the <code>Agent</code> referenced contributed to the dataset), using this profile you would use the alternate DCAT-recommended qualified agent relations pattern and say that the <code>Dataset</code> is attributed to the <code>Agent</code> with the role of <em>contributor</em> where the role referenced is taken from this profile's <a href="https://linked.data.gov.au/def/data-roles">IDN Role Codes Vocabulary</a>.</p>
                 <p>In addition to requiring the use of some DCAT-promoted patterns over others and recommended use of particular reference catalogues & vocabularies, this profile also constrains the ways in which several other DCAT properties should be used. All the constraints are still standard DCAT.</p>
                 <section id="minimum">
                     <h2>Minimum Metadata <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
@@ -504,7 +504,7 @@
                     <h3>2.2 Values Requirements</h3>
                     <p>IDN metadata must be represented according to certain classes with certain properties, including relations between classes, as defined in the section above. This section defines the requirements for particular properties to indicate particular values. These values are mostly items in particular vocabularies and catalogues managed by the IDN itself and the result of these requirements is to ensure that IDN metadata is related to values understood by the IDN.</p>
                     <p class="req"><strong>Req V1:</strong> Each <code>Resource</code> instance MUST be categorised with at least one value from the <a>IDN Data Themes</a> vocabulary, indicated with a <code>theme</code> property.</p>
-                    <p class="req"><strong>Req V2:</strong> The roles of <code>Agent</code> instances with relation to a <code>Resource</code> MUST be indicated with the <code>hadRole</code> property and selected from the <a href="https://data.idnau.org/pid/vocab/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
+                    <p class="req"><strong>Req V2:</strong> The roles of <code>Agent</code> instances with relation to a <code>Resource</code> MUST be indicated with the <code>hadRole</code> property and selected from the <a href="https://linked.data.gov.au/def/data-roles">IDN Role Codes Vocabulary</a>.</p>
                     <p class="req"><strong>Req V3:</strong> Each <code>Agent</code> instance referenced by an <code>Attribution</code> instance, if the <code>Agent</code> is Indigenous SHOULD be registered within the <a>IDN Agents Catalogue</a>.</p>
                     <p class="eg">
                         <span>Example: A Resource with a qualified Attribution</span>
@@ -562,7 +562,7 @@
                     <p>The machine-readable version of this metadata record is reproduced here in the RDF <a href="https://www.w3.org/TR/turtle/">Turtle</a> format:</p>
                     <p class="eg">
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
-PREFIX dcterms:&lt;http://purl.org/dc/terms/>
+PREFIX dcterms: &lt;http://purl.org/dc/terms/>
 PREFIX droles: &lt;https://linked.data.gov.au/def/data-roles/>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
 
