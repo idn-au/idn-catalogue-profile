@@ -50,7 +50,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#requirements">4. Validation</a>
+                    <a href="#validation">4. Validation</a>
                     <ul>
                         <li><a href="#structural">4.1 Structural</a></li>
                         <li><a href="#values">4.2 Values</a></li>
@@ -181,6 +181,7 @@
             </section>
             <section id="intro">
                 <h2>1. Introduction <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+<<<<<<< HEAD:rd/specification.html
                 <p>This introduction section provides direct answers to likely early questions about this profile, specifically:</p>
                 <ol>
                     <li>What is the purpose of this Profile? See <a href="#purpose">Purpose</a>.</li>
@@ -209,6 +210,13 @@
                     <p>Where using DCAT, you might just indicate the theme of data by classifying a <code>Dataset</code> with a <a href="linked.data.gov.au/def/anzsrc-for/2020">Fields of Research Code</a>, using this profile you might do that but also select a numre nuanced Indigenous research topic from the <a href="https://data.idnau.org/pid/vocab/idn-th">IDN Themes vocabulary</a>.</p>
                     <p>In addition to requiring the use of some DCAT-promoted patterns over others and recommended use of particular reference catalogues & vocabularies, this profile also constrains the ways in which several other DCAT properties should be used. All the constraints are still standard DCAT.</p>
                 </section>
+=======
+                <p>The <a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a> follows standard patterns of use of elements of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>, such as <code>Catalog</code>, <code>Dataset</code> and so on and some DCAT-recommended ways of expressing relationships from catalogue elements to <code>Agent</code> instances (people & organisations) using <a href="https://www.w3.org/TR/prov-o/">PROV, the Provenance Ontology</a>, and <a href="https://www.w3.org/TR/skos-reference/">SKOS, SKOS Simple Knowledge Organization System</a>.</p>
+                <p>To cater for Indigenous data governance concerns, this profile requires, or at least expects/promotes the use, of specific catalogues of <code>Agent</code> instances and specific vocabularies of <code>Concept</code> instances for to classify <code>Dataset</code> instances with.</p>
+                <p>So, where using regular DCAT, you might indicate that a <code>Dataset</code> is themed as being about <em>water</em> where <em>water</em> is selected from a data theming vocabulary, you would also indicate that the dataset is themed as being <em>culturally sensitive</em> using a particular <code>Concept</code> from this profile's <a href="https://data.idnau.org/pid/vocab/tk-labels">TK Labels vocabulary</a>.</p>
+                <p>Where using DCAT, with PROV, you might indicate that a <code>Dataset</code> is related to an <code>Agent</code> by the property <code>dcterms:contributor</code> (i.e. the <code>Agent</code> referenced contributed to the dataset), using this profile you would use the alternate DCAT-recommended qualified agent relations pattern and say that the <code>Dataset</code> is attributed to the <code>Agent</code> with the role of <em>contributor</em> where the role referenced is taken from this profile's <a href="https://linked.data.gov.au/def/data-roles">IDN Role Codes Vocabulary</a>.</p>
+                <p>In addition to requiring the use of some DCAT-promoted patterns over others and recommended use of particular reference catalogues & vocabularies, this profile also constrains the ways in which several other DCAT properties should be used. All the constraints are still standard DCAT.</p>
+>>>>>>> origin/main:resources/specification.html
                 <section id="minimum">
                     <h3>1.2 Minimum Metadata <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <h3>What minimum elements are required?</h3>
@@ -317,7 +325,11 @@
                 <section id="roles">
                     <h3>2.3 Roles <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <p>All <em>Agents</em>, that is Organisations &amp; People, associated with resources such as datasets in IDN metadata need to have their <em>role</em> defined.</p>
+<<<<<<< HEAD:rd/specification.html
                     <p>The roles we start with are those defined in the well-known <a href="http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode">ISO's <em>Role Codes</em> vocabulary</a>.</p>
+=======
+                    <p>Th roles we start with are those defined in the well-known <a href="https://linked.data.gov.au/def/data-roles">ISO's <em>Role Codes</em> vocabulary</a>.</p>
+>>>>>>> origin/main:resources/specification.html
                     <p>This vocabulary contains standard roles such as:</p>
                     <ul>
                         <li>author</li>
@@ -576,7 +588,7 @@
                     <h3>4.2 Values Requirements</h3>
                     <p>IDN metadata must be represented according to certain classes with certain properties, including relations between classes, as defined in the section above. This section defines the requirements for particular properties to indicate particular values. These values are mostly items in particular vocabularies and catalogues managed by the IDN itself and the result of these requirements is to ensure that IDN metadata is related to values understood by the IDN.</p>
                     <p class="req"><strong>Req V1:</strong> Each <code>Resource</code> instance MUST be categorised with at least one value from the <a>IDN Data Themes</a> vocabulary, indicated with a <code>theme</code> property.</p>
-                    <p class="req"><strong>Req V2:</strong> The roles of <code>Agent</code> instances with relation to a <code>Resource</code> MUST be indicated with the <code>hadRole</code> property and selected from the <a href="https://data.idnau.org/pid/vocab/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
+                    <p class="req"><strong>Req V2:</strong> The roles of <code>Agent</code> instances with relation to a <code>Resource</code> MUST be indicated with the <code>hadRole</code> property and selected from the <a href="https://linked.data.gov.au/def/data-roles">IDN Role Codes Vocabulary</a>.</p>
                     <p class="req"><strong>Req V3:</strong> Each <code>Agent</code> instance referenced by an <code>Attribution</code> instance, if the <code>Agent</code> is Indigenous SHOULD be registered within the <a>IDN Agents Catalogue</a>.</p>
                     <p class="eg">
                         <span>Example: A Resource with a qualified Attribution</span>
@@ -634,7 +646,7 @@
                     <p>The machine-readable version of this metadata record is reproduced here in the RDF <a href="https://www.w3.org/TR/turtle/">Turtle</a> format:</p>
                     <p class="eg">
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
-PREFIX dcterms:&lt;http://purl.org/dc/terms/>
+PREFIX dcterms: &lt;http://purl.org/dc/terms/>
 PREFIX droles: &lt;https://linked.data.gov.au/def/data-roles/>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
 
@@ -664,7 +676,7 @@ PREFIX prov: &lt;http://www.w3.org/ns/prov#>
   "@context": {
     "dcat": "http://www.w3.org/ns/dcat#",
     "dcterms": "http://purl.org/dc/terms/",
-    "iso": "http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/",
+    "droles": "https://linked.data.gov.au/def/data-roles/",
     "prov": "http://www.w3.org/ns/prov#"
   },
   "@graph": [
@@ -680,7 +692,7 @@ PREFIX prov: &lt;http://www.w3.org/ns/prov#>
     {
       "@id": "_:n4ed1e6643b704c4188c0e3cd15798563b1",
       "dcat:hadRole": {
-        "@id": "iso:custodian"
+        "@id": "droles:custodian"
       },
       "prov:agent": {
         "@id": "https://linked.data.gov.au/org/ada"
@@ -700,8 +712,7 @@ PREFIX prov: &lt;http://www.w3.org/ns/prov#>
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#&gt;
 PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
 PREFIX idnth: &lt;https://data.idnau.org/pid/vocab/idn-th&gt;
-PREFIX idnroles: &lt;https://data.idnau.org/pid/vocab/idn-role-codes&gt;
-PREFIX isoroles: &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/&gt;
+PREFIX droles: &lt;https://linked.data.gov.au/def/data-roles/&gt;
 PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
 PREFIX prov: &lt;http://www.w3.org/ns/prov#&gt;
 PREFIX sdo: &lt;https://schema.org/&gt;
@@ -721,7 +732,7 @@ The content of this catalogue conforms to the Indigenous Data Network's Catalogu
         prov:qualifiedAttribution [
             a prov:Attribution;
             prov:agent &lt;https://linked.data.gov.au/org/idn&gt; ;
-            dcat:hadRole isoroles:author , isoroles:owner , isoroles:custodian ;
+            dcat:hadRole droles:author , droles:owner , droles:custodian ;
         ] ;
         dcterms:hasPart
             &lt;http://example.com/resource/x&gt; ;
@@ -737,7 +748,7 @@ The content of this catalogue conforms to the Indigenous Data Network's Catalogu
     prov:qualifiedAttribution [
         a prov:Attribution ;
         prov:agent &lt;https://orcid.org/0000-0002-8742-7730&gt; ;
-        dcat:hadRole isoroles:author ;  # not being a real dataset, it has no roles other than 'author' for Agents associated with it
+        dcat:hadRole droles:author ;  # not being a real dataset, it has no roles other than 'author' for Agents associated with it
     ] ;
 .
 
@@ -772,23 +783,23 @@ idnth:indigenous-demographics
 .
 
 # From the IDN Role Codes Vocabulary
-isoroles:author
+droles:author
     a skos:Concept ;
     skos:prefLabel "Author"@en ;
     skos:definition "party who authored the resource"@en ;
-    skos:inScheme &lt;https://data.idnau.org/pid/vocab/idn-role-codes&gt; ;
+    skos:inScheme &lt;https://linked.data.gov.au/def/data-roles&gt; ;
 .
-isoroles:owner
+droles:owner
     a skos:Concept ;
     skos:prefLabel "Owner"@en ;
     skos:definition "party that owns the resource"@en ;
-    skos:inScheme &lt;https://data.idnau.org/pid/vocab/idn-role-codes&gt; ;
+    skos:inScheme &lt;https://linked.data.gov.au/def/data-roles&gt; ;
 .
-isoroles:custodian
+droles:custodian
     a skos:Concept ;
     skos:prefLabel "Custodian"@en ;
     skos:definition "party that accepts accountability and responsibility for the resource and ensures appropriate care and maintenance of the resource"@en ;
-    skos:inScheme &lt;https://data.idnau.org/pid/vocab/idn-role-codes&gt; ;
+    skos:inScheme &lt;https://linked.data.gov.au/def/data-roles&gt; ;
 .
                 </p>
                 <p>The content for the example above can be accessed online from the IDN Dataset Catalogue's content repository:</p>

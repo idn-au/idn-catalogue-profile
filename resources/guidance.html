@@ -120,13 +120,13 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
     prov:qualifiedAttribution
         [
             dcat:hadRole
-                &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/author> ,
+                &lt;https://linked.data.gov.au/def/data-roles/author> ,
                 &lt;https://linked.data.gov.au/def/data-roles/author> ;
             prov:agent &lt;https://data.idnau.org/pid/person/8cfcfc08-3cec-40e1-a772-a8860c118c9d> ;
         ] ,
         [
             dcat:hadRole
-                &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/custodian> ,
+                &lt;https://linked.data.gov.au/def/data-roles/custodian> ,
                 &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
             prov:agent &lt;https://data.idnau.org/pid/organization/29c3e9cb-5ea5-456e-b4fa-a90828207ffc> ;
         ] ;
@@ -314,7 +314,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
                     <p>The machine-readable version of this metadata record is reproduced here in the RDF <a href="https://www.w3.org/TR/turtle/">Turtle</a> format:</p>
                     <p class="eg">
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
-PREFIX dcterms:&lt;http://purl.org/dc/terms/>
+PREFIX dcterms: &lt;http://purl.org/dc/terms/>
 PREFIX droles: &lt;https://linked.data.gov.au/def/data-roles/>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
 
@@ -428,10 +428,11 @@ PREFIX prov: &lt;http://www.w3.org/ns/prov#>
                     <p>This dataset is provided by the Australian Bureau of Statistics and is identified by an identifier supplied by them: <code>https://linked.data.gov.au/dataset/asgsed3/ILOC</code>. It's also accessible online at that location.</p>
                     <p>The machine-readable version of this metadata record is reproduced here in the RDF <a href="https://www.w3.org/TR/turtle/">Turtle</a> format:</p>
                     <p class="eg">
+PREFIX dar: &lt;https://linked.data.gov.au/def/data-access-rights/>
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
-PREFIX dcterms:&lt;http://purl.org/dc/terms/>
+PREFIX dcterms: &lt;http://purl.org/dc/terms/>
+PREFIX droles: &lt;https://linked.data.gov.au/def/data-roles/>
 PREFIX idnth: &lt;https://data.idnau.org/pid/vocab/idn-th&gt;
-PREFIX iso: &lt;http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode/>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
 
 &lt;https://linked.data.gov.au/dataset/asgsed3/ILOC>
@@ -459,15 +460,15 @@ PREFIX prov: &lt;http://www.w3.org/ns/prov#>
         &lt;https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-things> ;
     prov:qualifiedAttribution
         [
-            dcat:hadRole iso:custodian ;
+            dcat:hadRole droles:custodian ;
             prov:agent &lt;https://linked.data.gov.au/org/abs>
         ] ,
         [
-            dcat:hadRole iso:rightsHolder ;
+            dcat:hadRole droles:rightsHolder ;
             prov:agent &lt;https://linked.data.gov.au/org/abs>
         ] ,
         [
-            dcat:hadRole &lt;https://data.idnau.org/pid/vocab/idn-role-codes/subjectAgentRepresentatitve> ;
+            dcat:hadRole &lt;https://linked.data.gov.au/def/data-roles/subjectAgentRepresentatitve> ;
             prov:agent &lt;https://data.idnau.org/pid/orgabs-coatsis> ;
         ] ;
 .
