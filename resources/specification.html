@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head lang="en">
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="images/idn-logo-64.ico">
-    <link href="idn.css" rel="stylesheet" type="text/css">
-    <title>IDN Catalogue Profile Specification</title>
-  </head>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/x-icon" href="images/idn-logo-64.ico">
+        <link href="idn.css" rel="stylesheet" type="text/css">
+        <title>IDN Catalogue Profile Specification</title>
+    </head>
     <body>
         <div id="menu" style="grid-column:1;">
             <h4>Contents</h4>
@@ -54,19 +54,14 @@
                     <ul>
                         <li><a href="#structural">4.1 Structural</a></li>
                         <li><a href="#values">4.2 Values</a></li>
-                        <!-- <li><a href="#catalogue">2.1 Catalogue</a></li>
-                        <li><a href="#resource">2.2 Resource</a></li>
-                        <li><a href="#dataset">2.3 Dataset</a></li>
-                        <li><a href="#attribution">2.4 Attribution</a></li>
-                        <li><a href="#agent">2.5 Agent</a></li>
-                        <li><a href="#concept">2.6 Concept</a></li>
-                        <li><a href="#conceptscheme">2.7 Concept Scheme</a></li> -->
                     </ul>
                 </li>
-                <li><a href="#example">5. Scores</a></li>
-                <li><a href="#example">6. Examples</a></li>
-                <li><a href="#example">7. Tools</a></li>
-                <li><a href="#annex-a">A: Mappings</a></li>
+                <li><a href="#scores">5. Scores</a></li>
+                <li><a href="#examples">6. Examples</a></li>
+            </ul>
+            <ul>
+                <li><a href="#mappings">A: Mappings</a></li>
+                <li><a href="#tools">B. Tools</a></li>
                 <li><a href="#references">References</a></li>
             </ul>
         </div>
@@ -181,7 +176,6 @@
             </section>
             <section id="intro">
                 <h2>1. Introduction <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-<<<<<<< HEAD:rd/specification.html
                 <p>This introduction section provides direct answers to likely early questions about this profile, specifically:</p>
                 <ol>
                     <li>What is the purpose of this Profile? See <a href="#purpose">Purpose</a>.</li>
@@ -210,13 +204,6 @@
                     <p>Where using DCAT, you might just indicate the theme of data by classifying a <code>Dataset</code> with a <a href="linked.data.gov.au/def/anzsrc-for/2020">Fields of Research Code</a>, using this profile you might do that but also select a numre nuanced Indigenous research topic from the <a href="https://data.idnau.org/pid/vocab/idn-th">IDN Themes vocabulary</a>.</p>
                     <p>In addition to requiring the use of some DCAT-promoted patterns over others and recommended use of particular reference catalogues & vocabularies, this profile also constrains the ways in which several other DCAT properties should be used. All the constraints are still standard DCAT.</p>
                 </section>
-=======
-                <p>The <a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a> follows standard patterns of use of elements of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>, such as <code>Catalog</code>, <code>Dataset</code> and so on and some DCAT-recommended ways of expressing relationships from catalogue elements to <code>Agent</code> instances (people & organisations) using <a href="https://www.w3.org/TR/prov-o/">PROV, the Provenance Ontology</a>, and <a href="https://www.w3.org/TR/skos-reference/">SKOS, SKOS Simple Knowledge Organization System</a>.</p>
-                <p>To cater for Indigenous data governance concerns, this profile requires, or at least expects/promotes the use, of specific catalogues of <code>Agent</code> instances and specific vocabularies of <code>Concept</code> instances for to classify <code>Dataset</code> instances with.</p>
-                <p>So, where using regular DCAT, you might indicate that a <code>Dataset</code> is themed as being about <em>water</em> where <em>water</em> is selected from a data theming vocabulary, you would also indicate that the dataset is themed as being <em>culturally sensitive</em> using a particular <code>Concept</code> from this profile's <a href="https://data.idnau.org/pid/vocab/tk-labels">TK Labels vocabulary</a>.</p>
-                <p>Where using DCAT, with PROV, you might indicate that a <code>Dataset</code> is related to an <code>Agent</code> by the property <code>dcterms:contributor</code> (i.e. the <code>Agent</code> referenced contributed to the dataset), using this profile you would use the alternate DCAT-recommended qualified agent relations pattern and say that the <code>Dataset</code> is attributed to the <code>Agent</code> with the role of <em>contributor</em> where the role referenced is taken from this profile's <a href="https://linked.data.gov.au/def/data-roles">IDN Role Codes Vocabulary</a>.</p>
-                <p>In addition to requiring the use of some DCAT-promoted patterns over others and recommended use of particular reference catalogues & vocabularies, this profile also constrains the ways in which several other DCAT properties should be used. All the constraints are still standard DCAT.</p>
->>>>>>> origin/main:resources/specification.html
                 <section id="minimum">
                     <h3>1.2 Minimum Metadata <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <h3>What minimum elements are required?</h3>
@@ -325,11 +312,7 @@
                 <section id="roles">
                     <h3>2.3 Roles <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <p>All <em>Agents</em>, that is Organisations &amp; People, associated with resources such as datasets in IDN metadata need to have their <em>role</em> defined.</p>
-<<<<<<< HEAD:rd/specification.html
                     <p>The roles we start with are those defined in the well-known <a href="http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode">ISO's <em>Role Codes</em> vocabulary</a>.</p>
-=======
-                    <p>Th roles we start with are those defined in the well-known <a href="https://linked.data.gov.au/def/data-roles">ISO's <em>Role Codes</em> vocabulary</a>.</p>
->>>>>>> origin/main:resources/specification.html
                     <p>This vocabulary contains standard roles such as:</p>
                     <ul>
                         <li>author</li>
