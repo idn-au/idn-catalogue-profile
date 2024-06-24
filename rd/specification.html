@@ -2,8 +2,8 @@
 <html lang="en">
     <head lang="en">
     <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="https://idn-au.github.io/idn-catalogue-profile/style/idn-logo-64.ico">
-    <link href="../style/idn.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="images/idn-logo-64.ico">
+    <link href="idn.css" rel="stylesheet" type="text/css">
     <title>IDN Catalogue Profile Specification</title>
   </head>
     <body>
@@ -22,22 +22,38 @@
                 </li>
                 <li><a href="#intro">1. Introduction</a>
                 <ul>
-                <li><a href="#minimum">1.1 Minimum Metadata</a></li>
+                    <li><a href="#purpose">1.1 Purpose</a></li>
+                    <li><a href="#minimum">1.2 Basic Use</a></li>
+                    <li><a href="#minimum">1.3 Minimum Metadata</a></li>
+                    <li><a href="#minimum">1.4 All Elements</a></li>
+                    <li><a href="#minimum">1.5 Formats</a></li>
+                </ul>
+                </li>
                 <li>
-                    <a href="#minimum">1.2 Patterns</a>
+                    <a href="#patterns">2. Patterns</a>
                     <ul>
-                        <li><a href="#identifiers">1.2.1 Identifiers</a></li>
-                        <li><a href="#roles">1.2.2 Roles</a></li>
-                        <li><a href="#agents">1.2.3 Agents</a></li>
-                        <li><a href="#dating">1.2.4 Dating</a></li>
+                        <li><a href="#identifiers">2.1 Identifiers</a></li>
+                        <li><a href="#indigeneity">2.2 Indigeneity</a></li>
+                        <li><a href="#roles">2.3 Roles</a></li>
+                        <li><a href="#agents">2.4 Agents</a></li>
+                        <li><a href="#dating">2.5 Dating</a></li>
+                        <li><a href="#theming">2.6 Theming</a></li>
+                        <li><a href="#policies">2.7 Policies</a></li>
                     </ul>
                 </li>
-                    </ul>
                 <li>
-                    <a href="#requirements">2. Validation</a>
+                    <a href="#model">3. Model</a>
                     <ul>
-                        <li><a href="#structural">2.1 Structural</a></li>
-                        <li><a href="#values">2.2 Values</a></li>
+                        <li><a href="#classes">3.1 Classes</a></li>
+                        <li><a href="#predicates">3.2 Predicates</a></li>
+                        <li><a href="#axioms">3.3 Axioms</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#requirements">4. Validation</a>
+                    <ul>
+                        <li><a href="#structural">4.1 Structural</a></li>
+                        <li><a href="#values">4.2 Values</a></li>
                         <!-- <li><a href="#catalogue">2.1 Catalogue</a></li>
                         <li><a href="#resource">2.2 Resource</a></li>
                         <li><a href="#dataset">2.3 Dataset</a></li>
@@ -47,21 +63,17 @@
                         <li><a href="#conceptscheme">2.7 Concept Scheme</a></li> -->
                     </ul>
                 </li>
-                <li><a href="#example">3. Examples</a></li>
+                <li><a href="#example">5. Scores</a></li>
+                <li><a href="#example">6. Examples</a></li>
+                <li><a href="#example">7. Tools</a></li>
                 <li><a href="#annex-a">A: Mappings</a></li>
-                <li>
-                    <a href="#annex-b">B: Assessment Models</a>
-                    <ul>
-                        <li><a href="#lc-model">B.4 Local Contexts Model</a></li>
-                    </ul>
-                </li>
                 <li><a href="#references">References</a></li>
             </ul>
         </div>
         <div class="header" style="grid-column:1; grid-row:1;"></div>
         <div class="header" id="header"  style="grid-column:2; grid-row:1; display:grid; grid-template-columns:300px auto;">
             <div id="logo" style="grid-column:1; padding:3px;">
-              <img src="https://idn-au.github.io/idn-catalogue-profile/style/idn-logo-250.png" alt="IDN logo" />
+              <img src="images/idn-logo-250.png" alt="IDN logo" />
             </div>
             <div id="idn-title" style="grid-column:2;">
               Indigenous Data Network
@@ -86,7 +98,7 @@
                 <p>This is the <a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a> specification that defines all elements of the profile's metadata model.</p>
             </div>
             <div id="overview" class="figure">
-                <a href="https://idn-au.github.io/idn-catalogue-profile/style/venn.png"><img src="https://idn-au.github.io/idn-catalogue-profile/style/venn.png" style="width:600px;" alt="Venn diagram of this profile's concerns" /></a>
+                <a href="images/venn.png"><img src="images/venn.png" style="width:600px;" alt="Venn diagram of this profile's concerns" /></a>
                 <p class="caption"><strong>Figure 1:</strong> This profile overlaps concerns with the DCAT and PROV models and provides for the description of data according to several other assessment models, such as FAIR, CARE etc. The overlaps do indicate which models are needed to cover requirements of the assessment models.</p>
             </div>
             <section id="metadata">
@@ -113,7 +125,7 @@
                             </tr>
                             <tr>
                                 <td><a class="proplink" title="sdo:dateModified" href="https://schema.org/dateModified">Modified</a></td>
-                                <td>2023-05-08</td>
+                                <td>2024-06-24</td>
                             </tr>
                         </table>
                     </dd>
@@ -134,10 +146,10 @@
 <!--                    <p>This document specifies requirements of data that must be met for that data to claim conformance to the IDN Catalogue Profile. Data that conforms to this profile necessarily conforms to DCAT also. This profile also provides mappings from it to models of assessments of principles such as <a href="https://force11.org/info/the-fair-data-principles/">FAIR</a> and <a href="https://www.gida-global.org/care">CARE</a> so it also specifies additional sub-profiles' requirements necissary for those and other mappings.</p>-->
                     <p>Related parts of the IDN Profile:</p>
                     <ul>
+                        <li><a href="https://data.idnau.org/pid/cp/guide">Guide</a> - a simple introduction to this Profile and what it does</li>
                         <li><a href="https://data.idnau.org/pid/cp/validator">Validator</a> - for the automated testing of data to conform to this specification</li>
                         <li><a href="#annex-a">Instructions for <a href="https://force11.org/info/the-fair-data-principles/">FAIR</a>, <a href="https://www.gida-global.org/care">CARE</a> and other scoring</a></li>
                     </ul>
-                    <p>The first validator above contains tests for this profile's requirements on top of DCAT's. The second contains this profile's tests as well as those from the standards this profile, profiles: DCAT etc. The third - <em>not available yet</em> - contains tests for different FIAR and CARE etc scores, based on the mappings from this profile to models of those assessment systems.</p>
                     <p>For the list of all resources within this profile, see the profile definition:</p>
                     <ul>
                     <li><a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile Definition</a></li>
@@ -146,30 +158,20 @@
                 <section id="namespaces">
                     <h3>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <p>This document refers to elements of various ontologies by short codes using namespace prefixes. The prefixes and their corresponding namespaces' URIs are:</p>
-                    <dl>
-                        <dt>idncp</dt>
-                        <dd><code>https://data.idnau.org/pid/cp</code></dd>
-                        <dt>dcat</dt>
-                        <dd><code>http://www.w3.org/ns/dcat#</code></dd>
-                        <dt>dcterms</dt>
-                        <dd><code>http://purl.org/dc/terms/</code></dd>
-                        <dt>owl</dt>
-                        <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
-                        <dt>prof</dt>
-                        <dd><code>http://www.w3.org/ns/dx/prof/</code></dd>
-                        <dt>rdf</dt>
-                        <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
-                        <dt>rdfs</dt>
-                        <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
-                        <dt>role</dt>
-                        <dd><code>http://www.w3.org/ns/dx/prof/role/</code></dd>
-                        <dt>sdo</dt>
-                        <dd><code>https://schema.org/</code></dd>
-                        <dt>skos</dt>
-                        <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
-                        <dt>xsd</dt>
-                        <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
-                    </dl>
+                    <table>
+                        <tr><th>idncp</th><td><code>https://data.idnau.org/pid/cp</code></td></tr>
+                        <tr><th>dcat</th><td><code>http://www.w3.org/ns/dcat#</code></td></tr>
+                        <tr><th>dcterms</th><td><code>http://purl.org/dc/terms/</code></td></tr>
+                        <tr><th>owl</th><td><code>http://www.w3.org/2002/07/owl#</code></td></tr>
+                        <tr><th>prof</th><td><code>http://www.w3.org/ns/dx/prof/</code></td></tr>
+                        <tr><th>rdf</th><td><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></td></tr>
+                        <tr><th>rdfs</th><td><code>http://www.w3.org/2000/01/rdf-schema#</code></td></tr>
+                        <tr><th>rico</th><td><code>https://www.ica.org/standards/RiC/ontology#</code></td></tr>
+                        <tr><th>role</th><td><code>http://www.w3.org/ns/dx/prof/role/</code></td></tr>
+                        <tr><th>sdo</th><td><code>https://schema.org/</code></td></tr>
+                        <tr><th>skos</th><td><code>http://www.w3.org/2004/02/skos/core#</code></td></tr>
+                        <tr><th>xsd</th><td><code>http://www.w3.org/2001/XMLSchema#</code></td></tr>
+                    </table>
                 </section>
                 <section id="conformance">
                 <h3>Conformance <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
@@ -179,15 +181,39 @@
             </section>
             <section id="intro">
                 <h2>1. Introduction <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-                <p>The <a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a> follows standard patterns of use of elements of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>, such as <code>Catalog</code>, <code>Dataset</code> and so on and some DCAT-recommended ways of expressing relationships from catalogue elements to <code>Agent</code> instances (people & organisations) using <a href="https://www.w3.org/TR/prov-o/">PROV, the Provenance Ontology</a>, and <a href="https://www.w3.org/TR/skos-reference/">SKOS, SKOS Simple Knowledge Organization System</a>.</p>
-                <p>To cater for Indigenous data governance concerns, this profile requires, or at least expects/promotes the use, of specific catalogues of <code>Agent</code> instances and specific vocabularies of <code>Concept</code> instances for to classify <code>Dataset</code> instances with.</p>
-                <p>So, where using regular DCAT, you might indicate that a <code>Dataset</code> is themed as being about <em>water</em> where <em>water</em> is selected from a data theming vocabulary, you would also indicate that the dataset is themed as being <em>culturally sensitive</em> using a particular <code>Concept</code> from this profile's <a href="https://data.idnau.org/pid/vocab/tk-labels">TK Labels vocabulary</a>.</p>
-                <p>Where using DCAT, with PROV, you might indicate that a <code>Dataset</code> is related to an <code>Agent</code> by the property <code>dcterms:contributor</code> (i.e. the <code>Agent</code> referenced contributed to the dataset), using this profile you would use the alternate DCAT-recommended qualified agent relations pattern and say that the <code>Dataset</code> is attributed to the <code>Agent</code> with the role of <em>contributor</em> where the role referenced is taken from this profile's <a href="https://data.idnau.org/pid/vocab/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
-                <p>In addition to requiring the use of some DCAT-promoted patterns over others and recommended use of particular reference catalogues & vocabularies, this profile also constrains the ways in which several other DCAT properties should be used. All the constraints are still standard DCAT.</p>
+                <p>This introduction section provides direct answers to likely early questions about this profile, specifically:</p>
+                <ol>
+                    <li>What is the purpose of this Profile? See <a href="#purpose">Purpose</a>.</li>
+                    <li>What does basic use of this profile look like? See <a href="#basic">Basic Use</a>.</li>
+                    <li>What minimum elements are required? See <a href="#minimum">Minimum Metadata</a>.</li>
+                    <li>What are all the recommended elements? See <a href="#all-elements">All Elements</a>.</li>
+                    <li>What data formats can I use for metadata? See <a href="#formats">Formats</a>.</li>
+                </ol>
+                <section id="purpose">
+                    <h3>1.3 Purpose <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <h3>What is the purpose of this Profile?</h3>
+                    <p>Common catalogue models provide lots of possible metadata elements which can be used to describe catalogued items, categorise them, indicate how they are managed and so on but don't specifically handle Indigenous concerns.</p>
+                    <p>The purpose of this profile is to allow for the cataloguing of things created by or about Indigenous people or about Indigenous things and to be able to assess whether they are governed well, <em>from an Indigenous perspective</em>.</p>
+                    <p>This Profile is just a recommendation to use a common catalogue model - <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a> - in particular ways to achieve this.</p>
+                </section>
+                <section id="basic">
+                    <h3>1.1 Basic Use <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <h3>What does basic use of this profile look like?</h3>
+                    <div id="basic-img" class="figure">
+                        <a href="images/basic.png"><img src="images/basic.png" style="width:600px;" alt="Profile class structure overview" /></a>
+                        <p class="caption"><strong>Figure 2:</strong> This profile overlaps concerns with the DCAT and PROV models and provides for the description of data according to several other assessment models, such as FAIR, CARE etc. The overlaps do indicate which models are needed to cover requirements of the assessment models.</p>
+                    </div>
+                    <p>This <a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a> follows standard of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>, which requires <code>Catalog</code> instances to contain <code>Resource</code> instances, and some DCAT-recommended ways of expressing relationships from resources to people & organisations - <code>Agent</code>s - using <a href="https://www.w3.org/TR/prov-o/">PROV, the Provenance Ontology</a>. Resources can be categorised using vocabulary terms defined using <a href="https://www.w3.org/TR/skos-reference/">SKOS, the Simple Knowledge Organization System</a> and a few special relationships are recommended to link resources to policies such as data governance policies and licenses.</p>
+                    <p>To cater for Indigenous data governance concerns, this profile requires, or at least expects/promotes the use of, specific catalogues of <code>Agent</code> instances and specific vocabularies of <code>Concept</code> instances for to classify <code>Dataset</code> instances with.</p>
+                    <p>So, where using regular DCAT, you might indicate that a <code>Dataset</code> was created by a person identified by an <a href="https://orcid.org/">ORCID</a>, an international researcher identifier, using this profile you might indicate the creator using an identifier from the <a href="https://agentsdb.idnau.org/">Indigenous Data Network's <em>Agents Database</em></a> which stores additional Indigenous-relevant information about people and groups.</p>
+                    <p>Where using DCAT, you might just indicate the theme of data by classifying a <code>Dataset</code> with a <a href="linked.data.gov.au/def/anzsrc-for/2020">Fields of Research Code</a>, using this profile you might do that but also select a numre nuanced Indigenous research topic from the <a href="https://data.idnau.org/pid/vocab/idn-th">IDN Themes vocabulary</a>.</p>
+                    <p>In addition to requiring the use of some DCAT-promoted patterns over others and recommended use of particular reference catalogues & vocabularies, this profile also constrains the ways in which several other DCAT properties should be used. All the constraints are still standard DCAT.</p>
+                </section>
                 <section id="minimum">
-                    <h2>Minimum Metadata <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                    <h3>1.2 Minimum Metadata <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <h3>What minimum elements are required?</h3>
                     <p>For catalogue metadata statements of resources according to this profile, we need <em>at least</em> the following information for data:</p>
-                    <table class="properties">
+                    <table class="properties" style="width:50%;">
                         <tr>
                             <th>Property</th>
                             <th>Notes</th>
@@ -231,25 +257,51 @@
                                 <p>See the <a href="#dating">Dating</a> section below</p>
                             </td>
                         </tr>
+                        <tr>
+                            <th>Themes</th>
+                            <td>
+                                <p>Any number of preferably vocabulary concepts but also perhaps plain text themes/categories/keywords classifying the resource.</p>
+                                <p>This property is recommended but optional.</p>
+                                <p>See the <a href="#theming">Theming</a> section below</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Policy links</th>
+                            <td>
+                                <p>A reference (hyperlink/description) to any (Indigenous) data policy that pertains to this specific resource or the class of resource this is in. Includes access rights and licenses.</p>
+                                <p>This property is recommended for governance assessment.</p>
+                                <p>See the <a href="#policies">Policies</a> section below</p>
+                            </td>
+                        </tr>
                     </table>
                     <p>See the <a href="#eg-minimal">Minimal Example</a> below for instances of each of the properties.</p>
                 </section>
-                <section id="format">
-                    <h2>Format <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                <section id="all-elements">
+                    <h3>1.3 All Elements <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <h3>What are all the recommended elements?</h3>
+                    <p class="todo">TODO: for 2., ref the 26 elements</p>
+                </section>
+                <section id="formats">
+                    <h3>1.4 Format <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <h3>What data formats can I use for metadata?</h3>
                     <p>The IDN Catalogue Profile uses a particular, machine-readable, data type for all metadata: RDF.</p>
                     <p>It's critical that metadata is either supplied in one of the RDF formats or that it be able to be converted into it.</p>
                     <p><em>See the examples below for metadata records in RDF.</em></p>
-                    <h3>Supplying non-RDF data</h3>
+                    <h4>Supplying non-RDF data</h4>
                     <p>Unless someone else is going to convert your metadata into RDF, you should use the:</p>
                     <ul>
                         <li><a href="https://idn-au.github.io/idn-metadata-creator/">IDN Metadata Creator tool</a></li>
                     </ul>
-                    <h3>Supplying RDF data</h3>
+                    <h4>Supplying RDF data</h4>
                     <p>If you want to supply RDF metadata to the IDN, or just make your own RDF metadata generally, see what the <a href="https://idn-au.github.io/idn-metadata-creator/">IDN Metadata Creator tool</a> does - it can show off RDF metadata.</p>
                     <p>You can also see the machine-readable version of the <a href="#eg-full">Full Example</a> below.</p>
                 </section>
+            </section>
+            <sections id="patterns">
+                <h2>2. Patterns <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                <p class="todo">TODO: intro what patterns are</p>
                 <section id="identifiers">
-                    <h2>Identifiers <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                    <h3>2.1 Identifiers <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <p>This Profile relies on web address-style identifiers for things, so you will to provide, or ask us to create, something like this:</p>
                     <ul>
                         <li><a href="https://data.idnau.org/pid/KHRD">https://data.idnau.org/pid/KHRD</a></li>
@@ -260,12 +312,12 @@
                     <p>If you already have a web address for your data, use that. For example, the <em>Australian Government Indigenous Programs & Policy Locations (AGIL) dataset</em> is already listed in the <em>data.gov.au</em> catalogue at <a href="https://data.gov.au/data/dataset/34b1c164-fbe8-44a0-84fd-467dba645aa7">https://data.gov.au/data/dataset/34b1c164-fbe8-44a0-84fd-467dba645aa7</a>, so we continue to use that web identifier. <a href="https://data.idnau.org/pid/AGIL">See our listing of that dataset</a>.</p>
                 </section>
                 <section id="indigeneity">
-                    <h2>Indigeneity <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                    <h3>2.2 Indigeneity <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                 </section>
                 <section id="roles">
-                    <h2>Roles <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                    <h3>2.3 Roles <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <p>All <em>Agents</em>, that is Organisations &amp; People, associated with resources such as datasets in IDN metadata need to have their <em>role</em> defined.</p>
-                    <p>Th roles we start with are those defined in the well-known <a href="http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode">ISO's <em>Role Codes</em> vocabulary</a>.</p>
+                    <p>The roles we start with are those defined in the well-known <a href="http://def.isotc211.org/iso19115/-1/2018/CitationAndResponsiblePartyInformation/code/CI_RoleCode">ISO's <em>Role Codes</em> vocabulary</a>.</p>
                     <p>This vocabulary contains standard roles such as:</p>
                     <ul>
                         <li>author</li>
@@ -282,7 +334,7 @@
                     <p>In the technical versions of the examples below, you will see how pairs of Roles and Agents are grouped together in metadata so multiple Agents and Roles may be described for a single resource.</p>
                 </section>
                 <section id="agents">
-                    <h2>Agents <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                    <h3>2.4 Agents <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <p>All Agents, that is Persons or Organisations, referred to by IDN metadata <em>MUST</em> be registered within the IDN Data Agents DB which is online at <em><strong>coming soon, Jan, 2023!</strong></em></p>
                     <p>When registered, Agents are given a persistent identifier web address. Such identifiers may have been created elsewhere, or may be assigned by the Data Agents DB.</p>
                     <p>For example, here is the persistent identifier for the <em>Australian Data Archive</em>:</p>
@@ -299,7 +351,7 @@
                     <p>If you enter a new Organisation or Person into the Data Agents DB, you will automatically be assigned a new persistent identifier of this form unless you quote an existing one.</p>
                 </section>
                 <section id="dating">
-                    <h2>Dating <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                    <h3>2.5 Dating <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <p>For <strong>Created</strong> &amp; <strong>Modified</strong> and all other dates, you are free to use any one of the following formats, but you do have to pick one and not make up your own format:</p>
                     <table class="properties">
                         <tr>
@@ -330,9 +382,33 @@
                     </table>
                     <p>Please do <em>not</em> use junk values like 00:00:00 for time: select a format that effectively conveys what you know about the data.</p>
                 </section>
+                <section id="theming">
+                    <h3>2.6 Theming <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <p class="todo">TODO</p>
+                </section>
+                <section id="policies">
+                    <h2>2.7 Policies <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                    <p class="todo">TODO</p>
+                </section>
+            </sections>
+            <section id="model">
+                <h2>3. Model <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                <div id="structural-figure" class="figure">
+                    <a href="images/overview.png"><img src="images/overview.png" style="width:700px;" alt="Profile class structure overview" /></a>
+                    <p class="caption"><strong>Figure 3:</strong> Overview of elements of the DCAT, PROV & SKOS models and relationships between them used in this profile. Classes of object are shown as chamfered rectangles except for <code>Agent</code> which is shown as a 'house'. Enclosed arrows indicate the <code>rdfs:subClassOf</code> relationship. Pink arrows indicate specific value properties.</p>
+                </div>                
+                <section id="classes">
+                    <h3>3.1 Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                </section>
+                <section id="predicates">
+                    <h3>3.2 Predicates <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                </section>
+                <section id="axioms">
+                    <h3>3.3 Axioms <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                </section>
             </section>
-            <section id="requirements">
-                <h2>2. Requirements <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+            <section id="validation">
+                <h2>4. Validation <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
                 <p>The requirements for data to conform to this profile are listed here. They are organised into the following subsections:</p>
                 <ul>
                     <li><strong>Structural Requirements</strong> - specifying data "shapes" which are the patterns of classes and properties needed</li>
@@ -340,11 +416,7 @@
                 </ul>
                 <p><em>Where model objects are indicated in </em><code>code</code><em> and no namespace is indicated, presume the <code>dcat</code>, <code>prov</code> or <code>skos</code> namespaces are used. There are no class/property overlaps between those models, so there can be no confusion if the object is looked up in those standards.</em></p>
                 <section id="structural">
-                    <h3>2.1 Structural Requirements</h3>
-                    <div id="structural-figure" class="figure">
-                        <a href="https://idn-au.github.io/idn-catalogue-profile/style/overview.png"><img src="https://idn-au.github.io/idn-catalogue-profile/style/overview.png" style="width:600px;" alt="Profile class structure overview" /></a>
-                        <p class="caption"><strong>Figure 2:</strong> Overview of elements of the DCAT, PROV & SKOS models and relationships between them used in this profile. Classes of object are shown as chamfered rectangles except for <code>Agent</code> which is shown as a 'house'. Enclosed arrows indicate the <code>rdfs:subClassOf</code> relationship. Pink arrows indicate specific value properties.</p>
-                    </div>
+                    <h3>4.1 Structural Requirements</h3>
                     <p>The following sub-subsections are per object class, where 'class' is one of the classes in this profile's structural overview (see Figure 2 above).</p>
                     <p>The general idea is that objects of the various class types in the overview diagram are needed for IDN metadata and this section describes their required properties and relations. For example, all <code>Resource</code> instances must be related to at least one <code>Catalog</code> instance.</p>
                     <section id="catalogue">
@@ -501,7 +573,7 @@
                     </section>
                 </section>
                 <section id="values">
-                    <h3>2.2 Values Requirements</h3>
+                    <h3>4.2 Values Requirements</h3>
                     <p>IDN metadata must be represented according to certain classes with certain properties, including relations between classes, as defined in the section above. This section defines the requirements for particular properties to indicate particular values. These values are mostly items in particular vocabularies and catalogues managed by the IDN itself and the result of these requirements is to ensure that IDN metadata is related to values understood by the IDN.</p>
                     <p class="req"><strong>Req V1:</strong> Each <code>Resource</code> instance MUST be categorised with at least one value from the <a>IDN Data Themes</a> vocabulary, indicated with a <code>theme</code> property.</p>
                     <p class="req"><strong>Req V2:</strong> The roles of <code>Agent</code> instances with relation to a <code>Resource</code> MUST be indicated with the <code>hadRole</code> property and selected from the <a href="https://data.idnau.org/pid/vocab/idn-role-codes">IDN Role Codes Vocabulary</a>.</p>
@@ -524,9 +596,9 @@
                 </section>
             </section>
             <section id="examples">
-                <h2>3. Extended Examples <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                <h2>4. Extended Examples <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
                 <section id="eg-minimal">
-                    <h3>Minimal <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <h3>4.1 Minimal <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <p>A dataset resource online with minimal metadata:</p>
                     <ul>
                         <li><a href="https://data.idnau.org/pid/BSA">Briscoe-Smith Archive</a></li>
@@ -724,24 +796,8 @@ isoroles:custodian
                     <li><a href="https://github.com/idn-au/catalogue-data">IDN Catalogue Data</a></li>
                 </ul>
             </section>
-            <section id="annex-a">
-                <h2>Annex A. Mappings<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-                <p>This Annex defines mappings between this Profile and assessment models.</p>
-                <section id="fair-mapping">
-                    <h4>A.1. FAIR Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h4>
-                </section>
-                <section id="indigeneity-mapping">
-                    <h4>A.2. Indigeneity Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h4>
-                </section>
-                <section id="care-mapping">
-                    <h4>A.3. CARE Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h4>
-                </section>
-                <section id="lc-mapping">
-                    <h4>A.4. Local Context Labels Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h4>
-                </section>
-            </section>
-            <section id="annex-b">
-                <h2>Annex B. Assessment Models<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+            <section id="scores">
+                <h2>5. Scores<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
                 <section id="fair-model">
                     <h3>B.1. FAIR Model<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                 </section>
@@ -771,7 +827,7 @@ isoroles:custodian
                         <p>The prefix <code>lc:</code> is used in this section for the namespace of this model: <code>https://data.idnau.org/pid/vocab/lc-labels/</code>.</p>
                         <p>Figure B.4.1 overviews the model.</p>
                         <div id="lc-model-figure" class="figure">
-                            <a href="https://idn-au.github.io/idn-catalogue-profile/style/lc-model.png"><img src="https://idn-au.github.io/idn-catalogue-profile/style/lc-model.png" style="width:600px;" alt="Local Context model" /></a>
+                            <a href="images/lc-model.png"><img src="images/lc-model.png" style="width:600px;" alt="Local Context model" /></a>
                             <p class="caption"><strong>Figure B.4.1:</strong> Overview of elements of the Local Context Model.</p>
                         </div>
                         <p>This model requires that a <code>LocalContextLabel</code>, which is a specialised <code>skos:Concept</code>, is assigned to a catalogued <code>dcat:Resource</code> via an intermediate node of type <code>QualifiedLocalContext</code>. This use of the <a href="https://patterns.dataincubator.org/book/qualified-relation.html">"Qualified Relations" graph modelling pattern</a> allows for the nature of the <code>Resource</code>/<code>LocalContextLabel</code> relationship to be defined.</p>
@@ -931,6 +987,22 @@ isoroles:custodian
 .
                         </p>
                     </section>
+                </section>
+            </section>
+            <section id="annex-a">
+                <h2>Annex A. Mappings<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                <p>This Annex defines mappings between this Profile and assessment models.</p>
+                <section id="fair-mapping">
+                    <h4>A.1. FAIR Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h4>
+                </section>
+                <section id="indigeneity-mapping">
+                    <h4>A.2. Indigeneity Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h4>
+                </section>
+                <section id="care-mapping">
+                    <h4>A.3. CARE Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h4>
+                </section>
+                <section id="lc-mapping">
+                    <h4>A.4. Local Context Labels Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h4>
                 </section>
             </section>
             <section id="references">

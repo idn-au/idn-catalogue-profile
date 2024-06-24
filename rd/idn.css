@@ -265,3 +265,10 @@ table.properties tr:nth-child(odd){
 table.properties tr:nth-child(even){
     background: #eee;
 }
+
+.todo {
+    font-style:italic;
+    padding:5px;
+    min-height: 3em;
+    background-color: lightgoldenrodyellow;
+}

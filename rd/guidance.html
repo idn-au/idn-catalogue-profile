@@ -3,7 +3,7 @@
     <head lang="en">
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="https://idn-au.github.io/idn-catalogue-profile/style/idn-logo-64.ico">
-    <link href="../style/idn.css" rel='stylesheet' type='text/css'>
+    <link href="idn.css" rel='stylesheet' type='text/css'>
     <title>IDN Catalogue Profile - Guidance</title>
   </head>
     <body>
@@ -17,13 +17,14 @@
                 <li><a href="#improve-scores">Improve Scores</a></li>
                 <li><a href="#formats">Use Formats</a></li>
                 <li><a href="#validate">Validate Metadata</a></li>
-                <li><a href="#examples">Examples</a>
+                <li><a href="#examples">Examples</a></li>
+                <li><span style="font-size: smaller;"><a href="#info">Document Info</a></span></li>
             </ul>
         </div>
         <div class="header" style="grid-column:1; grid-row:1;"></div>
         <div class="header" id="header"  style="grid-column:2; grid-row:1; display:grid; grid-template-columns:300px auto;">
             <div id="logo" style="grid-column:1; padding:3px;">
-              <img src="../style/idn-logo-250.png" alt="IDN logo" />
+              <img src="images/idn-logo-250.png" alt="IDN logo" />
             </div>
             <div id="idn-title" style="grid-column:2;">
               Indigenous Data Network
@@ -61,7 +62,7 @@
                 </ol>
             </section>
             <section id="understand">
-                <img src="../style/idn-cp-profile.svg" style="float:right; width:500px; height:300px; display:block; border:solid 2px black; margin-left:10px;" />
+                <img src="images/idn-cp-profile.svg" style="float:right; width:500px; height:300px; display:block; border:solid 2px black; margin-left:10px;" />
                 <h2>1. Understand the Catalogue Profile, at a high level</h2>
                 <h3>What</h3>
                 <p>Metadata is used to describe things in catalogues, so they can be discovered, understood and used.</p>
@@ -84,7 +85,7 @@
             </section>
             <section id="create">
                 <a href="https://idn-au.github.io/idn-metadata-creator/">
-                    <img src="../style/metadata-entry-tool.png" style="float:right; width:500px; border:solid 1px #990000;" alt="Metadata Creation Tool  Screenshot" />
+                    <img src="images/metadata-entry-tool.png" style="float:right; width:500px; border:solid 1px #990000;" alt="Metadata Creation Tool  Screenshot" />
                 </a>
                 <h2>2. Create metadata according to the profile</h2>
                 <p>You will need to produce metadata in a specific format - <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework">RDF</a> - to meet the requirements of this Profile, however, there are tools to assist with this.</p>
@@ -152,7 +153,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
                 <p>Lots of catalogue tools are able to export metadata in formats that are compatible with this profile. For example, the open source <a href="https://ckan.org/">CKAN</a> tool can <a href="https://github.com/ckan/ckanext-dcat">implement its own profiles of DCAT</a> which are compatible with this profile! Another example: the <a href="https://emu.axiell.com/">EMu collections management software</a> can export Dublin Core metadata in an XML format that is also interpretable as RDF.</p>
             </section>
             <section id="indicate-indigenous">
-                <img src="../style/aboriginal-flag.png" style="float:right; width:500px;" alt="Aboriginal Flag" />
+                <img src="images/aboriginal-flag.png" style="float:right; width:500px;" alt="Aboriginal Flag" />
                 <h2>3. Indicate something in a catalogue is Indigenous</h2>
                 <h3>Easy or hard?</h3>
                 <p>This may be very easy... or very hard! There is no ONE way to indicate whether something is indigenous or not and some things obviously are, others, it's hard to tell.</p>
@@ -210,7 +211,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
                         <h4>Good Identifiers</h4>
                         <p>You should use a well-known identifier for an Indigenous person or group, rather than supplying their name in text. For example use the <a href="https://orcide.org">ORCID</a> <code><a href="https://orcid.org/0000-0002-1398-7524">&lt;https://orcid.org/0000-0002-1398-7524&gt;</a></code> for Prof. Marcia Langton, instead of "Marcia Langton"</p>
                         <p>The IDN supplies a searchable database of such identifiers to assist with this:</p>
-                        <ul><li><a href="#"><span style="background-color:deeppink; color:white;">The IDN's Agents DB</span></a></li></ul>
+                        <ul><li><a href="https://agentsdb.idnau.org/">The IDN's Agents DB</a></li></ul>
                     </div>
                     <ul>
                         <li>
@@ -241,9 +242,9 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
                 </section>
             </section>
             <section id="calculate-scores">
-                <img src="../style/fair-and-care.png" alt="FAIR and CARE" style="float:right; width:500px;" />
+                <img src="images/fair-and-care.png" alt="FAIR and CARE" style="float:right; width:500px;" />
                 <h2>4. Calculate FAIR or CARE scores</h2>
-                <p>One aim of this catalogue profile is to for it to be able to be used with software to automatically calculate <a href="https://force11.org/info/the-fair-data-principles/">FAIR</a> and <a href="https://www.gida-global.org/care">CARE</a> scores for resources described by metadata. This is so we can calculate scores for large numbers of items.</p>
+                <p>One aim of this catalogue profile is to for it to be able to be used either manually or automatically with software to calculate <a href="https://force11.org/info/the-fair-data-principles/">FAIR</a> and <a href="https://www.gida-global.org/care">CARE</a> scores for resources described by metadata. Doing this automatically allows calculation for large numbers of items.</p>
                 <p><strong>Use the automated tool</strong></p>
                 <p>The <a href="https://idn-au.github.io/idn-metadata-creator/">Metadata Entry Form</a> automatically calculates these scores as you use it, and it details how scores are created too.</p>
                 <p>The IDN also provides the underlying software to calculate scores from IDN CP metadata: <a href="https://github.com/idn-au/scores-calculator">Scores Calculator</a>. If you're technical, you can dive into the weeds of score creation - and please let us know what you think about the methods we have implemented!</p>
@@ -266,7 +267,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
                 <p>Some systems use very different metadata formats, not just models.</p>
             </section>
             <section id="validate">
-                <img src="../style/tick-cross.png" style="float:right; width:500px" alt="Tick Cross" />
+                <img src="images/tick-cross.png" style="float:right; width:500px" alt="Tick Cross" />
                 <h2>7. Validate my metadata</h2>
                 <p>One of the resources within this profile is a validation data file. It can be used with validation tools to automatically check the validition of metadata.</p>
                 <ul>
@@ -472,6 +473,43 @@ PREFIX prov: &lt;http://www.w3.org/ns/prov#>
 .
                     </p>
                 </section>
+            </section>
+            <section id="metadata">
+                <h2>9. Document Info</h2>
+                <p style="font-size:medium;">Information (metadata) about this document:</p>
+                <dl>
+                    <dt>URI</dt>
+                    <dd><code>https://data.idnau.org/pid/cp/guide</code> <a href="https://data.idnau.org/pid/cp/guide" style="font-size:1.5em">&#x2197;</a></dd>
+                    <dt><a class="proplink" title="sdo:isPartOf" href="https://schema.org/isPartOf">Is Part Of</a></dt>
+                    <dd><a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a></dd>
+                    <dt><a class="proplink" title="sdo:publisher" href="https://schema.org/publisher">Publisher</a>(s)</dt>
+                    <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a></dd>
+                    <dt><a class="proplink" title="sdo:creator" href="https://schema.org/creator">Creator</a>(s)</dt>
+                    <dd><a href="">Nicholas J. Car</a><br/></dd>
+                    <dt>Dates</dt>
+                    <dd>
+                        <table>
+                            <tr>
+                                <td><a class="proplink" title="sdo:created" href="https://schema.org/created">Created</a></td>
+                                <td>2022-03-18</td>
+                            </tr>
+                            <tr>
+                                <td><a class="proplink" title="sdo:dateIssued" href="https://schema.org/dateIssued">Issued</a></td>
+                                <td>2024-03-15</td>
+                            </tr>
+                            <tr>
+                                <td><a class="proplink" title="sdo:dateModified" href="https://schema.org/dateModified">Modified</a></td>
+                                <td>2024-06-24</td>
+                            </tr>
+                        </table>
+                    </dd>
+                    <dt><a class="proplink" title="owl#versionIRI" href="http://www.w3.org/2002/07/owl#versionIRI">Version</a></dt>
+                    <dd><a href="https://data.idnau.org/pid/cp/guide/0.0.2">0.0.2</a></dd>
+                    <dt><a class="proplink" title="sdo:license" href="https://schema.org/license">License</a></dt>
+                    <dd><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a></dd>
+                    <dt><a class="proplink" title="sdo:copyrightHolderame" href="https://schema.org/copyrightHolder">Copyright</a></dt>
+                    <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a>, 2022 - 2024</dd>
+                </dl>
             </section>
             <p>&nbsp;</p>
         </div><!-- #content -->
