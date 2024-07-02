@@ -23,10 +23,10 @@
                 <li><a href="#intro">1. Introduction</a>
                 <ul>
                     <li><a href="#purpose">1.1 Purpose</a></li>
-                    <li><a href="#minimum">1.2 Basic Use</a></li>
+                    <li><a href="#basic">1.2 Basic Use</a></li>
                     <li><a href="#minimum">1.3 Minimum Metadata</a></li>
-                    <li><a href="#minimum">1.4 All Elements</a></li>
-                    <li><a href="#minimum">1.5 Formats</a></li>
+                    <li><a href="#all-elements">1.4 All Elements</a></li>
+                    <li><a href="#formats">1.5 Formats</a></li>
                 </ul>
                 </li>
                 <li>
@@ -57,7 +57,13 @@
                     </ul>
                 </li>
                 <li><a href="#scores">5. Scores</a></li>
-                <li><a href="#examples">6. Examples</a></li>
+                <li>
+                    <a href="#examples">6. Extended Examples</a>
+                    <ul>
+                        <li><a href="#eg-minimal">6.1 Minimal</a></li>
+                        <li><a href="#eg-formats">6.2 Formats</a></li>
+                    </ul>
+                </li>
             </ul>
             <ul>
                 <li><a href="#mappings">A: Mappings</a></li>
@@ -120,7 +126,7 @@
                             </tr>
                             <tr>
                                 <td><a class="proplink" title="sdo:dateModified" href="https://schema.org/dateModified">Modified</a></td>
-                                <td>2024-06-24</td>
+                                <td>2024-07-02</td>
                             </tr>
                         </table>
                     </dd>
@@ -185,30 +191,30 @@
                     <li>What data formats can I use for metadata? See <a href="#formats">Formats</a>.</li>
                 </ol>
                 <section id="purpose">
-                    <h3>1.3 Purpose <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-                    <h3>What is the purpose of this Profile?</h3>
-                    <p>Common catalogue models provide lots of possible metadata elements which can be used to describe catalogued items, categorise them, indicate how they are managed and so on but don't specifically handle Indigenous concerns.</p>
+                    <h3>1.1 Purpose <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <h4 style="font-style:italic;">What is the purpose of this Profile?</h4>
+                    <p>Common catalogue models provide lots of possible metadata elements which can be used to describe catalogued items, to categorise them, indicate how they are managed and so on but don't specifically handle Indigenous concerns.</p>
                     <p>The purpose of this profile is to allow for the cataloguing of things created by or about Indigenous people or about Indigenous things and to be able to assess whether they are governed well, <em>from an Indigenous perspective</em>.</p>
-                    <p>This Profile is just a recommendation to use a common catalogue model - <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a> - in particular ways to achieve this.</p>
+                    <p>This Profile is just a recommendation to use a common catalogue model - <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a> - in particular ways which are called <em>patterns</em> - see the <a href="#patterns">Patterns Section</a> below.</p>
                 </section>
                 <section id="basic">
-                    <h3>1.1 Basic Use <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-                    <h3>What does basic use of this profile look like?</h3>
+                    <h3>1.2 Basic Use <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <h4 style="font-style:italic;">What does basic use of this profile look like?</h4>
                     <div id="basic-img" class="figure">
                         <a href="images/basic.png"><img src="images/basic.png" style="width:600px;" alt="Profile class structure overview" /></a>
-                        <p class="caption"><strong>Figure 2:</strong> This profile overlaps concerns with the DCAT and PROV models and provides for the description of data according to several other assessment models, such as FAIR, CARE etc. The overlaps do indicate which models are needed to cover requirements of the assessment models.</p>
+                        <p class="caption"><strong>Figure 2:</strong> This profile requires basic use of the DCAT model's elements for cataloguing with model elements from several other models for classification and relating catalogued resources to people and organisations. This is all common DCAT practice.</p>
                     </div>
-                    <p>This <a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a> follows standard of <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>, which requires <code>Catalog</code> instances to contain <code>Resource</code> instances, and some DCAT-recommended ways of expressing relationships from resources to people & organisations - <code>Agent</code>s - using <a href="https://www.w3.org/TR/prov-o/">PROV, the Provenance Ontology</a>. Resources can be categorised using vocabulary terms defined using <a href="https://www.w3.org/TR/skos-reference/">SKOS, the Simple Knowledge Organization System</a> and a few special relationships are recommended to link resources to policies such as data governance policies and licenses.</p>
-                    <p>To cater for Indigenous data governance concerns, this profile requires, or at least expects/promotes the use of, specific catalogues of <code>Agent</code> instances and specific vocabularies of <code>Concept</code> instances for to classify <code>Dataset</code> instances with.</p>
-                    <p>So, where using regular DCAT, you might indicate that a <code>Dataset</code> was created by a person identified by an <a href="https://orcid.org/">ORCID</a>, an international researcher identifier, using this profile you might indicate the creator using an identifier from the <a href="https://agentsdb.idnau.org/">Indigenous Data Network's <em>Agents Database</em></a> which stores additional Indigenous-relevant information about people and groups.</p>
-                    <p>Where using DCAT, you might just indicate the theme of data by classifying a <code>Dataset</code> with a <a href="linked.data.gov.au/def/anzsrc-for/2020">Fields of Research Code</a>, using this profile you might do that but also select a numre nuanced Indigenous research topic from the <a href="https://data.idnau.org/pid/vocab/idn-th">IDN Themes vocabulary</a>.</p>
-                    <p>In addition to requiring the use of some DCAT-promoted patterns over others and recommended use of particular reference catalogues & vocabularies, this profile also constrains the ways in which several other DCAT properties should be used. All the constraints are still standard DCAT.</p>
+                    <p>This <a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a> builds on the <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>, which requires <code>Catalog</code> instances to contain <code>Resource</code> instances, and some DCAT-recommended ways of expressing relationships from resources to people & organisations - <code>Agent</code>s - using <a href="https://www.w3.org/TR/prov-o/">PROV, the Provenance Ontology</a>. Resources can be categorised using vocabulary terms defined using <a href="https://www.w3.org/TR/skos-reference/">SKOS, the Simple Knowledge Organization System</a> and a few special relationships are recommended to link resources to policies, such as data governance policies and licenses.</p>
+                    <p>To cater for Indigenous data governance concerns, this profile requires, or at least expects/promotes the use of, specific catalogues of <code>Agent</code> instances and specific vocabularies of <code>Concept</code> instances for to classify <code>Resource</code> instances with.</p>
+                    <p>So, when using regular DCAT, you might indicate that a <code>Resource</code> was created by a person identified by an <a href="https://orcid.org/">ORCID</a>, an international researcher identifier, using this profile you might indicate the creator using an identifier from the <a href="https://agentsdb.idnau.org/">Indigenous Data Network's <em>Agents Database</em></a> which stores additional Indigenous-relevant information about people and groups.</p>
+                    <p>Also, when using DCAT, you might just indicate the theme of data by classifying a <code>Resource</code> with a <a href="linked.data.gov.au/def/anzsrc-for/2020">Fields of Research Code</a>. When using this profile you might still do that but might also select a more nuanced Indigenous research topic from the <a href="https://data.idnau.org/pid/vocab/idn-th">IDN Themes vocabulary</a>.</p>
+                    <p>In addition to requiring the use of some DCAT-promoted patterns over others and recommended use of particular reference catalogues & vocabularies, this profile also constrains the ways in which several other DCAT properties should be used. All the constraints are still normal DCAT-style constraints.</p>
                 </section>
                 <section id="minimum">
-                    <h3>1.2 Minimum Metadata <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-                    <h3>What minimum elements are required?</h3>
-                    <p>For catalogue metadata statements of resources according to this profile, we need <em>at least</em> the following information for data:</p>
-                    <table class="properties" style="width:50%;">
+                    <h3>1.3 Minimum Metadata <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <h4 style="font-style:italic;">What minimum elements are required?</h4>
+                    <p>For the cataloguing of resources according to this profile, we need <em>at least</em> the following information:</p>
+                    <table class="properties" style="width:60%;">
                         <tr>
                             <th>Property</th>
                             <th>Notes</th>
@@ -223,17 +229,26 @@
                         </tr>
                         <tr>
                             <th>Description</th>
-                            <td>A single sentence at least, up to multiple paragraphs. Just plain text though.</td>
+                            <td>A single sentence at least, up to multiple paragraphs. Just plain text though</td>
                         </tr>
                         <tr>
-                            <th>Creator</th>
-                            <td>The ID of a Person or an Organisation in our <a href="#agents">IDN Data Agents DB</a></td>
-                        </tr>
-                        <tr>
-                            <th>Custodian</th>
+                            <th>Agents</th>
                             <td>
-                                <p>As for Creator: the ID of a Person or an Organisation in our <a href="#agents">IDN Data Agents DB</a>.</p>
-                                <p>Can be the same as, or different to, Creator</p>
+                                <p>Persons Organisations associated with the resource and the roles they play.</p>
+                                <dl>
+                                    <dt>Creator</dt>
+                                    <dd>The ID of a Person or an Organisation in our <a href="#agents">IDN Data Agents DB</a></dd>
+                                    <dt>Custodian</dt>
+                                    <dd>
+                                        <p>As for Creator: the ID of a Person or an Organisation in our <a href="#agents">IDN Data Agents DB</a>.</p>
+                                        <p>Can be the same as, or different to, Creator</p>
+                                    </dd>
+                                    <dt>Contact Point</dt>
+                                    <dd>
+                                        <p>The ID or details of a Person or a part of an Organisation that can be contacted regarding this resource.</p>
+                                        <p>This person/org does not have to be listed in any database such as the <a href="#agents">IDN Data Agents DB</a> and may be automatically assigned to this resource.</p>
+                                    </dd>
+                                </dl>
                             </td>
                         </tr>
                         <tr>
@@ -253,7 +268,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>Themes</th>
+                            <th>Themes (keywords)</th>
                             <td>
                                 <p>Any number of preferably vocabulary concepts but also perhaps plain text themes/categories/keywords classifying the resource.</p>
                                 <p>This property is recommended but optional.</p>
@@ -261,7 +276,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>Policy links</th>
+                            <th>Policy details</th>
                             <td>
                                 <p>A reference (hyperlink/description) to any (Indigenous) data policy that pertains to this specific resource or the class of resource this is in. Includes access rights and licenses.</p>
                                 <p>This property is recommended for governance assessment.</p>
@@ -269,16 +284,167 @@
                             </td>
                         </tr>
                     </table>
-                    <p>See the <a href="#eg-minimal">Minimal Example</a> below for instances of each of the properties.</p>
+                    <p>A catalogued resource with minimal metadata:</p>
+                    <ul>
+                        <li><a href="https://data.idnau.org/pid/trove-10128420">Tjukinya</a>
+                            <ul><li>original TROVE record at <a href="https://trove.nla.gov.au/work/10128420">https://trove.nla.gov.au/work/10128420</a></li></ul>
+                        </li>
+                    </ul>
+                    <p>For this resource we have only:</p>
+                    <table class="properties" style="width:60%;">
+                        <tr>
+                            <th>Property</th>
+                            <th>Notes</th>
+                        </tr>
+                        <tr>
+                            <th>Identifier</th>
+                            <td><code>https://trove.nla.gov.au/work/10128420</code></td>
+                        </tr>
+                        <tr>
+                            <th>Type</th>
+                            <td>
+                                <code>http://purl.org/dc/dcmitype/PhysicalObject</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Title</th>
+                            <td>Tjukinya</td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td>Folktale: The little red hen retold in Pitjantjatjara</td>
+                        </tr>
+                        <tr>
+                            <th>Agents</th>
+                            <td>
+                                <dl>
+                                    <dt>Creator</dt>
+                                    <dd><a href="https://example.com/agent/123">Roderick Munti</a></dd>
+                                    <dt>Publisher</dt>
+                                    <dd><a href="https://example.com/agent/456">Summer Institute of Linguistics</a></dd>
+                                    <dt>Custodian</dt>
+                                    <dd><a href="https://linked.data.gov.au/org/nla">National Library of Australia</a></dd>
+                                </dl>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Created</th>
+                            <td>1980</td>
+                        </tr>
+                        <tr>
+                            <th>Themes (keywords)</th>
+                            <td><a href="https://data.idnau.org/pid/austlang/C6">Pitjantjatjara</a></td>
+                        </tr>
+                        <tr>
+                            <th>Policy details</th>
+                            <td>
+                                <dl>
+                                    <dt>Access rights</dt>
+                                    <dd>Not for Inter-Library Loan</dd>
+                                </dl>
+                            </td>
+                        </tr>
+                    </table>
+                    <p>It has a simple title, brief description and a few <em>Agent</em>s (organisations & persons) associated with it. This item is easily understood to be Indigenous as it is themed with an indigenous language - Pitjantjatjara - and controlled access is indicated.</p>
+                    <p>This item will gain some form of FAIR and CARE scores, but they could be improved: see the next section.</p>
                 </section>
                 <section id="all-elements">
-                    <h3>1.3 All Elements <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-                    <h3>What are all the recommended elements?</h3>
-                    <p class="todo">TODO: for 2., ref the 26 elements</p>
+                    <h3>1.4 All Elements <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <h4 style="font-style:italic;">What are all the recommended elements?</h4>
+                    <p>In general, all the metadata elements that can be used in accordance with this profile are those of the <a href="https://www.w3.org/TR/vocab-dcat/">DCAT</a> specification. DCAT contains lots of attributes for lots of purposes, so most resources will not sensibly use all of them.</p>
+                    <p>More specifically, there are other schemes, including profiles of DCAT, that recommend specific elements for use, beyond those listed in the previous section.</p>
+                    <p>Here we make two specific recommendations for particular DCAT metadata elements:</p>
+                    <ol>
+                        <li>Australian government-aligned metadata</li>
+                        <li>Maximal Indigenous content representation</li>
+                    </ol>
+                    <section id="all-aust">
+                        <h4>1.4.1 Australian government-aligned metadata</h4>
+                        <p style="font-style:italic;">This recommendation is to use metadata elements aligned with the National Data Commissioner's <a href="https://www.datacommissioner.gov.au/node/177">Guide on Metadata Attributes</a>.</p>
+                        <p>In addition to the elements listed in the <em>minimum metadata</em> section above:</p>
+                        <table class="properties" style="width:60%;">
+                            <tr>
+                                <th>Property</th>
+                                <th>Notes</th>
+                            </tr>
+                            <tr>
+                                <th>Distribution information</th>
+                                <td>
+                                    <p>How to technically access this resource, for example:</p>
+                                    <ul>
+                                        <li>an access URL</li>
+                                        <li>file format and data size</li>
+                                        <li>shelf number / physical collection location</li>
+                                        <li>distribution-specific instructions</li>
+                                    </ul>
+                                    <p>See the <a href="#class-distribution">Distribution Class</a> details in the <a href="#model">Model Section</a>.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Temporal coverage</th>
+                                <td>
+                                    <p>The time period covered by the data. can eb indicates as a date, date range, year range or named time period.</p>
+                                    <p>See the <a href="#temporality">Temporality</a> pattern section.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Spatial coverage</th>
+                                <td>
+                                    <p>The spatial area covered by the data</p>
+                                    <p>Note this might be given as a geometry - point or polygon - but may best be given as a link to an online spatial object, e.g. administrative areas within the <a href="https://asgs.linked.fsdf.org.au/">ASGS online</a>.</p>
+                                    <p>See the <a href="#spatality">Spatiality</a> pattern section.</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section id="all-ind">
+                        <h4>1.4.2 Maximal Indigenous content representation</h4>
+                        <p style="font-style:italic;">This recommendation is to use the same metadata elements as listed above for <em>minimal metadata</em> and the National Data Commissioner's <em>Guide on Metadata Attributes</em> but with specific sources for particular values.</p>
+                        <p>In addition to the elements listed in the <em>minimum metadata</em> section above:</p>
+                        <table class="properties" style="width:60%;">
+                            <tr>
+                                <th>Property</th>
+                                <th>Notes</th>
+                            </tr>
+                            <tr>
+                                <th>Agents</th>
+                                <td>Use identifiers for Agents registered within the IDN's <a href="https://agentsdb.idnau.org">Agents DB</a>. This ensures that the Indigenous relations of the Agent, if any, are known and can be used to assess whether they are a representative of the targets of the resource information, for governance purposes.</td>
+                            </tr>
+                            <tr>
+                                <th>Themes</th>
+                                <td>
+                                    <p>Use vocabularies specifically created to indicate Indigenous aspects of data, for example:</p>
+                                    <ul>
+                                        <li><a href="https://data.idnau.org/pid/vocab/indigeneity">Data Indigeneity</a></li>
+                                        <li><a href="https://data.idnau.org/pid/vocab/idn-th">IDN Themes</a></li>
+                                    </ul>
+                                    <p>These vocabularies build on widely used general-purpose vocabularies, such as the ARDC's <a href="https://linked.data.gov.au/def/anzsrc-for/2020">Fields of Research</a> codes but contain detailed Indigenous modelling.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Policy details</th>
+                                <td>
+                                    <p>The particular policies that are sought are:</p>
+                                    <ul>
+                                        <li>Indigenous Data Governance Policy</li>
+                                        <li>general Data Governance Policy</li>
+                                        <li>data license</li>
+                                    </ul>
+                                    <p>Best representation in metadata would be to link to online copies of the policies and to indicate their type from the IDN's <a href="https://data.idnau.org/pid/vocab/policy-types">Policy Types</a> vocabulary</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Spatial coverage</th>
+                                <td>
+                                    <p>Indicating the spatial coverage of the resource, or its place of origin, with reference to a names spatial feature, in particular Indigenous spatial features, such as those provided by the Indigenous Data Network's reference <a href="https://data.idnau.org/s">Spatial Data Catalog</a>.</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
                 </section>
                 <section id="formats">
-                    <h3>1.4 Format <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-                    <h3>What data formats can I use for metadata?</h3>
+                    <h3>1.5 Format <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <h4 style="font-style:italic;">What data formats can I use for metadata?</h4>
                     <p>The IDN Catalogue Profile uses a particular, machine-readable, data type for all metadata: RDF.</p>
                     <p>It's critical that metadata is either supplied in one of the RDF formats or that it be able to be converted into it.</p>
                     <p><em>See the examples below for metadata records in RDF.</em></p>
@@ -591,105 +757,85 @@
                 </section>
             </section>
             <section id="examples">
-                <h2>4. Extended Examples <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                <h2>6. Extended Examples <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
                 <section id="eg-minimal">
-                    <h3>4.1 Minimal <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-                    <p>A dataset resource online with minimal metadata:</p>
-                    <ul>
-                        <li><a href="https://data.idnau.org/pid/BSA">Briscoe-Smith Archive</a></li>
-                    </ul>
-                    <p>For this dataset we have only:</p>
-                    <table class="properties">
-                        <tr>
-                            <th>Property</th>
-                            <th>Value</th>
-                        </tr>
-                        <tr>
-                            <td>Identifier</td>
-                            <td><code>https://data.idnau.org/pid/BSA</code></td>
-                        </tr>
-                        <tr>
-                            <td>Title</td>
-                            <td>Briscoe-Smith Archive</td>
-                        </tr>
-                        <tr>
-                            <td>Description</td>
-                            <td>Historical population data and biographical records</td>
-                        </tr>
-                        <tr>
-                            <td>Agent / Role</td>
-                            <td>
-                                <p>Gordon Briscoe & Len Smith / <a href="https://linked.data.gov.au/def/data-roles/author">Author</a></p>
-                                <p>Indigenous Australians / <a href="https://linked.data.gov.au/def/data-roles/subjectAgent">Subject Agent</a></p>
-                                <p><a href="https://linked.data.gov.au/org/ada">Australian Data Archive</a> / <a href="https://linked.data.gov.au/def/data-roles/custodian">Custodian</a></p>
-                            </td>
-                        </tr>
-                    </table>
-                    <p>It has a simple title, brief description and several <em>Agent</em> (an organisations & people) associated with it. This item is easily understood to be Indigenous - it's about Indigenous Australians - but it's FAIR and CARE scores aren't great: a lot of simple metadata could easily be added.</p>
+                    <h3>6.1 Minimal <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <p>The machine-readable version of this metadata record is reproduced here in the RDF <a href="https://www.w3.org/TR/turtle/">Turtle</a> format:</p>
                     <p class="eg">
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
 PREFIX dcterms: &lt;http://purl.org/dc/terms/>
-PREFIX droles: &lt;https://linked.data.gov.au/def/data-roles/>
-PREFIX prov: &lt;http://www.w3.org/ns/prov#>
+PREFIX sdo: &lt;https://schema.org/>
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 
-&lt;https://data.idnau.org/pid/BSA>
+&lt;https://data.idnau.org/pid/10128420>
     a dcat:Resource ;
-    dcterms:title "Briscoe-Smith Archive" ;
-    dcterms:description "Historical population data and biographical records" ;
+    dcterms:creator &lt;https://example.com/agent/123> ;
+    dcterms:description "Folktale: The little red hen retold in Pitjantjatjara" ;
+    dcterms:published "1980"^^xsd:gYear ;
+    dcterms:publisher &lt;https://example.com/agent/123456> ;
+    dcterms:title "Tjukinya" ;
+    dcat:theme &lt;https://data.idnau.org/pid/austlang/C6> ;
     prov:qualifiedAttribution [
-        dcat:hadRole droles:author ;
-        prov:agent &lt;https://orcid.org/0000-0002-5477-0874> , "Gordon Briscoe" ;
-    ] ,
-    [
-        dcat:hadRole droles:subjectAgent ;
-        prov:agent &lt;https://data.idnau.org/pid/organisation/8cfcfc08-3cec-40e1-a772-a8860c118c9d>
-    ] ,
-    [
-        dcat:hadRole droles:custodian ;
-        prov:agent &lt;https://linked.data.gov.au/org/ada>
+        prov:hadRole &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
+        prov:agent &lt;https://linked.data.gov.au/org/nla>
     ] ;
 .
                     </p>
-                    <p>Note that the reference to the <em>custodian</em>, the ADA, is by persistent identifier web address, <code>https://linked.data.gov.au/org/ada</code>, that resolves to more information about the ADA. Also, this identifier is known in the IDN's <em>Data Agents DB</em>, so the IDN knows even more information about the ADA than just the simple metadata linked to by the identifier.</p>
+                    <p>Note that the reference to the <em>publisher</em>, the Summer Institute of Linguistics, is by persistent identifier web address, <code>https://example.com/agent/456</code>, that resolves to more information about the Institute. This particular identifier is from the <a htef="https://agentsdb.idnau.org/">IDN Agents Database</a>, so the IDN potentially knows more information about the Institute than just basic facts such as its name, for example whether it is an Indigenous-led organisation.</p>
                     <p>This metadata record will not score well on most metrics for FAIR access, governance scores and so on since it's minimal, but it's better than nothing!</p>
-                    <p>Here is the same minimal metadata example as above in RDF's <a href="https://json-ld.org/">JSON-LD</a> format, just to shown multiple technical formats:</p>
+                </section>
+                <section id="eg-formats">
+                    <h3>6.2 Formats <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <p>Metadata according to this Profile can be created using any RDF format.</p>
+                    <p>Here is the same minimal metadata example as above shown there in HTML and the Turtle RDF format. This form is RDF's <a href="https://json-ld.org/">JSON-LD</a> format, which is standard <a href="https://www.json.org">JSON</a>:</p>
                     <p class="eg">
 {
   "@context": {
+    "@vocab": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",
-    "dcterms": "http://purl.org/dc/terms/",
-    "droles": "https://linked.data.gov.au/def/data-roles/",
-    "prov": "http://www.w3.org/ns/prov#"
+    "austlang": "https://data.idnau.org/pid/austlang/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
   },
-  "@graph": [
-    {
-      "@id": "https://data.idnau.org/pid/BSA",
-      "@type": "dcat:Resource",
-      "dcterms:title": "Briscoe-Smith Archive",
-      "dcterms:description": "Historical population data and biographical records",
-      "prov:qualifiedAttribution": {
-        "@id": "_:n4ed1e6643b704c4188c0e3cd15798563b1"
-      }
-    },
-    {
-      "@id": "_:n4ed1e6643b704c4188c0e3cd15798563b1",
-      "dcat:hadRole": {
-        "@id": "droles:custodian"
-      },
-      "prov:agent": {
-        "@id": "https://linked.data.gov.au/org/ada"
-      }
-    }
-  ]
+  "@id": "https://data.idnau.org/pid/10128420",
+  "@type": "dcat:Resource",
+  "title": "Tjukinya",
+  "description": "Folktale: The little red hen retold in Pitjantjatjara",
+  "creator": {
+    "@id": "https://example.com/agent/123"
+  },
+  "publisher": {
+    "@id": "https://example.com/agent/123456"
+  },
+  "published": {
+    "@type": "xsd:gYear",
+    "@value": "1980"
+  },
+  "dcat:theme": {
+    "@id": "austlang:C6"
+  }
 }
                     </p>
+                    <p>Here is the same minimal metadata example again in RDF's <a href="https://en.wikipedia.org/wiki/RDF/XML">XML</a> format:</p>
+                    <p class="eg">
+&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;rdf:RDF
+   xmlns="http://purl.org/dc/terms/"
+   xmlns:dcat="http://www.w3.org/ns/dcat#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  &lt;rdf:Description rdf:about="https://data.idnau.org/pid/10128420">
+    &lt;title>Tjukinya&lt;/title>
+    &lt;description>Folktale: The little red hen retold in Pitjantjatjara&lt;/description>
+    &lt;rdf:type rdf:resource="http://www.w3.org/ns/dcat#Resource"/>
+    &lt;creator rdf:resource="https://example.com/agent/123"/>
+    &lt;publisher rdf:resource="https://example.com/agent/123456"/>
+    &lt;published rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1980&lt;/published>
+    &lt;dcat:theme rdf:resource="https://data.idnau.org/pid/austlang/C6"/>
+  &lt;/rdf:Description>
+&lt;/rdf:RDF>
+                    </p>
                 </section>
-                <p>Snippet examples for many of the Requirements of this Specification are given in the individual Requirements' sections. This section contains a single, larger, example that makes a complete <code>Catalog</code> instances with content: it is a part of the IDN's Dataset Catalogue.</p>
-                <p>The IDN Dataset Catalogue that this example is extracted from is online at:</p>
-                <ul>
-                    <li><a href="">IDN Dataset Catalogue Homepage</a></li>
-                </ul>
+                <p>The JSON &amp; XML formats shown here can be converted to and from the RDF Turtle format shown in the <em>minimal</em> section above, and each other, using RDF format conversion tools such as <a href="https://tools.dev.kurrawong.ai">KurrawongAI's RDF Converter</a>.</p>
                 <p class="eg">
                     <span>Example: Partial content of the IDN Dataset Catalogue</span>
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#&gt;

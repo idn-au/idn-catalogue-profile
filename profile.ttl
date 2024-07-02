@@ -24,7 +24,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sdo:dateCreated "2022-07-18"^^xsd:date ;
     sdo:dateIssued "2022-07-31"^^xsd:date ;
     sdo:dateModified "2023-05-08"^^xsd:date ;
-    sdo:description "A profile of cataloguing, provenance and vocabulary standards designed for the representation of indigenous data governance"@en ;
+    sdo:description "A profile of cataloguing, provenance and vocabulary standards designed for the representation of Indigenous data governance"@en ;
     sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
     sdo:name "IDN Catalogue Profile"@en ;
     sdo:publisher <https://linked.data.gov.au/org/idn> ;
