@@ -17,10 +17,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <https://data.gov.au/data/dataset/34b1c164-fbe8-44a0-84fd-467dba645aa7>
     a dcat:Resource ;
-    dcterms:description """This dataset has been developed by the Australian Government as an authoritative source of indigenous location names across Australia. It is sponsored by the Spatial Policy Branch within the Department of Communications and managed solely by the Department of Human Services.
-The dataset is designed to support the accurate positioning, consistent reporting, and effective delivery of Australian Government programs and services to indigenous locations.
-The dataset contains Preferred and Alternate names for indigenous locations where Australian Government programs and services have been, are being, or may be provided. The Preferred name will always default to a State or Territory jurisdiction's gazetted name so the term 'preferred' does not infer that this is the locally known name for the location. Similarly, locational details are aligned, where possible, with those published in State and Territory registers.
-This dataset is NOT a complete listing of all locations at which indigenous people reside. Town and city names are not included in the dataset. The dataset contains names that represent indigenous communities, outstations, defined indigenous areas within a town or city or locations where services have been provided.""" ;
+    dcterms:description """This dataset has been developed by the Australian Government as an authoritative source of Indigenous location names across Australia. It is sponsored by the Spatial Policy Branch within the Department of Communications and managed solely by the Department of Human Services.
+The dataset is designed to support the accurate positioning, consistent reporting, and effective delivery of Australian Government programs and services to Indigenous locations.
+The dataset contains Preferred and Alternate names for Indigenous locations where Australian Government programs and services have been, are being, or may be provided. The Preferred name will always default to a State or Territory jurisdiction's gazetted name so the term 'preferred' does not infer that this is the locally known name for the location. Similarly, locational details are aligned, where possible, with those published in State and Territory registers.
+This dataset is NOT a complete listing of all locations at which Indigenous people reside. Town and city names are not included in the dataset. The dataset contains names that represent Indigenous communities, outstations, defined Indigenous areas within a town or city or locations where services have been provided.""" ;
     dcterms:format "xslx" ;
     dcterms:identifier "AGIL"^^xsd:token ;
     dcterms:issued "2013-12-02"^^xsd:date ;
