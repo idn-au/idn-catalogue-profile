@@ -252,9 +252,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>Created</th>
+                            <th>Created/Published</th>
                             <td>
-                                <p>The date/year etc. the data was created.</p>
+                                <p>The date/year etc. the data was created or published.</p>
                                 <p>This property is recommended but optional: If you really don't know this, leave it out.</p>
                                 <p>See the <a href="#dating">Dating</a> section below</p>
                             </td>
@@ -328,7 +328,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>Created</th>
+                            <th>Published</th>
                             <td>1980</td>
                         </tr>
                         <tr>
@@ -445,17 +445,137 @@
                 <section id="formats">
                     <h3>1.5 Format <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <h4 style="font-style:italic;">What data formats can I use for metadata?</h4>
-                    <p>The IDN Catalogue Profile uses a particular, machine-readable, data type for all metadata: RDF.</p>
-                    <p>It's critical that metadata is either supplied in one of the RDF formats or that it be able to be converted into it.</p>
-                    <p><em>See the examples below for metadata records in RDF.</em></p>
-                    <h4>Supplying non-RDF data</h4>
-                    <p>Unless someone else is going to convert your metadata into RDF, you should use the:</p>
-                    <ul>
-                        <li><a href="https://idn-au.github.io/idn-metadata-creator/">IDN Metadata Creator tool</a></li>
-                    </ul>
-                    <h4>Supplying RDF data</h4>
-                    <p>If you want to supply RDF metadata to the IDN, or just make your own RDF metadata generally, see what the <a href="https://idn-au.github.io/idn-metadata-creator/">IDN Metadata Creator tool</a> does - it can show off RDF metadata.</p>
-                    <p>You can also see the machine-readable version of the <a href="#eg-full">Full Example</a> below.</p>
+                    <p>The IDN Catalogue Profile uses the same machine-readable data format used by DCAT: <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework">Resource Description Framework (RDF)</a>.</p>
+                    <p>RDF is widely supported and available in multiple syntaxes or "flavours" such as <a href="https://en.wikipedia.org/wiki/JSON-LD">JSON</a> and <a href="https://en.wikipedia.org/wiki/RDF/XML">XML</a>, as well as custom formats made for readability, such as <a href="https://en.wikipedia.org/wiki/Turtle_(syntax)">Turtle</a>.</p>
+                    <p>It's critical that metadata is either supplied in one of the RDF syntaxes so that it can be validated with this profile's supplied validators - see the <a href="#validation">Validation Section</a>.</p>
+                    <p>Here follows 3 RDF syntax versions of the <em>Tjukinya</em> resource shown in the <em>Minimum Metadata</em> section above.</p>
+                    <section id="format-turtle">
+                        <h4>1.5.1 Turtle</h4>
+                        <p>Turtle is a text-based, reasonably human-readable syntax for RDF.</p>
+                        <p class="eg">
+    PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
+    PREFIX dcterms: &lt;http://purl.org/dc/terms/>
+    PREFIX prov: &lt;http://www.w3.org/ns/prov#>
+    PREFIX sdo: &lt;https://schema.org/>
+    PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
+
+    &lt;https://trove.nla.gov.au/work/10128420>
+        a dcat:Resource ;
+        dcterms:type &lt;http://purl.org/dc/dcmitype/PhysicalObject> ;
+        dcterms:title "Tjukinya" ;
+        dcterms:description "Folktale: The little red hen retold in Pitjantjatjara" ;
+        dcterms:creator &lt;https://example.com/agent/123> ;
+        dcterms:publisher &lt;https://example.com/agent/123456> ;
+        dcat:theme &lt;https://data.idnau.org/pid/austlang/C6> ;
+        prov:qualifiedAttribution [
+            prov:hadRole &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
+            prov:agent &lt;https://linked.data.gov.au/org/nla>
+        ] ;
+        dcterms:published "1980"^^xsd:gYear ;
+        dcterms:theme &lt;https://data.idnau.org/pid/austlang/C6> ;
+        dcat:accessRights "Not for Inter-Library Loan" ;
+    .
+                        </p>
+                        <p>Note that the reference to the <em>publisher</em>, the Summer Institute of Linguistics, is by persistent identifier web address, <code>https://example.com/agent/456</code>, that resolves to more information about the Institute. This particular identifier is from the <a htef="https://agentsdb.idnau.org/">IDN Agents Database</a>, so the IDN potentially knows more information about the Institute than just basic facts such as its name, for example whether it is an Indigenous-led organisation.</p>
+                    </section>
+                    <section id="format-json">
+                        <h4>1.5.2 JSON-LD</h4>
+                        <p>JSON-LD is a convention for the use of JSON data that can represent RDF data. It is a modern syntax used by modern Web systems for data transfer.</p>
+                        <p>This example JSON-LD has been converted from the Turtle data above and can be back-converted perfectly.</p>
+                        <p class="eg">
+{
+  "@context": {
+    "@vocab": "http://purl.org/dc/terms/",
+    "accessRights": "http://www.w3.org/ns/dcat#accessRights",
+    "theme": "http://www.w3.org/ns/dcat#theme",
+    "Resource": "http://www.w3.org/ns/dcat#Resource",
+    "year": "http://www.w3.org/2001/XMLSchema#gYear",
+    "PhysicalObject": "http://purl.org/dc/dcmitype/PhysicalObject",
+    "agent": "http://www.w3.org/ns/prov#agent",
+    "hadRole": "http://www.w3.org/ns/prov#hadRole",
+    "attribution": "http://www.w3.org/ns/prov#qualifiedAttribution",
+    "austlang": "https://data.idnau.org/pid/austlang/C6",
+    "data-roles": "https://linked.data.gov.au/def/data-roles/"
+  },
+  "@graph": [
+    {
+      "@id": "https://trove.nla.gov.au/work/10128420",
+      "@type": "Resource",
+      "type": {
+        "@id": "http://purl.org/dc/dcmitype/PhysicalObject"
+      },
+      "title": "Tjukinya",
+      "description": "Folktale: The little red hen retold in Pitjantjatjara",
+      "creator": {
+        "@id": "https://example.com/agent/123"
+      },
+      "publisher": {
+        "@id": "https://example.com/agent/123456"
+      },
+      "attribution": {
+        "@id": "_:nb0e54b223f37485b8555e8d45b468bf9b1"
+      }
+      "published": {
+        "@type": "year",
+        "@value": "1980"
+      },
+      "theme": {
+        "@id": "https://data.idnau.org/pid/austlang/C6"
+      },
+      "accessRights": "Not for Inter-Library Loan",
+    },
+    {
+      "@id": "_:nb0e54b223f37485b8555e8d45b468bf9b1",
+      "agent": {
+        "@id": "https://linked.data.gov.au/org/nla"
+      },
+      "hadRole": {
+        "@id": "data-roles:custodian"
+      }
+    }
+  ]
+}
+                    </p>
+                    </section>
+                    <section id="format-xml">
+                        <h4>1.5.3 XML</h4>
+                        <p>XML is still commonly used as a format for metadata but care must be taken here: RDF/XML, a specific formulation of XML, must be used for XML data, not general-purpose XML.</p>
+                        <p>The following RDF/XML has been generated from the Turtle example above.</p>
+                        <p class="eg">
+&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;rdf:RDF
+   xmlns:dcat="http://www.w3.org/ns/dcat#"
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:prov="http://www.w3.org/ns/prov#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  &lt;rdf:Description rdf:about="https://trove.nla.gov.au/work/10128420">
+    &lt;rdf:type rdf:resource="http://www.w3.org/ns/dcat#Resource"/>
+    &lt;dcterms:type rdf:resource="http://purl.org/dc/dcmitype/PhysicalObject"/>
+    &lt;dcterms:title>Tjukinya&lt;/dcterms:title>
+    &lt;dcterms:description>Folktale: The little red hen retold in Pitjantjatjara&lt;/dcterms:description>
+    &lt;dcterms:creator rdf:resource="https://example.com/agent/123"/>
+    &lt;dcterms:publisher rdf:resource="https://example.com/agent/123456"/>
+    &lt;prov:qualifiedAttribution rdf:nodeID="n09d0151a1e6140cfb188576200eb9d69b1"/>
+    &lt;dcterms:published rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1980&lt;/dcterms:published>
+    &lt;dcat:theme rdf:resource="https://data.idnau.org/pid/austlang/C6"/>
+    &lt;dcat:accessRights>Not for Inter-Library Loan&lt;/dcat:accessRights>
+  &lt;/rdf:Description>
+  &lt;rdf:Description rdf:nodeID="n09d0151a1e6140cfb188576200eb9d69b1">
+    &lt;prov:hadRole rdf:resource="https://linked.data.gov.au/def/data-roles/custodian"/>
+    &lt;prov:agent rdf:resource="https://linked.data.gov.au/org/nla"/>
+  &lt;/rdf:Description>
+&lt;/rdf:RDF>
+                    </p>
+                    </section>
+                    <section id="format-other">
+                        <h4>1.5.4 Other formats</h4>
+                        <p>All standard RDF formats may be used. As a guide, those <a href="https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html">able to be handled by the RDFLib code library</a> are fine.</p>
+                        <p>If you need to create RDF data for the first time, you can use the:</p>
+                        <ul>
+                            <li><a href="https://idn-au.github.io/idn-metadata-creator/">IDN Metadata Creator tool</a></li>
+                        </ul>
+                    </section>
                 </section>
             </section>
             <sections id="patterns">

@@ -4,24 +4,25 @@ PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX sdo: <https://schema.org/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-<https://data.idnau.org/pid/10128420>
+<https://trove.nla.gov.au/work/10128420>
     a dcat:Resource ;
     dcterms:type <http://purl.org/dc/dcmitype/PhysicalObject> ;
-    dcterms:creator <https://example.com/agent/123> ;
-    dcterms:description "Folktale: The little red hen retold in Pitjantjatjara" ;
-    dcterms:published "1980"^^xsd:gYear ;
-    dcterms:publisher <https://example.com/agent/123456> ;
     dcterms:title "Tjukinya" ;
+    dcterms:description "Folktale: The little red hen retold in Pitjantjatjara" ;
+    dcterms:creator <https://example.com/agent/123> ;
+    dcterms:publisher <https://example.com/agent/123456> ;
     dcat:theme <https://data.idnau.org/pid/austlang/C6> ;
     prov:qualifiedAttribution [
         prov:hadRole <https://linked.data.gov.au/def/data-roles/custodian> ;
         prov:agent <https://linked.data.gov.au/org/nla>
     ] ;
+    dcterms:published "1980"^^xsd:gYear ;
+    dcterms:theme <https://data.idnau.org/pid/austlang/C6> ;
     dcat:accessRights "Not for Inter-Library Loan" ;
 .
 
 <https://linked.data.gov.au/org/nla>
-       a sdo:Organization ;
+    a sdo:Organization ;
     sdo:name "National Library of Australia" ;
     sdo:url "https://nla.gov.au"^^xsd:anyURI ;
 .
