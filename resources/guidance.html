@@ -91,11 +91,11 @@
                 <p>You will need to produce metadata in a specific format - <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework">RDF</a> - to meet the requirements of this Profile, however, there are tools to assist with this.</p>
                 <p>You can:</p>
                 <ol>
-                    <li>Use the <a href="https://idn-au.github.io/idn-metadata-creator/">Metadata Entry Form</a></li>
+                    <li>Use the <a href="https://metadatav2.idnau.org">Metadata Entry Form</a></li>
                     <li>Type out RDF data, manually</li>
                     <li>Use Software</li>
                 </ol>
-                <h4>2.1 Use the <a href="https://idn-au.github.io/idn-metadata-creator/">Metadata Entry Form</a></h4>
+                <h4>2.1 Use the <a href="https://metadatav2.idnau.org">Metadata Entry Form</a></h4>
                 <p>This is our recommended starting point</p>
                 <p>The Indigenous Data Network maintains an online, interactive, tool that you can use to create metadata according to the IDN Catalogue Profile.</p>
                 <p>The tool contains examples you can load, video tutorials and displays the metadata it creates as you fill in form fields.</p>
@@ -199,7 +199,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
                                         <li><pre>:resource-x dcterms:spatial &lt;https://data.idnau.org/pid/nntt/DCD2011-001&gt;</pre></li>
                                     </ul>
                                 </li>
-                                <li>The IDN provides a number of reference datasets of Indigenous location on the <a href="https://data.idnau.org/d">the IDN reference data platform</a> that can be browsed or searched for text or on a map.</li>
+                                <li>The IDN provides a number of reference datasets of Indigenous location on the <a href="https://data.idnau.org/s">the IDN reference data platform</a> that can be browsed or searched for text or on a map.</li>
                             </ul>
                         </li>
                     </ul>
@@ -226,7 +226,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
                                 <li><pre>:resource-y
         prov:qualifiedAttribution [
             prov:agent &lt;http://example.com/community/wiradjuri&gt; ;
-            prov:hadRole drole:subjectAgent ;
+            prov:hadRole droles:subjectAgent ;
         ]</pre></li>
                             </ul>
                         </li>
@@ -328,7 +328,7 @@ PREFIX prov: &lt;http://www.w3.org/ns/prov#>
     ] ,
     [
         dcat:hadRole droles:subjectAgent ;
-        prov:agent &lt;https://data.idnau.org/pid/organisation/8cfcfc08-3cec-40e1-a772-a8860c118c9d>
+        prov:agent &lt;https://vocabularyserver.com/apais/xml.php?skosTema=1096>
     ] ,
     [
         dcat:hadRole droles:custodian ;
@@ -341,7 +341,7 @@ PREFIX prov: &lt;http://www.w3.org/ns/prov#>
                     <h3>Full</h3>
                     <p>A dataset resource with full metadata:</p>
                     <ul>
-                        <li><a href="https://data.idnau.org/pid/ILOC">Indigenous Locations within the Australian Statistical Geography Standard (ASGS) Edition 3</a></li>
+                        <li><a href="https://data.idnau.org/c/catalogs/pd:democat/resources/sgsd3:ILOC">Indigenous Locations within the Australian Statistical Geography Standard (ASGS) Edition 3</a></li>
                     </ul>
                     <p>For this dataset we have a detailed metadata record with the following elements:</p>
                     <table class="properties">
