@@ -163,6 +163,7 @@
                         <tr><th>idncp</th><td><code>https://data.idnau.org/pid/cp</code></td></tr>
                         <tr><th>dcat</th><td><code>http://www.w3.org/ns/dcat#</code></td></tr>
                         <tr><th>dcterms</th><td><code>http://purl.org/dc/terms/</code></td></tr>
+                        <tr><th>lc</th><td><code>https://data.idnau.org/pid/vocab/lc-labels/</code></td></tr>
                         <tr><th>owl</th><td><code>http://www.w3.org/2002/07/owl#</code></td></tr>
                         <tr><th>prof</th><td><code>http://www.w3.org/ns/dx/prof/</code></td></tr>
                         <tr><th>rdf</th><td><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></td></tr>
@@ -205,7 +206,7 @@
                         <p class="caption"><strong>Figure 2:</strong> This profile requires basic use of the DCAT model's elements for cataloguing with model elements from several other models for classification and relating catalogued resources to people and organisations. This is all common DCAT practice.</p>
                     </div>
                     <p>This <a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a> builds on the <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>, which requires <code>Catalog</code> instances to contain <code>Resource</code> instances, and some DCAT-recommended ways of expressing relationships from resources to people & organisations - <code>Agent</code>s - using <a href="https://www.w3.org/TR/prov-o/">PROV, the Provenance Ontology</a>. Resources can be categorised using vocabulary terms defined using <a href="https://www.w3.org/TR/skos-reference/">SKOS, the Simple Knowledge Organization System</a> and a few special relationships are recommended to link resources to policies, such as data governance policies and licenses.</p>
-                    <p>To cater for Indigenous data governance concerns, this profile requires, or at least expects/promotes the use of, specific catalogues of <code>Agent</code> instances and specific vocabularies of <code>Concept</code> instances for to classify <code>Resource</code> instances with.</p>
+                    <p>To cater for Indigenous data governance concerns, this profile recommends the use of the IDN Data <code>Agent</code> Database when referencing Persons or Organisations. Use of specific <code>Concept</code> vocabularies to classify <code>Resource</code> instances are also recommended.</p>
                     <p>So, when using regular DCAT, you might indicate that a <code>Resource</code> was created by a person identified by an <a href="https://orcid.org/">ORCID</a>, an international researcher identifier, using this profile you might indicate the creator using an identifier from the <a href="https://agentsdb.idnau.org/">Indigenous Data Network's <em>Agents Database</em></a> which stores additional Indigenous-relevant information about people and groups.</p>
                     <p>Also, when using DCAT, you might just indicate the theme of data by classifying a <code>Resource</code> with a <a href="linked.data.gov.au/def/anzsrc-for/2020">Fields of Research Code</a>. When using this profile you might still do that but might also select a more nuanced Indigenous research topic from the <a href="https://data.idnau.org/pid/vocab/idn-th">IDN Themes vocabulary</a>.</p>
                     <p>In addition to requiring the use of some DCAT-promoted patterns over others and recommended use of particular reference catalogues & vocabularies, this profile also constrains the ways in which several other DCAT properties should be used. All the constraints are still normal DCAT-style constraints.</p>
@@ -591,7 +592,7 @@
                     <p>That is the identifier for the <em>Koori Health Research Database</em> dataset.</p>
                     <p>It's unique ID bit is its acronym 'KHRD' and the <code>https://data.idnau.org/pid/</code> bit is what the IDN uses to make unique ID's into web addresses that work - are clickable.</p>
                     <h3>Existing Identifiers</h3>
-                    <p>If you already have a web address for your data, use that. For example, the <em>Australian Government Indigenous Programs & Policy Locations (AGIL) dataset</em> is already listed in the <em>data.gov.au</em> catalogue at <a href="https://data.gov.au/data/dataset/34b1c164-fbe8-44a0-84fd-467dba645aa7">https://data.gov.au/data/dataset/34b1c164-fbe8-44a0-84fd-467dba645aa7</a>, so we continue to use that web identifier. <a href="https://data.idnau.org/pid/AGIL">See our listing of that dataset</a>.</p>
+                    <p>If you already have a web address for your data, use that. For example, the <em>Australian Government Indigenous Programs & Policy Locations (AGIL) dataset</em> is already listed in the <em>data.gov.au</em> catalogue at <a href="https://data.gov.au/data/dataset/34b1c164-fbe8-44a0-84fd-467dba645aa7">https://data.gov.au/data/dataset/34b1c164-fbe8-44a0-84fd-467dba645aa7</a>, so we continue to use that web identifier. <a href="https://data.idnau.org/pid/agil">See our listing of that dataset</a>.</p>
                 </section>
                 <section id="indigeneity">
                     <h3>2.2 Indigeneity <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
@@ -599,7 +600,9 @@
                 <section id="roles">
                     <h3>2.3 Roles <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <p>All <em>Agents</em>, that is Organisations &amp; People, associated with resources such as datasets in IDN metadata need to have their <em>role</em> defined.</p>
+
                     <p>The roles we start with are those defined in the well-known <a href="https://linked.data.gov.au/def/data-roles">ISO's <em>Role Codes</em> vocabulary</a>.</p>
+
                     <p>This vocabulary contains standard roles such as:</p>
                     <ul>
                         <li>author</li>
@@ -612,12 +615,12 @@
                         <li>subject agent</li>
                         <li>subject agent representative</li>
                     </ul>
-                    <p>Some of these roles are present in the <a href="#eg-full">Full Example</a> below.</p>
+                    <p>Some of these roles are present in the <a href="#examples">Full Example</a> below.</p>
                     <p>In the technical versions of the examples below, you will see how pairs of Roles and Agents are grouped together in metadata so multiple Agents and Roles may be described for a single resource.</p>
                 </section>
                 <section id="agents">
                     <h3>2.4 Agents <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-                    <p>All Agents, that is Persons or Organisations, referred to by IDN metadata <em>MUST</em> be registered within the IDN Data Agents DB which is online at <em><strong>coming soon, Jan, 2023!</strong></em></p>
+                    <p>All Agents, that is Persons or Organisations, referred to by IDN metadata <em>MUST</em> be registered within the <a href="https://idnau.org/resources/agentsdb">IDN Data Agents DB</a>.</p>
                     <p>When registered, Agents are given a persistent identifier web address. Such identifiers may have been created elsewhere, or may be assigned by the Data Agents DB.</p>
                     <p>For example, here is the persistent identifier for the <em>Australian Data Archive</em>:</p>
                     <ul>
@@ -1278,7 +1281,7 @@ droles:custodian
                 <dt><a id="semantic-web"></a>Semantic Web</dt>
                 <dd>World Wide Web Consortium. <em>Semantic Web</em> 2015. Web Page. URL: <a href="https://www.w3.org/standards/semanticweb/">https://www.w3.org/standards/semanticweb/</a>, accessed 2020-06-14</dd>
                 <dt><a id="turtle"></a>Turtle</dt>
-                <dd>World Wide Web Consortium. <em>RDF 1.1 Turtle Terse RDF Triple Language</em>, W3C Recommendation (25 February 2014). URL: <a href="https://www.w3.org/standards/semanticweb/">https://www.w3.org/standards/semanticweb/</a></dd>
+                <dd>World Wide Web Consortium. <em>RDF 1.1 Turtle Terse RDF Triple Language</em>, W3C Recommendation (25 February 2014). URL: <a href="https://www.w3.org/TR/turtle/">https://www.w3.org/TR/turtle/</a></dd>
               </dl>
             </section>
         </div><!-- #content -->
