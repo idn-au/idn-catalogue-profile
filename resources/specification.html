@@ -160,8 +160,11 @@
                     <h3>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <p>This document refers to elements of various ontologies by short codes using namespace prefixes. The prefixes and their corresponding namespaces' URIs are:</p>
                     <table>
+                        <tr><th>aarr</th><td><code>https://data.idnau.org/pid/vocab/aarr/</code></td></tr>
+                        <tr><th>id</th><td><code>http://id.loc.gov/vocabulary/identifiers/</code></td></tr>
                         <tr><th>idncp</th><td><code>https://data.idnau.org/pid/cp</code></td></tr>
                         <tr><th>dcat</th><td><code>http://www.w3.org/ns/dcat#</code></td></tr>
+                        <tr><th>droles</th><td><code>https://linked.data.gov.au/def/data-roles/</code></td></tr>
                         <tr><th>dcterms</th><td><code>http://purl.org/dc/terms/</code></td></tr>
                         <tr><th>lc</th><td><code>https://data.idnau.org/pid/vocab/lc-labels/</code></td></tr>
                         <tr><th>owl</th><td><code>http://www.w3.org/2002/07/owl#</code></td></tr>
@@ -600,7 +603,7 @@
                 
                     <p>If you already have a web address for your data, use that. For example, <em>"Australian First Nations response to the pandemic: A dramatic reversal of the 'gap'" (2021)</em> already has a Digital Object Identifier <code>https://doi.org/10.1111/jpc.15701</code>, so we continue to use that web identifier as the basis of an IRI.</p> <!--to do: "See our listing of that dataset"--> 
 
-                    <p>It is also possible to use existing web addresses for Organisations and Persons. See the KurrawonAI guide to <a href="https://docs.kurrawong.ai/concepts/agents/patterns/#reusing-identifiers-as-a-pid" target="_blank" rel="noopener noreferrer">Agent Patterns</a> for examples that use addresses from the Research Organization Registry (ROR) and the Open Researcher and Contributor Identifier registry.</p>
+                    <p>It is also possible to use existing web addresses for Organisations and Persons. See the KurrawonAI guide to <a href="https://docs.kurrawong.ai/concepts/agents/patterns/#reusing-identifiers-as-a-pid" target="_blank" rel="noopener noreferrer">Agent Patterns</a> for examples that use addresses from the Research Organization Registry (ROR) and the Open Researcher and Contributor Identifier (ORCID) registry.</p>
                     
                 </section>
                 <section id="indigeneity">
@@ -819,11 +822,11 @@
                         <p class="req"><strong>Req AG2:</strong> Each <code>Agent</code> instance MUST be described with at least the <code>sdo:name</code> property and, if an <code>sdo:Organization</code>, also an <code>sdo:url</code> property with a <code>xsd:anyURI</code> value or, if a <code>sdo:Person</code>, an <code>sdo:email</code> property with a <code>xsd:anyURI</code> value.</p>
                         <p class="req"><strong>Req AG3:</strong> Each <code>Agent</code> instance SHOULD be described with a <code>sdo:description</code> property and, if the <code>Agent</code> has them, identifiers for it should be indicated with <code>sdo:identifier</code> with either <code>xsd:anyURI</code>, <code>xsd:token</code> or a datatype from the <a href="http://id.loc.gov/vocabulary/identifiers" target="_blank" rel="noopener noreferrer">Library of Congress Standard Identifiers</a> vocabulary.</p>
                         <p class="req"><strong>Req AG4:</strong> Each <code>Agent</code> MAY relate other information using <em>schema.org</em> properties, for example <code>sdo:affiliation</code> to link a <code>sdo:Person</code> to an <code>sdo:Organization</code>.</p>
+                        <p class="req"><strong>Req AG5:</strong> Each <code>Agent</code> MAY relate to another party using <code>dcat:qualifiedRelation</code> property with a <code>dcat:role</code> indicating a <code>skos:Concept</code> from the <em>Agent to Agent Relationship Roles</em> vocabulary.</p>
                         <p class="eg">
                             <span>Example: An Organization with an example Australian Business Number identifer and a Person affiliated with it</span>
 
-PREFIX id: &lt;http://id.loc.gov/vocabulary/identifiers/&gt;
-                                
+                            
 &lt;https://kurrawong.ai&gt;
     a sdo:Organization ;
     sdo:identifier "31353542036"^^id:ausbn ;
@@ -837,7 +840,13 @@ PREFIX id: &lt;http://id.loc.gov/vocabulary/identifiers/&gt;
     sdo:name "Nicholas J. Car"@en ;
     sdo:email "nick@kurrawong.ai"^^xsd:anyURI ;
     sdo:affiliation &lt;https://kurrawong.ai&gt; ;
-.
+    dcat:qualifiedRelation [
+        a dcat:Relationship ;
+            dcat:hadRole aarr:affiliateOf ;
+            sdo:agent &lt;https://kurrawong.ai&gt;
+        ] ;
+    .
+                        
                         </p>
                     </section>
                     <section id="concept">
@@ -875,12 +884,10 @@ PREFIX id: &lt;http://id.loc.gov/vocabulary/identifiers/&gt;
                     <p>IDN metadata must be represented according to certain classes with certain properties, including relations between classes, as defined in the section above. This section defines the requirements for particular properties to indicate particular values. These values are mostly items in particular vocabularies and catalogues managed by the IDN itself and the result of these requirements is to ensure that IDN metadata is related to values understood by the IDN.</p>
                     <p class="req"><strong>Req V1:</strong> Each <code>Resource</code> instance MUST be categorised with at least one value from the <a>IDN Data Themes</a> vocabulary, indicated with a <code>theme</code> property.</p>
                     <p class="req"><strong>Req V2:</strong> The roles of <code>Agent</code> instances with relation to a <code>Resource</code> MUST be indicated with the <code>hadRole</code> property and selected from the <a href="https://linked.data.gov.au/def/data-roles">IDN Role Codes Vocabulary</a>.</p>
-                    <p class="req"><strong>Req V3:</strong> Each <code>Agent</code> instance referenced by an <code>Attribution</code> instance, if the <code>Agent</code> is Indigenous SHOULD be registered within the <a>IDN Agents Catalogue</a>.</p>
+                    <p class="req"><strong>Req V3:</strong> Each <code>Agent</code> instance referenced by an <code>Attribution</code> instance, if the <code>Agent</code> is Indigenous SHOULD be registered within the <a href="https://agentsdb.idnau.org">IDN Agents Catalogue</a>.</p>
                     <p class="eg">
                         <span>Example: A Resource with a qualified Attribution</span>
 &lt;http://example.com/resource/x&gt;
-
-PREFIX droles: &lt;https://linked.data.gov.au/def/data-roles&gt;
                         
     a dcat:Resource ;
     ...
@@ -1031,6 +1038,17 @@ The content of this catalogue conforms to the Indigenous Data Network's Catalogu
 
 # From the IDN Agents Catalogue
 &lt;https://orcid.org/0000-0002-8742-7730&gt;
+    a sdo:Person ;
+    sdo:name "Nicholas J. Car"@en ;
+    sdo:email "nick@kurrawong.ai"^^xsd:anyURI ;
+    sdo:affiliation &lt;https://kurrawong.ai&gt; ;
+    dcat:qualifiedRelation [
+        a dcat:Relationship ;
+            dcat:hadRole aarr:affiliateOf ;
+            sdo:agent &lt;https://kurrawong.ai&gt;
+        ] ;
+    .
+    &lt;https://orcid.org/0000-0002-8742-7730&gt;
     a sdo:Person ;
     sdo:name "Nicholas J. Car"@en ;
     sdo:email "nick@kurrawong.ai"^^xsd:anyURI ;
