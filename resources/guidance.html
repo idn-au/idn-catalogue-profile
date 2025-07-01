@@ -118,21 +118,21 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         &lt;https://vocabularyserver.com/apais/xml.php?skosTema=7> ,
         &lt;https://vocabularyserver.com/apais/xml.php?skosTema=8> ;
     prov:qualifiedAttribution
-        [
+        [a prov:Attribution ; 
             dcat:hadRole
                 &lt;https://linked.data.gov.au/def/data-roles/author> ,
                 &lt;https://linked.data.gov.au/def/data-roles/author> ;
             prov:agent &lt;https://data.idnau.org/pid/person/8cfcfc08-3cec-40e1-a772-a8860c118c9d> ;
         ] ,
-        [
+        [a prov:Attribution ;
             dcat:hadRole
                 &lt;https://linked.data.gov.au/def/data-roles/custodian> ,
                 &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
-            prov:agent &lt;https://data.idnau.org/pid/organization/29c3e9cb-5ea5-456e-b4fa-a90828207ffc> ;
+            prov:agent &lt;https://data.idnau.org/pid/org/29c3e9cb-5ea5-456e-b4fa-a90828207ffc> ;
         ] ;
 .
 
-&lt;https://data.idnau.org/pid/organization/29c3e9cb-5ea5-456e-b4fa-a90828207ffc>
+&lt;https://data.idnau.org/pid/org/29c3e9cb-5ea5-456e-b4fa-a90828207ffc>
     a sdo:Organization ;
     sdo:name "University of Queensland Library" ;
 .
@@ -224,7 +224,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
                             <strong>Resource Y is about the Wiradjuri people - an Indigenous community</strong>
                             <ul>
                                 <li><pre>:resource-y
-        prov:qualifiedAttribution [
+        prov:qualifiedAttribution [a prov:Attribution ;
             prov:agent &lt;http://example.com/community/wiradjuri&gt; ;
             prov:hadRole droles:subjectAgent ;
         ]</pre></li>
@@ -342,7 +342,7 @@ PREFIX prov: &lt;http://www.w3.org/ns/prov#>
     a dcat:Resource ;
     dcterms:title "Briscoe-Smith Archive" ;
     dcterms:description "Historical population data and biographical records" ;
-    prov:qualifiedAttribution [
+    prov:qualifiedAttribution [a prov:Attribution ;
         dcat:hadRole droles:author ;
         prov:agent &lt;https://orcid.org/0000-0002-5477-0874> , "Gordon Briscoe" ;
     ] ,
@@ -479,7 +479,7 @@ PREFIX prov: &lt;http://www.w3.org/ns/prov#>
         &lt;https://data.idnau.org/pid/vocab/idn-th/place> ,
         &lt;https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-things> ;
     prov:qualifiedAttribution
-        [
+        [a prov:Attribution ;
             dcat:hadRole droles:custodian ;
             prov:agent &lt;https://linked.data.gov.au/org/abs>
         ] ,
