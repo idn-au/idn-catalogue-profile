@@ -601,9 +601,9 @@
                     <p>It's unique ID bit is its acronym 'KHRD' and the <code>https://data.idnau.org/pid/</code> bit is what the IDN uses to make unique ID's into web addresses that work - are clickable.</p>
                     <h3>Existing Identifiers</h3>
                 
-                    <p>If you already have a web address for your data, use that. For example, <em>"Australian First Nations response to the pandemic: A dramatic reversal of the 'gap'" (2021)</em> already has a Digital Object Identifier <code>https://doi.org/10.1111/jpc.15701</code>, so we continue to use that web identifier as the basis of an IRI.</p> <!--to do: "See our listing of that dataset"--> 
+                    <p>If you already have a web address for your data, use that. For example, <em>"Australian First Nations response to the pandemic: A dramatic reversal of the 'gap'"</em> (2021) already has Digital Object Identifier <code>https://doi.org/10.1111/jpc.15701</code>, so we continue to use that identifier, which is also a web address, as the basis of an IRI.</p> <!--to do: "See our listing of that dataset"--> 
 
-                    <p>It is also possible to use existing web addresses for Organisations and Persons. See the KurrawonAI guide to <a href="https://docs.kurrawong.ai/concepts/agents/patterns/#reusing-identifiers-as-a-pid" target="_blank" rel="noopener noreferrer">Agent Patterns</a> for examples that use addresses from the Research Organization Registry (ROR) and the Open Researcher and Contributor Identifier (ORCID) registry.</p>
+                    <p>It is also possible to use existing web addresses as identifiers for Organisations and Persons. See the KurrawongAI guide to <a href="https://docs.kurrawong.ai/concepts/agents/patterns/#reusing-identifiers-as-a-pid" target="_blank" rel="noopener noreferrer">Agent Patterns</a> for examples that use addresses from the Research Organization Registry (ROR) and the Open Researcher and Contributor Identifier (ORCID) registry.</p>
                     
                 </section>
                 <section id="indigeneity">
@@ -822,7 +822,7 @@
                         <p class="req"><strong>Req AG2:</strong> Each <code>Agent</code> instance MUST be described with at least the <code>sdo:name</code> property and, if an <code>sdo:Organization</code>, also an <code>sdo:url</code> property with a <code>xsd:anyURI</code> value or, if a <code>sdo:Person</code>, an <code>sdo:email</code> property with a <code>xsd:anyURI</code> value.</p>
                         <p class="req"><strong>Req AG3:</strong> Each <code>Agent</code> instance SHOULD be described with a <code>sdo:description</code> property and, if the <code>Agent</code> has them, identifiers for it should be indicated with <code>sdo:identifier</code> with either <code>xsd:anyURI</code>, <code>xsd:token</code> or a datatype from the <a href="http://id.loc.gov/vocabulary/identifiers" target="_blank" rel="noopener noreferrer">Library of Congress Standard Identifiers</a> vocabulary.</p>
                         <p class="req"><strong>Req AG4:</strong> Each <code>Agent</code> MAY relate other information using <em>schema.org</em> properties, for example <code>sdo:affiliation</code> to link a <code>sdo:Person</code> to an <code>sdo:Organization</code>.</p>
-                        <p class="req"><strong>Req AG5:</strong> Each <code>Agent</code> MAY relate to another party using <code>dcat:qualifiedRelation</code> property with a <code>dcat:role</code> indicating a <code>skos:Concept</code> from the <em>Agent to Agent Relationship Roles</em> vocabulary.</p>
+                        <p class="req"><strong>Req AG5:</strong> Each <code>Agent</code> MAY relate to another agent using <code>dcat:qualifiedRelation</code> property with a <code>dcat:role</code> indicating a <code>skos:Concept</code> from the <em><a href="https://data.idnau.org/pid/vocab/aarr"<Agent to Agent Relationship Roles</a></em> vocabulary.</p>
                         <p class="eg">
                             <span>Example: An Organization with an example Australian Business Number identifer and a Person affiliated with it</span>
 
