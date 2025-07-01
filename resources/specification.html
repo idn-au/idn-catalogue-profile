@@ -821,7 +821,7 @@
                         <p class="req"><strong>Req AG1:</strong> Each <code>Agent</code> instance MUST be either an <code>sdo:Organization</code> or a <code>sdo:Person</code> instance.</p>
                         <p class="req"><strong>Req AG2:</strong> Each <code>Agent</code> instance MUST be described with at least the <code>sdo:name</code> property and, if an <code>sdo:Organization</code>, also an <code>sdo:url</code> property with a <code>xsd:anyURI</code> value or, if a <code>sdo:Person</code>, an <code>sdo:email</code> property with a <code>xsd:anyURI</code> value.</p>
                         <p class="req"><strong>Req AG3:</strong> Each <code>Agent</code> instance SHOULD be described with a <code>sdo:description</code> property and, if the <code>Agent</code> has them, identifiers for it should be indicated with <code>sdo:identifier</code> with either <code>xsd:anyURI</code>, <code>xsd:token</code> or a datatype from the <a href="http://id.loc.gov/vocabulary/identifiers" target="_blank" rel="noopener noreferrer">Library of Congress Standard Identifiers</a> vocabulary.</p>
-                        <p class="req"><strong>Req AG4:</strong> Each <code>Agent</code> MAY relate other information using <em>schema.org</em> properties, for example <code>sdo:affiliation</code> to link a <code>sdo:Person</code> to an <code>sdo:Organization</code>.</p>
+                        <p class="req"><strong>Req AG4:</strong> Each <code>Agent</code> MAY relate other information using <em>schema.org</em> properties, for example <code>sdo:alumniOf</code> to link a <code>sdo:Person</code> to an <code>sdo:Organization</code>.</p> <!-- alumniOf is chosen because it does not have a clear equivalent in the aarr vocab, so this is a use case for using a schema.org property instead of a dcat:qualifiedRelation-->
                         <p class="req"><strong>Req AG5:</strong> Each <code>Agent</code> MAY relate to another agent using <code>dcat:qualifiedRelation</code> property with a <code>dcat:role</code> indicating a <code>skos:Concept</code> from the <a href="https://data.idnau.org/pid/vocab/aarr">Agent to Agent Relationship Roles</a> vocabulary.</p>
                         <p class="eg">
                             <span>Example: An Organization with an example Australian Business Number identifer and a Person affiliated with it</span>
@@ -835,11 +835,19 @@
     sdo:url "https://kurrawong.ai"^^xsd:anyURI ;
 .
 
+&lt;https://linked.data.gov.au/org/uom&gt;
+    a sdo:Organization ;
+    sdo:identifier "https://ror.org/01ej9dk98"^^id:ror ;
+    sdo:name "University of Melbourne" ;
+    sdo:url "https://www.unimelb.edu.au"^^xsd:anyURI ;
+.
+                            
 &lt;https://orcid.org/0000-0002-8742-7730&gt;
     a sdo:Person ;
     sdo:name "Nicholas J. Car"@en ;
     sdo:email "nick@kurrawong.ai"^^xsd:anyURI ;
     sdo:affiliation &lt;https://kurrawong.ai&gt; ;
+    sdo:alumniOf &lt;https://linked.data.gov.au/org/uom&gt; ;
     dcat:qualifiedRelation [
         a dcat:Relationship ;
             dcat:hadRole aarr:affiliateOf ;
