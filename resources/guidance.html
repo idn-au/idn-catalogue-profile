@@ -260,6 +260,32 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 
 
                 </section>
+
+<!-- to do
+ <section>
+
+     <h3>3.4 Indicate Indigenous languages</h3>
+                    <p>We can indicate Indigenous languages that are in resource content. A resource may be <em>about</em> Indigenous languages; feature Indigenous languages as part of the resource <em>content</em>; or both! We have already seen above that basic metadata (section 3.1) can include tags from <em>AustLang</em> to indicate that an Indigenous langauge is a theme of the resource. We recommend also using AusLang to indicate that the resource text (or spoken word, such as in a sound recording or video) is itself an Indigenous language</p>
+
+                    <p>Use <a href="https://data.idnau.org/pid/austlang">AustLang</a> to indicate Indigenous language in resource content:</p>
+
+                    <ul>
+                        <li>
+                            e.g. <em>Pitjantjatjara</em> language:
+                            <ul>
+                                <li>
+                                    <pre>
+                                        :resource-x dcterms:language &lt;https://data.idnau.org/pid/austlang/C6&gt;
+                                    </pre>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+
+</section>
+-->
+             
             </section>
             <section id="calculate-scores">
                 <img src="images/fair-and-care.png" alt="FAIR and CARE" style="float:right; width:500px;" />
@@ -287,15 +313,17 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
                 <p>Some systems use very different metadata formats, not just models.</p>
             </section>
             <section id="validate">
-                <img src="images/tick-cross.png" style="float:right; width:500px" alt="Tick Cross" />
+                <img src="images/tick-cross.png" style="float:right; width:300px" alt="Tick Cross" />
                 <h2>7. Validate my metadata</h2>
-                <p>One of the resources within this profile is a <a href="https://idn-au.github.io/idn-catalogue-profile/resources/validator.ttl">validation data file</a>. It can be used with validation tools to automatically check the validition of metadata.</p>
-                    <img src="images/shacl_validator_tool.png" style="float:right; width:500px; border:solid 1px #990000;" alt="Validator Tool  Screenshot" />
-                <p>A <a href="https://tools.kurrawong.ai/tools/validate">validation tool</a> that uses the validation data file is also available. Select the "IDN CP Validator" option from the <em>Use Validators</em> selector.</p>
+                <p>To validate data against this profile, there is a <em>Validation file</em> and a <em>Validation tool</em> pre-loaded with the validation file. See the <a href="specification.html#validation">Specification Document</a> <em>Validation Section</em> for valid metadata examples.</p>
+                <h3>Validation file</h3>                    
+                <p>One of the resources within this profile is a <a href="https://idn-au.github.io/idn-catalogue-profile/profile.html">Validator in SHACL</a> data file. It can be used with validation tools to automatically check the validition of metadata.</p>
+                <h3>Validation tool</h3>
+                <p>A <a href="https://tools.kurrawong.ai/tools/validate">Validation tool</a> that uses the Validation data file is also available. (Select the "IDN CP Validator" option from the <em>Use Validators</em> selector.)</p>
+                <img src="images/shacl_validator_tool.png" style="float:right; width:500px; border:solid 1px #990000;" alt="Validator Tool  Screenshot" />
                 <ul>
-                    <li><a href="specification.html#validation">See the Specification Document's Validation Section</a></li>
                 </ul>
-                <p>This validator's only able to test for structural and values validation - is the metadata correctly formatted and machine-readable - it can't test for the <em>appropriateness</em> or the <em>goodness</em> of metadata. For that, you will need to try calculating FAIR or CARE scores and compare what you get to your own expectations of your metadata.</p>
+                <p>This validator file and the validator tool are only able to test for structural and values validation - is the metadata correctly formatted and machine-readable - it can't test for the <em>appropriateness</em> or the <em>goodness</em> of metadata. For that, you will need to try calculating FAIR or CARE scores and compare what you get to your own expectations of your metadata.</p>
             </section>
             <section id="examples">
                 <h2>8. Examples</h2>
