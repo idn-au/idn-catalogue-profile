@@ -482,7 +482,7 @@
         dcterms:type &lt;http://purl.org/dc/dcmitype/PhysicalObject> ;
         dcterms:title "Tjukinya" ;
         dcterms:description "Folktale: The little red hen retold in Pitjantjatjara" ;
-        dcterms:creator &lt;https://example.com/agent/123> ;
+        dcterms:creator &lt;https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117> ;
         dcterms:publisher &lt;https://example.com/agent/123456> ;
         dcat:theme &lt;https://data.idnau.org/pid/austlang/C6> ;
         prov:qualifiedAttribution [ a prov:Attribution; 
@@ -492,6 +492,7 @@
         dcterms:published "1980"^^xsd:gYear ;
         dcterms:theme &lt;https://data.idnau.org/pid/austlang/C6> ;
         dcat:accessRights "Not for Inter-Library Loan" ;
+        dcterms:language &lt;https://data.idnau.org/pid/austlang/C6> ;
     .
                         </p>
                         <p>Note that the reference to the <em>publisher</em>, the Summer Institute of Linguistics, is by persistent identifier web address, <code>https://example.com/agent/456</code>, that resolves to more information about the Institute. This particular identifier is from the <a htef="https://agentsdb.idnau.org/">IDN Agents Database</a>, so the IDN potentially knows more information about the Institute than just basic facts such as its name, for example whether it is an Indigenous-led organisation.</p>
@@ -513,6 +514,7 @@
     "hadRole": "http://www.w3.org/ns/prov#hadRole",
     "attribution": "http://www.w3.org/ns/prov#qualifiedAttribution",
     "austlang": "https://data.idnau.org/pid/austlang/C6",
+    "language": "http://purl.org/dc/terms/language",
     "droles": "https://linked.data.gov.au/def/data-roles/"
   },
   "@graph": [
@@ -525,7 +527,7 @@
       "title": "Tjukinya",
       "description": "Folktale: The little red hen retold in Pitjantjatjara",
       "creator": {
-        "@id": "https://example.com/agent/123"
+        "@id": "https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117"
       },
       "publisher": {
         "@id": "https://example.com/agent/123456"
@@ -549,6 +551,9 @@
     ],
       "agent": {
         "@id": "https://linked.data.gov.au/org/nla"
+      },
+      "language": {
+        "@id": "https://data.idnau.org/pid/austlang/C6"
       },
       "hadRole": {
         "@id": "droles:custodian"
@@ -575,7 +580,8 @@
     &lt;dcterms:type rdf:resource="http://purl.org/dc/dcmitype/PhysicalObject"/>
     &lt;dcterms:title>Tjukinya&lt;/dcterms:title>
     &lt;dcterms:description>Folktale: The little red hen retold in Pitjantjatjara&lt;/dcterms:description>
-    &lt;dcterms:creator rdf:resource="https://example.com/agent/123"/>
+    &lt;dcterms:creator rdf:resource="https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117"/>
+    &lt;dcterms:language rdf:resource="https://data.idnau.org/pid/austlang/C6"/"/>
     &lt;dcterms:publisher rdf:resource="https://example.com/agent/123456"/>
     &lt;prov:qualifiedAttribution rdf:nodeID="n09d0151a1e6140cfb188576200eb9d69b1"/>
     &lt;dcterms:published rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1980&lt;/dcterms:published>
@@ -697,9 +703,18 @@
                     <p class="todo">TODO</p>
                 </section>
                 <section id="policies">
-                    <h2>2.7 Policies <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                    <h3>2.7 Policies <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <p class="todo">TODO</p>
                 </section>
+                 <section id="language">
+                    <h3>2.8 Language <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <p>Where a Resource includes text or spoken Indigenous languages, the Resource metadata <em>SHOULD</em> indicate this with languages selected from the <a href="https://data.idnau.org/pid/austlang">AustLang</a> vocabulary</p>
+
+                     <p>See requirements under 2.6 Theming where the Resource is <em>about</em> an Indigenous language. Note that a Resource may be both about Indigenous language and written / spoken in Indigenous languages</p>
+
+                 
+                 
+                 </section>
             </sections>
             <section id="model">
                 <h2>3. Model <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
