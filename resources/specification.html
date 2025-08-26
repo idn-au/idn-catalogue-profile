@@ -402,6 +402,13 @@
                                     <p>See the <a href="#spatality">Spatiality</a> pattern section.</p>
                                 </td>
                             </tr>
+                                 <tr>
+                                <th>Resource language</th>
+                                <td>
+                                    <p>The language of the resource content</p>
+                                    <p>Note this might the language of text, or as spoken in a video or audio resource. </p>
+                                </td>
+                            </tr>
                         </table>
                     </section>
                     <section id="all-ind">
@@ -446,6 +453,12 @@
                                     <p>Indicating the spatial coverage of the resource, or its place of origin, with reference to a names spatial feature, in particular Indigenous spatial features, such as those provided by the Indigenous Data Network's reference <a href="https://data.idnau.org/s">Spatial Data Catalog</a>.</p>
                                 </td>
                             </tr>
+                            <tr>
+                                <th>Resource language</th>
+                                <td>
+                                    <p>Indicating an Indigenous language of the resource, as read in a text or heard in video or audio media, using the <a href="https://data.idnau.org/pid/austlang">AustLang</a> vocabulary.</p>
+                                </td>
+                            </tr>
                         </table>
                     </section>
                 </section>
@@ -477,16 +490,17 @@
         dcterms:type &lt;http://purl.org/dc/dcmitype/PhysicalObject> ;
         dcterms:title "Tjukinya" ;
         dcterms:description "Folktale: The little red hen retold in Pitjantjatjara" ;
-        dcterms:creator &lt;https://example.com/agent/123> ;
+        dcterms:creator &lt;https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117> ;
         dcterms:publisher &lt;https://example.com/agent/123456> ;
         dcat:theme &lt;https://data.idnau.org/pid/austlang/C6> ;
         prov:qualifiedAttribution [ a prov:Attribution; 
             prov:hadRole &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
             prov:agent &lt;https://linked.data.gov.au/org/nla>
         ] ;
-        dcterms:published "1980"^^xsd:gYear ;
+        dcterms:issued "1980"^^xsd:gYear ;
         dcterms:theme &lt;https://data.idnau.org/pid/austlang/C6> ;
         dcat:accessRights "Not for Inter-Library Loan" ;
+        dcterms:language &lt;https://data.idnau.org/pid/austlang/C6> ;
     .
                         </p>
                         <p>Note that the reference to the <em>publisher</em>, the Summer Institute of Linguistics, is by persistent identifier web address, <code>https://example.com/agent/456</code>, that resolves to more information about the Institute. This particular identifier is from the <a htef="https://agentsdb.idnau.org/">IDN Agents Database</a>, so the IDN potentially knows more information about the Institute than just basic facts such as its name, for example whether it is an Indigenous-led organisation.</p>
@@ -520,7 +534,7 @@
       "title": "Tjukinya",
       "description": "Folktale: The little red hen retold in Pitjantjatjara",
       "creator": {
-        "@id": "https://example.com/agent/123"
+        "@id": "https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117"
       },
       "publisher": {
         "@id": "https://example.com/agent/123456"
@@ -528,7 +542,7 @@
       "attribution": {
         "@id": "_:nb0e54b223f37485b8555e8d45b468bf9b1"
       }
-      "published": {
+      "issued": {
         "@type": "year",
         "@value": "1980"
       },
@@ -544,6 +558,9 @@
     ],
       "agent": {
         "@id": "https://linked.data.gov.au/org/nla"
+      },
+      "language": {
+        "@id": "https://data.idnau.org/pid/austlang/C6"
       },
       "hadRole": {
         "@id": "droles:custodian"
@@ -570,10 +587,11 @@
     &lt;dcterms:type rdf:resource="http://purl.org/dc/dcmitype/PhysicalObject"/>
     &lt;dcterms:title>Tjukinya&lt;/dcterms:title>
     &lt;dcterms:description>Folktale: The little red hen retold in Pitjantjatjara&lt;/dcterms:description>
-    &lt;dcterms:creator rdf:resource="https://example.com/agent/123"/>
+    &lt;dcterms:creator rdf:resource="https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117"/>
+    &lt;dcterms:language rdf:resource="https://data.idnau.org/pid/austlang/C6"/"/>
     &lt;dcterms:publisher rdf:resource="https://example.com/agent/123456"/>
     &lt;prov:qualifiedAttribution rdf:nodeID="n09d0151a1e6140cfb188576200eb9d69b1"/>
-    &lt;dcterms:published rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1980&lt;/dcterms:published>
+    &lt;dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1980&lt;/dcterms:issued>
     &lt;dcat:theme rdf:resource="https://data.idnau.org/pid/austlang/C6"/>
     &lt;dcat:accessRights>Not for Inter-Library Loan&lt;/dcat:accessRights>
   &lt;/rdf:Description>
@@ -692,10 +710,15 @@
                     <p class="todo">TODO</p>
                 </section>
                 <section id="policies">
-                    <h2>2.7 Policies <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                    <h3>2.7 Policies <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <p class="todo">TODO</p>
                 </section>
-            </section>
+                 <section id="language">
+                    <h3>2.8 Language <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <p>Where a Resource includes text or spoken Indigenous languages, the Resource metadata <em>SHOULD</em> indicate this with languages selected from the <a href="https://data.idnau.org/pid/austlang">AustLang</a> vocabulary</p>
+                    <p>See requirements under 2.6 Theming where the Resource is <em>about</em> an Indigenous language. Note that a Resource may be both about Indigenous language and written / spoken in Indigenous languages.</p>
+                 </section>
+            </sections>
             <section id="model">
                 <h2>3. Model <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
                 <div id="structural-figure" class="figure">
@@ -904,7 +927,7 @@
                     <p class="req"><strong>Req V1:</strong> Each <code>Resource</code> instance MUST be categorised with at least one value from the <a>IDN Data Themes</a> vocabulary, indicated with a <code>theme</code> property.</p>
                     <p class="req"><strong>Req V2:</strong> The roles of <code>Agent</code> instances with relation to a <code>Resource</code> MUST be indicated with the <code>hadRole</code> property and selected from the <a href="https://linked.data.gov.au/def/data-roles">IDN Role Codes Vocabulary</a>.</p>
                     <p class="req"><strong>Req V3:</strong> Each <code>Agent</code> instance referenced by an <code>Attribution</code> instance, if the <code>Agent</code> is Indigenous SHOULD be registered within the <a href="https://agentsdb.idnau.org">IDN Agents Catalogue</a>.</p>
-                    <p class="eg">
+<p class="eg">
                         <span>Example: A Resource with a qualified Attribution</span>
 &lt;http://example.com/resource/x&gt;
                         
@@ -937,10 +960,11 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
     a dcat:Resource ;
     dcterms:creator &lt;https://example.com/agent/123> ;
     dcterms:description "Folktale: The little red hen retold in Pitjantjatjara" ;
-    dcterms:published "1980"^^xsd:gYear ;
+    dcterms:issued "1980"^^xsd:gYear ;
     dcterms:publisher &lt;https://example.com/agent/123456> ;
     dcterms:title "Tjukinya" ;
     dcat:theme &lt;https://data.idnau.org/pid/austlang/C6> ;
+    dcterms:language &lt;https://data.idnau.org/pid/austlang/C6> ;
     prov:qualifiedAttribution [a prov:Attribution;
         prov:hadRole &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
         prov:agent &lt;https://linked.data.gov.au/org/nla>
@@ -964,6 +988,9 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
   },
   "@id": "https://data.idnau.org/pid/10128420",
   "@type": "dcat:Resource",
+  "language": {
+    "@id": "austlang:C6"
+  },
   "title": "Tjukinya",
   "description": "Folktale: The little red hen retold in Pitjantjatjara",
   "creator": {
@@ -972,7 +999,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
   "publisher": {
     "@id": "https://example.com/agent/123456"
   },
-  "published": {
+  "issued": {
     "@type": "xsd:gYear",
     "@value": "1980"
   },
@@ -995,9 +1022,10 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
     &lt;rdf:type rdf:resource="http://www.w3.org/ns/dcat#Resource"/>
     &lt;creator rdf:resource="https://example.com/agent/123"/>
     &lt;publisher rdf:resource="https://example.com/agent/123456"/>
-    &lt;published rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1980&lt;/published>
+    &lt;issued rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1980&lt;/issued>
     &lt;dcat:theme rdf:resource="https://data.idnau.org/pid/austlang/C6"/>
-  &lt;/rdf:Description>
+    &lt;dcterms:language rdf:resource="https://data.idnau.org/pid/austlang/C6"/>
+        &lt;/rdf:Description>
 &lt;/rdf:RDF>
                     </p>
                 </section>

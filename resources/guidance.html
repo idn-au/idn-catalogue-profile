@@ -5,7 +5,7 @@
     <link rel="icon" type="image/x-icon" href="images/idn-logo-64.ico">
     <link href="idn.css" rel='stylesheet' type='text/css'>
     <title>IDN Catalogue Profile - Guidance</title>
-  </head>
+  </head></em>
     <body>
         <div id="menu" style="grid-column:1;">
             <h4>Contents</h4>
@@ -85,17 +85,17 @@
             </section>
             <section id="create">
                 <a href="https://idn-au.github.io/idn-metadata-creator/">
-                    <img src="images/metadata-entry-tool.png" style="float:right; width:500px; border:solid 1px #990000;" alt="Metadata Creation Tool  Screenshot" />
+                    <img src="images/metadataTool.png" style="float:right; width:500px; border:solid 1px #990000;" alt="Metadata Entry Tool  Screenshot" />
                 </a>
                 <h2>2. Create metadata according to the profile</h2>
                 <p>You will need to produce metadata in a specific format - <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework">RDF</a> - to meet the requirements of this Profile, however, there are tools to assist with this.</p>
                 <p>You can:</p>
                 <ol>
-                    <li>Use the <a href="https://metadatav2.idnau.org">Metadata Entry Form</a></li>
+                    <li>Use the <a href="https://metadatav2.idnau.org">Metadata Entry Tool</a></li>
                     <li>Type out RDF data, manually</li>
                     <li>Use Software</li>
                 </ol>
-                <h4>2.1 Use the <a href="https://metadatav2.idnau.org">Metadata Entry Form</a></h4>
+                <h4>2.1 Use the <a href="https://metadatav2.idnau.org">Metadata Entry Tool</a></h4>
                 <p>This is our recommended starting point</p>
                 <p>The Indigenous Data Network maintains an online, interactive, tool that you can use to create metadata according to the IDN Catalogue Profile.</p>
                 <p>The tool contains examples you can load, video tutorials and displays the metadata it creates as you fill in form fields.</p>
@@ -146,8 +146,8 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
                 </div>
                 <h4>2.2 Type out RDF data, manually</h4>
                 <p>The metadata format for the IDN's Catalogue Profile is <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework">RDF</a>, which can be created in a plain text file.</p>
-                <p>The <a href="https://idn-au.github.io/idn-metadata-creator/">Metadata Entry Form</a> auto-generates RDF as you fill it out, but you are also able to manually type out data files if you like.</p>
-                <p>See this profile's <a href="specification.html#examples">Specification Document's Examples Section</a> for a complete RDF data file and remember: you can <a href="">validate RDF data files</a> supplied in this profile</p>
+                <p>The <a href="https://idn-au.github.io/idn-metadata-creator/">Metadata Entry Tool</a> auto-generates RDF as you fill it out, but you are also able to manually type out data files if you like.</p>
+                <p>See this profile's <a href="specification.html#examples">Specification Document's Examples Section</a> for a complete RDF data file and remember: you can <a href="https://idn-au.github.io/idn-catalogue-profile/resources/guidance.html#validate">validate RDF data files</a> supplied in this profile</p>
                 <p>Since the IDN CP is a profile of <a href="https://www.w3.org/TR/vocab-dcat/">DCAT, the Data Catalog Vocabulary</a>, and reuss many DCAT elements, you can use DCAT's documentation that contains lots of RDF examples too.</p>
                 <h4>2.3 Use Software</h4>
                 <p>Lots of catalogue tools are able to export metadata in formats that are compatible with this profile. For example, the open source <a href="https://ckan.org/">CKAN</a> tool can <a href="https://github.com/ckan/ckanext-dcat">implement its own profiles of DCAT</a> which are compatible with this profile! Another example: the <a href="https://emu.axiell.com/">EMu collections management software</a> can export Dublin Core metadata in an XML format that is also interpretable as RDF.</p>
@@ -260,19 +260,37 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 
 
                 </section>
-            </section>
+
+                <section>
+
+     <h3>3.4 Indicate Indigenous languages</h3>
+                    <p>We can indicate Indigenous languages that are in resource content. A resource may be <em>about</em> Indigenous languages; feature Indigenous languages as part of the resource <em>content</em>; or both! We have already seen above that basic metadata (section 3.1) can include tags from <em>AustLang</em> to indicate that an Indigenous langauge is a theme of the resource. We recommend also using AusLang to indicate that the resource text (or spoken word, such as in a sound recording or video) is itself in an Indigenous language.</p>
+
+                    <p>Use <a href="https://data.idnau.org/pid/austlang">AustLang</a> to indicate Indigenous language in resource content:</p>
+
+                    <ul>
+                        <li>
+                            e.g. <em>Pitjantjatjara</em> language:
+                            <ul>
+                                <li><pre>:resource-x dcterms:language &lt;https://data.idnau.org/pid/austlang/C6&gt;</pre></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+
+          </section>             
             <section id="calculate-scores">
                 <img src="images/fair-and-care.png" alt="FAIR and CARE" style="float:right; width:500px;" />
                 <h2>4. Calculate FAIR or CARE scores</h2>
                 <p>One aim of this catalogue profile is to for it to be able to be used either manually or automatically with software to calculate <a href="https://force11.org/info/the-fair-data-principles/">FAIR</a> and <a href="https://www.gida-global.org/care">CARE</a> scores for resources described by metadata. Doing this automatically allows calculation for large numbers of items.</p>
                 <p><strong>Use the automated tool</strong></p>
-                <p>The <a href="https://idn-au.github.io/idn-metadata-creator/">Metadata Entry Form</a> automatically calculates these scores as you use it, and it details how scores are created too.</p>
+                <p>The <a href="https://idn-au.github.io/idn-metadata-creator/">Metadata Entry Tool</a> automatically calculates these scores as you use it, and it details how scores are created too.</p>
                 <p>The IDN also provides the underlying software to calculate scores from IDN CP metadata: <a href="https://github.com/idn-au/scores-calculator">Scores Calculator</a>. If you're technical, you can dive into the weeds of score creation - and please let us know what you think about the methods we have implemented!</p>
                 <p>The FAIR and CARE principles are widely known and many other tools exist for at least FAIR self-assessment, such as the <a href="https://ardc.edu.au/resource/fair-data-self-assessment-tool/">ARDC's FAIR Data Self Assessment Tool</a>, so you can use these tools alongside the IDN's to cross-check.</p>
             </section>
             <section id="improve-scores">
                 <h2>5. Improve my catalogue's FAIR or CARE scores</h2>
-                <p>Since the <a href="https://idn-au.github.io/idn-metadata-creator/">Metadata Entry Form</a> details how its scores are created, you should be able to see what to do to improve your scores. For example, for the <em>A1</em> part of the <em>Accessibility</em> score of FAIR, if you indicate access using standard terminology such as "Access to metadata", or "Conditional access", you will get some score. If you indicate the most accessible form, "Open access", you will get the best A1 score.</p>
+                <p>Since the <a href="https://idn-au.github.io/idn-metadata-creator/">Metadata Entry Tool</a> details how its scores are created, you should be able to see what to do to improve your scores. For example, for the <em>A1</em> part of the <em>Accessibility</em> score of FAIR, if you indicate access using standard terminology such as "Access to metadata", or "Conditional access", you will get some score. If you indicate the most accessible form, "Open access", you will get the best A1 score.</p>
                 <p>If you want to increase score <em>en masse</em>, perhaps across a whole catalogue, have a look at the calculation functions in the IDN's Scores Calculator software. The function used for the <em>A1</em> part of the <em>Assessment</em> FAIR score is <a href="https://github.com/idn-au/scores-calculator/blob/main/calculators/fair.py">calculate_a()</a>.</p>
             </section>
             <section id="formats">
@@ -287,13 +305,17 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
                 <p>Some systems use very different metadata formats, not just models.</p>
             </section>
             <section id="validate">
-                <img src="images/tick-cross.png" style="float:right; width:500px" alt="Tick Cross" />
+                <img src="images/tick-cross.png" style="float:right; width:300px" alt="Tick Cross" />
                 <h2>7. Validate my metadata</h2>
-                <p>One of the resources within this profile is a validation data file. It can be used with validation tools to automatically check the validition of metadata.</p>
+                <p>To validate data against this profile, there is a <em>Validation file</em> and a <em>Validation tool</em> pre-loaded with the validation file. See the <a href="specification.html#validation">Specification Document</a> <em>Validation Section</em> for valid metadata examples.</p>
+                <h3>Validation file</h3>                    
+                <p>One of the resources within this profile is a <a href="https://idn-au.github.io/idn-catalogue-profile/profile.html">Validator in SHACL</a> data file. It can be used with validation tools to automatically check the validition of metadata.</p>
+                <h3>Validation tool</h3>
+                <p>A <a href="https://tools.kurrawong.ai/tools/validate">Validation tool</a> that uses the Validation data file is also available. (Select the "IDN CP Validator" option from the <em>Use Validators</em> selector.)</p>
+                <img src="images/shacl_validator_tool.png" style="float:right; width:500px; border:solid 1px #990000;" alt="Validator Tool  Screenshot" />
                 <ul>
-                    <li><a href="specification.html#validation">See the Specification Document's Validation Section</a></li>
                 </ul>
-                <p>This validator's only able to test for structural and values validation - is the metadata correctly formatted and machine-readable - it can't test for the <em>appropriateness</em> or the <em>goodness</em> of metadata. For that, you will need to try calculating FAIR or CARE scores and compare what you get to your own expectations of your metadata.</p>
+                <p>This validator file and the validator tool are only able to test for structural and values validation - is the metadata correctly formatted and machine-readable - it can't test for the <em>appropriateness</em> or the <em>goodness</em> of metadata. For that, you will need to try calculating FAIR or CARE scores and compare what you get to your own expectations of your metadata.</p>
             </section>
             <section id="examples">
                 <h2>8. Examples</h2>
