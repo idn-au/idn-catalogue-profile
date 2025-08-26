@@ -26,8 +26,10 @@
                     <li><a href="#basic">1.2 Basic Use</a></li>
                     <li><a href="#minimum">1.3 Minimum Metadata</a></li>
                     <li><a href="#all-elements">1.4 All Elements</a></li>
-                  <li><a href="#vocab-values">1.4 Vocab Values</a></li>
-                    <li><a href="#formats">1.6 Formats</a></li>
+                    <li><a href="#scoring">1.5 Scoring</a></li>
+                    <li><a href="#vocab-values">1.6 Vocab Values</a></li>
+                    <li><a href="#formats">1.7 Formats</a></li>
+
                 </ul>
                 </li>
                 <li>
@@ -190,6 +192,7 @@
                     <li>What does basic use of this profile look like? See <a href="#basic">Basic Use</a>.</li>
                     <li>What minimum elements are required? See <a href="#minimum">Minimum Metadata</a>.</li>
                     <li>What are all the recommended elements? See <a href="#all-elements">All Elements</a>.</li>
+                    <li>How do I get (good) FAIR and CARE scores? See <a href="#scoring">Scoring</a>.</li>
                     <li>Where do I get specific values for some properties from? See <a href="#vocab-values">Vocab Value</a></li>
                     <li>What data formats can I use for metadata? See <a href="#formats">Formats</a>.</li>
                 </ol>
@@ -446,11 +449,14 @@
                         </table>
                     </section>
                 </section>
+                <section id="scoring">
+                  <h3>1.5 Scoring</h3>
+                </section>
                 <section id="vocab-values">
-                  <h3>1.5 Vocab Values</h3>
+                  <h3>1.6 Vocab Values</h3>
                 </section>
                 <section id="formats">
-                    <h3>1.6 Format <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <h3>1.7 Format <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <h4 style="font-style:italic;">What data formats can I use for metadata?</h4>
                     <p>The IDN Catalogue Profile uses the same machine-readable data format used by DCAT: <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework">Resource Description Framework (RDF)</a>.</p>
                     <p>RDF is widely supported and available in multiple syntaxes or "flavours" such as <a href="https://en.wikipedia.org/wiki/JSON-LD">JSON</a> and <a href="https://en.wikipedia.org/wiki/RDF/XML">XML</a>, as well as custom formats made for readability, such as <a href="https://en.wikipedia.org/wiki/Turtle_(syntax)">Turtle</a>.</p>
@@ -1061,12 +1067,14 @@ The content of this catalogue conforms to the Indigenous Data Network's Catalogu
             schema:agent &lt;https://kurrawong.ai&gt;
         ] ;
     .
-    &lt;https://orcid.org/0000-0002-8742-7730&gt;
+
+&lt;https://orcid.org/0000-0002-8742-7730&gt;
     a schema:Person ;
     schema:name "Nicholas J. Car"@en ;
     schema:email "nick@kurrawong.ai"^^xsd:anyURI ;
     schema:affiliation &lt;https://kurrawong.ai&gt; ;
 .
+
 &lt;https://kurrawong.ai&gt;
     a schema:Organization ;
     schema:name "KurrawongAI" ;
@@ -1089,12 +1097,14 @@ droles:author
     skos:definition "party who authored the resource"@en ;
     skos:inScheme &lt;https://linked.data.gov.au/def/data-roles&gt; ;
 .
+
 droles:owner
     a skos:Concept ;
     skos:prefLabel "Owner"@en ;
     skos:definition "party that owns the resource"@en ;
     skos:inScheme &lt;https://linked.data.gov.au/def/data-roles&gt; ;
 .
+
 droles:custodian
     a skos:Concept ;
     skos:prefLabel "Custodian"@en ;
