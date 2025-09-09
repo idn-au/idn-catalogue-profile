@@ -29,7 +29,6 @@
                     <li><a href="#scoring">1.5 Scoring</a></li>
                     <li><a href="#vocab-values">1.6 Vocab Values</a></li>
                     <li><a href="#formats">1.7 Formats</a></li>
-
                 </ul>
                 </li>
                 <li>
@@ -42,6 +41,8 @@
                         <li><a href="#dating">2.5 Dating</a></li>
                         <li><a href="#theming">2.6 Theming</a></li>
                         <li><a href="#policies">2.7 Policies</a></li>
+                        <li><a href="#language">2.8 Language</a></li>
+                        <li><a href="#provenance">2.9 Provenance</a></li>
                     </ul>
                 </li>
                 <li>
@@ -130,7 +131,7 @@
                             </tr>
                             <tr>
                                 <td><a class="proplink" title="schema:dateModified" href="https://schema.org/dateModified">Modified</a></td>
-                                <td>2025-08-20</td>
+                                <td>2025-09-09</td>
                             </tr>
                         </table>
                     </dd>
@@ -615,7 +616,8 @@
             </section>
             <section id="patterns">
                 <h2>2. Patterns <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-                <p class="todo">TODO: intro what patterns are</p>
+                <p>This section describes patterns which are small scenario models within the overall Catalogue Profile model.</p>
+                <p>Some of these patterns are well-used in the data cataloguing domain, generally. Some are Indigenous-specific.</p>
                 <section id="identifiers">
                     <h3>2.1 Identifiers <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <p>This Profile relies on web address-style identifiers for things, so you will need to provide, or ask us to create, something like this:</p>
@@ -628,7 +630,6 @@
                     <p>If you have a non web address identifier, try and use it to create a web identifier. For example, if your organisation IDs a dataset as
                     <code>ABC123</code>, then you could create the IDN identifier of <code>https://data.idnau.org/pid/ABC123</code> whcih preserved the original ID part but would redirect to an online catalogue entry.</p>
                     <p>It is also possible to use existing web addresses as identifiers for Organisations and Persons. See the guide to <a href="https://docs.kurrawong.ai/concepts/agents/patterns/#reusing-identifiers-as-a-pid" target="_blank" rel="noopener noreferrer">Agent Patterns</a> for examples that use addresses from the Research Organization Registry (ROR) and the Open Researcher and Contributor Identifier (ORCID) registry.</p>
-                    
                 </section>
                 <section id="indigeneity">
                     <h3>2.2 Indigeneity <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
@@ -637,9 +638,7 @@
                 <section id="roles">
                     <h3>2.3 Roles <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <p>All <em>Agents</em>, that is Organisations &amp; People, associated with resources such as datasets in IDN metadata need to have their <em>role</em> defined.</p>
-
                     <p>The roles we start with are those defined in the well-known <a href="https://linked.data.gov.au/def/data-roles">ISO's <em>Role Codes</em> vocabulary</a>.</p>
-
                     <p>This vocabulary contains standard roles such as:</p>
                     <ul>
                         <li>author</li>
@@ -712,12 +711,16 @@
                     <h3>2.7 Policies <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <p class="todo">TODO</p>
                 </section>
-                 <section id="language">
+                <section id="language">
                     <h3>2.8 Language <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <p>Where a Resource includes text or spoken Indigenous languages, the Resource metadata <em>SHOULD</em> indicate this with languages selected from the <a href="https://data.idnau.org/pid/austlang">AustLang</a> vocabulary</p>
                     <p>See requirements under 2.6 Theming where the Resource is <em>about</em> an Indigenous language. Note that a Resource may be both about Indigenous language and written / spoken in Indigenous languages.</p>
                  </section>
-            </sections>
+                <section id="provenance">
+                    <h3>2.9 Provenance <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+
+                </section>
+            </section>
             <section id="model">
                 <h2>3. Model <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
                 <div id="structural-figure" class="figure">
