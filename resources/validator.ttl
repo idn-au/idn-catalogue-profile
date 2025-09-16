@@ -2,6 +2,7 @@
 PREFIX : <https://data.idnau.org/pid/cp/validator/>
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX id: <http://id.loc.gov/vocabulary/identifiers/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -367,8 +368,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sh:or (
         [ sh:datatype xsd:string ]
         [ sh:datatype rdf:langString ]
+        [ sh:datatype id:orcid ]
+        [ sh:datatype id:ror ]
+        [ sh:datatype id:ausbn ]
+        [ sh:datatype id:auscn ]
+        [ sh:datatype id:ausrn ]
     ) ;
-    sh:message "Req AG3: Each Agent instance SHOULD be described with a sdo:description property and, if the Agent has them, identifiers for it should be indicated with sdo:identifier with xsd:anyURI or xsd:token values." ;
+    sh:message "Req AG3: Each Agent instance SHOULD be described with a schema:description property and, if the Agent has them, identifiers for it should be indicated with schema:identifier with either xsd:anyURI, xsd:token or a datatype from the Library of Congress Standard Identifiers vocabulary." ;
 .
 
 :organization-url
