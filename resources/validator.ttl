@@ -26,7 +26,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
     sdo:dateCreated "2022-07-18"^^xsd:date ;
     sdo:dateIssued "2022-07-19"^^xsd:date ;
-    sdo:dateModified "2023-05-08"^^xsd:date ;
+    sdo:dateModified "2025-09-16"^^xsd:date ;
     sdo:description "A SHACL validator IDN Catalogue Profile."@en ;
     sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
     sdo:name "IDN CP Validator"@en ;
