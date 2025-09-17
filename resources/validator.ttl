@@ -373,6 +373,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         [ sh:datatype id:ausbn ]
         [ sh:datatype id:auscn ]
         [ sh:datatype id:ausrn ]
+        [ sh:datatype id:viaf ]
     ) ;
     sh:message "Req AG3: Each Agent instance SHOULD be described with a schema:description property and, if the Agent has them, identifiers for it should be indicated with schema:identifier with either xsd:anyURI, xsd:token or a datatype from the Library of Congress Standard Identifiers vocabulary." ;
 .
