@@ -101,7 +101,10 @@
             <h1>IDN Catalogue Profile - Specification</h1>
             <!-- <h2>Description</h2> -->
             <div id="description">
-                <p>This is the <a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a> specification that defines its metadata model.</p>
+              <p>This is the <a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a>'s <em>specification</em>, that is, the formal documentation of the IDN CP's data model and requirements.</p>
+              <p>
+                For other IDN CP resource, including introductory documents, see the links to the right.
+              </p>
             </div>
             <div id="overview" class="figure">
                 <a href="images/venn.png"><img src="images/venn.png" style="width:600px;" alt="Venn diagram of this profile's concerns" /></a>
@@ -131,12 +134,12 @@
                             </tr>
                             <tr>
                                 <td><a class="proplink" title="schema:dateModified" href="https://schema.org/dateModified">Modified</a></td>
-                                <td>2025-09-09</td>
+                                <td>2025-12-01</td>
                             </tr>
                         </table>
                     </dd>
                     <dt><a class="proplink" title="owl#versionIRI" href="http://www.w3.org/2002/07/owl#versionIRI">Version</a></dt>
-                    <dd><a href="https://data.idnau.org/pid/cp/spec/1.0.0">1.0.0</a></dd>
+                    <dd><a href="https://data.idnau.org/pid/cp/spec/1.1.0">1.1.0</a></dd>
                     <dt><a class="proplink" title="schema:license" href="https://schema.org/license">License</a></dt>
                     <dd><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a></dd>
                     <dt><a class="proplink" title="schema:copyrightHolderame" href="https://schema.org/copyrightHolder">Copyright</a></dt>
@@ -147,9 +150,18 @@
                 <h2>Preamble <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
                 <section id="abstract">
                     <h3>Abstract <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-                    <p>This is the formal data model specification of the <a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a> which is a profile of <a href="#ref-dcat">DCAT, the Data Catalog Vocabulary</a> and <a href="#ref-prov">PROV-O, the Provenance Ontology</a>. Where DCAT is designed for the representation of data catalogues and their content in general, and PROV-O for general provenance, this profile aims to cater for the enhanced representation of Indigenous data governance concerns.</p>
-                    <p>The rules ("Requirements") of this profile set conventions for the use of DCAT &amp; PROV and some other common models, such as <a href="https://schema.org">schema.org</a> and <a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/">DCTERMS</a> and no new model elements are introduced.</p>
-                    <p>The requirements mandate specific values to be used with some common DCAT and other model predicates. The specific values are to be drawn from vocabularies that are referenced in the <a href="#vocabularies">Vocabularies Section</a>.</p>
+                  <p>
+                    This is the formal data model specification of the <a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a> which is a "profile" of <a href="#ref-schema.org">schema.org</a>, <a href="#ref-dcat">DCAT, the Data Catalog Vocabulary</a> and <a href="#ref-prov">PROV-O, the Provenance Ontology</a>.
+                  </p>
+                  <p>
+                    Where schema.org is a general-purpose of data elements for documenting Internet resources, DCAT is designed for the representation of data catalogues and their content in general, and PROV-O for representations of provenance in general, this profile aims to cater for the enhanced representation of Indigenous data and its governance concerns.
+                  </p>
+                  <p>
+                    The rules - "Requirements" - of this profile set conventions for the use of schema.org, DCAT &amp; PROV and some other common models, such as <a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/">DCTERMS</a>, but no new model elements are introduced.
+                  </p>
+                  <p>
+                    The Requirements mandate specific values to be used for particular model predicates. The specific values are to be drawn from vocabularies that are referenced in the <a href="#vocabularies">Vocabularies Section</a>.
+                  </p>
 <!--                    <p>This document specifies requirements of data that must be met for that data to claim conformance to the IDN Catalogue Profile. Data that conforms to this profile necessarily conforms to DCAT also. This profile also provides mappings from it to models of assessments of principles such as <a href="https://force11.org/info/the-fair-data-principles/">FAIR</a> and <a href="https://www.gida-global.org/care">CARE</a> so it also specifies additional sub-profiles' requirements necissary for those and other mappings.</p>-->
                 </section>
                 <section id="parts">
@@ -200,8 +212,14 @@
                 <section id="purpose">
                     <h3>1.1 Purpose <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <h4 style="font-style:italic;">What is the purpose of this Profile?</h4>
+                    <p>To improve the representation of Indigenous data's metadata and governance information.</p>
                     <p>Common catalogue models provide lots of possible metadata elements which can be used to describe catalogued items, to categorise them, indicate how they are managed and so on but don't specifically handle Indigenous concerns.</p>
-                    <p>The purpose of this profile is to allow for the cataloguing of things created by or about Indigenous people or about Indigenous things and to be able to assess whether they are governed well, <em>from an Indigenous perspective</em>.</p>
+                    <p>This profile's ultimate aim is to improve Indigenous person's agency in relation to data by or about them and Indigenous things by:</p>
+                    <ul>
+                      <li>improving the identification of data as being about Indigenous people and/or things</li>
+                      <li>explicitly linking Indigenous data to all the persons and organisations related to it</li>
+                      <li>explicitly linking Indigenous data to all the policies that affect it</li>
+                    </ul>
                     <p>This Profile is just a recommendation to use a common catalogue model - <a href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a> - in particular ways which are called <em>patterns</em> - see the <a href="#patterns">Patterns Section</a> below.</p>
                 </section>
                 <section id="basic">
