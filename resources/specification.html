@@ -134,16 +134,16 @@
                             </tr>
                             <tr>
                                 <td><a class="proplink" title="schema:dateModified" href="https://schema.org/dateModified">Modified</a></td>
-                                <td>2025-12-01</td>
+                                <td>2026-01-16</td>
                             </tr>
                         </table>
                     </dd>
                     <dt><a class="proplink" title="owl#versionIRI" href="http://www.w3.org/2002/07/owl#versionIRI">Version</a></dt>
-                    <dd><a href="https://data.idnau.org/pid/cp/spec/1.1.0">1.1.0</a></dd>
+                    <dd><a href="https://data.idnau.org/pid/cp/spec/1.2.0">1.2.0</a></dd>
                     <dt><a class="proplink" title="schema:license" href="https://schema.org/license">License</a></dt>
                     <dd><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a></dd>
                     <dt><a class="proplink" title="schema:copyrightHolderame" href="https://schema.org/copyrightHolder">Copyright</a></dt>
-                    <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a>, 2022 - 2025</dd>
+                    <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a>, 2022 - 2026</dd>
                 </dl>
             </section>
             <section id="preamble">
@@ -261,13 +261,12 @@
                             <td>
                                 <p>Persons Organisations associated with the resource and the roles they play.</p>
                                 <dl>
-                                    <dt>Creator</dt>
+                                    <dt><a href="https://linked.data.gov.au/def/data-roles/author">Creator</a></dt>
                                     <dd>The ID of a Person or an Organisation in our <a href="#agents">IDN Data Agents DB</a></dd>
-                                    <p><</p>
                                     <dt><a href="https://linked.data.gov.au/def/data-roles/custodian">Custodian</a></dt>
                                     <dd>
                                         <p>As for Creator: the ID of a Person or an Organisation in our <a href="#agents">IDN Data Agents DB</a>.</p>
-                                        <p>Can be the same as, or different to, Creator</p>
+                                        <p>Can be the same as, or different to, Creator.</p>
                                     </dd>
                                     <dt><a href="https://linked.data.gov.au/def/data-roles/pointOfContact">Contact Point</a></dt>
                                     <dd>
@@ -282,7 +281,7 @@
                             <td>
                                 <p>The date/year etc. the data was created or published.</p>
                                 <p>This property is recommended but optional: If you really don't know this, leave it out.</p>
-                                <p>See the <a href="#dating">Dating</a> section below</p>
+                                <p>See the <a href="#dating">Dating</a> section below.</p>
                             </td>
                         </tr>
                         <tr>
@@ -290,7 +289,7 @@
                             <td>
                                 <p>The date/year etc. the data was last modified/updated.</p>
                                 <p>This property is recommended but optional: If you really don't know this, leave it out.</p>
-                                <p>See the <a href="#dating">Dating</a> section below</p>
+                                <p>See the <a href="#dating">Dating</a> section below.</p>
                             </td>
                         </tr>
                         <tr>
@@ -298,7 +297,7 @@
                             <td>
                                 <p>Any number of preferably vocabulary concepts but also perhaps plain text themes/categories/keywords classifying the resource.</p>
                                 <p>This property is recommended but optional.</p>
-                                <p>See the <a href="#theming">Theming</a> section below</p>
+                                <p>See the <a href="#theming">Theming</a> section below.</p>
                             </td>
                         </tr>
                         <tr>
@@ -306,7 +305,7 @@
                             <td>
                                 <p>A reference (hyperlink/description) to any (Indigenous) data policy that pertains to this specific resource or the class of resource this is in. Includes access rights and licenses.</p>
                                 <p>This property is recommended for governance assessment.</p>
-                                <p>See the <a href="#policies">Policies</a> section below</p>
+                                <p>See the <a href="#policies">Policies</a> section below.</p>
                             </td>
                         </tr>
                     </table>
@@ -483,6 +482,9 @@
                 </section>
                 <section id="scoring">
                   <h3>1.5 Scoring</h3>
+                  <p>In addition to the metadata model constraints placed on generic data catalogue models to improve Indigenous data representation, this profile also indicates how to calculate several "scores" - metrics - for various aspects of data.</p>
+                  <p>The most well-known of these is scores is the FAIR score, based on the <a href="https://force11.org/info/the-fair-data-principles/">FAIR Principles</a> which indicate the findability, accessibility, interoperability and reusability of data. The CARE score is facilitated is the first known metric-ification of the <a href="https://www.gida-global.org/care">CARE Principles for Indigenous Data Governance</a>.</p>
+                  <p>This profile also specifies a <em>Data Governance Distance</em> score, see the <a href="#dgd">B.3. Data Governance Distance</a> annex. for details</p>
                 </section>
                 <section id="vocab-values">
                   <h3>1.6 Vocab Values</h3>
@@ -1183,17 +1185,18 @@ droles:custodian
             </section>
             <section id="scores">
                 <h2>Annex B. Scores<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-                <section id="fair-model">
-                    <h3>B.1. FAIR Model<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                <section id="fair">
+                    <h3>B.1. FAIR<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                 </section>
-                <section id="indigeneity-model">
-                    <h3>B.2. Indigeneity Model<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                <section id="care">
+                    <h3>B.2. CARE<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                 </section>
-                <section id="care-model">
-                    <h3>B.3. CARE Model<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                <section id="dgd">
+                    <h3>B.3. Data Governance Distance<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <p><em>Coming soon!</em></p>
                 </section>
                 <section id="lc-model">
-                    <h3>B.4. Local Context Labels Model<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <h3>B.4. Local Context Labels<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
                     <ul>
                         <li><a href="#b.4.1">Introduction</a></li>
                         <li><a href="#b.4.2">Definitions</a></li>
