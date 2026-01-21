@@ -134,7 +134,7 @@
                             </tr>
                             <tr>
                                 <td><a class="proplink" title="schema:dateModified" href="https://schema.org/dateModified">Modified</a></td>
-                                <td>2026-01-16</td>
+                                <td>2026-01-22</td>
                             </tr>
                         </table>
                     </dd>
@@ -721,15 +721,94 @@
                             <td>2021-02-28T14:02:23</td>
                         </tr>
                     </table>
-                    <p>Please do <em>not</em> use junk values like 00:00:00 for time: select a format that effectively conveys what you know about the data.</p>
+                    <p>Please do <em>not</em> use junk values like 00:00:00 for time when you don't know it, instead select a format that effectively conveys what you do know about the data.</p>
                 </section>
                 <section id="theming">
                     <h3>2.6 Theming <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-                    <p class="todo">TODO</p>
+                    <p>
+                      Theming is open-ended categorisation of a resource by linking it to concepts in categorisation vocabularies or to text keywords.
+                      When using the <a href="#ref-dcat">DCAT</a> model, the predicate <code>dcat:theme</code> is used and should indicate a controlled
+                      term in a vocabulary. When using the <a href="#ref-schema.org">schema.org</a> model, the predicate <code>schema:keywords</code>
+                      (note the 's') should be used and may indicate plain text as well as controlled terms.</code>
+                    </p>
+                    <p>
+                      While it may be tempting to just theme a resource with words such as "Aboriginal" or "Wiradjuri", and this is better than not doing so,
+                      better yet is to use terms from vocabularies, in particular the IDN's reference vocabularies, as these have definitions.
+                    </p>
+                    <p>
+                      The IDN's main, general-purpose, categorisation vocabulary is the <a href="https://data.idnau.org/pid/vocab/idn-th">IDN Themes</a> vocabulary.
+                      and this should be used as much as possible. Within that vocabulary are collections of concepts grouped based on sub-theme or term origin,
+                      so if you're used to, for example, APAIS terms, you can draw from that collection.
+                    </p>
+                    <p>
+                      In addition to contemporary terms, this vocabulary has archaic ones no longer recommended for use, such as "Aborigine". This allows old metadata records to be understood.
+                    </p>
+                    <p>
+                      Since there is hierarchy in the IDN Themes vocab, you should always categorise a resource with the most specialised term you can,
+                      knowing that the vocabulary will automatically categorise the resource with relevant more general terms.
+                    </p>
+                    <p>
+                      For example, if you state that a resource is categorised as <a href="https://linked.data.gov.au/def/nrm/c9f1f747-3677-5e72-aac0-b49733ea4629">Cultural burn</a>,
+                      it will be understood that the resource is generically also categorised as <a href="https://linked.data.gov.au/def/policy/5cc52a34-77c0-4589-91c6-7dabb6b65761">First Peoples land management</a>.
+                    </p>
+                    <p>
+                      These two terms come from different vocabularies but the IDN Themes vocabulary has placed them in relation to one another, allowing for this kind of reasoning.
+                    </p>
+                    <p class="eg">
+                            <span>Example: A fictional resource, themed with several vocabulary terms and textual keywords</span>
+&lt;http://example.com/resource/x>
+    a dcat:Resource ;
+    dcterms:title "Resource X" ;
+    ...
+    dcat:theme
+        &lt;https://linked.data.gov.au/def/nrm/c9f1f747-3677-5e72-aac0-b49733ea4629> ,  # "Cultural burn" from the IDN Themes vocab
+        &lt;https://linked.data.gov.au/def/policy/5cc52a34-77c0-4589-91c6-7dabb6b65761> ,  # "First Peoples land management" (implied)
+        &lt;https://vocabularyserver.com/apais/xml.php?skosTema=13> ,  # "Aboriginal history"
+    ...
+    .
+                        </p>
                 </section>
                 <section id="policies">
                     <h3>2.7 Policies <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-                    <p class="todo">TODO</p>
+                    <p>
+                      The policies that affect data resources greatly impact the status of Indigenous data governance,
+                      therefore a link from a resource to each policy known to affect it should be stated explicitly when known.
+                    </p>
+                    <p>
+                      For example, resources in the <a href="https://data.idnau.org/pid/isu-catalogue">Indigenous Studies Unit's catalogue</a>
+                      are known to be managed in accordance with the <a href="https://data.idnau.org/pid/MPF1309">University of Melbourne's <em>Collections Policy</em></a>,
+                      so this is indicated for every resource in the catalogue like this:
+                    </p>
+                    <p class="eg">
+                            <span>Example: The ISU's Law: The Way of the Ancestors resource and a link to a policy</span>
+&lt;https://data.idnau.org/pid/762463a4-f8b1-4eec-a335-3689c8d86e9e>
+    a dcat:Resource ;
+    schema:name "Law: The Way of the Ancestors" ;
+    ...
+    odrl:hasPolicy
+        &lt;https://data.idnau.org/pid/MPF1309> ,  # "Collections Policy", identified with its ISU catalogue ID
+        ...
+    ...
+    .
+                    </p>
+                    <p>
+                      Some policies affecting ISU catalogued content are listed as resources in the ISU's catalogue too:
+                    </p>
+                    <ul>
+                      <li><a href="https://data.idnau.org/pid/MPF1289">Aboriginal and Torres Strait Islander Cultural Heritage Policy</a></li>
+                      <li><a href="https://data.idnau.org/pid/762463a4-f8b1-4eec-a335-3689c8d86e9e">Collections Policy</a></li>
+                      <li><a href="https://data.idnau.org/pid/MPF1226">Human Remains and Burial Artefacts Policy</a></li>
+                      <li><a href="https://data.idnau.org/pid/MPF1242">Research Data Management Policy</a></li>
+                    </ul>
+                    <p>
+                      Organisations should explicitly identify all policies affecting their data and catalogue them if not already done.
+                      They should then link their resources to them, as above.
+                    </p>
+                    <p class="req">
+                      <strong>NOTE:</strong>In the future, it is hoped that machine-readable versions of policies can be made available,
+                      so that the details of how policies affect Indigenous data resources can be automatically understood. While we are
+                      not there yet, identifying and linking resources to policies, as above, is the first major step to that future.
+                    </p>
                 </section>
                 <section id="language">
                     <h3>2.8 Language <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
