@@ -70,10 +70,14 @@
                     </ul>
                 </li>
             </ul>
+            <p>Annexes</p>
             <ul>
                 <li><a href="#mappings">A. Mappings</a></li>
                 <li><a href="#scores">B. Scores</a></li>
-                <li><a href="#references">References</a></li>
+                <li><a href="#lc">C. Local Context Labels</a></li>
+            </ul>
+            <ul>
+              <li><a href="#references">References</a></li>
             </ul>
         </div>
         <div class="header" style="grid-column:1; grid-row:1;"></div>
@@ -817,7 +821,7 @@
                  </section>
                 <section id="provenance">
                     <h3>2.9 Provenance <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-
+                    <p class="todo">TODO</p>
                 </section>
             </section>
             <section id="model">
@@ -828,16 +832,20 @@
                 </div>                
                 <section id="classes">
                     <h3>3.1 Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <p class="todo">TODO</p>
                 </section>
                 <section id="predicates">
                     <h3>3.2 Predicates <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <p class="todo">TODO</p>
                 </section>
                 <section id="axioms">
                     <h3>3.3 Axioms <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                    <p class="todo">TODO</p>
                 </section>
             </section>
             <section id="vocabularies">
               <h2>4. Vocabularies</h2>
+              <p class="todo">TODO</p>
             </section>
             <section id="validation">
                 <h2>5. Validation <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
@@ -960,8 +968,6 @@
                         <p class="req"><strong>Req AG5:</strong> Each <code>Agent</code> MAY relate to another agent using <code>dcat:qualifiedRelation</code> property with a <code>dcat:role</code> indicating a <code>skos:Concept</code> from the <a href="https://data.idnau.org/pid/vocab/aarr">Agent to Agent Relationship Roles</a> vocabulary.</p>
                         <p class="eg">
                             <span>Example: An Organization with an example Australian Business Number identifer and a Person affiliated with it</span>
-
-                            
 &lt;https://kurrawong.ai&gt;
     a schema:Organization ;
     schema:identifier "31353542036"^^ids:ausbn ;
@@ -1249,212 +1255,212 @@ droles:custodian
             <section id="mappings">
                 <h2>Annex A. Mappings<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
                 <p>This Annex defines mappings between this Profile and assessment models.</p>
-                <section id="fair-mapping">
-                    <h4>A.1. FAIR Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h4>
-                </section>
-                <section id="indigeneity-mapping">
-                    <h4>A.2. Indigeneity Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h4>
-                </section>
-                <section id="care-mapping">
-                    <h4>A.3. CARE Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h4>
-                </section>
                 <section id="lc-mapping">
-                    <h4>A.4. Local Context Labels Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h4>
+                  <h4>A.1. Local Context Labels Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h4>
+                  <p class="todo">TODO</p>
                 </section>
             </section>
             <section id="scores">
                 <h2>Annex B. Scores<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
                 <section id="fair">
-                    <h3>B.1. FAIR<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                  <h3>B.1. FAIR<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                  <p class="todo">TODO</p>
                 </section>
                 <section id="care">
-                    <h3>B.2. CARE<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                  <h3>B.2. CARE<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                  <p class="todo">TODO</p>
                 </section>
                 <section id="dgd">
-                    <h3>B.3. Data Governance Distance<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-                    <p><em>Coming soon!</em></p>
+                  <h3>B.3. Data Governance Distance<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+                  <p><em>Coming soon!</em></p>
+                  <p class="todo">TODO</p>
                 </section>
-                <section id="lc-model">
-                    <h3>B.4. Local Context Labels<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-                    <ul>
-                        <li><a href="#b.4.1">Introduction</a></li>
-                        <li><a href="#b.4.2">Definitions</a></li>
-                        <li><a href="#b.4.3"><code>LocalContextLabel</code> instances</a></li>
-                        <li><a href="#b.4.4">Examples of a <code>Resource</code> with LC labels</a></li>
-                    </ul>
-                    <section id="b.4.1">
-                        <h4>B.4.1 Introduction</h4>
-                        <div style="width:50%; text-align:center;">
-                            <p style="margin:0 auto; text-align:left; font-style:italic;">"The primary objectives of Local Contexts are to enhance and legitimize locally based decision-making and Indigenous governance frameworks for determining ownership, access, and culturally appropriate conditions for sharing historical, contemporary and future collections of cultural heritage and Indigenous data"</p>
-                            <p style="margin:0 auto; text-align:right;">&ndash; <a href="https://localcontexts.org/about/about-local-contexts/">About Local Contexts web page</a></p>
-                        </div>
-                        <p>This Local Context model is a small ontology providing just a few classes and properties to indicate how to attach LC labels to objects catalogued according to this profile.</p>
-                        <p>The machine-readable version of this model is available at:</p>
-                        <ul><li><a style="font-weight:bold; text-decoration:line-through;" href="https://data.idnau.org/pid/vocab/lc-labels">https://data.idnau.org/pid/vocab/lc-labels</a></li></ul>
-                        <p>The prefix <code>lc:</code> is used in this section for the namespace of this model: <code>https://data.idnau.org/pid/vocab/lc-labels/</code>.</p>
-                        <p>Figure B.4.1 overviews the model.</p>
-                        <div id="lc-model-figure" class="figure">
-                            <a href="images/lc-model.png"><img src="images/lc-model.png" style="width:600px;" alt="Local Context model" /></a>
-                            <p class="caption"><strong>Figure B.4.1:</strong> Overview of elements of the Local Context Model.</p>
-                        </div>
-                        <p>This model requires that a <code>LocalContextLabel</code>, which is a specialised <code>skos:Concept</code>, is assigned to a catalogued <code>dcat:Resource</code> via an intermediate node of type <code>QualifiedLocalContext</code>. This use of the <a href="https://patterns.dataincubator.org/book/qualified-relation.html">"Qualified Relations" graph modelling pattern</a> allows for the nature of the <code>Resource</code>/<code>LocalContextLabel</code> relationship to be defined.</p>
+            </section>
+            <section id="lc">
+                <h2>Annex C. Local Context Labels<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+                <ul>
+                    <li><a href="#b.4.1">Introduction</a></li>
+                    <li><a href="#b.4.2">Definitions</a></li>
+                    <li><a href="#b.4.3"><code>LocalContextLabel</code> instances</a></li>
+                    <li><a href="#b.4.4">Examples of a <code>Resource</code> with LC labels</a></li>
+                </ul>
+                <section id="c.1">
+                  <h4>C.1 Introduction</h4>
+                  <div style="width:50%; text-align:center;">
+                        <p style="margin:0 auto; text-align:left; font-style:italic;">"The primary objectives of Local Contexts are to enhance and legitimize locally based decision-making and Indigenous governance frameworks for determining ownership, access, and culturally appropriate conditions for sharing historical, contemporary and future collections of cultural heritage and Indigenous data"</p>
+                        <p style="margin:0 auto; text-align:right;">&ndash; <a href="https://localcontexts.org/about/about-local-contexts/">About Local Contexts web page</a></p>
+                    </div>
+                  <p>This Local Context model is a small ontology providing just a few classes and properties to indicate how to attach LC labels to objects catalogued according to this profile.</p>
+                  <p>The machine-readable version of this model is available at:</p>
+                  <p class="todo">TODO</p>
+                  <ul><li><a style="font-weight:bold; text-decoration:line-through;" href="https://data.idnau.org/pid/vocab/lc-labels">https://data.idnau.org/pid/vocab/lc-labels</a></li></ul>
+                  <p>The prefix <code>lc:</code> is used in this section for the namespace of this model: <code>https://data.idnau.org/pid/vocab/lc-labels/</code>.</p>
+                  <p>Figure C.1 overviews the model.</p>
+                  <div id="lc-model-figure" class="figure">
+                        <a href="images/lc-model.png"><img src="images/lc-model.png" style="width:600px;" alt="Local Context model" /></a>
+                        <p class="caption"><strong>Figure C.1:</strong> Overview of elements of the Local Context Model.</p>
+                    </div>
+                  <p>This model requires that a <code>LocalContextLabel</code>, which is a specialised <code>skos:Concept</code>, is assigned to a catalogued <code>dcat:Resource</code> via an intermediate node of type <code>QualifiedLocalContext</code>. This use of the <a href="https://patterns.dataincubator.org/book/qualified-relation.html">"Qualified Relations" graph modelling pattern</a> allows for the nature of the <code>Resource</code>/<code>LocalContextLabel</code> relationship to be defined.</p>
+                </section>
+                <section id="c.2">
+                    <h4>C.2 Definitions</h4>
+                    <p>
+                      The following subsections contain definitions for the classes identified in Figure C1, above.
+                    </p>
+                    <section id="c.2.1">
+                        <h4>C.2.1 <code>LocalContextLabel</code> class definition</h4>
+                        <table class="properties" id="LocalContextLabel">
+                            <tr><th>Property</th><th>Value</th></tr>
+                            <tr>
+                                <td>IRI</td>
+                                <td><code>https://data.idnau.org/pid/vocab/lc-labels/LocalContextLabel</code></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.w3.org/TR/skos-reference/#prefLabel" title="The preferred lexical label for a resource, in a given language">Preferred Label</a></td>
+                                <td>Local Context Label</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.w3.org/TR/skos-reference/#definition" title="A statement or formal explanation of the meaning of a concept">Definition</a></td>
+                                <td>A label to be applied to data that allow communities to express local and specific conditions for sharing and engaging in future research and relationships in ways that are consistent with already existing community rules, governance and protocols</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/source" title="A related resource from which the described resource is derived">Source</a></td>
+                                <td><a href="https://localcontexts.org/labels/traditional-knowledge-labels/">https://localcontexts.org/labels/traditional-knowledge-labels/</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.w3.org/TR/rdf-schema/#ch_subclassof" title="The subject is a subclass of a class">Subclass Of</a></td>
+                                <td><a href="https://www.w3.org/TR/skos-reference/#Concept" title="An idea or notion; a unit of thought">SKOS Concept</a></td>
+                            </tr>
+                            <tr>
+                                <td>Expected Properties</td>
+                                <td>Standard SKOS Concept properties</td>
+                            </tr>
+                        </table>
                     </section>
-                    <section id="b.4.2">
-                        <h4>B.4.2 Definitions</h4>
-                        <section id="b.4.2.1">
-                            <h4>B.4.2 <code>LocalContextLabel</code> class definition</h4>
-                            <table class="properties" id="LocalContextLabel">
-                                <tr><th>Property</th><th>Value</th></tr>
-                                <tr>
-                                    <td>IRI</td>
-                                    <td><code>https://data.idnau.org/pid/vocab/lc-labels/LocalContextLabel</code></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://www.w3.org/TR/skos-reference/#prefLabel" title="The preferred lexical label for a resource, in a given language">Preferred Label</a></td>
-                                    <td>Local Context Label</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://www.w3.org/TR/skos-reference/#definition" title="A statement or formal explanation of the meaning of a concept">Definition</a></td>
-                                    <td>A label to be applied to data that allow communities to express local and specific conditions for sharing and engaging in future research and relationships in ways that are consistent with already existing community rules, governance and protocols</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/source" title="A related resource from which the described resource is derived">Source</a></td>
-                                    <td><a href="https://localcontexts.org/labels/traditional-knowledge-labels/">https://localcontexts.org/labels/traditional-knowledge-labels/</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://www.w3.org/TR/rdf-schema/#ch_subclassof" title="The subject is a subclass of a class">Subclass Of</a></td>
-                                    <td><a href="https://www.w3.org/TR/skos-reference/#Concept" title="An idea or notion; a unit of thought">SKOS Concept</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Expected Properties</td>
-                                    <td>Standard SKOS Concept properties</td>
-                                </tr>
-                            </table>
-                        </section>
-                        <section id="b.4.2.2">
-                            <h4>B.4.2.2 <code>QualifiedLocalContext</code> class definition</h4>
-                            <table class="properties" id="QualifiedLocalContext">
-                                <tr><th>Property</th><th>Value</th></tr>
-                                <tr>
-                                    <td>IRI</td>
-                                    <td><code>https://data.idnau.org/pid/vocab/lc-labels/QualifiedLocalContext</code></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://www.w3.org/TR/skos-reference/#prefLabel" title="The preferred lexical label for a resource, in a given language">Preferred Label</a></td>
-                                    <td>Qualified Local Context</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://www.w3.org/TR/skos-reference/#definition" title="A statement or formal explanation of the meaning of a concept">Definition</a></td>
-                                    <td>An association between an RDF Resource and a <a href="#LocalContextLabel">Local Context Label</a> that allows for the nature of the relationship to be defined</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/provenance" title="A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation">Provenance</a></td>
-                                    <td>Developed for this data model, based on standard Linked Data graph patterns</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://www.w3.org/TR/rdf-schema/#ch_subclassof" title="The subject is a subclass of a class">Subclass Of</a></td>
-                                    <td><a href="https://www.w3.org/TR/skos-reference/#Concept" title="An idea or notion; a unit of thought">SKOS Concept</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Expected Properties</td>
-                                    <td>
-                                        <ul>
-                                            <li><a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/type" title="The nature or genre of the resource">dcterms:type</a> - used to indicate a particular <a href="#LocalContextLabel">Local Context Label</a></li>
-                                            <li><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#value" title="Idiomatic property used for structured values">rdf:value</a> - used to indicate the specific value of the Label for this instance (i.e. for this Resource)</li>
-                                            <li><a href="#requirement" title="A description of the necessity for a Local Context Label">requirement</a> - the reason for this instance of a Local Context Label</li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                            </table>
-                        </section>
-                        <section id="b.4.2.3">
-                            <h4>B.4.2.3 <code>requirement</code> property definition</h4>
-                            <table class="properties" id="requirement">
-                                <tr><th>Property</th><th>Value</th></tr>
-                                <tr>
-                                    <td>IRI</td>
-                                    <td><code>https://data.idnau.org/pid/vocab/lc-labels/requirement</code></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://www.w3.org/TR/skos-reference/#prefLabel" title="The preferred lexical label for a resource, in a given language">Preferred Label</a></td>
-                                    <td>requirement</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://www.w3.org/TR/skos-reference/#definition" title="A statement or formal explanation of the meaning of a concept">Definition</a></td>
-                                    <td>A description of the necessity for a <a href="#LocalContextLabel">Local Context Label</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/provenance" title="A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation">Provenance</a></td>
-                                    <td>Developed for this data model, to cater for labels needed but not present</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://www.w3.org/TR/rdf-schema/#ch_domain" title="A domain of the subject property">Domain</a></td>
-                                    <td><a href="#QualifiedLocalContext">Qualified Local Context</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://www.w3.org/TR/rdf-schema/#ch_range" title="A range of the subject property">Range</a></td>
-                                    <td>A textual, literal, value</td>
-                                </tr>
-                            </table>
-                        </section>
+                    <section id="c.2.2">
+                        <h4>C.2.2 <code>QualifiedLocalContext</code> class definition</h4>
+                        <table class="properties" id="QualifiedLocalContext">
+                            <tr><th>Property</th><th>Value</th></tr>
+                            <tr>
+                                <td>IRI</td>
+                                <td><code>https://data.idnau.org/pid/vocab/lc-labels/QualifiedLocalContext</code></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.w3.org/TR/skos-reference/#prefLabel" title="The preferred lexical label for a resource, in a given language">Preferred Label</a></td>
+                                <td>Qualified Local Context</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.w3.org/TR/skos-reference/#definition" title="A statement or formal explanation of the meaning of a concept">Definition</a></td>
+                                <td>An association between an RDF Resource and a <a href="#LocalContextLabel">Local Context Label</a> that allows for the nature of the relationship to be defined</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/provenance" title="A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation">Provenance</a></td>
+                                <td>Developed for this data model, based on standard Linked Data graph patterns</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.w3.org/TR/rdf-schema/#ch_subclassof" title="The subject is a subclass of a class">Subclass Of</a></td>
+                                <td><a href="https://www.w3.org/TR/skos-reference/#Concept" title="An idea or notion; a unit of thought">SKOS Concept</a></td>
+                            </tr>
+                            <tr>
+                                <td>Expected Properties</td>
+                                <td>
+                                    <ul>
+                                        <li><a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/type" title="The nature or genre of the resource">dcterms:type</a> - used to indicate a particular <a href="#LocalContextLabel">Local Context Label</a></li>
+                                        <li><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#value" title="Idiomatic property used for structured values">rdf:value</a> - used to indicate the specific value of the Label for this instance (i.e. for this Resource)</li>
+                                        <li><a href="#requirement" title="A description of the necessity for a Local Context Label">requirement</a> - the reason for this instance of a Local Context Label</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
                     </section>
-                    <section id="b.4.3">
-                        <h4>B.4.3 <code>LocalContextLabel</code> instances</h4>
-                        <p><code>LocalContextLabel</code> instances for all defined TK & BC labels are given in two vocabularies:</p>
-                        <ol>
-                            <li><a href="https://data.idnau.org/pid/vocab/bc-labels" style="text-decoration:line-through;">BC Labels Vocabulary</a></li>
-                            <li><a href="https://data.idnau.org/pid/vocab/tk-labels" style="text-decoration:line-through;">TK Labels Vocabulary</a></li>
-                        </ol>
-                        <p><em>The vocabularies above, while they have been created by the IDN, are not available publicly.</em></p>
-                        <p>An example of RDF data for one of these labels is:</p>
-                        <p class="eg">
-    PREFIX tk: &lt;https://data.idnau.org/pid/vocab/tk-labels/&gt;
-    PREFIX lc: &lt;https://data.idnau.org/pid/vocab/lc-labels/&gt;
+                    <section id="c.2.3">
+                        <h4>C.2.3 <code>requirement</code> property definition</h4>
+                        <table class="properties" id="requirement">
+                            <tr><th>Property</th><th>Value</th></tr>
+                            <tr>
+                                <td>IRI</td>
+                                <td><code>https://data.idnau.org/pid/vocab/lc-labels/requirement</code></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.w3.org/TR/skos-reference/#prefLabel" title="The preferred lexical label for a resource, in a given language">Preferred Label</a></td>
+                                <td>requirement</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.w3.org/TR/skos-reference/#definition" title="A statement or formal explanation of the meaning of a concept">Definition</a></td>
+                                <td>A description of the necessity for a <a href="#LocalContextLabel">Local Context Label</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/provenance" title="A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation">Provenance</a></td>
+                                <td>Developed for this data model, to cater for labels needed but not present</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.w3.org/TR/rdf-schema/#ch_domain" title="A domain of the subject property">Domain</a></td>
+                                <td><a href="#QualifiedLocalContext">Qualified Local Context</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.w3.org/TR/rdf-schema/#ch_range" title="A range of the subject property">Range</a></td>
+                                <td>A textual, literal, value</td>
+                            </tr>
+                        </table>
+                    </section>
+                </section>
+                <section id="c.3">
+                    <h4>C.3 <code>LocalContextLabel</code> instances</h4>
+                    <p><code>LocalContextLabel</code> instances for all defined TK & BC labels are given in two vocabularies:</p>
+                    <p class="todo">TODO</p>
+                    <ol>
+                        <li><a href="https://data.idnau.org/pid/vocab/bc-labels" style="text-decoration:line-through;">BC Labels Vocabulary</a></li>
+                        <li><a href="https://data.idnau.org/pid/vocab/tk-labels" style="text-decoration:line-through;">TK Labels Vocabulary</a></li>
+                    </ol>
+                    <p><em>The vocabularies above, while they have been created by the IDN, are not available publicly.</em></p>
+                    <p>An example of RDF data for one of these labels is:</p>
+                    <p class="eg">
+PREFIX tk: &lt;https://data.idnau.org/pid/vocab/tk-labels/&gt;
+PREFIX lc: &lt;https://data.idnau.org/pid/vocab/lc-labels/&gt;
 
-    tk:women-restricted
-        a
-            skos:Concept , lc:TKLabel ;
-        dcterms:identifier "women-restricted"^^xsd:token ;
-        dcterms:source "https://localcontexts.org/label/tk-women-restricted/"^^xsd:anyURI ;
-        rdfs:isDefinedBy cs: ;
-        skos:definition "This Label should be used when you want to let external users know that the material circulating freely is actually of a highly restricted nature. This is a Women’s Highly Restricted Label and indicates that there are restrictions of access and use based on customary law. This Label can be used to help external users recognize that with this material there are very specific protocols and conditions of use. This Label is designed to recognize that some knowledge is gendered, and that certain knowledge expressions can only be shared among specific members of the community. Only authorized [and/or initiated] women within the community should be using this material."@en ;
-        skos:inScheme cs: ;
-        skos:notation "TK WR" ;
-        skos:prefLabel "Women Restricted"@en ;
-    .
-                        </p>
-                    </section>
-                    <section id="b.4.4">
-                        <h4>B.4.4 Examples of a <code>Resource</code> with LC labels</h4>
-                        <p class="eg">
-                            <span>Example: A Dataset that does have a label applied to it but requires one</span>
+tk:women-restricted
+    a
+        skos:Concept , lc:TKLabel ;
+    dcterms:identifier "women-restricted"^^xsd:token ;
+    dcterms:source "https://localcontexts.org/label/tk-women-restricted/"^^xsd:anyURI ;
+    rdfs:isDefinedBy cs: ;
+    skos:definition "This Label should be used when you want to let external users know that the material circulating freely is actually of a highly restricted nature. This is a Women’s Highly Restricted Label and indicates that there are restrictions of access and use based on customary law. This Label can be used to help external users recognize that with this material there are very specific protocols and conditions of use. This Label is designed to recognize that some knowledge is gendered, and that certain knowledge expressions can only be shared among specific members of the community. Only authorized [and/or initiated] women within the community should be using this material."@en ;
+    skos:inScheme cs: ;
+    skos:notation "TK WR" ;
+    skos:prefLabel "Women Restricted"@en ;
+.
+                    </p>
+                </section>
+                <section id="c.4">
+                    <h4>C.4 Examples of a <code>Resource</code> with LC labels</h4>
+                    <p class="eg">
+                        <span>Example: A Dataset that does have a label applied to it but requires one</span>
 &lt;https://www.atsida.edu.au/archive/datasets/au.edu.anu.ada.ddi.20002-aus&gt;
-    a dcat:Dataset;
-    dcterms:title "Annual Aboriginal Census,1921-1944 - Australia"@en ;
-    ...
-    dcat:theme [
-        a lc:QualifiedLocalContext ;
-        dcterms:type tk:culturally-sensitive ;
-        lc:requirement "This dataset contains information collected in ways no longer thought to be best practice. The data may, if used unwarily, put Indigenous people in an un-due negative light."@en ;
-    ] ;
-    ...
+a dcat:Dataset;
+dcterms:title "Annual Aboriginal Census,1921-1944 - Australia"@en ;
+...
+dcat:theme [
+    a lc:QualifiedLocalContext ;
+    dcterms:type tk:culturally-sensitive ;
+    lc:requirement "This dataset contains information collected in ways no longer thought to be best practice. The data may, if used unwarily, put Indigenous people in an un-due negative light."@en ;
+] ;
+...
 .
-                        </p>
-                        <p class="eg">
-                            <span>Example: A Dataset that does have a label applied to it but requires one</span>
+                    </p>
+                    <p class="eg">
+                        <span>Example: A Dataset that does have a label applied to it but requires one</span>
 &lt;http://dx.doi.org/10.26193/V93KUP&gt;
-    a dcat:Dataset;
-    dcterms:title "Aboriginal radio broadcasting in Alice Springs, 1981"@en ;
-    ...
-    dcat:theme [
-        a lc:QualifiedLocalContext ;
-        dcterms:type tk:multiple-communities ;
-        rdf:value "Responsibility and ownership over this material is spread across several distinct communities. Use will be dependent upon discussion and negotiation with the multiple communities named herein Central Lands Council, Waltja Tjutangku Palyapayi Aboriginal Corporation, Akeyulerre Healing Centre. Decisions about use will need to be decided collectively. As an external user of this material you are asked to recognize and respect cultural protocols in relation to the use of this material and clear your intended use with the relevant communities."@en ;
-    ] ;
-    ...
+a dcat:Dataset;
+dcterms:title "Aboriginal radio broadcasting in Alice Springs, 1981"@en ;
+...
+dcat:theme [
+    a lc:QualifiedLocalContext ;
+    dcterms:type tk:multiple-communities ;
+    rdf:value "Responsibility and ownership over this material is spread across several distinct communities. Use will be dependent upon discussion and negotiation with the multiple communities named herein Central Lands Council, Waltja Tjutangku Palyapayi Aboriginal Corporation, Akeyulerre Healing Centre. Decisions about use will need to be decided collectively. As an external user of this material you are asked to recognize and respect cultural protocols in relation to the use of this material and clear your intended use with the relevant communities."@en ;
+] ;
+...
 .
-                        </p>
-                    </section>
+                    </p>
                 </section>
             </section>
             <section id="references">
@@ -1477,6 +1483,19 @@ droles:custodian
                 <dt id="ref-turtle">Turtle</dt>
                 <dd>World Wide Web Consortium. <em>RDF 1.1 Turtle Terse RDF Triple Language</em>, W3C Recommendation (25 February 2014). URL: <a href="https://www.w3.org/TR/turtle/">https://www.w3.org/TR/turtle/</a>, accessed 2025-08-20</dd>
               </dl>
+            </section>
+            <section class="todo">
+              <h2>TODO items</h2>
+              <ul>
+                <li>Convert all examples to schema.org</li>
+                <li>Create a mapping to DCAT in Annex A</li>
+                <li>Add validator(s) to SemBack</li>
+                <li>List all Requirements in own section</li>
+                <li>Add special handling of Place to themes pattern</li>
+                <li>Update 1.4.1 spatial coverage ASGS ref</li>
+                <li>Update 1.4.2 spatial coverage Cat link</li>
+                <li>Run link checker</li>
+              </ul>
             </section>
         </div><!-- #content -->
         <div class="content" style="grid-column:3; grid-row:2;"></div>

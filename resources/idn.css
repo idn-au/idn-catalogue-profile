@@ -25,7 +25,8 @@ body {
     height: 100dvh;
     overflow-y: auto;
 }
-#menu > h4 {
+#menu > h4,
+#menu > p {
     margin-left: 10px;
 }
 #menu ul {
