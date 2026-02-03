@@ -275,3 +275,54 @@ table.properties tr:nth-child(even){
     min-height: 3em;
     background-color: lightgoldenrodyellow;
 }
+
+
+  .tabs {
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  /* Hide radio buttons */
+  .tabs input[type="radio"] {
+    display: none;
+  }
+
+  /* Tab labels */
+  .tabs label {
+    display: inline-block;
+    padding: 10px 16px;
+    margin-right: -1px;
+    background: #e0e0e0;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-bottom: none;
+  }
+
+  .tabs label:hover {
+    background: #d5d5d5;
+  }
+
+  /* Active tab */
+  .tabs input:checked + label {
+    background: white;
+    border-bottom: 1px solid white;
+    font-weight: 600;
+  }
+
+  /* Panels */
+  .tab-panels {
+    border: 1px solid #ccc;
+    background: white;
+    padding: 16px;
+  }
+
+  .tab-panel {
+    display: none;
+  }
+
+  /* Show the selected panel */
+  #tab1:checked ~ .tab-panels #panel1,
+  #tab2:checked ~ .tab-panels #panel2,
+  #tab3:checked ~ .tab-panels #panel3 {
+    display: block;
+  }

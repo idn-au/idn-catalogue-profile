@@ -28,6 +28,7 @@
 				<li><a href="#all-elements">1.4 All Elements</a></li>
 				<li><a href="#scoring">1.5 Scoring</a></li>
 				<li><a href="#vocab-values">1.6 Vocab Values</a></li>
+				<li><a href="#tools">1.8 Tools</a></li>
 				<li><a href="#formats">1.7 Formats</a></li>
 			</ul>
 		</li>
@@ -88,6 +89,7 @@
 			</ul>
 		</li>
 		<li><a href="#lc">C. Local Context Labels</a></li>
+		<li><a href="#ai">D. Use with AI</a></li>
 	</ul>
 	<ul>
 		<li><a href="#references">References</a></li>
@@ -122,7 +124,7 @@
 	<h1>IDN Catalogue Profile - Specification</h1>
 	<!-- <h2>Description</h2> -->
 	<div id="description">
-		<p>This is the <a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a>'s <em>specification</em>, that is,
+		<p>This is the <a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a>'s <em>specification</em>,
 			the formal documentation of the IDN CP's data model and requirements.</p>
 		<p>
 			For other IDN CP resource, including introductory documents, see the links to the right.
@@ -160,7 +162,7 @@
 					</tr>
 					<tr>
 						<td><a class="proplink" title="schema:dateModified" href="https://schema.org/dateModified">Modified</a></td>
-						<td>2026-01-22</td>
+						<td>2026-02-03</td>
 					</tr>
 				</table>
 			</dd>
@@ -291,13 +293,15 @@
 		<h2>1. Introduction <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
 		<p>This section provides direct answers to likely early questions about this profile, specifically:</p>
 		<ol>
-			<li>What is the purpose of this Profile? See <a href="#purpose">Purpose</a>.</li>
-			<li>What does basic use of this profile look like? See <a href="#basic">Basic Use</a>.</li>
-			<li>What minimum elements are required? See <a href="#minimum">Minimum Metadata</a>.</li>
-			<li>What are all the recommended elements? See <a href="#all-elements">All Elements</a>.</li>
-			<li>How do I get (good) FAIR and CARE scores? See <a href="#scoring">Scoring</a>.</li>
-			<li>Where do I get specific values for some properties from? See <a href="#vocab-values">Vocab Value</a></li>
-			<li>What data formats can I use for metadata? See <a href="#formats">Formats</a>.</li>
+			<li>What is the purpose of this Profile? See <a href="#purpose">Purpose</a></li>
+			<li>What does basic use of this profile look like? See <a href="#basic">Basic Use</a></li>
+			<li>What minimum elements are required? See <a href="#minimum">Minimum Metadata</a></li>
+			<li>What are all the recommended elements? See <a href="#all-elements">All Elements</a></li>
+			<li>How do I get (good) FAIR, CARE and DGD scores? See <a href="#scoring">Scoring</a></li>
+			<li>Where do I get specific values for some properties from? See <a href="#vocab-values">Vocab Values</a></li>
+			<li>What support tooling is available? See <a href="#tools">Tools</a></li>
+			<li>What data formats can I use for this metadata? See <a href="#formats">Formats</a></li>
+			<li>How does the metadata model relate to others like RO Crates & Local Context Labels? <a href="#mappings">Mappings</a></li>
 		</ol>
 		<section id="purpose">
 			<h3>1.1 Purpose <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
@@ -654,163 +658,197 @@
 		</section>
 		<section id="vocab-values">
 			<h3>1.6 Vocab Values</h3>
+			<p class="todo">TODO</p>
+		</section>
+		<section id="tools">
+			<h3>1.7 Tools</h3>
+			<p class="todo">TODO</p>
 		</section>
 		<section id="formats">
-			<h3>1.7 Format <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-			<h4 style="font-style:italic;">What data formats can I use for metadata?</h4>
-			<p>The IDN Catalogue Profile uses the same machine-readable data format used by DCAT: <a
+			<h3>1.8 Format <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+			<h4 style="font-style:italic;">What data formats can I use for this metadata?</h4>
+			<p>This uses the same machine-readable data structure used by DCAT and schema.org: <a
 							href="https://en.wikipedia.org/wiki/Resource_Description_Framework">Resource Description Framework
 				(RDF)</a>.</p>
-			<p>RDF is widely supported and available in multiple syntaxes or "flavours" such as <a
-							href="https://en.wikipedia.org/wiki/JSON-LD">JSON</a> and <a href="https://en.wikipedia.org/wiki/RDF/XML">XML</a>,
-				as well as custom formats made for readability, such as <a href="https://en.wikipedia.org/wiki/Turtle_(syntax)">Turtle</a>.
+			<p>
+				RDF is widely supported by tools and available in multiple formats, in particular:
 			</p>
-			<p>It's critical that metadata is either supplied in one of the RDF syntaxes so that it can be validated with this
-				profile's supplied validators - see the <a href="#validation">Validation Section</a>.</p>
-			<p>Here follows 3 RDF syntax versions of the <em>Tjukinya</em> resource shown in the <em>Minimum Metadata</em>
-				section above.</p>
-			<section id="format-turtle">
-				<h4>1.5.1 Turtle</h4>
-				<p>Turtle is a text-based, reasonably human-readable syntax for RDF.</p>
-				<p class="eg">
-					PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
-					PREFIX dcterms: &lt;http://purl.org/dc/terms/>
-					PREFIX prov: &lt;http://www.w3.org/ns/prov#>
-					PREFIX schema: &lt;https://schema.org/>
-					PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
+			<ul>
+				<li><a href="https://en.wikipedia.org/wiki/Turtle_(syntax)">Turtle</a> - the native RDF syntax</li>
+				<li><a
+							href="https://en.wikipedia.org/wiki/JSON-LD">JSON</a> and <a href="https://en.wikipedia.org/wiki/JSON-LD">JSON-LD</a> - a JSON syntax some developers prefer</li>
+				<li><a
+							href="https://en.wikipedia.org/wiki/JSON-LD">JSON</a> and <a href="https://en.wikipedia.org/wiki/RDF/XML">RDF/XML</a> - standard XML</li>
+			</ul>
+			<p>
+				It's critical that metadata is supplied in one of the RDF syntaxes, or able to be converted to it, so that it
+				can be validated with this profile's supplied validators - see the <a href="#validation">Validation Section</a>.
+			<p>
+				Here are the contents of the <em>Tjukinya</em> resource shown in the <a href="#minimum">Minimum Metadata</a> section above
+			expressed in Turtle, JSON-LD & RDF/XML.
+			</p>
+			<div class="tabs">
+			  <input type="radio" name="tabs" id="tab1" checked>
+			  <label for="tab1">Turtle</label>
 
-					&lt;https://trove.nla.gov.au/work/10128420>
-					a dcat:Resource ;
-					dcterms:type &lt;http://purl.org/dc/dcmitype/PhysicalObject> ;
-					dcterms:title "Tjukinya" ;
-					dcterms:description "Folktale: The little red hen retold in Pitjantjatjara" ;
-					dcterms:creator &lt;https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117> ;
-					dcterms:publisher &lt;https://example.com/agent/123456> ;
-					dcat:theme &lt;https://data.idnau.org/pid/austlang/C6> ;
-					prov:qualifiedAttribution [ a prov:Attribution;
-					prov:hadRole &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
-					prov:agent &lt;https://linked.data.gov.au/org/nla>
-					] ;
-					dcterms:issued "1980"^^xsd:gYear ;
-					dcterms:theme &lt;https://data.idnau.org/pid/austlang/C6> ;
-					dcat:accessRights "Not for Inter-Library Loan" ;
-					dcterms:language &lt;https://data.idnau.org/pid/austlang/C6> ;
-					.
+			  <input type="radio" name="tabs" id="tab2">
+			  <label for="tab2">JSON-LD</label>
+
+			  <input type="radio" name="tabs" id="tab3">
+			  <label for="tab3">RDF/XML</label>
+			  <div class="tab-panels">
+			    <div id="panel1" class="tab-panel">
+				    <p>Turtle is a text-based, reasonably human-readable syntax for RDF.</p>
+			      <p class="eg">
+PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
+PREFIX dcterms: &lt;http://purl.org/dc/terms/>
+PREFIX prov: &lt;http://www.w3.org/ns/prov#>
+PREFIX schema: &lt;https://schema.org/>
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
+
+&lt;https://trove.nla.gov.au/work/10128420>
+	a dcat:Resource ;
+	dcterms:type &lt;http://purl.org/dc/dcmitype/PhysicalObject> ;
+	dcterms:title "Tjukinya" ;
+	dcterms:description "Folktale: The little red hen retold in Pitjantjatjara" ;
+	dcterms:creator &lt;https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117> ;
+	dcterms:publisher &lt;https://example.com/agent/123456> ;
+	dcat:theme &lt;https://data.idnau.org/pid/austlang/C6> ;
+	prov:qualifiedAttribution [
+		a prov:Attribution;
+		prov:hadRole &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
+		prov:agent &lt;https://linked.data.gov.au/org/nla>
+	] ;
+	dcterms:issued "1980"^^xsd:gYear ;
+	dcterms:theme &lt;https://data.idnau.org/pid/austlang/C6> ;
+	dcat:accessRights "Not for Inter-Library Loan" ;
+	dcterms:language &lt;https://data.idnau.org/pid/austlang/C6> ;
+.
+							</p>
+				    <p>
+					    Note that the reference to the <em>publisher</em>, the Summer Institute of Linguistics, is by persistent
+							identifier web address, <code>https://example.com/agent/456</code>, that resolves to more information about
+							the Institute. This particular identifier is from the <a htef="https://agentsdb.idnau.org/">IDN Agents
+					    Database</a>, so the IDN potentially knows more information about the Institute than just basic facts such
+							as its name, for example whether it is an Indigenous-led organisation.
+				    </p>
+			    </div>
+			    <div id="panel2" class="tab-panel">
+				    <p>
+					    JSON-LD is a convention for the use of JSON data that can represent RDF data. It is a modern syntax used by
+							modern Web systems for data transfer.
+				    </p>
+						<p>
+							This example JSON-LD has been converted from the Turtle data above and can be back-converted perfectly.
+						</p>
+            <p class="eg">
+{
+  "@context": {
+    "@vocab": "http://purl.org/dc/terms/",
+    "accessRights": "http://www.w3.org/ns/dcat#accessRights",
+    "theme": "http://www.w3.org/ns/dcat#theme",
+    "Resource": "http://www.w3.org/ns/dcat#Resource",
+    "year": "http://www.w3.org/2001/XMLSchema#gYear",
+    "PhysicalObject": "http://purl.org/dc/dcmitype/PhysicalObject",
+    "agent": "http://www.w3.org/ns/prov#agent",
+    "hadRole": "http://www.w3.org/ns/prov#hadRole",
+    "attribution": "http://www.w3.org/ns/prov#qualifiedAttribution",
+    "austlang": "https://data.idnau.org/pid/austlang/C6",
+    "droles": "https://linked.data.gov.au/def/data-roles/"
+  },
+  "@graph": [
+    {
+      "@id": "https://trove.nla.gov.au/work/10128420",
+      "@type": "Resource",
+      "type": {
+        "@id": "http://purl.org/dc/dcmitype/PhysicalObject"
+      },
+      "title": "Tjukinya",
+      "description": "Folktale: The little red hen retold in Pitjantjatjara",
+      "creator": {
+        "@id": "https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117"
+      },
+      "publisher": {
+        "@id": "https://example.com/agent/123456"
+      },
+      "attribution": {
+        "@id": "_:nb0e54b223f37485b8555e8d45b468bf9b1"
+      },
+      "issued": {
+        "@type": "year",
+        "@value": "1980"
+      },
+      "theme": {
+        "@id": "https://data.idnau.org/pid/austlang/C6"
+      },
+      "accessRights": "Not for Inter-Library Loan"
+    },
+    {
+      "@id": "_:nb0e54b223f37485b8555e8d45b468bf9b1",
+      "@type": [
+        "http://www.w3.org/ns/prov#Attribution"
+      ],
+      "agent": {
+        "@id": "https://linked.data.gov.au/org/nla"
+      },
+      "language": {
+        "@id": "https://data.idnau.org/pid/austlang/C6"
+      },
+      "hadRole": {
+        "@id": "droles:custodian"
+      }
+    }
+  ]
+}
 				</p>
-				<p>Note that the reference to the <em>publisher</em>, the Summer Institute of Linguistics, is by persistent
-					identifier web address, <code>https://example.com/agent/456</code>, that resolves to more information about
-					the Institute. This particular identifier is from the <a htef="https://agentsdb.idnau.org/">IDN Agents
-						Database</a>, so the IDN potentially knows more information about the Institute than just basic facts such
-					as its name, for example whether it is an Indigenous-led organisation.</p>
-			</section>
-			<section id="format-json">
-				<h4>1.5.2 JSON-LD</h4>
-				<p>JSON-LD is a convention for the use of JSON data that can represent RDF data. It is a modern syntax used by
-					modern Web systems for data transfer.</p>
-				<p>This example JSON-LD has been converted from the Turtle data above and can be back-converted perfectly.</p>
-				<p class="eg">
-					{
-					"@context": {
-					"@vocab": "http://purl.org/dc/terms/",
-					"accessRights": "http://www.w3.org/ns/dcat#accessRights",
-					"theme": "http://www.w3.org/ns/dcat#theme",
-					"Resource": "http://www.w3.org/ns/dcat#Resource",
-					"year": "http://www.w3.org/2001/XMLSchema#gYear",
-					"PhysicalObject": "http://purl.org/dc/dcmitype/PhysicalObject",
-					"agent": "http://www.w3.org/ns/prov#agent",
-					"hadRole": "http://www.w3.org/ns/prov#hadRole",
-					"attribution": "http://www.w3.org/ns/prov#qualifiedAttribution",
-					"austlang": "https://data.idnau.org/pid/austlang/C6",
-					"droles": "https://linked.data.gov.au/def/data-roles/"
-					},
-					"@graph": [
-					{
-					"@id": "https://trove.nla.gov.au/work/10128420",
-					"@type": "Resource",
-					"type": {
-					"@id": "http://purl.org/dc/dcmitype/PhysicalObject"
-					},
-					"title": "Tjukinya",
-					"description": "Folktale: The little red hen retold in Pitjantjatjara",
-					"creator": {
-					"@id": "https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117"
-					},
-					"publisher": {
-					"@id": "https://example.com/agent/123456"
-					},
-					"attribution": {
-					"@id": "_:nb0e54b223f37485b8555e8d45b468bf9b1"
-					}
-					"issued": {
-					"@type": "year",
-					"@value": "1980"
-					},
-					"theme": {
-					"@id": "https://data.idnau.org/pid/austlang/C6"
-					},
-					"accessRights": "Not for Inter-Library Loan",
-					},
-					{
-					"@id": "_:nb0e54b223f37485b8555e8d45b468bf9b1",
-					"@type": [
-					"http://www.w3.org/ns/prov#Attribution"
-					],
-					"agent": {
-					"@id": "https://linked.data.gov.au/org/nla"
-					},
-					"language": {
-					"@id": "https://data.idnau.org/pid/austlang/C6"
-					},
-					"hadRole": {
-					"@id": "droles:custodian"
-					}
-					}
-					]
-					}
+          </div>
+			    <div id="panel3" class="tab-panel">
+						<p>
+							XML is still commonly used as a format for metadata but care must be taken here: RDF/XML, a specific
+							formulation of XML, must be used for XML data, not general-purpose XML.
+						</p>
+						<p>
+							The following RDF/XML has been generated from the Turtle example above.
+						</p>
+			      <p class="eg">
+&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;rdf:RDF
+	xmlns:dcat="http://www.w3.org/ns/dcat#"
+	xmlns:dcterms="http://purl.org/dc/terms/"
+	xmlns:prov="http://www.w3.org/ns/prov#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+	&lt;rdf:Description rdf:about="https://trove.nla.gov.au/work/10128420">
+		&lt;rdf:type rdf:resource="http://www.w3.org/ns/dcat#Resource"/>
+		&lt;dcterms:type rdf:resource="http://purl.org/dc/dcmitype/PhysicalObject"/>
+		&lt;dcterms:title>Tjukinya&lt;/dcterms:title>
+		&lt;dcterms:description>Folktale: The little red hen retold in Pitjantjatjara&lt;/dcterms:description>
+		&lt;dcterms:creator rdf:resource="https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117"/>
+		&lt;dcterms:language rdf:resource="https://data.idnau.org/pid/austlang/C6"/"/>
+		&lt;dcterms:publisher rdf:resource="https://example.com/agent/123456"/>
+		&lt;prov:qualifiedAttribution rdf:nodeID="n09d0151a1e6140cfb188576200eb9d69b1"/>
+		&lt;dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1980&lt;/dcterms:issued>
+		&lt;dcat:theme rdf:resource="https://data.idnau.org/pid/austlang/C6"/>
+		&lt;dcat:accessRights>Not for Inter-Library Loan&lt;/dcat:accessRights>
+	&lt;/rdf:Description>
+	&lt;rdf:Description rdf:nodeID="n09d0151a1e6140cfb188576200eb9d69b1">
+		&lt;rdf:type rdf:resource="http://www.w3.org/ns/prov#Attribution"/>
+		&lt;prov:hadRole rdf:resource="https://linked.data.gov.au/def/data-roles/custodian"/>
+		&lt;prov:agent rdf:resource="https://linked.data.gov.au/org/nla"/>
+	&lt;/rdf:Description>
+&lt;/rdf:RDF>
 				</p>
-			</section>
-			<section id="format-xml">
-				<h4>1.5.3 XML</h4>
-				<p>XML is still commonly used as a format for metadata but care must be taken here: RDF/XML, a specific
-					formulation of XML, must be used for XML data, not general-purpose XML.</p>
-				<p>The following RDF/XML has been generated from the Turtle example above.</p>
-				<p class="eg">
-					&lt;?xml version="1.0" encoding="utf-8"?>
-					&lt;rdf:RDF
-					xmlns:dcat="http://www.w3.org/ns/dcat#"
-					xmlns:dcterms="http://purl.org/dc/terms/"
-					xmlns:prov="http://www.w3.org/ns/prov#"
-					xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-					>
-					&lt;rdf:Description rdf:about="https://trove.nla.gov.au/work/10128420">
-					&lt;rdf:type rdf:resource="http://www.w3.org/ns/dcat#Resource"/>
-					&lt;dcterms:type rdf:resource="http://purl.org/dc/dcmitype/PhysicalObject"/>
-					&lt;dcterms:title>Tjukinya&lt;/dcterms:title>
-					&lt;dcterms:description>Folktale: The little red hen retold in Pitjantjatjara&lt;/dcterms:description>
-					&lt;dcterms:creator rdf:resource="https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117"/>
-					&lt;dcterms:language rdf:resource="https://data.idnau.org/pid/austlang/C6"/"/>
-					&lt;dcterms:publisher rdf:resource="https://example.com/agent/123456"/>
-					&lt;prov:qualifiedAttribution rdf:nodeID="n09d0151a1e6140cfb188576200eb9d69b1"/>
-					&lt;dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1980&lt;/dcterms:issued>
-					&lt;dcat:theme rdf:resource="https://data.idnau.org/pid/austlang/C6"/>
-					&lt;dcat:accessRights>Not for Inter-Library Loan&lt;/dcat:accessRights>
-					&lt;/rdf:Description>
-					&lt;rdf:Description rdf:nodeID="n09d0151a1e6140cfb188576200eb9d69b1">
-					&lt;rdf:type rdf:resource="http://www.w3.org/ns/prov#Attribution"/>
-					&lt;prov:hadRole rdf:resource="https://linked.data.gov.au/def/data-roles/custodian"/>
-					&lt;prov:agent rdf:resource="https://linked.data.gov.au/org/nla"/>
-					&lt;/rdf:Description>
-					&lt;/rdf:RDF>
-				</p>
-			</section>
+			    </div>
+			  </div>
+			</div>
 			<section id="format-other">
-				<h4>1.5.4 Other formats</h4>
+				<h4>Other formats</h4>
 				<p>All standard RDF formats may be used. As a guide, those <a
-								href="https://rdflib.readthedocs.io/en/stable/intro_to_parsing.html">able to be handled by the RDFLib
+								href="https://rdflib.readthedocs.io/en/stable/intro_to_parsing/">able to be handled by the RDFLib
 					code library</a> are fine.</p>
 				<p>If you need to create RDF data for the first time, you can use the:</p>
 				<ul>
-					<li><a href="https://idn-au.github.io/idn-metadata-creator/">IDN Metadata Creator tool</a></li>
+					<li><a href="https://metadata.idnau.org/">IDN Metadata Creator tool</a></li>
 				</ul>
 			</section>
 		</section>
@@ -1226,7 +1264,7 @@
 				</p>
 			</section>
 			<section id="agent">
-				<h4>2.1.5 <code>Agent</code></h4>
+				<h3>2.1.5 <code>Agent</code></h3>
 				<p><em>Agents are the Organisations &amp; People that have Roles in relation to Catalogues and Resources.</em>
 				</p>
 				<p class="req"><strong>Req AG1:</strong> Each <code>Agent</code> instance MUST be either an <code>schema:Organization</code>
@@ -1575,8 +1613,7 @@
 		<h2>Annex A. Mappings<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
 		<p>This Annex defines mappings between this Profile and assessment models.</p>
 		<section id="lc-mapping">
-			<h3>A.1. Local Context Labels Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span>
-			</h3>
+			<h3>A.1. Local Context Labels Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
 			<p class="todo">TODO</p>
 		</section>
 		<section id="ro-crate">
@@ -1870,6 +1907,10 @@
 				.
 			</p>
 		</section>
+	</section>
+	<section id="ai">
+		<h2>Annex D. Use with AI</h2>
+		<p class="todo">TODO</p>
 	</section>
 	<section id="references">
 		<h2>References <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
