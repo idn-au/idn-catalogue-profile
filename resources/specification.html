@@ -916,18 +916,44 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 		</section>
 		<section id="agents">
 			<h3>2.4 Agents <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-			<p>All Agents, that is Persons or Organisations, referred to by IDN metadata <em>MUST</em> be registered within
-				the <a href="https://idnau.org/resources/agentsdb">IDN Data Agents DB</a>.</p>
-			<p>When registered, Agents are given a persistent identifier web address. Such identifiers may have been created
+			<p>
+				Agents are persons or organisations - things with agency that can have a role to play with respect to catalogued
+				resources.
+			</p>
+			<p>
+				All Agents referred to in IDN metadata <em>MUST</em> be identified with a persistent identifier and
+				<em>SHOULD</em> be registered within the <a href="https://idnau.org/resources/agentsdb">IDN Data Agents DB</a>.
+			</p>
+			<p>
+				So, instead of referring to a person like this:
+			</p>
+			<p class="eg">
+&lt;http://example.com/resource/x>
+  a dcat:Resource ;
+  dcterms:creator "John Smith" ;  # a literal string used for their name
+.
+			</p>
+			<p>
+				you must refer to them like this:
+			</p>
+			<p class="eg">
+&lt;http://example.com/resource/x>
+  a dcat:Resource ;
+  dcterms:creator &lt;http://example.com/person/john-smith> ;  # an identifier
+.
+			</p>
+			<p>When registered in the AgentsDB, Agents are given a persistent identifier web address. Such identifiers may have been created
 				elsewhere, or may be assigned by the Data Agents DB.</p>
-			<p>For example, here is the persistent identifier for the <em>Australian Data Archive</em>:</p>
+			<p>For example, here is the persistent identifier for the <em>University of Melbourne</em>:</p>
 			<ul>
-				<li><code><a href="https://linked.data.gov.au/org/ada">https://linked.data.gov.au/org/ada</a></code></li>
+				<li><code><a href="https://linked.data.gov.au/org/uom">https://linked.data.gov.au/org/uom</a></code></li>
 			</ul>
-			<p>This identifier resolves - you can click on it and go to a web page - and it has been assigned by a party other
+			<p>
+				This identifier resolves - you can click on it and go to a web page - and it has been assigned by a party other
 				than the IDN, in this case, the <a href="https://www.linked.data.gov.au">Australian Government Linked Data
-					Working Group</a>, which is a source fo many organisational persistent identifiers.</p>
-			<p>This identifier is present in the <a href="#eg-full">Full Example</a> below.</p>
+					Working Group</a>, which is a source for many organisational persistent identifiers.</p>
+			<p>This identifier is present in the <a href="#examples">Example Appendix</a> below.
+			</p>
 			<p>Here is an example of an identifier for an Organisation supplied by the IDN:</p>
 			<ul>
 				<li><code><a href="https://data.idnau.org/pid/org/agilwg">https://data.idnau.org/pid/org/agilwg</a></code> -
@@ -1454,226 +1480,70 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 		</section>
 	</section>
 	<section id="examples">
-		<h2>7. Extended Examples <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-		<section id="eg-minimal">
-			<h3>7.1 Minimal <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-			<p>The machine-readable version of this metadata record is reproduced here in the RDF <a
-							href="https://www.w3.org/TR/turtle/">Turtle</a> format:</p>
-			<p class="eg">
-				PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
-				PREFIX dcterms: &lt;http://purl.org/dc/terms/>
-				PREFIX schema: &lt;https://schema.org/>
-				PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
-
-				&lt;https://data.idnau.org/pid/10128420>
-				a dcat:Resource ;
-				dcterms:creator &lt;https://example.com/agent/123> ;
-				dcterms:description "Folktale: The little red hen retold in Pitjantjatjara" ;
-				dcterms:issued "1980"^^xsd:gYear ;
-				dcterms:publisher &lt;https://example.com/agent/123456> ;
-				dcterms:title "Tjukinya" ;
-				dcat:theme &lt;https://data.idnau.org/pid/austlang/C6> ;
-				dcterms:language &lt;https://data.idnau.org/pid/austlang/C6> ;
-				prov:qualifiedAttribution [a prov:Attribution;
-				prov:hadRole &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
-				prov:agent &lt;https://linked.data.gov.au/org/nla>
-				] ;
-				.
-			</p>
-			<p>Note that the reference to the <em>publisher</em>, the Summer Institute of Linguistics, is by persistent
-				identifier web address, <code>https://example.com/agent/456</code>, that resolves to more information about the
-				Institute. This particular identifier is from the <a htef="https://agentsdb.idnau.org/">IDN Agents Database</a>,
-				so the IDN potentially knows more information about the Institute than just basic facts such as its name, for
-				example whether it is an Indigenous-led organisation.</p>
-			<p>This metadata record will not score well on most metrics for FAIR access, governance scores and so on since
-				it's minimal, but it's better than nothing!</p>
-		</section>
-		<section id="eg-formats">
-			<h3>7.2 Formats <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-			<p>Metadata according to this Profile can be created using any RDF format.</p>
-			<p>Here is the same minimal metadata example as above shown there in HTML and the Turtle RDF format. This form is
-				RDF's <a href="https://json-ld.org/">JSON-LD</a> format, which is standard <a
-								href="https://www.json.org">JSON</a>:</p>
-			<p class="eg">
-				{
-				"@context": {
-				"@vocab": "http://purl.org/dc/terms/",
-				"dcat": "http://www.w3.org/ns/dcat#",
-				"austlang": "https://data.idnau.org/pid/austlang/",
-				"xsd": "http://www.w3.org/2001/XMLSchema#"
-				},
-				"@id": "https://data.idnau.org/pid/10128420",
-				"@type": "dcat:Resource",
-				"language": {
-				"@id": "austlang:C6"
-				},
-				"title": "Tjukinya",
-				"description": "Folktale: The little red hen retold in Pitjantjatjara",
-				"creator": {
-				"@id": "https://example.com/agent/123"
-				},
-				"publisher": {
-				"@id": "https://example.com/agent/123456"
-				},
-				"issued": {
-				"@type": "xsd:gYear",
-				"@value": "1980"
-				},
-				"dcat:theme": {
-				"@id": "austlang:C6"
-				}
-				}
-			</p>
-			<p>Here is the same minimal metadata example again in RDF's <a
-							href="https://en.wikipedia.org/wiki/RDF/XML">XML</a> format:</p>
-			<p class="eg">
-				&lt;?xml version="1.0" encoding="utf-8"?>
-				&lt;rdf:RDF
-				xmlns="http://purl.org/dc/terms/"
-				xmlns:dcat="http://www.w3.org/ns/dcat#"
-				xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-				>
-				&lt;rdf:Description rdf:about="https://data.idnau.org/pid/10128420">
-				&lt;title>Tjukinya&lt;/title>
-				&lt;description>Folktale: The little red hen retold in Pitjantjatjara&lt;/description>
-				&lt;rdf:type rdf:resource="http://www.w3.org/ns/dcat#Resource"/>
-				&lt;creator rdf:resource="https://example.com/agent/123"/>
-				&lt;publisher rdf:resource="https://example.com/agent/123456"/>
-				&lt;issued rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1980&lt;/issued>
-				&lt;dcat:theme rdf:resource="https://data.idnau.org/pid/austlang/C6"/>
-				&lt;dcterms:language rdf:resource="https://data.idnau.org/pid/austlang/C6"/>
-				&lt;/rdf:Description>
-				&lt;/rdf:RDF>
-			</p>
-		</section>
-		<p>The JSON &amp; XML formats shown here can be converted to and from the RDF Turtle format shown in the
-			<em>minimal</em> section above, and each other, using RDF format conversion tools such as <a
-							href="https://tools.kurrawong.ai">KurrawongAI's RDF Converter</a>.</p>
-		<p class="eg">
-			<span>Example: Partial content of the IDN Dataset Catalogue</span>
-			PREFIX dcat: &lt;http://www.w3.org/ns/dcat#&gt;
-			PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
-			PREFIX idnth: &lt;https://data.idnau.org/pid/vocab/idn-th&gt;
-			PREFIX droles: &lt;https://linked.data.gov.au/def/data-roles/&gt;
-			PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
-			PREFIX prov: &lt;http://www.w3.org/ns/prov#&gt;
-			PREFIX schema: &lt;https://schema.org/&gt;
-			PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
-			PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
-
-			&lt;https://data.idnau.org/pid/democat&gt;
-			a dcat:Catalog ;
-			dcterms:title "IDN Demonstration Catalogue" ;
-			dcterms:description """The Indigenous Data Network's catalogue of datasets. This catalogue contains records of
-			datasets in Australia, most of which have some relation to Indigenous Australia.
-
-			The purpose of this catalogue is not to act as a master catalogue of Indigenous data in Australia to demonstrate
-			improved metadata models and rating systems for data and metadata in order to improve Indigenous data governance.
-
-			The content of this catalogue conforms to the Indigenous Data Network's Catalogue Profile which is a profile of
-			the DCAT, SKOS and PROV data models."""@en ;
-			dcterms:created "2022-07-31"^^xsd:date ;
-			dcterms:modified "2022-11-09"^^xsd:date ;
-			prov:qualifiedAttribution [
-			a prov:Attribution;
-			prov:agent &lt;https://linked.data.gov.au/org/idn&gt; ;
-			dcat:hadRole droles:author , droles:owner , droles:custodian ;
-			] ;
-			dcterms:hasPart
-			&lt;http://example.com/resource/x&gt; ;
-			.
-
-			&lt;http://example.com/resource/x&gt;
-			a dcat:Dataset ;
-			dcterms:title "Example Dataset 1" ;
-			dcterms:description "This example dataset has a minimalist metadata record that is valid according to the
-			Indigenous Data Network's Catalogue Profile"@en ;
-			dcterms:created "2022-07-31"^^xsd:date ;
-			dcterms:modified "2022-07-31"^^xsd:date ;
-			dcat:theme idnth:indigenous-demographics ;
-			prov:qualifiedAttribution [
-			a prov:Attribution ;
-			prov:agent &lt;https://orcid.org/0000-0002-8742-7730&gt; ;
-			dcat:hadRole droles:author ; # not being a real dataset, it has no roles other than 'author' for Agents associated
-			with it
-			] ;
-			.
-
-			# From the IDN Agents Catalogue
-			&lt;https://linked.data.gov.au/org/idn&gt;
-			a schema:Organization ;
-			schema:name "Indigenous Data Network" ;
-			schema:description "The IDN was established in 2018 to support and coordinate the governance of Indigenous data
-			for Aboriginal and Torres Strait Islander peoples and empower Aboriginal and Torres Strait Islander communities to
-			decide their own local data priorities." ;
-			schema:url
-			"https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network"^^xsd:anyURI
-			;
-			.
-
-			# From the IDN Agents Catalogue
-			&lt;https://orcid.org/0000-0002-8742-7730&gt;
-			a schema:Person ;
-			schema:name "Nicholas J. Car"@en ;
-			schema:email "nick@kurrawong.ai"^^xsd:anyURI ;
-			schema:affiliation &lt;https://kurrawong.ai&gt; ;
-			dcat:qualifiedRelation [
-			a dcat:Relationship ;
-			dcat:hadRole aarr:affiliateOf ;
-			schema:agent &lt;https://kurrawong.ai&gt;
-			] ;
-			.
-
-			&lt;https://orcid.org/0000-0002-8742-7730&gt;
-			a schema:Person ;
-			schema:name "Nicholas J. Car"@en ;
-			schema:email "nick@kurrawong.ai"^^xsd:anyURI ;
-			schema:affiliation &lt;https://kurrawong.ai&gt; ;
-			.
-
-			&lt;https://kurrawong.ai&gt;
-			a schema:Organization ;
-			schema:name "KurrawongAI" ;
-			schema:description "KurrawongAI is a small, Artificial Intelligence, company in Australia specialising in
-			Knowledge Graphs." ;
-			schema:url "https://kurrawong.ai"^^xsd:anyURI ;
-			.
-
-			# From the IDN Data Themes Vocabulary
-			idnth:indigenous-demographics
-			a skos:Concept ;
-			skos:prefLabel "Indigenous Demographics"@en ;
-			skos:definition "Concerned with the demographics of Indigenous people in Australia"@en ;
-			skos:inScheme &lt;https://data.idnau.org/pid/vocab/idn-th&gt; ;
-			.
-
-			# From the IDN Role Codes Vocabulary
-			droles:author
-			a skos:Concept ;
-			skos:prefLabel "Author"@en ;
-			skos:definition "party who authored the resource"@en ;
-			skos:inScheme &lt;https://linked.data.gov.au/def/data-roles&gt; ;
-			.
-
-			droles:owner
-			a skos:Concept ;
-			skos:prefLabel "Owner"@en ;
-			skos:definition "party that owns the resource"@en ;
-			skos:inScheme &lt;https://linked.data.gov.au/def/data-roles&gt; ;
-			.
-
-			droles:custodian
-			a skos:Concept ;
-			skos:prefLabel "Custodian"@en ;
-			skos:definition "party that accepts accountability and responsibility for the resource and ensures appropriate
-			care and maintenance of the resource"@en ;
-			skos:inScheme &lt;https://linked.data.gov.au/def/data-roles&gt; ;
-			.
+		<h2>7. Examples <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+		<p>
+			Here is the source code for the metadata of the <em>Yirrkala LPC Dataset</em>, as stored within the IDN's
+			<a href="https://data.idnau.org/catalogs/pid:kp-catalogue">Keeping Place</a> catalogue at:
 		</p>
-		<p>The content for the example above can be accessed online from the IDN Dataset Catalogue's content repository:</p>
 		<ul>
-			<li><a href="https://github.com/idn-au/catalogue-data">IDN Catalogue Data</a></li>
+			<li><a href="https://data.idnau.org/pid/resource/debd1b90-aeb4-403e-82fc-7db7c474b2fd">https://data.idnau.org/pid/resource/debd1b90-aeb4-403e-82fc-7db7c474b2fd</a></li>
 		</ul>
+		<p class="eg">
+			<span>Example: Turtle formatted RDF metadata for the <em>Yirrkala LPC Dataset</em></span>
+PREFIX dataaccessrights: &lt;https://linked.data.gov.au/def/data-access-rights/>
+PREFIX dataroles: &lt;https://linked.data.gov.au/def/data-roles/>
+PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
+PREFIX dcterms: &lt;http://purl.org/dc/terms/>
+PREFIX indigeneity: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
+PREFIX orcidorg: &lt;https://orcid.org/>
+PREFIX prov: &lt;http://www.w3.org/ns/prov#>
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
+
+&lt;https://data.idnau.org/pid/resource/debd1b90-aeb4-403e-82fc-7db7c474b2fd>
+    a dcat:Resource ;
+    dcterms:accessRights dataaccessrights:restricted ;
+    dcterms:created "2022-01-01"^^xsd:date ;
+    dcterms:description """The Literature Production Centre (LPC) has been part of the Yirrkala school since the 70's, and supports the YolÅ‹u Indigenous Languages and Culture program including, YolÅ‹u Matha, Galtha Rom and Garma Maths, as well as supporting YolÅ‹u teachers to deliver the schoolâ€™s bilingual program.
+
+This archival dataset is stored on hard disk drives collected by University of Melbourne and includes digitisation of all non-standard documents, objects, materials in Archive.""" ;
+    dcterms:modified "2025-01-01"^^xsd:date ;
+    dcterms:temporal
+        [
+            prov:startedAtTime "1968"^^xsd:gYear ;
+        ] ;
+    dcterms:title "Yirrkala LPC Dataset" ;
+    dcterms:type
+        indigeneity:about-indigenous-people ,
+        indigeneity:about-indigenous-things ,
+        indigeneity:by-indigenous-people ;
+    dcat:theme
+        &lt;https://vocabularyserver.com/apais/xml.php?skosTema=10> ,  # Aboriginal education
+        &lt;https://vocabularyserver.com/apais/xml.php?skosTema=13> ,  # Aboriginal history
+        &lt;https://vocabularyserver.com/apais/xml.php?skosTema=15> ,  # Aboriginal languages
+        &lt;https://vocabularyserver.com/apais/xml.php?skosTema=16> ,  # Aboriginal literature
+        &lt;https://vocabularyserver.com/apais/xml.php?skosTema=17> ,  # Aboriginal men
+        &lt;https://vocabularyserver.com/apais/xml.php?skosTema=18> ,  # Aboriginal music
+        &lt;https://vocabularyserver.com/apais/xml.php?skosTema=25> ,  # Aboriginal women
+        &lt;https://vocabularyserver.com/apais/xml.php?skosTema=26> ,  # Aboriginal youth
+        &lt;https://vocabularyserver.com/apais/xml.php?skosTema=3> ,  # Aboriginal art
+        &lt;https://vocabularyserver.com/apais/xml.php?skosTema=4> ,  # Aboriginal artists
+        &lt;https://vocabularyserver.com/apais/xml.php?skosTema=6> ,  # Aboriginal children
+        &lt;https://vocabularyserver.com/apais/xml.php?skosTema=7> ,  # Aboriginal communities
+        &lt;https://vocabularyserver.com/apais/xml.php?skosTema=8> ;  # Aboriginal culture
+    prov:qualifiedAttribution
+        [
+            dcat:hadRole dataroles:custodian ;
+            prov:agent &lt;https://linked.data.gov.au/org/uom> ;  # University of Melbourne
+        ] ,
+        [
+            dcat:hadRole
+                dataroles:pointOfContact ,
+                dataroles:principalInvestigator ;
+            prov:agent orcidorg:0000-0002-1398-7524 ;  # Kristen Smith
+        ] ;
+.
+		</p>
+
 	</section>
 	<section id="mappings">
 		<h2>Annex A. Mappings<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
