@@ -678,7 +678,7 @@
 				<li><a
 							href="https://en.wikipedia.org/wiki/JSON-LD">JSON</a> and <a href="https://en.wikipedia.org/wiki/JSON-LD">JSON-LD</a> - a JSON syntax some developers prefer</li>
 				<li><a
-							href="https://en.wikipedia.org/wiki/JSON-LD">JSON</a> and <a href="https://en.wikipedia.org/wiki/RDF/XML">RDF/XML</a> - standard XML</li>
+							href="https://en.wikipedia.org/wiki/JSON-LD">JSON</a> and <a href="https://en.wikipedia.org/wiki/RDF/XML">RDF/XML</a> - an XML syntax</li>
 			</ul>
 			<p>
 				It's critical that metadata is supplied in one of the RDF syntaxes, or able to be converted to it, so that it
@@ -739,7 +739,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 							modern Web systems for data transfer.
 				    </p>
 						<p>
-							This example JSON-LD has been converted from the Turtle data above and can be back-converted perfectly.
+							This example JSON-LD has been auto-converted from the Turtle-formatted data and can be back-converted perfectly.
 						</p>
             <p class="eg">
 {
@@ -808,7 +808,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 							formulation of XML, must be used for XML data, not general-purpose XML.
 						</p>
 						<p>
-							The following RDF/XML has been generated from the Turtle example above.
+							The following RDF/XML has been auto-converted from the Turtle-formatted data.
 						</p>
 			      <p class="eg">
 &lt;?xml version="1.0" encoding="utf-8"?>
@@ -856,7 +856,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 	<section id="patterns">
 		<h2>2. Patterns <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
 		<p>This section describes patterns which are small scenario models within the overall Catalogue Profile model.</p>
-		<p>Some of these patterns are well-used in the data cataloguing domain, generally. Some are Indigenous-specific.</p>
+		<p>Some of these patterns are well-used in the data cataloguing domain. Some are Indigenous-specific.</p>
 		<section id="identifiers">
 			<h3>2.1 Identifiers <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
 			<p>This Profile relies on web address-style identifiers for things, so you will need to provide, or ask us to
@@ -1017,18 +1017,16 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			</p>
 			<p class="eg">
 				<span>Example: A fictional resource, themed with several vocabulary terms and textual keywords</span>
-				&lt;http://example.com/resource/x>
-				a dcat:Resource ;
-				dcterms:title "Resource X" ;
-				...
-				dcat:theme
-				&lt;https://linked.data.gov.au/def/nrm/c9f1f747-3677-5e72-aac0-b49733ea4629> , # "Cultural burn" from the IDN
-				Themes vocab
-				&lt;https://linked.data.gov.au/def/policy/5cc52a34-77c0-4589-91c6-7dabb6b65761> , # "First Peoples land
-				management" (implied)
-				&lt;https://vocabularyserver.com/apais/xml.php?skosTema=13> , # "Aboriginal history"
-				...
-				.
+&lt;http://example.com/resource/x>
+	a dcat:Resource ;
+	dcterms:title "Resource X" ;
+	...
+	dcat:theme
+		&lt;https://linked.data.gov.au/def/nrm/c9f1f747-3677-5e72-aac0-b49733ea4629> ,  # "Cultural burn" from the IDN Themes vocab
+		&lt;https://linked.data.gov.au/def/policy/5cc52a34-77c0-4589-91c6-7dabb6b65761> ,  # "First Peoples land management" (implied)
+		&lt;https://vocabularyserver.com/apais/xml.php?skosTema=13> ;  # "Aboriginal history"
+	...
+.
 			</p>
 		</section>
 		<section id="policies">
@@ -1046,15 +1044,13 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			</p>
 			<p class="eg">
 				<span>Example: The ISU's Law: The Way of the Ancestors resource and a link to a policy</span>
-				&lt;https://data.idnau.org/pid/762463a4-f8b1-4eec-a335-3689c8d86e9e>
-				a dcat:Resource ;
-				schema:name "Law: The Way of the Ancestors" ;
-				...
-				odrl:hasPolicy
-				&lt;https://data.idnau.org/pid/MPF1309> , # "Collections Policy", identified with its ISU catalogue ID
-				...
-				...
-				.
+&lt;https://data.idnau.org/pid/762463a4-f8b1-4eec-a335-3689c8d86e9e>
+	a dcat:Resource ;
+	schema:name "Law: The Way of the Ancestors" ;
+	...
+	odrl:hasPolicy &lt;https://data.idnau.org/pid/MPF1309> , # "Collections Policy", identified with its ISU catalogue ID
+	...
+.
 			</p>
 			<p>
 				Some policies affecting ISU catalogued content are listed as resources in the ISU's catalogue too:
@@ -1072,10 +1068,8 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 				They should then link their resources to them, as above.
 			</p>
 			<p class="req">
-				<strong>NOTE:</strong>In the future, it is hoped that machine-readable versions of policies can be made
-				available,
-				so that the details of how policies affect Indigenous data resources can be automatically understood. While we
-				are
+				<strong>NOTE:</strong> In the future, it is hoped that machine-readable versions of policies can be made available,
+				so that the details of how policies affect Indigenous data resources can be automatically understood. While we are
 				not there yet, identifying and linking resources to policies, as above, is the first major step to that future.
 			</p>
 		</section>
@@ -1083,12 +1077,83 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			<h3>2.8 Language <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
 			<p>Where a Resource includes text or spoken Indigenous languages, the Resource metadata <em>SHOULD</em> indicate
 				this with languages selected from the <a href="https://data.idnau.org/pid/austlang">AustLang</a> vocabulary</p>
-			<p>See requirements under 2.6 Theming where the Resource is <em>about</em> an Indigenous language. Note that a
+
+			<p class="eg">
+				<span>Example: A resource in an Indigenous language</span>
+&lt;https://www.youtube.com/watch?v=tEdweyPh-N8>
+	a dcat:Resource ;
+	dcterms:title "Mitch Tambo performs John Farnham's You're the Voice in Gamilaraay language" ;
+	...
+	dcterms:language &lt;https://data.idnau.org/pid/austlang/D23> ;  # AustLang's Gamilaraay / Gamilaroi / Kamilaroi
+	...
+.
+			</p>
+
+			<p>See patterns under 2.6 Theming where the Resource is <em>about</em> an Indigenous language. Note that a
 				Resource may be both about Indigenous language and written / spoken in Indigenous languages.</p>
 		</section>
 		<section id="provenance">
 			<h3>2.9 Provenance <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-			<p class="todo">TODO</p>
+			<p>
+				The provenance of objects are facts about their origins. As used in this profile, provenance links resources to
+				their sources - perhaps also catalogued resources - links resource to the <em>agents</em> who have roles to play
+				with respect to them and activities, e.g. project, that created them.
+			</p>
+			<p>
+				Provenance information can be critical in describing the context of resource needed to understand them.
+			</p>
+			<p>
+				Direct metadata properties such as <code>dcterm:creator</code> are provenance properties, but they will not be
+				discussed further here as they are part of basic metadata - see <a href="#basic">Basic Use</a>.
+			</p>
+			<p>
+				As per <a href="https://www.w3.org/TR/vocab-dcat-3/#complements">DCAT</a>
+				(and <a href="https://www.w3.org/TR/vocab-dcat-3/#examples-dataset-provenance">this example</a>), this profile
+				requires that provenance information be formulated according to the <a href="http://www.w3.org/TR/prov-o/">PROV-O: The PROV Ontology</a>.
+			</p>
+			<p>
+				One frequent case for the use of provenance according to PROV-O is for <em>qualified attribution</em> where a
+				resource is associated with an Agent with a specified role. Some direct DCAT and schema.org catalogued resource
+				metadata properties include roles, such as <code>dcterms:publisher</code> which includes the role '<a href="https://def.isotc211.org/common/RoleCode/publisher">publisher</a>'
+				but there are many possibly significant roles that do not have such properties.
+			</p>
+			<p>
+				See the <a href="#agents">Agents</a> section for a listing of roles.
+			</p>
+			<p>
+				Here is an example of a resource's <em>qualified attribution</em> to Agents with role not expressible in direct
+				DCAT / schema.org properties:
+			</p>
+			<p class="eg">
+				<span>Example: Provenance of qualified attribution</span>
+&lt;https://data.idnau.org/pid/resource/debd1b90-aeb4-403e-82fc-7db7c474b2fd>
+	a dcat:Resource ;
+	dcterms:title "Yirrkala LPC Dataset" ;
+	...
+	prov:qualifiedAttribution [
+		prov:agent &lt;https://linked.data.gov.au/org/uom> ;                    # University of Melbourne
+		dcat:hadRole &lt;https://def.isotc211.org/common/RoleCode/custodian> ;  # Custodian
+	] ,
+	[
+		prov:agent &lt;https://orcid.org/0000-0002-1398-7524> ;                 # Kristen Smith
+		dcat:hadRole
+			&lt;https://def.isotc211.org/common/RoleCode/pointOfContact> ,        # Point of Contact
+			&lt;https://def.isotc211.org/common/RoleCode/principalInvestigator> ; # Principle Investigator
+	] ;
+	...
+.
+			</p>
+			<p>
+				In the above example, the University of Melbourne has a role - custodian - for which there is no direct DCAT /
+				schema.org property, so a PROV=O <em>qualified attribution</em> is used. Kristen Smith has two roles: Point of
+				Contact and Principal Investigator.
+			</p>
+			<h4>Projects</h4>
+			<p>
+				Provenance can be used to indicate projects or other activities that generated resource. This would take the form
+				of PROV-O's <code>prov:wasGeneratedBy</code> from the resource indicating a project. For this you would need a
+				persistent identifier for the project.
+			</p>
 		</section>
 	</section>
 	<section id="model">
@@ -1375,13 +1440,14 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 
 				a dcat:Resource ;
 				...
-				dcat:theme idth:indigenous-demographics ; # Concept within the IDN Data Themes Vocabulary
+				# Concept within the IDN Data Themes Vocabulary
+				dcat:theme idth:indigenous-demographics ;
 				...
 				prov:qualifiedAttribution [
-				a prov:Attribution;
-				# Example Agent that could be registered in the IDN Agents Catalogue
-				prov:agent &lt;http://example.com/resource/central-lands-council&gt; ;
-				dcat:hadRole droles:custodian ; # Role from the IDN Role Codes Vocabulary
+					a prov:Attribution;
+					# Example Agent that could be registered in the IDN Agents Catalogue
+					prov:agent &lt;http://example.com/resource/central-lands-council&gt; ;
+					dcat:hadRole droles:custodian ; # Role from the IDN Role Codes Vocabulary
 				] ;
 				.
 			</p>
@@ -1879,10 +1945,10 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 				dcterms:title "Annual Aboriginal Census,1921-1944 - Australia"@en ;
 				...
 				dcat:theme [
-				a lc:QualifiedLocalContext ;
-				dcterms:type tk:culturally-sensitive ;
-				lc:requirement "This dataset contains information collected in ways no longer thought to be best practice. The
-				data may, if used unwarily, put Indigenous people in an un-due negative light."@en ;
+					a lc:QualifiedLocalContext ;
+					dcterms:type tk:culturally-sensitive ;
+					lc:requirement "This dataset contains information collected in ways no longer thought to be best practice. The
+					data may, if used unwarily, put Indigenous people in an un-due negative light."@en ;
 				] ;
 				...
 				.
