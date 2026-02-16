@@ -162,7 +162,7 @@
 					</tr>
 					<tr>
 						<td><a class="proplink" title="schema:dateModified" href="https://schema.org/dateModified">Modified</a></td>
-						<td>2026-02-03</td>
+						<td>2026-02-17</td>
 					</tr>
 				</table>
 			</dd>
@@ -658,11 +658,58 @@
 		</section>
 		<section id="vocab-values">
 			<h3>1.6 Vocab Values</h3>
-			<p class="todo">TODO</p>
+			<p>
+				For catalogued objects, it is important to use well-defined and preferably common reference values for categorisation
+				in metadata for maximal understanding. For example, if you are trying to ensure as many people as possible understand
+				that a catalogued information object is about Indigenous people, you could categorise it with the concept
+				<a href="https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-people">About Indigenous People</a>.
+			</p>
+			<p>
+				That concept is explicitly defined to indicate that something it is assigned to is "about Indigenous people" making
+				understanding easy, as opposed to something related that may be ambiguous. For example, if the categorisation
+				"Indigenous" was used for an object, it may be about Indigenous people, or Indigenous things or native Australian
+				plants etc.
+			</p>
+			<p>
+				Additionally, that concept is de-referencable - when clicked the link to it above resolves to more information -
+				and published with a set of other vocabularies all about Indigenous Australian concerns.
+			</p>
+			<p>
+				The Indigenous Data Network published a reference catalogue of vocabularies for metadata use:
+			</p>
+			<ul>
+				<li><a href="https://data.idnau.org/pid/vocabs">IDN Vocabularies</a></li>
+			</ul>
+			<p>
+				some particular vocabularies of interest there are:
+			</p>
+			<ul>
+				<li><a href="https://data.idnau.org/pid/vocab/indigeneity">Data Indigeneity</a> - The ways in which data may have a connection to Indigenous people</li>
+				<li><a href="https://data.idnau.org/pid/vocab/idn-th">IDN Themes</a> - The Indigenous Data Network's general-purpose vocabulary of thematic terms for indigenous data</li>
+				<li><a href="https://linked.data.gov.au/def/data-roles">IDN Role Codes</a> - The roles that Agents - People and Organisations - play in relation to data</li>
+			</ul>
+			<p>
+				We recommend that IDN vocab terms be used as much as possible for metadata according to this profile. If a term
+				you expect and need is missing from an IDN vocabulary, please contact the IDT to have it added.
+			</p>
 		</section>
 		<section id="tools">
 			<h3>1.7 Tools</h3>
-			<p class="todo">TODO</p>
+			<p>
+				There are a number of tools provided to help people use this metadata profile. In particular:
+			</p>
+			<ul>
+				<li><a href="https://metadata.idnau.org/">Metadata Entry Tool</a> - online form that can create IDN CP metadata and calculate scores</li>
+				<li><a href="https://data.idnau.org/pid/cp/validator">IDN CP Validator</a> - a <a href="https://www.w3.org/TR/shacl/">SHACL</a> RDF data validation file that can be used to check conformance of metadata to this profile</li>
+			</ul>
+			<p>
+				Additional tools are the IDN's <a href="https://data.idnau.org/pid/demo-catalogue">demonstration</a>,
+				<a href="https://data.idnau.org/pid/vocabs">vocabularies</a> and <a href="https://data.idnau.org/pid/spatial-data">spatial reference data</a>
+				catalogues that provide examples and reference data elements that can be used in the creation of new records.
+			</p>
+			<p>
+				See the <a href="https://data.idnau.org/catalogs">IDN's catalogue of catalogues</a> to see all the catalogues that may be of help.
+			</p>
 		</section>
 		<section id="formats">
 			<h3>1.8 Format <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
@@ -1247,17 +1294,17 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 					dcterms:title "Catalogue X" ;
 					dcterms:description "An example catalogue"@en ;
 					dcterms:created "2022-07-21"^^xsd:date ;
-					dcterms:modified "2022-07-25T20:15:21"^^xsd:dateTime ;
+					dcterms:modified "2026-02-25T20:15:21"^^xsd:dateTime ;
 
 					prov:qualifiedAttribution [
-					a prov:Attribution;
-					prov:agent &lt;https://linked.data.gov.au/org/idn&gt; ; # Indigenous Data Network's PID
-					ex:hadRole :custodian ;
+						a prov:Attribution;
+						prov:agent &lt;https://linked.data.gov.au/org/idn&gt; ; # Indigenous Data Network's PID
+						ex:hadRole :custodian ;
 					] ,
 					[
-					a prov:Attribution;
-					prov:agent &lt;https://orcid.org/0000-0002-8742-7730&gt; ; # Nicholas Car's IRI
-					ex:hadRole :pointOfContact ;
+						a prov:Attribution;
+						prov:agent &lt;https://orcid.org/0000-0002-8742-7730&gt; ; # Nicholas Car's IRI
+						ex:hadRole :pointOfContact ;
 					] ;
 
 					dcterms:hasPart
