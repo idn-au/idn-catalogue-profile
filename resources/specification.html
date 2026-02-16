@@ -1231,6 +1231,19 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 	</section>
 	<section id="model">
 		<h2>3. Model <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+		<p>
+			This section defines the model of this catalogue profile: the classes and predicates used to form metadata.
+		</p>
+		<p>
+				Most od the metadata elements - classes and predicates - used in this profile exist in standard cataloging model.
+				They are reused here as originally intended but with conventions that optimise the use for the representation
+				of Indigenous data characterisation. For example, using <code>dcat:theme</code> for a <code>dcat:Dataset</code>
+				to indicate a theme taken from the <a href="https://data.idnau.org/pid/vocab/idn-th">IDN Themes vocabulary</a>.
+		</p>
+		<p>
+			The less common metadata elements here are those relating to scores - see the <a href="#scoring">Scoring Section</a>
+			above. These elements come from the <a href="#scores">Scores Model described in Annex B</a>.
+		</p>
 		<div id="structural-figure" class="figure">
 			<a href="images/overview.png"><img src="images/overview.png" style="width:700px;"
 			                                   alt="Profile class structure overview"/></a>
@@ -1242,11 +1255,31 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 		</div>
 		<section id="classes">
 			<h3>3.1 Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+			<h4>Class Index</h4>
+			<ul>
+				<li><a href="">Resource</a></li>
+				<li><a href="">Distribution</a></li>
+				<li><a href="">Location</a></li>
+				<li><a href="">PeriodOfTime</a></li>
+				<li><a href="">Attribution</a></li>
+				<li><a href="">Score</a></li>
+				<li><a href=""></a></li>
+			</ul>
 			<p class="todo">TODO</p>
 		</section>
 		<section id="predicates">
 			<h3>3.2 Predicates <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
 			<p class="todo">TODO</p>
+
+			dcterms:spatial
+			dcterms:temporal
+
+			dcterms:contributor
+			dcterms:creator
+			dcterms:publisher
+			dcterms:rightsHolder
+			prov:qualifiedAttribution
+
 		</section>
 		<section id="axioms">
 			<h3>3.3 Axioms <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
