@@ -1253,33 +1253,221 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 				relationship. Pink arrows indicate specific value properties.</p>
 			<!-- figure needs updating with schema:Agent instead of prov:Agent -->
 		</div>
+		<p class="todo">Redraw the figure above using exactly the classes below</p>
 		<section id="classes">
 			<h3>3.1 Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
 			<h4>Class Index</h4>
 			<ul>
-				<li><a href="">Resource</a></li>
-				<li><a href="">Distribution</a></li>
-				<li><a href="">Location</a></li>
-				<li><a href="">PeriodOfTime</a></li>
-				<li><a href="">Attribution</a></li>
-				<li><a href="">Score</a></li>
-				<li><a href=""></a></li>
+				<li><a href="#cls-Resource">Resource</a></li>
+				<li><a href="#cls-Location">Location</a></li>
+				<li><a href="#cls-PeriodOfTime">PeriodOfTime</a></li>
+				<li><a href="#cls-Attribution">Attribution</a></li>
+				<li><a href="#cls-Score">Score</a></li>
+				<li><a href="#cls-Distribution">Distribution</a></li>
 			</ul>
-			<p class="todo">TODO</p>
+			<section id="cls-Resource">
+				<h4>3.1.1 Resource</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code>dcat:Resource</code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td>Resource</td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td>Resource published or curated by a single agent.</td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td>This is the generic class for things catalogued. You MAY use it but SHOULD use a more specialised variant such as <code>dcat:Dataset</code></td>
+					</tr>
+					<tr>
+						<th>Equivalent Classes</th>
+						<td><code>schema:CreativeWork</code></td>
+					</tr>
+					<tr>
+						<th>Expected Properties</th>
+						<td>
+							<ul>
+								<li>
+									basic metadata:
+									<ul>
+										<li><a href="#pred-title">dcterms:title</a></li>
+										<li><a href="#pred-description">dcterms:description</a></li>
+										<li><a href="#pred-created">dcterms:created</a></li>
+										<li><a href="#pred-modified">dcterms:modified</a></li>
+										<li><a href="#pred-spatial">dcterms:spatial</a></li>
+										<li><a href="#pred-temporal">dctems:temporal</a></li>
+										<li><a href="#pred-language">dcterms:language</a></li>
+									</ul>
+								</li>
+								<li>
+									links to agents:
+									<ul>
+										<li><a href="">dcterms:contributor</a></li>
+										<li><a href="">dcterms:creator</a></li>
+										<li><a href="">dcterms:publisher</a></li>
+										<li><a href="">dcterms:rightsHolder</a></li>
+										<li><a href="">prov:qualifiedAttribution</a></li>
+									</ul>
+								</li>
+								<li>
+									data access:
+									<ul>
+										<li><a href="#pred-distribution">dcat:distribution</a></li>
+										<li><a href="#pred-theme">dcat:theme</a></li>
+										<li><a href="#pred-hasPolicy">odrl:hasPolicy</a></li>
+										<li><a href="#pred-license">dcterms:license</a></li>
+										<li><a href="#pred-hasScore">score:hasScore</a></li>
+									</ul>
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+							<code><pre>
+PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
+
+&lt;https://data.idnau.org/pid/762463a4-f8b1-4eec-a335-3689c8d86e9e>
+    a dcat:Resource ;
+    dcterms:title "Law: The Way of the Ancestors" ;
+    dcterms:description "The authors show how Indigenous law has enabled people to survive and thrive in Australia for more than 2000 generations. Nurturing people and places, law is the foundation of all Indigenous societies in Australia, giving them the tools to respond and adapt to major environmental and social changes." ;
+    dcterms:type &lt;http://id.loc.gov/vocabulary/marcgt/boo> ;  # Book
+    dcat:theme
+        ind:by-indigenous-people ;
+        ind:about-indigenous-people ,
+.
+							</pre></code>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="cls-Location">
+				<h4>3.1.2 Location</h4>
+			</section>
+			<section id="cls-PeriodOfTime">
+				<h4>3.1.3 PeriodOfTime</h4>
+			</section>
+			<section id="cls-Attribution">
+				<h4>3.1.4 Attribution</h4>
+			</section>
+			<section id="cls-Score">
+				<h4>3.1.5 Score</h4>
+			</section>
+			<section id="cls-Distribution">
+				<h4>3.1.6 Distribution</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code>dcat:Distribution</code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td>Distribution</td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Equivalent Classes</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Expected Properties</th>
+						<td>
+							<ul>
+								<li><a href="">dcterms:title</a></li>
+								<li><a href="">dcat:accessURL</a></li>
+								<li><a href="">dcat:downloadURL</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>See the example for <a href="#class::dcat:Resource">dcat:Resource</a></td>
+					</tr>
+				</table>
+			</section>
 		</section>
 		<section id="predicates">
 			<h3>3.2 Predicates <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-			<p class="todo">TODO</p>
-
-			dcterms:spatial
-			dcterms:temporal
-
-			dcterms:contributor
-			dcterms:creator
-			dcterms:publisher
-			dcterms:rightsHolder
-			prov:qualifiedAttribution
-
+			<ul>
+				<li><a href="#pred-title">dcterms:title</a></li>
+				<li><a href="#pred-description">dcterms:description</a></li>
+				<li><a href="#pred-spatial">dcterms:spatial</a></li>
+				<li><a href="#pred-temporal">dctems:temporal</a></li>
+				<li><a href="#pred-language">dcterms:language</a></li>
+				<li>
+					links to agents:
+					<ul>
+						<li><a href="#pred-contributor">dcterms:contributor</a></li>
+						<li><a href="#pred-creator">dcterms:creator</a></li>
+						<li><a href="#pred-publisher">dcterms:publisher</a></li>
+						<li><a href="#pred-rightsHolder">dcterms:rightsHolder</a></li>
+						<li><a href="#pred-qualifiedAttribution">prov:qualifiedAttribution</a></li>
+					</ul>
+				</li>
+				<li><a href="#pred-theme">dcat:theme</a></li>
+				<li><a href="#pred-hasPolicy">odrl:hasPolicy</a></li>
+				<li><a href="#pred-license">dcterms:license</a></li>
+				<li><a href="#pred-hasScore">score:hasScore</a></li>
+				<li><a href="#pred-distribution">dcat:distribution</a></li>
+			</ul>
+			<section id="pred-title">
+				<h4>3.2.1 title</h4>
+			</section>
+			<section id="pred-description">
+				<h4>3.2.2 description</h4>
+			</section>
+			<section id="pred-spatial">
+				<h4>3.2.3 spatial</h4>
+			</section>
+			<section id="pred-temporal">
+				<h4>3.2.4 temporal</h4>
+			</section>
+			<section id="pred-language">
+				<h4>3.2.5 language</h4>
+			</section>
+			<section id="pred-contributor">
+				<h4>3.2.6 contributor</h4>
+			</section>
+			<section id="pred-creator">
+				<h4>3.2.7 creator</h4>
+			</section>
+			<section id="pred-publisher">
+				<h4>3.2.8 publisher</h4>
+			</section>
+			<section id="pred-rightsHolder">
+				<h4>3.2.9 rightsHolder</h4>
+			</section>
+			<section id="pred-qualifiedAttribution">
+				<h4>3.2.10 qualifiedAttribution</h4>
+			</section>
+			<section id="pred-theme">
+				<h4>3.2.11 theme</h4>
+			</section>
+			<section id="pred-hasPolicy">
+				<h4>3.2.12 hasPolicy</h4>
+			</section>
+			<section id="pred-license">
+				<h4>3.2.13 license</h4>
+			</section>
+			<section id="pred-hasScore">
+				<h4>3.2.14 hasScore</h4>
+			</section>
+			<section id="pred-distribution">
+				<h4>3.2.15 distribution</h4>
+			</section>
 		</section>
 		<section id="axioms">
 			<h3>3.3 Axioms <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>

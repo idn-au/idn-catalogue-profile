@@ -326,3 +326,23 @@ table.properties tr:nth-child(even){
   #tab3:checked ~ .tab-panels #panel3 {
     display: block;
   }
+
+  .cls {
+      border:solid black 1px;
+      border-collapse: collapse;
+      table-layout:fixed;
+      width: 75%;
+      overflow: hidden;
+  }
+  .cls td,
+  .cls th {
+      border:solid black 1px;
+      padding: 5px;
+      overflow: hidden;
+  }
+  .cls th {
+      width: 10em;
+  }
+  .cls td pre {
+      white-space: pre-wrap;
+  }
