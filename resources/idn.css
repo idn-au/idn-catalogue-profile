@@ -346,3 +346,7 @@ table.properties tr:nth-child(even){
   .cls td pre {
       white-space: pre-wrap;
   }
+
+  pre {
+    font-size: 1.2em ;
+  }

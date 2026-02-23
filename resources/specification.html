@@ -51,7 +51,7 @@
 			<ul>
 				<li><a href="#classes">3.1 Classes</a></li>
 				<li><a href="#predicates">3.2 Predicates</a></li>
-				<li><a href="#axioms">3.3 Axioms</a></li>
+				<li><a href="#reasoning-rules">3.3 Reasoning Rules</a></li>
 			</ul>
 		</li>
 		<li><a href="#validation">4. Vocabularies</a></li>
@@ -1291,46 +1291,47 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 					<tr>
 						<th>Expected Properties</th>
 						<td>
-							<ul>
-								<li>
+							<div style="display:grid;">
+								<div style="grid-column: 1;">
 									basic metadata:
 									<ul>
-										<li><a href="#pred-title">dcterms:title</a></li>
-										<li><a href="#pred-description">dcterms:description</a></li>
-										<li><a href="#pred-created">dcterms:created</a></li>
-										<li><a href="#pred-modified">dcterms:modified</a></li>
-										<li><a href="#pred-spatial">dcterms:spatial</a></li>
-										<li><a href="#pred-temporal">dctems:temporal</a></li>
-										<li><a href="#pred-language">dcterms:language</a></li>
+										<li><a href="#pred-title">title</a></li>
+										<li><a href="#pred-description">description</a></li>
+										<li><a href="#pred-created">created</a></li>
+										<li><a href="#pred-modified">modified</a></li>
+										<li><a href="#pred-spatial">spatial</a></li>
+										<li><a href="#pred-temporal">temporal</a></li>
+										<li><a href="#pred-language">language</a></li>
 									</ul>
-								</li>
-								<li>
+								</div>
+								<div style="grid-column: 2;">
 									links to agents:
 									<ul>
-										<li><a href="">dcterms:contributor</a></li>
-										<li><a href="">dcterms:creator</a></li>
-										<li><a href="">dcterms:publisher</a></li>
-										<li><a href="">dcterms:rightsHolder</a></li>
-										<li><a href="">prov:qualifiedAttribution</a></li>
+										<li><a href="">contributor</a></li>
+										<li><a href="">creator</a></li>
+										<li><a href="">publisher</a></li>
+										<li><a href="">rightsHolder</a></li>
+										<li><a href="">qualified attribution</a></li>
 									</ul>
-								</li>
-								<li>
+								</div>
+								<div style="grid-column: 3;">
 									data access:
 									<ul>
-										<li><a href="#pred-distribution">dcat:distribution</a></li>
-										<li><a href="#pred-theme">dcat:theme</a></li>
-										<li><a href="#pred-hasPolicy">odrl:hasPolicy</a></li>
-										<li><a href="#pred-license">dcterms:license</a></li>
-										<li><a href="#pred-hasScore">score:hasScore</a></li>
+										<li><a href="#pred-distribution">distribution</a></li>
+										<li><a href="#pred-theme">theme</a></li>
+										<li><a href="#pred-hasPolicy">has policy</a></li>
+										<li><a href="#pred-license">license</a></li>
+										<li><a href="#pred-hasScore">has score</a></li>
 									</ul>
-								</li>
-							</ul>
+								</div>
+							</div>
 						</td>
 					</tr>
 					<tr>
 						<th>Example</th>
 						<td>
 							<code><pre>
+PREFIX id: &lt;http://id.loc.gov/vocabulary/identifiers/>
 PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 
 &lt;https://data.idnau.org/pid/762463a4-f8b1-4eec-a335-3689c8d86e9e>
@@ -1338,9 +1339,14 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
     dcterms:title "Law: The Way of the Ancestors" ;
     dcterms:description "The authors show how Indigenous law has enabled people to survive and thrive in Australia for more than 2000 generations. Nurturing people and places, law is the foundation of all Indigenous societies in Australia, giving them the tools to respond and adapt to major environmental and social changes." ;
     dcterms:type &lt;http://id.loc.gov/vocabulary/marcgt/boo> ;  # Book
+    dcterms:created "2023"^^xsd:gYear ;
+    dcterms:creator
+      &lt;https://orcid.org/0000-0002-1398-7524> ,  # Marcia Langton
+      &lt;https://orcid.org/0000-0002-4797-9776> ;  # Aaron Corn
+    dcterms:identifier "9781760762827"^^id:isbn ;
     dcat:theme
-        ind:by-indigenous-people ;
-        ind:about-indigenous-people ,
+      ind:about-indigenous-people ,
+      ind:by-indigenous-people ;
 .
 							</pre></code>
 						</td>
@@ -1349,15 +1355,143 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 			</section>
 			<section id="cls-Location">
 				<h4>3.1.2 Location</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Equivalent Classes</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Expected Properties</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section id="cls-PeriodOfTime">
 				<h4>3.1.3 PeriodOfTime</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Equivalent Classes</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Expected Properties</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section id="cls-Attribution">
 				<h4>3.1.4 Attribution</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Equivalent Classes</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Expected Properties</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section id="cls-Score">
 				<h4>3.1.5 Score</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Equivalent Classes</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Expected Properties</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section id="cls-Distribution">
 				<h4>3.1.6 Distribution</h4>
@@ -1386,9 +1520,50 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 						<th>Expected Properties</th>
 						<td>
 							<ul>
-								<li><a href="">dcterms:title</a></li>
-								<li><a href="">dcat:accessURL</a></li>
-								<li><a href="">dcat:downloadURL</a></li>
+								<li><a href="#pred-title">title</a></li>
+								<li><a href="#pred-format">format</a></li>
+								<li><a href="#pred-accessURL">access URL</a></li>
+								<li><a href="#pred-downloadURL">download URL</a></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>See the example for <a href="#class::dcat:Resource">dcat:Resource</a></td>
+					</tr>
+				</table>
+			</section>
+			<section id="cls-Agent">
+				<h4>3.1.6 Agent</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code>dcat:Distribution</code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td>Distribution</td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Equivalent Classes</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Expected Properties</th>
+						<td>
+							<ul>
+								<li><a href="#pred-title">title</a></li>
+								<li><a href="#pred-format">format</a></li>
+								<li><a href="#pred-accessURL">access URL</a></li>
+								<li><a href="#pred-downloadURL">download URL</a></li>
 							</ul>
 						</td>
 					</tr>
@@ -1402,76 +1577,579 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 		<section id="predicates">
 			<h3>3.2 Predicates <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
 			<ul>
-				<li><a href="#pred-title">dcterms:title</a></li>
-				<li><a href="#pred-description">dcterms:description</a></li>
-				<li><a href="#pred-spatial">dcterms:spatial</a></li>
-				<li><a href="#pred-temporal">dctems:temporal</a></li>
-				<li><a href="#pred-language">dcterms:language</a></li>
+				<li><a href="#pred-title">title</a></li>
+				<li><a href="#pred-description">description</a></li>
+				<li><a href="#pred-spatial">spatial</a></li>
+				<li><a href="#pred-temporal">temporal</a></li>
+				<li><a href="#pred-language">language</a></li>
 				<li>
 					links to agents:
 					<ul>
-						<li><a href="#pred-contributor">dcterms:contributor</a></li>
-						<li><a href="#pred-creator">dcterms:creator</a></li>
-						<li><a href="#pred-publisher">dcterms:publisher</a></li>
-						<li><a href="#pred-rightsHolder">dcterms:rightsHolder</a></li>
-						<li><a href="#pred-qualifiedAttribution">prov:qualifiedAttribution</a></li>
+						<li><a href="#pred-contributor">contributor</a></li>
+						<li><a href="#pred-creator">creator</a></li>
+						<li><a href="#pred-publisher">publisher</a></li>
+						<li><a href="#pred-rightsHolder">rights holder</a></li>
+						<li><a href="#pred-qualifiedAttribution">qualified attribution</a></li>
 					</ul>
 				</li>
-				<li><a href="#pred-theme">dcat:theme</a></li>
-				<li><a href="#pred-hasPolicy">odrl:hasPolicy</a></li>
-				<li><a href="#pred-license">dcterms:license</a></li>
-				<li><a href="#pred-hasScore">score:hasScore</a></li>
-				<li><a href="#pred-distribution">dcat:distribution</a></li>
+				<li><a href="#pred-theme">theme</a></li>
+				<li><a href="#pred-hasPolicy">has policy</a></li>
+				<li><a href="#pred-license">license</a></li>
+				<li><a href="#pred-hasScore">has score</a></li>
+				<li><a href="#pred-distribution">distribution</a></li>
 			</ul>
 			<section id="pred-title">
 				<h4>3.2.1 title</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section id="pred-description">
 				<h4>3.2.2 description</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section id="pred-spatial">
 				<h4>3.2.3 spatial</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section id="pred-temporal">
 				<h4>3.2.4 temporal</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section id="pred-language">
 				<h4>3.2.5 language</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section id="pred-contributor">
 				<h4>3.2.6 contributor</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section id="pred-creator">
 				<h4>3.2.7 creator</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section id="pred-publisher">
 				<h4>3.2.8 publisher</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section id="pred-rightsHolder">
-				<h4>3.2.9 rightsHolder</h4>
+				<h4>3.2.9 rights holder</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section id="pred-qualifiedAttribution">
-				<h4>3.2.10 qualifiedAttribution</h4>
+				<h4>3.2.10 qualified attribution</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section id="pred-theme">
 				<h4>3.2.11 theme</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section id="pred-hasPolicy">
-				<h4>3.2.12 hasPolicy</h4>
+				<h4>3.2.12 has policy</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section id="pred-license">
 				<h4>3.2.13 license</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section id="pred-hasScore">
 				<h4>3.2.14 hasScore</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section id="pred-distribution">
 				<h4>3.2.15 distribution</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code></code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
 			</section>
 		</section>
-		<section id="axioms">
-			<h3>3.3 Axioms <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-			<p class="todo">TODO</p>
+		<section id="reasoning-rules">
+			<h3>3.3 Reasoning Rules <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+			<p>
+				In addition to the Classes and Predicates declared in this model, as above, we also define some reasoning rules
+				that enable equivalencies to be calculated. This form of reasoning rule is also used in the <a href="#mappings">Mappings</a>
+				section below to convert data according to this model to other models.
+			</p>
+			<section id="#rr-qa">
+				<h4>3.3.1 qualified attribution equivalents</h4>
+				<p>
+					The predicates above that indicate a relationship between a <a href="#cls-Resource">Resource</a> and an <a href="#cls-Agent">Agent</a>
+					have equivalents in the <a href="#pred-qualifiedAttribution">qualified attribution</a> pattern where particular
+					roles are taken from the <a href="https://linked.data.gov.au/def/data-roles">IDN Role Codes</a> vocabulary or
+					other similar, vocabularies.
+				</p>
+				<p>
+					For example, the equivalent to associating a resource <code>&lt;X></code> to an agent <code>&lt;Y></code> with the predicate
+					<code>dcterms:publisher</code> is:
+				</p>
+				<p>
+					<pre>
+&lt;X> prov:qualifiedAttribution [
+  prov:agent &lt;Y> ;
+  prov:hadRole &lt;https://linked.data.gov.au/def/data-roles/publisher>
+] .</pre>
+				</p>
+				<p>
+					Not all direct predicates match role code concepts exactly so here is a pairing of equivalents for the
+					direct agent associating predicated listed above:
+				</p>
+				<table>
+					<tr>
+						<th>direct predicate</th>
+						<th>role code</th>
+					</tr>
+					<tr>
+						<td><a href="#pred-contributor">contributor</a></td>
+						<td><a href="https://def.isotc211.org/common/RoleCode/contributor">contributor</a></td>
+					</tr>
+					<tr>
+						<td><a href="#pred-creator">creator</a></td>
+						<td><a href="https://def.isotc211.org/common/RoleCode/author">author</a></td>
+					</tr>
+					<!--
+					<tr>
+						<td><a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#mediator">mediator</a></td>
+						<td><a href="https://def.isotc211.org/common/RoleCode/mediator">mediator</a></td>
+					</tr>
+					-->
+					<tr>
+						<td><a href="#pred-publisher">publisher</a></td>
+						<td><a href="https://def.isotc211.org/common/RoleCode/publisher">publisher</a></td>
+					</tr>
+					<tr>
+						<td><a href="#pred-rightsHolder">rights holder</a></td>
+						<td><a href="https://def.isotc211.org/common/RoleCode/rightsHolder">rights holder</a></td>
+					</tr>
+				</table>
+				<p>
+					Other direct <code>Resource &rarr; Agent</code> predicates exist in models such as <a href="https://schema.org">schema.org</a>,
+					for example <a href="https://schema.org/accountablePerson">accountable person</a> but these should not be used,
+					instead the qualified attribution pattern with IDN Role Code roles should be.
+				</p>
+				<p>
+					If roles for Agents already specified according to another model are to be converted to IDN CP equivalents,
+					a judgement about direct predicate / role will have to be made.
+				</p>
+				<p>
+					A <a href="https://www.w3.org/TR/sparql12-query/">SPARQL query</a> that can convert the direct predicate of <a href="#pred-creator">creator</a> to
+					its qualified attribution equivalent is:
+				</p>
+				<p>
+					<pre>
+PREFIX rc: &lt;https://linked.data.gov.au/def/data-roles/>
+
+CONSTRUCT {
+  &lt;X> prov:qualifiedAttribution [
+    prov:agent &lt;Y> ;
+    prov:hadRole rc:author ;
+  ] .
+}
+WHERE {
+  &lt;X> prov:qualifiedAttribution &lt;Y>
+}</pre>
+				</p>
+			</section>
 		</section>
 	</section>
 	<section id="vocabularies">
