@@ -54,7 +54,7 @@
 				<li><a href="#reasoning-rules">3.3 Reasoning Rules</a></li>
 			</ul>
 		</li>
-		<li><a href="#validation">4. Vocabularies</a></li>
+		<li><a href="#ref-values">4. Reference Data Values</a></li>
 		<li>
 			<a href="#validation">5. Validation</a>
 			<ul>
@@ -181,24 +181,31 @@
 			<h3>Abstract <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
 			<p>
 				This is the formal data model specification of the <a href="https://data.idnau.org/pid/cp">IDN Catalogue
-				Profile</a> which is a "profile" of <a href="#ref-schema.org">schema.org</a>, <a href="#ref-dcat">DCAT, the Data
-				Catalog Vocabulary</a> and <a href="#ref-prov">PROV-O, the Provenance Ontology</a>.
+				Profile</a>. It is a
+				<em>profile</em> - a specification that constrains/extends other specifications - of several well-known models,
+				particularly <a href="#ref-schema.org">schema.org</a>, but also <a href="#ref-prov">PROV-O, the Provenance Ontology</a>
+				and several others.
 			</p>
 			<p>
-				Where schema.org is a general-purpose of data elements for documenting Internet resources, DCAT is designed for
-				the representation of data catalogues and their content in general, and PROV-O for representations of provenance
-				in general, this profile aims to cater for the enhanced representation of Indigenous data and its governance
-				concerns.
+				Where schema.org is a general-purpose set of model elements for documenting Internet resources and PROV-O for
+				representations of provenance in general, this profile aims to cater for the enhanced representation of catalogued
+				Indigenous data and specialised provenance for Indigenous data governance calculations.
 			</p>
 			<p>
-				The rules - "Requirements" - of this profile set conventions for the use of schema.org, DCAT &amp; PROV and some
-				other common models, such as <a
-							href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/">DCTERMS</a>, but no new model
-				elements are introduced.
+				This profile has mappings to several well-known catalogue models, particularly <a href="#ref-dcat">DCAT, the Data
+				Catalog Vocabulary</a> and
+				<a href="https://www.researchobject.org/ro-crate/">RO Crates</a> and a description of how to use it with
+				<a href="https://localcontexts.org/">Local Context labels</a>.
 			</p>
 			<p>
-				The Requirements mandate specific values to be used for particular model predicates. The specific values are to
-				be drawn from vocabularies that are referenced in the <a href="#vocabularies">Vocabularies Section</a>.
+				A 'Scores' model and algorithms for the calculation of catalogue metrics based on the <a href="https://force11.org/info/the-fair-data-principles/">FAIR</a>
+				and <a href="https://www.gida-global.org/care">CARE</a> principles as well as a developed-here <a href="#dgd">Data Governance Distance</a>
+				score are also provided.
+			</p>
+			<p>
+				Finally, introduction to fundamental principles, descriptions and examples of the modelling patterns used, the
+				model definition in human- and machine-readable forms, a catalogue of reference data objects and a data validator
+				are also described and made available.
 			</p>
 			<!--                    <p>This document specifies requirements of data that must be met for that data to claim conformance to the IDN Catalogue Profile. Data that conforms to this profile necessarily conforms to DCAT also. This profile also provides mappings from it to models of assessments of principles such as <a href="https://force11.org/info/the-fair-data-principles/">FAIR</a> and <a href="https://www.gida-global.org/care">CARE</a> so it also specifies additional sub-profiles' requirements necissary for those and other mappings.</p>-->
 		</section>
@@ -317,9 +324,11 @@
 				<li>explicitly linking Indigenous data to all the persons and organisations related to it</li>
 				<li>explicitly linking Indigenous data to all the policies that affect it</li>
 			</ul>
-			<p>This Profile is just a recommendation to use a common catalogue model - <a
-							href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a> - in particular ways
-				which are called <em>patterns</em> - see the <a href="#patterns">Patterns Section</a> below.</p>
+			<p>
+				This Profile recommends ways to use a general-purpose web object description model -
+				<a href="https://schema.org">schema.org</a> - in particular ways which are called <em>patterns</em> - see the
+				<a href="#patterns">Patterns Section</a> below.
+			</p>
 		</section>
 		<section id="basic">
 			<h3>1.2 Basic Use <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
@@ -331,30 +340,40 @@
 					cataloguing with model elements from several other models for classification and relating catalogued resources
 					to people and organisations. This is all common DCAT practice.</p>
 			</div>
-			<p>This <a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a> builds on the <a
-							href="https://www.w3.org/TR/dcat-vocabulary/">DCAT, the Data Catalog Vocabulary</a>, which requires <code>Catalog</code>
-				instances to contain <code>Resource</code> instances, and some DCAT-recommended ways of expressing relationships
-				from resources to people & organisations - <code>Agent</code>s - using <a href="https://www.w3.org/TR/prov-o/">PROV,
-					the Provenance Ontology</a>. Resources can be categorised using vocabulary terms defined using <a
-								href="https://www.w3.org/TR/skos-reference/">SKOS, the Simple Knowledge Organization System</a> and a
-				few special relationships are recommended to link resources to policies, such as data governance policies and
-				licenses.</p>
-			<p>To cater for Indigenous data governance concerns, this profile recommends the use of the IDN Data
-				<code>Agent</code> Database when referencing Persons or Organisations. Use of specific <code>Concept</code>
-				vocabularies to classify <code>Resource</code> instances are also recommended.</p>
-			<p>So, when using regular DCAT, you might indicate that a <code>Resource</code> was created by a person identified
-				by an <a href="https://orcid.org/">ORCID</a>, an international researcher identifier, using this profile you
-				might indicate the creator using an identifier from the <a href="https://agentsdb.idnau.org/">Indigenous Data
-					Network's <em>Agents Database</em></a> which stores additional Indigenous-relevant information about people
-				and groups.</p>
-			<p>Also, when using DCAT, you might just indicate the theme of data by classifying a <code>Resource</code> with a
-				<a href="linked.data.gov.au/def/anzsrc-for/2020">Fields of Research Code</a>. When using this profile you might
-				still do that but might also select a more nuanced Indigenous research topic from the <a
-								href="https://data.idnau.org/pid/vocab/idn-th">IDN Themes vocabulary</a>.</p>
-			<p>In addition to requiring the use of some DCAT-promoted patterns over others and recommended use of particular
-				reference catalogues & vocabularies, this profile also constrains the ways in which several other DCAT
-				properties should be used. All the constraints are still normal DCAT-style constraints.</p>
+			<p>
+				This <a href="https://data.idnau.org/pid/cp">IDN Catalogue Profile</a> builds on the
+				<a href="https://schema.org">schema.org</a>, which requires <code>DataCatalog</code>
+				instances to contain <code>CreativeWork</code> instances, and some schema.org-recommended ways of expressing relationships
+				from creative works to people &amp; organisations - <code>Agent</code>s. Creative works can be categorised using
+				defined terms in managed vocabularies and reference datasets and a few special relationships are recommended to
+				link resources to policies, such as data governance policies and licenses.
+			</p>
+			<p>
+				It is recommended that identifiers for Persons or Organisations
+				linked to data be taken from the <a href="https://agentsdb.idnau.org/">IDN's Agents Database</a> and that
+				categorisation controlled terms and named locations be taken from the <a href="" style="text-decoration:line-through;">IDN's Reference Data Catalogue</a>.
+			</p>
+			<p>
+				The <a href="https://agentsdb.idnau.org/">IDN's Agents Database</a> stores additional Indigenous-relevant information about people
+				and groups known to be involved with Indigenous data which means use of identifiers for Persons and Organisations
+				drawn from there may provide a lot more extended information specific to Indigenous data governance concerns than
+				<a href="https://orcid.org/">ORCID</a> - international researcher identifier - and similar identifiers often used for people
+				in data cataloguing unknown to the database.
+			</p>
+			<p>
+				Also, when using schema.org, you might indicate the theme of data by classifying a <code>CreativeWork</code> with
+				plain text keywords or perhaps indicate a <a href="linked.data.gov.au/def/anzsrc-for/2020">Fields of Research Code</a>.
+				When using this profile we recommend you draw terms from the <a href="https://data.idnau.org/pid/vocab/idn-th">IDN Themes vocabulary</a>
+				which provides detailed Indigenous-specific terms and includes many common terms such as those FoR codes anyway,
+				crosslinked with multiple such common vocabularies.
+			</p>
+			<p>
+				In addition to requiring the use of certain common data cataloguing model patterns over others and recommended use of particular
+				reference datasets, this profile also constrains the ways in which several schema.org
+				properties should be used. All the constraints are valid schema.org use, just narrower than basic use.
+			</p>
 		</section>
+		<p class="todo">UP TO HERE</p>
 		<section id="minimum">
 			<h3>1.3 Minimum Metadata <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
 			<h4 style="font-style:italic;">What minimum elements are required?</h4>
@@ -747,29 +766,27 @@
 			    <div id="panel1" class="tab-panel">
 				    <p>Turtle is a text-based, reasonably human-readable syntax for RDF.</p>
 			      <p class="eg">
-PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
-PREFIX dcterms: &lt;http://purl.org/dc/terms/>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
 PREFIX schema: &lt;https://schema.org/>
 PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 
 &lt;https://trove.nla.gov.au/work/10128420>
-	a dcat:Resource ;
-	dcterms:type &lt;http://purl.org/dc/dcmitype/PhysicalObject> ;
-	dcterms:title "Tjukinya" ;
-	dcterms:description "Folktale: The little red hen retold in Pitjantjatjara" ;
-	dcterms:creator &lt;https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117> ;
-	dcterms:publisher &lt;https://example.com/agent/123456> ;
-	dcat:theme &lt;https://data.idnau.org/pid/austlang/C6> ;
+	a schema:CreativeWork ;
+	schema:additionalType &lt;http://purl.org/dc/dcmitype/PhysicalObject> ;
+	schema:name "Tjukinya" ;
+	schema:description "Folktale: The little red hen retold in Pitjantjatjara" ;
+	schema:creator &lt;https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117> ;
+	schema:publisher &lt;https://example.com/agent/123456> ;
+	schema:keywords &lt;https://data.idnau.org/pid/austlang/C6> ;
 	prov:qualifiedAttribution [
 		a prov:Attribution;
-		prov:hadRole &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
+		schema:roleCode &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
 		prov:agent &lt;https://linked.data.gov.au/org/nla>
 	] ;
-	dcterms:issued "1980"^^xsd:gYear ;
-	dcterms:theme &lt;https://data.idnau.org/pid/austlang/C6> ;
-	dcat:accessRights "Not for Inter-Library Loan" ;
-	dcterms:language &lt;https://data.idnau.org/pid/austlang/C6> ;
+	schema:dateIssued "1980"^^xsd:gYear ;
+	schema:keywords &lt;https://data.idnau.org/pid/austlang/C6> ;
+	schema:usageInfo "Not for Inter-Library Loan" ;
+	schema:inLanguage &lt;https://data.idnau.org/pid/austlang/C6> ;
 .
 							</p>
 				    <p>
@@ -867,20 +884,20 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 >
 	&lt;rdf:Description rdf:about="https://trove.nla.gov.au/work/10128420">
 		&lt;rdf:type rdf:resource="http://www.w3.org/ns/dcat#Resource"/>
-		&lt;dcterms:type rdf:resource="http://purl.org/dc/dcmitype/PhysicalObject"/>
-		&lt;dcterms:title>Tjukinya&lt;/dcterms:title>
-		&lt;dcterms:description>Folktale: The little red hen retold in Pitjantjatjara&lt;/dcterms:description>
-		&lt;dcterms:creator rdf:resource="https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117"/>
-		&lt;dcterms:language rdf:resource="https://data.idnau.org/pid/austlang/C6"/"/>
-		&lt;dcterms:publisher rdf:resource="https://example.com/agent/123456"/>
+		&lt;schema:additionalType rdf:resource="http://purl.org/dc/dcmitype/PhysicalObject"/>
+		&lt;schema:name>Tjukinya&lt;/schema:name>
+		&lt;schema:description>Folktale: The little red hen retold in Pitjantjatjara&lt;/schema:description>
+		&lt;schema:creator rdf:resource="https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117"/>
+		&lt;schema:inLanguage rdf:resource="https://data.idnau.org/pid/austlang/C6"/"/>
+		&lt;schema:publisher rdf:resource="https://example.com/agent/123456"/>
 		&lt;prov:qualifiedAttribution rdf:nodeID="n09d0151a1e6140cfb188576200eb9d69b1"/>
-		&lt;dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1980&lt;/dcterms:issued>
-		&lt;dcat:theme rdf:resource="https://data.idnau.org/pid/austlang/C6"/>
-		&lt;dcat:accessRights>Not for Inter-Library Loan&lt;/dcat:accessRights>
+		&lt;schema:dateIssued rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1980&lt;/schema:dateIssued>
+		&lt;schema:keywords rdf:resource="https://data.idnau.org/pid/austlang/C6"/>
+		&lt;schema:usageInfo>Not for Inter-Library Loan&lt;/schema:usageInfo>
 	&lt;/rdf:Description>
 	&lt;rdf:Description rdf:nodeID="n09d0151a1e6140cfb188576200eb9d69b1">
 		&lt;rdf:type rdf:resource="http://www.w3.org/ns/prov#Attribution"/>
-		&lt;prov:hadRole rdf:resource="https://linked.data.gov.au/def/data-roles/custodian"/>
+		&lt;schema:roleCode rdf:resource="https://linked.data.gov.au/def/data-roles/custodian"/>
 		&lt;prov:agent rdf:resource="https://linked.data.gov.au/org/nla"/>
 	&lt;/rdf:Description>
 &lt;/rdf:RDF>
@@ -976,8 +993,8 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			</p>
 			<p class="eg">
 &lt;http://example.com/resource/x>
-  a dcat:Resource ;
-  dcterms:creator "John Smith" ;  # a literal string used for their name
+  a schema:CreativeWork ;
+  schema:creator "John Smith" ;  # a literal string used for their name
 .
 			</p>
 			<p>
@@ -985,8 +1002,8 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			</p>
 			<p class="eg">
 &lt;http://example.com/resource/x>
-  a dcat:Resource ;
-  dcterms:creator &lt;http://example.com/person/john-smith> ;  # an identifier
+  a schema:CreativeWork ;
+  schema:creator &lt;http://example.com/person/john-smith> ;  # an identifier
 .
 			</p>
 			<p>When registered in the AgentsDB, Agents are given a persistent identifier web address. Such identifiers may have been created
@@ -1050,7 +1067,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			<p>
 				Theming is open-ended categorisation of a resource by linking it to concepts in categorisation vocabularies or
 				to text keywords.
-				When using the <a href="#ref-dcat">DCAT</a> model, the predicate <code>dcat:theme</code> is used and should
+				When using the <a href="#ref-dcat">DCAT</a> model, the predicate <code>schema:keywords</code> is used and should
 				indicate a controlled
 				term in a vocabulary. When using the <a href="#ref-schema.org">schema.org</a> model, the predicate <code>schema:keywords</code>
 				(note the 's') should be used and may indicate plain text as well as controlled terms.</code>
@@ -1091,10 +1108,10 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			<p class="eg">
 				<span>Example: A fictional resource, themed with several vocabulary terms and textual keywords</span>
 &lt;http://example.com/resource/x>
-	a dcat:Resource ;
-	dcterms:title "Resource X" ;
+	a schema:CreativeWork ;
+	schema:name "Resource X" ;
 	...
-	dcat:theme
+	schema:keywords
 		&lt;https://linked.data.gov.au/def/nrm/c9f1f747-3677-5e72-aac0-b49733ea4629> ,  # "Cultural burn" from the IDN Themes vocab
 		&lt;https://linked.data.gov.au/def/policy/5cc52a34-77c0-4589-91c6-7dabb6b65761> ,  # "First Peoples land management" (implied)
 		&lt;https://vocabularyserver.com/apais/xml.php?skosTema=13> ;  # "Aboriginal history"
@@ -1118,7 +1135,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			<p class="eg">
 				<span>Example: The ISU's Law: The Way of the Ancestors resource and a link to a policy</span>
 &lt;https://data.idnau.org/pid/762463a4-f8b1-4eec-a335-3689c8d86e9e>
-	a dcat:Resource ;
+	a schema:CreativeWork ;
 	schema:name "Law: The Way of the Ancestors" ;
 	...
 	odrl:hasPolicy &lt;https://data.idnau.org/pid/MPF1309> , # "Collections Policy", identified with its ISU catalogue ID
@@ -1154,10 +1171,10 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			<p class="eg">
 				<span>Example: A resource in an Indigenous language</span>
 &lt;https://www.youtube.com/watch?v=tEdweyPh-N8>
-	a dcat:Resource ;
-	dcterms:title "Mitch Tambo performs John Farnham's You're the Voice in Gamilaraay language" ;
+	a schema:CreativeWork ;
+	schema:name "Mitch Tambo performs John Farnham's You're the Voice in Gamilaraay language" ;
 	...
-	dcterms:language &lt;https://data.idnau.org/pid/austlang/D23> ;  # AustLang's Gamilaraay / Gamilaroi / Kamilaroi
+	schema:inLanguage &lt;https://data.idnau.org/pid/austlang/D23> ;  # AustLang's Gamilaraay / Gamilaroi / Kamilaroi
 	...
 .
 			</p>
@@ -1187,7 +1204,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			<p>
 				One frequent case for the use of provenance according to PROV-O is for <em>qualified attribution</em> where a
 				resource is associated with an Agent with a specified role. Some direct DCAT and schema.org catalogued resource
-				metadata properties include roles, such as <code>dcterms:publisher</code> which includes the role '<a href="https://def.isotc211.org/common/RoleCode/publisher">publisher</a>'
+				metadata properties include roles, such as <code>schema:publisher</code> which includes the role '<a href="https://def.isotc211.org/common/RoleCode/publisher">publisher</a>'
 				but there are many possibly significant roles that do not have such properties.
 			</p>
 			<p>
@@ -1200,16 +1217,16 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			<p class="eg">
 				<span>Example: Provenance of qualified attribution</span>
 &lt;https://data.idnau.org/pid/resource/debd1b90-aeb4-403e-82fc-7db7c474b2fd>
-	a dcat:Resource ;
-	dcterms:title "Yirrkala LPC Dataset" ;
+	a schema:CreativeWork ;
+	schema:name "Yirrkala LPC Dataset" ;
 	...
 	prov:qualifiedAttribution [
 		prov:agent &lt;https://linked.data.gov.au/org/uom> ;                    # University of Melbourne
-		dcat:hadRole &lt;https://def.isotc211.org/common/RoleCode/custodian> ;  # Custodian
+		schema:roleCode &lt;https://def.isotc211.org/common/RoleCode/custodian> ;  # Custodian
 	] ,
 	[
 		prov:agent &lt;https://orcid.org/0000-0002-1398-7524> ;                 # Kristen Smith
-		dcat:hadRole
+		schema:roleCode
 			&lt;https://def.isotc211.org/common/RoleCode/pointOfContact> ,        # Point of Contact
 			&lt;https://def.isotc211.org/common/RoleCode/principalInvestigator> ; # Principle Investigator
 	] ;
@@ -1237,7 +1254,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 		<p>
 				Most od the metadata elements - classes and predicates - used in this profile exist in standard cataloging model.
 				They are reused here as originally intended but with conventions that optimise the use for the representation
-				of Indigenous data characterisation. For example, using <code>dcat:theme</code> for a <code>dcat:Dataset</code>
+				of Indigenous data characterisation. For example, using <code>schema:keywords</code> for a <code>schema:CreativeWork</code>
 				to indicate a theme taken from the <a href="https://data.idnau.org/pid/vocab/idn-th">IDN Themes vocabulary</a>.
 		</p>
 		<p>
@@ -1270,7 +1287,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 				<table class="cls">
 					<tr>
 						<th>IRI</th>
-						<td><code>dcat:Resource</code></td>
+						<td><code>schema:CreativeWork</code></td>
 					</tr>
 					<tr>
 						<th>Name</th>
@@ -1282,7 +1299,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 					</tr>
 					<tr>
 						<th>Scope Note</th>
-						<td>This is the generic class for things catalogued. You MAY use it but SHOULD use a more specialised variant such as <code>dcat:Dataset</code></td>
+						<td>This is the generic class for things catalogued. You MAY use it but SHOULD use a more specialised variant such as <code>schema:CreativeWork</code></td>
 					</tr>
 					<tr>
 						<th>Equivalent Classes</th>
@@ -1335,16 +1352,16 @@ PREFIX id: &lt;http://id.loc.gov/vocabulary/identifiers/>
 PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 
 &lt;https://data.idnau.org/pid/762463a4-f8b1-4eec-a335-3689c8d86e9e>
-    a dcat:Resource ;
-    dcterms:title "Law: The Way of the Ancestors" ;
-    dcterms:description "The authors show how Indigenous law has enabled people to survive and thrive in Australia for more than 2000 generations. Nurturing people and places, law is the foundation of all Indigenous societies in Australia, giving them the tools to respond and adapt to major environmental and social changes." ;
-    dcterms:type &lt;http://id.loc.gov/vocabulary/marcgt/boo> ;  # Book
-    dcterms:created "2023"^^xsd:gYear ;
-    dcterms:creator
+    a schema:CreativeWork ;
+    schema:name "Law: The Way of the Ancestors" ;
+    schema:description "The authors show how Indigenous law has enabled people to survive and thrive in Australia for more than 2000 generations. Nurturing people and places, law is the foundation of all Indigenous societies in Australia, giving them the tools to respond and adapt to major environmental and social changes." ;
+    schema:additionalType &lt;http://id.loc.gov/vocabulary/marcgt/boo> ;  # Book
+    schema:dateCreated "2023"^^xsd:gYear ;
+    schema:creator
       &lt;https://orcid.org/0000-0002-1398-7524> ,  # Marcia Langton
       &lt;https://orcid.org/0000-0002-4797-9776> ;  # Aaron Corn
-    dcterms:identifier "9781760762827"^^id:isbn ;
-    dcat:theme
+    schema:identifier "9781760762827"^^id:isbn ;
+    schema:keywords
       ind:about-indigenous-people ,
       ind:by-indigenous-people ;
 .
@@ -1498,7 +1515,7 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 				<table class="cls">
 					<tr>
 						<th>IRI</th>
-						<td><code>dcat:Distribution</code></td>
+						<td><code>schema:DataDownload</code></td>
 					</tr>
 					<tr>
 						<th>Name</th>
@@ -1529,7 +1546,7 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 					</tr>
 					<tr>
 						<th>Example</th>
-						<td>See the example for <a href="#class::dcat:Resource">dcat:Resource</a></td>
+						<td>See the example for <a href="#class::schema:CreativeWork">schema:CreativeWork</a></td>
 					</tr>
 				</table>
 			</section>
@@ -1538,7 +1555,7 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 				<table class="cls">
 					<tr>
 						<th>IRI</th>
-						<td><code>dcat:Distribution</code></td>
+						<td><code>schema:DataDownload</code></td>
 					</tr>
 					<tr>
 						<th>Name</th>
@@ -1569,7 +1586,7 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 					</tr>
 					<tr>
 						<th>Example</th>
-						<td>See the example for <a href="#class::dcat:Resource">dcat:Resource</a></td>
+						<td>See the example for <a href="#class::schema:CreativeWork">schema:CreativeWork</a></td>
 					</tr>
 				</table>
 			</section>
@@ -2068,11 +2085,16 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 			<h3>3.3 Reasoning Rules <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
 			<p>
 				In addition to the Classes and Predicates declared in this model, as above, we also define some reasoning rules
-				that enable equivalencies to be calculated. This form of reasoning rule is also used in the <a href="#mappings">Mappings</a>
-				section below to convert data according to this model to other models.
+				that enable data equivalencies to be calculated.
 			</p>
-			<section id="#rr-qa">
-				<h4>3.3.1 qualified attribution equivalents</h4>
+			<h4>Reasoning Rules list</h4>
+			<ul>
+				<li><a href="#rr-qa">Qualified attribution equivalents</a></li>
+				<li><a href="#rr-at">Attribution transitivity</a></li>
+				<li><a href="#rr-pol">Policy scope transitivity</a></li>
+			</ul>
+			<section id="rr-qa">
+				<h4>3.3.1 Qualified attribution equivalents</h4>
 				<p>
 					The predicates above that indicate a relationship between a <a href="#cls-Resource">Resource</a> and an <a href="#cls-Agent">Agent</a>
 					have equivalents in the <a href="#pred-qualifiedAttribution">qualified attribution</a> pattern where particular
@@ -2081,20 +2103,20 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 				</p>
 				<p>
 					For example, the equivalent to associating a resource <code>&lt;X></code> to an agent <code>&lt;Y></code> with the predicate
-					<code>dcterms:publisher</code> is:
+					<code>schema:publisher</code> is:
 				</p>
 				<p>
 					<pre>
 &lt;X> prov:qualifiedAttribution [
   prov:agent &lt;Y> ;
-  prov:hadRole &lt;https://linked.data.gov.au/def/data-roles/publisher>
+  schema:roleCode &lt;https://linked.data.gov.au/def/data-roles/publisher>
 ] .</pre>
 				</p>
 				<p>
 					Not all direct predicates match role code concepts exactly so here is a pairing of equivalents for the
 					direct agent associating predicated listed above:
 				</p>
-				<table>
+				<table class="properties">
 					<tr>
 						<th>direct predicate</th>
 						<th>role code</th>
@@ -2142,7 +2164,7 @@ PREFIX rc: &lt;https://linked.data.gov.au/def/data-roles/>
 CONSTRUCT {
   &lt;X> prov:qualifiedAttribution [
     prov:agent &lt;Y> ;
-    prov:hadRole rc:author ;
+    schema:roleCode rc:author ;
   ] .
 }
 WHERE {
@@ -2150,8 +2172,8 @@ WHERE {
 }</pre>
 				</p>
 			</section>
-			<section id="#rr-at">
-				<h4> 3.3.2 attribution transitivity</h4>
+			<section id="rr-at">
+				<h4> 3.3.2 Attribution transitivity</h4>
 				<div id="attributions-figure" class="figure">
 					<a href="images/attribution-transitivity.svg"><img src="images/attribution-transitivity.svg" style="width:50%" /></a>
 					<p class="caption"><strong>Figure 4: Several attributional transitivity reasoning scenarios. Reasoned relationships are shown in dashed green</strong>
@@ -2168,7 +2190,7 @@ WHERE {
 				<p>
 					The total set of rules used to reason new attributional relationships, some of which are used in Figure 4, are:
 				</p>
-				<table>
+				<table class="properties">
 					<tr>
 						<th>Logic</th>
 						<th>Rule Implementation</th>
@@ -2190,10 +2212,10 @@ DIRECT_ATTRIBUTION owl:propertyChainAxiom (
 						<td style="width:30% ; padding:10px;">
 							Where <code>DIRECT_ATTRIBUTION</code> is one of:
 							<ul>
-								<li><code>dcterms:contributor</code></li>
-								<li><code>dcterms:creator</code></li>
-								<li><code>dcterms:publisher</code></li>
-								<li><code>dcterms:rightsHolder</code></li>
+								<li><code>schema:contributor</code></li>
+								<li><code>schema:creator</code></li>
+								<li><code>schema:publisher</code></li>
+								<li><code>schema:copyrightHolder</code></li>
 							</ul>
 						Where <code>DELEGATE_OF</code> is one of:
 							<ul>
@@ -2213,13 +2235,13 @@ DIRECT_ATTRIBUTION owl:propertyChainAxiom (
 CONSTRUCT {
     ?r prov:qualifiedAttribution [
         prov:agent ?a2 ;
-        prov:hadRole ?r ;
+        schema:roleCode ?r ;
     .
 }
 WHERE {
     ?r prov:qualifiedAttribution [
         prov:agent ?a ;
-        prov:hadRole ?r ;
+        schema:roleCode ?r ;
     .
 
     ?a schema:parentOrganization|schema:memberOf|prov:actedOnBehalfOf ?a2 .
@@ -2232,11 +2254,106 @@ WHERE {
 					</tr>
 				</table>
 			</section>
+			<section id="rr-pol">
+				<h4>3.3.3 Policy scope transitivity</h4>
+				<p>
+					Resources are indicated as being affected by a Policy with use of the
+					<code>odrl:hasPolicy</code> predicate. Additionally, Policies may be reasoned to affect a resource if the
+					rules in the Policy are assigned to Parties which are also Agents related to the Resource.
+				</p>
+				<p>
+					For example, an Indigenous data <code>ResourceX</code> may be indicated as being affected <code>PolicyY</code>:
+				</p>
+				<p>
+					<pre>
+&lt;ResourceX> odrl:hasPolicy &lt;PolicyY> .</pre>
+				</p>
+				<p>
+					but <code>ResourceX</code> may also be custodianed by <code>UnitH</code> within <code>UniversityI</code> and that university may have implemented a university-wide
+					Indigenous Data Governance Policy which applied to all units, <code>PolicyK</code>, so we have:
+				</p>
+				<p>
+					<pre>
+&lt;ResourceX>
+    prov:wasAttributedTo [
+        prov:agent &lt;UnitH> ;
+        schema:roleCode rolecode:custodian ;
+    ] ;
+.
+
+&lt;UnitH> schema:parentOrganization &lt;UniversityI> .
+					</pre>
+				</p>
+				<p>
+					We can then reason:
+				</p>
+				<p>
+					<pre>
+&lt;ResourceX> odrl:hasPolicy &lt;PolicyK> .
+					</pre>
+				</p>
+			</section>
 		</section>
 	</section>
-	<section id="vocabularies">
-		<h2>4. Vocabularies</h2>
-		<p class="todo">TODO</p>
+	<section id="ref-values">
+		<h2>4. Reference Data Values</h2>
+		<p>
+			This profile requires the use of controlled terms - concepts from classification vocabularies, identified people &amp;
+			organisations, locations and so on - in many "slots".
+		</p>
+		<p>
+			Some of these controlled terms can come from any controlled term source, for example, the <code>schema:spatialCoverage</code>
+			value of a catalogued resource may be an identifier for a spatial object from one of many datasets of Indigenous locations,
+			international place name gazetteers such as <a href="https://www.geonames.org/">GeoNames</a> or similar.
+		</p>
+		<p>
+			Other controlled terms <em>must</em> be sourced from particular vocabularies, such as the values for <code>schema:additionalType</code>
+			which <em>must</em> come from the <a href="" style="text-decoration:line-through;">IDN Catalogued Resource Types</a> vocabulary.
+		</p>
+		<p>
+			The Indigenous Data Network supplied a series of reference data objects - vocabularies, spatial object datasets and more -
+			that, in some cases must and in other cases may, be used to provide controlled terms.
+		</p>
+		<p>
+			The following table lists the predicates in the model whose range values are slots to be filled with controlled
+			terms and indicates what term sources are allowed for use there and, if provided, links to the sources.
+		</p>
+		<table class="properties">
+			<tr>
+				<th>Model Slot</th>
+				<th>Imperative</th>
+				<th>Term Source(s)</th>
+			</tr>
+			<tr>
+				<td><code>schema:keywords</code></td>
+				<td>
+					<p>SHOULD</p>
+					<p>MAY</p>
+					<p>SHOULD NOT</p>
+				</td>
+				<td>
+					<p><a href="https://data.idnau.org/pid/vocab/idn-th">IDN Themes</a></p>
+					<p>National and State government functions, fields of research or similar vocabularies</p>
+					<p>Free text</p>
+				</td>
+			</tr>
+			<tr>
+				<td><code>schema:spatialCoverage</code></td>
+				<td>
+					<p>SHOULD</p>
+					<p>MAY</p>
+				</td>
+				<td>
+					<p>Spatial datasets in the <a href="" style="text-decoration:line-through;">IDN Reference Data Catalogue</a></p>
+					<p><a href="https://www.geonames.org/">GeoNames</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td><code>schema:roleCode</code></td>
+				<td>MUST</td>
+				<td><a href="https://linked.data.gov.au/def/data-roles">Data Roles vocabulary</a></td>
+			</tr>
+		</table>
 	</section>
 	<section id="validation">
 		<h2>5. Validation <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
@@ -2270,25 +2387,25 @@ WHERE {
 				<p class="eg">
 					<span>Example: A Catalogue instance with minimum required metadata</span>
 					&lt;https://doi.org/a-doi-for-the-catalogue&gt;
-					a dcat:Catalog ;
+					a schema:DataCatalog ;
 
-					dcterms:title "Catalogue X" ;
-					dcterms:description "An example catalogue"@en ;
-					dcterms:created "2022-07-21"^^xsd:date ;
-					dcterms:modified "2026-02-25T20:15:21"^^xsd:dateTime ;
+					schema:name "Catalogue X" ;
+					schema:description "An example catalogue"@en ;
+					schema:dateCreated "2022-07-21"^^xsd:date ;
+					schema:dateModified "2026-02-25T20:15:21"^^xsd:dateTime ;
 
 					prov:qualifiedAttribution [
 						a prov:Attribution;
-						prov:agent &lt;https://linked.data.gov.au/org/idn&gt; ; # Indigenous Data Network's PID
-						ex:hadRole :custodian ;
+						schema:agent &lt;https://linked.data.gov.au/org/idn&gt; ; # Indigenous Data Network's PID
+						schema:roleCode :custodian ;
 					] ,
 					[
 						a prov:Attribution;
-						prov:agent &lt;https://orcid.org/0000-0002-8742-7730&gt; ; # Nicholas Car's IRI
-						ex:hadRole :pointOfContact ;
+						schema:agent &lt;https://orcid.org/0000-0002-8742-7730&gt; ; # Nicholas Car's IRI
+						schema:roleCode :pointOfContact ;
 					] ;
 
-					dcterms:hasPart
+					schema:hasPart
 					ex:some-resource-y ,
 					ex:some-resource-z ,
 					...
@@ -2300,7 +2417,7 @@ WHERE {
 				<p class="req"><strong>Req R1:</strong> Each <code>Resource</code> instance SHOULD indicate a persistent
 					identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the <code>Dataset</code>
 					instance's IRI, if it is an HTTP/HTTPS IRI, or else it SHOULD be quoted as a literal value, indicated with the
-					property <code>dcterms:identifier</code> of datatype <code>xsd:token</code>.</p>
+					property <code>schema:identifier</code> of datatype <code>xsd:token</code>.</p>
 				<p class="req"><strong>Req R2:</strong> Each <code>Resource</code> instance MUST provide basic
 					<code>Resource</code> metadata so that exactly one of each of the following properties is required with range
 					value as per <code>Resource</code> requirements: <code>title</code>, <code>description</code>,
@@ -2316,42 +2433,42 @@ WHERE {
 					instance MUST and if it is a <code>Catalog</code> instance MAY indicate that it is within at least one <code>Catalog</code>
 					instance with an in-bound <code>hasPart</code> property from a <code>Catalog</code> instance.</p>
 				<p class="req"><strong>Req R6:</strong> Each <code>Resource</code> instance MAY indicate that it is a specific
-					type of resource by use of the <code>dcterms:type</code> property. Catalogued <code>Dataset</code> instances
-					are equivalent to catalogued <code>Resource</code> instances of <code>dcterms:type</code> <code>Dataset</code>.
+					type of resource by use of the <code>schema:additionalType</code> property. Catalogued <code>Dataset</code> instances
+					are equivalent to catalogued <code>Resource</code> instances of <code>schema:additionalType</code> <code>Dataset</code>.
 				<p class="eg">
 					<span>Example: A Resource instance with minimum required metadata</span>
-					&lt;http://example.com/resource/x&gt;
-					a dcat:Resource ;
-					dcterm:identifier "CAT::2-3-4::X"^^xsd:token ; # Dummy catalogue number
+&lt;http://example.com/resource/x&gt;
+  a schema:CreativeWork ;
+  dcterm:identifier "CAT::2-3-4::X"^^xsd:token ; # Dummy catalogue number
 
-					dcterms:title "Resource X" ;
-					dcterms:description "An example Resource"@en ;
-					dcterms:created "2022-07-21"^^xsd:date ;
-					dcterms:modified "2022-07-25T20:15:21"^^xsd:dateTime ;
+  schema:name "Resource X" ;
+  schema:description "An example Resource"@en ;
+  schema:dateCreated "2022-07-21"^^xsd:date ;
+  schema:dateModified "2022-07-25T20:15:21"^^xsd:dateTime ;
 
-					prov:qualifiedAttribution [
-					a prov:Attribution;
-					prov:agent &lt;http://example.com/org/clc&gt; ; # Example Indigenous org PID
-					ex:hadRole :custodian ;
-					] ,
-					[
-					a prov:Attribution;
-					prov:agent &lt;http://example.com/academic/person-x&gt; ; # An academic
-					ex:hadRole :author ;
-					] ,
-					[
-					a prov:Attribution;
-					prov:agent &lt;http://example.com/org/xyz-people&gt; ; # An Indigenous group
-					ex:hadRole :subjectAgent ;
-					] ;
+  prov:qualifiedAttribution [
+      a prov:Attribution;
+      prov:agent &lt;http://example.com/org/clc&gt; ; # Example Indigenous org PID
+      schema:roleCode :custodian ;
+    ] ,
+    [
+      a prov:Attribution;
+      prov:agent &lt;http://example.com/academic/person-x&gt; ; # An academic
+      schema:roleCode :author ;
+    ] ,
+    [
+      a prov:Attribution;
+      schema:agent &lt;http://example.com/org/xyz-people&gt; ; # An Indigenous group
+      schema:roleCode :subjectAgent ;
+    ] ;
 
-					dcterms:type ex:map ; # An example specialised resource - a map - from some vocabularty of types
-					.
+    schema:additionalType ex:map ; # An example specialised resource - a map - from some vocabularty of types
+.
 
-					&lt;https://doi.org/a-doi-for-a-catalogue&gt; # a catalogue indicating this Resource is a part of it
-					dcterms:hasPart
-					&lt;http://example.com/resource/x&gt; ;
-					.
+&lt;https://doi.org/a-doi-for-a-catalogue&gt; # a catalogue indicating this Resource is a part of it
+schema:hasPart
+&lt;http://example.com/resource/x&gt; ;
+.
 				</p>
 			</section>
 			<section id="dataset">
@@ -2364,19 +2481,19 @@ WHERE {
 			<section id="attribution">
 				<h4>2.1.1 <code>Attribution</code></h4>
 				<p class="req"><strong>Req A1:</strong> Each <code>Attribution</code> instance MUST indicate an
-					<code>Agent</code> instance with the property <code>prov:agent</code> and a role for that <code>Agent</code>,
+					<code>Agent</code> instance with the property <code>schema:agent</code> and a role for that <code>Agent</code>,
 					as a <code>skos:Concept</code>, in relation to the attributing entity, with the <code>hadRole</code> property.
 				</p>
 				<p class="eg">
 					<span>Example: A Resource with a qualified Attribution</span>
 
 					&lt;http://example.com/resource/x&gt;
-					a dcat:Resource ;
+					a schema:CreativeWork ;
 					...
 					prov:qualifiedAttribution [
 					a prov:Attribution;
-					prov:agent &lt;http://example.com/resource/central-lands-council&gt; ;
-					dcat:hadRole droles:custodian ;
+					schema:agent &lt;http://example.com/resource/central-lands-council&gt; ;
+					schema:roleCode droles:custodian ;
 					] ;
 					...
 					.
@@ -2402,7 +2519,7 @@ WHERE {
 				</p>
 				<!-- alumniOf is chosen because it does not have a clear equivalent in the aarr vocab, so this is a use case for using a schema.org property instead of a dcat:qualifiedRelation-->
 				<p class="req"><strong>Req AG5:</strong> Each <code>Agent</code> MAY relate to another agent using <code>dcat:qualifiedRelation</code>
-					property with a <code>dcat:role</code> indicating a <code>skos:Concept</code> from the <a
+					property with a <code>schema:roleCode</code> indicating a <code>skos:Concept</code> from the <a
 									href="https://data.idnau.org/pid/vocab/aarr">Agent to Agent Relationship Roles</a> vocabulary.</p>
 				<p class="eg">
 					<span>Example: An Organization with an example Australian Business Number identifer and a Person affiliated with it</span>
@@ -2430,7 +2547,7 @@ WHERE {
 					schema:alumniOf &lt;https://linked.data.gov.au/org/uom&gt; ;
 					dcat:qualifiedRelation [
 					a dcat:Relationship ;
-					dcat:hadRole aarr:affiliateOf ;
+					schema:roleCode aarr:affiliateOf ;
 					schema:agent &lt;https://kurrawong.ai&gt;
 					] ;
 					.
@@ -2492,16 +2609,16 @@ WHERE {
 				<span>Example: A Resource with a qualified Attribution</span>
 				&lt;http://example.com/resource/x&gt;
 
-				a dcat:Resource ;
+				a schema:CreativeWork ;
 				...
 				# Concept within the IDN Data Themes Vocabulary
-				dcat:theme idth:indigenous-demographics ;
+				schema:keywords idth:indigenous-demographics ;
 				...
 				prov:qualifiedAttribution [
 					a prov:Attribution;
 					# Example Agent that could be registered in the IDN Agents Catalogue
-					prov:agent &lt;http://example.com/resource/central-lands-council&gt; ;
-					dcat:hadRole droles:custodian ; # Role from the IDN Role Codes Vocabulary
+					schema:agent &lt;http://example.com/resource/central-lands-council&gt; ;
+					schema:roleCode droles:custodian ; # Role from the IDN Role Codes Vocabulary
 				] ;
 				.
 			</p>
@@ -2520,31 +2637,29 @@ WHERE {
 			<span>Example: Turtle formatted RDF metadata for the <em>Yirrkala LPC Dataset</em></span>
 PREFIX dataaccessrights: &lt;https://linked.data.gov.au/def/data-access-rights/>
 PREFIX dataroles: &lt;https://linked.data.gov.au/def/data-roles/>
-PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
-PREFIX dcterms: &lt;http://purl.org/dc/terms/>
 PREFIX indigeneity: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 PREFIX orcidorg: &lt;https://orcid.org/>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
 PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 
 &lt;https://data.idnau.org/pid/resource/debd1b90-aeb4-403e-82fc-7db7c474b2fd>
-    a dcat:Resource ;
-    dcterms:accessRights dataaccessrights:restricted ;
-    dcterms:created "2022-01-01"^^xsd:date ;
-    dcterms:description """The Literature Production Centre (LPC) has been part of the Yirrkala school since the 70's, and supports the YolÅ‹u Indigenous Languages and Culture program including, YolÅ‹u Matha, Galtha Rom and Garma Maths, as well as supporting YolÅ‹u teachers to deliver the schoolâ€™s bilingual program.
+    a schema:CreativeWork ;
+    schema:usageInfo dataaccessrights:restricted ;
+    schema:dateCreated "2022-01-01"^^xsd:date ;
+    schema:description """The Literature Production Centre (LPC) has been part of the Yirrkala school since the 70's, and supports the YolÅ‹u Indigenous Languages and Culture program including, YolÅ‹u Matha, Galtha Rom and Garma Maths, as well as supporting YolÅ‹u teachers to deliver the schoolâ€™s bilingual program.
 
 This archival dataset is stored on hard disk drives collected by University of Melbourne and includes digitisation of all non-standard documents, objects, materials in Archive.""" ;
-    dcterms:modified "2025-01-01"^^xsd:date ;
-    dcterms:temporal
+    schema:dateModified "2025-01-01"^^xsd:date ;
+    schema:temporalCoverage
         [
             prov:startedAtTime "1968"^^xsd:gYear ;
         ] ;
-    dcterms:title "Yirrkala LPC Dataset" ;
-    dcterms:type
+    schema:name "Yirrkala LPC Dataset" ;
+    schema:additionalType
         indigeneity:about-indigenous-people ,
         indigeneity:about-indigenous-things ,
         indigeneity:by-indigenous-people ;
-    dcat:theme
+    schema:keywords
         &lt;https://vocabularyserver.com/apais/xml.php?skosTema=10> ,  # Aboriginal education
         &lt;https://vocabularyserver.com/apais/xml.php?skosTema=13> ,  # Aboriginal history
         &lt;https://vocabularyserver.com/apais/xml.php?skosTema=15> ,  # Aboriginal languages
@@ -2560,14 +2675,14 @@ This archival dataset is stored on hard disk drives collected by University of M
         &lt;https://vocabularyserver.com/apais/xml.php?skosTema=8> ;  # Aboriginal culture
     prov:qualifiedAttribution
         [
-            dcat:hadRole dataroles:custodian ;
-            prov:agent &lt;https://linked.data.gov.au/org/uom> ;  # University of Melbourne
+            schema:roleCode dataroles:custodian ;
+            schema:agent &lt;https://linked.data.gov.au/org/uom> ;  # University of Melbourne
         ] ,
         [
-            dcat:hadRole
+            schema:roleCode
                 dataroles:pointOfContact ,
                 dataroles:principalInvestigator ;
-            prov:agent orcidorg:0000-0002-1398-7524 ;  # Kristen Smith
+            schema:agent orcidorg:0000-0002-1398-7524 ;  # Kristen Smith
         ] ;
 .
 		</p>
@@ -2647,7 +2762,7 @@ This archival dataset is stored on hard disk drives collected by University of M
 				<p class="caption"><strong>Figure C.1:</strong> Overview of elements of the Local Context Model.</p>
 			</div>
 			<p>This model requires that a <code>LocalContextLabel</code>, which is a specialised <code>skos:Concept</code>, is
-				assigned to a catalogued <code>dcat:Resource</code> via an intermediate node of type
+				assigned to a catalogued <code>schema:CreativeWork</code> via an intermediate node of type
 				<code>QualifiedLocalContext</code>. This use of the <a
 								href="https://patterns.dataincubator.org/book/qualified-relation.html">"Qualified Relations" graph
 					modelling pattern</a> allows for the nature of the <code>Resource</code>/<code>LocalContextLabel</code>
@@ -2743,7 +2858,7 @@ This archival dataset is stored on hard disk drives collected by University of M
 							<ul>
 								<li>
 									<a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/type"
-									   title="The nature or genre of the resource">dcterms:type</a> - used to indicate a particular <a
+									   title="The nature or genre of the resource">schema:additionalType</a> - used to indicate a particular <a
 												href="#LocalContextLabel">Local Context Label</a></li>
 								<li><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#value"
 								       title="Idiomatic property used for structured values">rdf:value</a> - used to indicate the
@@ -2818,8 +2933,8 @@ This archival dataset is stored on hard disk drives collected by University of M
 				tk:women-restricted
 				a
 				skos:Concept , lc:TKLabel ;
-				dcterms:identifier "women-restricted"^^xsd:token ;
-				dcterms:source "https://localcontexts.org/label/tk-women-restricted/"^^xsd:anyURI ;
+				schema:identifier "women-restricted"^^xsd:token ;
+				schema:citation "https://localcontexts.org/label/tk-women-restricted/"^^xsd:anyURI ;
 				rdfs:isDefinedBy cs: ;
 				skos:definition "This Label should be used when you want to let external users know that the material
 				circulating freely is actually of a highly restricted nature. This is a Women’s Highly Restricted Label and
@@ -2839,12 +2954,13 @@ This archival dataset is stored on hard disk drives collected by University of M
 			<p class="eg">
 				<span>Example: A Dataset that does have a label applied to it but requires one</span>
 				&lt;https://www.atsida.edu.au/archive/datasets/au.edu.anu.ada.ddi.20002-aus&gt;
-				a dcat:Dataset;
-				dcterms:title "Annual Aboriginal Census,1921-1944 - Australia"@en ;
+				a schema:CreativeWork ;
+schema:additionalType schema:Dataset ;
+				schema:name "Annual Aboriginal Census,1921-1944 - Australia"@en ;
 				...
-				dcat:theme [
+				schema:keywords [
 					a lc:QualifiedLocalContext ;
-					dcterms:type tk:culturally-sensitive ;
+					schema:additionalType tk:culturally-sensitive ;
 					lc:requirement "This dataset contains information collected in ways no longer thought to be best practice. The
 					data may, if used unwarily, put Indigenous people in an un-due negative light."@en ;
 				] ;
@@ -2854,12 +2970,13 @@ This archival dataset is stored on hard disk drives collected by University of M
 			<p class="eg">
 				<span>Example: A Dataset that does have a label applied to it but requires one</span>
 				&lt;http://dx.doi.org/10.26193/V93KUP&gt;
-				a dcat:Dataset;
-				dcterms:title "Aboriginal radio broadcasting in Alice Springs, 1981"@en ;
+				a schema:CreativeWork ;
+schema:additionalType schema:Dataset ;
+				schema:name "Aboriginal radio broadcasting in Alice Springs, 1981"@en ;
 				...
-				dcat:theme [
+				schema:keywords [
 				a lc:QualifiedLocalContext ;
-				dcterms:type tk:multiple-communities ;
+				schema:additionalType tk:multiple-communities ;
 				rdf:value "Responsibility and ownership over this material is spread across several distinct communities. Use
 				will be dependent upon discussion and negotiation with the multiple communities named herein Central Lands
 				Council, Waltja Tjutangku Palyapayi Aboriginal Corporation, Akeyulerre Healing Centre. Decisions about use will
