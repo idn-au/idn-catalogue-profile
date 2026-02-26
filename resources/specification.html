@@ -162,7 +162,7 @@
 					</tr>
 					<tr>
 						<td><a class="proplink" title="schema:dateModified" href="https://schema.org/dateModified">Modified</a></td>
-						<td>2026-02-17</td>
+						<td>2026-02-26</td>
 					</tr>
 				</table>
 			</dd>
@@ -2149,6 +2149,88 @@ WHERE {
   &lt;X> prov:qualifiedAttribution &lt;Y>
 }</pre>
 				</p>
+			</section>
+			<section id="#rr-at">
+				<h4> 3.3.2 attribution transitivity</h4>
+				<div id="attributions-figure" class="figure">
+					<a href="images/attribution-transitivity.svg"><img src="images/attribution-transitivity.svg" style="width:50%" /></a>
+					<p class="caption"><strong>Figure 4: Several attributional transitivity reasoning scenarios. Reasoned relationships are shown in dashed green</strong>
+				</div>
+				<p>
+					When a <a href="#cls-Resource">Resource</a> is attributed to an <a href="#cls-Agent">Agent</a> and that agent
+					has relationships to other agents - perhaps the first is a person who is a member of a community - then we can
+					reason direct relationships between the resource and those other agents.
+				</p>
+				<p>
+					Figure 4 above shows several scenarios in which agent relations - people and organisations to other people and
+					organisations - and attribution of a resource to an agent have led to further attributions being applied to the resource.
+				</p>
+				<p>
+					The total set of rules used to reason new attributional relationships, some of which are used in Figure 4, are:
+				</p>
+				<table>
+					<tr>
+						<th>Logic</th>
+						<th>Rule Implementation</th>
+						<th>Substitutions
+					</tr>
+					<tr>
+						<td style="width:30%; padding:10px;">
+							If a Resource relates to an Agent with a direct attribution predicate and that Agent is a delegate of
+							another Agent, then the Resource relates to the other Agent in the same way.
+						</td>
+						<td style="width:30% ; padding:10px;">
+							<pre>
+DIRECT_ATTRIBUTION owl:propertyChainAxiom (
+    DIRECT_ATTRIBUTION
+    DELEGATE_OF
+)
+							</pre>
+						</td>
+						<td style="width:30% ; padding:10px;">
+							Where <code>DIRECT_ATTRIBUTION</code> is one of:
+							<ul>
+								<li><code>dcterms:contributor</code></li>
+								<li><code>dcterms:creator</code></li>
+								<li><code>dcterms:publisher</code></li>
+								<li><code>dcterms:rightsHolder</code></li>
+							</ul>
+						Where <code>DELEGATE_OF</code> is one of:
+							<ul>
+								<li><code>schema:memberOf</code></li>
+								<li><code>schema:parentOrganization</code></li>
+								<li><code>prov:actedOnBehalfOf</code></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							If a Resource relates to an Agents via qualified attribution and that Agent is a delegate of another Agent,
+							then the Resource relates to the other Agent in the same way.
+						</td>
+						<td>
+							<pre>
+CONSTRUCT {
+    ?r prov:qualifiedAttribution [
+        prov:agent ?a2 ;
+        prov:hadRole ?r ;
+    .
+}
+WHERE {
+    ?r prov:qualifiedAttribution [
+        prov:agent ?a ;
+        prov:hadRole ?r ;
+    .
+
+    ?a schema:parentOrganization|schema:memberOf|prov:actedOnBehalfOf ?a2 .
+}
+							</pre>
+						</td>
+						<td>
+							-
+						</td>
+					</tr>
+				</table>
 			</section>
 		</section>
 	</section>
