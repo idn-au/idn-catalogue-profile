@@ -1,409 +1,500 @@
 PREFIX : <https://data.idnau.org/pid/cp/validator/>
-PREFIX dcat: <http://www.w3.org/ns/dcat#>
-PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX id: <http://id.loc.gov/vocabulary/identifiers/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX sdo: <https://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX sh: <http://www.w3.org/ns/shacl#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX time: <http://www.w3.org/2006/time#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-
 <https://data.idnau.org/pid/cp/validator>
     a owl:Ontology ;
-    dcterms:provenance "This validator for the IDN Catalogue Profile was made within the IDN's ID Catalogue project 2021 - 2022."@en ;
-    owl:versionIRI <https://data.idnau.org/pid/cp/0.0.1> ;
-    owl:versionInfo "0.0.1" ;
-    sdo:codeRespository "https://github.com/idn-au/idn-catalogue-profile/"^^xsd:anyURI ;
-    sdo:copyrightHolder <https://orcid.org/0000-0002-8742-7730> ;
-    sdo:copyrightNotice "(c) Indigenous Data Network, 2022" ;
-    sdo:copyrightYear "2022"^^xsd:gYear ;
-    sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
-    sdo:dateCreated "2022-07-18"^^xsd:date ;
-    sdo:dateIssued "2022-07-19"^^xsd:date ;
-    sdo:dateModified "2025-09-16"^^xsd:date ;
-    sdo:description "A SHACL validator IDN Catalogue Profile."@en ;
-    sdo:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
-    sdo:name "IDN CP Validator"@en ;
-    sdo:publisher <https://linked.data.gov.au/org/idn> ;
-.
-
-<https://orcid.org/0000-0002-8742-7730>
-    a sdo:Person ;
-    sdo:name "Nicholas J. Car"@en ;
-    sdo:email "nick@kurrawong.ai"^^xsd:anyURI ;
-    sdo:affiliation <https://kurrawong.ai> ;
-.
-
-<https://kurrawong.ai>
-    a sdo:Organization ;
-    sdo:name "KurrawongAI" ;
-    sdo:description "KurrawongAI is a small, Artificial Intelligence, company in Australia specialising in Knowledge Graphs." ;
-    sdo:url "https://kurrawong.ai"^^xsd:anyURI ;
-.
-
-<https://linked.data.gov.au/org/idn>
-    a sdo:Organization ;
-    sdo:name "Indigenous Data Network" ;
-    sdo:description "The IDN is within the University of Melbourne. It was established in 2018 to support and coordinate the governance of Indigenous data for Aboriginal and Torres Strait Islander peoples and empower Aboriginal and Torres Strait Islander communities to decide their own local data priorities." ;
-    sdo:url "https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network"^^xsd:anyURI ;
-.
-
-#
-#   Node Shapes
-#
-
-:catalog
-    a sh:NodeShape ;
-    sh:targetClass dcat:Catalog ;
-    rdfs:label "IDN shape for Catalog" ;
-    sh:property
-        :resource-identifier ,
-        :resource-title ,
-        :resource-description ,
-        :resource-created ,
-        :resource-modified ,
-        :resource-direct-roles ,
-        :catalog-hasPart ;
-.
-
-:resource
-    a sh:NodeShape ;
-    sh:targetClass dcat:Resource ;
-    rdfs:label "IDN shape for Resource" ;
-    sh:property
-        :resource-identifier ,
-        :resource-title ,
-        :resource-description ,
-        :resource-created ,
-        :resource-modified ,
-        :resource-direct-roles ,
-        :resource-type ;
-    sh:or (
-        [
-            sh:path [ sh:inversePath dcterms:hasPart ] ;
-            sh:maxCount 1 ;
-            sh:class dcat:Catalog ;
-        ]
-        [
-            sh:path dcterms:isPartOf ;
-            sh:minCount 1 ;
-            sh:maxCount 1 ;
-        ]
-    ) ;
-.
-
-:dataset
-    a sh:NodeShape ;
-    sh:targetClass dcat:Dataset ;
-    rdfs:label "IDN shape for Dataset" ;
-    sh:property
-        :resource-identifier ,
-        :resource-title ,
-        :resource-description ,
-        :resource-created ,
-        :resource-modified ,
-        :resource-direct-roles ,
-        :resource-hasPart ,
-        :resource-type ;
-.
-
-:attribution
-    a sh:NodeShape ;
-    sh:targetClass prov:Attribution ;
-    rdfs:label "IDN shape for Attribution" ;
-    sh:property
-        :attribution-agent ,
-        :attribution-hadRole ;
+    owl:versionIRI <https://data.idnau.org/pid/cp/1.0.0> ;
+    owl:versionInfo "1.0.0" ;
+    skos:historyNote "This validator for the IDN Catalogue Profile was made within the IDN's ID Catalogue project 2021 - 2022."@en ;
+    schema:codeRespository "https://github.com/idn-au/idn-catalogue-profile/"^^xsd:anyURI ;
+    schema:copyrightHolder <https://orcid.org/0000-0002-8742-7730> ;
+    schema:copyrightNotice "(c) Indigenous Data Network, 2026" ;
+    schema:copyrightYear "2026"^^xsd:gYear ;
+    schema:creator <https://orcid.org/0000-0002-8742-7730> ;
+    schema:dateCreated "2022-07-18"^^xsd:date ;
+    schema:dateIssued "2022-07-19"^^xsd:date ;
+    schema:dateModified "2026-03-30"^^xsd:date ;
+    schema:description "A SHACL validator IDN Catalogue Profile."@en ;
+    schema:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
+    schema:name "IDN CP Validator"@en ;
+    schema:publisher <https://linked.data.gov.au/org/idn> ;
 .
 
 :agent
     a sh:NodeShape ;
-    sh:targetClass prov:Agent ;
     rdfs:label "IDN shape for Agent" ;
     sh:property
         :agent-as-org-or-person ,
-        :agent-name ,
-        :agent-url ,
+        :agent-description ,
         :agent-email ,
-        :agent-description ,
-        :agent-identifier ;
+        :agent-identifier ,
+        :agent-name ,
+        :agent-url ;
+    sh:targetClass prov:Agent ;
 .
 
-:organization
+:attribution
     a sh:NodeShape ;
-    sh:targetClass sdo:Organization ;
-    rdfs:label "IDN shape for Organization" ;
+    rdfs:label "IDN shape for Attribution" ;
     sh:property
-        :agent-name ,
-        :organization-url ,
-        :agent-description ,
-        :agent-identifier ;
+        :attribution-agent ,
+        :attribution-roleCode ;
+    sh:targetClass prov:Attribution ;
 .
 
-:person
+:catalog
     a sh:NodeShape ;
-    sh:targetClass sdo:Person ;
-    rdfs:label "IDN shape for Person" ;
+    rdfs:label "IDN shape for Catalog" ;
     sh:property
-        :agent-name ,
-        :person-email ,
-        :agent-description ,
-        :agent-identifier ;
+        :catalog-hasPart ,
+        :resource-created ,
+        :resource-description ,
+        :resource-direct-roles ,
+        :resource-identifier ,
+        :resource-modified ,
+        :resource-name ;
+    sh:targetClass schema:DataCatalog ;
 .
 
 :concept
     a sh:NodeShape ;
-    sh:targetClass skos:Concept ;
     rdfs:label "IDN shape for Concept" ;
     rdfs:comment "This profile implements no shapes for Concept but inherits those of the VocPub Profile of SKOS" ;
+    sh:targetClass skos:Concept ;
 .
-
 
 :conceptScheme
     a sh:NodeShape ;
-    sh:targetClass skos:ConceptScheme ;
     rdfs:label "IDN shape for ConceptScheme" ;
     rdfs:comment "This profile implements no shapes for ConceptScheme but inherits those of the VocPub Profile of SKOS" ;
+    sh:targetClass skos:ConceptScheme ;
 .
 
-#
-#   Property Shapes
-#
-
-:resource-identifier
-    a sh:PropertyShape ;
-    rdfs:label "Resource persistent identifier" ;
-    sh:path dcterms:identifier ;
-    sh:datatype xsd:token ;
-    sh:message "Req R1: Each Resource instance SHOULD indicate a persistent identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the Dataset instance's IRI, if it is an HTTP/HTTPS IRI, or else it SHOULD be quoted as a literal value, indicated with the property dcterms:identifier of datatype xsd:token." ;
+:dataset
+    a sh:NodeShape ;
+    rdfs:label "IDN shape for Dataset" ;
+    sh:property
+        :resource-additionalType ,
+        :resource-created ,
+        :resource-description ,
+        :resource-direct-roles ,
+        :resource-hasPart ,
+        :resource-identifier ,
+        :resource-modified ,
+        :resource-name ;
+    sh:targetClass schema:CreativeWork ;
 .
 
-:resource-title
-    a sh:PropertyShape ;
-    rdfs:label "Catalog basic resource metadata" ;
-    sh:path dcterms:title ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
+:organization
+    a sh:NodeShape ;
+    rdfs:label "IDN shape for Organization" ;
+    sh:property
+        :agent-description ,
+        :agent-identifier ,
+        :agent-name ,
+        :organization-url ;
+    sh:targetClass schema:Organization ;
+.
+
+:person
+    a sh:NodeShape ;
+    rdfs:label "IDN shape for Person" ;
+    sh:property
+        :agent-description ,
+        :agent-identifier ,
+        :agent-name ,
+        :person-email ;
+    sh:targetClass schema:Person ;
+.
+
+:resource
+    a sh:NodeShape ;
+    rdfs:label "IDN shape for catalogued resource" ;
     sh:or (
-        [ sh:datatype xsd:string ]
-        [ sh:datatype rdf:langString ]
+        
+        [
+            sh:class schema:DataCatalog ;
+            sh:maxCount 1 ;
+            sh:path
+                [
+                    sh:inversePath schema:hasPart ;
+                ] ;
+        ]
+        
+        [
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path schema:isPartOf ;
+        ]
     ) ;
-    sh:message "Req R2: Each Resource instance MUST provide basic Resource metadata so that exactly one of each of the following properties is required with range value as per Resource requirements: title, description, created & modified. The particular validator violated here is for title." ;
-.
-
-:resource-description
-    a sh:PropertyShape ;
-    rdfs:label "Catalog basic resource metadata" ;
-    sh:path dcterms:description ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-    sh:or (
-        [ sh:datatype xsd:string ]
-        [ sh:datatype rdf:langString ]
-    ) ;
-    sh:message "Req R2: Each Resource instance MUST provide basic Resource metadata so that exactly one of each of the following properties is required with range value as per Resource requirements: title, description, created & modified. The particular validator violated here is for description." ;
-.
-
-:resource-created
-    a sh:PropertyShape ;
-    rdfs:label "Catalog basic resource metadata" ;
-    sh:path dcterms:created ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-    sh:or (
-        [ sh:datatype xsd:dateTime ]
-        [ sh:datatype xsd:date ]
-        [ sh:datatype xsd:dateTimeStamp ]
-        [ sh:datatype time:Instant ]
-    ) ;
-    sh:message "Req R2: Each Resource instance MUST provide basic Resource metadata so that exactly one of each of the following properties is required with range value as per Resource requirements: title, description, created & modified. The particular validator violated here is for created. Req R3: Allowed Semantic Web date/time properties for created & modified properties are xsd:date, xsd:dateTime, xsd:dateTimeStamp, time:Interval" ;
-.
-
-:resource-modified
-    a sh:PropertyShape ;
-    rdfs:label "Catalog basic resource metadata" ;
-    sh:path dcterms:modified ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-    sh:or (
-        [ sh:datatype xsd:dateTime ]
-        [ sh:datatype xsd:date ]
-        [ sh:datatype xsd:dateTimeStamp ]
-        [ sh:datatype time:Instant ]
-    ) ;
-    sh:message "Req R2: Each Resource instance MUST provide basic Resource metadata so that exactly one of each of the following properties is required with range value as per Resource requirements: title, description, created & modified. The particular validator violated here is for modified. Req R3: Allowed Semantic Web date/time properties for created & modified properties are xsd:date, xsd:dateTime, xsd:dateTimeStamp, time:Interval" ;
-.
-
-:resource-direct-roles
-    a sh:PropertyShape ;
-    rdfs:label "Not direct Agent roles" ;
-    sh:path [
-        sh:alternativePath (
-            dcterms:audience
-            dcat:contactPoint
-            dcterms:contributor
-            dcterms:creator
-            dcterms:mediator
-            dcterms:publisher
-            dcterms:rightsHolder
-        )
-    ] ;
-    sh:maxCount 0 ;
-    sh:message "Req R4: Each Resource instance MUST NOT indicate Agent roles with direct DCAT properties (e.g. publisher) and MUST indicate them with the DCAT-recommended PROV qualified attribution pattern with each prov:Attribution indicated with the property prov:qualifiedAttribution." ;
-.
-
-:catalog-hasPart
-    a sh:PropertyShape ;
-    rdfs:label "Catalogue Parts" ;
-    sh:path dcterms:hasPart ;
-    sh:minCount 1 ;
-    sh:or (
-        [ sh:class dcat:Resource ]
-        [ sh:class dcat:Dataset ]
-    ) ;
-    sh:message "Req C2: Each Catalog instance MUST contain at least one Resource indicated by the hasPart property." ;
-.
-
-:resource-hasPart
-    a sh:PropertyShape ;
-    rdfs:label "Resource hasPart" ;
-    sh:path [ sh:inversePath dcterms:hasPart ] ;
-    sh:maxCount 1 ;
-    sh:class dcat:Catalog ;
-    sh:message "Req R5: Each Resource instance, if it is not a Catalog instance MUST, and if it is a Catalog instance MAY, indicate that it is within at least one Catalog instance with an in-bound hasPart property from a Catalog instance." ;
-.
-
-:resource-type
-    a sh:PropertyShape ;
-    rdfs:comment "Nothing to test" ;
-    sh:path dcterms:type ;
-.
-
-:attribution-agent
-    a sh:PropertyShape ;
-    rdfs:label "Attribution Agent" ;
-    sh:path prov:agent ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-    sh:or (
-        [ sh:class sdo:Organization ]
-        [ sh:class sdo:Person ]
-    ) ;
-    sh:message "Req A1: Each Attribution instance MUST indicate an Agent instance with the property prov:agent and a role for that Agent, as a skos:Concept, in relation to the attributing entity, with the hadRole property." ;
-.
-
-:attribution-hadRole
-    a sh:PropertyShape ;
-    rdfs:label "Attribution Role" ;
-    sh:path dcat:hadRole ;
-    sh:minCount 1 ;
-    sh:class skos:Concept ;
-    sh:message "Req A1: Each Attribution instance MUST indicate an Agent instance with the property prov:agent and a role for that Agent, as a skos:Concept, in relation to the attributing entity, with the hadRole property." ;
+    sh:property
+        :resource-additionalType ,
+        :resource-created ,
+        :resource-description ,
+        :resource-direct-roles ,
+        :resource-identifier ,
+        :resource-modified ,
+        :resource-name ;
+    sh:targetClass schema:CreativeWork ;
 .
 
 :agent-as-org-or-person
     a sh:PropertyShape ;
     rdfs:label "Agent as Org or Person" ;
+    sh:maxCount 1 ;
+    sh:message "Req AG1: Each Agent instance MUST be either an schema:Organization or a schema:Person instance." ;
+    sh:minCount 1 ;
+    sh:or (
+        
+        [
+            sh:class schema:Organization ;
+        ]
+        
+        [
+            sh:class schema:Person ;
+        ]
+    ) ;
     sh:path rdf:type ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-    sh:or (
-        [ sh:class sdo:Organization ]
-        [ sh:class sdo:Person ]
-    ) ;
-    sh:message "Req AG1: Each Agent instance MUST be either an sdo:Organization or a sdo:Person instance." ; 
-.
-
-:agent-name
-    a sh:PropertyShape ;
-    rdfs:label "Agent name" ;
-    sh:path sdo:name ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-    sh:or (
-        [ sh:datatype xsd:string ]
-        [ sh:datatype rdf:langString ]
-    ) ;
-    sh:message "Req AG2: Each Agent instance MUST be described with at least the sdo:name property and, if an sdo:Organization, also an sdo:url property with a xsd:anyURI value or, if a sdo:Person, an sdo:email property with a xsd:anyURI value." ;  
-.
-
-:agent-url
-    a sh:PropertyShape ;
-    rdfs:label "Agent URL" ;
-    sh:path sdo:url ;
-    sh:datatype xsd:anyURI ;
-    sh:message "Req AG2: Each Agent instance MUST be described with at least the sdo:name property and, if an sdo:Organization, also an sdo:url property with a xsd:anyURI value or, if a sdo:Person, an sdo:email property with a xsd:anyURI value." ;
 .
 
 :agent-email
     a sh:PropertyShape ;
     rdfs:label "Person email" ;
-    sh:path sdo:email ;
     sh:datatype xsd:anyURI ;
-    sh:message "Req AG2: Each Agent instance MUST be described with at least the sdo:name property and, if an sdo:Organization, also an sdo:url property with a xsd:anyURI value or, if a sdo:Person, an sdo:email property with a xsd:anyURI value." ;
+    sh:message "Req AG2: Each Agent instance MUST be described with at least the schema:name property and, if an schema:Organization, also an schema:url property with a xsd:anyURI value or, if a schema:Person, an schema:email property with a xsd:anyURI value." ;
+    sh:path schema:email ;
 .
 
-:agent-description
+:agent-url
     a sh:PropertyShape ;
-    rdfs:label "Agent description" ;
-    sh:path sdo:description ;
+    rdfs:label "Agent URL" ;
+    sh:datatype xsd:anyURI ;
+    sh:message "Req AG2: Each Agent instance MUST be described with at least the schema:name property and, if an schema:Organization, also an schema:url property with a xsd:anyURI value or, if a schema:Person, an schema:email property with a xsd:anyURI value." ;
+    sh:path schema:url ;
+.
+
+:attribution-agent
+    a sh:PropertyShape ;
+    rdfs:label "Attribution Agent" ;
     sh:maxCount 1 ;
+    sh:message "Req A1: Each Attribution instance MUST indicate an Agent instance with the property prov:agent and a role for that Agent, as a skos:Concept, in relation to the attributing entity, with the roleCode property." ;
+    sh:minCount 1 ;
     sh:or (
-        [ sh:datatype xsd:string ]
-        [ sh:datatype rdf:langString ]
+        
+        [
+            sh:class schema:Organization ;
+        ]
+        
+        [
+            sh:class schema:Person ;
+        ]
     ) ;
-    sh:message "Req AG3: Each Agent instance SHOULD be described with a sdo:description property and, if the Agent has them, identifiers for it should be indicated with dcterms:identifier with xsd:anyURI or xsd:token values." ;
+    sh:path prov:agent ;
 .
 
-:agent-identifier
+:attribution-roleCode
     a sh:PropertyShape ;
-    rdfs:label "Agent identifier" ;
-    sh:path sdo:identifier ;
+    rdfs:label "Attribution Role" ;
+    sh:class skos:Concept ;
+    sh:message "Req A1: Each Attribution instance MUST indicate an Agent instance with the property prov:agent and a role for that Agent, as a skos:Concept, in relation to the attributing entity, with the roleCode property." ;
+    sh:minCount 1 ;
+    sh:path schema:roleCode ;
+.
+
+:catalog-hasPart
+    a sh:PropertyShape ;
+    rdfs:label "Catalogue Parts" ;
+    sh:message "Req C2: Each Catalog instance MUST contain at least one Resource indicated by the hasPart property." ;
+    sh:minCount 1 ;
     sh:or (
-        [ sh:datatype xsd:string ]
-        [ sh:datatype rdf:langString ]
-        [ sh:datatype id:orcid ]
-        [ sh:datatype id:ror ]
-        [ sh:datatype id:ausbn ]
-        [ sh:datatype id:auscn ]
-        [ sh:datatype id:ausrn ]
-        [ sh:datatype id:viaf ]
+        
+        [
+            sh:class schema:CreativeWork ;
+        ]
+        
+        [
+            sh:class schema:Dataset ;
+        ]
     ) ;
-    sh:message "Req AG3: Each Agent instance SHOULD be described with a schema:description property and, if the Agent has them, identifiers for it should be indicated with schema:identifier with either xsd:anyURI, xsd:token or a datatype from the Library of Congress Standard Identifiers vocabulary." ;
+    sh:path schema:hasPart ;
 .
 
 :organization-url
     a sh:PropertyShape ;
     rdfs:label "Organization URL" ;
-    sh:path sdo:url ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
     sh:datatype xsd:anyURI ;
-    sh:message "Req AG2: (organization-email) Each Agent instance MUST be described with at least the sdo:name property and, if an sdo:Organization, also an sdo:url property with a xsd:anyURI value or, if a sdo:Person, an sdo:email property with a xsd:anyURI value." ;
-.
-
-:agent-identifier
-    a sh:PropertyShape ;
-    rdfs:label "Agent identifier" ;
-    sh:path sdo:identifier ;
-    sh:or (
-        [ sh:datatype xsd:token ]
-        [ sh:datatype xsd:anyURI ]
-    ) ;    
-    sh:message "Req R1: Each Resource instance SHOULD indicate a persistent identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the Dataset instance's IRI, if it is an HTTP/HTTPS IRI, or else it SHOULD be quoted as a literal value, indicated with the property dcterms:identifier of datatype xsd:token." ;
+    sh:maxCount 1 ;
+    sh:message "Req AG2: (organization-email) Each Agent instance MUST be described with at least the schema:name property and, if an schema:Organization, also an schema:url property with a xsd:anyURI value or, if a schema:Person, an schema:email property with a xsd:anyURI value." ;
+    sh:minCount 1 ;
+    sh:path schema:url ;
 .
 
 :person-email
     a sh:PropertyShape ;
     rdfs:label "Person email" ;
-    sh:path sdo:email ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
     sh:datatype xsd:anyURI ;
-    sh:message "Req AG2: (person-email) Each Agent instance MUST be described with at least the sdo:name property and, if an sdo:Organization, also an sdo:url property with a xsd:anyURI value or, if a sdo:Person, an sdo:email property with a xsd:anyURI value." ;
+    sh:maxCount 1 ;
+    sh:message "Req AG2: (person-email) Each Agent instance MUST be described with at least the schema:name property and, if an schema:Organization, also an schema:url property with a xsd:anyURI value or, if a schema:Person, an schema:email property with a xsd:anyURI value." ;
+    sh:minCount 1 ;
+    sh:path schema:email ;
+.
+
+:resource-hasPart
+    a sh:PropertyShape ;
+    rdfs:label "Resource hasPart" ;
+    sh:class schema:DataCatalog ;
+    sh:maxCount 1 ;
+    sh:message "Req R5: Each Resource instance, if it is not a Catalog instance MUST, and if it is a Catalog instance MAY, indicate that it is within at least one Catalog instance with an in-bound hasPart property from a Catalog instance." ;
+    sh:path
+        [
+            sh:inversePath schema:hasPart ;
+        ] ;
+.
+
+<https://kurrawong.ai>
+    a schema:Organization ;
+    schema:description "KurrawongAI is a small, Artificial Intelligence, company in Australia specialising in Knowledge Graphs." ;
+    schema:name "KurrawongAI" ;
+    schema:url "https://kurrawong.ai"^^xsd:anyURI ;
+.
+
+<https://linked.data.gov.au/org/idn>
+    a schema:Organization ;
+    schema:description "The IDN is within the University of Melbourne. It was established in 2018 to support and coordinate the governance of Indigenous data for Aboriginal and Torres Strait Islander peoples and empower Aboriginal and Torres Strait Islander communities to decide their own local data priorities." ;
+    schema:name "Indigenous Data Network" ;
+    schema:url "https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network"^^xsd:anyURI ;
+.
+
+:resource-additionalType
+    a sh:PropertyShape ;
+    rdfs:comment "Nothing to test" ;
+    sh:path schema:additionalType ;
+.
+
+<https://orcid.org/0000-0002-8742-7730>
+    a schema:Person ;
+    schema:affiliation <https://kurrawong.ai> ;
+    schema:email "nick@kurrawong.ai"^^xsd:anyURI ;
+    schema:name "Nicholas J. Car"@en ;
+.
+
+:agent-description
+    a sh:PropertyShape ;
+    rdfs:label "Agent description" ;
+    sh:maxCount 1 ;
+    sh:message "Req AG3: Each Agent instance SHOULD be described with a schema:description property and, if the Agent has them, identifiers for it should be indicated with schema:identifier with xsd:anyURI or xsd:token values." ;
+    sh:or (
+        
+        [
+            sh:datatype xsd:string ;
+        ]
+        
+        [
+            sh:datatype rdf:langString ;
+        ]
+    ) ;
+    sh:path schema:description ;
+.
+
+:agent-identifier
+    a sh:PropertyShape ;
+    rdfs:label "Agent identifier" ;
+    sh:message
+        "Req AG3: Each Agent instance SHOULD be described with a schema:description property and, if the Agent has them, identifiers for it should be indicated with schema:identifier with either xsd:anyURI, xsd:token or a datatype from the Library of Congress Standard Identifiers vocabulary." ,
+        "Req R1: Each Resource instance SHOULD indicate a persistent identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the Dataset instance's IRI, if it is an HTTP/HTTPS IRI, or else it SHOULD be quoted as a literal value, indicated with the property schema:identifier of datatype xsd:token." ;
+    sh:or  (
+        
+        [
+            sh:datatype xsd:token ;
+        ]
+        
+        [
+            sh:datatype xsd:anyURI ;
+        ]
+    ) , (
+        
+        [
+            sh:datatype xsd:string ;
+        ]
+        
+        [
+            sh:datatype rdf:langString ;
+        ]
+        
+        [
+            sh:datatype id:orcid ;
+        ]
+        
+        [
+            sh:datatype id:ror ;
+        ]
+        
+        [
+            sh:datatype id:ausbn ;
+        ]
+        
+        [
+            sh:datatype id:auscn ;
+        ]
+        
+        [
+            sh:datatype id:ausrn ;
+        ]
+        
+        [
+            sh:datatype id:viaf ;
+        ]
+    ) ;
+    sh:path schema:identifier ;
+.
+
+:agent-name
+    a sh:PropertyShape ;
+    rdfs:label "Agent name" ;
+    sh:maxCount 1 ;
+    sh:message "Req AG2: Each Agent instance MUST be described with at least the schema:name property and, if an schema:Organization, also an schema:url property with a xsd:anyURI value or, if a schema:Person, an schema:email property with a xsd:anyURI value." ;
+    sh:minCount 1 ;
+    sh:or (
+        
+        [
+            sh:datatype xsd:string ;
+        ]
+        
+        [
+            sh:datatype rdf:langString ;
+        ]
+    ) ;
+    sh:path schema:name ;
+.
+
+:resource-created
+    a sh:PropertyShape ;
+    rdfs:label "Catalog basic resource metadata" ;
+    sh:maxCount 1 ;
+    sh:message "Req R2: Each Resource instance MUST provide basic Resource metadata so that exactly one of each of the following properties is required with range value as per Resource requirements: name, description, created & modified. The particular validator violated here is for created. Req R3: Allowed Semantic Web date/time properties for created & modified properties are xsd:date, xsd:dateTime, xsd:dateTimeStamp, time:Interval" ;
+    sh:minCount 1 ;
+    sh:or (
+        
+        [
+            sh:datatype xsd:dateTime ;
+        ]
+        
+        [
+            sh:datatype xsd:date ;
+        ]
+        
+        [
+            sh:datatype xsd:dateTimeStamp ;
+        ]
+
+        [
+            sh:datatype xsd:gYear ;
+        ]
+        
+        [
+            sh:datatype time:Instant ;
+        ]
+    ) ;
+    sh:path schema:dateCreated ;
+.
+
+:resource-description
+    a sh:PropertyShape ;
+    rdfs:label "Catalog basic resource metadata" ;
+    sh:maxCount 1 ;
+    sh:message "Req R2: Each Resource instance MUST provide basic Resource metadata so that exactly one of each of the following properties is required with range value as per Resource requirements: name, description, created & modified. The particular validator violated here is for description." ;
+    sh:minCount 1 ;
+    sh:or (
+        
+        [
+            sh:datatype xsd:string ;
+        ]
+        
+        [
+            sh:datatype rdf:langString ;
+        ]
+    ) ;
+    sh:path schema:description ;
+.
+
+:resource-direct-roles
+    a sh:PropertyShape ;
+    rdfs:label "Not direct Agent roles" ;
+    sh:maxCount 0 ;
+    sh:message "Req R4: Each Resource instance MUST NOT indicate Agent roles with direct properties other than publisher and creator and MUST instead indicate them with PROV qualified attribution pattern with each prov:Attribution indicated with the property prov:qualifiedAttribution." ;
+    sh:path
+        [
+            sh:alternativePath (
+                schema:audienceType
+                schema:contactPoint
+                schema:contributor
+                schema:copyrightHolder
+            ) ;
+        ] ;
+.
+
+:resource-identifier
+    a sh:PropertyShape ;
+    rdfs:label "Resource persistent identifier" ;
+    sh:message "Req R1: Each Resource instance SHOULD indicate a persistent identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the Dataset instance's IRI, if it is an HTTP/HTTPS IRI, or else it SHOULD be quoted as a literal value, indicated with the property schema:identifier of datatype xsd:token." ;
+    sh:path schema:identifier ;
+.
+
+:resource-modified
+    a sh:PropertyShape ;
+    rdfs:label "Catalog basic resource metadata" ;
+    sh:maxCount 1 ;
+    sh:message "Req R2: Each Resource instance MUST provide basic Resource metadata so that exactly one of each of the following properties is required with range value as per Resource requirements: name, description, created & modified. The particular validator violated here is for modified. Req R3: Allowed Semantic Web date/time properties for created & modified properties are xsd:date, xsd:dateTime, xsd:dateTimeStamp, time:Interval" ;
+    sh:minCount 1 ;
+    sh:or (
+        
+        [
+            sh:datatype xsd:dateTime ;
+        ]
+        
+        [
+            sh:datatype xsd:date ;
+        ]
+        
+        [
+            sh:datatype xsd:dateTimeStamp ;
+        ]
+
+        [
+            sh:datatype xsd:gYear ;
+        ]
+
+        [
+            sh:datatype time:Instant ;
+        ]
+    ) ;
+    sh:path schema:dateModified ;
+.
+
+:resource-name
+    a sh:PropertyShape ;
+    rdfs:label "Catalog basic resource metadata" ;
+    sh:maxCount 1 ;
+    sh:message "Req R2: Each Resource instance MUST provide basic Resource metadata so that exactly one of each of the following properties is required with range value as per Resource requirements: name, description, created & modified. The particular validator violated here is for name." ;
+    sh:minCount 1 ;
+    sh:or (
+        
+        [
+            sh:datatype xsd:string ;
+        ]
+        
+        [
+            sh:datatype rdf:langString ;
+        ]
+    ) ;
+    sh:path schema:name ;
 .
