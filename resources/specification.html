@@ -76,8 +76,9 @@
 		<li>
 			<a href="#mappings">A. Mappings</a>
 			<ul>
-				<li><a href="#a.1">A.1 LC Labels</a></li>
-				<li><a href="#a.2">A.2 RO Crates</a></li>
+				<li><a href="#mapping-dcat">A.1 DCAT</a></li>
+				<li><a href="#mapping-lc">A.2 LC Labels</a></li>
+				<li><a href="#mapping-roc">A.3 RO Crates</a></li>
 			</ul>
 		</li>
 		<li>
@@ -1275,12 +1276,12 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			<h3>3.1 Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
 			<h4>Class Index</h4>
 			<ul>
-				<li><a href="#cls-Resource">Resource</a></li>
-				<li><a href="#cls-Location">Location</a></li>
-				<li><a href="#cls-PeriodOfTime">PeriodOfTime</a></li>
+				<li><a href="#cls-CreativeWork">Creative Work</a></li>
+				<li><a href="#cls-Place">Place</a></li>
+				<li><a href="#cls-Duration">Duration</a></li>
 				<li><a href="#cls-Attribution">Attribution</a></li>
 				<li><a href="#cls-Score">Score</a></li>
-				<li><a href="#cls-Distribution">Distribution</a></li>
+				<li><a href="#cls-DataDownload">DataDownload</a></li>
 			</ul>
 			<section id="cls-Resource">
 				<h4>3.1.1 Resource</h4>
@@ -1370,12 +1371,12 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 					</tr>
 				</table>
 			</section>
-			<section id="cls-Location">
-				<h4>3.1.2 Location</h4>
+			<section id="cls-Place">
+				<h4>3.1.2 Place</h4>
 				<table class="cls">
 					<tr>
 						<th>IRI</th>
-						<td><code></code></td>
+						<td><code>schema:Place</code></td>
 					</tr>
 					<tr>
 						<th>Name</th>
@@ -1405,12 +1406,12 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 					</tr>
 				</table>
 			</section>
-			<section id="cls-PeriodOfTime">
-				<h4>3.1.3 PeriodOfTime</h4>
+			<section id="cls-Duration">
+				<h4>3.1.3 Duration</h4>
 				<table class="cls">
 					<tr>
 						<th>IRI</th>
-						<td><code></code></td>
+						<td><code>schema:Duration</code></td>
 					</tr>
 					<tr>
 						<th>Name</th>
@@ -1510,8 +1511,8 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 					</tr>
 				</table>
 			</section>
-			<section id="cls-Distribution">
-				<h4>3.1.6 Distribution</h4>
+			<section id="cls-DataDownload">
+				<h4>3.1.6 DataDownload</h4>
 				<table class="cls">
 					<tr>
 						<th>IRI</th>
@@ -1594,11 +1595,8 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 		<section id="predicates">
 			<h3>3.2 Predicates <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
 			<ul>
-				<li><a href="#pred-title">title</a></li>
+				<li><a href="#pred-name">name</a></li>
 				<li><a href="#pred-description">description</a></li>
-				<li><a href="#pred-spatial">spatial</a></li>
-				<li><a href="#pred-temporal">temporal</a></li>
-				<li><a href="#pred-language">language</a></li>
 				<li>
 					links to agents:
 					<ul>
@@ -1609,14 +1607,26 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 						<li><a href="#pred-qualifiedAttribution">qualified attribution</a></li>
 					</ul>
 				</li>
-				<li><a href="#pred-theme">theme</a></li>
+				<li>
+					dates:
+					<ul>
+						<li><a href="#pred-dateCreated">date created</a></li>
+						<li><a href="#pred-dateModified">date modified</a></li>
+						<li><a href="#pred-datePublished">date published</a></li>
+						<li><a href="#pred-dateIssued">date issued</a></li>
+					</ul>
+				</li>
+				<li><a href="#pred-keywords">keywords</a></li>
+				<li><a href="#pred-spatialCoverage">spatial coverage</a></li>
+				<li><a href="#pred-temporalCoverage">temporal coverage</a></li>
+				<li><a href="#pred-inLanguage">in language</a></li>
 				<li><a href="#pred-hasPolicy">has policy</a></li>
 				<li><a href="#pred-license">license</a></li>
 				<li><a href="#pred-hasScore">has score</a></li>
 				<li><a href="#pred-distribution">distribution</a></li>
 			</ul>
-			<section id="pred-title">
-				<h4>3.2.1 title</h4>
+			<section id="pred-name">
+				<h4>3.2.1 name</h4>
 				<table class="cls">
 					<tr>
 						<th>IRI</th>
@@ -1648,99 +1658,6 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 			</section>
 			<section id="pred-description">
 				<h4>3.2.2 description</h4>
-				<table class="cls">
-					<tr>
-						<th>IRI</th>
-						<td><code></code></td>
-					</tr>
-					<tr>
-						<th>Name</th>
-						<td></td>
-					</tr>
-					<tr>
-						<th>Description</th>
-						<td></td>
-					</tr>
-					<tr>
-						<th>Scope Note</th>
-						<td></td>
-					</tr>
-					<tr>
-						<th>Expected to be used on</th>
-						<td>
-						</td>
-					</tr>
-					<tr>
-						<th>Example</th>
-						<td>
-						</td>
-					</tr>
-				</table>
-			</section>
-			<section id="pred-spatial">
-				<h4>3.2.3 spatial</h4>
-				<table class="cls">
-					<tr>
-						<th>IRI</th>
-						<td><code></code></td>
-					</tr>
-					<tr>
-						<th>Name</th>
-						<td></td>
-					</tr>
-					<tr>
-						<th>Description</th>
-						<td></td>
-					</tr>
-					<tr>
-						<th>Scope Note</th>
-						<td></td>
-					</tr>
-					<tr>
-						<th>Expected to be used on</th>
-						<td>
-						</td>
-					</tr>
-					<tr>
-						<th>Example</th>
-						<td>
-						</td>
-					</tr>
-				</table>
-			</section>
-			<section id="pred-temporal">
-				<h4>3.2.4 temporal</h4>
-				<table class="cls">
-					<tr>
-						<th>IRI</th>
-						<td><code></code></td>
-					</tr>
-					<tr>
-						<th>Name</th>
-						<td></td>
-					</tr>
-					<tr>
-						<th>Description</th>
-						<td></td>
-					</tr>
-					<tr>
-						<th>Scope Note</th>
-						<td></td>
-					</tr>
-					<tr>
-						<th>Expected to be used on</th>
-						<td>
-						</td>
-					</tr>
-					<tr>
-						<th>Example</th>
-						<td>
-						</td>
-					</tr>
-				</table>
-			</section>
-			<section id="pred-language">
-				<h4>3.2.5 language</h4>
 				<table class="cls">
 					<tr>
 						<th>IRI</th>
@@ -1925,12 +1842,229 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 					</tr>
 				</table>
 			</section>
-			<section id="pred-theme">
-				<h4>3.2.11 theme</h4>
+			<section id="pred-dateCreated">
+				<h4>3.2.11 date created</h4>
 				<table class="cls">
 					<tr>
 						<th>IRI</th>
-						<td><code></code></td>
+						<td><code>schema:dateCreated</code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="pred-dateModified">
+				<h4>3.2.11 date modified</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code>schema:dateModified</code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="pred-datePublished">
+				<h4>3.2.11 date published</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code>schema:datePublished</code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="pred-dateIssued">
+				<h4>3.2.11 date issued</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code>schema:dateIssued</code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="pred-keywords">
+				<h4>3.2.11 keywords</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code>schema:keywords</code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="pred-spatialCoverage">
+				<h4>3.2.3 spatial coverage</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code>schema:spatialCoverage</code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="pred-temporalCoverage">
+				<h4>3.2.4 temporal coverage</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code>schema:temporalCoverage</code></td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Scope Note</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Expected to be used on</th>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<th>Example</th>
+						<td>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section id="pred-inLanguage">
+				<h4>3.2.5 in language</h4>
+				<table class="cls">
+					<tr>
+						<th>IRI</th>
+						<td><code>schema:inLanguage</code></td>
 					</tr>
 					<tr>
 						<th>Name</th>
@@ -1961,7 +2095,7 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 				<table class="cls">
 					<tr>
 						<th>IRI</th>
-						<td><code></code></td>
+						<td><code>odrl:hasPolicy</code></td>
 					</tr>
 					<tr>
 						<th>Name</th>
@@ -1992,7 +2126,7 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 				<table class="cls">
 					<tr>
 						<th>IRI</th>
-						<td><code></code></td>
+						<td><code>schema:license</code></td>
 					</tr>
 					<tr>
 						<th>Name</th>
@@ -2023,7 +2157,7 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 				<table class="cls">
 					<tr>
 						<th>IRI</th>
-						<td><code></code></td>
+						<td><code>scores:hasScore</code></td>
 					</tr>
 					<tr>
 						<th>Name</th>
@@ -2054,7 +2188,7 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 				<table class="cls">
 					<tr>
 						<th>IRI</th>
-						<td><code></code></td>
+						<td><code>schema:distribution</code></td>
 					</tr>
 					<tr>
 						<th>Name</th>
@@ -2386,30 +2520,30 @@ WHERE {
 					indicated by the <code>hasPart</code> property.</p>
 				<p class="eg">
 					<span>Example: A Catalogue instance with minimum required metadata</span>
-					&lt;https://doi.org/a-doi-for-the-catalogue&gt;
-					a schema:DataCatalog ;
+&lt;https://doi.org/a-doi-for-the-catalogue&gt;
+	a schema:DataCatalog ;
 
-					schema:name "Catalogue X" ;
-					schema:description "An example catalogue"@en ;
-					schema:dateCreated "2022-07-21"^^xsd:date ;
-					schema:dateModified "2026-02-25T20:15:21"^^xsd:dateTime ;
+	schema:name "Catalogue X" ;
+	schema:description "An example catalogue"@en ;
+	schema:dateCreated "2022-07-21"^^xsd:date ;
+	schema:dateModified "2026-02-25T20:15:21"^^xsd:dateTime ;
 
-					prov:qualifiedAttribution [
-						a prov:Attribution;
-						schema:agent &lt;https://linked.data.gov.au/org/idn&gt; ; # Indigenous Data Network's PID
-						schema:roleCode :custodian ;
-					] ,
-					[
-						a prov:Attribution;
-						schema:agent &lt;https://orcid.org/0000-0002-8742-7730&gt; ; # Nicholas Car's IRI
-						schema:roleCode :pointOfContact ;
-					] ;
+	prov:qualifiedAttribution [
+		a prov:Attribution;
+		schema:agent &lt;https://linked.data.gov.au/org/idn&gt; ; # Indigenous Data Network's PID
+		schema:roleCode :custodian ;
+	] ,
+	[
+		a prov:Attribution;
+		schema:agent &lt;https://orcid.org/0000-0002-8742-7730&gt; ; # Nicholas Car's IRI
+		schema:roleCode :pointOfContact ;
+	] ;
 
-					schema:hasPart
-					ex:some-resource-y ,
-					ex:some-resource-z ,
-					...
-					.
+	schema:hasPart
+	ex:some-resource-y ,
+	ex:some-resource-z ,
+	...
+.
 				</p>
 			</section>
 			<section id="resource">
@@ -2518,40 +2652,39 @@ schema:hasPart
 					properties, for example <code>schema:alumniOf</code> to link a <code>schema:Person</code> to an <code>schema:Organization</code>.
 				</p>
 				<!-- alumniOf is chosen because it does not have a clear equivalent in the aarr vocab, so this is a use case for using a schema.org property instead of a dcat:qualifiedRelation-->
-				<p class="req"><strong>Req AG5:</strong> Each <code>Agent</code> MAY relate to another agent using <code>dcat:qualifiedRelation</code>
+				<p class="req"><strong>Req AG5:</strong> Any <code>Agent</code> MAY relate to another <code>Agent</code> using <code>dcat:qualifiedRelation</code>
 					property with a <code>schema:roleCode</code> indicating a <code>skos:Concept</code> from the <a
 									href="https://data.idnau.org/pid/vocab/aarr">Agent to Agent Relationship Roles</a> vocabulary.</p>
 				<p class="eg">
 					<span>Example: An Organization with an example Australian Business Number identifer and a Person affiliated with it</span>
-					&lt;https://kurrawong.ai&gt;
-					a schema:Organization ;
-					schema:identifier "31353542036"^^ids:ausbn ;
-					schema:name "KurrawongAI" ;
-					schema:description "KurrawongAI is a small, Artificial Intelligence, company in Australia specialising in
-					Knowledge Graphs." ;
-					schema:url "https://kurrawong.ai"^^xsd:anyURI ;
-					.
+&lt;https://kurrawong.ai&gt;
+	a schema:Organization ;
+	schema:identifier "31353542036"^^ids:ausbn ;
+	schema:name "KurrawongAI" ;
+	schema:description "KurrawongAI is a small, Artificial Intelligence, company in Australia specialising in
+	Knowledge Graphs." ;
+	schema:url "https://kurrawong.ai"^^xsd:anyURI ;
+.
 
-					&lt;https://linked.data.gov.au/org/uom&gt;
-					a schema:Organization ;
-					schema:identifier "https://ror.org/01ej9dk98"^^ids:ror ;
-					schema:name "University of Melbourne" ;
-					schema:url "https://www.unimelb.edu.au"^^xsd:anyURI ;
-					.
+&lt;https://linked.data.gov.au/org/uom&gt;
+	a schema:Organization ;
+	schema:identifier "https://ror.org/01ej9dk98"^^ids:ror ;
+	schema:name "University of Melbourne" ;
+	schema:url "https://www.unimelb.edu.au"^^xsd:anyURI ;
+.
 
-					&lt;https://orcid.org/0000-0002-8742-7730&gt;
-					a schema:Person ;
-					schema:name "Nicholas J. Car"@en ;
-					schema:email "nick@kurrawong.ai"^^xsd:anyURI ;
-					schema:affiliation &lt;https://kurrawong.ai&gt; ;
-					schema:alumniOf &lt;https://linked.data.gov.au/org/uom&gt; ;
-					dcat:qualifiedRelation [
-					a dcat:Relationship ;
-					schema:roleCode aarr:affiliateOf ;
-					schema:agent &lt;https://kurrawong.ai&gt;
-					] ;
-					.
-
+&lt;https://orcid.org/0000-0002-8742-7730&gt;
+	a schema:Person ;
+	schema:name "Nicholas J. Car"@en ;
+	schema:email "nick@kurrawong.ai"^^xsd:anyURI ;
+	schema:affiliation &lt;https://kurrawong.ai&gt; ;
+	schema:alumniOf &lt;https://linked.data.gov.au/org/uom&gt; ;
+	dcat:qualifiedRelation [
+		a dcat:Relationship ;
+		schema:roleCode aarr:affiliateOf ;
+		schema:agent &lt;https://kurrawong.ai&gt;
+	] ;
+.
 				</p>
 			</section>
 			<section id="concept">
@@ -2565,17 +2698,16 @@ schema:hasPart
 				</ul>
 				<p class="eg">
 					<span>Example: A Concept with basic VocPub requirements met</span>
-					&lt;http://example.com/concept/x&gt;
-					a skos:Concept ;
-					rdfs:isDefinedBy &lt;http://example.com/concept-scheme/y&gt; ; # Indicating the vocabulary that defines this
-					term
+&lt;http://example.com/concept/x&gt;
+	a skos:Concept ;
+	rdfs:isDefinedBy &lt;http://example.com/concept-scheme/y&gt; ; # Indicating the vocabulary that defines this term
 
-					skos:prefLabel "Concept X"@en ; # The Concepts preferred label
-					skos:altLabel "Xxx"@en ; # A synonym/alias
-					skos:definition "An example Concept"@en ; # The Concept's definition
+	skos:prefLabel "Concept X"@en ; # The Concepts preferred label
+	skos:altLabel "Xxx"@en ; # A synonym/alias
+	skos:definition "An example Concept"@en ; # The Concept's definition
 
-					skos:narrower &lt;http://example.com/concept/x.1&gt; ;
-					.
+	skos:narrower &lt;http://example.com/concept/x.1&gt; ;
+.
 				</p>
 			</section>
 			<section id="conceptscheme">
@@ -2607,20 +2739,19 @@ schema:hasPart
 								href="https://agentsdb.idnau.org">IDN Agents Catalogue</a>.</p>
 			<p class="eg">
 				<span>Example: A Resource with a qualified Attribution</span>
-				&lt;http://example.com/resource/x&gt;
-
-				a schema:CreativeWork ;
-				...
-				# Concept within the IDN Data Themes Vocabulary
-				schema:keywords idth:indigenous-demographics ;
-				...
-				prov:qualifiedAttribution [
-					a prov:Attribution;
-					# Example Agent that could be registered in the IDN Agents Catalogue
-					schema:agent &lt;http://example.com/resource/central-lands-council&gt; ;
-					schema:roleCode droles:custodian ; # Role from the IDN Role Codes Vocabulary
-				] ;
-				.
+&lt;http://example.com/resource/x&gt;
+	a schema:CreativeWork ;
+	...
+	# Concept within the IDN Data Themes Vocabulary
+	schema:keywords idth:indigenous-demographics ;
+	...
+	prov:qualifiedAttribution [
+		a prov:Attribution;
+		# Example Agent that could be registered in the IDN Agents Catalogue
+		schema:agent &lt;http://example.com/resource/central-lands-council&gt; ;
+		schema:roleCode droles:custodian ; # Role from the IDN Role Codes Vocabulary
+	] ;
+.
 			</p>
 		</section>
 	</section>
@@ -2690,14 +2821,118 @@ This archival dataset is stored on hard disk drives collected by University of M
 	</section>
 	<section id="mappings">
 		<h2>Annex A. Mappings<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-		<p>This Annex defines mappings between this Profile and assessment models.</p>
-		<section id="lc-mapping">
+		<p>
+			This Annex defines mappings between this Profile and other common cataloguing and Indigenous information representation models.
+		</p>
+		<section id="mapping-dcat">
+			<h3>A.1 Data Catalogue Vocabulary</h3>
+			<p>
+				The <a href="#ref-dcat">Data Catalogue Vocabulary (DCAT)</a> is a W3C standard "designed to facilitate
+				interoperability between data catalogs published on the Web".
+			</p>
+			<p>
+				This profile uses an overall structure based on <a href="#ref-schema.org">schema.org</a>'s reimplementation of
+				DCAT so the mapping from it to DCAT mapping is straightforward.
+			</p>
+			<p>
+				All the classes and predicates used in this profile either have direct DCAT equivalents or equivalents in models
+				commonly used with DCAT, or they can be used as-is. The table below indicated equivalence and provides some scope
+				notes where use have slightly different expectations.
+			</p>
+			<table class="properties">
+				<tr>
+					<th>Profile Element</th>
+					<th>Relation</th>
+					<th>DCAT Element</th>
+					<th>Scope Note</th>
+				</tr>
+				<tr>
+					<th colspan="4">Classes</th>
+				</tr>
+				<tr>
+					<td><code>schema:CreativeWork</code></td>
+					<td><code>owl:equivalentClass</code></td>
+					<td><code>dcat:Resource</code></td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td><code>schema:Place</code></td>
+					<td><code>owl:equivalentClass</code></td>
+					<td><code>dcterms:Location</code></td>
+					<td>Both classes are essentially specialisations of <a href="#ref-geosparql">GeoSPARQL</a>'s <code>Feature</code> class and should be used accordingly</td>
+				</tr>
+				<tr>
+					<td><code>schema:Duration</code></td>
+					<td><code>rdfs:subclassOf</code></td>
+					<td><code>dcterms:PeriodOfTime</code></td>
+					<td>
+						<code>Duration</code> may be used as a literal date/time duration according to ISO 8601 but that is not the
+						expected use in this profile, instead it should be used as a complex object with <code>schema:startTime</code>
+						and/or <code>schema:endTime</code> predicates indicating <code>xsd:dateTime</code> literals. This is
+						consistent with <code>PeriodOfTime</code> use.
+					</td>
+				</tr>
+				<tr>
+					<td><code>prov:Attribution</code></td>
+					<td>-</td>
+					<td><code>prov:Attribution</code></td>
+					<td>use as-is</td>
+				</tr>
+				<tr>
+					<td><code>scores:Score</code></td>
+					<td>-</td>
+					<td><code>scores:Score</code></td>
+					<td>This class is not commonly used with DCAT, but it has no DCAT equivalent and can be used with <code>dcat:Resource</code>, just as it is used here with <code>schema:CreativeWork</code></td>
+				</tr>
+				<tr>
+					<td><code>schema:DataDownload</code></td>
+					<td><code>owl:equivalentClass</code></td>
+					<td><code>dcat:Distribution</code></td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th colspan="4">Predicates</th>
+				</tr>
+				<tr>
+					<td><code>schema:name</code></td>
+					<td><code>owl:equivalentProperty</code></td>
+					<td><code>dcterms:title</code></td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td><code>schema:description</code></td>
+					<td><code>owl:equivalentProperty</code></td>
+					<td><code>dcterms:description</code></td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td><code>schema:spatialCoverage</code></td>
+					<td><code>owl:equivalentProperty</code></td>
+					<td><code>dcterms:spatial</code></td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td><code>schema:temporalCoverage</code></td>
+					<td><code>owl:equivalentProperty</code></td>
+					<td><code>dcterms:temporal</code></td>
+					<td>-</td>
+				</tr>
+			</table>
+		</section>
+		<section id="mapping-lc">
 			<h3>A.1. Local Context Labels Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
 			<p class="todo">TODO</p>
 		</section>
-		<section id="ro-crate">
+		<section id="mapping-roc">
 			<h3>A.2. RO Crate<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
 			<p class="todo">TODO</p>
+			<p>
+				In addition to the conceptual mapping to RO-Crates above, a converter tool for creating RO Crates metadata from
+				IDN CP terms and vice versa is available at:
+			</p>
+			<ul>
+				<li><a href="https://github.com/idn-au/idncp-rocrate">https://github.com/idn-au/idncp-rocrate</a></li>
+			</ul>
 		</section>
 	</section>
 	<section id="scores">
@@ -3006,6 +3241,9 @@ schema:additionalType schema:Dataset ;
 							href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/">https://www.dublincore.org/specifications/dublin-core/dcmi-terms/</a>,
 				accessed 2025-08-20
 			</dd>
+			<dt id="ref-geosparql">GeoSPARQL</dt>
+			<dd>Open Geospatial Consortium. <em>OGC GeoSPARQL - A Geographic Query Language for RDF Data</em>. 29th January 2024. OGC Standard. URL: <a href="http://www.opengis.net/doc/IS/geosparql/1.1">http://www.opengis.net/doc/IS/geosparql/1.1</a>, accessed 2026-02-27
+			</dd>
 			<dt id="ref-rfc2119"><a id="rfc2119"></a>RFC2119</dt>
 			<dd>Bradner, S. <em>Key words for use in RFCs to Indicate Requirement Levels</em>. March 1997. Internet
 				Engineering Task Force. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>,
@@ -3040,7 +3278,6 @@ schema:additionalType schema:Dataset ;
 		<ul>
 			<li>Convert all examples to schema.org</li>
 			<li>Create a mapping to DCAT in Annex A</li>
-			<li>Add validator(s) to SemBack</li>
 			<li>List all Requirements in own section</li>
 			<li>Add special handling of Place to themes pattern</li>
 			<li>Update 1.4.1 spatial coverage ASGS ref</li>
