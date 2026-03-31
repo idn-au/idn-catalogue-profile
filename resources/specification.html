@@ -3006,31 +3006,37 @@ This archival dataset is stored on hard disk drives collected by University of M
 			</p>
 			<p>Figure C.1 overviews the model</p>
 <div id="lc-model-figure-v2" class="figure">
-  <pre class="mermaid">
+ <pre class="mermaid">
+%%{init: {
+  "flowchart": {
+    "nodeSpacing": 40,
+    "rankSpacing": 55,
+    "htmlLabels": true
+  }
+}}%%
 flowchart TB
 
-  R[dcat:Resource]
+  R["dcat:Resource"]
 
-  Q[lcont:QualifiedLocalContext]
-  L[lcont:LCNotice]
+  Q["lcont:Qualified<br/>LocalContext"]
+  L["lcont:LCNotice"]
 
-  C[skos:Concept]
+  C["skos:Concept"]
 
-  BCL[lcont:BCLabel]
-  TKL[lcont:TKLabel]
-  TMP[rdf:langString]
+  BCL["lcont:BCLabel"]
+  TKL["lcont:TKLabel"]
+  TMP["rdf:langString"]
 
-  R -->|odrl:hasPolicy| Q
-  R -->|schema:potentialAction| Q
+  R -->|"odrl:hasPolicy"| Q
+  R -->|"schema:potentialAction"| Q
 
-  Q -->|rdf:type| C
+  Q -->|"rdf:type"| C
 
-  Q -->|schema:additionalType| L
-  Q -->|schema:additionalType| BCL
-  Q -->|schema:additionalType| TKL
-  Q -->|lcont:templateText| TMP
-
-  </pre>
+  Q -->|"schema:additionalType"| L
+  Q -->|"schema:additionalType"| BCL
+  Q -->|"schema:additionalType"| TKL
+  Q -->|"lcont:templateText"| TMP
+</pre>
   <p class="caption"><strong>Figure C.1:</strong> Overview of elements of the Local Context Model</p>
 </div>
 			<p>This model requires that 
