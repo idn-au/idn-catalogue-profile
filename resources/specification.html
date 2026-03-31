@@ -3018,24 +3018,22 @@ flowchart TB
 
   R["dcat:Resource"]
 
-  Q["lcont:Qualified<br/>LocalContext"]
-  L["lcont:LCNotice"]
+  Q["Qualified<br/>LocalContext"]
+  L["LCNotice"]
 
-  C["skos:Concept"]
+  BCL["BCLabel"]
+  TKL["TKLabel"]
+  TMP["langString"]
 
-  BCL["lcont:BCLabel"]
-  TKL["lcont:TKLabel"]
-  TMP["rdf:langString"]
+  R -->|"hasPolicy"| Q
+  R -->|"potential</br>Action"| Q
 
-  R -->|"odrl:</br>hasPolicy"| Q
-  R -->|"schema:</br>potentialAction"| Q
-
-  Q -->|"rdf:type"| C
-
-  Q -->|"schema:</br>additionalType"| L
-  Q -->|"schema:</br>additionalType"| BCL
-  Q -->|"schema:</br>additionalType"| TKL
-  Q -->|"lcont:</br>templateText"| TMP
+  Q -->|"additionalType"| L
+  Q -->|"additionalType"| BCL
+  Q -->|"additionalType"| TKL
+  L -->|"templateText"| TMP
+  BCL -->|"templateText"| TMP
+  TKL -->|"templateText"| TMP
 </pre>
   <p class="caption"><strong>Figure C.1:</strong> Overview of elements of the Local Context Model</p>
 </div>
