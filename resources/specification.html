@@ -2986,71 +2986,61 @@ This archival dataset is stored on hard disk drives collected by University of M
 			<li><a href="#c.3">Example LC label and notice instances</a></li>
 			<li><a href="#c.4">Example Resources with LC labels and notices</a></li>
 		</ul>
-		<section id="c.1">
-			<h4>C.1 Introduction</h4>
-			<div style="width:50%; text-align:center;">
-				<p style="margin:0 auto; text-align:left; font-style:italic;">"The primary objectives of Local Contexts are to
-					enhance and legitimize locally based decision-making and Indigenous governance frameworks for determining
-					ownership, access, and culturally appropriate conditions for sharing historical, contemporary and future
-					collections of cultural heritage and Indigenous data"</p>
-				<p style="margin:0 auto; text-align:right;">&ndash; <a
-								href="https://localcontexts.org/about/about-local-contexts/">About Local Contexts web page</a></p>
-			</div>
-			<p>This Local Context model is a small ontology providing just a few classes and properties to indicate how to
-				attach Traditional Knowledge labels and Biocultural Labels to objects catalogued according to this profile.</p>
-			<p>The machine-readable version of this model is available at:</p>
-			<ul>
-				<li><a href="https://data.idnau.org/pid/lc-ont#">https://data.idnau.org/pid/lc-ont#</a></li>
-			</ul>
-			<p>The prefix <code>lcont:</code> is used in this section for the namespace of this model: <code>https://data.idnau.org/pid/lc-ont#</code>.
-			</p>
-			<p>Figure C.1 overviews the model</p>
-<div id="lc-model-figure-v2" class="figure">
- <pre class="mermaid">
-%%{init: {
-  "flowchart": {
-    "nodeSpacing": 40,
-    "rankSpacing": 55,
-    "htmlLabels": true
-  }
-}}%%
-flowchart TB
+<section id="c.1">
+  <h4>C.1 Introduction</h4>
 
-  R["dcat:Resource"]
+  <div style="width:50%; text-align:center;">
+    <p style="margin:0 auto; text-align:left; font-style:italic;">
+      "The primary objectives of Local Contexts are to enhance and legitimize locally based decision-making and Indigenous governance frameworks for determining ownership, access, and culturally appropriate conditions for sharing historical, contemporary and future collections of cultural heritage and Indigenous data"
+    </p>
+    <p style="margin:0 auto; text-align:right;">
+      &ndash; <a href="https://localcontexts.org/about/about-local-contexts/">About Local Contexts web page</a>
+    </p>
+  </div>
 
-  Q["Qualified<br/>LocalContext"]
-  L["LCNotice"]
+  <p>
+    This Local Context model is a small ontology providing just a few classes and properties to indicate how to
+    attach Traditional Knowledge labels and Biocultural Labels to objects catalogued according to this profile.
+  </p>
 
-  BCL["BCLabel"]
-  TKL["TKLabel"]
-  TMP["langString"]
+  <p>The machine-readable version of this model is available at:</p>
+  <ul>
+    <li><a href="https://data.idnau.org/pid/lc-ont#">https://data.idnau.org/pid/lc-ont#</a></li>
+  </ul>
 
-  R -->|"hasPolicy"| Q
-  R -->|"potential</br>Action"| Q
+  <p>
+    The prefix <code>lcont:</code> is used in this section for the namespace of this model:
+    <code>https://data.idnau.org/pid/lc-ont#</code>.
+  </p>
 
-  Q -->|"additional</br>Type"| L
-  Q -->|"additional</br>Type"| BCL
-  Q -->|"additional</br>Type"| TKL
-  L -->|"template</br>Text"| TMP
-  BCL -->|"template</br>Text"| TMP
-  TKL -->|"template</br>Text"| TMP
-</pre>
-  <p class="caption"><strong>Figure C.1:</strong> Overview of elements of the Local Context Model</p>
-</div>
-			<p>This model requires that 
-				<li>a <code>Biocultural Label</code> or a <code>Traditional Knowledge Label</code> with customisable 
-				<code>Template Text</code> is assigned to a catalogued <code>schema:CreativeWork</code> via an intermediate node of type 
-				<code>lcont:QualifiedLocalContext</code>, indicated with <code>odrl:hasPolicy</code>. 
-				</li>
-				<li>A <code>Local Context Label</code> 
-				with customisable <code>Template Text</code> is assigned to a catalogued <code>schema:CreativeWork</code> via an intermediate 
-				node of type <code>lcont:QualifiedLocalContext</code>, indicated with <code>schema:potentialAction</code>.
-				</li>
-			</p>
-			<p>	
-				This use of the <a href="https://patterns.dataincubator.org/book/qualified-relation.html">Qualified Relation</a> graph modelling pattern allows for the nature of the Resource/Label relationship to be defined.
-			</p>
-		</section>
+  <p>Figure C.1 overviews the model.</p>
+
+  <div id="lc-model-figure" class="figure">
+    <a href="images/lc-model.png">
+      <img src="images/lc-model.png" style="width:700px;" alt="Overview of elements of the Local Context Model" />
+    </a>
+    <p class="caption"><strong>Figure C.1:</strong> Overview of elements of the Local Context Model.</p>
+  </div>
+
+  <p>This model requires that:</p>
+  <ul>
+    <li>
+      a <code>Biocultural Label</code> or a <code>Traditional Knowledge Label</code> with customisable
+      <code>Template Text</code> is assigned to a catalogued <code>schema:CreativeWork</code> via an intermediate node of type
+      <code>lcont:QualifiedLocalContext</code>, indicated with <code>odrl:hasPolicy</code>.
+    </li>
+    <li>
+      a <code>Local Context Label</code> with customisable <code>Template Text</code> is assigned to a catalogued
+      <code>schema:CreativeWork</code> via an intermediate node of type <code>lcont:QualifiedLocalContext</code>,
+      indicated with <code>schema:potentialAction</code>.
+    </li>
+  </ul>
+
+  <p>
+    This use of the <a href="https://patterns.dataincubator.org/book/qualified-relation.html">Qualified Relation</a>
+    graph modelling pattern allows for the nature of the Resource/Label relationship to be defined.
+  </p>
+</section>
 		<section id="c.2">
 			<h4>C.2 Definitions</h4>
 			<p>
