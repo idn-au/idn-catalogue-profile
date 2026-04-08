@@ -1,4 +1,5 @@
 PREFIX : <https://data.idnau.org/pid/cp/validator/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX id: <http://id.loc.gov/vocabulary/identifiers/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
@@ -22,7 +23,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     schema:creator <https://orcid.org/0000-0002-8742-7730> ;
     schema:dateCreated "2022-07-18"^^xsd:date ;
     schema:dateIssued "2022-07-19"^^xsd:date ;
-    schema:dateModified "2026-03-30"^^xsd:date ;
+    schema:dateModified "2026-04-08"^^xsd:date ;
     schema:description "A SHACL validator IDN Catalogue Profile."@en ;
     schema:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
     schema:name "IDN CP Validator"@en ;
@@ -205,9 +206,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     a sh:PropertyShape ;
     rdfs:label "Attribution Role" ;
     sh:class skos:Concept ;
-    sh:message "Req A1: Each Attribution instance MUST indicate an Agent instance with the property prov:agent and a role for that Agent, as a skos:Concept, in relation to the attributing entity, with the roleCode property." ;
+    sh:message "Each Attribution instance MUST indicate an Agent instance with the property schema:agent and a role for that Agent, as a skos:Concept, in relation to the attributing entity, with the hadRole property." ;
     sh:minCount 1 ;
-    sh:path schema:roleCode ;
+    sh:path dcat:hadRole ;
 .
 
 :catalog-hasPart
