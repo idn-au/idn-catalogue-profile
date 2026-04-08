@@ -208,7 +208,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sh:class skos:Concept ;
     sh:message "Each Attribution instance MUST indicate an Agent instance with the property schema:agent and a role for that Agent, as a skos:Concept, in relation to the attributing entity, with the hadRole property." ;
     sh:minCount 1 ;
-    sh:path dcat:hadRole ;
+    sh:path prov:hadRole ;
 .
 
 :catalog-hasPart
