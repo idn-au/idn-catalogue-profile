@@ -3348,6 +3348,22 @@ WHERE {
               </p>
             </td>
           </tr>
+			    <tr>
+			      <td>
+			        <a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/provenance"
+			           title="A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation">Provenance</a>
+			      </td>
+			      <td>Developed for this data model, based on standard Linked Data graph patterns</td>
+			    </tr>
+			    <td>
+			      <a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/source"
+			         title="A related resource from which the described resource is derived">Source</a></td>
+			    <td><a href="https://localcontexts.org/labels/biocultural-labels/">https://localcontexts.org/labels/biocultural-labels/</a>
+			    </td>
+			    <tr>
+			      <td>Expected Properties</td>
+			      <td><code>lcont:templateText</code></td>
+			    </tr>
         </table>
       </section>
 			<section id="c.2.2">
@@ -3385,7 +3401,7 @@ WHERE {
 			    <td>
 			      <a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/source"
 			         title="A related resource from which the described resource is derived">Source</a></td>
-			    <td><a href="https://localcontexts.org/labels/biocultural-labels/">https://localcontexts.org/labels/traditional-knowledge-labels/</a>
+			    <td><a href="https://localcontexts.org/labels/traditional-knowledge-labels/">https://localcontexts.org/labels/traditional-knowledge-labels/</a>
 			    </td>
 			    <tr>
 			      <td>Expected Properties</td>
@@ -3631,8 +3647,7 @@ WHERE {
 		</section>
 		<section id="c.3">
 		  <h4>C.3 Label and Notice instances</h4>
-		  <p><code>LocalContextLabels</code> instances for all defined TK & BC labels and LC notices are given in three
-		    vocabularies:</p>
+		  <p>Concept instances for TK / BC Label and LC Notice are given in three vocabularies:</p>
 		  <ol>
 		    <li><a href="https://data.idnau.org/pid/vocab/bc-labels">BC Labels
 		      Vocabulary</a></li>
@@ -3641,85 +3656,17 @@ WHERE {
 		    <li><a href="https://data.idnau.org/pid/vocab/lc-notices">LC Notices
 		      Vocabulary</a></li>
 		  </ol>
-		  <p>An example of RDF data for one of the labels is:</p>
-		  <p class="eg">
-		    <span>Example TK Label including both lcont:templateText, and a customisation of the lcont:templaleText in skos:example, indicating an lcont:LCNotice with lcont:relatedNotice property</span>
-PREFIX lcont: &lt;https://data.idnau.org/pid/lc-ont#&gt;
-PREFIX odrl: &lt;http://www.w3.org/ns/odrl/2/&gt;
-PREFIX tk: &lt;https://data.idnau.org/pid/vocab/tk-labels/&gt;
-PREFIX tkcs: &lt;https://data.idnau.org/pid/vocab/tk-labels&gt;
-
-tk:non-commercial
-  a
-    skos:Concept ,
-    odrl:Policy ,
-    lcont:TKLabel ;
-  dcterms:identifier "non-commercial"^^xsd:token ;
-  rdfs:isDefinedBy tkcs: ;
-  skos:definition "This Label should be used when you would like to let external users who have access to your
-    material know that it should only be used in non-commercial ways. You are asking users to be respectful and fair
-    with your cultural materials and ask that it not be used to derive economic benefits or used in any way that makes
-    it into a commodity for sale or purchase."@en ;
-  skos:example "This Label indicates that this material should not be used in any commercial ways, including ways that
-    derive profit from sale or production for non-Passamaquoddy people. The name of this Label Ma yut monuwasiw means
-    'this is not to be sold/purchased'. If you are unsure if your use is non-commercial, please contact: [contact
-    details]"@en ;
-  skos:inScheme tkcs: ;
-  skos:notation "TK NC" ;
-  skos:prefLabel "Non-Commercial"@en ;
-  skos:relatedMatch bc:non-commercial ;
-  skos:scopeNote "Each Label is meant to be customized by a community. See Template Text."@en ;
-  skos:topConceptOf tkcs: ;
-  odrl:prohibition [
-    a odrl:Prohibition ;
-    dcterms:description "Indicates that commercialization opportunities may not be derived from cultural material"@en ;
-    odrl:action odrl:commercialize ;
-    odrl:purpose odrl:prohibit
-  ] ;
-  lcont:relatedNotice lcn:open-to-collaborate ;
-  lcont:templateText "This material has been designated as being available for non-commercial use. You are allowed to
-    use this material for non-commercial purposes including for research, study, or public presentation and/or online in
-    blogs or non-commercial websites. This Label asks you to think and act with fairness and responsibility towards this
-    material and the original custodians."@en ;
-  schema:citation "https://localcontexts.org/label/tk-non-commercial/"^^xsd:anyURI
-.
-		  </p>
-		  <p>An example of RDF data for one of the notices is:</p>
-		  <p class="eg">
-		    <span>Example LC Notice including both lcont:templateText, and a customisation of the lcont:templaleText in skos:example</span>
-PREFIX lcont: &lt;https://data.idnau.org/pid/lc-ont#&gt;
-PREFIX schema: &lt;https://schema.org/&gt;
-PREFIX lc: &lt;https://data.idnau.org/pid/vocab/lc-notices/&gt;
-PREFIX lccs: &lt;https://data.idnau.org/pid/vocab/lc-notices&gt;
-
-lcn:open-to-collaborate
-  a
-    skos:Concept ,
-    lcont:LCNotice ,
-    schema:Action ;
-  dcterms:identifier "open-to-collaborate"^^xsd:token ;
-  skos:definition "The Open to Collaborate Notice indicates that an institution is committed to developing new modes
-    of collaboration, engagement, and partnership over Indigenous collections and data that have colonial and/or
-    problematic histories or unclear provenance. This Notice indicates an institutional commitment to change and to
-    develop new processes for the care and stewardship of past and future heritage collections."@en ;
-  skos:example "Wise Ancestors is committed to the development of new modes of collaboration, engagement, and
-    partnership with Indigenous Peoples for the care and stewardship of past and future heritage collections."@en ;
-  skos:inScheme lcncs: ;
-  skos:prefLabel "Open to Collaborate"@en ;
-  skos:topConceptOf lcncs: ;
-  lcont:templateText "Our institution is committed to the development of new modes of collaboration, engagement, and
-    partnership with Indigenous Peoples for the care and stewardship of past and future heritage collections."@en ;
-  schema:citation "https://localcontexts.org/notice/open-to-collaborate/"^^xsd:anyURI ;
-.
-		  </p>
 		</section>
 		<section id="c.4">
-		    <h4>C.4 Labels and notices applied to a Creative Work</h4>
-		    <p>An example of a <code>lcont:TKLabel</code> applied to RDF data:</p>
+		    <h4>C.4 Label and Notice concepts applied to RDF data</h4>
+		    <p>Examples of label and notice concepts applied to RDF data</p>
+
+ 		    <h4>TK Label example</h4>
 		    <p class="eg">
-		      <span>Example: A Creative Work with a lcont:TKlabel applied from the TK Label Concept Scheme, including customised lcont:templateText.</span>
+		      <span>Example of a lcont:TKlabel from the TK Label Concept Scheme, including customised lcont:templateText, applied to a schema:CreativeWork</span>
 PREFIX lcont: &lt;https://data.idnau.org/pid/lc-ont#&gt;
 PREFIX odrl: &lt;http://www.w3.org/ns/odrl/2/&gt;
+PREFIX schema: &lt;https://schema.org/&gt;   
 PREFIX tk: &lt;https://data.idnau.org/pid/vocab/tk-labels/&gt;
 
 &lt;https://youtu.be/qOG4NAql5Ys?si=z9qePX7wSVGcm1Vi&gt;
@@ -3737,12 +3684,25 @@ PREFIX tk: &lt;https://data.idnau.org/pid/vocab/tk-labels/&gt;
   ...
 .
 		    </p>
-		    <p>An example of a LCNotice applied to RDF data:</p>
+		    <H4>BC Label example</H4>
 		    <p class="eg">
-		      <span>Example: A Dataset with a <code>lcont:LCNotice</code> applied from the LC Notice Concept Scheme, including customised lcont:templateText.</span>
+		      <span>Example: A Creative Work with a lcont:BCLabel applied from the BC Label Concept Scheme, including customised lcont:templateText.</span>
+PREFIX bc: &lt;https://data.idnau.org/pid/vocab/bc-labels/&gt;
 PREFIX lcont: &lt;https://data.idnau.org/pid/lc-ont#&gt;
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#&gt;
-PREFIX lcn: &lt;https://data.idnau.org/pid/vocab/tk-labels/&gt;
+PREFIX odrl: &lt;http://www.w3.org/ns/odrl/2/&gt;   
+PREFIX schema: &lt;https://schema.org/&gt;   
+        
+
+        
+        
+          <H4>LC Notice example</H4>
+		    <p class="eg">
+		      <span>Example: A collection level record, typed as a Dataset, with a <code>lcont:LCNotice</code> applied from the LC Notice Concept Scheme, including customised lcont:templateText.</span>
+PREFIX lcont: &lt;https://data.idnau.org/pid/lc-ont#&gt;
+PREFIX dcat: &lt;http://www.w3.org/ns/dcat#&gt;
+PREFIX lcn: &lt;https://data.idnau.org/pid/vocab/lc-notices/&gt;
+PREFIX schema: &lt;https://schema.org/&gt;  
 
 &lt;https://hub.catalogit.app/archive-of-cuban-socialism&gt;
   a dcat:Dataset ;
