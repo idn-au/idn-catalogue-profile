@@ -299,6 +299,10 @@
           <td><code>https://schema.org/</code></td>
         </tr>
         <tr>
+          <th>scores</th>
+          <td><code> https://linked.data.gov.au/def/scores/</code></td>
+        </tr>
+        <tr>
           <th>skos</th>
           <td><code>http://www.w3.org/2004/02/skos/core#</code></td>
         </tr>
@@ -359,7 +363,7 @@
       <h3>1.2 Basic Use <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
       <h4 style="font-style:italic;">What does basic use of this profile look like?</h4>
       <div id="basic-img" class="figure">
-        <a href="images/basic.png"><img src="images/basic.png" style="width:600px;"
+        <a href="images/basic-use.svg"><img src="images/basic-use.svg" style="width:600px;"
                                         alt="Profile class structure overview"/></a>
         <p class="caption"><strong>Figure 2:</strong> This profile requires basic use of the DCAT model's elements for
           cataloguing with model elements from several other models for classification and relating catalogued resources
@@ -826,28 +830,28 @@
           <div id="panel1" class="tab-panel">
             <p>Turtle is a text-based, reasonably human-readable syntax for RDF.</p>
             <p class="eg">
-              PREFIX prov: &lt;http://www.w3.org/ns/prov#>
-              PREFIX schema: &lt;https://schema.org/>
-              PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
+PREFIX prov: &lt;http://www.w3.org/ns/prov#>
+PREFIX schema: &lt;https://schema.org/>
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 
-              &lt;https://trove.nla.gov.au/work/10128420>
-              a schema:CreativeWork ;
-              schema:additionalType &lt;http://purl.org/dc/dcmitype/PhysicalObject> ;
-              schema:name "Tjukinya" ;
-              schema:description "Folktale: The little red hen retold in Pitjantjatjara" ;
-              schema:creator &lt;https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117> ;
-              schema:publisher &lt;https://example.com/agent/123456> ;
-              schema:keywords &lt;https://data.idnau.org/pid/austlang/C6> ;
-              prov:qualifiedAttribution [
-              a prov:Attribution;
-              schema:roleCode &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
-              prov:agent &lt;https://linked.data.gov.au/org/nla>
-              ] ;
-              schema:dateIssued "1980"^^xsd:gYear ;
-              schema:keywords &lt;https://data.idnau.org/pid/austlang/C6> ;
-              schema:usageInfo "Not for Inter-Library Loan" ;
-              schema:inLanguage &lt;https://data.idnau.org/pid/austlang/C6> ;
-              .
+&lt;https://trove.nla.gov.au/work/10128420>
+  a schema:CreativeWork ;
+  schema:additionalType &lt;http://purl.org/dc/dcmitype/PhysicalObject> ;
+  schema:name "Tjukinya" ;
+  schema:description "Folktale: The little red hen retold in Pitjantjatjara" ;
+  schema:creator &lt;https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117> ;
+  schema:publisher &lt;https://example.com/agent/123456> ;
+  schema:keywords &lt;https://data.idnau.org/pid/austlang/C6> ;
+  prov:qualifiedAttribution [
+    a prov:Attribution;
+    schema:roleCode &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
+    prov:agent &lt;https://linked.data.gov.au/org/nla>
+  ] ;
+  schema:dateIssued "1980"^^xsd:gYear ;
+  schema:keywords &lt;https://data.idnau.org/pid/austlang/C6> ;
+  schema:usageInfo "Not for Inter-Library Loan" ;
+  schema:inLanguage &lt;https://data.idnau.org/pid/austlang/C6> ;
+.
             </p>
             <p>
               Note that the reference to the <em>publisher</em>, the Summer Institute of Linguistics, is by persistent
@@ -861,72 +865,71 @@
           <div id="panel2" class="tab-panel">
             <p>
               JSON-LD is a convention for the use of JSON data that can represent RDF data. It is a modern syntax used
-              by
-              modern Web systems for data transfer.
+              by modern Web systems for data transfer.
             </p>
             <p>
               This example JSON-LD has been auto-converted from the Turtle-formatted data and can be back-converted
               perfectly.
             </p>
             <p class="eg">
-              {
-              "@context": {
-              "@vocab": "http://purl.org/dc/terms/",
-              "accessRights": "http://www.w3.org/ns/dcat#accessRights",
-              "theme": "http://www.w3.org/ns/dcat#theme",
-              "Resource": "http://www.w3.org/ns/dcat#Resource",
-              "year": "http://www.w3.org/2001/XMLSchema#gYear",
-              "PhysicalObject": "http://purl.org/dc/dcmitype/PhysicalObject",
-              "agent": "http://www.w3.org/ns/prov#agent",
-              "hadRole": "http://www.w3.org/ns/prov#hadRole",
-              "attribution": "http://www.w3.org/ns/prov#qualifiedAttribution",
-              "austlang": "https://data.idnau.org/pid/austlang/C6",
-              "droles": "https://linked.data.gov.au/def/data-roles/"
-              },
-              "@graph": [
-              {
-              "@id": "https://trove.nla.gov.au/work/10128420",
-              "@type": "Resource",
-              "type": {
-              "@id": "http://purl.org/dc/dcmitype/PhysicalObject"
-              },
-              "title": "Tjukinya",
-              "description": "Folktale: The little red hen retold in Pitjantjatjara",
-              "creator": {
-              "@id": "https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117"
-              },
-              "publisher": {
-              "@id": "https://example.com/agent/123456"
-              },
-              "attribution": {
-              "@id": "_:nb0e54b223f37485b8555e8d45b468bf9b1"
-              },
-              "issued": {
-              "@type": "year",
-              "@value": "1980"
-              },
-              "theme": {
-              "@id": "https://data.idnau.org/pid/austlang/C6"
-              },
-              "accessRights": "Not for Inter-Library Loan"
-              },
-              {
-              "@id": "_:nb0e54b223f37485b8555e8d45b468bf9b1",
-              "@type": [
-              "http://www.w3.org/ns/prov#Attribution"
-              ],
-              "agent": {
-              "@id": "https://linked.data.gov.au/org/nla"
-              },
-              "language": {
-              "@id": "https://data.idnau.org/pid/austlang/C6"
-              },
-              "hadRole": {
-              "@id": "droles:custodian"
-              }
-              }
-              ]
-              }
+{
+  "@context": {
+    "@vocab": "http://purl.org/dc/terms/",
+    "accessRights": "http://www.w3.org/ns/dcat#accessRights",
+    "theme": "http://www.w3.org/ns/dcat#theme",
+    "Resource": "http://www.w3.org/ns/dcat#Resource",
+    "year": "http://www.w3.org/2001/XMLSchema#gYear",
+    "PhysicalObject": "http://purl.org/dc/dcmitype/PhysicalObject",
+    "agent": "http://www.w3.org/ns/prov#agent",
+    "hadRole": "http://www.w3.org/ns/prov#hadRole",
+    "attribution": "http://www.w3.org/ns/prov#qualifiedAttribution",
+    "austlang": "https://data.idnau.org/pid/austlang/C6",
+    "droles": "https://linked.data.gov.au/def/data-roles/"
+  },
+  "@graph": [
+    {
+      "@id": "https://trove.nla.gov.au/work/10128420",
+      "@type": "Resource",
+      "type": {
+      "@id": "http://purl.org/dc/dcmitype/PhysicalObject"
+    },
+    "title": "Tjukinya",
+    "description": "Folktale: The little red hen retold in Pitjantjatjara",
+    "creator": {
+    "@id": "https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117"
+    },
+    "publisher": {
+     "@id": "https://example.com/agent/123456"
+    },
+    "attribution": {
+      "@id": "_:nb0e54b223f37485b8555e8d45b468bf9b1"
+    },
+    "issued": {
+    "@type": "year",
+    "@value": "1980"
+    },
+    "theme": {
+      "@id": "https://data.idnau.org/pid/austlang/C6"
+    },
+      "accessRights": "Not for Inter-Library Loan"
+    },
+    {
+    "@id": "_:nb0e54b223f37485b8555e8d45b468bf9b1",
+    "@type": [
+      "http://www.w3.org/ns/prov#Attribution"
+    ],
+    "agent": {
+      "@id": "https://linked.data.gov.au/org/nla"
+    },
+    "language": {
+      "@id": "https://data.idnau.org/pid/austlang/C6"
+    },
+    "hadRole": {
+      "@id": "droles:custodian"
+    }
+    }
+  ]
+}
             </p>
           </div>
           <div id="panel3" class="tab-panel">
@@ -938,32 +941,32 @@
               The following RDF/XML has been auto-converted from the Turtle-formatted data.
             </p>
             <p class="eg">
-              &lt;?xml version="1.0" encoding="utf-8"?>
-              &lt;rdf:RDF
-              xmlns:dcat="http://www.w3.org/ns/dcat#"
-              xmlns:dcterms="http://purl.org/dc/terms/"
-              xmlns:prov="http://www.w3.org/ns/prov#"
-              xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-              >
-              &lt;rdf:Description rdf:about="https://trove.nla.gov.au/work/10128420">
-              &lt;rdf:type rdf:resource="http://www.w3.org/ns/dcat#Resource"/>
-              &lt;schema:additionalType rdf:resource="http://purl.org/dc/dcmitype/PhysicalObject"/>
-              &lt;schema:name>Tjukinya&lt;/schema:name>
-              &lt;schema:description>Folktale: The little red hen retold in Pitjantjatjara&lt;/schema:description>
-              &lt;schema:creator rdf:resource="https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117"/>
-              &lt;schema:inLanguage rdf:resource="https://data.idnau.org/pid/austlang/C6"/"/>
-              &lt;schema:publisher rdf:resource="https://example.com/agent/123456"/>
-              &lt;prov:qualifiedAttribution rdf:nodeID="n09d0151a1e6140cfb188576200eb9d69b1"/>
-              &lt;schema:dateIssued rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1980&lt;/schema:dateIssued>
-              &lt;schema:keywords rdf:resource="https://data.idnau.org/pid/austlang/C6"/>
-              &lt;schema:usageInfo>Not for Inter-Library Loan&lt;/schema:usageInfo>
-              &lt;/rdf:Description>
-              &lt;rdf:Description rdf:nodeID="n09d0151a1e6140cfb188576200eb9d69b1">
-              &lt;rdf:type rdf:resource="http://www.w3.org/ns/prov#Attribution"/>
-              &lt;schema:roleCode rdf:resource="https://linked.data.gov.au/def/data-roles/custodian"/>
-              &lt;prov:agent rdf:resource="https://linked.data.gov.au/org/nla"/>
-              &lt;/rdf:Description>
-              &lt;/rdf:RDF>
+&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;rdf:RDF
+  xmlns:dcat="http://www.w3.org/ns/dcat#"
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:prov="http://www.w3.org/ns/prov#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  >
+  &lt;rdf:Description rdf:about="https://trove.nla.gov.au/work/10128420">
+    &lt;rdf:type rdf:resource="http://www.w3.org/ns/dcat#Resource"/>
+    &lt;schema:additionalType rdf:resource="http://purl.org/dc/dcmitype/PhysicalObject"/>
+    &lt;schema:name>Tjukinya&lt;/schema:name>
+    &lt;schema:description>Folktale: The little red hen retold in Pitjantjatjara&lt;/schema:description>
+    &lt;schema:creator rdf:resource="https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117"/>
+    &lt;schema:inLanguage rdf:resource="https://data.idnau.org/pid/austlang/C6"/"/>
+    &lt;schema:publisher rdf:resource="https://example.com/agent/123456"/>
+    &lt;prov:qualifiedAttribution rdf:nodeID="n09d0151a1e6140cfb188576200eb9d69b1"/>
+    &lt;schema:dateIssued rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1980&lt;/schema:dateIssued>
+    &lt;schema:keywords rdf:resource="https://data.idnau.org/pid/austlang/C6"/>
+    &lt;schema:usageInfo>Not for Inter-Library Loan&lt;/schema:usageInfo>
+  &lt;/rdf:Description>
+  &lt;rdf:Description rdf:nodeID="n09d0151a1e6140cfb188576200eb9d69b1">
+    &lt;rdf:type rdf:resource="http://www.w3.org/ns/prov#Attribution"/>
+    &lt;schema:roleCode rdf:resource="https://linked.data.gov.au/def/data-roles/custodian"/>
+    &lt;prov:agent rdf:resource="https://linked.data.gov.au/org/nla"/>
+  &lt;/rdf:Description>
+&lt;/rdf:RDF>
             </p>
           </div>
         </div>
@@ -1055,19 +1058,19 @@
         So, instead of referring to a person like this:
       </p>
       <p class="eg">
-        &lt;http://example.com/resource/x>
-        a schema:CreativeWork ;
-        schema:creator "John Smith" ; # a literal string used for their name
-        .
+&lt;http://example.com/resource/x>
+  a schema:CreativeWork ;
+  schema:creator "John Smith" ; # a literal string used for their name
+.
       </p>
       <p>
         you must refer to them like this:
       </p>
       <p class="eg">
-        &lt;http://example.com/resource/x>
-        a schema:CreativeWork ;
-        schema:creator &lt;http://example.com/person/john-smith> ; # an identifier
-        .
+&lt;http://example.com/resource/x>
+  a schema:CreativeWork ;
+  schema:creator &lt;http://example.com/person/john-smith> ; # an identifier
+.
       </p>
       <p>When registered in the AgentsDB, Agents are given a persistent identifier web address. Such identifiers may
         have been created
@@ -1171,18 +1174,19 @@
       </p>
       <p class="eg">
         <span>Example: A fictional resource, themed with several vocabulary terms and textual keywords</span>
-        &lt;http://example.com/resource/x>
-        a schema:CreativeWork ;
-        schema:name "Resource X" ;
-        ...
-        schema:keywords
-        &lt;https://linked.data.gov.au/def/nrm/c9f1f747-3677-5e72-aac0-b49733ea4629> , # "Cultural burn" from the IDN
-        Themes vocab
-        &lt;https://linked.data.gov.au/def/policy/5cc52a34-77c0-4589-91c6-7dabb6b65761> , # "First Peoples land
-        management" (implied)
-        &lt;https://vocabularyserver.com/apais/xml.php?skosTema=13> ; # "Aboriginal history"
-        ...
-        .
+&lt;http://example.com/resource/x>
+  a schema:CreativeWork ;
+  schema:name "Resource X" ;
+  # ...
+  schema:keywords
+    # "Cultural burn" from the IDN Themes vocab
+    &lt;https://linked.data.gov.au/def/nrm/c9f1f747-3677-5e72-aac0-b49733ea4629> ,
+    # "First Peoples land management" (implied)
+    &lt;https://linked.data.gov.au/def/policy/5cc52a34-77c0-4589-91c6-7dabb6b65761> ,
+    # "Aboriginal history"
+    &lt;https://vocabularyserver.com/apais/xml.php?skosTema=13> ;
+    # ...
+.
       </p>
     </section>
     <section id="policies">
@@ -1200,14 +1204,14 @@
       </p>
       <p class="eg">
         <span>Example: The ISU's Law: The Way of the Ancestors resource and a link to a policy</span>
-        &lt;https://data.idnau.org/pid/762463a4-f8b1-4eec-a335-3689c8d86e9e>
-        a schema:CreativeWork ;
-        schema:name "Law: The Way of the Ancestors" ;
-        ...
-        odrl:hasPolicy &lt;https://data.idnau.org/pid/MPF1309> , # "Collections Policy", identified with its ISU
-        catalogue ID
-        ...
-        .
+&lt;https://data.idnau.org/pid/762463a4-f8b1-4eec-a335-3689c8d86e9e>
+  a schema:CreativeWork ;
+  schema:name "Law: The Way of the Ancestors" ;
+  # ...
+  odrl:hasPolicy &lt;https://data.idnau.org/pid/MPF1309> , # "Collections Policy", identified with its ISU
+  catalogue ID
+  # ...
+.
       </p>
       <p>
         Some policies affecting ISU catalogued content are listed as resources in the ISU's catalogue too:
@@ -1239,13 +1243,13 @@
 
       <p class="eg">
         <span>Example: A resource in an Indigenous language</span>
-        &lt;https://www.youtube.com/watch?v=tEdweyPh-N8>
-        a schema:CreativeWork ;
-        schema:name "Mitch Tambo performs John Farnham's You're the Voice in Gamilaraay language" ;
-        ...
-        schema:inLanguage &lt;https://data.idnau.org/pid/austlang/D23> ; # AustLang's Gamilaraay / Gamilaroi / Kamilaroi
-        ...
-        .
+&lt;https://www.youtube.com/watch?v=tEdweyPh-N8>
+  a schema:CreativeWork ;
+  schema:name "Mitch Tambo performs John Farnham's You're the Voice in Gamilaraay language" ;
+  # ...
+  schema:inLanguage &lt;https://data.idnau.org/pid/austlang/D23> ; # AustLang's Gamilaraay / Gamilaroi / Kamilaroi
+  # ...
+.
       </p>
 
       <p>See patterns under 2.6 Theming where the Resource is <em>about</em> an Indigenous language. Note that a
@@ -1287,22 +1291,22 @@
       </p>
       <p class="eg">
         <span>Example: Provenance of qualified attribution</span>
-        &lt;https://data.idnau.org/pid/resource/debd1b90-aeb4-403e-82fc-7db7c474b2fd>
-        a schema:CreativeWork ;
-        schema:name "Yirrkala LPC Dataset" ;
-        ...
-        prov:qualifiedAttribution [
-        prov:agent &lt;https://linked.data.gov.au/org/uom> ; # University of Melbourne
-        schema:roleCode &lt;https://def.isotc211.org/common/RoleCode/custodian> ; # Custodian
-        ] ,
-        [
-        prov:agent &lt;https://orcid.org/0000-0002-1398-7524> ; # Kristen Smith
-        schema:roleCode
-        &lt;https://def.isotc211.org/common/RoleCode/pointOfContact> , # Point of Contact
-        &lt;https://def.isotc211.org/common/RoleCode/principalInvestigator> ; # Principle Investigator
-        ] ;
-        ...
-        .
+&lt;https://data.idnau.org/pid/resource/debd1b90-aeb4-403e-82fc-7db7c474b2fd>
+  a schema:CreativeWork ;
+  schema:name "Yirrkala LPC Dataset" ;
+  # ...
+  prov:qualifiedAttribution [
+    prov:agent &lt;https://linked.data.gov.au/org/uom> ; # University of Melbourne
+    schema:roleCode &lt;https://def.isotc211.org/common/RoleCode/custodian> ; # Custodian
+  ] ,
+  [
+    prov:agent &lt;https://orcid.org/0000-0002-1398-7524> ; # Kristen Smith
+    schema:roleCode
+      &lt;https://def.isotc211.org/common/RoleCode/pointOfContact> , # Point of Contact
+      &lt;https://def.isotc211.org/common/RoleCode/principalInvestigator> ; # Principle Investigator
+  ] ;
+  # ...
+.
       </p>
       <p>
         In the above example, the University of Melbourne has a role - custodian - for which there is no direct DCAT /
@@ -1335,15 +1339,10 @@
       above. These elements come from the <a href="#scores">Scores Model described in Annex B</a>.
     </p>
     <div id="structural-figure" class="figure">
-      <a href="images/overview.png"><img src="images/overview.png" style="width:700px;"
+      <a href="images/model.svg"><img src="images/model.svg" style="width:800px;"
                                          alt="Profile class structure overview"/></a>
-      <p class="caption"><strong>Figure 3:</strong> Overview of elements of the DCAT, PROV & SKOS models and
-        relationships between them used in this profile. Classes of object are shown as chamfered rectangles except for
-        <code>Agent</code> which is shown as a 'house'. Enclosed arrows indicate the <code>rdfs:subClassOf</code>
-        relationship. Pink arrows indicate specific value properties.</p>
-      <!-- figure needs updating with schema:Agent instead of prov:Agent -->
+      <p class="caption"><strong>Figure 3:</strong> Overview of elements of this Profile's schema.org-based data model</p>
     </div>
-    <p class="todo">Redraw the figure above using exactly the classes below</p>
     <section id="classes">
       <h3>3.1 Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
       <h4>Class Index</h4>
@@ -1352,11 +1351,13 @@
         <li><a href="#cls-Place">Place</a></li>
         <li><a href="#cls-Duration">Duration</a></li>
         <li><a href="#cls-Attribution">Attribution</a></li>
+        <li><a href="#cls-Person">Person</a></li>
+        <li><a href="#cls-Organization">Organization</a></li>
         <li><a href="#cls-Score">Score</a></li>
         <li><a href="#cls-DataDownload">DataDownload</a></li>
       </ul>
-      <section id="cls-Resource">
-        <h4>3.1.1 Resource</h4>
+      <section id="cls-CreativeWork">
+        <h4>3.1.1 Creative Work</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -1364,20 +1365,20 @@
           </tr>
           <tr>
             <th>Name</th>
-            <td>Resource</td>
+            <td>Creative Work</td>
           </tr>
           <tr>
             <th>Description</th>
-            <td>Resource published or curated by a single agent.</td>
+            <td>The most generic kind of creative work, including books, movies, photographs, software programs, etc.</td>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>This is the generic class for things catalogued. You MAY use it but SHOULD use a more specialised
-              variant such as <code>schema:CreativeWork</code></td>
+            <td>This is the generic class for things catalogued. You MAY use it without qualification but you SHOULD
+              indicate a specialised class of object catalogues with the <code>schema:additionalType</code> predicate.</td>
           </tr>
           <tr>
             <th>Equivalent Classes</th>
-            <td><code>schema:CreativeWork</code></td>
+            <td><code>dcat:Resource</code></td>
           </tr>
           <tr>
             <th>Expected Properties</th>
@@ -1386,29 +1387,35 @@
                 <div style="grid-column: 1;">
                   basic metadata:
                   <ul>
-                    <li><a href="#pred-title">title</a></li>
+                    <li><a href="#pred-name">title</a></li>
                     <li><a href="#pred-description">description</a></li>
                     <li><a href="#pred-created">created</a></li>
                     <li><a href="#pred-modified">modified</a></li>
-                    <li><a href="#pred-spatial">spatial</a></li>
-                    <li><a href="#pred-temporal">temporal</a></li>
+                    <li><a href="#pred-spatialCoverage">spatial coverage</a></li>
+                    <li><a href="#pred-temporalCoverage">temporal coverage</a></li>
                     <li><a href="#pred-language">language</a></li>
                   </ul>
                 </div>
                 <div style="grid-column: 2;">
                   links to agents:
                   <ul>
-                    <li><a href="">contributor</a></li>
-                    <li><a href="">creator</a></li>
-                    <li><a href="">publisher</a></li>
-                    <li><a href="">rightsHolder</a></li>
-                    <li><a href="">qualified attribution</a></li>
+                    <li><a href="#pred-contributor">contributor</a></li>
+                    <li><a href="#pred-creator">creator</a></li>
+                    <li><a href="#pred-publisher">publisher</a></li>
+                    <li><a href="#pred-rightsHolder">rightsHolder</a></li>
+                    <li><a href="#pred-qualifiedAttribution">qualified attribution</a></li>
                   </ul>
                 </div>
                 <div style="grid-column: 3;">
                   data access:
                   <ul>
                     <li><a href="#pred-distribution">distribution</a></li>
+                  </ul>
+                </div>
+                <div style="grid-column: 4;">
+                  classification:
+                  <ul>
+                    <li><a href="#pred-additionalType">additional type</a></li>
                     <li><a href="#pred-theme">theme</a></li>
                     <li><a href="#pred-hasPolicy">has policy</a></li>
                     <li><a href="#pred-license">license</a></li>
@@ -1426,21 +1433,19 @@ PREFIX id: &lt;http://id.loc.gov/vocabulary/identifiers/>
 PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 
 &lt;https://data.idnau.org/pid/762463a4-f8b1-4eec-a335-3689c8d86e9e>
-    a schema:CreativeWork ;
-    schema:name "Law: The Way of the Ancestors" ;
-    schema:description "The authors show how Indigenous law has enabled people to survive and thrive in Australia for more than 2000 generations. Nurturing people and places, law is the foundation of all Indigenous societies in Australia, giving them the tools to respond and adapt to major environmental and social changes." ;
-    schema:additionalType &lt;http://id.loc.gov/vocabulary/marcgt/boo> ;  # Book
-    schema:dateCreated "2023"^^xsd:gYear ;
-    schema:creator
-      &lt;https://orcid.org/0000-0002-1398-7524> ,  # Marcia Langton
-      &lt;https://orcid.org/0000-0002-4797-9776> ;  # Aaron Corn
-    schema:identifier "9781760762827"^^id:isbn ;
-    schema:keywords
-      ind:about-indigenous-people ,
-      ind:by-indigenous-people ;
-.
-							</pre>
-              </code>
+  a schema:CreativeWork ;
+  schema:name "Law: The Way of the Ancestors" ;
+  schema:description "The authors show how Indigenous law has enabled people to survive and thrive in Australia for more than 2000 generations. Nurturing people and places, law is the foundation of all Indigenous societies in Australia, giving them the tools to respond and adapt to major environmental and social changes." ;
+  schema:additionalType &lt;http://id.loc.gov/vocabulary/marcgt/boo> ;  # Book
+  schema:dateCreated "2023"^^xsd:gYear ;
+  schema:creator
+    &lt;https://orcid.org/0000-0002-1398-7524> ,  # Marcia Langton
+    &lt;https://orcid.org/0000-0002-4797-9776> ;  # Aaron Corn
+  schema:identifier "9781760762827"^^id:isbn ;
+  schema:keywords
+    ind:about-indigenous-people ,
+    ind:by-indigenous-people ;
+.</pre></code>
             </td>
           </tr>
         </table>
@@ -1454,63 +1459,106 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
           </tr>
           <tr>
             <th>Name</th>
-            <td></td>
+            <td>Place</td>
           </tr>
           <tr>
             <th>Description</th>
-            <td></td>
+            <td>Entities that have a somewhat fixed, physical extension.</td>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td></td>
+            <td>Use this class to represent areas of country, cities, named regions, points etc. Preferentially select the Place from IDN reference datasets.</td>
           </tr>
           <tr>
-            <th>Equivalent Classes</th>
-            <td><code></code></td>
+            <th>Subclass Of</th>
+            <td><a href="http://www.opengis.net/doc/IS/geosparql/1.1#8-2-2-%C2%A0-class-geo-feature">GeoSPARQL's Feature</a></td>
           </tr>
           <tr>
             <th>Expected Properties</th>
             <td>
+              <a href="https://schema.org/geo">schema:geo</a> (for coordinates), <a href="#pred-name">name</a>
             </td>
           </tr>
           <tr>
             <th>Example</th>
             <td>
+              <code><pre>
+PREFIX schema: &lt;https://schema.org/>
+
+&lt;https://example.com/cataloguedresource/abc-123>
+  a schema:CreativeWork ;
+  schema:name "Traditional hunting on Cable Beach" ;
+  # ...
+  schema:spatialCoverage &lt;https://www.geonames.org/8215867> ;
+  # ...
+.
+
+&lt;https://www.geonames.org/8215867>
+  a schema:Place ;
+  schema:name "Cable Beach, Western Australia" ;
+  schema:geo "POINT(-35.11608, 117.90094)" ;
+.
+							</pre></code>
             </td>
           </tr>
         </table>
       </section>
-      <section id="cls-Duration">
-        <h4>3.1.3 Duration</h4>
+      <section id="cls-DateTime">
+        <h4>3.1.3 Date Time</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
-            <td><code>schema:Duration</code></td>
+            <td><code>schema:DateTime</code></td>
           </tr>
           <tr>
             <th>Name</th>
-            <td></td>
+            <td>Date Time</td>
           </tr>
           <tr>
             <th>Description</th>
-            <td></td>
+            <td>A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]</td>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td></td>
+            <td>Use this object with a <code>schema:startTime</code> &amp;/or <code>schema:endTime</code> to represent a period of time.</td>
           </tr>
           <tr>
-            <th>Equivalent Classes</th>
-            <td><code></code></td>
+            <th>Subclass of</th>
+            <td><a href="https://www.w3.org/TR/owl-time/#time:Interval">Time Ontology in OWL's Interval</a></td>
           </tr>
           <tr>
             <th>Expected Properties</th>
             <td>
+              <a href="https://schema.org/startTime">schema:startTime</a> &amp; <a href="https://schema.org/endTime">schema:endTime</a> (for timespans), <a href="#pred-name">name</a> (for named time periods)
             </td>
           </tr>
           <tr>
             <th>Example</th>
             <td>
+              <code><pre>
+PREFIX schema: &lt;https://schema.org/>
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
+
+&lt;https://example.com/cataloguedresource/def-456>
+  a schema:CreativeWork ;
+  schema:name "Early encounters with Aboriginal People in South Australia" ;
+  # ...
+  schema:temproralCoverage [
+      schema:startTime "1825"^^xsd:gYear ;
+      schema:sendTime "1890"^^xsd:gYear ;
+  ] ;
+  # ... or ...
+  schema:temproralCoverage [
+      schema:name "19th century" ;
+  ] ;
+.
+
+&lt;https://www.geonames.org/8215867>
+    a schema:Place ;
+    schema:name "Cable Beach, Western Australia" ;
+    schema:geo "POINT(-35.11608, 117.90094)" ;
+.
+							</pre></code>
             </td>
           </tr>
         </table>
@@ -1550,47 +1598,12 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
           </tr>
         </table>
       </section>
-      <section id="cls-Score">
-        <h4>3.1.5 Score</h4>
+      <section id="cls-Person">
+        <h4>3.1.5 Person</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
-            <td><code></code></td>
-          </tr>
-          <tr>
-            <th>Name</th>
-            <td></td>
-          </tr>
-          <tr>
-            <th>Description</th>
-            <td></td>
-          </tr>
-          <tr>
-            <th>Scope Note</th>
-            <td></td>
-          </tr>
-          <tr>
-            <th>Equivalent Classes</th>
-            <td><code></code></td>
-          </tr>
-          <tr>
-            <th>Expected Properties</th>
-            <td>
-            </td>
-          </tr>
-          <tr>
-            <th>Example</th>
-            <td>
-            </td>
-          </tr>
-        </table>
-      </section>
-      <section id="cls-DataDownload">
-        <h4>3.1.6 DataDownload</h4>
-        <table class="cls">
-          <tr>
-            <th>IRI</th>
-            <td><code>schema:DataDownload</code></td>
+            <td><code>schema:Person</code></td>
           </tr>
           <tr>
             <th>Name</th>
@@ -1625,8 +1638,87 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
           </tr>
         </table>
       </section>
-      <section id="cls-Agent">
-        <h4>3.1.6 Agent</h4>
+      <section id="cls-Organization">
+        <h4>3.1.6 Organization</h4>
+        <table class="cls">
+          <tr>
+            <th>IRI</th>
+            <td><code>schema:Organization</code></td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td>Distribution</td>
+          </tr>
+          <tr>
+            <th>Description</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>Scope Note</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>Equivalent Classes</th>
+            <td><code></code></td>
+          </tr>
+          <tr>
+            <th>Expected Properties</th>
+            <td>
+              <ul>
+                <li><a href="#pred-title">title</a></li>
+                <li><a href="#pred-format">format</a></li>
+                <li><a href="#pred-accessURL">access URL</a></li>
+                <li><a href="#pred-downloadURL">download URL</a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <td>See the example for <a href="#class::schema:CreativeWork">schema:CreativeWork</a></td>
+          </tr>
+        </table>
+      </section>
+      <section id="cls-Score">
+        <h4>3.1.7 Score</h4>
+        <table class="cls">
+          <tr>
+            <th>IRI</th>
+            <td><code>scores:Score</code></td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td>Score</td>
+          </tr>
+          <tr>
+            <th>Description</th>
+            <td>
+              A Score is a value, or set of values, for a catalogues resource that has been calculated from metadata or
+              data elements known for the resource in accordance with a scoring principles or metric system, such as the
+              FAIR principles
+            </td>
+          </tr>
+          <tr>
+            <th>Scope Note</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>Equivalent Classes</th>
+            <td><code></code></td>
+          </tr>
+          <tr>
+            <th>Expected Properties</th>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <td>
+            </td>
+          </tr>
+        </table>
+      </section>
+      <section id="cls-DataDownload">
+        <h4>3.1.8 DataDownload</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2611,34 +2703,34 @@ WHERE {
           indicated by the <code>hasPart</code> property.</p>
         <p class="eg">
           <span>Example: A Catalogue instance with minimum required metadata</span>
-          &lt;https://doi.org/a-doi-for-the-catalogue&gt;
-          a schema:DataCatalog ;
+&lt;https://doi.org/a-doi-for-the-catalogue&gt;
+  a schema:DataCatalog ;
 
-          schema:name "Catalogue X" ;
-          schema:description "An example catalogue"@en ;
-          schema:dateCreated "2022-07-21"^^xsd:date ;
-          schema:dateModified "2026-02-25T20:15:21"^^xsd:dateTime ;
+  schema:name "Catalogue X" ;
+  schema:description "An example catalogue"@en ;
+  schema:dateCreated "2022-07-21"^^xsd:date ;
+  schema:dateModified "2026-02-25T20:15:21"^^xsd:dateTime ;
 
-          prov:qualifiedAttribution [
-          a prov:Attribution;
-          schema:agent &lt;https://linked.data.gov.au/org/idn&gt; ; # Indigenous Data Network's PID
-          schema:roleCode :custodian ;
-          ] ,
-          [
-          a prov:Attribution;
-          schema:agent &lt;https://orcid.org/0000-0002-8742-7730&gt; ; # Nicholas Car's IRI
-          schema:roleCode :pointOfContact ;
-          ] ;
+  prov:qualifiedAttribution [
+    a prov:Attribution;
+    schema:agent &lt;https://linked.data.gov.au/org/idn&gt; ; # Indigenous Data Network's PID
+    schema:roleCode :custodian ;
+  ] ,
+  [
+    a prov:Attribution;
+    schema:agent &lt;https://orcid.org/0000-0002-8742-7730&gt; ; # Nicholas Car's IRI
+    schema:roleCode :pointOfContact ;
+  ] ;
 
-          schema:hasPart
-          ex:some-resource-y ,
-          ex:some-resource-z ,
-          ...
-          .
+  schema:hasPart
+    ex:some-resource-y ,
+    ex:some-resource-z ;
+    # ...
+.
         </p>
       </section>
-      <section id="resource">
-        <h4>2.1.3 <code>Resource</code></h4>
+      <section id="dataset">
+        <h4>2.1.3 <code>dataset</code></h4>
         <p class="req"><strong>Req R1:</strong> Each <code>Resource</code> instance SHOULD indicate a persistent
           identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the <code>Dataset</code>
           instance's IRI, if it is an HTTP/HTTPS IRI, or else it SHOULD be quoted as a literal value, indicated with the
@@ -2663,38 +2755,40 @@ WHERE {
           are equivalent to catalogued <code>Resource</code> instances of <code>schema:additionalType</code> <code>Dataset</code>.
         <p class="eg">
           <span>Example: A Resource instance with minimum required metadata</span>
-          &lt;http://example.com/resource/x&gt;
-          a schema:CreativeWork ;
-          dcterm:identifier "CAT::2-3-4::X"^^xsd:token ; # Dummy catalogue number
+&lt;http://example.com/resource/x&gt;
+  a schema:CreativeWork ;
+  dcterm:identifier "CAT::2-3-4::X"^^xsd:token ; # Dummy catalogue number
 
-          schema:name "Resource X" ;
-          schema:description "An example Resource"@en ;
-          schema:dateCreated "2022-07-21"^^xsd:date ;
-          schema:dateModified "2022-07-25T20:15:21"^^xsd:dateTime ;
+  schema:name "Resource X" ;
+  schema:description "An example Resource"@en ;
+  schema:dateCreated "2022-07-21"^^xsd:date ;
+  schema:dateModified "2022-07-25T20:15:21"^^xsd:dateTime ;
 
-          prov:qualifiedAttribution [
-          a prov:Attribution;
-          prov:agent &lt;http://example.com/org/clc&gt; ; # Example Indigenous org PID
-          schema:roleCode :custodian ;
-          ] ,
-          [
-          a prov:Attribution;
-          prov:agent &lt;http://example.com/academic/person-x&gt; ; # An academic
-          schema:roleCode :author ;
-          ] ,
-          [
-          a prov:Attribution;
-          schema:agent &lt;http://example.com/org/xyz-people&gt; ; # An Indigenous group
-          schema:roleCode :subjectAgent ;
-          ] ;
+  prov:qualifiedAttribution [
+    a prov:Attribution;
+    prov:agent &lt;http://example.com/org/clc&gt; ; # Example Indigenous org PID
+    schema:roleCode :custodian ;
+  ] ,
+  [
+    a prov:Attribution;
+    prov:agent &lt;http://example.com/academic/person-x&gt; ; # An academic
+    schema:roleCode :author ;
+  ] ,
+  [
+    a prov:Attribution;
+    schema:agent &lt;http://example.com/org/xyz-people&gt; ; # An Indigenous group
+    schema:roleCode :subjectAgent ;
+  ] ;
 
-          schema:additionalType ex:map ; # An example specialised resource - a map - from some vocabularty of types
-          .
+  schema:additionalType ex:map ; # An example specialised resource - a map - from some vocabularty of types
+  schema:isPartOfCatalog &lt;https://example.com/cat/catalogue-x&gt; ;
+.
 
-          &lt;https://doi.org/a-doi-for-a-catalogue&gt; # a catalogue indicating this Resource is a part of it
-          schema:hasPart
-          &lt;http://example.com/resource/x&gt; ;
-          .
+  # a catalogue indicating this Resource is a part of it
+  &lt;https://example.com/cat/catalogue-x&gt;
+    a schema:DataCatalog ;
+    schema:dataset &lt;http://example.com/resource/x&gt; ;
+.
         </p>
       </section>
       <section id="dataset">
@@ -2750,34 +2844,34 @@ WHERE {
                   href="https://data.idnau.org/pid/vocab/aarr">Agent to Agent Relationship Roles</a> vocabulary.</p>
         <p class="eg">
           <span>Example: An Organization with an example Australian Business Number identifer and a Person affiliated with it</span>
-          &lt;https://kurrawong.ai&gt;
-          a schema:Organization ;
-          schema:identifier "31353542036"^^ids:ausbn ;
-          schema:name "KurrawongAI" ;
-          schema:description "KurrawongAI is a small, Artificial Intelligence, company in Australia specialising in
-          Knowledge Graphs." ;
-          schema:url "https://kurrawong.ai"^^xsd:anyURI ;
-          .
+&lt;https://kurrawong.ai&gt;
+  a schema:Organization ;
+  schema:identifier "31353542036"^^ids:ausbn ;
+  schema:name "KurrawongAI" ;
+  schema:description "KurrawongAI is a small, Artificial Intelligence, company in Australia specialising in
+  Knowledge Graphs." ;
+  schema:url "https://kurrawong.ai"^^xsd:anyURI ;
+.
 
-          &lt;https://linked.data.gov.au/org/uom&gt;
-          a schema:Organization ;
-          schema:identifier "https://ror.org/01ej9dk98"^^ids:ror ;
-          schema:name "University of Melbourne" ;
-          schema:url "https://www.unimelb.edu.au"^^xsd:anyURI ;
-          .
+&lt;https://linked.data.gov.au/org/uom&gt;
+  a schema:Organization ;
+  schema:identifier "https://ror.org/01ej9dk98"^^ids:ror ;
+  schema:name "University of Melbourne" ;
+  schema:url "https://www.unimelb.edu.au"^^xsd:anyURI ;
+.
 
-          &lt;https://orcid.org/0000-0002-8742-7730&gt;
-          a schema:Person ;
-          schema:name "Nicholas J. Car"@en ;
-          schema:email "nick@kurrawong.ai"^^xsd:anyURI ;
-          schema:affiliation &lt;https://kurrawong.ai&gt; ;
-          schema:alumniOf &lt;https://linked.data.gov.au/org/uom&gt; ;
-          dcat:qualifiedRelation [
-          a dcat:Relationship ;
-          schema:roleCode aarr:affiliateOf ;
-          schema:agent &lt;https://kurrawong.ai&gt;
-          ] ;
-          .
+&lt;https://orcid.org/0000-0002-8742-7730&gt;
+  a schema:Person ;
+  schema:name "Nicholas J. Car"@en ;
+  schema:email "nick@kurrawong.ai"^^xsd:anyURI ;
+  schema:affiliation &lt;https://kurrawong.ai&gt; ;
+  schema:alumniOf &lt;https://linked.data.gov.au/org/uom&gt; ;
+  dcat:qualifiedRelation [
+  a dcat:Relationship ;
+    schema:roleCode aarr:affiliateOf ;
+    schema:agent &lt;https://kurrawong.ai&gt;
+  ] ;
+.
         </p>
       </section>
       <section id="concept">
