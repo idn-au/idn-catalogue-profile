@@ -3026,7 +3026,77 @@ WHERE {
     <section id="mapping-lc">
       <h3>A.2. Local Context Labels Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span>
       </h3>
-      <p class="todo">TODO</p>
+      <p>
+        The <a href="http://www.w3.org/ns/odrl/2/">Open Digital Rights Language (ODRL)</a> is a W3C standard that providfes "representing statements about the usage of content and services"....
+      </p>
+      <p>
+        This profile uses ...
+      </p>
+      <p>
+        All the classes and predicates used ....
+      </p>
+      <table class="properties">
+        <tr>
+          <th>Profile Element</th>
+          <th>Relation</th>
+          <th>DCAT Element</th>
+          <th>Scope Note</th>
+        </tr>
+        <tr>
+          <th colspan="4">Classes</th>
+        </tr>
+        <tr>
+          <td><code>schema:...</code></td>
+          <td><code>owl:equivalentClass</code></td>
+          <td><code>odrl:...</code></td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td><code>schema:</code></td>
+          <td><code>owl:equivalentClass</code></td>
+          <td><code>lcont:....</code></td>
+          <td>Both classes are essentially...
+          </td>
+        </tr>
+        <tr>
+          <td><code></code></td>
+          <td><code>rdfs:subclassOf</code></td>
+          <td><code></code></td>
+          <td>
+            <code>?</code> may be used as a ... and should be used as ... with
+            <code>...</code>
+            and/or <code>...</code> predicates indicating <code>...</code> consistent with <code>...</code> use.
+          </td>
+        </tr>
+        <tr>
+          <td><code>...</code></td>
+          <td>-</td>
+          <td><code>...</code></td>
+          <td>use as-is</td>
+        </tr>
+        <tr>
+          <th colspan="4">Predicates</th>
+        </tr>
+        <tr>
+          <td><code></code></td>
+          <td><code>owl:equivalentProperty</code></td>
+          <td><code></code></td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td><code></code></td>
+          <td><code>owl:equivalentProperty</code></td>
+          <td><code></code></td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td><code></code></td>
+          <td><code>owl:equivalentProperty</code></td>
+          <td><code></code></td>
+          <td>-</td>
+        </tr>
+      </table>
+      <p class="todo">WIP</p>
     </section>
     <section id="mapping-roc">
       <h3>A.3. RO Crate<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
@@ -3547,10 +3617,10 @@ lcn:open-to-collaborate
 		  </p>
 		</section>
 		<section id="c.4">
-		    <h4>C.4 Labels and notices applied to a resources</h4>
-		    <p>An example of a TKLabel applied to RDF data:</p>
+		    <h4>C.4 Labels and notices applied to a Creative Work</h4>
+		    <p>An example of a <code>lcont:TKLabel</code> applied to RDF data:</p>
 		    <p class="eg">
-		      <span>Example: A Dataset with a lcont:TKlabel applied from the TK Label Concept Scheme, including customised lcont:templateText.</span>
+		      <span>Example: A Creative Work with a lcont:TKlabel applied from the TK Label Concept Scheme, including customised lcont:templateText.</span>
 PREFIX lcont: &lt;https://data.idnau.org/pid/lc-ont#&gt;
 PREFIX odrl: &lt;http://www.w3.org/ns/odrl/2/&gt;
 PREFIX tk: &lt;https://data.idnau.org/pid/vocab/tk-labels/&gt;
@@ -3572,7 +3642,7 @@ PREFIX tk: &lt;https://data.idnau.org/pid/vocab/tk-labels/&gt;
 		    </p>
 		    <p>An example of a LCNotice applied to RDF data:</p>
 		    <p class="eg">
-		      <span>Example: A Dataset with a lcont:LCNotice applied from the LC Notice Concept Scheme, including customised lcont:templateText.</span>
+		      <span>Example: A Dataset with a <code>lcont:LCNotice</code> applied from the LC Notice Concept Scheme, including customised lcont:templateText.</span>
 PREFIX lcont: &lt;https://data.idnau.org/pid/lc-ont#&gt;
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#&gt;
 PREFIX lcn: &lt;https://data.idnau.org/pid/vocab/tk-labels/&gt;
