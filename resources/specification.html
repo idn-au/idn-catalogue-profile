@@ -3300,9 +3300,12 @@ WHERE {
           <code>lcont:QualifiedLocalContext</code>, indicated with <code>odrl:hasPolicy</code>.
         </li>
         <li>
-          a <code>Local Context Label</code> with customisable <code>Template Text</code> is assigned to a catalogued
+          a <code>Local Context Notice</code> with customisable <code>Template Text</code> is assigned to a catalogued
           <code>schema:CreativeWork</code> via an intermediate node of type <code>lcont:QualifiedLocalContext</code>,
           indicated with <code>schema:potentialAction</code>.
+        </li>
+        <li>
+          <code>Local Context Notice</code>'s' may be applied to item-level or collection-level records, <strong>except</strong> the <a href="https://data.idnau.org/pid/vocab/lc-notices/cc-overall-notice">Overall Notice</a> and the <a href="https://data.idnau.org/pid/vocab/lc-notices/open-to-collaborate">Open to Collaborate</a> notice which SHOULD NOT be applied to item-level records.
         </li>
       </ul>
 
