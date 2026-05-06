@@ -58,8 +58,9 @@
     <li>
       <a href="#validation">5. Validation</a>
       <ul>
-        <li><a href="#structural">5.1 Structural</a></li>
-        <li><a href="#values">5.2 Values</a></li>
+        <li><a href="#validation-tooling">5.1 Tooling</a></li>
+        <li><a href="#structural">5.2 Structural</a></li>
+        <li><a href="#values">5.3 Values</a></li>
       </ul>
     </li>
     <li><a href="#scores">6. Scores</a></li>
@@ -774,7 +775,7 @@
           and calculate scores
         </li>
         <li><a href="https://data.idnau.org/pid/cp/validator">IDN CP Validator</a> - a <a
-                href="https://www.w3.org/TR/shacl/">SHACL</a> RDF data validation file that can be used to check
+                href="https://www.w3.org/TR/shacl/">SHACL</a> "Shapes Graph" file that can be used to check
           conformance of metadata to this profile
         </li>
       </ul>
@@ -2684,12 +2685,28 @@ WHERE {
         according to specific vocabularies
       </li>
     </ul>
-    <p><em>Where model objects are indicated in </em><code>code</code><em> and no namespace is indicated, presume the
-      <code>dcat</code>, <code>prov</code> or <code>skos</code> namespaces are used. There are no class/property
-      overlaps between those models, so there can be no confusion if the object is looked up in those standards.</em>
-    </p>
+    <section id="validation-tooling">
+      <h3>5.1 Validation Tooling and Example Data</h3>
+      <p>
+        RDF data created according to this profile can be validated according to these requirements using the
+        <a href="https://data.idnau.org/pid/cp/validator">IDN CP Validator</a> - a <a href="https://www.w3.org/TR/shacl/">SHACL</a>
+        "Shapes Graph" file - that reports errors using the requirement IDs as below.
+      </p>
+      <p>
+        The IDN CP Validator is loaded into the <a href="https://tools.kurrawong.ai/validate">KurrawongAI SHACL Validator online tool</a>
+        into which data can be uploaded and validated.
+      </p>
+      <p>
+        These example valid and invalid RDF catalogue entries can be used to see the validator pass and fail:
+      </p>
+      <ul>
+        <li><a href="resources/tests/MPF1226.ttl">MPF1226.ttl</a> - valid</li>
+        <li><a href="resources/tests/MPF1226-invalid.ttl">MPF1226.ttl</a> - invalid - missing description</li>
+        <li><a href="resources/tests/MPF1226-invalid2.ttl">MPF1226.ttl</a> - invalid - declares contactPoint instead of qualifiedAttribution</li>
+      </ul>
+    </section>
     <section id="structural">
-      <h3>5.1 Structural Requirements</h3>
+      <h3>5.2 Structural Requirements</h3>
       <p>The following sub-subsections are per object class, where 'class' is one of the classes in this profile's
         structural overview (see Figure 2 above).</p>
       <p>The general idea is that objects of the various class types in the overview diagram are needed for IDN metadata
@@ -2911,7 +2928,7 @@ WHERE {
       </section>
     </section>
     <section id="values">
-      <h3>5.2 Values Requirements</h3>
+      <h3>5.3 Values Requirements</h3>
       <p>IDN metadata must be represented according to certain classes with certain properties, including relations
         between classes, as defined in the section above. This section defines the requirements for particular
         properties to indicate particular values. These values are mostly items in particular vocabularies and
