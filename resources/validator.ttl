@@ -1,6 +1,7 @@
 PREFIX : <https://data.idnau.org/pid/cp/validator/>
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX id: <http://id.loc.gov/vocabulary/identifiers/>
+PREFIX ont: <https://data.idnau.org/pid/cp/validator>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -11,19 +12,19 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX time: <http://www.w3.org/2006/time#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-<https://data.idnau.org/pid/cp/validator>
+ont:
     a owl:Ontology ;
     owl:versionIRI <https://data.idnau.org/pid/cp/1.0.0> ;
-    owl:versionInfo "1.0.0" ;
+    owl:versionInfo "1.0.1" ;
     skos:historyNote "This validator for the IDN Catalogue Profile was made within the IDN's ID Catalogue project 2021 - 2022."@en ;
-    schema:codeRespository "https://github.com/idn-au/idn-catalogue-profile/"^^xsd:anyURI ;
+    schema:codeRepository "https://github.com/idn-au/idn-catalogue-profile/"^^xsd:anyURI ;
     schema:copyrightHolder <https://orcid.org/0000-0002-8742-7730> ;
     schema:copyrightNotice "(c) Indigenous Data Network, 2026" ;
     schema:copyrightYear "2026"^^xsd:gYear ;
     schema:creator <https://orcid.org/0000-0002-8742-7730> ;
     schema:dateCreated "2022-07-18"^^xsd:date ;
     schema:dateIssued "2022-07-19"^^xsd:date ;
-    schema:dateModified "2026-04-08"^^xsd:date ;
+    schema:dateModified "2026-05-07"^^xsd:date ;
     schema:description "A SHACL validator IDN Catalogue Profile."@en ;
     schema:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
     schema:name "IDN CP Validator"@en ;
@@ -32,7 +33,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :agent
     a sh:NodeShape ;
-    rdfs:label "IDN shape for Agent" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "IDN shape for Agent" ;
+    schema:description "IDN shape for Agent" ;
     sh:property
         :agent-as-org-or-person ,
         :agent-description ,
@@ -45,7 +48,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :attribution
     a sh:NodeShape ;
-    rdfs:label "IDN shape for Attribution" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "IDN shape for Attribution" ;
+    schema:description "IDN shape for Attribution" ;
     sh:property
         :attribution-agent ,
         :attribution-roleCode ;
@@ -54,7 +59,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :catalog
     a sh:NodeShape ;
-    rdfs:label "IDN shape for Catalog" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "IDN shape for Catalog" ;
+    schema:description "IDN shape for Catalog" ;
     sh:property
         :catalog-hasPart ,
         :resource-created ,
@@ -68,21 +75,25 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :concept
     a sh:NodeShape ;
-    rdfs:label "IDN shape for Concept" ;
-    rdfs:comment "This profile implements no shapes for Concept but inherits those of the VocPub Profile of SKOS" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "IDN shape for Concept" ;
+    schema:description "This profile implements no shapes for Concept but inherits those of the VocPub Profile of SKOS" ;
     sh:targetClass skos:Concept ;
 .
 
 :conceptScheme
     a sh:NodeShape ;
-    rdfs:label "IDN shape for ConceptScheme" ;
-    rdfs:comment "This profile implements no shapes for ConceptScheme but inherits those of the VocPub Profile of SKOS" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "IDN shape for ConceptScheme" ;
+    schema:description "This profile implements no shapes for ConceptScheme but inherits those of the VocPub Profile of SKOS" ;
     sh:targetClass skos:ConceptScheme ;
 .
 
 :dataset
     a sh:NodeShape ;
-    rdfs:label "IDN shape for Dataset" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "IDN shape for Dataset" ;
+    schema:description "IDN shape for Dataset" ;
     sh:property
         :resource-additionalType ,
         :resource-created ,
@@ -92,12 +103,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         :resource-identifier ,
         :resource-modified ,
         :resource-name ;
-    sh:targetClass schema:CreativeWork ;
+    sh:targetClass schema:Dataset ;
 .
 
 :organization
     a sh:NodeShape ;
-    rdfs:label "IDN shape for Organization" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "IDN shape for Organization" ;
+    schema:description "IDN shape for Organization" ;
     sh:property
         :agent-description ,
         :agent-identifier ,
@@ -108,7 +121,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :person
     a sh:NodeShape ;
-    rdfs:label "IDN shape for Person" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "IDN shape for Person" ;
+    schema:description "IDN shape for Person" ;
     sh:property
         :agent-description ,
         :agent-identifier ,
@@ -119,9 +134,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :resource
     a sh:NodeShape ;
-    rdfs:label "IDN shape for catalogued resource" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "IDN shape for catalogued resource" ;
+    schema:description "IDN shape for catalogued resource" ;
     sh:or (
-        
+
         [
             sh:class schema:DataCatalog ;
             sh:maxCount 1 ;
@@ -130,7 +147,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
                     sh:inversePath schema:hasPart ;
                 ] ;
         ]
-        
+
         [
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -150,16 +167,17 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :agent-as-org-or-person
     a sh:PropertyShape ;
-    rdfs:label "Agent as Org or Person" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "Agent as Org or Person" ;
     sh:maxCount 1 ;
     sh:message "Req AG1: Each Agent instance MUST be either an schema:Organization or a schema:Person instance." ;
     sh:minCount 1 ;
     sh:or (
-        
+
         [
             sh:class schema:Organization ;
         ]
-        
+
         [
             sh:class schema:Person ;
         ]
@@ -169,7 +187,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :agent-email
     a sh:PropertyShape ;
-    rdfs:label "Person email" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "Person email" ;
     sh:datatype xsd:anyURI ;
     sh:message "Req AG2: Each Agent instance MUST be described with at least the schema:name property and, if an schema:Organization, also an schema:url property with a xsd:anyURI value or, if a schema:Person, an schema:email property with a xsd:anyURI value." ;
     sh:path schema:email ;
@@ -177,7 +196,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :agent-url
     a sh:PropertyShape ;
-    rdfs:label "Agent URL" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "Agent URL" ;
     sh:datatype xsd:anyURI ;
     sh:message "Req AG2: Each Agent instance MUST be described with at least the schema:name property and, if an schema:Organization, also an schema:url property with a xsd:anyURI value or, if a schema:Person, an schema:email property with a xsd:anyURI value." ;
     sh:path schema:url ;
@@ -185,16 +205,17 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :attribution-agent
     a sh:PropertyShape ;
-    rdfs:label "Attribution Agent" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "Attribution Agent" ;
     sh:maxCount 1 ;
     sh:message "Req A1: Each Attribution instance MUST indicate an Agent instance with the property prov:agent and a role for that Agent, as a skos:Concept, in relation to the attributing entity, with the roleCode property." ;
     sh:minCount 1 ;
     sh:or (
-        
+
         [
             sh:class schema:Organization ;
         ]
-        
+
         [
             sh:class schema:Person ;
         ]
@@ -204,7 +225,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :attribution-roleCode
     a sh:PropertyShape ;
-    rdfs:label "Attribution Role" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "Attribution Role" ;
     sh:class skos:Concept ;
     sh:message "Each Attribution instance MUST indicate an Agent instance with the property schema:agent and a role for that Agent, as a skos:Concept, in relation to the attributing entity, with the hadRole property." ;
     sh:minCount 1 ;
@@ -213,15 +235,16 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :catalog-hasPart
     a sh:PropertyShape ;
-    rdfs:label "Catalogue Parts" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "Catalogue Parts" ;
     sh:message "Req C2: Each Catalog instance MUST contain at least one Resource indicated by the hasPart property." ;
     sh:minCount 1 ;
     sh:or (
-        
+
         [
             sh:class schema:CreativeWork ;
         ]
-        
+
         [
             sh:class schema:Dataset ;
         ]
@@ -231,7 +254,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :organization-url
     a sh:PropertyShape ;
-    rdfs:label "Organization URL" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "Organization URL" ;
     sh:datatype xsd:anyURI ;
     sh:maxCount 1 ;
     sh:message "Req AG2: (organization-email) Each Agent instance MUST be described with at least the schema:name property and, if an schema:Organization, also an schema:url property with a xsd:anyURI value or, if a schema:Person, an schema:email property with a xsd:anyURI value." ;
@@ -241,7 +265,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :person-email
     a sh:PropertyShape ;
-    rdfs:label "Person email" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "Person email" ;
     sh:datatype xsd:anyURI ;
     sh:maxCount 1 ;
     sh:message "Req AG2: (person-email) Each Agent instance MUST be described with at least the schema:name property and, if an schema:Organization, also an schema:url property with a xsd:anyURI value or, if a schema:Person, an schema:email property with a xsd:anyURI value." ;
@@ -251,7 +276,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :resource-hasPart
     a sh:PropertyShape ;
-    rdfs:label "Resource hasPart" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "Resource hasPart" ;
     sh:class schema:DataCatalog ;
     sh:maxCount 1 ;
     sh:message "Req R5: Each Resource instance, if it is not a Catalog instance MUST, and if it is a Catalog instance MAY, indicate that it is within at least one Catalog instance with an in-bound hasPart property from a Catalog instance." ;
@@ -277,7 +303,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :resource-additionalType
     a sh:PropertyShape ;
-    rdfs:comment "Nothing to test" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "Nothing to test" ;
+    schema:description "Nothing to test" ;
     sh:path schema:additionalType ;
 .
 
@@ -290,15 +318,16 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :agent-description
     a sh:PropertyShape ;
-    rdfs:label "Agent description" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "Agent description" ;
     sh:maxCount 1 ;
     sh:message "Req AG3: Each Agent instance SHOULD be described with a schema:description property and, if the Agent has them, identifiers for it should be indicated with schema:identifier with xsd:anyURI or xsd:token values." ;
     sh:or (
-        
+
         [
             sh:datatype xsd:string ;
         ]
-        
+
         [
             sh:datatype rdf:langString ;
         ]
@@ -308,49 +337,50 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :agent-identifier
     a sh:PropertyShape ;
-    rdfs:label "Agent identifier" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "Agent identifier" ;
     sh:message
         "Req AG3: Each Agent instance SHOULD be described with a schema:description property and, if the Agent has them, identifiers for it should be indicated with schema:identifier with either xsd:anyURI, xsd:token or a datatype from the Library of Congress Standard Identifiers vocabulary." ,
         "Req R1: Each Resource instance SHOULD indicate a persistent identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the Dataset instance's IRI, if it is an HTTP/HTTPS IRI, or else it SHOULD be quoted as a literal value, indicated with the property schema:identifier of datatype xsd:token." ;
     sh:or  (
-        
+
         [
             sh:datatype xsd:token ;
         ]
-        
+
         [
             sh:datatype xsd:anyURI ;
         ]
     ) , (
-        
+
         [
             sh:datatype xsd:string ;
         ]
-        
+
         [
             sh:datatype rdf:langString ;
         ]
-        
+
         [
             sh:datatype id:orcid ;
         ]
-        
+
         [
             sh:datatype id:ror ;
         ]
-        
+
         [
             sh:datatype id:ausbn ;
         ]
-        
+
         [
             sh:datatype id:auscn ;
         ]
-        
+
         [
             sh:datatype id:ausrn ;
         ]
-        
+
         [
             sh:datatype id:viaf ;
         ]
@@ -360,16 +390,17 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :agent-name
     a sh:PropertyShape ;
-    rdfs:label "Agent name" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "Agent name" ;
     sh:maxCount 1 ;
     sh:message "Req AG2: Each Agent instance MUST be described with at least the schema:name property and, if an schema:Organization, also an schema:url property with a xsd:anyURI value or, if a schema:Person, an schema:email property with a xsd:anyURI value." ;
     sh:minCount 1 ;
     sh:or (
-        
+
         [
             sh:datatype xsd:string ;
         ]
-        
+
         [
             sh:datatype rdf:langString ;
         ]
@@ -379,20 +410,21 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :resource-created
     a sh:PropertyShape ;
-    rdfs:label "Catalog basic resource metadata" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "Catalog basic resource metadata" ;
     sh:maxCount 1 ;
     sh:message "Req R2: Each Resource instance MUST provide basic Resource metadata so that exactly one of each of the following properties is required with range value as per Resource requirements: name, description, created & modified. The particular validator violated here is for created. Req R3: Allowed Semantic Web date/time properties for created & modified properties are xsd:date, xsd:dateTime, xsd:dateTimeStamp, time:Interval" ;
     sh:minCount 1 ;
     sh:or (
-        
+
         [
             sh:datatype xsd:dateTime ;
         ]
-        
+
         [
             sh:datatype xsd:date ;
         ]
-        
+
         [
             sh:datatype xsd:dateTimeStamp ;
         ]
@@ -400,7 +432,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         [
             sh:datatype xsd:gYear ;
         ]
-        
+
         [
             sh:datatype time:Instant ;
         ]
@@ -410,16 +442,17 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :resource-description
     a sh:PropertyShape ;
-    rdfs:label "Catalog basic resource metadata" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "Catalog basic resource metadata" ;
     sh:maxCount 1 ;
     sh:message "Req R2: Each Resource instance MUST provide basic Resource metadata so that exactly one of each of the following properties is required with range value as per Resource requirements: name, description, created & modified. The particular validator violated here is for description." ;
     sh:minCount 1 ;
     sh:or (
-        
+
         [
             sh:datatype xsd:string ;
         ]
-        
+
         [
             sh:datatype rdf:langString ;
         ]
@@ -429,7 +462,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :resource-direct-roles
     a sh:PropertyShape ;
-    rdfs:label "Not direct Agent roles" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "Not direct Agent roles" ;
     sh:maxCount 0 ;
     sh:message "Req R4: Each Resource instance MUST NOT indicate Agent roles with direct properties other than publisher and creator and MUST instead indicate them with PROV qualified attribution pattern with each prov:Attribution indicated with the property prov:qualifiedAttribution." ;
     sh:path
@@ -445,27 +479,29 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :resource-identifier
     a sh:PropertyShape ;
-    rdfs:label "Resource persistent identifier" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "Resource persistent identifier" ;
     sh:message "Req R1: Each Resource instance SHOULD indicate a persistent identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the Dataset instance's IRI, if it is an HTTP/HTTPS IRI, or else it SHOULD be quoted as a literal value, indicated with the property schema:identifier of datatype xsd:token." ;
     sh:path schema:identifier ;
 .
 
 :resource-modified
     a sh:PropertyShape ;
-    rdfs:label "Catalog basic resource metadata" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "Catalog basic resource metadata" ;
     sh:maxCount 1 ;
     sh:message "Req R2: Each Resource instance MUST provide basic Resource metadata so that exactly one of each of the following properties is required with range value as per Resource requirements: name, description, created & modified. The particular validator violated here is for modified. Req R3: Allowed Semantic Web date/time properties for created & modified properties are xsd:date, xsd:dateTime, xsd:dateTimeStamp, time:Interval" ;
     sh:minCount 1 ;
     sh:or (
-        
+
         [
             sh:datatype xsd:dateTime ;
         ]
-        
+
         [
             sh:datatype xsd:date ;
         ]
-        
+
         [
             sh:datatype xsd:dateTimeStamp ;
         ]
@@ -483,7 +519,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :resource-name
     a sh:PropertyShape ;
-    rdfs:label "Catalog basic resource metadata" ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "Catalog basic resource metadata" ;
     sh:maxCount 1 ;
     sh:message "Req R2: Each Resource instance MUST provide basic Resource metadata so that exactly one of each of the following properties is required with range value as per Resource requirements: name, description, created & modified. The particular validator violated here is for name." ;
     sh:minCount 1 ;
