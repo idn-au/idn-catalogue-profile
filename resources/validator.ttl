@@ -339,9 +339,7 @@ ont:
     a sh:PropertyShape ;
     rdfs:isDefinedBy ont: ;
     schema:name "Agent identifier" ;
-    sh:message
-        "Req AG3: Each Agent instance SHOULD be described with a schema:description property and, if the Agent has them, identifiers for it should be indicated with schema:identifier with either xsd:anyURI, xsd:token or a datatype from the Library of Congress Standard Identifiers vocabulary." ,
-        "Req R1: Each Resource instance SHOULD indicate a persistent identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the Dataset instance's IRI, if it is an HTTP/HTTPS IRI, or else it SHOULD be quoted as a literal value, indicated with the property schema:identifier of datatype xsd:token." ;
+    sh:message "Req AG3: Each Agent instance SHOULD be described with a schema:description property and, if the Agent has them, identifiers for it should be indicated with schema:identifier with either xsd:anyURI, xsd:token or a datatype from the Library of Congress Standard Identifiers vocabulary." ;
     sh:or  (
 
         [
@@ -483,6 +481,15 @@ ont:
     schema:name "Resource persistent identifier" ;
     sh:message "Req R1: Each Resource instance SHOULD indicate a persistent identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the Dataset instance's IRI, if it is an HTTP/HTTPS IRI, or else it SHOULD be quoted as a literal value, indicated with the property schema:identifier of datatype xsd:token." ;
     sh:path schema:identifier ;
+    sh:or (
+
+        [
+            sh:nodeKind sh:IRI ;
+        ]
+        [
+            sh:datatype xsd:token ;
+        ]
+    )
 .
 
 :resource-modified
