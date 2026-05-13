@@ -350,3 +350,9 @@ table.properties tr:nth-child(even){
   pre {
     font-size: 1.2em ;
   }
+
+  .note {
+      background-color: honeydew;
+      padding: 20px;
+      border-left: solid 5px chartreuse;
+  }

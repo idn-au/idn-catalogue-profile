@@ -165,7 +165,7 @@
           </tr>
           <tr>
             <td><a class="proplink" title="schema:dateModified" href="https://schema.org/dateModified">Modified</a></td>
-            <td>2026-02-26</td>
+            <td>2026-05-14</td>
           </tr>
         </table>
       </dd>
@@ -2746,8 +2746,9 @@ WHERE {
 .
         </p>
       </section>
-      <section id="dataset">
-        <h4>2.1.3 <code>dataset</code></h4>
+      <section id="catalogued-resource">
+        <h4>2.1.3 <code>Catalogued Resource</code></h4>
+        <p class="note">The schema.org class <a href="https://schema.org/CreativeWork"><code>CreativeWork</code></a> is used to represent generic, catalogued resources.</p>
         <p class="req"><strong>Req R1:</strong> Each <code>Resource</code> instance SHOULD indicate a persistent
           identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the <code>Dataset</code>
           instance's IRI, if it is an HTTP/HTTPS IRI, or else it SHOULD be quoted as a literal value, indicated with the
@@ -2810,7 +2811,7 @@ WHERE {
       </section>
       <section id="dataset">
         <h4>2.1.3 <code>Dataset</code></h4>
-        <p>There are no structural requirements specifically for <code>Dataset</code> instances: the requirements for
+        <p>There are no structural requirements specifically for <code>CreativeWork</code> instances: the requirements for
           <code>Resource</code> also apply to <code>Dataset</code>.</p>
         <p>Note that there are <em>values</em> requirements for <code>Dataset</code> instnaces, as per the next section.
         </p>
@@ -3224,14 +3225,84 @@ WHERE {
       <h3>A.4. Records in Context Ontology<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span>
       </h3>
       <p><em>Mapping to <a href="https://ica-egad.github.io/RiC-O/about.html">RiC-O</a>.</em></p>
-      <p class="todo">TODO</p>
+
+      <div id="rico-class-mapping-figure" class="figure">
+        <a href="images/rico.svg"><img src="images/rico.svg" alt="IND CP -> RiCO simple mapping" style="width:40%;"/></a>
+        <p class="caption"><strong>Figure 5:</strong> Simple mapping of some of RiCO's classes to a central class in this profile</p>
+      </div>
       <p>
-        In addition to the conceptual mapping to RO-Crates above, a converter tool for creating RO Crates metadata from
-        IDN CP terms and vice versa is available at:
+        The Records in Context (RiC) Ontology is "an OWL ontology for describing archival record resources. As the third
+        part of Records in Contexts standard, it is a formal representation of Records in Contexts Conceptual Model
+        (RiC-CM)." <a href="#ref-rico">RICO</a>
       </p>
-      <ul>
-        <li><a href="https://github.com/idn-au/idncp-rocrate">https://github.com/idn-au/idncp-rocrate</a></li>
-      </ul>
+      <p>
+        RiCO is used by IDN partners and many other organisations to represent their archival material.
+      </p>
+      <p>
+        We provide two forms of mapping from/to RiCO and this profile:
+      </p>
+      <ol>
+        <li>Simple mapping</li>
+        <li>Sub-part mapping</li>
+      </ol>
+      <h4>Simple Mapping</h4>
+      <p>
+        The simple mapping is as per the <a href="#rico-class-mapping-figure">Figure 5</a> above where any one of three
+        RiCO classes used to represent archival records may be considered a specialised form of schema.org's
+        <code>CreativeWork</code> and thus this profile's recommended relationships can be applied to it, as per the
+        model in <a href="#structural-figure">Figure 3</a>.
+      </p>
+      <p>
+        Consider the following example of a RiCO-representation <code>RecordResource</code>:
+      </p>
+      <p class="eg">
+        <span>The Yirrkala LPC archive, described using RiCO as a RecordResource with many RecrodSet parts</span>
+&lt;https://data.idnau.org/pid/resource/yirrkala-lpc-archive>
+  a rico:RecordResource ;
+  rdfs:label "Yirrkala LPC Archive" ;
+  rico:creationDate "2022-01-01"^^xsd:date ;
+  rico:hasOrHadHolder &lt;https://linked.data.gov.au/org/uom> ;
+  # ... other RiCO metadata
+  rico:hasDirectPart
+    &lt;https://data.idnau.org/pid/resource/yirrkala-lpc-archive/compactor-1> ,
+    &lt;https://data.idnau.org/pid/resource/yirrkala-lpc-archive/compactor-2> ;
+    # ... other parts
+.
+      </p>
+      <p>
+        A simple IDN CP-aligned representation looks like this:
+      </p>
+      <p class="eg">
+        <span>The Yirrkala LPC archive, described as per this Profile with the RecordResource treated
+as the single catalogued resource</span>
+&lt;https://data.idnau.org/pid/resource/yirrkala-lpc-archive>
+  a schema:CreativeWork ;
+  schema:additionalType rico:RecordResource ;
+  schema:name "Yirrkala LPC Archive" ;
+  schema:dateCreated "2022-01-01"^^xsd:date ;
+  prov:qualifiedAttribution [
+    prov:hadRole &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
+    prov:agent &lt;https://linked.data.gov.au/org/uom>
+  ] ;
+  # ... other IDN CP metadata
+.
+      </p>
+      <p>
+        In the recharacterisation above, the <code>rico:RecordResource</code> instance has been re-cast as a
+        <code>sceham:CreativeWork</code> instance with the original's direct metadata predicates mapped to IDN CP
+        predicates, where possible, as per the mapping table below. The specailsied RiCO predicate of <code>rico:hasDirectPart</code>
+        not been show in the IDN CP representation as it should be preserved unchanged: there is likely no value for
+        Indigenous data governance assessment and scores calculations in mapping the specailsed concerns of RiCO's domain
+        model to generic catalogue models.
+      </p>
+      <p class="todo">TODO - add predicate mapping table</p>
+      <p>
+        The characterisation of a particular instance of <code>rico:RecordResource</code>, <code>rico:RecordSet</code>
+        or <code>rico:Record</code> as a <code>schema:CreativeWork</code> and thus as a catalogued objects described
+        according to this profile is a matter for catalogue granularity.
+      </p>
+      <h4>Sub-part Mapping</h4>
+      <p class="todo">TODO</p>
     </section>
   </section>
   <section id="scores">
@@ -3272,7 +3343,6 @@ WHERE {
     </ul>
     <section id="c.1">
       <h4>C.1 Introduction</h4>
-
       <div style="width:50%; text-align:center;">
         <p style="margin:0 auto; text-align:left; font-style:italic;">
           "The primary objectives of Local Contexts are to enhance and legitimize locally based decision-making and
@@ -3283,31 +3353,25 @@ WHERE {
           &ndash; <a href="https://localcontexts.org/about/about-local-contexts/">About Local Contexts web page</a>
         </p>
       </div>
-
       <p>
         This Local Context model is a small ontology providing just a few classes and properties to indicate how to
         attach Traditional Knowledge labels and Biocultural Labels to objects catalogued according to this profile.
       </p>
-
       <p>The machine-readable version of this model is available at:</p>
       <ul>
         <li><a href="https://data.idnau.org/pid/lc-ont#">https://data.idnau.org/pid/lc-ont#</a></li>
       </ul>
-
       <p>
         The prefix <code>lcont:</code> is used in this section for the namespace of this model:
         <code>https://data.idnau.org/pid/lc-ont#</code>.
       </p>
-
       <p>Figure C.1 overviews the model.</p>
-
       <div id="lc-model-figure" class="figure">
         <a href="images/lc-model.png">
           <img src="images/lc-model.png" style="width:700px;" alt="Overview of elements of the Local Context Model"/>
         </a> <!--source file images/lc-model.drawio-->
         <p class="caption"><strong>Figure C.1:</strong> Overview of elements of the Local Context Model.</p>
       </div>
-
       <p>This model requires that:</p>
       <ul>
         <li>
@@ -3325,7 +3389,6 @@ WHERE {
           <code>Local Context Notice</code>'s' may be applied to item-level or collection-level records, <strong>except</strong> the <a href="https://data.idnau.org/pid/vocab/lc-notices/cc-overall-notice">Overall Notice</a> and the <a href="https://data.idnau.org/pid/vocab/lc-notices/open-to-collaborate">Open to Collaborate</a> notice which SHOULD NOT be applied to item-level records.
         </li>
       </ul>
-
       <p>
         This use of the <a href="https://patterns.dataincubator.org/book/qualified-relation.html">Qualified Relation</a>
         graph modelling pattern allows for the nature of the Resource/Label relationship to be defined.
@@ -3683,7 +3746,7 @@ WHERE {
 		      <span>Example of a lcont:TKlabel from the TK Label Concept Scheme, including customised lcont:templateText, applied to a schema:CreativeWork</span>
 PREFIX lcont: &lt;https://data.idnau.org/pid/lc-ont#&gt;
 PREFIX odrl: &lt;http://www.w3.org/ns/odrl/2/&gt;
-PREFIX schema: &lt;https://schema.org/&gt;   
+PREFIX schema: &lt;https://schema.org/&gt;
 PREFIX tk: &lt;https://data.idnau.org/pid/vocab/tk-labels/&gt;
 
 &lt;https://youtu.be/qOG4NAql5Ys?si=z9qePX7wSVGcm1Vi&gt;
@@ -3707,15 +3770,15 @@ PREFIX tk: &lt;https://data.idnau.org/pid/vocab/tk-labels/&gt;
 PREFIX bc: &lt;https://data.idnau.org/pid/vocab/bc-labels/&gt;
 PREFIX lcont: &lt;https://data.idnau.org/pid/lc-ont#&gt;
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#&gt;
-PREFIX odrl: &lt;http://www.w3.org/ns/odrl/2/&gt;   
-PREFIX schema: &lt;https://schema.org/&gt;   
-        
+PREFIX odrl: &lt;http://www.w3.org/ns/odrl/2/&gt;
+PREFIX schema: &lt;https://schema.org/&gt;
+
 &lt;https://localcontextshub.org/projects/c57b53f1-2089-42ff-93aa-9a179636e4d0&gt;
 a schema:CreativeWork ;
 schema:name "Habitat use and spawning behaviour of Galaxis postvectis, short-jaw kōkōpū, in the Waipoua River catchment" ;
 schema:description "Shortjaw kōkopu (Galaxis postvectis) are a threatened freshwater fish species endemic to New Zealand. This species is one of five native species which are collectively referred to as 'whitebait' during the juvenile migratory period of their lifecycle as they move from saltwater to freshwater. Galaxais species are a taonga of Te Roroa and have been used as an occasional food source, as well as indicators of healthy waterways and ecosystems. However, large scale declining populations primarily driven by habitat modification, deforestation, and alien invasive species has impacted traditional harvest practices of kōkopu. The presence and success of adult populations of G. postvectis do remain as strong indicators of stream and ecosystem health in the Waipoua Forest." ;
 schema:id "c57b53f1-2089-42ff-93aa-9a179636e4d0" ;
-schema:contributor 
+schema:contributor
   &lt;https://orcid.org/0009-0003-9587-0163&gt; , &lt;https://orcid.org/0000-0003-3876-720X&gt; ;
 odrl:hasPolicy [
     a lcont:QualifiedLocalContext ;
@@ -3731,7 +3794,7 @@ odrl:hasPolicy [
 PREFIX lcont: &lt;https://data.idnau.org/pid/lc-ont#&gt;
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#&gt;
 PREFIX lcn: &lt;https://data.idnau.org/pid/vocab/lc-notices/&gt;
-PREFIX schema: &lt;https://schema.org/&gt;  
+PREFIX schema: &lt;https://schema.org/&gt;
 
 &lt;https://hub.catalogit.app/archive-of-cuban-socialism&gt;
   a dcat:Dataset ;
@@ -3751,6 +3814,7 @@ PREFIX schema: &lt;https://schema.org/&gt;
 .
 	</p>
 	</section>
+  </section>
 	<section id="ai">
 	  <h2>Annex D. Use with AI</h2>
 	  <p class="todo">TODO</p>
@@ -3787,6 +3851,10 @@ PREFIX schema: &lt;https://schema.org/&gt;
 	      Recommendation. URL: <a href="https://www.w3.org/TR/prov-o/">https://www.w3.org/TR/prov-o/</a>, accessed
 	      2025-08-20
 	    </dd>
+      <dt id="ref-rico">RICO</dt>
+      <dd>
+        International Council on Archives. <em>International Council on Archives Records in Contexts Ontology (ICA RiC-O) version 1.1</em>. 22nd May 2025. Web Page. URL: <a href="https://www.ica.org/standards/RiC/RiC-O_1-1.html">https://www.ica.org/standards/RiC/RiC-O_1-1.html</a>
+      </dd>
 	    <dt id="ref-schema.org">schema.org</dt>
 	    <dd>schema.org consortium. <em>schema.org</em>. 15th May 2025. OWL Ontology. URL: <a href="https://schema.org/">https://schema.org/</a>,
 	      accessed 2025-08-20
@@ -3805,7 +3873,6 @@ PREFIX schema: &lt;https://schema.org/&gt;
 	<section class="todo">
 	  <h2>TODO items</h2>
 	  <ul>
-	    <li>Convert all examples to schema.org</li>
 	    <li>Create a mapping to DCAT in Annex A</li>
 	    <li>List all Requirements in own section</li>
 	    <li>Add special handling of Place to themes pattern</li>
