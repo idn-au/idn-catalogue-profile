@@ -3225,7 +3225,6 @@ WHERE {
       <h3>A.4. Records in Context Ontology<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span>
       </h3>
       <p><em>Mapping to <a href="https://ica-egad.github.io/RiC-O/about.html">RiC-O</a>.</em></p>
-
       <div id="rico-class-mapping-figure" class="figure">
         <a href="images/rico.svg"><img src="images/rico.svg" alt="IND CP -> RiCO simple mapping" style="width:40%;"/></a>
         <p class="caption"><strong>Figure 5:</strong> Simple mapping of some of RiCO's classes to a central class in this profile</p>
@@ -3239,70 +3238,175 @@ WHERE {
         RiCO is used by IDN partners and many other organisations to represent their archival material.
       </p>
       <p>
-        We provide two forms of mapping from/to RiCO and this profile:
+        This mapping of RiCO to this profile is achieved by stating 3 mapping principles:
       </p>
       <ol>
-        <li>Simple mapping</li>
-        <li>Sub-part mapping</li>
+        <li><a href="#rico-treat">Treat some RiCO classes as IDN CP catalogues resources</a></li>
+        <li><a href="#">Relate RiCO elements to IDN CP elements</a></li>
+        <li><a href="#">'Bubble up' Indigenous indicators to the catalogued resource</a></li>
       </ol>
-      <h4>Simple Mapping</h4>
-      <p>
-        The simple mapping is as per the <a href="#rico-class-mapping-figure">Figure 5</a> above where any one of three
-        RiCO classes used to represent archival records may be considered a specialised form of schema.org's
-        <code>CreativeWork</code> and thus this profile's recommended relationships can be applied to it, as per the
-        model in <a href="#structural-figure">Figure 3</a>.
-      </p>
-      <p>
-        Consider the following example of a RiCO-representation <code>RecordResource</code>:
-      </p>
-      <p class="eg">
-        <span>The Yirrkala LPC archive, described using RiCO as a RecordResource with many RecrodSet parts</span>
-&lt;https://data.idnau.org/pid/resource/yirrkala-lpc-archive>
-  a rico:RecordResource ;
-  rdfs:label "Yirrkala LPC Archive" ;
-  rico:creationDate "2022-01-01"^^xsd:date ;
-  rico:hasOrHadHolder &lt;https://linked.data.gov.au/org/uom> ;
-  # ... other RiCO metadata
-  rico:hasDirectPart
-    &lt;https://data.idnau.org/pid/resource/yirrkala-lpc-archive/compactor-1> ,
-    &lt;https://data.idnau.org/pid/resource/yirrkala-lpc-archive/compactor-2> ;
-    # ... other parts
-.
-      </p>
-      <p>
-        A simple IDN CP-aligned representation looks like this:
-      </p>
-      <p class="eg">
-        <span>The Yirrkala LPC archive, described as per this Profile with the RecordResource treated
-as the single catalogued resource</span>
-&lt;https://data.idnau.org/pid/resource/yirrkala-lpc-archive>
-  a schema:CreativeWork ;
-  schema:additionalType rico:RecordResource ;
-  schema:name "Yirrkala LPC Archive" ;
-  schema:dateCreated "2022-01-01"^^xsd:date ;
-  prov:qualifiedAttribution [
-    prov:hadRole &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
-    prov:agent &lt;https://linked.data.gov.au/org/uom>
-  ] ;
-  # ... other IDN CP metadata
-.
-      </p>
-      <p>
-        In the recharacterisation above, the <code>rico:RecordResource</code> instance has been re-cast as a
-        <code>sceham:CreativeWork</code> instance with the original's direct metadata predicates mapped to IDN CP
-        predicates, where possible, as per the mapping table below. The specailsied RiCO predicate of <code>rico:hasDirectPart</code>
-        not been show in the IDN CP representation as it should be preserved unchanged: there is likely no value for
-        Indigenous data governance assessment and scores calculations in mapping the specailsed concerns of RiCO's domain
-        model to generic catalogue models.
-      </p>
-      <p class="todo">TODO - add predicate mapping table</p>
-      <p>
-        The characterisation of a particular instance of <code>rico:RecordResource</code>, <code>rico:RecordSet</code>
-        or <code>rico:Record</code> as a <code>schema:CreativeWork</code> and thus as a catalogued objects described
-        according to this profile is a matter for catalogue granularity.
-      </p>
-      <h4>Sub-part Mapping</h4>
-      <p class="todo">TODO</p>
+      <section id="rico-treat">
+        <h4>Treat some RiCO classes as IDN CP catalogues resources</h4>
+        <p>
+          As per <a href="#rico-class-mapping-figure">Figure 5</a> above, by treating some RiCO classes as specialised
+          forms of this profile's catalogued resource class - <code>schema:CreativeWork</code> - we can just attach
+          any information about the object to it with IDN CP relations.
+        </p>
+        <p>
+          <a href="#rico-treat-fig.svg">Figure 6</a> below shows a <code>rico:RecordSet</code> treated as a
+          <code>schema:CreativeWork</code>. Some RiCO relations are shown - <code>rico:hasOrHadPart</code>, indicating
+          constituent <code>rico:Record</code> instances - and many IDN CP relations, as per <a href="#structural-figure">Figure 3</a>
+        </p>
+        <div id="rico-treat-fig" class="figure">
+          <a href="images/rico-treat.svg"><img src="images/rico-treat.svg" alt="IND CP -> RiCO simple mapping" style="width:60%;"/></a>
+          <p class="caption"><strong>Figure 6:</strong> Treating an instance of <code>rico:Record</code> as a
+            <code>schema:CreativeWork</code> and attaching some ICN CP relations to it, as per <a href="#structural-figure">Figure 3</a>.
+          </p>
+        </div>
+        <p>
+          The decision as to which particular instances of RiCO classes to consider as IDN CP catalogued resources depends
+          on the resolution of the catalogue: if individual <code>rico:Record</code> instances are catalogued, each
+          <code>rico:Record</code> is a <code>schema:CreativeWork</code> and should have IDN CP metadata. If only whole
+          bundles of RiCO archives as <code>rico:RecordResource</code> instances are catalogued, then they are <code>schema:CreativeWork</code>
+          instances with metadata and the children <code>rico:RecordSet</code> and <code>rico:Record</code> instances
+          have no IDN CP metadata of their own.
+        </p>
+      </section>
+      <section id="rico-sub-parts">
+        <h4>Relate RiCO elements to IDN CP elements</h4>
+        <p>
+          Some RiCO classes are easily mapped to IDN CP classes, as per <a href="#rico-class-mapping-figure">Figure 5</a>
+          and the section above. Some classes have less obvious mappings and many have none as due to RiCO being an
+          extensive domain model and the IDN CP being a simple metadata model. Similarly, RiCO predicates
+          can be mapped to IDN CP predicates easily, indirectly or not at all.
+        </p>
+        <p>
+          The table gives RiCO/IDN CP mapping and its content is also available <a href="https://github.com/idn-au/idn-catalogue-profile/blob/main/resources/mappings/rico.ttl">as an RDF file</a>.
+        </p>
+        <table class="properties">
+          <tr>
+            <th>From</th>
+            <th>Mapping</th>
+            <th>To</th>
+            <th>Notes</th>
+          </tr>
+          <tr><th colspan="4">Classes</th></tr>
+          <tr>
+            <td><code>rico:RecordResource</code></td>
+            <td><code>rdfs:subClassOf</code></td>
+            <td><code>schema:CreativeWork</code></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><code>rico:RecordSet</code></td>
+            <td><code>rdfs:subClassOf</code></td>
+            <td><code>schema:CreativeWork</code></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><code>rico:Record</code></td>
+            <td><code>rdfs:subClassOf</code></td>
+            <td><code>schema:CreativeWork</code></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><code>schema:Organization</code></td>
+            <td><code>rdfs:subClassOf</code></td>
+            <td><code>rico:Agent</code></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><code>rico:Person</code></td>
+            <td><code>rdfs:equivalentClass</code></td>
+            <td><code>schema:Person</code></td>
+            <td></td>
+          </tr>
+          <tr><th colspan="4">Predicates</th></tr>
+          <tr>
+            <td><code></code></td>
+            <td><code></code></td>
+            <td><code></code></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><code>rico:name</code></td>
+            <td><code>owl:equivalentProperty</code></td>
+            <td><code>schema:name</code></td>
+            <td></td>
+          </tr>
+        </table>
+        <!--
+        <p>
+          Some indirect mappings between RiCO elements and IDN CP elements can be made too, where the mapping is
+          expressed as a <a href="https://www.w3.org/TR/sparql12-query/">SPARQL query</a>:
+        </p>
+        <table class="properties">
+          <tr>
+            <th>From</th>
+            <th>Mapping</th>
+            <th>To</th>
+            <th>Notes</th>
+          </tr>
+          <tr>
+            <td><code></code></td>
+            <td><code></code></td>
+            <td><code></code></td>
+            <td></td>
+          </tr>
+        </table>
+        -->
+        <p>
+          Consider the following example of a RiCO-representation <code>RecordResource</code>:
+        </p>
+        <p class="eg">
+          <span>The Yirrkala LPC archive, described using RiCO as a RecordResource with many RecrodSet parts</span>
+  &lt;https://data.idnau.org/pid/resource/yirrkala-lpc-archive>
+    a rico:RecordResource ;
+    rdfs:label "Yirrkala LPC Archive" ;
+    rico:creationDate "2022-01-01"^^xsd:date ;
+    rico:hasOrHadHolder &lt;https://linked.data.gov.au/org/uom> ;
+    # ... other RiCO metadata
+    rico:hasDirectPart
+      &lt;https://data.idnau.org/pid/resource/yirrkala-lpc-archive/compactor-1> ,
+      &lt;https://data.idnau.org/pid/resource/yirrkala-lpc-archive/compactor-2> ;
+      # ... other parts
+  .
+        </p>
+        <p>
+          A simple IDN CP-aligned representation looks like this:
+        </p>
+        <p class="eg">
+          <span>The Yirrkala LPC archive, described as per this Profile with the RecordResource treated
+  as the single catalogued resource</span>
+  &lt;https://data.idnau.org/pid/resource/yirrkala-lpc-archive>
+    a schema:CreativeWork ;
+    schema:additionalType rico:RecordResource ;
+    schema:name "Yirrkala LPC Archive" ;
+    schema:dateCreated "2022-01-01"^^xsd:date ;
+    prov:qualifiedAttribution [
+      prov:hadRole &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
+      prov:agent &lt;https://linked.data.gov.au/org/uom>
+    ] ;
+    # ... other IDN CP metadata
+  .
+        </p>
+        <p>
+          In the recharacterisation above, the <code>rico:RecordResource</code> instance has been re-cast as a
+          <code>sceham:CreativeWork</code> instance with the original's direct metadata predicates mapped to IDN CP
+          predicates, where possible, as per the mapping table below. The specailsied RiCO predicate of <code>rico:hasDirectPart</code>
+          not been show in the IDN CP representation as it should be preserved unchanged: there is likely no value for
+          Indigenous data governance assessment and scores calculations in mapping the specailsed concerns of RiCO's domain
+          model to generic catalogue models.
+        </p>
+        <p class="todo">TODO - add predicate mapping table</p>
+        <p>
+          The characterisation of a particular instance of <code>rico:RecordResource</code>, <code>rico:RecordSet</code>
+          or <code>rico:Record</code> as a <code>schema:CreativeWork</code> and thus as a catalogued objects described
+          according to this profile is a matter for catalogue granularity.
+        </p>
+
+
+      </section>
     </section>
   </section>
   <section id="scores">
