@@ -165,7 +165,7 @@
           </tr>
           <tr>
             <td><a class="proplink" title="schema:dateModified" href="https://schema.org/dateModified">Modified</a></td>
-            <td>2026-05-14</td>
+            <td>2026-05-26</td>
           </tr>
         </table>
       </dd>
@@ -844,9 +844,8 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
   schema:publisher &lt;https://example.com/agent/123456> ;
   schema:keywords &lt;https://data.idnau.org/pid/austlang/C6> ;
   prov:qualifiedAttribution [
-    a prov:Attribution;
     schema:roleCode &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
-    prov:agent &lt;https://linked.data.gov.au/org/nla>
+    schema:agent &lt;https://linked.data.gov.au/org/nla>
   ] ;
   schema:dateIssued "1980"^^xsd:gYear ;
   schema:keywords &lt;https://data.idnau.org/pid/austlang/C6> ;
@@ -965,7 +964,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
   &lt;rdf:Description rdf:nodeID="n09d0151a1e6140cfb188576200eb9d69b1">
     &lt;rdf:type rdf:resource="http://www.w3.org/ns/prov#Attribution"/>
     &lt;schema:roleCode rdf:resource="https://linked.data.gov.au/def/data-roles/custodian"/>
-    &lt;prov:agent rdf:resource="https://linked.data.gov.au/org/nla"/>
+    &lt;schema:agent rdf:resource="https://linked.data.gov.au/org/nla"/>
   &lt;/rdf:Description>
 &lt;/rdf:RDF>
             </p>
@@ -1297,11 +1296,11 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
   schema:name "Yirrkala LPC Dataset" ;
   # ...
   prov:qualifiedAttribution [
-    prov:agent &lt;https://linked.data.gov.au/org/uom> ; # University of Melbourne
+    schema:agent &lt;https://linked.data.gov.au/org/uom> ; # University of Melbourne
     schema:roleCode &lt;https://def.isotc211.org/common/RoleCode/custodian> ; # Custodian
   ] ,
   [
-    prov:agent &lt;https://orcid.org/0000-0002-1398-7524> ; # Kristen Smith
+    schema:agent &lt;https://orcid.org/0000-0002-1398-7524> ; # Kristen Smith
     schema:roleCode
       &lt;https://def.isotc211.org/common/RoleCode/pointOfContact> , # Point of Contact
       &lt;https://def.isotc211.org/common/RoleCode/principalInvestigator> ; # Principle Investigator
@@ -2412,7 +2411,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         <p>
         <pre>
 &lt;X> prov:qualifiedAttribution [
-  prov:agent &lt;Y> ;
+  schema:agent &lt;Y> ;
   schema:roleCode &lt;https://linked.data.gov.au/def/data-roles/publisher>
 ] .</pre>
         </p>
@@ -2470,7 +2469,7 @@ PREFIX rc: &lt;https://linked.data.gov.au/def/data-roles/>
 
 CONSTRUCT {
   &lt;X> prov:qualifiedAttribution [
-    prov:agent &lt;Y> ;
+    schema:agent &lt;Y> ;
     schema:roleCode rc:author ;
   ] .
 }
@@ -2546,13 +2545,13 @@ DIRECT_ATTRIBUTION owl:propertyChainAxiom (
 							<pre>
 CONSTRUCT {
     ?r prov:qualifiedAttribution [
-        prov:agent ?a2 ;
+        schema:agent ?a2 ;
         schema:roleCode ?r ;
     .
 }
 WHERE {
     ?r prov:qualifiedAttribution [
-        prov:agent ?a ;
+        schema:agent ?a ;
         schema:roleCode ?r ;
     .
 
@@ -2589,7 +2588,7 @@ WHERE {
         <pre>
 &lt;ResourceX>
     prov:wasAttributedTo [
-        prov:agent &lt;UnitH> ;
+        schema:agent &lt;UnitH> ;
         schema:roleCode rolecode:custodian ;
     ] ;
 .
@@ -2784,12 +2783,12 @@ WHERE {
 
   prov:qualifiedAttribution [
     a prov:Attribution;
-    prov:agent &lt;http://example.com/org/clc&gt; ; # Example Indigenous org PID
+    schema:agent &lt;http://example.com/org/clc&gt; ; # Example Indigenous org PID
     schema:roleCode :custodian ;
   ] ,
   [
     a prov:Attribution;
-    prov:agent &lt;http://example.com/academic/person-x&gt; ; # An academic
+    schema:agent &lt;http://example.com/academic/person-x&gt; ; # An academic
     schema:roleCode :author ;
   ] ,
   [
@@ -2885,7 +2884,6 @@ WHERE {
   schema:affiliation &lt;https://kurrawong.ai&gt; ;
   schema:alumniOf &lt;https://linked.data.gov.au/org/uom&gt; ;
   dcat:qualifiedRelation [
-  a dcat:Relationship ;
     schema:roleCode aarr:affiliateOf ;
     schema:agent &lt;https://kurrawong.ai&gt;
   ] ;
@@ -2973,59 +2971,59 @@ WHERE {
     </ul>
     <p class="eg">
       <span>Example: Turtle formatted RDF metadata for the <em>Yirrkala LPC Dataset</em></span>
-      PREFIX dataaccessrights: &lt;https://linked.data.gov.au/def/data-access-rights/>
-      PREFIX dataroles: &lt;https://linked.data.gov.au/def/data-roles/>
-      PREFIX indigeneity: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
-      PREFIX orcidorg: &lt;https://orcid.org/>
-      PREFIX prov: &lt;http://www.w3.org/ns/prov#>
-      PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
+PREFIX dataaccessrights: &lt;https://linked.data.gov.au/def/data-access-rights/>
+PREFIX dataroles: &lt;https://linked.data.gov.au/def/data-roles/>
+PREFIX indigeneity: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
+PREFIX orcidorg: &lt;https://orcid.org/>
+PREFIX prov: &lt;http://www.w3.org/ns/prov#>
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 
-      &lt;https://data.idnau.org/pid/resource/debd1b90-aeb4-403e-82fc-7db7c474b2fd>
-      a schema:CreativeWork ;
-      schema:usageInfo dataaccessrights:restricted ;
-      schema:dateCreated "2022-01-01"^^xsd:date ;
-      schema:description """The Literature Production Centre (LPC) has been part of the Yirrkala school since the 70's,
-      and supports the YolÅ‹u Indigenous Languages and Culture program including, YolÅ‹u Matha, Galtha Rom and Garma
-      Maths, as well as supporting YolÅ‹u teachers to deliver the schoolâ€™s bilingual program.
+&lt;https://data.idnau.org/pid/resource/debd1b90-aeb4-403e-82fc-7db7c474b2fd>
+  a schema:CreativeWork ;
+  schema:usageInfo dataaccessrights:restricted ;
+  schema:dateCreated "2022-01-01"^^xsd:date ;
+  schema:description """The Literature Production Centre (LPC) has been part of the Yirrkala school since the 70's,
+    and supports the YolÅ‹u Indigenous Languages and Culture program including, YolÅ‹u Matha, Galtha Rom and Garma
+    Maths, as well as supporting YolÅ‹u teachers to deliver the schoolâ€™s bilingual program.
 
-      This archival dataset is stored on hard disk drives collected by University of Melbourne and includes digitisation
-      of all non-standard documents, objects, materials in Archive.""" ;
-      schema:dateModified "2025-01-01"^^xsd:date ;
-      schema:temporalCoverage
-      [
-      prov:startedAtTime "1968"^^xsd:gYear ;
-      ] ;
-      schema:name "Yirrkala LPC Dataset" ;
-      schema:additionalType
-      indigeneity:about-indigenous-people ,
-      indigeneity:about-indigenous-things ,
-      indigeneity:by-indigenous-people ;
-      schema:keywords
-      &lt;https://vocabularyserver.com/apais/xml.php?skosTema=10> , # Aboriginal education
-      &lt;https://vocabularyserver.com/apais/xml.php?skosTema=13> , # Aboriginal history
-      &lt;https://vocabularyserver.com/apais/xml.php?skosTema=15> , # Aboriginal languages
-      &lt;https://vocabularyserver.com/apais/xml.php?skosTema=16> , # Aboriginal literature
-      &lt;https://vocabularyserver.com/apais/xml.php?skosTema=17> , # Aboriginal men
-      &lt;https://vocabularyserver.com/apais/xml.php?skosTema=18> , # Aboriginal music
-      &lt;https://vocabularyserver.com/apais/xml.php?skosTema=25> , # Aboriginal women
-      &lt;https://vocabularyserver.com/apais/xml.php?skosTema=26> , # Aboriginal youth
-      &lt;https://vocabularyserver.com/apais/xml.php?skosTema=3> , # Aboriginal art
-      &lt;https://vocabularyserver.com/apais/xml.php?skosTema=4> , # Aboriginal artists
-      &lt;https://vocabularyserver.com/apais/xml.php?skosTema=6> , # Aboriginal children
-      &lt;https://vocabularyserver.com/apais/xml.php?skosTema=7> , # Aboriginal communities
-      &lt;https://vocabularyserver.com/apais/xml.php?skosTema=8> ; # Aboriginal culture
-      prov:qualifiedAttribution
-      [
+    This archival dataset is stored on hard disk drives collected by University of Melbourne and includes digitisation
+    of all non-standard documents, objects, materials in Archive.""" ;
+  schema:dateModified "2025-01-01"^^xsd:date ;
+  schema:temporalCoverage
+    [
+      schema:startTime "1968"^^xsd:gYear ;
+    ] ;
+  schema:name "Yirrkala LPC Dataset" ;
+  schema:additionalType
+  ind:about-indigenous-people ,
+  ind:about-indigenous-things ,
+  ind:by-indigenous-people ;
+  schema:keywords
+    &lt;https://vocabularyserver.com/apais/xml.php?skosTema=10> , # Aboriginal education
+    &lt;https://vocabularyserver.com/apais/xml.php?skosTema=13> , # Aboriginal history
+    &lt;https://vocabularyserver.com/apais/xml.php?skosTema=15> , # Aboriginal languages
+    &lt;https://vocabularyserver.com/apais/xml.php?skosTema=16> , # Aboriginal literature
+    &lt;https://vocabularyserver.com/apais/xml.php?skosTema=17> , # Aboriginal men
+    &lt;https://vocabularyserver.com/apais/xml.php?skosTema=18> , # Aboriginal music
+    &lt;https://vocabularyserver.com/apais/xml.php?skosTema=25> , # Aboriginal women
+    &lt;https://vocabularyserver.com/apais/xml.php?skosTema=26> , # Aboriginal youth
+    &lt;https://vocabularyserver.com/apais/xml.php?skosTema=3> , # Aboriginal art
+    &lt;https://vocabularyserver.com/apais/xml.php?skosTema=4> , # Aboriginal artists
+    &lt;https://vocabularyserver.com/apais/xml.php?skosTema=6> , # Aboriginal children
+    &lt;https://vocabularyserver.com/apais/xml.php?skosTema=7> , # Aboriginal communities
+    &lt;https://vocabularyserver.com/apais/xml.php?skosTema=8> ; # Aboriginal culture
+  prov:qualifiedAttribution
+    [
       schema:roleCode dataroles:custodian ;
       schema:agent &lt;https://linked.data.gov.au/org/uom> ; # University of Melbourne
-      ] ,
-      [
+    ] ,
+    [
       schema:roleCode
-      dataroles:pointOfContact ,
-      dataroles:principalInvestigator ;
+        dataroles:pointOfContact ,
+        dataroles:principalInvestigator ;
       schema:agent orcidorg:0000-0002-1398-7524 ; # Kristen Smith
-      ] ;
-      .
+    ] ;
+.
     </p>
 
   </section>
@@ -3360,17 +3358,17 @@ WHERE {
         </p>
         <p class="eg">
           <span>The Yirrkala LPC archive, described using RiCO as a RecordResource with many RecrodSet parts</span>
-  &lt;https://data.idnau.org/pid/resource/yirrkala-lpc-archive>
-    a rico:RecordResource ;
-    rdfs:label "Yirrkala LPC Archive" ;
-    rico:creationDate "2022-01-01"^^xsd:date ;
-    rico:hasOrHadHolder &lt;https://linked.data.gov.au/org/uom> ;
-    # ... other RiCO metadata
-    rico:hasDirectPart
-      &lt;https://data.idnau.org/pid/resource/yirrkala-lpc-archive/compactor-1> ,
-      &lt;https://data.idnau.org/pid/resource/yirrkala-lpc-archive/compactor-2> ;
-      # ... other parts
-  .
+&lt;https://data.idnau.org/pid/resource/yirrkala-lpc-archive>
+  a rico:RecordResource ;
+  rdfs:label "Yirrkala LPC Archive" ;
+  rico:creationDate "2022-01-01"^^xsd:date ;
+  rico:hasOrHadHolder &lt;https://linked.data.gov.au/org/uom> ;
+  # ... other RiCO metadata
+  rico:hasDirectPart
+    &lt;https://data.idnau.org/pid/resource/yirrkala-lpc-archive/compactor-1> ,
+    &lt;https://data.idnau.org/pid/resource/yirrkala-lpc-archive/compactor-2> ;
+    # ... other parts
+.
         </p>
         <p>
           A simple IDN CP-aligned representation looks like this:
@@ -3378,17 +3376,17 @@ WHERE {
         <p class="eg">
           <span>The Yirrkala LPC archive, described as per this Profile with the RecordResource treated
   as the single catalogued resource</span>
-  &lt;https://data.idnau.org/pid/resource/yirrkala-lpc-archive>
-    a schema:CreativeWork ;
-    schema:additionalType rico:RecordResource ;
-    schema:name "Yirrkala LPC Archive" ;
-    schema:dateCreated "2022-01-01"^^xsd:date ;
-    prov:qualifiedAttribution [
-      prov:hadRole &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
-      prov:agent &lt;https://linked.data.gov.au/org/uom>
-    ] ;
-    # ... other IDN CP metadata
-  .
+&lt;https://data.idnau.org/pid/resource/yirrkala-lpc-archive>
+  a schema:CreativeWork ;
+  schema:additionalType rico:RecordResource ;
+  schema:name "Yirrkala LPC Archive" ;
+  schema:dateCreated "2022-01-01"^^xsd:date ;
+  prov:qualifiedAttribution [
+    prov:hadRole &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
+    schema:agent &lt;https://linked.data.gov.au/org/uom>
+  ] ;
+  # ... other IDN CP metadata
+.
         </p>
         <p>
           In the recharacterisation above, the <code>rico:RecordResource</code> instance has been re-cast as a
@@ -3404,8 +3402,6 @@ WHERE {
           or <code>rico:Record</code> as a <code>schema:CreativeWork</code> and thus as a catalogued objects described
           according to this profile is a matter for catalogue granularity.
         </p>
-
-
       </section>
     </section>
   </section>
@@ -3873,7 +3869,6 @@ PREFIX tk: &lt;https://data.idnau.org/pid/vocab/tk-labels/&gt;
 		      <span>Example: A Creative Work with a lcont:BCLabel applied from the BC Label Concept Scheme, including customised lcont:templateText.</span>
 PREFIX bc: &lt;https://data.idnau.org/pid/vocab/bc-labels/&gt;
 PREFIX lcont: &lt;https://data.idnau.org/pid/lc-ont#&gt;
-PREFIX dcat: &lt;http://www.w3.org/ns/dcat#&gt;
 PREFIX odrl: &lt;http://www.w3.org/ns/odrl/2/&gt;
 PREFIX schema: &lt;https://schema.org/&gt;
 
@@ -3896,12 +3891,11 @@ odrl:hasPolicy [
 		    <p class="eg">
 		      <span>Example: A collection level record, typed as a Dataset, with a <code>lcont:LCNotice</code> applied from the LC Notice Concept Scheme, including customised lcont:templateText.</span>
 PREFIX lcont: &lt;https://data.idnau.org/pid/lc-ont#&gt;
-PREFIX dcat: &lt;http://www.w3.org/ns/dcat#&gt;
 PREFIX lcn: &lt;https://data.idnau.org/pid/vocab/lc-notices/&gt;
 PREFIX schema: &lt;https://schema.org/&gt;
 
 &lt;https://hub.catalogit.app/archive-of-cuban-socialism&gt;
-  a dcat:Dataset ;
+  a schema:Dataset ;
   schema:name "Archive of Cuban Socialism" ;
   schema:creator &lt;https://orcid.org/0000-0002-1945-7057&gt; ;
   schema:description "A repository of Cuban material culture, from the revolutionary triumph of 1959 until the

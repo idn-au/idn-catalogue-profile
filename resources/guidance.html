@@ -139,16 +139,16 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         &lt;https://vocabularyserver.com/apais/xml.php?skosTema=8> ;
     prov:qualifiedAttribution
         [a prov:Attribution ; 
-            prov:hadRole
+            schema:roleCode
                 &lt;https://linked.data.gov.au/def/data-roles/author> ,
                 &lt;https://linked.data.gov.au/def/data-roles/author> ;
-            prov:agent &lt;https://data.idnau.org/pid/person/8cfcfc08-3cec-40e1-a772-a8860c118c9d> ;
+            schema:agent &lt;https://data.idnau.org/pid/person/8cfcfc08-3cec-40e1-a772-a8860c118c9d> ;
         ] ,
         [a prov:Attribution ;
-            prov:hadRole
+            schema:roleCode
                 &lt;https://linked.data.gov.au/def/data-roles/custodian> ,
                 &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
-            prov:agent &lt;https://data.idnau.org/pid/org/29c3e9cb-5ea5-456e-b4fa-a90828207ffc> ;
+            schema:agent &lt;https://data.idnau.org/pid/org/29c3e9cb-5ea5-456e-b4fa-a90828207ffc> ;
         ] ;
 .
 
@@ -243,10 +243,10 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
               or a Native Title region like Ooratippra:
               <ul>
                 <li>
-                  <pre>:resource-x schema:spatial &lt;https://linked.data.gov.au/dataset/asgsed3/ILOC/70900503&gt;</pre>
+                  <pre>:resource-x schema:spatialCoverage &lt;https://linked.data.gov.au/dataset/asgsed3/ILOC/70900503&gt;</pre>
                 </li>
                 <li>
-                  <pre>:resource-x schema:spatial &lt;https://data.idnau.org/pid/nntt/DCD2011-001&gt;</pre>
+                  <pre>:resource-x schema:spatialCoverage &lt;https://data.idnau.org/pid/nntt/DCD2011-001&gt;</pre>
                 </li>
               </ul>
             </li>
@@ -287,8 +287,8 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           <ul>
             <li><pre>:resource-y
         prov:qualifiedAttribution [a prov:Attribution ;
-            prov:agent &lt;http://example.com/community/wiradjuri&gt; ;
-            prov:hadRole droles:subjectAgent ;
+            schema:agent &lt;http://example.com/community/wiradjuri&gt; ;
+            schema:roleCode droles:subjectAgent ;
         ]</pre>
             </li>
           </ul>
@@ -478,16 +478,16 @@ PREFIX schema: &lt;https://schema.org/>
   schema:name "Briscoe-Smith Archive" ;
   schema:description "Historical population data and biographical records" ;
   prov:qualifiedAttribution [
-      prov:hadRole droles:author ;
-      prov:agent &lt;https://orcid.org/0000-0002-5477-0874> , "Gordon Briscoe" ;
+      schema:roleCode droles:author ;
+      schema:agent &lt;https://orcid.org/0000-0002-5477-0874> , "Gordon Briscoe" ;
     ] ,
     [
-      prov:hadRole droles:subjectAgent ;
-      prov:agent &lt;https://vocabularyserver.com/apais/xml.php?skosTema=1096>
+      schema:roleCode droles:subjectAgent ;
+      schema:agent &lt;https://vocabularyserver.com/apais/xml.php?skosTema=1096>
     ] ,
     [
-      prov:hadRole droles:custodian ;
-      prov:agent &lt;https://linked.data.gov.au/org/ada>
+      schema:roleCode droles:custodian ;
+      schema:agent &lt;https://linked.data.gov.au/org/ada>
     ] ;
 .
       </p>
@@ -556,11 +556,11 @@ PREFIX schema: &lt;https://schema.org/>
           <td>
             <table class="bnode-table">
               <tr>
-                <th><a href="http://www.w3.org/ns/prov#startedAtTime">Started At Time</a></th>
+                <th><a href="https://schema.org/startTime">Start Time</a></th>
                 <td>2021</td>
               </tr>
               <tr>
-                <th><a href="http://www.w3.org/ns/prov#startedAtTime">Ended At Time</a></th>
+                <th><a href="https://schema.org/endTime">End Time</a></th>
                 <td>2026</td>
               </tr>
             </table>
@@ -622,10 +622,10 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
   schema:dateIssued "2021-10-06"^^xsd:date ;
   schema:license &lt;https://purl.org/NET/rdflicense/cc-by4.0> ;
   schema:copyrightNotice "Copyright © Commonwealth of Australia (Australian Bureau of Statistics) 2021" ;
-  schema:spatial &lt;https://linked.data.gov.au/dataset/asgsed3/AUS/AUS> ;
-  schema:temporal [
-    prov:endedAtTime "2026"^^xsd:gYear ;
-    prov:startedAtTime "2021"^^xsd:gYear
+  schema:spatialCoverage &lt;https://linked.data.gov.au/dataset/asgsed3/AUS/AUS> ;
+  schema:temporalCoverage [
+    schema:startTime "2021"^^xsd:gYear ;
+    schema:endTime "2026"^^xsd:gYear ;
   ] ;
   schema:additionalType &lt;https://data.idnau.org/pid/vocab/cat-obj-types/SpatialDataset> ;
   schema:conditionsOfAccess dar:open ;
@@ -636,16 +636,16 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
     &lt;https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-things> ;
   prov:qualifiedAttribution
     [
-      prov:hadRole droles:custodian ;
-      prov:agent &lt;https://linked.data.gov.au/org/abs>
+      schema:roleCode droles:custodian ;
+      schema:agent &lt;https://linked.data.gov.au/org/abs>
     ] ,
     [
-      prov:hadRole droles:rightsHolder ;
-      prov:agent &lt;https://linked.data.gov.au/org/abs>
+      schema:roleCode droles:rightsHolder ;
+      schema:agent &lt;https://linked.data.gov.au/org/abs>
     ] ,
     [
-      prov:hadRole droles:subjectAgentRepresentatitve ;
-      prov:agent &lt;https://data.idnau.org/pid/org/abs-coatsis> ;
+      schema:roleCode droles:subjectAgentRepresentatitve ;
+      schema:agent &lt;https://data.idnau.org/pid/org/abs-coatsis> ;
     ] ;
   .
       </p>
