@@ -122,30 +122,30 @@
     <p>It auto-calculates CARE and FARE scores as you go too.</p>
     <div style="float:right; width:480px; height:300px; clear:right; margin-top:10px; border:solid 1px #990000; padding:10px; overflow:hidden; font-size:smaller;">
                     <pre>
-PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
-PREFIX dcterms: &lt;http://purl.org/dc/terms/>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
-PREFIX sdo: &lt;https://schema.org/>
+PREFIX schema: &lt;https://schema.org/>
 PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 
 &lt;https://data.idnau.org/pid/resource/52f6121c-724f-47b4-9adf-b785dbcdae03>
-    dcterms:created "1976-01-01"^^xsd:date ;
-    dcterms:description "Aboriginal and Torres Strait Islander peoples are warned that this resource may contain images, transcripts or names of Aboriginal and Torres Strait Islander peoples now deceased. This resource is not for general viewing, in areas where traditional Aboriginal religion is still significant, this book should be used only after consultation with local male religious leaders as it contains ceremonial and gender specific information. It may also contain historically and culturally sensitive words, terms, and descriptions." ;
-    dcterms:modified "2024-04-28"^^xsd:date ;
-    dcterms:title "Nomads of the Australian desert" ;
-    dcterms:type &lt;https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-people> ;
-    dcat:theme
+    a schema:CreativeWork ;
+    schema:additionalType schema:Book ;
+    schema:dateCreated "1976-01-01"^^xsd:date ;
+    schema:description "Aboriginal and Torres Strait Islander peoples are warned that this resource may contain images, transcripts or names of Aboriginal and Torres Strait Islander peoples now deceased. This resource is not for general viewing, in areas where traditional Aboriginal religion is still significant, this book should be used only after consultation with local male religious leaders as it contains ceremonial and gender specific information. It may also contain historically and culturally sensitive words, terms, and descriptions." ;
+    schema:dateModified "2024-04-28"^^xsd:date ;
+    schema:name "Nomads of the Australian desert" ;
+    schema:keywords
+        &lt;https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-people> ,
         &lt;https://vocabularyserver.com/apais/xml.php?skosTema=7> ,
         &lt;https://vocabularyserver.com/apais/xml.php?skosTema=8> ;
     prov:qualifiedAttribution
         [a prov:Attribution ; 
-            dcat:hadRole
+            prov:hadRole
                 &lt;https://linked.data.gov.au/def/data-roles/author> ,
                 &lt;https://linked.data.gov.au/def/data-roles/author> ;
             prov:agent &lt;https://data.idnau.org/pid/person/8cfcfc08-3cec-40e1-a772-a8860c118c9d> ;
         ] ,
         [a prov:Attribution ;
-            dcat:hadRole
+            prov:hadRole
                 &lt;https://linked.data.gov.au/def/data-roles/custodian> ,
                 &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
             prov:agent &lt;https://data.idnau.org/pid/org/29c3e9cb-5ea5-456e-b4fa-a90828207ffc> ;
@@ -223,10 +223,10 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
               astronomy and cosmology</em>) or the AustLang code "A20" (Wilyara):
               <ul>
                 <li>
-                  <pre>:resource-x dcat:theme &lt;https://linked.data.gov.au/def/anzsrc-for/2020/450601&gt;</pre>
+                  <pre>:resource-x schema:keywords &lt;https://linked.data.gov.au/def/anzsrc-for/2020/450601&gt;</pre>
                 </li>
                 <li>
-                  <pre>:resource-x dcat:theme &lt;https://data.idnau.org/pid/ilm/feature/A20&gt;</pre>
+                  <pre>:resource-x schema:keywords &lt;https://data.idnau.org/pid/ilm/feature/A20&gt;</pre>
                 </li>
               </ul>
             </li>
@@ -243,10 +243,10 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
               or a Native Title region like Ooratippra:
               <ul>
                 <li>
-                  <pre>:resource-x dcterms:spatial &lt;https://linked.data.gov.au/dataset/asgsed3/ILOC/70900503&gt;</pre>
+                  <pre>:resource-x schema:spatial &lt;https://linked.data.gov.au/dataset/asgsed3/ILOC/70900503&gt;</pre>
                 </li>
                 <li>
-                  <pre>:resource-x dcterms:spatial &lt;https://data.idnau.org/pid/nntt/DCD2011-001&gt;</pre>
+                  <pre>:resource-x schema:spatial &lt;https://data.idnau.org/pid/nntt/DCD2011-001&gt;</pre>
                 </li>
               </ul>
             </li>
@@ -278,7 +278,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           <strong>Resource X as created by an Indigenous Person</strong>
           <ul>
             <li>
-              <pre>:resource-x dcterms:created :an-indigenous-person</pre>
+              <pre>:resource-x schema:created :an-indigenous-person</pre>
             </li>
           </ul>
         </li>
@@ -298,7 +298,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         resources. In the example above, you can see that the Wiradjuri people are the <a
                 href="https://linked.data.gov.au/def/data-roles/subjectAgent">Subject Agent</a> of the resource, that is
         the resource is about them.</p>
-      <p>In the first example above, the use of the common <code>dcterms:creator</code> property is the equivalent to
+      <p>In the first example above, the use of the common <code>schema:creator</code> property is the equivalent to
         associating <code>an-indigenous-person</code> with <code>resource-x</code>, indicating a role of <a
                 href="https://linked.data.gov.au/def/data-roles/author">Author</a>.</p>
       <p>For detailed information about linking resources in metadata to people and groups, including a long list of
@@ -325,10 +325,10 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           <em>Aboriginal archaeology</em>:
           <ul>
             <li>
-              <pre>:resource-x dcat:theme &lt;https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-people&gt;</pre>
+              <pre>:resource-x schema:keywords &lt;https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-people&gt;</pre>
             </li>
             <li>
-              <pre>:resource-x dcat:theme &lt;https://vocabularyserver.com/apais/xml.php?skosTema=2&gt;</pre>
+              <pre>:resource-x schema:keywords &lt;https://vocabularyserver.com/apais/xml.php?skosTema=2&gt;</pre>
             </li>
           </ul>
         </li>
@@ -351,7 +351,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           e.g. <em>Pitjantjatjara</em> language:
           <ul>
             <li>
-              <pre>:resource-x dcterms:language &lt;https://data.idnau.org/pid/austlang/C6&gt;</pre>
+              <pre>:resource-x schema:inLanguage &lt;https://data.idnau.org/pid/austlang/C6&gt;</pre>
             </li>
           </ul>
         </li>
@@ -399,8 +399,8 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       describe your understanding of the mapping in prose. The IDN staff may be able to help.</p>
     <p>The <a href="specification.html#mappings">Mappings Section of the Specification Document</a> describes some
       mappings from the IDN CP to other models and just note that, since this profile is a profile of <a
-              href="https://www.w3.org/TR/vocab-dcat/">DCAT</a>, mappings from DCAT to other metadata models are
-      entirely relevant. for example <a href="https://www.w3.org/2015/spatial/wiki/ISO_19115_-_DCAT_-_Schema.html">the
+              href="https://schema.org">schema.org</a>, mappings from schema.org to other metadata models are
+      entirely relevant. For example <a href="https://www.w3.org/2015/spatial/wiki/ISO_19115_-_DCAT_-_Schema.html">the
         W3C's DCAT/ISO mapping</a>.</p>
     <p>Some systems use very different metadata formats, not just models.</p>
   </section>
@@ -412,10 +412,10 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       <em>Validation Section</em> for valid metadata examples.</p>
     <h3>Validation file</h3>
     <p>One of the resources within this profile is a <a
-            href="https://idn-au.github.io/idn-catalogue-profile/profile.html">Validator in SHACL</a> data file. It
+            href=" 	https://data.idnau.org/pid/cp/validator">Validator in SHACL</a> data file. It
       can be used with validation tools to automatically check the validition of metadata.</p>
     <h3>Validation tool</h3>
-    <p>A <a href="https://tools.kurrawong.ai/tools/validate">Validation tool</a> that uses the Validation data file is
+    <p>A <a href="https://tools.kurrawong.ai/validate">Validation tool</a> that uses the Validation data file is
       also available. (Select the "IDN CP Validator" option from the <em>Use Validators</em> selector.)</p>
     <img src="images/shacl_validator_tool.png" style="float:right; width:500px; border:solid 1px #990000;"
          alt="Validator Tool  Screenshot"/>
@@ -469,28 +469,27 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       <p>The machine-readable version of this metadata record is reproduced here in the RDF <a
               href="https://www.w3.org/TR/turtle/">Turtle</a> format:</p>
       <p class="eg">
-        PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
-        PREFIX dcterms: &lt;http://purl.org/dc/terms/>
-        PREFIX droles: &lt;https://linked.data.gov.au/def/data-roles/>
-        PREFIX prov: &lt;http://www.w3.org/ns/prov#>
+PREFIX droles: &lt;https://linked.data.gov.au/def/data-roles/>
+PREFIX prov: &lt;http://www.w3.org/ns/prov#>
+PREFIX schema: &lt;https://schema.org/>
 
-        &lt;https://data.idnau.org/pid/BSA>
-        a dcat:Resource ;
-        dcterms:title "Briscoe-Smith Archive" ;
-        dcterms:description "Historical population data and biographical records" ;
-        prov:qualifiedAttribution [a prov:Attribution ;
-        dcat:hadRole droles:author ;
-        prov:agent &lt;https://orcid.org/0000-0002-5477-0874> , "Gordon Briscoe" ;
-        ] ,
-        [
-        dcat:hadRole droles:subjectAgent ;
-        prov:agent &lt;https://vocabularyserver.com/apais/xml.php?skosTema=1096>
-        ] ,
-        [
-        dcat:hadRole droles:custodian ;
-        prov:agent &lt;https://linked.data.gov.au/org/ada>
-        ] ;
-        .
+&lt;https://data.idnau.org/pid/BSA>
+  a schema:CreativeWork ;
+  schema:name "Briscoe-Smith Archive" ;
+  schema:description "Historical population data and biographical records" ;
+  prov:qualifiedAttribution [
+      prov:hadRole droles:author ;
+      prov:agent &lt;https://orcid.org/0000-0002-5477-0874> , "Gordon Briscoe" ;
+    ] ,
+    [
+      prov:hadRole droles:subjectAgent ;
+      prov:agent &lt;https://vocabularyserver.com/apais/xml.php?skosTema=1096>
+    ] ,
+    [
+      prov:hadRole droles:custodian ;
+      prov:agent &lt;https://linked.data.gov.au/org/ada>
+    ] ;
+.
       </p>
     </section>
     <section id="eg-full">
@@ -592,7 +591,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
                     href="http://iso.kurrawong.ai/vocab/CI_RoleCode/rightsHolder">rights holder</a></p>
             <p><a href="https://linked.data.gov.au/org/abs-coatsis">Centre of Aboriginal and Torres Strait Islander
               Statistics </a> / <a href="http://iso.kurrawong.ai/vocab/CI_RoleCode/subjectAgentRepresentatitve">subject
-              agent representatitve</a></p>
+              agent representative</a></p>
           </td>
         </tr>
       </table>
@@ -602,56 +601,53 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       <p>The machine-readable version of this metadata record is reproduced here in the RDF <a
               href="https://www.w3.org/TR/turtle/">Turtle</a> format:</p>
       <p class="eg">
-        PREFIX dar: &lt;https://linked.data.gov.au/def/data-access-rights/>
-        PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
-        PREFIX dcterms: &lt;http://purl.org/dc/terms/>
-        PREFIX droles: &lt;https://linked.data.gov.au/def/data-roles/>
-        PREFIX idnth: &lt;https://data.idnau.org/pid/vocab/idn-th&gt;
-        PREFIX prov: &lt;http://www.w3.org/ns/prov#>
-        PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX dar: &lt;https://linked.data.gov.au/def/data-access-rights/>
+PREFIX droles: &lt;https://linked.data.gov.au/def/data-roles/>
+PREFIX idnth: &lt;https://data.idnau.org/pid/vocab/idn-th&gt;
+PREFIX prov: &lt;http://www.w3.org/ns/prov#>
+PREFIX schema: &lt;https://schema.org/>
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 
-        &lt;https://linked.data.gov.au/dataset/asgsed3/ILOC>
-        a dcat:Resource ;
-        dcterms:title "Indigenous Locations within the Australian Statistical Geography Standard (ASGS) Edition 3" ;
-        dcterms:description """This is a reference geospatial dataset developed by the Australian Bureau of
-        Statistics... This enables the release of Census of Population and Housing data and other data for Aboriginal
-        and Torres Strait Islander communities in a meaningful way, while balancing confidentiality and statistical
-        requirements. ..."""@en ;
-        dcterms:created "2021-10-06"^^xsd:date ;
-        dcterms:modified "2023-05-08"^^xsd:date ;
-        dcterms:identifier "ILOC"^^xsd:token ;
-        dcterms:source
-        "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/indigenous-structure/indigenous-locations"^^xsd:anyURI
-        ;
-        dcterms:issued "2021-10-06"^^xsd:date ;
-        dcterms:license &lt;https://purl.org/NET/rdflicense/cc-by4.0> ;
-        dcterms:rights "Copyright © Commonwealth of Australia (Australian Bureau of Statistics) 2021" ;
-        dcterms:spatial &lt;https://linked.data.gov.au/dataset/asgsed3/AUS/AUS> ;
-        dcterms:temporal [
-        prov:endedAtTime "2026"^^xsd:gYear ;
-        prov:startedAtTime "2021"^^xsd:gYear
-        ] ;
-        dcterms:type &lt;http://www.opengis.net/ont/geosparql#FeatureCollection> ;
-        dcterms:accessRights dar:open ;
-        dcat:accessURL "https://linked.data.gov.au/dataset/asgsed3/ILOC"^^xsd:anyURI ;
-        dcat:theme
-        idnth:indigenous-demographics ,
-        &lt;https://data.idnau.org/pid/vocab/idn-th/place> ,
-        &lt;https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-things> ;
-        prov:qualifiedAttribution
-        [a prov:Attribution ;
-        dcat:hadRole droles:custodian ;
-        prov:agent &lt;https://linked.data.gov.au/org/abs>
-        ] ,
-        [
-        dcat:hadRole droles:rightsHolder ;
-        prov:agent &lt;https://linked.data.gov.au/org/abs>
-        ] ,
-        [
-        dcat:hadRole &lt;https://linked.data.gov.au/def/data-roles/subjectAgentRepresentatitve> ;
-        prov:agent &lt;https://data.idnau.org/pid/org/abs-coatsis> ;
-        ] ;
-        .
+&lt;https://linked.data.gov.au/dataset/asgsed3/ILOC>
+  a schema:CreativeWork ;
+  schema:name "Indigenous Locations within the Australian Statistical Geography Standard (ASGS) Edition 3" ;
+  schema:description """This is a reference geospatial dataset developed by the Australian Bureau of
+    Statistics... This enables the release of Census of Population and Housing data and other data for Aboriginal
+    and Torres Strait Islander communities in a meaningful way, while balancing confidentiality and statistical
+    requirements. ..."""@en ;
+  schema:dateCreated "2021-10-06"^^xsd:date ;
+  schema:dateModified "2023-05-08"^^xsd:date ;
+  schema:identifier "ILOC"^^xsd:token ;
+  schema:citation "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/indigenous-structure/indigenous-locations"^^xsd:anyURI ;
+  schema:dateIssued "2021-10-06"^^xsd:date ;
+  schema:license &lt;https://purl.org/NET/rdflicense/cc-by4.0> ;
+  schema:copyrightNotice "Copyright © Commonwealth of Australia (Australian Bureau of Statistics) 2021" ;
+  schema:spatial &lt;https://linked.data.gov.au/dataset/asgsed3/AUS/AUS> ;
+  schema:temporal [
+    prov:endedAtTime "2026"^^xsd:gYear ;
+    prov:startedAtTime "2021"^^xsd:gYear
+  ] ;
+  schema:additionalType &lt;https://data.idnau.org/pid/vocab/cat-obj-types/SpatialDataset> ;
+  schema:conditionsOfAccess dar:open ;
+  schema:url "https://linked.data.gov.au/dataset/asgsed3/ILOC"^^xsd:anyURI ;
+  schema:keywords
+    idnth:indigenous-demographics ,
+    &lt;https://data.idnau.org/pid/vocab/idn-th/place> ,
+    &lt;https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-things> ;
+  prov:qualifiedAttribution
+    [
+      prov:hadRole droles:custodian ;
+      prov:agent &lt;https://linked.data.gov.au/org/abs>
+    ] ,
+    [
+      prov:hadRole droles:rightsHolder ;
+      prov:agent &lt;https://linked.data.gov.au/org/abs>
+    ] ,
+    [
+      prov:hadRole droles:subjectAgentRepresentatitve ;
+      prov:agent &lt;https://data.idnau.org/pid/org/abs-coatsis> ;
+    ] ;
+  .
       </p>
     </section>
   </section>
@@ -681,12 +677,14 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <td><a class="proplink" title="sdo:dateModified" href="https://schema.org/dateModified">Modified</a></td>
-            <td>2024-06-24</td>
+            <td>2025-05-26</td>
           </tr>
         </table>
       </dd>
       <dt><a class="proplink" title="owl#versionIRI" href="http://www.w3.org/2002/07/owl#versionIRI">Version</a></dt>
       <dd><a href="https://data.idnau.org/pid/cp/guide/0.0.2">0.0.2</a></dd>
+      <dt><a class="proplink" title="skos#historyNote" href="http://www.w3.org/2004/02/skos/core#historyNote">History note</a></dt>
+      <dd>2025-05: changed examples from DCAT + DCTERMS to schema.org</dd>
       <dt><a class="proplink" title="sdo:license" href="https://schema.org/license">License</a></dt>
       <dd><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a></dd>
       <dt><a class="proplink" title="sdo:copyrightHolderame" href="https://schema.org/copyrightHolder">Copyright</a>
