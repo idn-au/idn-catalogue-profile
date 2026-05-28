@@ -3223,7 +3223,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       </h3>
       <p><em>Mapping to <a href="https://ica-egad.github.io/RiC-O/about.html">RiC-O</a>.</em></p>
       <div id="rico-class-mapping-figure" class="figure">
-        <a href="images/rico.svg"><img src="images/rico.svg" alt="IND CP -> RiCO simple mapping" style="width:40%;"/></a>
+        <a href="images/rico.svg"><img src="images/rico.svg" alt="IND CP -> RiCO simple mapping" style="width:50%;"/></a>
         <p class="caption"><strong>Figure 5:</strong> Simple mapping of some of RiCO's classes to a central class in this profile</p>
       </div>
       <p>
@@ -3264,9 +3264,15 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           The decision as to which particular instances of RiCO classes to consider as IDN CP catalogued resources depends
           on the resolution of the catalogue: if individual <code>rico:Record</code> instances are catalogued, each
           <code>rico:Record</code> is a <code>schema:CreativeWork</code> and should have IDN CP metadata. If only whole
-          bundles of RiCO archives as <code>rico:RecordResource</code> instances are catalogued, then they are <code>schema:CreativeWork</code>
-          instances with metadata and the children <code>rico:RecordSet</code> and <code>rico:Record</code> instances
+          bundles of RiCO archives as <code>rico:RecordSet</code> instances are catalogued, then they are <code>schema:CreativeWork</code>
+          instances with metadata and the children <code>rico:Record</code> and <code>rico:RecordPart</code> instances
           have no IDN CP metadata of their own.
+        </p>
+        <p>
+          While the generic <code>rico:RecordResource</code> <em>MAY</em> be considered a <code>schema:CreativeWork</code>, we
+          expect that it's more likely that <code>rico:Record</code>, <code>rico:RecordSet</code> and <code>rico:RecordPart</code>
+          RiCO objects are going to be catalogued and thus it is instances of those classes we would expect to see
+          considered as <code>schema:CreativeWork</code> instances.
         </p>
       </section>
       <section id="rico-sub-parts">
@@ -3388,8 +3394,8 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 .
         </p>
         <p>
-          In the recharacterisation above, the <code>rico:RecordResource</code> instance has been re-cast as a
-          <code>sceham:CreativeWork</code> instance with the original's direct metadata predicates mapped to IDN CP
+          In the characterisation above, the <code>rico:RecordResource</code> instance has been re-cast as a
+          <code>schema:CreativeWork</code> instance with the original's direct metadata predicates mapped to IDN CP
           predicates, where possible, as per the mapping table below. The specailsied RiCO predicate of <code>rico:hasDirectPart</code>
           not been show in the IDN CP representation as it should be preserved unchanged: there is likely no value for
           Indigenous data governance assessment and scores calculations in mapping the specailsed concerns of RiCO's domain
