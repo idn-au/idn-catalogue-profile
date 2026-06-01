@@ -3139,7 +3139,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         The <a href="http://www.w3.org/ns/odrl/2/">Open Digital Rights Language (ODRL)</a> is a W3C standard that providfes "representing statements about the usage of content and services"....
       </p>
       <p>
-        This profile uses ...
+        The Local Contexts ontology is `schema.org`-compatible because its elements can be used with schema.org catalogue records and several elements can be aligned to broad schema.org classes and properties. However, most mappings are intentionally `rdfs:subClassOf` or `rdfs:subPropertyOf`, not `owl:equivalentClass` or `owl:equivalentProperty`, because the Local Contexts elements carry more specific Indigenous data governance semantics than the corresponding `schema.org` elements.
       </p>
       <p>
         All the classes and predicates used ....
@@ -3155,57 +3155,44 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           <th colspan="4">Classes</th>
         </tr>
         <tr>
-          <td><code>schema:...</code></td>
-          <td><code>owl:equivalentClass</code></td>
-          <td><code>odrl:....</code></td>
-          <td>-</td>
+          <td><code>lcont:BCLabel</code></td>
+          <td><code>rdfs:subClass</code></td>
+          <td><code>schema:DefinedTerm</code></td>
+          <td>BC labels are controlled terms/concepts applied to resources.</td>
         </tr>
         <tr>
-          <td><code>schema:</code></td>
-          <td><code>owl:equivalentClass</code></td>
-          <td><code>lcont:....</code></td>
-          <td>Both classes are essentially...
-          </td>
+          <td><code>lcont:TKLabel</code></td>
+          <td><code>rdfs:subClass</code></td>
+          <td><code>schema:DefinedTerm</code></td>
+          <td>TK labels are controlled terms/concepts applied to resources.</td>
         </tr>
+          <td><code>lcont:LCNotice</code></td>
+          <td><code>rdfs:subClass</code></td>
+          <td><code>schema:DefinedTerm</code></td>
+          <td>LC notices are controlled terms/concepts applied to resources.</td>
         <tr>
-          <td><code></code></td>
-          <td><code>rdfs:subclassOf</code></td>
-          <td><code></code></td>
-          <td>
-            <code>?</code> may be used as a ... and should be used as ... with
-            <code>...</code>
-            and/or <code>...</code> predicates indicating <code>...</code> consistent with <code>...</code> use.
-          </td>
-        </tr>
-        <tr>
-          <td><code>...</code></td>
-          <td>-</td>
-          <td><code>...</code></td>
-          <td>use as-is</td>
+          <td><code>lcont:QualifiedLocalContext</code></td>
+          <td><code>rdfs:subClass</code></td>
+          <td><code>dcat:Relationship</code></td>
+          <td>Qualified Local Context is a specialised DCAT relationship node used to qualify the relationship between a resource and a label, notice, or policy-related resource.</td>
         </tr>
         <tr>
           <th colspan="4">Predicates</th>
         </tr>
         <tr>
-          <td><code></code></td>
-          <td><code>owl:equivalentProperty</code></td>
-          <td><code></code></td>
-          <td>-</td>
+          <td><code>lcont:templateText</code></td>
+          <td><code>rdfs:subPropertyOf</code></td>
+          <td><code>schema:text</code></td>
+          <td>Not equivalent because templateText has stronger “customisable boilerplate” semantics.
+          </td>
         </tr>
         <tr>
-          <td><code></code></td>
-          <td><code>owl:equivalentProperty</code></td>
-          <td><code></code></td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td><code></code></td>
-          <td><code>owl:equivalentProperty</code></td>
-          <td><code></code></td>
-          <td>-</td>
+          <td><code>lcont:relatedNotice</code></td>
+          <td><code>rdfs:subPropertyOf</code></td>
+          <td><code>schema:isRelatedTo</code></td>
+          <td>Safe broad mapping. Not equivalent.</td>
         </tr>
       </table>
-      <p class="todo">WIP</p>
     </section>
     <section id="mapping-roc">
       <h3>A.3. RO Crate<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
