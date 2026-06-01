@@ -3133,16 +3133,14 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       </table>
     </section>
     <section id="mapping-lc">
-      <h3>A.2. Local Context Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span>
+      <h3>A.2. Local Contexts Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span>
       </h3>
       <p>
         The <a href="http://www.w3.org/ns/odrl/2/">Open Digital Rights Language (ODRL)</a> is a W3C standard that providfes "representing statements about the usage of content and services"....
       </p>
+      See <a href="#lc">Local Context Labels and Notices</a> for description of the LC Ontology and concept schemes.
       <p>
-        The Local Contexts ontology is `schema.org`-compatible because its elements can be used with schema.org catalogue records and several elements can be aligned to broad schema.org classes and properties. However, most mappings are intentionally `rdfs:subClassOf` or `rdfs:subPropertyOf`, not `owl:equivalentClass` or `owl:equivalentProperty`, because the Local Contexts elements carry more specific Indigenous data governance semantics than the corresponding `schema.org` elements.
-      </p>
-      <p>
-        All the classes and predicates used ....
+        The Local Contexts ontology is <code>schema.org</code>-compatible because its elements can be used with <code>schema.org</code> catalogue records and several elements can be aligned to broad <code>schema.org</code> classes and properties. However, most mappings are intentionally <code>rdfs:subClassOf</code> or <code>rdfs:subPropertyOf</code>, not <code>owl:equivalentClass</code> or <code>owl:equivalentProperty</code>, because the Local Contexts elements carry more specific Indigenous data governance semantics than the corresponding <code>schema.org</code> elements.
       </p>
       <table class="properties">
         <tr>
@@ -3430,8 +3428,8 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
     <ul>
       <li><a href="#c.1">Introduction</a></li>
       <li><a href="#c.2">Definitions</a></li>
-      <li><a href="#c.3">Example LC label and notice instances</a></li>
-      <li><a href="#c.4">Example Resources with LC labels and notices</a></li>
+      <li><a href="#c.3">Example label and notice instances</a></li>
+      <li><a href="#c.4">Example Resources with labels and notices</a></li>
     </ul>
     <section id="c.1">
       <h4>C.1 Introduction</h4>
@@ -3447,7 +3445,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       </div>
       <p>
         This Local Context model is a small ontology providing just a few classes and properties to indicate how to
-        attach Traditional Knowledge labels and Biocultural Labels to objects catalogued according to this profile.
+        attach Traditional Knowledge labels, Biocultural Labels and Local Context Notice concepts to objects catalogued according to this profile.
       </p>
       <p>The machine-readable version of this model is available at:</p>
       <ul>
@@ -3600,7 +3598,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			    <tr>
 			      <td><a href="https://www.w3.org/TR/skos-reference/#definition"
 			             title="A statement or formal explanation of the meaning of a concept">Definition</a></td>
-			      <td>A label to be applied to data that identifies Indigenous collections and data and recognizes Indigenous rights
+			      <td>A notice to be applied to data that identifies Indigenous collections and data and recognizes Indigenous rights
 			        and interests. The Notices were developed to create pathways for partnership, collaboration, and support of
 			        Indigenous cultural authority.</a></td>
 			    </tr>
@@ -3643,7 +3641,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			      <td><a href="https://www.w3.org/TR/skos-reference/#definition"
 			             title="A statement or formal explanation of the meaning of a concept">Definition</a></td>
 			      <td>An association between an RDF Resource and a <a href="#TKLabel">Traditional Knowledge Label</a> , <a
-			              href="#BCLabel">Biocultural Label</a> or <a href="#LCNotice">Local Contexts Notice</a>that
+			              href="#BCLabel">Biocultural Label</a> or <a href="#LCNotice">Local Contexts Notice</a> that
 			        allows for the nature of the relationship to be defined
 			      </td>
 			    </tr>
