@@ -844,7 +844,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
   schema:publisher &lt;https://example.com/agent/123456> ;
   schema:keywords &lt;https://data.idnau.org/pid/austlang/C6> ;
   prov:qualifiedAttribution [
-    schema:roleCode &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
+    schema:roleName &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
     schema:agent &lt;https://linked.data.gov.au/org/nla>
   ] ;
   schema:dateIssued "1980"^^xsd:gYear ;
@@ -963,7 +963,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
   &lt;/rdf:Description>
   &lt;rdf:Description rdf:nodeID="n09d0151a1e6140cfb188576200eb9d69b1">
     &lt;rdf:type rdf:resource="http://www.w3.org/ns/prov#Attribution"/>
-    &lt;schema:roleCode rdf:resource="https://linked.data.gov.au/def/data-roles/custodian"/>
+    &lt;schema:roleName rdf:resource="https://linked.data.gov.au/def/data-roles/custodian"/>
     &lt;schema:agent rdf:resource="https://linked.data.gov.au/org/nla"/>
   &lt;/rdf:Description>
 &lt;/rdf:RDF>
@@ -1297,11 +1297,11 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
   # ...
   prov:qualifiedAttribution [
     schema:agent &lt;https://linked.data.gov.au/org/uom> ; # University of Melbourne
-    schema:roleCode &lt;https://def.isotc211.org/common/RoleCode/custodian> ; # Custodian
+    schema:roleName &lt;https://def.isotc211.org/common/RoleCode/custodian> ; # Custodian
   ] ,
   [
     schema:agent &lt;https://orcid.org/0000-0002-1398-7524> ; # Kristen Smith
-    schema:roleCode
+    schema:roleName
       &lt;https://def.isotc211.org/common/RoleCode/pointOfContact> , # Point of Contact
       &lt;https://def.isotc211.org/common/RoleCode/principalInvestigator> ; # Principle Investigator
   ] ;
@@ -2412,7 +2412,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         <pre>
 &lt;X> prov:qualifiedAttribution [
   schema:agent &lt;Y> ;
-  schema:roleCode &lt;https://linked.data.gov.au/def/data-roles/publisher>
+  schema:roleName &lt;https://linked.data.gov.au/def/data-roles/publisher>
 ] .</pre>
         </p>
         <p>
@@ -2470,7 +2470,7 @@ PREFIX rc: &lt;https://linked.data.gov.au/def/data-roles/>
 CONSTRUCT {
   &lt;X> prov:qualifiedAttribution [
     schema:agent &lt;Y> ;
-    schema:roleCode rc:author ;
+    schema:roleName rc:author ;
   ] .
 }
 WHERE {
@@ -2546,13 +2546,13 @@ DIRECT_ATTRIBUTION owl:propertyChainAxiom (
 CONSTRUCT {
     ?r prov:qualifiedAttribution [
         schema:agent ?a2 ;
-        schema:roleCode ?r ;
+        schema:roleName ?r ;
     .
 }
 WHERE {
     ?r prov:qualifiedAttribution [
         schema:agent ?a ;
-        schema:roleCode ?r ;
+        schema:roleName ?r ;
     .
 
     ?a schema:parentOrganization|schema:memberOf|prov:actedOnBehalfOf ?a2 .
@@ -2589,7 +2589,7 @@ WHERE {
 &lt;ResourceX>
     prov:wasAttributedTo [
         schema:agent &lt;UnitH> ;
-        schema:roleCode rolecode:custodian ;
+        schema:roleName rolecode:custodian ;
     ] ;
 .
 
@@ -2666,7 +2666,7 @@ WHERE {
         </td>
       </tr>
       <tr>
-        <td><code>schema:roleCode</code></td>
+        <td><code>schema:roleName</code></td>
         <td>MUST</td>
         <td><a href="https://linked.data.gov.au/def/data-roles">Data Roles vocabulary</a></td>
       </tr>
@@ -2730,12 +2730,12 @@ WHERE {
   prov:qualifiedAttribution [
     a prov:Attribution;
     schema:agent &lt;https://linked.data.gov.au/org/idn&gt; ; # Indigenous Data Network's PID
-    schema:roleCode :custodian ;
+    schema:roleName :custodian ;
   ] ,
   [
     a prov:Attribution;
     schema:agent &lt;https://orcid.org/0000-0002-8742-7730&gt; ; # Nicholas Car's IRI
-    schema:roleCode :pointOfContact ;
+    schema:roleName :pointOfContact ;
   ] ;
 
   schema:hasPart
@@ -2784,17 +2784,17 @@ WHERE {
   prov:qualifiedAttribution [
     a prov:Attribution;
     schema:agent &lt;http://example.com/org/clc&gt; ; # Example Indigenous org PID
-    schema:roleCode :custodian ;
+    schema:roleName :custodian ;
   ] ,
   [
     a prov:Attribution;
     schema:agent &lt;http://example.com/academic/person-x&gt; ; # An academic
-    schema:roleCode :author ;
+    schema:roleName :author ;
   ] ,
   [
     a prov:Attribution;
     schema:agent &lt;http://example.com/org/xyz-people&gt; ; # An Indigenous group
-    schema:roleCode :subjectAgent ;
+    schema:roleName :subjectAgent ;
   ] ;
 
   schema:additionalType ex:map ; # An example specialised resource - a map - from some vocabularty of types
@@ -2830,7 +2830,7 @@ WHERE {
           prov:qualifiedAttribution [
           a prov:Attribution;
           schema:agent &lt;http://example.com/resource/central-lands-council&gt; ;
-          schema:roleCode droles:custodian ;
+          schema:roleName droles:custodian ;
           ] ;
           ...
           .
@@ -2857,7 +2857,7 @@ WHERE {
         <!-- alumniOf is chosen because it does not have a clear equivalent in the aarr vocab, so this is a use case for using a schema.org property instead of a dcat:qualifiedRelation-->
         <p class="req"><strong>Req AG5:</strong> Any <code>Agent</code> MAY relate to another <code>Agent</code> using
           <code>dcat:qualifiedRelation</code>
-          property with a <code>schema:roleCode</code> indicating a <code>skos:Concept</code> from the <a
+          property with a <code>schema:roleName</code> indicating a <code>skos:Concept</code> from the <a
                   href="https://data.idnau.org/pid/vocab/aarr">Agent to Agent Relationship Roles</a> vocabulary.</p>
         <p class="eg">
           <span>Example: An Organization with an example Australian Business Number identifer and a Person affiliated with it</span>
@@ -2884,7 +2884,7 @@ WHERE {
   schema:affiliation &lt;https://kurrawong.ai&gt; ;
   schema:alumniOf &lt;https://linked.data.gov.au/org/uom&gt; ;
   dcat:qualifiedRelation [
-    schema:roleCode aarr:affiliateOf ;
+    schema:roleName aarr:affiliateOf ;
     schema:agent &lt;https://kurrawong.ai&gt;
   ] ;
 .
@@ -2953,7 +2953,7 @@ WHERE {
         a prov:Attribution;
         # Example Agent that could be registered in the IDN Agents Catalogue
         schema:agent &lt;http://example.com/resource/central-lands-council&gt; ;
-        schema:roleCode droles:custodian ; # Role from the IDN Role Codes Vocabulary
+        schema:roleName droles:custodian ; # Role from the IDN Role Codes Vocabulary
         ] ;
         .
       </p>
@@ -3013,11 +3013,11 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
     &lt;https://vocabularyserver.com/apais/xml.php?skosTema=8> ; # Aboriginal culture
   prov:qualifiedAttribution
     [
-      schema:roleCode dataroles:custodian ;
+      schema:roleName dataroles:custodian ;
       schema:agent &lt;https://linked.data.gov.au/org/uom> ; # University of Melbourne
     ] ,
     [
-      schema:roleCode
+      schema:roleName
         dataroles:pointOfContact ,
         dataroles:principalInvestigator ;
       schema:agent orcidorg:0000-0002-1398-7524 ; # Kristen Smith
