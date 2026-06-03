@@ -139,13 +139,13 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         &lt;https://vocabularyserver.com/apais/xml.php?skosTema=8> ;
     prov:qualifiedAttribution
         [a prov:Attribution ; 
-            schema:roleCode
+            schema:roleName
                 &lt;https://linked.data.gov.au/def/data-roles/author> ,
                 &lt;https://linked.data.gov.au/def/data-roles/author> ;
             schema:agent &lt;https://data.idnau.org/pid/person/8cfcfc08-3cec-40e1-a772-a8860c118c9d> ;
         ] ,
         [a prov:Attribution ;
-            schema:roleCode
+            schema:roleName
                 &lt;https://linked.data.gov.au/def/data-roles/custodian> ,
                 &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
             schema:agent &lt;https://data.idnau.org/pid/org/29c3e9cb-5ea5-456e-b4fa-a90828207ffc> ;
@@ -288,7 +288,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
             <li><pre>:resource-y
         prov:qualifiedAttribution [a prov:Attribution ;
             schema:agent &lt;http://example.com/community/wiradjuri&gt; ;
-            schema:roleCode droles:subjectAgent ;
+            schema:roleName droles:subjectAgent ;
         ]</pre>
             </li>
           </ul>
@@ -484,15 +484,15 @@ PREFIX schema: &lt;https://schema.org/>
   schema:name "Briscoe-Smith Archive" ;
   schema:description "Historical population data and biographical records" ;
   prov:qualifiedAttribution [
-      schema:roleCode droles:author ;
+      schema:roleName droles:author ;
       schema:agent &lt;https://orcid.org/0000-0002-5477-0874> , "Gordon Briscoe" ;
     ] ,
     [
-      schema:roleCode droles:subjectAgent ;
+      schema:roleName droles:subjectAgent ;
       schema:agent &lt;https://vocabularyserver.com/apais/xml.php?skosTema=1096>
     ] ,
     [
-      schema:roleCode droles:custodian ;
+      schema:roleName droles:custodian ;
       schema:agent &lt;https://linked.data.gov.au/org/ada>
     ] ;
 .
@@ -642,15 +642,15 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
     &lt;https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-things> ;
   prov:qualifiedAttribution
     [
-      schema:roleCode droles:custodian ;
+      schema:roleName droles:custodian ;
       schema:agent &lt;https://linked.data.gov.au/org/abs>
     ] ,
     [
-      schema:roleCode droles:rightsHolder ;
+      schema:roleName droles:rightsHolder ;
       schema:agent &lt;https://linked.data.gov.au/org/abs>
     ] ,
     [
-      schema:roleCode droles:subjectAgentRepresentatitve ;
+      schema:roleName droles:subjectAgentRepresentatitve ;
       schema:agent &lt;https://data.idnau.org/pid/org/abs-coatsis> ;
     ] ;
   .
