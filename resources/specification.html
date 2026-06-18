@@ -2943,19 +2943,19 @@ WHERE {
                 href="https://agentsdb.idnau.org">IDN Agents Catalogue</a>.</p>
       <p class="eg">
         <span>Example: A Resource with a qualified Attribution</span>
-        &lt;http://example.com/resource/x&gt;
-        a schema:CreativeWork ;
-        ...
-        # Concept within the IDN Data Themes Vocabulary
-        schema:keywords idth:indigenous-demographics ;
-        ...
-        prov:qualifiedAttribution [
-        a prov:Attribution;
-        # Example Agent that could be registered in the IDN Agents Catalogue
-        schema:agent &lt;http://example.com/resource/central-lands-council&gt; ;
-        schema:roleCode droles:custodian ; # Role from the IDN Role Codes Vocabulary
-        ] ;
-        .
+&lt;http://example.com/resource/x&gt;
+  a schema:CreativeWork ;
+  ...
+  # Concept within the IDN Data Themes Vocabulary
+  schema:keywords idth:indigenous-demographics ;
+  ...
+  prov:qualifiedAttribution [
+    a prov:Attribution;
+    # Example Agent that could be registered in the IDN Agents Catalogue
+    schema:agent &lt;http://example.com/resource/central-lands-council&gt; ;
+    schema:roleCode droles:custodian ; # Role from the IDN Role Codes Vocabulary
+  ] ;
+.
       </p>
     </section>
   </section>
@@ -3209,7 +3209,48 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
     </section>
     <section id="mapping-roc">
       <h3>A.3. RO Crate<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
-      <p class="todo">TODO</p>
+      <p>
+        "RO Crate is a community effort to establish a lightweight approach to packaging research data with their metadata." - <a href="https://www.researchobject.org/ro-crate/">RO Creates website</a>
+      </p>
+      <p>
+        RO Crate provides a data model and a metadata file format for the characterisation of digital data - files etc. - in folders.
+        Typically, an RO Crate is a folder containing subfolders and files of the data to be characterised and a <code>ro-create-metadata.json</code>
+        file containing the metadata.
+      </p>
+      <h4>schema.org commonality</h4>
+      <p>
+        RO Crate uses <a href="https://schema.org">schema.org</a> for many of its general-purpose elements, such as the
+        declaration of a <code>Dataset</code> object - the thing that the RO Crate metadata is about.
+      </p>
+      <p>
+        Given that this profile also uses schema.org, use of schema.org is common: a <code>Dataset</code> in RO Crate is also
+        a <code>Dataset</code> in this profile.
+      </p>
+      <h4>IDN reference data</h4>
+      <p>
+        IDN reference information, such as vocabularies in the <a href="https://data.idnau.org/pid/refdata-catalogue">IDN Reference Data Catalogue</a>,
+        can be used directly within RO Crate metadata. For example, to indicate that a dataset is about the East Kimberley area,
+        you can use the IDN reference data value of WA East Kemberly using the identifier
+        <a href="https://data.idnau.org/pid/apt/wa-east-kimberley">https://data.idnau.org/pid/apt/wa-east-kimberley</a> from the
+        <a href="https://data.idnau.org/pid/apt">AIATSIS Place Thesaurus</a>'s <em>Regions</em> collection like this:
+      </p>
+      <p class="eg">
+        <span>Example: Part of an example RO Crate metadata file sjowing use of an IDN location indicator</span>
+{
+  "@id": "./",
+  "@type": "Dataset",
+  "name": "Artwork of the eastern Kimberley",
+  "spatialCoverage": {
+    "@id": "https://data.idnau.org/pid/apt/wa-east-kimberley"
+  }
+}
+      </p>
+      <p>
+        The schema.org property of <code>schema:spatialCoverage</code> is used here to link the RO Crate <code>Dataset</code>
+        to the IDN's controlled value for the WA East Kimberley region. <code>spatialCoverage</code> is a standard property in
+        both RO Crates and this profile, so can be used without alteration.qualification by both.
+      </p>
+      <!--
       <p>
         In addition to the conceptual mapping to RO-Crates above, a converter tool for creating RO Crates metadata from
         IDN CP terms and vice versa is available at:
@@ -3217,6 +3258,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       <ul>
         <li><a href="https://github.com/idn-au/idncp-rocrate">https://github.com/idn-au/idncp-rocrate</a></li>
       </ul>
+      -->
     </section>
     <section id="mapping-rico">
       <h3>A.4. Records in Context Ontology<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span>
