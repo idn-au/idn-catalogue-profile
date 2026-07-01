@@ -228,9 +228,9 @@ ont:
     rdfs:isDefinedBy ont: ;
     schema:name "Attribution Role" ;
     sh:class skos:Concept ;
-    sh:message "Req A1: Each Attribution instance MUST indicate an Agent instance with the property schema:agent and a role for that Agent, as a skos:Concept, in relation to the attributing entity, with the hadRole property." ;
+    sh:message "Req A1: Each Attribution instance MUST indicate an Agent instance with the property schema:agent and a role for that Agent, as a skos:Concept, in relation to the attributing entity, with the roleName property." ;
     sh:minCount 1 ;
-    sh:path prov:hadRole ;
+    sh:path schema:roleName ;
 .
 
 :catalog-hasPart
