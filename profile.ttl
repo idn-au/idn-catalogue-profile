@@ -54,6 +54,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         prof:hasRole role:repository ;
     ] ,
     [
+        rdfs:label "Policy Roles Vocabulary" ;
+        rdfs:comment "The Indigenous Data Network's vocabulary of the roles policies play in relation to data governance and data licensing" ;
+        prof:hasArtifact <https://data.idnau.org/pid/vocab/policy-roles> ;
+        dcterms:format "text/turtle, text/html" ;
+        prof:hasRole role:vocabulary ;
+    ] ,
+    [
         rdfs:label "schema.org mapping description" ;
         rdfs:comment "Description of the mappings between IDN CP elements and schema.org elements" ;
         prof:hasArtifact <https://data.idnau.org/pid/cp/sdo> ;
