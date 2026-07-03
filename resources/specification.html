@@ -2847,7 +2847,7 @@ WHERE {
         and this section describes their required properties and relations. For example, all <code>Resource</code>
         instances must be related to at least one <code>Catalog</code> instance.</p>
       <section id="catalogue">
-        <h4>2.1.2 <code>Catalogue</code></h4>
+        <h4>5.2.1 <code>Catalogue</code></h4>
         <p class="req"><strong>Req C1:</strong> Being a <code>Resource</code>, each <code>Catalog</code> instance MUST
           also adhere to the <code>Resource</code> Requirements R1, R2, R3 &amp; R4.</p>
         <p class="req"><strong>Req C2:</strong> Each <code>Catalog</code> instance MUST contain at least one <code>Resource</code>
@@ -2881,7 +2881,7 @@ WHERE {
         </p>
       </section>
       <section id="catalogued-resource">
-        <h4>2.1.3 <code>Catalogued Resource</code></h4>
+        <h4>5.2.2 <code>Catalogued Resource</code></h4>
         <p class="note">The schema.org class <a href="https://schema.org/CreativeWork"><code>CreativeWork</code></a> is used to represent generic, catalogued resources.</p>
         <p class="req"><strong>Req R1:</strong> Each <code>Resource</code> instance SHOULD indicate a persistent
           identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the <code>Dataset</code>
@@ -2944,14 +2944,14 @@ WHERE {
         </p>
       </section>
       <section id="dataset">
-        <h4>2.1.3 <code>Dataset</code></h4>
+        <h4>5.2.3 <code>Dataset</code></h4>
         <p>There are no structural requirements specifically for <code>CreativeWork</code> instances: the requirements for
           <code>Resource</code> also apply to <code>Dataset</code>.</p>
         <p>Note that there are <em>values</em> requirements for <code>Dataset</code> instnaces, as per the next section.
         </p>
       </section>
       <section id="project">
-        <h4>2.1.4 <code>Project</code></h4>
+        <h4>5.2.4 <code>Project</code></h4>
         <p class="note">The schema.org classes <a href="https://schema.org/Project"><code>Project</code></a> and
           <a href="https://schema.org/ResearchProject"><code>ResearchProject</code></a> are used to represent projects
           that generate or materially contextualise catalogued resources.</p>
@@ -2985,7 +2985,7 @@ WHERE {
         </p>
       </section>
       <section id="attribution">
-        <h4>2.1.5 <code>Attribution</code></h4>
+        <h4>5.2.5 <code>Attribution</code></h4>
         <p class="req"><strong>Req A1:</strong> Each <code>Attribution</code> instance MUST indicate an
           <code>Agent</code> instance with the property <code>schema:agent</code> and a role for that <code>Agent</code>,
           as a <code>skos:Concept</code>, in relation to the attributing entity, with the <code>hadRole</code> property.
@@ -3006,7 +3006,7 @@ WHERE {
         </p>
       </section>
       <section id="agent">
-        <h3>2.1.6 <code>Agent</code></h3>
+        <h4>5.2.6 <code>Agent</code></h4>
         <p><em>Agents are the Organisations &amp; People that have Roles in relation to Catalogues and Resources.</em>
         </p>
         <p class="req"><strong>Req AG1:</strong> Each <code>Agent</code> instance MUST be either an <code>schema:Organization</code>
@@ -3060,7 +3060,7 @@ WHERE {
         </p>
       </section>
       <section id="concept">
-        <h4>2.1.7 <code>Concept</code></h4>
+        <h4>5.2.7 <code>Concept</code></h4>
         <p>This profile is a profile of <a href="https://linked.data.gov.au/def/vocpub">Vocabulary Publications Profile,
           VocPub</a>, among other specifications. VocPub sets requirements for <code>Concept</code> and <code>ConceptScheme</code>
           instances.</p>
@@ -3084,7 +3084,7 @@ WHERE {
         </p>
       </section>
       <section id="conceptscheme">
-        <h4>2.1.8 <code>ConceptScheme</code></h4>
+        <h4>5.2.8 <code>ConceptScheme</code></h4>
         <p>This profile is a profile of <a href="https://linked.data.gov.au/def/vocpub">Vocabulary Publications Profile,
           VocPub</a>, among other specifications. VocPub sets requirements for <code>Concept</code> and <code>ConceptScheme</code>
           instances.</p>
