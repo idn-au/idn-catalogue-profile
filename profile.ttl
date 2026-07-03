@@ -23,7 +23,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
     sdo:dateCreated "2022-07-18"^^xsd:date ;
     sdo:dateIssued "2022-07-31"^^xsd:date ;
-    sdo:dateModified "2023-05-08"^^xsd:date ;
+    sdo:dateModified "2026-07-03"^^xsd:date ;
     sdo:description "A profile of cataloguing, provenance and vocabulary standards designed for the representation of Indigenous data governance"@en ;
     sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
     sdo:name "IDN Catalogue Profile"@en ;
@@ -52,6 +52,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         rdfs:comment "An online Git version control repository that contains most of this Profile's content in files" ;
         prof:hasArtifact <https://data.idnau.org/pid/cp/repo> ;
         prof:hasRole role:repository ;
+    ] ,
+    [
+        rdfs:label "Policy Roles Vocabulary" ;
+        rdfs:comment "The Indigenous Data Network's vocabulary of the roles policies play in relation to data governance and data licensing" ;
+        prof:hasArtifact <https://data.idnau.org/pid/vocab/policy-roles> ;
+        dcterms:format "text/turtle, text/html" ;
+        prof:hasRole role:vocabulary ;
     ] ,
     [
         rdfs:label "schema.org mapping description" ;
