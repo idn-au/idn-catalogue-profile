@@ -11,10 +11,10 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-<https://data.idnau.org/pid/cp/sdo.ttl#resource-descriptor>
+<https://data.idnau.org/pid/cp/sdo-mapping>
     a prof:ResourceDescriptor ;
     sdo:name "schema.org RDF mapping"@en ;
-    sdo:description "The RDF/OWL mapping artifact for IDN Catalogue Profile elements and schema.org elements."@en ;
+    sdo:description "The RDF/OWL mapping artifact for IDN Catalogue Profile and schema.org elements."@en ;
     prof:hasArtifact <https://data.idnau.org/pid/cp/sdo.ttl> ;
     prof:hasRole role:mapping ;
     dcterms:format "text/turtle" ;
