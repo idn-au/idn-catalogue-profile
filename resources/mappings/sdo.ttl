@@ -1,25 +1,59 @@
-# RDF/OWL mappings between IDN Catalogue Profile elements and schema.org elements
-#
-# https://data.idnau.org/pid/cp/sdo.ttl
-#
-# see https://ec-jrc.github.io/dcat-ap-to-schema-org/
-# see https://schema.org/docs/data-and-datasets.html
-
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX role: <http://www.w3.org/ns/dx/prof/role/>
 PREFIX sdo: <https://schema.org/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+<https://data.idnau.org/pid/cp/sdo.ttl#resource-descriptor>
+    a prof:ResourceDescriptor ;
+    sdo:name "schema.org RDF mapping"@en ;
+    sdo:description "The RDF/OWL mapping artifact for IDN Catalogue Profile elements and schema.org elements."@en ;
+    prof:hasArtifact <https://data.idnau.org/pid/cp/sdo.ttl> ;
+    prof:hasRole role:mapping ;
+    dcterms:format "text/turtle" ;
+.
+
+<https://data.idnau.org/pid/cp/sdo.ttl>
+    a owl:Ontology ;
+    sdo:name "IDN Catalogue Profile schema.org RDF mapping"@en ;
+    sdo:description "RDF/OWL mappings between IDN Catalogue Profile elements and schema.org elements."@en ;
+    sdo:isPartOf <https://data.idnau.org/pid/cp> ;
+    sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
+    sdo:publisher <https://linked.data.gov.au/org/idn> ;
+    sdo:license <https://creativecommons.org/licenses/by/4.0/> ;
+    sdo:dateModified "2026-07-08"^^xsd:date ;
+    sdo:citation
+        <https://ec-jrc.github.io/dcat-ap-to-schema-org/> ,
+        <https://schema.org/docs/data-and-datasets.html> ;
+    rdfs:seeAlso <https://data.idnau.org/pid/cp/sdo> ;
+.
+
+#
+# Agent class alignment
+#
 
 sdo:Organization rdfs:subClassOf prov:Agent .
 
 sdo:Person rdfs:subClassOf prov:Agent .
 
+#
+# Class alignment
+#
+
 dcat:Resource owl:equivalentClass sdo:CreativeWork .
+
+sdo:DataDownload owl:equivalentClass dcat:Distribution .
+
+sdo:Duration rdfs:subclassOf dcterms:PeriodOfTime .
+
+sdo:Place owl:equivalentClass dcterms:Location .
 
 dcat:Dataset owl:equivalentClass sdo:Dataset .
 
@@ -28,6 +62,10 @@ skos:Concept rdfs:subClassOf sdo:Thing .
 skos:ConceptScheme rdfs:subClassOf sdo:Enumeration .
 
 sdo:DataDownload rdfs:subClassOf dcat:Distribution .
+
+#
+# Candidate or deprecated class mappings retained for review
+#
 
 # dcterms:LicenseDocument
 # locn:Address
@@ -67,6 +105,9 @@ dqv:QualityMeasurement owl:equivalentClass sdo:QuantitativeValue .
 # dcterms:Standard
 
 # From the IDN CP Specification
+#
+# Property alignment
+#
 
 dcterms:type owl:equivalentProperty sdo:additionalType .
 
@@ -97,7 +138,7 @@ dcterms:temporal owl:equivalentProperty sdo:temporalCoverage .
 # dcterms:provenance --> add to sdo:description
 
 #
-# IDN Additions
+# IDN additions
 #
 
 dcat:Catalog owl:equivalentClass sdo:DataCatalog . 
