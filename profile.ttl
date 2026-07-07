@@ -23,7 +23,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
     sdo:dateCreated "2022-07-18"^^xsd:date ;
     sdo:dateIssued "2022-07-31"^^xsd:date ;
-    sdo:dateModified "2026-07-03"^^xsd:date ;
+    sdo:dateModified "2026-07-08"^^xsd:date ;
     sdo:description "A profile of cataloguing, provenance and vocabulary standards designed for the representation of Indigenous data governance"@en ;
     sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
     sdo:name "IDN Catalogue Profile"@en ;
@@ -66,12 +66,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         prof:hasArtifact <https://data.idnau.org/pid/cp/sdo> ;
         prof:hasRole role:mapping ;
     ] ,
-    [
-        rdfs:label "schema.org RDF mapping" ;
-        rdfs:comment "RDF/OWL mappings between IDN CP elements and schema.org elements" ;
-        prof:hasArtifact <https://data.idnau.org/pid/cp/sdo.ttl> ;
-        prof:hasRole role:mapping ;
-    ] ,
+    <https://data.idnau.org/pid/cp/sdo-mapping> ,
     [
         rdfs:label "schema.org conversion script" ;
         rdfs:comment "A Python script that converts IDN CP RDF to schema.org RDF" ;
@@ -88,6 +83,17 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         <https://www.w3.org/TR/vocab-dcat/> ,
         <https://www.w3.org/TR/skos-reference/> ,
         <https://www.w3.org/TR/prov-o/> ;
+.
+
+<https://data.idnau.org/pid/cp/sdo-mapping>
+    a prof:ResourceDescriptor ;
+    rdfs:label "schema.org RDF mapping" ;
+    rdfs:comment "RDF/OWL mappings between IDN CP elements and schema.org elements" ;
+    sdo:name "schema.org RDF mapping"@en ;
+    sdo:description "The RDF/OWL mapping artifact for IDN Catalogue Profile and schema.org elements."@en ;
+    prof:hasArtifact <https://data.idnau.org/pid/cp/sdo.ttl> ;
+    prof:hasRole role:mapping ;
+    dcterms:format "text/turtle" ;
 .
 
 <https://orcid.org/0000-0002-8742-7730>
