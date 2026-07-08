@@ -44,6 +44,7 @@
         <li><a href="#policies">2.7 Policies</a></li>
         <li><a href="#language">2.8 Language</a></li>
         <li><a href="#provenance">2.9 Provenance</a></li>
+        <li><a href="#projects">2.10 Projects</a></li>
       </ul>
     </li>
     <li>
@@ -1315,12 +1316,68 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         schema.org property, so a PROV=O <em>qualified attribution</em> is used. Kristen Smith has two roles: Point of
         Contact and Principal Investigator.
       </p>
-      <h4>Projects</h4>
       <p>
-        Provenance can be used to indicate projects or other activities that generated resource. This would take the
-        form
-        of PROV-O's <code>prov:wasGeneratedBy</code> from the resource indicating a project. For this you would need a
-        persistent identifier for the project.
+        Provenance can also be used to indicate projects or other activities that generated or contextualise a
+        resource. See the <a href="#projects">Projects</a> pattern for guidance on describing projects and linking
+        catalogued resources to them.
+      </p>
+    </section>
+    <section id="projects">
+      <h3>2.10 Projects <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+      <p>
+        Projects are planned activities or bodies of work that may generate, fund, collect, curate or otherwise provide
+        important context for catalogued resources. This profile represents projects with
+        <code>schema:Project</code>, or the more specific <code>schema:ResearchProject</code> where the project is a
+        research activity.
+      </p>
+      <p>
+        A catalogued resource <em>MAY</em> link to a project that generated or materially contextualises it using
+        PROV-O's <code>prov:wasGeneratedBy</code> property. Project records <em>SHOULD</em> have a persistent
+        identifier so the project can be cited consistently by resources in one or more catalogues.
+      </p>
+      <p>
+        Project participants, leads, funders and other parties <em>SHOULD</em> be described as Agent attributions on
+        the project with <code>prov:qualifiedAttribution</code>, using project-specific role values where available.
+        Agent attributions on the project do not replace the Agent attributions required on each catalogued resource.
+      </p>
+      <p class="note">
+        In schema.org, <code>schema:Project</code> is a subclass of <code>schema:Organization</code>. This profile uses
+        project descriptions here as provenance context for catalogued resources. This section does not extend the
+        Agent-to-Agent membership, delegation or attribution-transitivity rules to projects.
+      </p>
+      <p class="eg">
+        <span>Example: A ResearchProject linked to a generated catalogued resource</span>
+&lt;https://data.idnau.org/pid/resource/debd1b90-aeb4-403e-82fc-7db7c474b2fd&gt;
+  a schema:CreativeWork ;
+  schema:name "Yirrkala LPC Dataset" ;
+  prov:wasGeneratedBy &lt;https://data.idnau.org/pid/0650b0a3-bef8-414a-a3a1-4b8cf773bcbf&gt; ;
+  prov:qualifiedAttribution [
+    a prov:Attribution ;
+    schema:agent &lt;https://linked.data.gov.au/org/uom&gt; ;
+    schema:roleName &lt;https://def.isotc211.org/common/RoleCode/custodian&gt; ;
+  ] ;
+.
+
+&lt;https://data.idnau.org/pid/0650b0a3-bef8-414a-a3a1-4b8cf773bcbf&gt;
+  a schema:ResearchProject ;
+  schema:name "Supporting Indigenous Knowledge, Research and Data Governance and Cultural Preservation in Northeast Arnhem Land" ;
+  schema:description "This project responds to concerns raised by Yalmay Yunupingu and other staff within the Yirrkala School Language Production Centre related to the unauthorised use of their materials and knowledge and other related Intellectual Property issues." ;
+  schema:startDate "2023"^^xsd:gYear ;
+  schema:endDate "2024"^^xsd:gYear ;
+  schema:url "https://www.unimelb.edu.au/indigenous/research/atlantic-philanthropies-incentive-grant-program"^^xsd:anyURI ;
+  prov:qualifiedAttribution [
+    a prov:Attribution ;
+    schema:roleName &lt;https://linked.data.gov.au/def/data-roles/projectLead&gt; ;
+    schema:agent &lt;https://orcid.org/0000-0002-0346-2820&gt; ;
+    schema:name "Kristen Smith" ;
+  ] ,
+  [
+    a prov:Attribution ;
+    schema:roleName &lt;https://linked.data.gov.au/def/data-roles/projectParticipant&gt; ;
+    schema:agent &lt;https://data.idnau.org/pid/person/742a7776-b08b-4917-8378-5d59da79ad04&gt; ;
+    schema:name "Yalmay Yunupingu" ;
+  ] ;
+.
       </p>
     </section>
   </section>
@@ -1355,6 +1412,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         <li><a href="#cls-Attribution">Attribution</a></li>
         <li><a href="#cls-Person">Person</a></li>
         <li><a href="#cls-Organization">Organization</a></li>
+        <li><a href="#cls-Project">Project</a></li>
         <li><a href="#cls-Score">Score</a></li>
         <li><a href="#cls-DataDownload">DataDownload</a></li>
       </ul>
@@ -1406,6 +1464,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
                     <li><a href="#pred-publisher">publisher</a></li>
                     <li><a href="#pred-rightsHolder">rightsHolder</a></li>
                     <li><a href="#pred-qualifiedAttribution">qualified attribution</a></li>
+                    <li><a href="#pred-wasGeneratedBy">was generated by</a></li>
                   </ul>
                 </div>
                 <div style="grid-column: 3;">
@@ -1680,8 +1739,52 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
         </table>
       </section>
+      <section id="cls-Project">
+        <h4>3.1.7 Project</h4>
+        <table class="cls">
+          <tr>
+            <th>IRI</th>
+            <td><code>schema:Project</code>, <code>schema:ResearchProject</code></td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td>Project</td>
+          </tr>
+          <tr>
+            <th>Description</th>
+            <td>A planned activity or body of work that may generate, fund, collect, curate or otherwise provide
+              important context for catalogued resources.</td>
+          </tr>
+          <tr>
+            <th>Scope Note</th>
+            <td>Use <code>schema:ResearchProject</code> for research projects. Link catalogued resources to projects
+              with <code>prov:wasGeneratedBy</code>. Describe project participants and project roles using
+              <code>prov:qualifiedAttribution</code> on the project.</td>
+          </tr>
+          <tr>
+            <th>Equivalent Classes</th>
+            <td><code>prov:Activity</code></td>
+          </tr>
+          <tr>
+            <th>Expected Properties</th>
+            <td>
+              <ul>
+                <li><a href="#pred-name">name</a></li>
+                <li><a href="#pred-description">description</a></li>
+                <li><code>schema:startDate</code></li>
+                <li><code>schema:endDate</code></li>
+                <li><a href="#pred-qualifiedAttribution">qualified attribution</a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <td>See the <a href="#projects">Projects</a> pattern.</td>
+          </tr>
+        </table>
+      </section>
       <section id="cls-Score">
-        <h4>3.1.7 Score</h4>
+        <h4>3.1.8 Score</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -1720,7 +1823,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         </table>
       </section>
       <section id="cls-DataDownload">
-        <h4>3.1.8 DataDownload</h4>
+        <h4>3.1.9 DataDownload</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -1775,6 +1878,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
             <li><a href="#pred-qualifiedAttribution">qualified attribution</a></li>
           </ul>
         </li>
+        <li><a href="#pred-wasGeneratedBy">was generated by</a></li>
         <li>
           dates:
           <ul>
@@ -2010,8 +2114,39 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
         </table>
       </section>
+      <section id="pred-wasGeneratedBy">
+        <h4>3.2.11 was generated by</h4>
+        <table class="cls">
+          <tr>
+            <th>IRI</th>
+            <td><code>prov:wasGeneratedBy</code></td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td>was generated by</td>
+          </tr>
+          <tr>
+            <th>Description</th>
+            <td>Indicates an activity, such as a project, that generated a catalogued resource.</td>
+          </tr>
+          <tr>
+            <th>Scope Note</th>
+            <td>Use this property to link a catalogued resource to a <code>schema:Project</code> or
+              <code>schema:ResearchProject</code>. Do not use it to indicate Agent roles; use
+              <code>prov:qualifiedAttribution</code> for Agent roles.</td>
+          </tr>
+          <tr>
+            <th>Expected to be used on</th>
+            <td><a href="#cls-CreativeWork">Creative Work</a></td>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <td>See the <a href="#projects">Projects</a> pattern.</td>
+          </tr>
+        </table>
+      </section>
       <section id="pred-dateCreated">
-        <h4>3.2.11 date created</h4>
+        <h4>3.2.12 date created</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2042,7 +2177,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         </table>
       </section>
       <section id="pred-dateModified">
-        <h4>3.2.11 date modified</h4>
+        <h4>3.2.13 date modified</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2073,7 +2208,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         </table>
       </section>
       <section id="pred-datePublished">
-        <h4>3.2.11 date published</h4>
+        <h4>3.2.14 date published</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2104,7 +2239,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         </table>
       </section>
       <section id="pred-dateIssued">
-        <h4>3.2.11 date issued</h4>
+        <h4>3.2.15 date issued</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2135,7 +2270,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         </table>
       </section>
       <section id="pred-keywords">
-        <h4>3.2.11 keywords</h4>
+        <h4>3.2.16 keywords</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2166,7 +2301,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         </table>
       </section>
       <section id="pred-spatialCoverage">
-        <h4>3.2.3 spatial coverage</h4>
+        <h4>3.2.17 spatial coverage</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2197,7 +2332,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         </table>
       </section>
       <section id="pred-temporalCoverage">
-        <h4>3.2.4 temporal coverage</h4>
+        <h4>3.2.18 temporal coverage</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2228,7 +2363,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         </table>
       </section>
       <section id="pred-inLanguage">
-        <h4>3.2.5 in language</h4>
+        <h4>3.2.19 in language</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2259,7 +2394,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         </table>
       </section>
       <section id="pred-hasPolicy">
-        <h4>3.2.12 has policy</h4>
+        <h4>3.2.20 has policy</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2290,7 +2425,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         </table>
       </section>
       <section id="pred-license">
-        <h4>3.2.13 license</h4>
+        <h4>3.2.21 license</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2321,7 +2456,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         </table>
       </section>
       <section id="pred-hasScore">
-        <h4>3.2.14 hasScore</h4>
+        <h4>3.2.22 hasScore</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2352,7 +2487,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         </table>
       </section>
       <section id="pred-distribution">
-        <h4>3.2.15 distribution</h4>
+        <h4>3.2.23 distribution</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2714,7 +2849,7 @@ WHERE {
         and this section describes their required properties and relations. For example, all <code>Resource</code>
         instances must be related to at least one <code>Catalog</code> instance.</p>
       <section id="catalogue">
-        <h4>2.1.2 <code>Catalogue</code></h4>
+        <h4>5.2.1 <code>Catalogue</code></h4>
         <p class="req"><strong>Req C1:</strong> Being a <code>Resource</code>, each <code>Catalog</code> instance MUST
           also adhere to the <code>Resource</code> Requirements R1, R2, R3 &amp; R4.</p>
         <p class="req"><strong>Req C2:</strong> Each <code>Catalog</code> instance MUST contain at least one <code>Resource</code>
@@ -2748,7 +2883,7 @@ WHERE {
         </p>
       </section>
       <section id="catalogued-resource">
-        <h4>2.1.3 <code>Catalogued Resource</code></h4>
+        <h4>5.2.2 <code>Catalogued Resource</code></h4>
         <p class="note">The schema.org class <a href="https://schema.org/CreativeWork"><code>CreativeWork</code></a> is used to represent generic, catalogued resources.</p>
         <p class="req"><strong>Req R1:</strong> Each <code>Resource</code> instance SHOULD indicate a persistent
           identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the <code>Dataset</code>
@@ -2811,14 +2946,48 @@ WHERE {
         </p>
       </section>
       <section id="dataset">
-        <h4>2.1.3 <code>Dataset</code></h4>
+        <h4>5.2.3 <code>Dataset</code></h4>
         <p>There are no structural requirements specifically for <code>CreativeWork</code> instances: the requirements for
           <code>Resource</code> also apply to <code>Dataset</code>.</p>
         <p>Note that there are <em>values</em> requirements for <code>Dataset</code> instnaces, as per the next section.
         </p>
       </section>
+      <section id="project">
+        <h4>5.2.4 <code>Project</code></h4>
+        <p class="note">The schema.org classes <a href="https://schema.org/Project"><code>Project</code></a> and
+          <a href="https://schema.org/ResearchProject"><code>ResearchProject</code></a> are used to represent projects
+          that generate or materially contextualise catalogued resources.</p>
+        <p class="req"><strong>Req P1:</strong> Each <code>Project</code> instance SHOULD indicate a persistent
+          identifier to be used as its IRI where possible.</p>
+        <p class="req"><strong>Req P2:</strong> Each <code>Project</code> instance MUST provide at least
+          <code>schema:name</code> and <code>schema:description</code>.</p>
+        <p class="req"><strong>Req P3:</strong> Each <code>Project</code> instance SHOULD indicate project Agents using
+          <code>prov:qualifiedAttribution</code> with role values appropriate to project participation, leadership,
+          funding or administration.</p>
+        <p class="req"><strong>Req P4:</strong> A <code>Resource</code> instance MAY indicate that it was generated by
+          a <code>Project</code> using <code>prov:wasGeneratedBy</code>.</p>
+        <p class="eg">
+          <span>Example: A Resource generated by a ResearchProject</span>
+&lt;http://example.com/resource/x&gt;
+  a schema:CreativeWork ;
+  schema:name "Resource X" ;
+  prov:wasGeneratedBy &lt;http://example.com/project/y&gt; ;
+.
+
+&lt;http://example.com/project/y&gt;
+  a schema:ResearchProject ;
+  schema:name "Project Y" ;
+  schema:description "An example research project"@en ;
+  prov:qualifiedAttribution [
+    a prov:Attribution ;
+    schema:agent &lt;https://orcid.org/0000-0002-0346-2820&gt; ;
+    schema:roleName &lt;https://linked.data.gov.au/def/data-roles/projectLead&gt; ;
+  ] ;
+.
+        </p>
+      </section>
       <section id="attribution">
-        <h4>2.1.1 <code>Attribution</code></h4>
+        <h4>5.2.5 <code>Attribution</code></h4>
         <p class="req"><strong>Req A1:</strong> Each <code>Attribution</code> instance MUST indicate an
           <code>Agent</code> instance with the property <code>schema:agent</code> and a role for that <code>Agent</code>,
           as a <code>skos:Concept</code>, in relation to the attributing entity, with the <code>roleName</code> property.
@@ -2839,7 +3008,7 @@ WHERE {
         </p>
       </section>
       <section id="agent">
-        <h3>2.1.5 <code>Agent</code></h3>
+        <h4>5.2.6 <code>Agent</code></h4>
         <p><em>Agents are the Organisations &amp; People that have Roles in relation to Catalogues and Resources.</em>
         </p>
         <p class="req"><strong>Req AG1:</strong> Each <code>Agent</code> instance MUST be either an <code>schema:Organization</code>
@@ -2893,7 +3062,7 @@ WHERE {
         </p>
       </section>
       <section id="concept">
-        <h4>2.1.5 <code>Concept</code></h4>
+        <h4>5.2.7 <code>Concept</code></h4>
         <p>This profile is a profile of <a href="https://linked.data.gov.au/def/vocpub">Vocabulary Publications Profile,
           VocPub</a>, among other specifications. VocPub sets requirements for <code>Concept</code> and <code>ConceptScheme</code>
           instances.</p>
@@ -2917,7 +3086,7 @@ WHERE {
         </p>
       </section>
       <section id="conceptscheme">
-        <h4>2.1.6 <code>ConceptScheme</code></h4>
+        <h4>5.2.8 <code>ConceptScheme</code></h4>
         <p>This profile is a profile of <a href="https://linked.data.gov.au/def/vocpub">Vocabulary Publications Profile,
           VocPub</a>, among other specifications. VocPub sets requirements for <code>Concept</code> and <code>ConceptScheme</code>
           instances.</p>
