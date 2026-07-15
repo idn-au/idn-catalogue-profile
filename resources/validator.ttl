@@ -126,7 +126,7 @@ ont:
     schema:description "IDN shape for Person" ;
     sh:property
         :agent-description ,
-        :agent-identifier ,
+        :person-identifier ,
         :agent-name ,
         :person-email ;
     sh:targetClass schema:Person ;
@@ -340,7 +340,7 @@ ont:
     rdfs:isDefinedBy ont: ;
     schema:name "Agent identifier" ;
     sh:message "Req AG3: Each Agent instance SHOULD be described with a schema:description property and, if the Agent has them, identifiers for it should be indicated with schema:identifier with either xsd:anyURI, xsd:token or a datatype from the Library of Congress Standard Identifiers vocabulary." ;
-    sh:or  (
+    sh:or (
 
         [
             sh:datatype xsd:token ;
@@ -349,7 +349,6 @@ ont:
         [
             sh:datatype xsd:anyURI ;
         ]
-    ) , (
 
         [
             sh:datatype xsd:string ;
@@ -357,10 +356,6 @@ ont:
 
         [
             sh:datatype rdf:langString ;
-        ]
-
-        [
-            sh:datatype id:orcid ;
         ]
 
         [
@@ -377,6 +372,40 @@ ont:
 
         [
             sh:datatype id:ausrn ;
+        ]
+
+        [
+            sh:datatype id:viaf ;
+        ]
+    ) ;
+    sh:path schema:identifier ;
+.
+
+:person-identifier
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy ont: ;
+    schema:name "Person identifier" ;
+    sh:message "Req AG3: Each Person instance SHOULD be described with a schema:description property and, if the Person has them, identifiers for it should be indicated with schema:identifier with either xsd:anyURI, xsd:token or a datatype from the Library of Congress Standard Identifiers vocabulary, including id:orcid." ;
+    sh:or (
+
+        [
+            sh:datatype xsd:token ;
+        ]
+
+        [
+            sh:datatype xsd:anyURI ;
+        ]
+
+        [
+            sh:datatype xsd:string ;
+        ]
+
+        [
+            sh:datatype rdf:langString ;
+        ]
+
+        [
+            sh:datatype id:orcid ;
         ]
 
         [
