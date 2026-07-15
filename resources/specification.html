@@ -2849,10 +2849,12 @@ WHERE {
           property with a <code>xsd:anyURI</code> value or, if a <code>schema:Person</code>, an
           <code>schema:email</code> property with a <code>xsd:anyURI</code> value.</p>
         <p class="req"><strong>Req AG3:</strong> Each <code>Agent</code> instance SHOULD be described with a <code>schema:description</code>
-          property and, if the <code>Agent</code> has them, identifiers for it should be indicated with <code>schema:identifier</code>
-          with either <code>xsd:anyURI</code>, <code>xsd:token</code> or a datatype from the <a
+          property and, if the <code>Agent</code> has them, identifiers for it should be indicated with <code>schema:identifier</code>.
+          Identifier values may use <code>xsd:anyURI</code> or <code>xsd:token</code>. A <code>schema:Person</code> identifier
+          may instead use the <code>id:orcid</code> or <code>id:viaf</code> datatype, while a
+          <code>schema:Organization</code> identifier may instead use an applicable datatype from the <a
                   href="http://id.loc.gov/vocabulary/identifiers" target="_blank" rel="noopener noreferrer">Library of
-            Congress Standard Identifiers</a> vocabulary.</p>
+            Congress Standard Identifiers</a> vocabulary, as constrained by this Profile's validator.</p>
         <p class="req"><strong>Req AG4:</strong> Each <code>Agent</code> MAY relate other information using <em>schema.org</em>
           properties, for example <code>schema:alumniOf</code> to link a <code>schema:Person</code> to an <code>schema:Organization</code>.
         </p>
