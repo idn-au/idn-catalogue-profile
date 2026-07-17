@@ -1,0 +1,219 @@
+<script setup lang="ts">
+
+</script>
+
+<template>
+	<NuxtLayout>
+		<template #title>IDN Catalogue Profile</template>
+		<template #description>
+			This document lists all the various parts of the IDN Catalogue Profile.
+		</template>
+		<section id="metadata">
+			<h2>Metadata <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+			<dl>
+				<dt>URI</dt>
+				<dd><code>https://data.idnau.org/pid/cp</code> <a href="https://data.idnau.org/pid/cp"
+				                                                  style="font-size:1.5em">&#x2197;</a>
+				</dd>
+				<dt><a href="https://www.w3.org/TR/dx-prof/#Property:isProfileOf">Is a profile of</a></dt>
+				<dd><a href="https://www.w3.org/TR/vocab-dcat/">DCAT</a><br/></dd>
+				<dt><a class="proplink" title="sdo:publisher" href="https://schema.org/publisher">Publisher</a>(s)</dt>
+				<dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a><br/></dd>
+				<dt><a class="proplink" title="sdo:creator" href="https://schema.org/creator">Creator</a>(s)</dt>
+				<dd><a href="">Nicholas J. Car</a><br/></dd>
+				<dt>Dates</dt>
+				<dd>
+					<table>
+						<tr>
+							<td><a class="proplink" title="sdo:created" href="https://schema.org/created">Created</a>
+							</td>
+							<td>2022-03-18</td>
+						</tr>
+						<tr>
+							<td><a class="proplink" title="sdo:dateIssued"
+							       href="https://schema.org/dateIssued">Issued</a></td>
+							<td>2022-07-19</td>
+						</tr>
+						<tr>
+							<td><a class="proplink" title="sdo:dateModified" href="https://schema.org/dateModified">Modified</a>
+							</td>
+							<td>2026-07-08</td>
+						</tr>
+					</table>
+				</dd>
+				<dt><a class="proplink" title="owl#versionIRI"
+				       href="http://www.w3.org/2002/07/owl#versionIRI">Version</a></dt>
+				<dd><a href="https://data.idnau.org/pid/cp/0.0.2">0.0.2</a></dd>
+				<dt><a class="proplink" title="sdo:license" href="https://schema.org/license">License</a></dt>
+				<dd><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a>
+				</dd>
+				<dt><a class="proplink" title="sdo:copyrightHolderame" href="https://schema.org/copyrightHolder">Copyright</a>
+				</dt>
+				<dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a>, 2022 - 2024</dd>
+				<dt>Source</dt>
+				<dd>
+					<table>
+						<tr>
+							<td><a class="proplink" title="sdo:codeRespository"
+							       href="https://schema.org/codeRespository">Code Repository</a></td>
+							<td><a href="https://github.com/idn-au/idn-catalogue-profile/">https://github.com/idn-au/idn-catalogue-profile/</a>
+							</td>
+						</tr>
+						<tr>
+							<td>RDF data</td>
+							<td><a href="https://data.idnau.org/pid/cp.ttl">RDF (turtle)</a></td>
+						</tr>
+					</table>
+				</dd>
+			</dl>
+		</section>
+		<section id="resource-descriptors">
+			<h2>Resource Descriptors <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+			<table class="properties">
+				<tr>
+					<th><a class="proplink" title="sdo:name" href="https://schema.org/name">Name</a></th>
+					<th><a class="proplink" title="sdo:description"
+					       href="https://schema.org/description">Description</a></th>
+					<th><a class="proplink" title="prof:hasArtifact"
+					       href="https://www.w3.org/TR/dx-prof/#Property:hasArtifact">Location</a></th>
+					<th><a class="proplink" title="prof:hasRole" href="https://www.w3.org/TR/dx-prof/#Property:hasRole">Role(s)</a>
+					</th>
+					<th><a class="proplink" title="dcterms:conformsTo" href="http://purl.org/dc/terms/conformsTo">Conforms
+						to</a></th>
+					<th><a class="proplink" title="dcterms:format" href="http://purl.org/dc/terms/format">Format</a>
+					</th>
+				</tr>
+				<tr>
+					<td id="https://data.idnau.org/pid/cp/guide">Guidance Document</td>
+					<td>A how-to-guide for creating metadata according to this Profile</td>
+					<td><a href="https://data.idnau.org/pid/cp/guide">https://data.idnau.org/pid/cp/guide</a></td>
+					<td><a href="http://www.w3.org/ns/dx/prof/role/guidance">guidance</a></td>
+					<td><a href="https://www.w3.org/TR/html52/">HTML 5</a></td>
+					<td>text/html</td>
+				</tr>
+				<tr>
+					<td id="https://data.idnau.org/pid/cp/spec">Specification Document</td>
+					<td>The normative, human-readable, listing of profile requirements</td>
+					<td><a href="https://data.idnau.org/pid/cp/spec">https://data.idnau.org/pid/cp/spec</a></td>
+					<td><a href="http://www.w3.org/ns/dx/prof/role/specification">specification</a></td>
+					<td><a href="https://www.w3.org/TR/html52/">HTML 5</a></td>
+					<td>text/html</td>
+				</tr>
+				<tr>
+					<td id="https://data.idnau.org/pid/cp/validator">Validator in SHACL</td>
+					<td>A SHACL Shapes file to be used to test the conformance of RDF data to this profile</td>
+					<td><a href="https://data.idnau.org/pid/cp/validator">https://data.idnau.org/pid/cp/validator</a>
+					</td>
+					<td><a href="http://www.w3.org/ns/dx/prof/role/validation">validation</a></td>
+					<td><a href="https://www.w3.org/TR/shacl/">Shapes Constraint Language (SHACL)</a></td>
+					<td>text/turtle</td>
+				</tr>
+				<tr>
+					<td id="https://data.idnau.org/pid/cp/validator-compounded">Compounded Validator in SHACL</td>
+					<td>A validator that contains the IDN Catalogue Profile validator and those of Standards that the
+						IDN Catalogue Profile profiles, particularly DCAT (the DCAT Null Profile)
+					</td>
+					<td><a href="https://data.idnau.org/pid/cp/validator-compounded">https://data.idnau.org/pid/cp/validator-compounded</a>
+					</td>
+					<td><a href="http://www.w3.org/ns/dx/prof/role/validation">validation</a></td>
+					<td><a href="https://www.w3.org/TR/shacl/">Shapes Constraint Language (SHACL)</a></td>
+					<td>text/turtle</td>
+				</tr>
+				<tr>
+					<td id="https://data.idnau.org/pid/cp/repo">Profile Repository</td>
+					<td>Code repository storing all Profile artifacts</td>
+					<td><a href="https://data.idnau.org/pid/cp/repo">https://data.idnau.org/pid/cp/repo</a></td>
+					<td><a href="http://www.w3.org/ns/dx/prof/role/repository">repository</a></td>
+					<td>Git version control</td>
+					<td>Git</td>
+				</tr>
+				<tr>
+					<td id="https://linked.data.gov.au/def/data-roles">IDN Role Codes Vocabulary</td>
+					<td>The Indigenous Data Network's vocabulary of the types of roles Agents - People and Organisations
+						- play in relation to data
+					</td>
+					<td><a
+						href="https://linked.data.gov.au/def/data-roles">https://linked.data.gov.au/def/data-roles</a>
+					</td>
+					<td><a href="http://www.w3.org/ns/dx/prof/role/vocabulary">vocabulary</a></td>
+					<td><a href="https://www.w3.org/TR/skos-reference/">SKOS Simple Knowledge Organization System</a>
+					</td>
+					<td>text/turtle, text/html</td>
+				</tr>
+				<tr>
+					<td id="https://data.idnau.org/pid/vocab/policy-roles">Policy Roles Vocabulary</td>
+					<td>The Indigenous Data Network's vocabulary of the roles policies play in relation to data
+						governance and data licensing
+					</td>
+					<td><a href="https://data.idnau.org/pid/vocab/policy-roles">https://data.idnau.org/pid/vocab/policy-roles</a>
+					</td>
+					<td><a href="http://www.w3.org/ns/dx/prof/role/vocabulary">vocabulary</a></td>
+					<td><a href="https://www.w3.org/TR/skos-reference/">SKOS Simple Knowledge Organization System</a>
+					</td>
+					<td>text/turtle, text/html</td>
+				</tr>
+				<!--
+				<tr>
+					<td id="https://data.idnau.org/pid/vocab/tk-labels">Traditional Knowledge Labels Vocabulary</td>
+					<td>Traditional Knowledge (TK) labels "support the inclusion of local protocols for access and use to cultural heritage that is digitally circulating outside community contexts". This vocabulary is a SKOS-based listing of those labels so they can be accessed in RDF graph-based systems.</td>
+					<td><a href="https://data.idnau.org/pid/vocab/tk-labels">https://data.idnau.org/pid/vocab/tk-labels</a></td>
+					<td><a href="http://www.w3.org/ns/dx/prof/role/vocabulary">vocabulary</a><br/></td>
+					<td><a href="https://www.w3.org/TR/skos-reference/">SKOS Simple Knowledge Organization System</a></td>
+					<td>text/turtle, text/html</td>
+				</tr>
+				-->
+				<tr>
+					<td id="https://data.idnau.org/pid/vocab/care">CARE Vocabulary</td>
+					<td>The CARE Principles for Indigenous Data Governance's elements as a SKOS vocabulary</td>
+					<td><a href="https://data.idnau.org/pid/vocab/care">https://data.idnau.org/pid/vocab/care</a></td>
+					<td><a href="http://www.w3.org/ns/dx/prof/role/vocabulary">vocabulary</a><br/></td>
+					<td><a href="https://www.w3.org/TR/skos-reference/">SKOS Simple Knowledge Organization System</a>
+					</td>
+					<td>text/turtle, text/html</td>
+				</tr>
+				<tr>
+					<td id="https://data.idnau.org/pid/cp/sdo">schema.org mapping description</td>
+					<td>
+						<p>Description of the mappings between IDN CP elements and schema.org elements.</p>
+						<p>This mapping is taken from the <a href="http://linked.data.gov.au/def/anzgeodcat/sdo">ANZGeoDCAT
+							&rarr; schema.org mapping</a></p>
+					</td>
+					<td><a href="https://data.idnau.org/pid/cp/sdo">https://data.idnau.org/pid/cp/sdo</a></td>
+					<td><a href="http://www.w3.org/ns/dx/prof/role/mapping">mapping</a></td>
+					<td><a href="https://www.w3.org/TR/html52/">HTML 5</a></td>
+					<td>text/html</td>
+				</tr>
+				<tr>
+					<td id="https://data.idnau.org/pid/cp/sdo.ttl">schema.org RDF mapping</td>
+					<td>An OWL/RDFS mapping of IDN CP elements to schema.org</td>
+					<td><a href="https://data.idnau.org/pid/cp/sdo.ttl">https://data.idnau.org/pid/cp/sdo.ttl</a></td>
+					<td><a href="http://www.w3.org/ns/dx/prof/role/mapping">mapping</a><br/></td>
+					<td><a href="https://www.w3.org/TR/owl2-overview/">RDFS/OWL</a></td>
+					<td>text/turtle</td>
+				</tr>
+				<tr>
+					<td id="https://data.idnau.org/pid/cp/sdo.py">schema.org conversion script</td>
+					<td>A Python script that converts IDN CP RDF to schema.org RDF</td>
+					<td><a href="https://data.idnau.org/pid/cp/sdo.py">https://data.idnau.org/pid/cp/sdo.py</a></td>
+					<td><a href="http://www.w3.org/ns/dx/prof/role/mapping">mapping</a><br/></td>
+					<td>Python</td>
+					<td>Python (text)</td>
+				</tr>
+				<tr>
+					<td id="https://data.idnau.org/pid/cp/rif-cs">RIF-CS mapping description</td>
+					<td>Description of the mappings between IDN CP elements and <a
+						href="https://archive-intranet.ardc.edu.au/display/DOC/About+RIF-CS">RIF-CS</a> elements.
+					</td>
+					<td><a href="https://data.idnau.org/pid/cp/rif-cs">https://data.idnau.org/pid/cp/rif-cs</a></td>
+					<td><a href="http://www.w3.org/ns/dx/prof/role/mapping">mapping</a></td>
+					<td><a href="https://www.w3.org/TR/html52/">HTML 5</a></td>
+					<td>text/html</td>
+				</tr>
+			</table>
+		</section>
+	</NuxtLayout>
+</template>
+
+<style scoped>
+
+</style>

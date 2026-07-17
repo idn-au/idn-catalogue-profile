@@ -1,0 +1,79 @@
+name: Deploys Prez UI 4 theme to Swift
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Generate static files
+        env:
+          NUXT_PUBLIC_PREZ_API_ENDPOINT: ${{ secrets.PREZ_API_ENDPOINT }}
+          NUXT_PUBLIC_PREZ_AUTO_DETECT_HTML: true
+          NUXT_PUBLIC_PREZ_AUTO_DETECT_MARKDOWN: true
+          NODE_OPTIONS: "--max_old_space_size=4096"
+        run: pnpm generate
+      - name: Copy error files for Swift static hosting
+        working-directory: .output/public
+        run: cp index.html 404error.html && cp index.html 401error.html
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: .output/public
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      OS_AUTH_URL: https://keystone.rc.nectar.org.au:5000/v3/
+      OS_PROJECT_ID: 0a23562e67e04297b1dc3ce25a30858d
+      OS_PROJECT_NAME: "unimelb-idc"
+      OS_USER_DOMAIN_NAME: "Default"
+      OS_PROJECT_DOMAIN_ID: "default"
+      OS_USERNAME: "jamie.feiss@unimelb.edu.au"
+      OS_PASSWORD: ${{ secrets.OS_PASSWORD }}
+      OS_REGION_NAME: "Melbourne"
+      OS_INTERFACE: public
+      OS_IDENTITY_API_VERSION: 3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install OpenStack Swift CLI
+        run: pip install python-swiftclient python-keystoneclient
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: .output/public
+      - name: Clear Swift container
+        run: |
+          objectList=$(swift list prez_ui)
+          if [ ! -z "$objectList" ]
+          then
+          swift delete prez_ui $objectList
+          fi
+      - name: Upload to Swift container
+        working-directory: .output/public
+        run: swift upload prez_ui ./*
