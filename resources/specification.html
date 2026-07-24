@@ -2750,10 +2750,9 @@ WHERE {
       <section id="catalogued-resource">
         <h4>2.1.3 <code>Catalogued Resource</code></h4>
         <p class="note">The schema.org class <a href="https://schema.org/CreativeWork"><code>CreativeWork</code></a> is used to represent generic, catalogued resources.</p>
-        <p class="req"><strong>Req R1:</strong> Each <code>Resource</code> instance SHOULD indicate a persistent
-          identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the <code>Dataset</code>
-          instance's IRI, if it is an HTTP/HTTPS IRI, or else it SHOULD be quoted as a literal value, indicated with the
-          property <code>schema:identifier</code> of datatype <code>xsd:token</code>.</p>
+        <p class="req"><strong>Req R1:</strong> Each <code>Resource</code> instance MUST be identified by an HTTP or
+          HTTPS Persistent Identifier (PID). The PID MUST be used as the <code>Resource</code> instance's IRI and SHOULD
+          provide access to its point-of-truth metadata.</p>
         <p class="req"><strong>Req R2:</strong> Each <code>Resource</code> instance MUST provide basic
           <code>Resource</code> metadata so that exactly one of each of the following properties is required with range
           value as per <code>Resource</code> requirements: <code>title</code>, <code>description</code>,
@@ -2771,12 +2770,17 @@ WHERE {
         <p class="req"><strong>Req R6:</strong> Each <code>Resource</code> instance MAY indicate that it is a specific
           type of resource by use of the <code>schema:additionalType</code> property. Catalogued <code>Dataset</code>
           instances
-          are equivalent to catalogued <code>Resource</code> instances of <code>schema:additionalType</code> <code>Dataset</code>.
+          are equivalent to catalogued <code>Resource</code> instances of <code>schema:additionalType</code>
+          <code>Dataset</code>.</p>
+        <p class="req"><strong>Req R7:</strong> A <code>Resource</code> instance SHOULD indicate any applicable
+          secondary or source-system identifiers using the property <code>schema:identifier</code>. Each identifier
+          value MUST be a typed literal. A datatype associated with the identifier system SHOULD be used where one is
+          available; otherwise, <code>xsd:token</code> MAY be used.</p>
         <p class="eg">
           <span>Example: A Resource instance with minimum required metadata</span>
 &lt;http://example.com/resource/x&gt;
   a schema:CreativeWork ;
-  dcterm:identifier "CAT::2-3-4::X"^^xsd:token ; # Dummy catalogue number
+  schema:identifier "CAT::2-3-4::X"^^xsd:token ; # Dummy catalogue number
 
   schema:name "Resource X" ;
   schema:description "An example Resource"@en ;
