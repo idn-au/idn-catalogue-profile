@@ -43,7 +43,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     [
         rdfs:label "Compounded Validator" ;
         rdfs:comment "A validator that contains the IDN Catalogue Profile validator and those of Standards that the IDN Catalogue Profile profiles, particularly DCAT (the DCAT Null Profile)"@en ;
-        prof:hasArtifact <https://data.idnau.org/pid/cp/compounded-validator> ;
+        prof:hasArtifact <https://data.idnau.org/pid/cp/validator-compounded> ;
         dcterms:format "text/turtle" ;
         prof:hasRole role:validation ;
     ],     
