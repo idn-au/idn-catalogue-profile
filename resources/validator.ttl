@@ -190,7 +190,7 @@ ont:
     rdfs:isDefinedBy ont: ;
     schema:name "Person email" ;
     sh:datatype xsd:anyURI ;
-    sh:message "Req AG2: Each Agent instance MUST be described with at least the schema:name property and, if an schema:Organization, also an schema:url property with a xsd:anyURI value or, if a schema:Person, an schema:email property with a xsd:anyURI value." ;
+    sh:message "Req AG2: Each Agent instance MUST be described with at least the schema:name property and, if a schema:Organization, also a schema:url property with a xsd:anyURI value. An Agent that is a schema:Person SHOULD be described with a schema:email property with a xsd:anyURI value." ;
     sh:path schema:email ;
 .
 
@@ -199,7 +199,7 @@ ont:
     rdfs:isDefinedBy ont: ;
     schema:name "Agent URL" ;
     sh:datatype xsd:anyURI ;
-    sh:message "Req AG2: Each Agent instance MUST be described with at least the schema:name property and, if an schema:Organization, also an schema:url property with a xsd:anyURI value or, if a schema:Person, an schema:email property with a xsd:anyURI value." ;
+    sh:message "Req AG2: Each Agent instance MUST be described with at least the schema:name property and, if a schema:Organization, also a schema:url property with a xsd:anyURI value. An Agent that is a schema:Person SHOULD be described with a schema:email property with a xsd:anyURI value." ;
     sh:path schema:url ;
 .
 
@@ -258,7 +258,7 @@ ont:
     schema:name "Organization URL" ;
     sh:datatype xsd:anyURI ;
     sh:maxCount 1 ;
-    sh:message "Req AG2: (organization-email) Each Agent instance MUST be described with at least the schema:name property and, if an schema:Organization, also an schema:url property with a xsd:anyURI value or, if a schema:Person, an schema:email property with a xsd:anyURI value." ;
+    sh:message "Req AG2: (organization-url) Each Agent instance MUST be described with at least the schema:name property and, if a schema:Organization, also a schema:url property with a xsd:anyURI value. An Agent that is a schema:Person SHOULD be described with a schema:email property with a xsd:anyURI value." ;
     sh:minCount 1 ;
     sh:path schema:url ;
 .
@@ -269,8 +269,7 @@ ont:
     schema:name "Person email" ;
     sh:datatype xsd:anyURI ;
     sh:maxCount 1 ;
-    sh:message "Req AG2: (person-email) Each Agent instance MUST be described with at least the schema:name property and, if an schema:Organization, also an schema:url property with a xsd:anyURI value or, if a schema:Person, an schema:email property with a xsd:anyURI value." ;
-    sh:minCount 1 ;
+    sh:message "Req AG2: (person-email) Each Agent instance MUST be described with at least the schema:name property and, if a schema:Organization, also a schema:url property with a xsd:anyURI value. An Agent that is a schema:Person SHOULD be described with a schema:email property with a xsd:anyURI value." ;
     sh:path schema:email ;
 .
 
@@ -391,7 +390,7 @@ ont:
     rdfs:isDefinedBy ont: ;
     schema:name "Agent name" ;
     sh:maxCount 1 ;
-    sh:message "Req AG2: Each Agent instance MUST be described with at least the schema:name property and, if an schema:Organization, also an schema:url property with a xsd:anyURI value or, if a schema:Person, an schema:email property with a xsd:anyURI value." ;
+    sh:message "Req AG2: Each Agent instance MUST be described with at least the schema:name property and, if a schema:Organization, also a schema:url property with a xsd:anyURI value. An Agent that is a schema:Person SHOULD be described with a schema:email property with a xsd:anyURI value." ;
     sh:minCount 1 ;
     sh:or (
 
