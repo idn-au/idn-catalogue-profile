@@ -319,8 +319,7 @@ PREFIX schema: &lt;https://schema.org/>
         <li><a href="https://data.idnau.org/catalogs/pid:kp-catalogue/collections/isu:d23405b4-fc04-47e2-9e7a-9c5735ae3780">Agreements,
           Treaties and Negotiated Settlements</a></li>
       </ul>
-      <p>This is an ordinary dataset record rather than a specialised geographic feature. It shows how familiar
-        information about a dataset can be expressed using the profile:</p>
+      <p>This example shows how familiar information about a dataset can be expressed using the profile:</p>
       <table class="properties">
         <tr>
           <th>Property</th>
@@ -439,10 +438,11 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
       </p>
     </section>
   </section>
-  <section id="create">
+  <section id="create" style="display:flow-root;">
     <a href="https://idn-au.github.io/idn-metadata-creator/">
-      <img src="images/metadataTool.png" style="float:right; width:500px; border:solid 1px #990000;"
-           alt="Metadata Entry Tool  Screenshot"/>
+      <img src="images/metadataTool.png"
+           style="float:right; width:min(400px, 42%); margin:32px 0 18px 24px; border:solid 1px #990000;"
+           alt="Current Metadata Entry Tool workflow showing FAIR and CARE scores and the eleven form steps"/>
     </a>
     <h2>Create metadata according to the profile</h2>
     <p>You will need to produce metadata in a specific format - <a
@@ -454,14 +454,14 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
       <li>Type out RDF data, manually</li>
       <li>Use Software</li>
     </ol>
-    <h4>2.1 Use the <a href="https://metadata.idnau.org">Metadata Entry Tool</a></h4>
+    <h4>Use the <a href="https://metadata.idnau.org">Metadata Entry Tool</a></h4>
     <p>This is our recommended starting point</p>
     <p>The Indigenous Data Network maintains an online, interactive, tool that you can use to create metadata according
       to the IDN Catalogue Profile.</p>
     <p>The tool contains examples you can load, video tutorials and displays the metadata it creates as you fill in form
       fields.</p>
     <p>It auto-calculates CARE and FAIR scores as you go too.</p>
-    <div style="float:right; width:480px; height:300px; clear:right; margin-top:10px; border:solid 1px #990000; padding:10px; overflow:hidden; font-size:smaller;">
+    <div style="float:right; width:420px; height:280px; clear:right; margin:12px 0 18px 26px; border:solid 1px #990000; padding:10px; overflow:hidden; font-size:smaller;">
                     <pre>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
 PREFIX schema: &lt;https://schema.org/>
@@ -501,7 +501,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 
                     </pre>
     </div>
-    <h4>2.2 Type out RDF data, manually</h4>
+    <h4>Type out RDF data, manually</h4>
     <p>The metadata format for the IDN's Catalogue Profile is <a
             href="https://en.wikipedia.org/wiki/Resource_Description_Framework">RDF</a>, which can be created in a plain
       text file.</p>
@@ -514,15 +514,15 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
     <p>Since the IDN CP is a profile of <a href="https://www.w3.org/TR/vocab-dcat/">DCAT, the Data Catalog
       Vocabulary</a>, and reuses many DCAT elements, you can use DCAT's documentation that contains lots of RDF examples
       too.</p>
-    <h4>2.3 Use Software</h4>
+    <h4>Use Software</h4>
     <p>Lots of catalogue tools are able to export metadata in formats that are compatible with this profile. For
       example, the open source <a href="https://ckan.org/">CKAN</a> tool can <a
               href="https://github.com/ckan/ckanext-dcat">implement its own profiles of DCAT</a> which are compatible
       with this profile! Another example: the <a href="https://emu.axiell.com/">EMu collections management software</a>
       can export Dublin Core metadata in an XML format that is also interpretable as RDF.</p>
   </section>
-  <section id="validate">
-    <img src="images/tick-cross.png" style="float:right; width:300px" alt="Tick Cross"/>
+  <section id="validate" style="display:flow-root;">
+    <img src="images/tick-cross.png" style="float:right; width:220px; margin:0 0 12px 24px;" alt="Tick Cross"/>
     <h2>Validate my metadata</h2>
     <p>To validate data against this profile, there is a <em>Validation file</em> and a <em>Validation tool</em>
       preloaded with the validation file. See the <a href="specification.html#validation">Specification Document</a>
@@ -534,20 +534,20 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
     <h3>Validation tool</h3>
     <p>A <a href="https://tools.kurrawong.ai/validate">Validation tool</a> that uses the Validation data file is
       also available. (Select the "IDN CP Validator" option from the <em>Use Validators</em> selector.)</p>
-    <img src="images/shacl_validator_tool.png" style="float:right; width:500px; border:solid 1px #990000;"
-         alt="Validator Tool  Screenshot"/>
-    <ul>
-    </ul>
+    <img src="images/shacl_validator_tool.png"
+         style="float:right; width:min(420px, 48%); margin:0 0 18px 24px; border:solid 1px #990000;"
+         alt="SHACL Validator tool with the IDN Catalogue Profile validator selected"/>
     <p>This validator file and the validator tool are only able to test for structural and values validation - is the
       metadata correctly formatted and machine-readable - it can't test for the <em>appropriateness</em> or the <em>goodness</em>
       of metadata. For that, you will need to try calculating FAIR or CARE scores and compare what you get to your own
       expectations of your metadata.</p>
   </section>
-  <section id="calculate-scores">
-    <img src="images/fair-and-care.png" alt="FAIR and CARE and DGD" style="float:right; width:500px;"/>
+  <section id="calculate-scores" style="display:flow-root;">
+    <img src="images/fair-and-care.png" alt="FAIR and CARE principles"
+         style="float:right; width:min(440px, 48%); margin:0 0 18px 28px;"/>
     <h2>CARE, FAIR and DGD scores</h2>
     <p>One aim of this catalogue profile is to support either manual or automated use of software to
-      software to calculate <a href="https://force11.org/info/the-fair-data-principles/">FAIR</a>, <a
+      calculate <a href="https://force11.org/info/the-fair-data-principles/">FAIR</a>, <a
               href="https://www.gida-global.org/care">CARE</a> and <a href="https://data.idnau.org/pid/cp/spec#dgd">Data Governance Distance</a> scores for resources described by metadata. Doing this
       automatically allows calculation for large numbers of items.</p>
     <p><strong>View and report scores</strong></p>
@@ -576,6 +576,54 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       calculation functions in the IDN's Scores Calculator software. The function used for the <em>A1</em> part of the
       <em>Assessment</em> FAIR score is <a
               href="https://github.com/idn-au/scores-calculator/blob/main/calculators/fair.py">calculate_a()</a>.</p>
+  </section>
+  <section id="formats">
+    <h2>Express my metadata in other formats</h2>
+    <p>You will need to do two things</p>
+    <ul>
+      <li>Work out conceptually how to express elements of your metadata in this profile's terms</li>
+      <li>Create a technical or an informal (written) mapping</li>
+    </ul>
+    <p>If you can work out the first part but cannot implement a technical mapping for automated translation, at least
+      describe your understanding of the mapping in prose. The IDN staff may be able to help.</p>
+    <p>The <a href="specification.html#mappings">Mappings Section of the Specification Document</a> describes some
+      mappings from the IDN CP to other models. Since the current profile primarily expresses catalogue metadata using
+      <a href="https://schema.org">schema.org</a>, mappings from schema.org to other metadata models are relevant. For
+      example, see <a href="https://www.w3.org/2015/spatial/wiki/ISO_19115_-_DCAT_-_Schema.html">the
+        W3C's DCAT/ISO mapping</a>.</p>
+    <p>Some systems use very different metadata formats, not just models.</p>
+  </section>
+  <section id="understand">
+    <h2>Understand the Catalogue Profile, at a high level</h2>
+    <h3>What</h3>
+    <p>Metadata is used to describe things in catalogues, so they can be discovered, understood and used.</p>
+    <p>The IDN Catalogue Profile is formally declared as a profile of <a
+            href="https://www.w3.org/TR/vocab-dcat/">DCAT</a>, <a
+            href="https://www.w3.org/TR/skos-reference/">SKOS</a> and <a
+            href="https://www.w3.org/TR/prov-o/">PROV-O</a>. Its current metadata model primarily uses <a
+            href="https://schema.org">schema.org</a> classes and properties, together with PROV-O and SKOS terms, and
+      provides mappings to DCAT and other catalogue models.</p>
+    <p>This combination is tuned to support:</p>
+    <ul>
+      <li>indicating the Indigenousness, or otherwise, of data</li>
+      <li>describing governance arrangement for data</li>
+    </ul>
+    <p>Use of metadata according to this Profile should allow users to tell how catalogued resources relate to
+      Indigenous people and what arrangements are in place for sensitive governance of them.</p>
+    <p><em>No amount of metadata can substitute for actual governance arrangements, so use of this Catalogue Profile is
+      limited to the </em> representation <em>of such arrangements only.</em></p>
+    <h3>How</h3>
+    <p>The Profile reuses terms from established vocabularies rather than creating a completely new metadata language.
+      It specifies how those terms should be combined and supplies reference data for describing Indigenous data and
+      its governance consistently.</p>
+    <p>This Profile suggests three main things you can do to address the dot points above for a resource:</p>
+    <ol>
+      <li>Record basic, standardised, metadata for it</li>
+      <li>Represent, in detail, relations people and organisations have to it</li>
+      <li>Indicate any policies that you have that affect it</li>
+    </ol>
+    <p>These three approaches are detailed as "patterns" in the <a href="specification.html#patterns">Specification
+      Document's Patterns Section</a>.</p>
   </section>
   <section id="metadata">
     <h2>Document Info</h2>
@@ -617,52 +665,6 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       </dt>
       <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a>, 2022 - 2024</dd>
     </dl>
-  </section>
-  <section id="formats">
-    <h2>Express my metadata in other formats</h2>
-    <p>You will need to do two things</p>
-    <ul>
-      <li>Work out conceptually how to express elements of your metadata in this profile's terms</li>
-      <li>Create a technical or an informal (written) mapping</li>
-    </ul>
-    <p>If you can work out the first part but cannot implement a technical mapping for automated translation, at least
-      describe your understanding of the mapping in prose. The IDN staff may be able to help.</p>
-    <p>The <a href="specification.html#mappings">Mappings Section of the Specification Document</a> describes some
-      mappings from the IDN CP to other models and just note that, since this profile is a profile of <a
-              href="https://schema.org">schema.org</a>, mappings from schema.org to other metadata models are
-      entirely relevant. For example <a href="https://www.w3.org/2015/spatial/wiki/ISO_19115_-_DCAT_-_Schema.html">the
-        W3C's DCAT/ISO mapping</a>.</p>
-    <p>Some systems use very different metadata formats, not just models.</p>
-  </section>
-  <section id="understand">
-    <img src="images/idn-cp-profile.svg"
-         style="float:right; width:500px; height:300px; display:block; border:solid 2px black; margin-left:10px;"/>
-    <h2>Understand the Catalogue Profile, at a high level</h2>
-    <h3>What</h3>
-    <p>Metadata is used to describe things in catalogues, so they can be discovered, understood and used.</p>
-    <p>This "catalogue profile" is a specialised form of a common catalogue data model - <a
-            href="https://www.w3.org/TR/vocab-dcat/">DCAT, the Data Catalog Vocabulary</a> - that is tuned to support:
-    </p>
-    <ul>
-      <li>indicating the Indigenousness, or otherwise, of data</li>
-      <li>describing governance arrangement for data</li>
-    </ul>
-    <p>Use of metadata according to this Profile should allow users to tell how catalogued resources relate to
-      Indigenous people and what arrangements are in place for sensitive governance of them.</p>
-    <p><em>No amount of metadata can substitute for actual governance arrangements, so use of this Catalogue Profile is
-      limited to the </em> representation <em>of such arrangements only.</em></p>
-    <h3>How</h3>
-    <p>The metadata elements that this Profile promotes to do these things are not new - they are all existing and
-      normal parts of DCAT - but specific arrangements of their use and reference data supplied for use with them is
-      new.</p>
-    <p>This Profile suggests three main things you can do to address the dot points above for a resource:</p>
-    <ol>
-      <li>Record basic, standardised, metadata for it</li>
-      <li>Represent, in detail, relations people and organisations have to it</li>
-      <li>Indicate any policies that you have that affect it</li>
-    </ol>
-    <p>These three approaches are detailed as "patterns" in the <a href="specification.html#examples">Specification
-      Document's Patterns Section</a>.</p>
   </section>
   <p>&nbsp;</p>
 </div><!-- #content -->
