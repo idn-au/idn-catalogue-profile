@@ -22,6 +22,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <https://data.idnau.org/pid/cp/sdo.ttl>
     a owl:Ontology ;
+#    sdo:additionalType semtype:mapping ;
     sdo:name "IDN Catalogue Profile schema.org RDF mapping"@en ;
     sdo:description "RDF/OWL mappings between IDN Catalogue Profile elements and schema.org elements."@en ;
     sdo:isPartOf <https://data.idnau.org/pid/cp> ;
@@ -49,9 +50,9 @@ sdo:Person rdfs:subClassOf prov:Agent .
 
 dcat:Resource owl:equivalentClass sdo:CreativeWork .
 
-sdo:DataDownload owl:equivalentClass dcat:Distribution .
+# sdo:DataDownload owl:equivalentClass dcat:Distribution . # see https://github.com/idn-au/.github/issues/313
 
-sdo:Duration rdfs:subclassOf dcterms:PeriodOfTime .
+sdo:Duration rdfs:subClassOf dcterms:PeriodOfTime .
 
 sdo:Place owl:equivalentClass dcterms:Location .
 
