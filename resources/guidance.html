@@ -69,181 +69,96 @@
     <img src="images/aboriginal-flag.png"
          style="float:right; width:420px; margin:0 0 16px 24px;"
          alt="Aboriginal Flag"/>
-    <h2>Indicate something in a catalogue is Indigenous</h2>
-    <h3>Easy or hard?</h3>
-    <p>This may be very easy... or very hard! There is no ONE way to indicate whether something is Indigenous or not and
-      some things obviously are, others, it's hard to tell.</p>
-    <p>
-      Here are two things you can do:
-    </p>
-    <ol>
-      <li>Record basic statement: 'This data is Indigenous'</li>
-      <li>Link to other Indigenous data</li>
-    </ol>
-    <p>To do either of these things, you can classify your resource using classifiers, known in this profile as
-      vocabularies.</p>
+    <h2>Describe how data relates to Indigenous peoples</h2>
+    <p>Sometimes a catalogue agent can confidently state how data relates to Indigenous peoples. At other times, the
+      relationship is apparent from several details but cannot responsibly be reduced to a single statement. The IDN
+      Catalogue Profile supports both situations: you can describe the available evidence, make a direct classification,
+      or do both.</p>
+    <p>These approaches are complementary. A classification is a clear assertion; links to people, organisations,
+      policies, themes, languages and places preserve the context behind it. Do not infer the Indigenous status of a
+      person or organisation from a name, subject or association. Record identity information only when it is supported
+      by an appropriate source and is suitable to publish.</p>
     <section>
-      <h3>This data is Indigenous</h3>
-      <p>Make a broad statement that a resource is Indigenous. This approach should only be taken when you
-        are confident about the Indigenous status of a resource. It is especially useful for tagging large numbers of
-        resources, such as part of an investigation into an existing repository or catalogue.</p>
-      <p>Use the <a href="https://data.idnau.org/pid/vocab/indigeneity">Data Indigeneity</a> vocabulary to indicate
-        whether the data is <i>By Indigenous People</i>, <i>About Indigenous Things</i>, or
-        <i>About Indigenous People</i>. The metadata can indicate any or all of these.</p>
-      <h3>Link to Indigenous data</h3>
-      <p>By using the Profile and metadata tool, you will link your catalogue record to other records that will provide
-        context and evidence that your record is Indigenous in some way. We recommend that you record in metadata basic
-        facts about resources <em>that may lead</em> to an understanding about them being Indigenous, rather than trying
-        to directly say "this is Indigenous". For example, you might:</p>
-      <ul>
-        <li>
-          <strong>provide a detailed description/abstract</strong>
-          <ul>
-            <li>record as much as you know about the resource: humans will be able to understand this Indigenousness of
-              something by such a description... and AI will too.
-            </li>
-          </ul>
-        </li>
-        <li>
-          <strong>supply tags/keywords about themes, research fields or language groups that are Indigenous</strong>
-          <ul>
-            <li>
-              e.g. <em>IDN Themes</em> concepts such as "Aboriginal archaeology"; <em>Fields of Research</em> codes such as "450601" (<em>Aboriginal and Torres Strait Islander
-              astronomy and cosmology</em>) or the AustLang code "A20" (Wilyara):
-              <ul>
-                <li>
-                  <pre>:resource-x schema:keywords &lt;https://vocabularyserver.com/apais/xml.php?skosTema=2&gt;</pre>
-                </li>
-                <li>
-                  <pre>:resource-x schema:keywords &lt;https://linked.data.gov.au/def/anzsrc-for/2020/450601&gt;</pre>
-                </li>
-                <li>
-                  <pre>:resource-x schema:keywords &lt;https://data.idnau.org/pid/ilm/feature/A20&gt;</pre>
-                </li>
-              </ul>
-            </li>
-            <li>The IDN provides these terms and many others you can use for this purpose within a collection of
-              vocabularies on the <a href="https://data.idnau.org/pid/refdata-catalogue">the IDN reference data platform</a>.
-            </li>
-          </ul>
-        </li>
-        <li>
-          <strong>link to Indigenous places</strong>
-          <ul>
-            <li>
-              e.g. indicate the resource is about an Australian Bureau of Statistic Indigenous Location such as 70900503
-              or a Native Title region like Ooratippra:
-              <ul>
-                <li>
-                  <pre>:resource-x schema:spatialCoverage &lt;https://linked.data.gov.au/dataset/asgsed3/ILOC/70900503&gt;</pre>
-                </li>
-                <li>
-                  <pre>:resource-x schema:spatialCoverage &lt;https://data.idnau.org/pid/nntt/DCD2011-001&gt;</pre>
-                </li>
-              </ul>
-            </li>
-            <li>The IDN provides a number of reference datasets of Indigenous location on the <a
-                    href="https://data.idnau.org/pid/refdata-catalogue">the IDN reference data platform</a> that can be browsed or searched
-              for text or on a map.
-            </li>
-          </ul>
-        </li>
-        <li>
-          <strong>link to Indigenous people/groups</strong>
-          <p>You can specifically indicate that a catalogued resource was created by an Indigenous person or that it is
-            about an Indigenous group by linking it to the person/group and supplying a relevant role, like this:</p>
-          <aside style="float:right; width:340px; margin:0 0 16px 24px; padding:12px 16px;
-                        border-left:5px solid #990000; background-color:#f3f3f3; font-size:0.9em;">
-            <h4 style="margin:0 0 6px;">Good identifiers</h4>
-            <p style="margin:0 0 8px;">Prefer a persistent identifier over a name supplied as text.</p>
-            <ul style="margin:0 0 8px; padding-left:20px;">
-              <li><a href="https://orcid.org/0000-0002-1398-7524">Marcia Langton's ORCID</a>, rather than
-                “Prof. Marcia Langton”</li>
-              <li><a href="https://data.idnau.org/pid/org/yawuru">Yawuru's IDN identifier</a>, rather than
-                “Yawuru people”</li>
-            </ul>
-            <p style="margin:0;">Find identifiers in the <a href="https://agentsdb.idnau.org/">IDN Agents Database</a>.</p>
-          </aside>
-          <strong>Resource X as created by an Indigenous Person</strong>
-          <ul>
-            <li>
-              <pre>:resource-x schema:creator :an-indigenous-person</pre>
-            </li>
-          </ul>
-          <strong>Resource Y is about the Wiradjuri people - an Indigenous community</strong>
-          <ul>
-            <li><pre>:resource-y
-  prov:qualifiedAttribution [a prov:Attribution ;
-  schema:agent &lt;http://example.com/community/wiradjuri&gt; ;
-  schema:roleName droles:subjectAgent ;
-        ]</pre>
-            </li>
-          </ul>
-          <p>This Profile recommends the use of "roles" to indicate specialised relationships between people and
-            catalogued resources. In the example above, you can see that the Wiradjuri people are the <a
-                    href="https://linked.data.gov.au/def/data-roles/subjectAgent">Subject Agent</a> of the resource,
-            that is, the resource is about them.</p>
-          <p>In the first example above, the use of the common <code>schema:creator</code> property is equivalent to
-            associating <code>an-indigenous-person</code> with <code>resource-x</code>, indicating a role of <a
-                    href="https://linked.data.gov.au/def/data-roles/author">Author</a>.</p>
-          <p>For detailed information about linking resources in metadata to people and groups, including a long list
-            of roles, see the <a href="specification.html#agents">Specification Document's Section on
-              <em>Agents</em></a>.</p>
-        </li>
-      </ul>
+      <h3>This data <em>may</em> be Indigenous</h3>
+      <blockquote>
+        <p>“This data may be Indigenous, but I am not sure. The author is not Indigenous, but the resource includes an
+          Indigenous language and the translator is Indigenous. The publisher is an Indigenous organisation within a
+          larger non-Indigenous organisation. Some, but not all, of the themes are Indigenous. The data is governed
+          under an Indigenous data governance policy, and its custodian is Indigenous.
+          I can verify most or all of these details, so I will record them. The resulting metadata and its CARE assessment
+          will help people understand the resource without forcing me to make an unsupported yes-or-no claim.”</p>
+        <footer>— Anonymous cataloguer A</footer>
+      </blockquote>
+      <p>Record each fact you can support: the people and organisations involved and their roles; relevant governance
+        policies; themes; languages; places; and a clear description of the resource. Together, these statements form an
+        evidence graph that preserves nuance and makes the basis for later decisions inspectable.</p>
+      <p>Supplying this detail builds an evidence graph and should progressively increase the resource's <a
+              href="https://www.gida-global.org/careprinciples">CARE</a> score. In this situation, you do not have to
+        force the evidence into an unsupported “it is” or “it is not” conclusion: the Profile helps you work through and
+        communicate what is known. The score supports that judgement by assessing the metadata against defined
+        indicators; it does not itself prove that the data is Indigenous, decide whether it belongs in a particular
+        catalogue, or establish that its governance is adequate. The <a
+                href="https://github.com/idn-au/scores-calculator/blob/main/definitions/care.yaml">CARE scoring
+          definition</a> specifies how the evidence should affect the score.</p>
     </section>
     <section>
-      <h3>Tag using a well-known Indigenous classifier</h3>
-      <p>We have already seen above that basic metadata (section 3.1) can include tags from well known classifications
-        such as the Fields of Research and AusLang. We recommend also using classifications systems that are
-        designed specifically to indicate that a resource is somehow Indigenous.</p>
-      <p>These vocabularies may be used to <a href="https://data.idnau.org/v/vocab">indicate indigenousness</a> of a
-        resource:</p>
-      <ul>
-        <li>
-          <a href="https://data.idnau.org/pid/vocab/indigeneity">Data Indigeneity</a> - indicates ways in which data may
-          have a connection to indigenous people;
-          <a href="https://data.idnau.org/pid/vocab/idn-th">Indigenous Themes</a> - a general-purpose vocabulary of
-          thematic terms for indigenous data.
-        </li>
-      </ul>
-      <ul>
-        <li>
-          e.g. <em>Data Indigeneity</em> concepts such as <em>About Indigenous People</em> or the IDN Themes concept
-          <em>Aboriginal archaeology</em>:
-          <ul>
-            <li>
-              <pre>:resource-x schema:keywords &lt;https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-people&gt;</pre>
-            </li>
-            <li>
-              <pre>:resource-x schema:keywords &lt;https://vocabularyserver.com/apais/xml.php?skosTema=2&gt;</pre>
-            </li>
-          </ul>
-        </li>
-        <li>The IDN provides these terms and many others you can use for this purpose within a collection of
-          vocabularies on the <a href="https://data.idnau.org/pid/refdata-catalogue">the IDN reference data platform</a>.
-        </li>
-      </ul>
+      <h3>I <em>know</em> this data is Indigenous</h3>
+      <blockquote>
+        <p>“I know this data is Indigenous and have no reason to doubt it. I cannot verify all of its provenance and
+          attributions in a structured way, and I do not have exact details of every agent or governance arrangement.
+          I will use the Data Indigeneity vocabulary to record the relationship I can confidently assert.”</p>
+        <footer>— Anonymous cataloguer B</footer>
+      </blockquote>
+      <p>Use the <a href="https://data.idnau.org/pid/vocab/indigeneity">Data Indigeneity vocabulary</a> when you are
+        confident that the classification is accurate. Choose the specific applicable concepts—<em>By Indigenous
+          People</em>, <em>About Indigenous People</em> and/or <em>About Indigenous Things</em>—rather than applying an
+        ambiguous “Indigenous” label:</p>
+      <pre>:resource-x schema:keywords
+  &lt;https://data.idnau.org/pid/vocab/indigeneity/about-indigenous-people&gt; .</pre>
+      <p>Applying a Data Indigeneity term should significantly increase the resource's CARE score, even when fuller
+        provenance, attribution or governance metadata is unavailable. Some specific terms, particularly <em>By
+          Indigenous People</em>, may satisfy more than one scoring indicator. Use this vocabulary when you are confident
+        of the applicable relationship; the direct classification does not replace supporting detail when that detail
+        can be supplied.</p>
     </section>
     <section>
-      <h3>Indicate Indigenous languages</h3>
-      <p>We can indicate Indigenous languages that are in resource content. A resource may be <em>about</em> Indigenous
-        languages; feature Indigenous languages as part of the resource <em>content</em>; or both! We have already seen
-        above that basic metadata (section 3.1) can include tags from <em>AustLang</em> to indicate that an Indigenous
-        language is a theme of the resource. We recommend also using AustLang to indicate that the resource text (or
-        spoken word, such as in a sound recording or video) is itself in an Indigenous language.</p>
-      <p>Use <a href="https://data.idnau.org/pid/austlang">AustLang</a> to indicate Indigenous language in resource
-        content:</p>
+      <h3>What evidence should I record?</h3>
+      <p>Supply as much relevant, verifiable detail as is available and appropriate to publish. Prefer persistent HTTP
+        identifiers for people, organisations, concepts and places so that the relationships can be followed as a graph.
+        The <a href="https://data.idnau.org/pid/refdata-catalogue">IDN reference data catalogue</a> and <a
+                href="https://agentsdb.idnau.org/">IDN Agents Database</a> can help you find suitable identifiers.</p>
       <ul>
-        <li>
-          e.g. <em>Pitjantjatjara</em> language:
-          <ul>
-            <li>
-              <pre>:resource-x schema:inLanguage &lt;https://data.idnau.org/pid/austlang/C6&gt;</pre>
-            </li>
-          </ul>
-        </li>
+        <li><strong>Description:</strong> explain the resource's content, context and any uncertainty in plain language.</li>
+        <li><strong>Themes:</strong> use <code>schema:keywords</code> with concepts from vocabularies such as <a
+                href="https://data.idnau.org/pid/vocab/idn-th">IDN Themes</a> or the <a
+                href="https://linked.data.gov.au/def/anzsrc-for/2020">ANZSRC Fields of Research</a>.</li>
+        <li><strong>Languages:</strong> distinguish data <em>about</em> a language (a theme) from content <em>in</em> a
+          language. Use <code>schema:inLanguage</code> with a concept from <a
+                  href="https://data.idnau.org/pid/austlang">AustLang</a> for the latter.</li>
+        <li><strong>Places:</strong> use <code>schema:spatialCoverage</code> to link to an Indigenous Location, Native
+          Title determination or other relevant place.</li>
+        <li><strong>People and organisations:</strong> link each agent to the resource and state its role using the
+          Profile's <code>prov:qualifiedAttribution</code> pattern and the <a
+                  href="https://linked.data.gov.au/def/data-roles">Data Roles vocabulary</a>. See the <a
+                  href="specification.html#agents">Agents section of the Specification</a>.</li>
+        <li><strong>Agent indigeneity:</strong> where the information is supported and appropriate to publish, describe
+          an organisation with the <a href="https://data.idnau.org/pid/vocab/org-indigeneity">Organisations Indigeneity
+            vocabulary</a> or a person with the <a
+                  href="https://data.idnau.org/pid/vocab/persons-indigenous-status">Indigenous Status of Persons
+            vocabulary</a>. These vocabularies classify agents, not the data itself.</li>
+        <li><strong>Governance:</strong> link the resource to relevant policies or governance frameworks and describe
+          the agents responsible for them.</li>
       </ul>
+      <p>For example:</p>
+      <pre>:resource-x
+  schema:keywords &lt;https://linked.data.gov.au/def/anzsrc-for/2020/450601&gt; ;
+  schema:inLanguage &lt;https://data.idnau.org/pid/austlang/C6&gt; ;
+  schema:spatialCoverage &lt;https://linked.data.gov.au/dataset/asgsed3/ILOC/70900503&gt; ;
+  prov:qualifiedAttribution [
+    a prov:Attribution ;
+    schema:agent &lt;https://example.org/agent/123&gt; ;
+    schema:roleName &lt;https://linked.data.gov.au/def/data-roles/custodian&gt;
+  ] .</pre>
     </section>
   </section>
   <section id="examples">
@@ -651,14 +566,15 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <td><a class="proplink" title="sdo:dateModified" href="https://schema.org/dateModified">Modified</a></td>
-            <td>2026-05-26</td>
+            <td>2026-08-28</td>
           </tr>
         </table>
       </dd>
       <dt><a class="proplink" title="owl#versionIRI" href="http://www.w3.org/2002/07/owl#versionIRI">Version</a></dt>
       <dd><a href="https://data.idnau.org/pid/cp/guide/0.0.2">0.0.2</a></dd>
       <dt><a class="proplink" title="skos#historyNote" href="http://www.w3.org/2004/02/skos/core#historyNote">History note</a></dt>
-      <dd>2026-05: changed examples from DCAT + DCTERMS to schema.org</dd>
+      <dd>2026-08: rewrote the guidance for describing data indigeneity as two evidence-based scenarios<br/>
+        2026-05: changed examples from DCAT + DCTERMS to schema.org</dd>
       <dt><a class="proplink" title="sdo:license" href="https://schema.org/license">License</a></dt>
       <dd><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a></dd>
       <dt><a class="proplink" title="sdo:copyrightHolderame" href="https://schema.org/copyrightHolder">Copyright</a>
