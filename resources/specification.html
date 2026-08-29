@@ -3112,7 +3112,7 @@ WHERE {
       <p class="req"><strong>Req V1:</strong> Each <code>Resource</code> instance MUST be categorised with at least one
         value from the <a>IDN Data Themes</a> vocabulary, indicated with a <code>theme</code> property.</p>
       <p class="req"><strong>Req V2:</strong> The roles of <code>Agent</code> instances with relation to a <code>Resource</code>
-        MUST be indicated with the <code>hadRole</code> property and selected from the <a
+        MUST be indicated with the <code>schema:roleName</code> property and selected from the <a
                 href="https://linked.data.gov.au/def/data-roles">IDN Role Codes Vocabulary</a>.</p>
       <p class="req"><strong>Req V3:</strong> Each <code>Agent</code> instance referenced by an <code>Attribution</code>
         instance, if the <code>Agent</code> is Indigenous SHOULD be registered within the <a
@@ -3590,7 +3590,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
   schema:name "Yirrkala LPC Archive" ;
   schema:dateCreated "2022-01-01"^^xsd:date ;
   prov:qualifiedAttribution [
-    prov:hadRole &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
+    schema:roleName &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
     schema:agent &lt;https://linked.data.gov.au/org/uom>
   ] ;
   # ... other IDN CP metadata
