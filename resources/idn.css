@@ -125,6 +125,24 @@ body {
     border: 0;
 }
 
+.guidance-figure {
+    width: min(18rem, 100%);
+    margin: 1.25rem 0 2rem;
+}
+
+.guidance-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.guidance-figure figcaption {
+    margin-top: 0.5rem;
+    color: #555;
+    font-size: smaller;
+    line-height: 1.4;
+}
+
 .guidance-code-sample {
     width: 100%;
     max-height: 28rem;
@@ -132,6 +150,7 @@ body {
     padding: 10px;
     overflow: auto;
     border: solid 1px #990000;
+    background-color: #ccc;
     box-sizing: border-box;
     font-size: smaller;
 }
@@ -217,7 +236,8 @@ p.req {
     padding:20px;
 }
 
-p.eg {
+p.eg,
+pre.eg {
     background-color: #ccc;
     padding:20px;
 
@@ -227,7 +247,8 @@ p.eg {
 
     position: relative;
 }
-p.eg span {
+p.eg span,
+pre.eg span {
     position: absolute;
     top: 5px;
     left: 5px;
