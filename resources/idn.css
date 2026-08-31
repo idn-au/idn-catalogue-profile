@@ -87,79 +87,6 @@ body {
     margin-top: 30px;
 }
 
-#content > h1,
-#content > #description,
-#content > section,
-#content > .profile-resources {
-    width: 100%;
-    max-width: 48rem;
-    box-sizing: border-box;
-}
-
-.profile-resources {
-    width: min(24rem, 100%);
-    margin: 1.5rem 0 2.5rem;
-    padding: 15px 15px 15px 30px;
-    border-radius: 5px;
-    background-color: #ccc;
-    box-sizing: border-box;
-}
-
-.guidance-thumbnail-link {
-    display: block;
-    width: fit-content;
-    margin: 1.25rem 0 2rem;
-}
-
-.guidance-thumbnail {
-    display: block;
-    width: min(16rem, 100%);
-    height: auto;
-    border: solid 1px #990000;
-    box-sizing: border-box;
-}
-
-.guidance-illustration {
-    width: min(18rem, 100%);
-    margin: 1.25rem 0 2rem;
-    border: 0;
-}
-
-.guidance-figure {
-    width: min(18rem, 100%);
-    margin: 1.25rem 0 2rem;
-}
-
-.guidance-figure img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.guidance-figure figcaption {
-    margin-top: 0.5rem;
-    color: #555;
-    font-size: smaller;
-    line-height: 1.4;
-}
-
-.guidance-code-sample {
-    width: 100%;
-    max-height: 28rem;
-    margin: 1.25rem 0 2rem;
-    padding: 10px;
-    overflow: auto;
-    border: solid 1px #990000;
-    background-color: #ccc;
-    box-sizing: border-box;
-    font-size: smaller;
-}
-
-.guidance-code-sample pre {
-    margin: 0;
-    font-size: 1em;
-}
-
 h1 {
     font-family: sans-serif;
     padding: 0;
@@ -236,8 +163,7 @@ p.req {
     padding:20px;
 }
 
-p.eg,
-pre.eg {
+p.eg {
     background-color: #ccc;
     padding:20px;
 
@@ -247,8 +173,7 @@ pre.eg {
 
     position: relative;
 }
-p.eg span,
-pre.eg span {
+p.eg span {
     position: absolute;
     top: 5px;
     left: 5px;

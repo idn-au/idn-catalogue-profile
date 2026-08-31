@@ -4,6 +4,97 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/x-icon" href="images/idn-logo-64.ico">
   <link href="idn.css?v=20260831-a" rel='stylesheet' type='text/css'>
+  <style>
+    #content > h1,
+    #content > #description,
+    #content > section,
+    #content > .profile-resources {
+      width: 100%;
+      max-width: 48rem;
+      box-sizing: border-box;
+    }
+
+    .profile-resources {
+      width: min(24rem, 100%);
+      margin: 1.5rem 0 2.5rem;
+      padding: 15px 15px 15px 30px;
+      border-radius: 5px;
+      background-color: #ccc;
+      box-sizing: border-box;
+    }
+
+    .guidance-thumbnail-link {
+      display: block;
+      width: fit-content;
+      margin: 1.25rem 0 2rem;
+    }
+
+    .guidance-thumbnail {
+      display: block;
+      width: min(16rem, 100%);
+      height: auto;
+      border: solid 1px #990000;
+      box-sizing: border-box;
+    }
+
+    .guidance-illustration {
+      width: min(18rem, 100%);
+      margin: 1.25rem 0 2rem;
+      border: 0;
+    }
+
+    .guidance-figure {
+      width: min(18rem, 100%);
+      margin: 1.25rem 0 2rem;
+    }
+
+    .guidance-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .guidance-figure figcaption {
+      margin-top: 0.5rem;
+      color: #555;
+      font-size: smaller;
+      line-height: 1.4;
+    }
+
+    .guidance-code-sample {
+      width: 100%;
+      max-height: 28rem;
+      margin: 1.25rem 0 2rem;
+      padding: 10px;
+      overflow: auto;
+      border: solid 1px #990000;
+      background-color: #ccc;
+      box-sizing: border-box;
+      font-size: smaller;
+    }
+
+    .guidance-code-sample pre {
+      margin: 0;
+      font-size: 1em;
+    }
+
+    pre.eg {
+      margin: 1em 0;
+      padding: 20px;
+      background-color: #ccc;
+      white-space: pre-wrap;
+      font-family: monospace;
+      font-size: 1.1em;
+      position: relative;
+    }
+
+    pre.eg span {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      color: #999;
+    }
+  </style>
   <title>IDN Catalogue Profile - Guidance</title>
 </head>
 <body>
@@ -229,7 +320,7 @@
     population data and biographical records collected by Dr Gordon Briscoe & Dr Leonard Smith.</td>
         </tr>
         <tr>
-          <td>Keywords</td>
+          <td><b>Keywords</b></td>
           <td>
             <p>About Indigenous People</p>
             <p>Aboriginal communities</p>
@@ -238,7 +329,7 @@
           </td>
         </tr>
         <tr>
-          <td>Agent + Role</td>
+          <td>Agent + <b>Role</b></td>
           <td>
             <p>Gordon Briscoe & Len Smith / <a href="https://linked.data.gov.au/def/data-roles/author">Author</a></p>
             <p><a href="https://linked.data.gov.au/org/ada">Australian Data Archive</a> / <a
@@ -330,7 +421,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
     <p>The metadata format for the IDN's Catalogue Profile is <a
             href="https://en.wikipedia.org/wiki/Resource_Description_Framework">RDF</a>, which can be created in a plain
       text file.</p>
-    <p>The Metadata Entry Tool  auto-generates RDF as you fill it out, but you are also able to manually type out data files if you like.</p>
+    <p>The Metadata Entry Tool auto-generates RDF as you fill it out, but you are also able to manually type out data files if you like.</p>
     <p>See this profile's <a href="specification.html#examples">Specification Document's Examples Section</a> for a
       complete RDF data file and remember: you can <a
               href="https://idn-au.github.io/idn-catalogue-profile/resources/guidance.html#validate">validate RDF data
@@ -458,7 +549,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
         2026-05: changed examples from DCAT + DCTERMS to schema.org</dd>
       <dt><a class="proplink" title="sdo:license" href="https://schema.org/license">License</a></dt>
       <dd><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a></dd>
-      <dt><a class="proplink" title="sdo:copyrightHolderame" href="https://schema.org/copyrightHolder">Copyright</a>
+      <dt><a class="proplink" title="sdo:copyrightHolder" href="https://schema.org/copyrightHolder">Copyright</a>
       </dt>
       <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a>, 2022 - 2024</dd>
     </dl>
@@ -484,7 +575,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
       Improving Indigenous Research Capabilities is a co-investment partnership with the Australian Research Data
       Commons (ARDC) through the HASS and Indigenous Research Data Commons (DOI: <a
             href="https://doi.org/10.3565/pr3g-s109" target="_blank">10.3565/pr3g-s109</a>). The ARDC is enabled by the
-      Australian Government’s National Collaborative Research Infrastructure Strategy (NCRIS).
+      Australian Government's National Collaborative Research Infrastructure Strategy (NCRIS).
     </div>
     <div>&copy; Indigenous Data Network 2025</div>
   </div>
