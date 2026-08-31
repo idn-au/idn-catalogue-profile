@@ -3,7 +3,7 @@
 <head lang="en">
   <meta charset="UTF-8">
   <link rel="icon" type="image/x-icon" href="images/idn-logo-64.ico">
-  <link href="idn.css" rel='stylesheet' type='text/css'>
+  <link href="idn.css?v=20260831-a" rel='stylesheet' type='text/css'>
   <title>IDN Catalogue Profile - Guidance</title>
 </head>
 <body>
@@ -32,20 +32,6 @@
 <div class="header" style="grid-column:3; grid-row:1;"></div>
 <div class="content" style="grid-column:1; grid-row:2;"></div>
 <div class="content" id="content" style="grid-column:2; grid-row:2;">
-  <ul style="width:25%; border-radius:5px; padding:15px 15px 15px 25px; margin-left: 10px; background-color:#ccc; float:right;">
-    <li>
-      <strong>Metadata Details</strong>
-      <ul>
-        <li>See the <a href="specification.html">Specification Document</a></li>
-      </ul>
-    </li>
-    <li>
-      <strong>All Profile Resources</strong>
-      <ul>
-        <li>See the <a href="../profile.html">Profile Resources</a></li>
-      </ul>
-    </li>
-  </ul>
   <h1>IDN Catalogue Profile - Guidance</h1>
   <!-- <h2>Description</h2> -->
   <div id="description">
@@ -65,10 +51,21 @@
       <li><a href="#formats">Express my catalogue's metadata according to the profile but in other formats?</a></li>
     </ol>
   </section>
+  <ul class="profile-resources">
+    <li>
+      <strong>Metadata Details</strong>
+      <ul>
+        <li>See the <a href="specification.html">Specification Document</a></li>
+      </ul>
+    </li>
+    <li>
+      <strong>All Profile Resources</strong>
+      <ul>
+        <li>See the <a href="../profile.html">Profile Resources</a></li>
+      </ul>
+    </li>
+  </ul>
   <section id="indicate-indigenous">
-    <img src="images/aboriginal-flag.png"
-         style="float:right; width:420px; margin:0 0 16px 24px;"
-         alt="Aboriginal Flag"/>
     <h2>Describe how data relates to Indigenous peoples</h2>
     <p>Sometimes a catalogue agent can confidently state how data relates to Indigenous peoples. At other times, the
       relationship is apparent from several details but cannot responsibly be reduced to a single statement. The IDN
@@ -78,6 +75,7 @@
       policies, themes, languages and places preserve the context behind it. Do not infer the Indigenous status of a
       person or organisation from a name, subject or association. Record identity information only when it is supported
       by an appropriate source and is suitable to publish.</p>
+    <img class="guidance-thumbnail guidance-illustration" src="images/aboriginal-flag.png" alt="Aboriginal Flag"/>
     <section>
       <h3>This data <em>may</em> be Indigenous</h3>
       <blockquote>
@@ -353,12 +351,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
       </p>
     </section>
   </section>
-  <section id="create" style="display:flow-root;">
-    <a href="https://idn-au.github.io/idn-metadata-creator/">
-      <img src="images/metadataTool.png"
-           style="float:right; width:min(400px, 42%); margin:32px 0 18px 24px; border:solid 1px #990000;"
-           alt="Current Metadata Entry Tool workflow showing FAIR and CARE scores and the eleven form steps"/>
-    </a>
+  <section id="create">
     <h2>Create metadata according to the profile</h2>
     <p>You will need to produce metadata in a specific format - <a
             href="https://en.wikipedia.org/wiki/Resource_Description_Framework">RDF</a> - to meet the requirements of
@@ -376,7 +369,11 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
     <p>The tool contains examples you can load, video tutorials and displays the metadata it creates as you fill in form
       fields.</p>
     <p>It auto-calculates CARE and FAIR scores as you go too.</p>
-    <div style="float:right; width:420px; height:280px; clear:right; margin:12px 0 18px 26px; border:solid 1px #990000; padding:10px; overflow:hidden; font-size:smaller;">
+    <a class="guidance-thumbnail-link" href="https://idn-au.github.io/idn-metadata-creator/">
+      <img class="guidance-thumbnail" src="images/metadataTool.png"
+           alt="Current Metadata Entry Tool workflow showing FAIR and CARE scores and the eleven form steps"/>
+    </a>
+    <div class="guidance-code-sample">
                     <pre>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
 PREFIX schema: &lt;https://schema.org/>
@@ -436,8 +433,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       with this profile! Another example: the <a href="https://emu.axiell.com/">EMu collections management software</a>
       can export Dublin Core metadata in an XML format that is also interpretable as RDF.</p>
   </section>
-  <section id="validate" style="display:flow-root;">
-    <img src="images/tick-cross.png" style="float:right; width:220px; margin:0 0 12px 24px;" alt="Tick Cross"/>
+  <section id="validate">
     <h2>Validate my metadata</h2>
     <p>To validate data against this profile, there is a <em>Validation file</em> and a <em>Validation tool</em>
       preloaded with the validation file. See the <a href="specification.html#validation">Specification Document</a>
@@ -449,22 +445,22 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
     <h3>Validation tool</h3>
     <p>A <a href="https://tools.kurrawong.ai/validate">Validation tool</a> that uses the Validation data file is
       also available. (Select the "IDN CP Validator" option from the <em>Use Validators</em> selector.)</p>
-    <img src="images/shacl_validator_tool.png"
-         style="float:right; width:min(420px, 48%); margin:0 0 18px 24px; border:solid 1px #990000;"
-         alt="SHACL Validator tool with the IDN Catalogue Profile validator selected"/>
+    <a class="guidance-thumbnail-link" href="https://tools.kurrawong.ai/validate" target="_blank" rel="noopener noreferrer">
+      <img class="guidance-thumbnail" src="images/shacl_validator_tool.png"
+           alt="SHACL Validator tool with the IDN Catalogue Profile validator selected"/>
+    </a>
     <p>This validator file and the validator tool are only able to test for structural and values validation - is the
       metadata correctly formatted and machine-readable - it can't test for the <em>appropriateness</em> or the <em>goodness</em>
       of metadata. For that, you will need to try calculating FAIR or CARE scores and compare what you get to your own
       expectations of your metadata.</p>
   </section>
-  <section id="calculate-scores" style="display:flow-root;">
-    <img src="images/fair-and-care.png" alt="FAIR and CARE principles"
-         style="float:right; width:min(440px, 48%); margin:0 0 18px 28px;"/>
+  <section id="calculate-scores">
     <h2>CARE, FAIR and DGD scores</h2>
     <p>One aim of this catalogue profile is to support either manual or automated use of software to
       calculate <a href="https://force11.org/info/the-fair-data-principles/">FAIR</a>, <a
               href="https://www.gida-global.org/care">CARE</a> and <a href="https://data.idnau.org/pid/cp/spec#dgd">Data Governance Distance</a> scores for resources described by metadata. Doing this
       automatically allows calculation for large numbers of items.</p>
+    <img class="guidance-thumbnail guidance-illustration" src="images/fair-and-care.png" alt="FAIR and CARE principles"/>
     <p><strong>View and report scores</strong></p>
     <p>The <a href="https://idn-au.github.io/idn-metadata-creator/">Metadata Entry Tool</a> automatically calculates
       these scores as you use it, and it details how scores are created too.</p>
