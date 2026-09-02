@@ -1,0 +1,198 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prof: <http://www.w3.org/ns/dx/prof/> .
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role: <http://www.w3.org/ns/dx/prof/role/> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://data.idnau.org/pid/cp/rico-sdo-mapping>
+    a prof:ResourceDescriptor ;
+    schema:name "RiC-O alignment mapping resource"@en ;
+    schema:description
+        "A working RDF mapping artefact proposed for use by the IDN Catalogue Profile."@en ;
+    prof:hasArtifact <https://data.idnau.org/pid/cp/rico.ttl> ;
+    prof:hasRole role:mapping ;
+    dcterms:format "text/turtle" ;
+.
+
+<https://data.idnau.org/pid/cp/rico.ttl>
+    a owl:Ontology ;
+    owl:versionIRI <https://data.idnau.org/pid/cp/rico.ttl/0.1.0> ;
+    schema:name "RiC-O alignment for the IDN Catalogue Profile"@en ;
+    schema:description
+        """Working RDF/OWL alignments that allow selected RiC-O record-resource
+        classes and properties to be represented using the schema.org terms
+        employed by the IDN Catalogue Profile."""@en ;
+    schema:codeRepository
+        "https://github.com/idn-au/idn-catalogue-profile"^^xsd:anyURI ;
+    schema:copyrightHolder <https://linked.data.gov.au/org/idn> ;
+    schema:copyrightNotice
+        "Copyright Indigenous Data Network, 2026"@en ;
+    schema:copyrightYear "2026"^^xsd:gYear ;
+    schema:creativeWorkStatus
+        "Working draft — not yet accepted as an IDN Catalogue Profile resource"@en ;
+    schema:creator <https://linked.data.gov.au/org/idn> ;
+    schema:dateCreated "2026-07-28"^^xsd:date ;
+    schema:dateIssued "2026-07-29"^^xsd:date ;
+    schema:dateModified "2026-07-29"^^xsd:date ;
+    schema:license <https://creativecommons.org/licenses/by/4.0/> ;
+    schema:publisher <https://linked.data.gov.au/org/idn> ;
+    schema:version "0.1.0-draft" ;
+    skos:historyNote
+        "2026-07-29: Created as an OntPub-conformant working draft with an initial documented mapping-axiom pattern."@en ;
+.
+
+<https://linked.data.gov.au/org/idn>
+    a schema:Organization ;
+    schema:name "Indigenous Data Network"@en ;
+    schema:url "https://idnau.org/"^^xsd:anyURI ;
+.
+
+# class mappings
+
+rico:RecordResource rdfs:subClassOf schema:CreativeWork .
+rico:RecordSet rdfs:subClassOf schema:CreativeWork .
+rico:Record rdfs:subClassOf schema:CreativeWork .
+
+# property mappings
+
+rico:scopeAndContent rdfs:subPropertyOf schema:description .
+rico:identifier rdfs:subPropertyOf schema:identifier .
+rico:name rdfs:subPropertyOf schema:name .
+rico:instantiationExtent rdfs:subPropertyOf schema:materialExtent .
+rico:recordResourceExtent rdfs:subPropertyOf schema:materialExtent .
+rico:conditionsOfAccess rdfs:subPropertyOf schema:conditionsOfAccess .
+rico:hasDocumentaryFormType rdfs:subPropertyOf schema:additionalType .
+rico:isDirectlyIncludedIn rdfs:subPropertyOf schema:isPartOf .
+
+# Documented mapping axioms
+
+<https://data.idnau.org/pid/cp/rico.ttl#identifier>
+    a owl:Axiom ;
+    owl:annotatedSource rico:identifier ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget schema:identifier ;
+    rdfs:isDefinedBy <https://data.idnau.org/pid/cp/rico.ttl> ;
+    schema:name "RiC-O identifier to schema.org identifier"@en ;
+    schema:description
+        "A literal RiC-O identifier is also usable as a schema.org identifier."@en ;
+    skos:example
+        <https://data.idnau.org/pid/resource/00c6433c-399c-568a-b478-753d683a420b> ;
+    skos:historyNote
+        "2026-07-29: Documented from matching RiC-O and schema.org identifier values in Briscoe–Smith archive data."@en ;
+.
+
+<https://data.idnau.org/pid/cp/rico.ttl#instantiationExtent>
+    a owl:Axiom ;
+    owl:annotatedSource rico:instantiationExtent ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget schema:materialExtent ;
+    rdfs:isDefinedBy <https://data.idnau.org/pid/cp/rico.ttl> ;
+    schema:name "RiC-O instantiation extent to schema.org material extent"@en ;
+    schema:description
+        "The physical or logical extent of a RiC-O Instantiation is also usable as a schema.org material extent."@en ;
+    skos:example
+        <https://data.idnau.org/pid/resource/00c6433c-399c-568a-b478-753d683a420b> ;
+    skos:historyNote
+        "2026-07-29: Added from matching RiC-O and schema.org extent values in Briscoe–Smith archive data."@en ;
+.
+
+<https://data.idnau.org/pid/cp/rico.ttl#name>
+    a owl:Axiom ;
+    owl:annotatedSource rico:name ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget schema:name ;
+    rdfs:isDefinedBy <https://data.idnau.org/pid/cp/rico.ttl> ;
+    schema:name "RiC-O name to schema.org name"@en ;
+    schema:description
+        "A literal RiC-O name is also usable as a schema.org name."@en ;
+    skos:example
+        <https://data.idnau.org/pid/resource/00c6433c-399c-568a-b478-753d683a420b> ;
+    skos:historyNote
+        "2026-07-29: Documented from matching RiC-O and schema.org name values in Briscoe–Smith archive data."@en ;
+.
+
+# Shape for documented mapping axioms
+
+<https://data.idnau.org/pid/cp/rico.ttl#MappingAxiomShape>
+    a sh:NodeShape ;
+    rdfs:isDefinedBy <https://data.idnau.org/pid/cp/rico.ttl> ;
+    schema:name "Documented mapping axiom shape"@en ;
+    schema:description
+        "Requires each OWL mapping axiom to identify and describe its mapped triple and cite at least one example resource."@en ;
+    sh:targetClass owl:Axiom ;
+    sh:property
+        <https://data.idnau.org/pid/cp/rico.ttl#mappingAxiomDefinedBy> ,
+        <https://data.idnau.org/pid/cp/rico.ttl#mappingAxiomDescription> ,
+        <https://data.idnau.org/pid/cp/rico.ttl#mappingAxiomExample> ,
+        <https://data.idnau.org/pid/cp/rico.ttl#mappingAxiomName> ,
+        <https://data.idnau.org/pid/cp/rico.ttl#mappingAxiomProperty> ,
+        <https://data.idnau.org/pid/cp/rico.ttl#mappingAxiomSource> ,
+        <https://data.idnau.org/pid/cp/rico.ttl#mappingAxiomTarget> ;
+.
+
+<https://data.idnau.org/pid/cp/rico.ttl#mappingAxiomDefinedBy>
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy <https://data.idnau.org/pid/cp/rico.ttl> ;
+    sh:path rdfs:isDefinedBy ;
+    sh:hasValue <https://data.idnau.org/pid/cp/rico.ttl> ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+.
+
+<https://data.idnau.org/pid/cp/rico.ttl#mappingAxiomDescription>
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy <https://data.idnau.org/pid/cp/rico.ttl> ;
+    sh:path schema:description ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+.
+
+<https://data.idnau.org/pid/cp/rico.ttl#mappingAxiomExample>
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy <https://data.idnau.org/pid/cp/rico.ttl> ;
+    sh:path skos:example ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+.
+
+<https://data.idnau.org/pid/cp/rico.ttl#mappingAxiomName>
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy <https://data.idnau.org/pid/cp/rico.ttl> ;
+    sh:path schema:name ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+.
+
+<https://data.idnau.org/pid/cp/rico.ttl#mappingAxiomProperty>
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy <https://data.idnau.org/pid/cp/rico.ttl> ;
+    sh:path owl:annotatedProperty ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+.
+
+<https://data.idnau.org/pid/cp/rico.ttl#mappingAxiomSource>
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy <https://data.idnau.org/pid/cp/rico.ttl> ;
+    sh:path owl:annotatedSource ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+.
+
+<https://data.idnau.org/pid/cp/rico.ttl#mappingAxiomTarget>
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy <https://data.idnau.org/pid/cp/rico.ttl> ;
+    sh:path owl:annotatedTarget ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+.
