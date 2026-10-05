@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title description">
+  <title id="title">Overview of elements of the Local Context Model</title>
+  <desc id="description">The preferred direct pattern links a catalogued resource directly to Traditional Knowledge and Biocultural Labels with odrl:hasPolicy and to Local Contexts Notices with schema:potentialAction. The diagram also shows Collections Care Notices and duties, common supporting properties, and the optional Qualified Local Context relationship.</desc>
+
+  <rect width="1200" height="800" fill="#ffffff"/>
+  <rect x="24" y="20" width="1152" height="362" rx="14" fill="#f4f7fb" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="48" y="55" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#172033">Preferred direct pattern</text>
+
+  <rect x="65" y="146" width="220" height="78" rx="10" fill="#dbeafe" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="175" y="178" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#172033">schema:CreativeWork</text>
+  <text x="175" y="203" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#475569">catalogued resource</text>
+
+  <rect x="510" y="68" width="200" height="58" rx="9" fill="#dcefd9" stroke="#82b366" stroke-width="2"/>
+  <text x="610" y="103" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#172033">lcont:TKLabel</text>
+  <rect x="510" y="155" width="200" height="58" rx="9" fill="#dcefd9" stroke="#82b366" stroke-width="2"/>
+  <text x="610" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#172033">lcont:BCLabel</text>
+  <rect x="510" y="282" width="200" height="58" rx="9" fill="#fff1c7" stroke="#d6b656" stroke-width="2"/>
+  <text x="610" y="317" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#172033">lcont:LCNotice</text>
+
+  <line x1="285" y1="168" x2="392" y2="168" stroke="#475569" stroke-width="3"/>
+  <line x1="392" y1="168" x2="392" y2="97" stroke="#475569" stroke-width="3"/>
+  <line x1="392" y1="97" x2="497" y2="97" stroke="#475569" stroke-width="3"/>
+  <polygon points="510,97 496,89 496,105" fill="#475569"/>
+  <rect x="307" y="73" width="132" height="25" rx="5" fill="#ffffff"/>
+  <text x="373" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#172033">odrl:hasPolicy</text>
+
+  <line x1="285" y1="184" x2="497" y2="184" stroke="#475569" stroke-width="3"/>
+  <polygon points="510,184 496,176 496,192" fill="#475569"/>
+  <rect x="326" y="145" width="132" height="25" rx="5" fill="#ffffff"/>
+  <text x="392" y="162" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#172033">odrl:hasPolicy</text>
+
+  <line x1="285" y1="207" x2="392" y2="207" stroke="#475569" stroke-width="3"/>
+  <line x1="392" y1="207" x2="392" y2="311" stroke="#475569" stroke-width="3"/>
+  <line x1="392" y1="311" x2="497" y2="311" stroke="#475569" stroke-width="3"/>
+  <polygon points="510,311 496,303 496,319" fill="#475569"/>
+  <rect x="185" y="265" width="196" height="25" rx="5" fill="#ffffff"/>
+  <text x="283" y="282" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#172033">schema:potentialAction</text>
+
+  <rect x="894" y="282" width="200" height="58" rx="9" fill="#ffe6cc" stroke="#d79b00" stroke-width="2"/>
+  <text x="994" y="317" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#172033">lcont:CCNotice</text>
+  <line x1="894" y1="311" x2="724" y2="311" stroke="#64748b" stroke-width="3" stroke-dasharray="8 6"/>
+  <polygon points="710,311 725,302 725,320" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <rect x="755" y="279" width="116" height="25" rx="5" fill="#ffffff"/>
+  <text x="813" y="296" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#172033">rdfs:subClassOf</text>
+
+  <rect x="860" y="65" width="250" height="65" rx="9" fill="#f8cecc" stroke="#b85450" stroke-width="2"/>
+  <text x="985" y="93" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#172033">lcont:CollectionsCareDuty</text>
+  <text x="985" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#475569">odrl:Duty</text>
+  <rect x="860" y="175" width="250" height="58" rx="9" fill="#f5f5f5" stroke="#667085" stroke-width="2"/>
+  <text x="985" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#172033">odrl-action:follow-protocol</text>
+  <line x1="985" y1="130" x2="985" y2="162" stroke="#475569" stroke-width="3"/>
+  <polygon points="985,175 977,161 993,161" fill="#475569"/>
+  <rect x="997" y="139" width="82" height="24" rx="5" fill="#ffffff"/>
+  <text x="1038" y="156" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#172033">odrl:action</text>
+
+  <rect x="24" y="408" width="1152" height="368" rx="14" fill="#fafafa" stroke="#667085" stroke-width="2"/>
+  <text x="48" y="444" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#172033">Supporting vocabulary and optional qualification</text>
+
+  <rect x="65" y="510" width="170" height="58" rx="9" fill="#e8dff0" stroke="#9673a6" stroke-width="2"/>
+  <text x="150" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#172033">skos:Concept</text>
+  <rect x="350" y="510" width="245" height="58" rx="9" fill="#f3f4f6" stroke="#667085" stroke-width="2"/>
+  <text x="472" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#172033">TKLabel · BCLabel · LCNotice</text>
+  <line x1="350" y1="539" x2="249" y2="539" stroke="#64748b" stroke-width="3" stroke-dasharray="8 6"/>
+  <polygon points="235,539 250,530 250,548" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <rect x="248" y="496" width="116" height="25" rx="5" fill="#ffffff"/>
+  <text x="306" y="513" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#172033">rdfs:subClassOf</text>
+
+  <rect x="350" y="675" width="245" height="58" rx="9" fill="#f8cecc" stroke="#b85450" stroke-width="2"/>
+  <text x="472" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#172033">rdf:langString</text>
+  <line x1="472" y1="568" x2="472" y2="662" stroke="#475569" stroke-width="3"/>
+  <polygon points="472,675 464,661 480,661" fill="#475569"/>
+  <rect x="481" y="609" width="142" height="25" rx="5" fill="#ffffff"/>
+  <text x="552" y="626" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#172033">lcont:templateText</text>
+
+  <rect x="675" y="500" width="245" height="68" rx="9" fill="#dbeafe" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="797" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#172033">lcont:QualifiedLocalContext</text>
+  <rect x="1000" y="505" width="150" height="58" rx="9" fill="#e8dff0" stroke="#9673a6" stroke-width="2"/>
+  <text x="1075" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#172033">dcat:Relationship</text>
+  <line x1="920" y1="534" x2="986" y2="534" stroke="#64748b" stroke-width="3" stroke-dasharray="8 6"/>
+  <polygon points="1000,534 985,525 985,543" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <rect x="920" y="492" width="116" height="25" rx="5" fill="#ffffff"/>
+  <text x="978" y="509" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#172033">rdfs:subClassOf</text>
+
+  <rect x="675" y="665" width="300" height="78" rx="9" fill="#fff1c7" stroke="#d6b656" stroke-width="2"/>
+  <text x="825" y="697" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#172033">dcterms:relation → Label or Notice</text>
+  <text x="825" y="722" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#172033">schema:roleName → role concept</text>
+  <line x1="797" y1="568" x2="797" y2="652" stroke="#475569" stroke-width="3"/>
+  <polygon points="797,665 789,651 805,651" fill="#475569"/>
+  <rect x="807" y="609" width="126" height="25" rx="5" fill="#ffffff"/>
+  <text x="870" y="626" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#172033">optional properties</text>
+</svg>
