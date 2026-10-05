@@ -273,6 +273,10 @@
           <td><code>http://www.w3.org/ns/odrl/2/</code></td>
         </tr>
         <tr>
+          <th>odrl-action</th>
+          <td><code>https://linked.data.gov.au/def/odrl-action/</code></td>
+        </tr>
+        <tr>
           <th>owl</th>
           <td><code>http://www.w3.org/2002/07/owl#</code></td>
         </tr>
@@ -3312,17 +3316,17 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       <h3>A.2. Local Contexts Mapping<span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span>
       </h3>
       <p>
-        The <a href="http://www.w3.org/ns/odrl/2/">Open Digital Rights Language (ODRL)</a> is a W3C standard that providfes "representing statements about the usage of content and services"....
+        The <a href="http://www.w3.org/ns/odrl/2/">Open Digital Rights Language (ODRL)</a> is a W3C standard for representing statements about the usage of content and services. This profile uses ODRL to associate catalogued resources directly with Traditional Knowledge and Biocultural Label policies and to express duties associated with Collections Care Notices.
       </p>
       See <a href="#lc">Local Context Labels and Notices</a> for description of the LC Ontology and concept schemes.
       <p>
-        The Local Contexts ontology is <code>schema.org</code>-compatible because its elements can be used with <code>schema.org</code> catalogue records and several elements can be aligned to broad <code>schema.org</code> classes and properties. However, most mappings are intentionally <code>rdfs:subClassOf</code> or <code>rdfs:subPropertyOf</code>, not <code>owl:equivalentClass</code> or <code>owl:equivalentProperty</code>, because the Local Contexts elements carry more specific Indigenous data governance semantics than the corresponding <code>schema.org</code> elements.
+        The Local Contexts ontology reuses classes and properties from SKOS, DCAT, ODRL and schema.org. Labels and Notices are modelled as specialised SKOS concepts, while <code>lcont:QualifiedLocalContext</code> is an optional specialisation of <code>dcat:Relationship</code> for the uncommon case where information must be recorded about the relationship itself. The direct relationships described in Annex C remain the preferred application pattern.
       </p>
       <table class="properties">
         <tr>
           <th>Profile Element</th>
           <th>Relation</th>
-          <th>DCAT Element</th>
+          <th>Mapped Element</th>
           <th>Scope Note</th>
         </tr>
         <tr>
@@ -3330,41 +3334,60 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         </tr>
         <tr>
           <td><code>lcont:BCLabel</code></td>
-          <td><code>rdfs:subClass</code></td>
-          <td><code>schema:DefinedTerm</code></td>
+          <td><code>rdfs:subClassOf</code></td>
+          <td><code>skos:Concept</code></td>
           <td>BC labels are controlled terms/concepts applied to resources.</td>
         </tr>
         <tr>
           <td><code>lcont:TKLabel</code></td>
-          <td><code>rdfs:subClass</code></td>
-          <td><code>schema:DefinedTerm</code></td>
+          <td><code>rdfs:subClassOf</code></td>
+          <td><code>skos:Concept</code></td>
           <td>TK labels are controlled terms/concepts applied to resources.</td>
         </tr>
+        <tr>
           <td><code>lcont:LCNotice</code></td>
-          <td><code>rdfs:subClass</code></td>
-          <td><code>schema:DefinedTerm</code></td>
+          <td><code>rdfs:subClassOf</code></td>
+          <td><code>skos:Concept</code></td>
           <td>LC notices are controlled terms/concepts applied to resources.</td>
+        </tr>
+        <tr>
+          <td><code>lcont:CCNotice</code></td>
+          <td><code>rdfs:subClassOf</code></td>
+          <td><code>lcont:LCNotice</code></td>
+          <td>Collections Care Notices are a specialised category of Local Contexts Notice.</td>
+        </tr>
         <tr>
           <td><code>lcont:QualifiedLocalContext</code></td>
-          <td><code>rdfs:subClass</code></td>
+          <td><code>rdfs:subClassOf</code></td>
           <td><code>dcat:Relationship</code></td>
-          <td>Qualified Local Context is a specialised DCAT relationship node used to qualify the relationship between a resource and a label, notice, or policy-related resource.</td>
+          <td>Optional relationship node for recording information about the application of a Label or Notice. Direct attachment remains preferred.</td>
+        </tr>
+        <tr>
+          <td><code>lcont:CollectionsCareDuty</code></td>
+          <td><code>rdf:type</code></td>
+          <td><code>odrl:Duty</code></td>
+          <td>Named duty used by the Collections Care Overall Notice.</td>
         </tr>
         <tr>
           <th colspan="4">Predicates</th>
         </tr>
         <tr>
           <td><code>lcont:templateText</code></td>
-          <td><code>rdfs:subPropertyOf</code></td>
-          <td><code>schema:text</code></td>
-          <td>Not equivalent because templateText has stronger “customisable boilerplate” semantics.
-          </td>
+          <td><code>rdfs:range</code></td>
+          <td><code>rdf:langString</code></td>
+          <td>The domain is the OWL union of <code>lcont:BCLabel</code>, <code>lcont:TKLabel</code> and <code>lcont:LCNotice</code>.</td>
         </tr>
         <tr>
           <td><code>lcont:relatedNotice</code></td>
-          <td><code>rdfs:subPropertyOf</code></td>
-          <td><code>schema:isRelatedTo</code></td>
-          <td>Safe broad mapping. Not equivalent.</td>
+          <td><code>rdfs:range</code></td>
+          <td><code>lcont:LCNotice</code></td>
+          <td>The domain is the OWL union of <code>lcont:BCLabel</code> and <code>lcont:TKLabel</code>.</td>
+        </tr>
+        <tr>
+          <td><code>lcont:CollectionsCareDuty</code></td>
+          <td><code>odrl:action</code></td>
+          <td><code>odrl-action:follow-protocol</code></td>
+          <td>The action is defined in the IDN ODRL Actions vocabulary, not in the Local Contexts ontology.</td>
         </tr>
       </table>
     </section>
@@ -3675,31 +3698,33 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       </p>
       <p>Figure C.1 overviews the model.</p>
       <div id="lc-model-figure" class="figure">
-        <a href="images/lc-model.png">
-          <img src="images/lc-model.png" style="width:700px;" alt="Overview of elements of the Local Context Model"/>
-        </a> <!--source file images/lc-model.drawio-->
+        <a href="images/lc-model.svg">
+          <img src="images/lc-model.svg" style="width:100%; max-width:1200px;" alt="Overview of elements of the Local Context Model"/>
+        </a> <!--publication source: images/lc-model.svg; earlier draw.io source retained as images/lc-model.drawio-->
         <p class="caption"><strong>Figure C.1:</strong> Overview of elements of the Local Context Model.</p>
       </div>
       <p>This model requires that:</p>
       <ul>
         <li>
-          a <code>Biocultural Label</code> or a <code>Traditional Knowledge Label</code> with customisable
-          <code>Template Text</code> is assigned to a catalogued <code>schema:CreativeWork</code> via an intermediate
-          node of type
-          <code>lcont:QualifiedLocalContext</code>, indicated with <code>odrl:hasPolicy</code>.
+          a <code>Biocultural Label</code> or <code>Traditional Knowledge Label</code> is assigned directly to a
+          catalogued resource with <code>odrl:hasPolicy</code>;
         </li>
         <li>
-          a <code>Local Context Notice</code> with customisable <code>Template Text</code> is assigned to a catalogued
-          <code>schema:CreativeWork</code> via an intermediate node of type <code>lcont:QualifiedLocalContext</code>,
-          indicated with <code>schema:potentialAction</code>.
+          a <code>Local Context Notice</code> is assigned directly to a catalogued resource with
+          <code>schema:potentialAction</code>;
         </li>
         <li>
-          <code>Local Context Notice</code>'s' may be applied to item-level or collection-level records, <strong>except</strong> the <a href="https://data.idnau.org/pid/vocab/lc-notices/cc-overall-notice">Overall Notice</a> and the <a href="https://data.idnau.org/pid/vocab/lc-notices/open-to-collaborate">Open to Collaborate</a> notice which SHOULD NOT be applied to item-level records.
+          a <code>lcont:QualifiedLocalContext</code> relationship MAY be used with <code>dcat:qualifiedRelation</code>
+          when information must be recorded about the application of a Label or Notice, but it is not required for
+          ordinary attachment; and
+        </li>
+        <li>
+          Local Context Notices may be applied to item-level or collection-level records, <strong>except</strong> the <a href="https://data.idnau.org/pid/vocab/lc-notices/cc-overall-notice">Overall Notice</a> and the <a href="https://data.idnau.org/pid/vocab/lc-notices/open-to-collaborate">Open to Collaborate</a> notice which SHOULD NOT be applied to item-level records.
         </li>
       </ul>
       <p>
-        This use of the <a href="https://patterns.dataincubator.org/book/qualified-relation.html">Qualified Relation</a>
-        graph modelling pattern allows for the nature of the Resource/Label relationship to be defined.
+        The direct relationships are the preferred pattern. The optional <a href="https://patterns.dataincubator.org/book/qualified-relation.html">Qualified Relation</a>
+        pattern is available only when the Resource/Label or Resource/Notice relationship itself needs additional description.
       </p>
     </section>
     <section id="c.2">
@@ -3818,7 +3843,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			             title="A statement or formal explanation of the meaning of a concept">Definition</a></td>
 			      <td>A notice to be applied to data that identifies Indigenous collections and data and recognizes Indigenous rights
 			        and interests. The Notices were developed to create pathways for partnership, collaboration, and support of
-			        Indigenous cultural authority.</a></td>
+		        Indigenous cultural authority.</td>
 			    </tr>
 			    <tr>
 			      <td>
@@ -3834,13 +3859,24 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			    </td>
 			    <tr>
 			      <td>Expected Properties</td>
-			      <td><code>lcont:templateText</code> ; <code>lcont:followProtocol</code></td>
+			      <td><code>lcont:templateText</code></td>
 			    </tr>
 
 			  </table>
 			</section>
 			<section id="c.2.4">
-			  <h4>C.2.4 <code>lcont:QualifiedLocalContext</code> class definition</h4>
+			  <h4>C.2.4 <code>lcont:CCNotice</code> class definition</h4>
+			  <table class="properties" style="width:80%;" id="CCNotice">
+			    <tr><th>Property</th><th>Value</th></tr>
+			    <tr><td>IRI</td><td><code>https://data.idnau.org/pid/lc-ont#CCNotice</code></td></tr>
+			    <tr><td>Name</td><td>Collections Care Notices</td></tr>
+			    <tr><td>Definition</td><td>A SKOS Concept representing a Collections Care Notice from the Local Contexts framework.</td></tr>
+			    <tr><td>Subclass Of</td><td><code>lcont:LCNotice</code></td></tr>
+			    <tr><td>Expected Properties</td><td><code>lcont:templateText</code></td></tr>
+			  </table>
+			</section>
+			<section id="c.2.5">
+			  <h4>C.2.5 <code>lcont:QualifiedLocalContext</code> class definition</h4>
 			  <table class="properties" style="width:80%;" id="QualifiedLocalContext">
 			    <tr>
 			      <th>Property</th>
@@ -3858,10 +3894,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			    <tr>
 			      <td><a href="https://www.w3.org/TR/skos-reference/#definition"
 			             title="A statement or formal explanation of the meaning of a concept">Definition</a></td>
-			      <td>An association between an RDF Resource and a <a href="#TKLabel">Traditional Knowledge Label</a> , <a
-			              href="#BCLabel">Biocultural Label</a> or <a href="#LCNotice">Local Contexts Notice</a> that
-			        allows for the nature of the relationship to be defined
-			      </td>
+			      <td>A qualified relationship between a catalogued resource and a Local Contexts Label or Notice, used when information about the application of that Label or Notice must be recorded on the relationship itself.</td>
 			    </tr>
 			    <tr>
 			      <td>
@@ -3873,38 +3906,36 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			    <tr>
 			      <td><a href="https://www.w3.org/TR/rdf-schema/#ch_subclassof" title="The subject is a subclass of a class">Subclass
 			        Of</a></td>
-			      <td><a href="https://www.w3.org/TR/skos-reference/#Concept" title="An idea or notion; a unit of thought">SKOS
-			        Concept</a></td>
+			      <td><code>dcat:Relationship</code></td>
 			    </tr>
 			    <tr>
 			      <td>Expected Properties</td>
 			      <td>
 			        <ul>
 			          <li>
-			            <a href="http://www.w3.org/ns/odrl/2/hasPolicy"
-			               title="The nature or genre of the resource">odrl:hasPolicy</a> - used to indicate a
-			            <a href="#QualifiedLocalContext">Qualified Local Context</a>
+			            <code>dcterms:relation</code> - identifies the Label or Notice participating in the qualified relationship.
 			          </li>
 			          <li>
-			            <a href="https://schema.org/additionalType"
-			               title="The nature or genre of the resource">schema:additionalType</a> - used to indicate a particular
-			            <a href="#TKLabel">Traditional Knowledge Label</a> or
-			            <a href="#BCLabel">Biocultural Label</a>
-			          </li>
-			          <li>
-			            <a href="https://data.idnau.org/pid/lc-ont#templateText"
-			               title="The prescriptive text values">lcont:templateText</a> - a prescriptive text string associated with
-			            a Label or Notice that provides boilerplate wording intended to be reused
-			            or customised by end-users.
-			          </li>
+			            <code>schema:roleName</code> - optionally identifies the role played by that Label or Notice.
 			          </li>
 			        </ul>
 			      </td>
 			    </tr>
 			  </table>
 			</section>
-			<section id="c.2.5">
-			  <h4>C.2.5 <code>lcont:templateText</code> datatype property definition</h4>
+			<section id="c.2.6">
+			  <h4>C.2.6 <code>lcont:CollectionsCareDuty</code> instance definition</h4>
+			  <table class="properties" style="width:80%;" id="CollectionsCareDuty">
+			    <tr><th>Property</th><th>Value</th></tr>
+			    <tr><td>IRI</td><td><code>https://data.idnau.org/pid/lc-ont#CollectionsCareDuty</code></td></tr>
+			    <tr><td>Name</td><td>Collections Care Duty</td></tr>
+			    <tr><td>Definition</td><td>You are entering a space where Collections Care Notices are in use. Be prepared to follow the protocols for access, use, handling, and viewing associated with certain items or collections. These are in place for the care of the collections and the communities to whom they belong. For more information about Collections Care Notices, see localcontexts.org.</td></tr>
+			    <tr><td>Type</td><td><code>odrl:Duty</code></td></tr>
+			    <tr><td>Action</td><td><code>odrl-action:follow-protocol</code></td></tr>
+			  </table>
+			</section>
+			<section id="c.2.7">
+			  <h4>C.2.7 <code>lcont:templateText</code> datatype property definition</h4>
 			  <table class="properties" style="width:80%;" id="templateText">
 			    <tr>
 			      <th>Property</th>
@@ -3924,7 +3955,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			             title="A prescriptive text string associated with a Label or Notice that provides boilerplate wording intended to be reused or customised by end-users. Distinct from skos:example, which is illustrative only.">Definition</a>
 			      </td>
 			      <td>A prescriptive text string associated with a Label or Notice that provides boilerplate wording intended to be
-			        reused or customised by end-users. Distinct from skos:example, which is illustrative only.</a></td>
+		        reused or customised by end-users. Distinct from skos:example, which is illustrative only.</td>
 			    </tr>
 			    <tr>
 			      <td><a href="https://www.w3.org/TR/rdf-schema/#ch_range" title="A range of the subject property">Range</a>
@@ -3935,7 +3966,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			    <tr>
 			      <td><a href="https://www.w3.org/TR/rdf-schema/#ch_domain" title="A domain of the subject property">Domain</a>
 			      </td>
-			      <td><code>lcont:BCLabel</code> ; <code>lcont:TKLabel</code> ; <code>lcont:LCNotice</code>
+			      <td>OWL union of <code>lcont:BCLabel</code>, <code>lcont:TKLabel</code> and <code>lcont:LCNotice</code>
 			      </td>
 			    </tr>
 			    <tr>
@@ -3947,50 +3978,46 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			    </tr>
 			  </table>
 			</section>
-			<section id="c.2.6">
-			  <h4>C.2.6 <code>lcont:followProtocol</code> action definition</h4>
-			  <table class="properties" style="width:80%;" id="followProtocol">
+			<section id="c.2.8">
+			  <h4>C.2.8 <code>odrl-action:follow-protocol</code> action definition</h4>
+			  <table class="properties" style="width:80%;" id="follow-protocol">
 			    <tr>
 			      <th>Property</th>
 			      <th>Value</th>
 			    </tr>
 			    <tr>
 			      <td>IRI</td>
-			      <td><code>https://data.idnau.org/pid/lc-ont#followProtocol</code></td>
+			      <td><code>https://linked.data.gov.au/def/odrl-action/follow-protocol</code></td>
 			    </tr>
 			    <tr>
 			      <td><a href="https://schema.org/name"
 			             title="The name of the item.">Name</a></td>
-			      <td>Follow Protocol</td>
+			      <td>follow protocol</td>
 			    </tr>
 			    <tr>
 			      <td><a href="https://www.w3.org/TR/skos-reference/#definition"
 			             title="A statement or formal explanation of the meaning of a concept">Definition</a></td>
-			      <td>Indicates that a protocol in a Local Context Notice must be followed</a></td>
+			      <td>Follow the protocols identified by a policy for accessing, using, handling, viewing, sharing or otherwise interacting with an asset.</td>
 			    </tr>
 			    <tr>
-			      <td><a href="https://www.w3.org/TR/rdf-schema/#ch_range" title="A range of the subject property">Range</a>
-			      </td>
-			      <td><code>rdfs:langString</code>
-			      </td>
+			      <td>Types</td>
+			      <td><code>odrl:Action</code> and <code>skos:Concept</code></td>
 			    </tr>
 			    <tr>
-			      <td><a href="https://www.w3.org/TR/rdf-schema/#ch_domain" title="A domain of the subject property">Domain</a>
-			      </td>
-			      <td><code>lcont:LCNotice</code>
-			      </td>
+			      <td>Broader Concept</td>
+			      <td><code>odrl-action:fulfil-commitments</code></td>
 			    </tr>
 			    <tr>
 			      <td>
 			        <a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/provenance"
 			           title="A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation">Provenance</a>
 			      </td>
-			      <td>Developed for this data model, based on standard Linked Data graph patterns</td>
+			      <td>Defined in the IDN ODRL Actions vocabulary.</td>
 			    </tr>
 			  </table>
 			</section>
-			<section id="c.2.7">
-			  <h4>C.2.7 <code>lcont:relatedNotice</code> property definition</h4>
+			<section id="c.2.9">
+			  <h4>C.2.9 <code>lcont:relatedNotice</code> object property definition</h4>
 			  <table class="properties" style="width:80%;" id="relatedNotice">
 			    <tr>
 			      <th>Property</th>
@@ -4008,8 +4035,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			    <tr>
 			      <td><a href="https://www.w3.org/TR/skos-reference/#definition"
 			             title="A statement or formal explanation of the meaning of a concept">Definition</a></td>
-			      <td>A relationship that indicates that a Traditional Knowledge Label or Biocultural Label is related in some way
-			        to a Local Contexts Notice</a></td>
+			      <td>Relates a Traditional Knowledge or Biocultural Label to a relevant Local Contexts Notice.</td>
 			    </tr>
 			    <tr>
 			      <td><a href="https://www.w3.org/TR/rdf-schema/#ch_range" title="A range of the subject property">Range</a>
@@ -4020,7 +4046,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			    <tr>
 			      <td><a href="https://www.w3.org/TR/rdf-schema/#ch_domain" title="A domain of the subject property">Domain</a>
 			      </td>
-			      <td><code>lcont:BCLabel</code> ; <code>lcont:TKLabel</code>
+			      <td>OWL union of <code>lcont:BCLabel</code> and <code>lcont:TKLabel</code>
 			      </td>
 			    </tr>
 			    <tr>
@@ -4051,8 +4077,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 
  		    <h4>TK Label example</h4>
 		    <p class="eg">
-		      <span>Example of a lcont:TKlabel from the TK Label Concept Scheme, including customised lcont:templateText, applied to a schema:CreativeWork</span>
-PREFIX lcont: &lt;https://data.idnau.org/pid/lc-ont#&gt;
+		      <span>Example of a <code>lcont:TKLabel</code> policy from the TK Label Concept Scheme applied directly to a <code>schema:CreativeWork</code>.</span>
 PREFIX odrl: &lt;http://www.w3.org/ns/odrl/2/&gt;
 PREFIX schema: &lt;https://schema.org/&gt;
 PREFIX tk: &lt;https://data.idnau.org/pid/vocab/tk-labels/&gt;
@@ -4062,21 +4087,14 @@ PREFIX tk: &lt;https://data.idnau.org/pid/vocab/tk-labels/&gt;
   schema:name "E Reo Noku, Episode 1 - Araura-Aitutaki" ;
   schema:creator "Oriana TV" ;
   ...
-  odrl:hasPolicy [
-    a lcont:QualifiedLocalContext ;
-    schema:additionalType tk:non-commercial ;
-    lcont:templateText "This Label indicates that this broadcast should not be used in any commercial ways, including
-      ways that derive profit from sale or production for non-Pacific communities. The name of this Label Kaua e hoko
-      means 'do not sell'. If you are unsure if your use is non-commercial, please contact: [contact@examle.com]" ;
-  ] ;
+  odrl:hasPolicy tk:non-commercial ;
   ...
 .
 	</p>
 		  <H4>BC Label example</H4>
 		    <p class="eg">
-		      <span>Example: A Creative Work with a lcont:BCLabel applied from the BC Label Concept Scheme, including customised lcont:templateText.</span>
+		      <span>Example: a <code>schema:CreativeWork</code> with a <code>lcont:BCLabel</code> policy from the BC Label Concept Scheme applied directly.</span>
 PREFIX bc: &lt;https://data.idnau.org/pid/vocab/bc-labels/&gt;
-PREFIX lcont: &lt;https://data.idnau.org/pid/lc-ont#&gt;
 PREFIX odrl: &lt;http://www.w3.org/ns/odrl/2/&gt;
 PREFIX schema: &lt;https://schema.org/&gt;
 
@@ -4087,18 +4105,13 @@ schema:description "Shortjaw kōkopu (Galaxis postvectis) are a threatened fresh
 schema:id "c57b53f1-2089-42ff-93aa-9a179636e4d0" ;
 schema:contributor
   &lt;https://orcid.org/0009-0003-9587-0163&gt; , &lt;https://orcid.org/0000-0003-3876-720X&gt; ;
-odrl:hasPolicy [
-    a lcont:QualifiedLocalContext ;
-    schema:additionalType bc:provenance ;
-    lcont:templateText "This Label is being used to affirm an inherent interest Te Roroa people have in the scientific collections and data (including Digital Sequence Information) about communities, peoples, and the biodiversity found within traditional lands, waters and territories. Te Roroa retains the right to be named and associated with it into the future. This association reflects a significant relationship and responsibility to biocultural materials from within the rohe of Te Roroa and associated scientific collections and data." ;
-  ] ;
+odrl:hasPolicy bc:provenance ;
   ...
 .
   </p>
       <H4>LC Notice example</H4>
 		    <p class="eg">
-		      <span>Example: A collection level record, typed as a Dataset, with a <code>lcont:LCNotice</code> applied from the LC Notice Concept Scheme, including customised lcont:templateText.</span>
-PREFIX lcont: &lt;https://data.idnau.org/pid/lc-ont#&gt;
+		      <span>Example: a collection-level record typed as a Dataset, with a <code>lcont:LCNotice</code> from the LC Notices Concept Scheme applied directly.</span>
 PREFIX lcn: &lt;https://data.idnau.org/pid/vocab/lc-notices/&gt;
 PREFIX schema: &lt;https://schema.org/&gt;
 
@@ -4110,12 +4123,7 @@ PREFIX schema: &lt;https://schema.org/&gt;
     collapse of the socialist regimes of Eastern Europe and the disintegration of the U.S.S.R., by the turn of the
     1990s." ;
   ...
-  schema:potentialAction [
-    a lcont:QualifiedLocalContext ;
-    schema:additionalType lcn:open-to-collaborate ;
-    lcont:tempateText "Our institution is committed to the development of new modes of collaboration, engagement, and
-    partnership with Indigenous peoples of the Caribbean for the care and stewardship of archival collections." ;
-  ] ;
+  schema:potentialAction lcn:open-to-collaborate ;
   ...
 .
 	</p>
