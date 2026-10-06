@@ -1,0 +1,14 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX lcn: <https://data.idnau.org/pid/vocab/lc-notices/>
+PREFIX schema: <https://schema.org/>
+
+<https://data.kurrawong.ai/sb/examples/local-contexts-valid-direct>
+  a schema:Dataset ;
+  schema:name "Archive of Cuban Socialism" ;
+  schema:creator <https://orcid.org/0000-0002-1945-7057&gt> ;
+  schema:description "A repository of Cuban material culture, from the revolutionary triumph of 1959 until the
+    collapse of the socialist regimes of Eastern Europe and the disintegration of the U.S.S.R., by the turn of the
+    1990s." ;
+  dcterms:source "https://www.cubasocialista.com/"^^xsd:anyURI ;
+  schema:potentialAction lcn:open-to-collaborate ;
+.

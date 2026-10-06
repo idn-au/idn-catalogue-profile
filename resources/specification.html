@@ -4078,6 +4078,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
  		    <h4>TK Label example</h4>
 		    <p class="eg">
 		      <span>Example of a <code>lcont:TKLabel</code> policy from the TK Label Concept Scheme applied directly to a <code>schema:CreativeWork</code>.</span>
+PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
 PREFIX odrl: &lt;http://www.w3.org/ns/odrl/2/&gt;
 PREFIX schema: &lt;https://schema.org/&gt;
 PREFIX tk: &lt;https://data.idnau.org/pid/vocab/tk-labels/&gt;
@@ -4086,15 +4087,15 @@ PREFIX tk: &lt;https://data.idnau.org/pid/vocab/tk-labels/&gt;
   a schema:CreativeWork ;
   schema:name "E Reo Noku, Episode 1 - Araura-Aitutaki" ;
   schema:creator "Oriana TV" ;
-  ...
+  dcterms:source &lt;https://youtu.be/qOG4NAql5Ys?si=z9qePX7wSVGcm1Vi&gt;^^xsd:anyURI ;
   odrl:hasPolicy tk:non-commercial ;
-  ...
 .
 	</p>
 		  <H4>BC Label example</H4>
 		    <p class="eg">
 		      <span>Example: a <code>schema:CreativeWork</code> with a <code>lcont:BCLabel</code> policy from the BC Label Concept Scheme applied directly.</span>
 PREFIX bc: &lt;https://data.idnau.org/pid/vocab/bc-labels/&gt;
+PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
 PREFIX odrl: &lt;http://www.w3.org/ns/odrl/2/&gt;
 PREFIX schema: &lt;https://schema.org/&gt;
 
@@ -4106,23 +4107,24 @@ schema:id "c57b53f1-2089-42ff-93aa-9a179636e4d0" ;
 schema:contributor
   &lt;https://orcid.org/0009-0003-9587-0163&gt; , &lt;https://orcid.org/0000-0003-3876-720X&gt; ;
 odrl:hasPolicy bc:provenance ;
-  ...
+dcterms:source &lt;https://localcontextshub.org/projects/c57b53f1-2089-42ff-93aa-9a179636e4d0&gt;^^xsd:anyURI ;
 .
   </p>
       <H4>LC Notice example</H4>
 		    <p class="eg">
 		      <span>Example: a collection-level record typed as a Dataset, with a <code>lcont:LCNotice</code> from the LC Notices Concept Scheme applied directly.</span>
+PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
 PREFIX lcn: &lt;https://data.idnau.org/pid/vocab/lc-notices/&gt;
 PREFIX schema: &lt;https://schema.org/&gt;
 
-&lt;https://hub.catalogit.app/archive-of-cuban-socialism&gt;
+&lt;https://data.kurrawong.ai/sb/examples/local-contexts-valid-direct&gt;
   a schema:Dataset ;
   schema:name "Archive of Cuban Socialism" ;
   schema:creator &lt;https://orcid.org/0000-0002-1945-7057&gt; ;
   schema:description "A repository of Cuban material culture, from the revolutionary triumph of 1959 until the
     collapse of the socialist regimes of Eastern Europe and the disintegration of the U.S.S.R., by the turn of the
     1990s." ;
-  ...
+  dcterms:source &lt;https://www.cubasocialista.com/&gt;^^xsd:anyURI ;
   schema:potentialAction lcn:open-to-collaborate ;
   ...
 .
@@ -4143,7 +4145,7 @@ PREFIX lcont: &lt;https://data.idnau.org/pid/lc-ont#&gt;
 PREFIX odrl-action: &lt;https://linked.data.gov.au/def/odrl-action/&gt;
 PREFIX schema: &lt;https://schema.org/&gt;
 
-&lt;https://example.com/resource/qualified&gt;
+&lt;https://data.kurrawong.ai/sb/examples/local-contexts-valid-qualified&gt;
   a schema:CreativeWork ;
   dcat:qualifiedRelation [
     a lcont:QualifiedLocalContext ;

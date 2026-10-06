@@ -5,7 +5,7 @@ PREFIX lcont: <https://data.idnau.org/pid/lc-ont#>
 PREFIX odrl-action: <https://linked.data.gov.au/def/odrl-action/>
 PREFIX schema: <https://schema.org/>
 
-<https://example.com/resource/qualified>
+<https://data.kurrawong.ai/sb/examples/local-contexts-valid-qualified>
     a schema:CreativeWork ;
     dcat:qualifiedRelation
         [
