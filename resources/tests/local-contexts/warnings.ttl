@@ -1,0 +1,33 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX lcn: <https://data.idnau.org/pid/vocab/lc-notices/>
+PREFIX lcont: <https://data.idnau.org/pid/lc-ont#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX schema: <https://schema.org/>
+PREFIX tk: <https://data.idnau.org/pid/vocab/tk-labels/>
+
+<https://example.com/resource/warnings>
+    a schema:CreativeWork ;
+    dcat:qualifiedRelation
+        [
+            dcterms:relation lcn:caring ;
+        ] ;
+    odrl:hasPolicy
+        lcn:open-to-collaborate ,
+        [
+            a lcont:TKLabel ;
+            lcont:relatedNotice [ ] ;
+            lcont:templateText "Template without a language tag" ;
+        ] ;
+    schema:potentialAction tk:non-commercial ;
+.
+
+<https://example.com/resource/legacy-qualified>
+    a schema:CreativeWork ;
+    odrl:hasPolicy
+        [
+            a lcont:QualifiedLocalContext ;
+            dcterms:relation tk:non-commercial ;
+            schema:roleName "community endorsed" ;
+        ] ;
+.

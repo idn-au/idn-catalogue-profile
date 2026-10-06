@@ -4127,6 +4127,31 @@ PREFIX schema: &lt;https://schema.org/&gt;
   ...
 .
 	</p>
+		  <h4>Qualified Local Context example</h4>
+		    <p>
+		      The following optional pattern records information about the relationship itself. Here,
+		      <code>odrl-action:follow-protocol</code> loosely describes the role of the Caring Notice in the
+		      qualified relationship. The direct patterns above remain preferred when no relationship-level
+		      qualification is needed.
+		    </p>
+		    <p class="eg">
+		      <span>Example: a Local Contexts Notice applied through an optional <code>lcont:QualifiedLocalContext</code> relationship.</span>
+PREFIX dcat: &lt;http://www.w3.org/ns/dcat#&gt;
+PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
+PREFIX lcn: &lt;https://data.idnau.org/pid/vocab/lc-notices/&gt;
+PREFIX lcont: &lt;https://data.idnau.org/pid/lc-ont#&gt;
+PREFIX odrl-action: &lt;https://linked.data.gov.au/def/odrl-action/&gt;
+PREFIX schema: &lt;https://schema.org/&gt;
+
+&lt;https://example.com/resource/qualified&gt;
+  a schema:CreativeWork ;
+  dcat:qualifiedRelation [
+    a lcont:QualifiedLocalContext ;
+    dcterms:relation lcn:caring ;
+    schema:roleName odrl-action:follow-protocol ;
+  ] ;
+.
+		    </p>
 	</section>
   </section>
 	<section id="ai">

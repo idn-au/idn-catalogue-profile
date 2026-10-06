@@ -1,0 +1,254 @@
+PREFIX : <https://data.idnau.org/pid/cp/validator/local-contexts/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX lcont: <https://data.idnau.org/pid/lc-ont#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+<https://data.idnau.org/pid/cp/validator/local-contexts>
+    a owl:Ontology ;
+    owl:imports <https://data.idnau.org/pid/cp/validator> ;
+    rdfs:comment "A standalone SHACL extension for reviewing Local Contexts usage in catalogued records. The import records its relationship to the general IDN Catalogue Profile validator; processors may still need both shape graphs supplied explicitly when combined validation is wanted."@en ;
+    schema:codeRepository "https://github.com/idn-au/idn-catalogue-profile/"^^xsd:anyURI ;
+    schema:dateCreated "2026-10-06"^^xsd:date ;
+    schema:description "Advisory SHACL validation for the preferred direct and optional qualified Local Contexts patterns used by the IDN Catalogue Profile."@en ;
+    schema:name "IDN Catalogue Profile Local Contexts Validator"@en ;
+    schema:publisher <https://linked.data.gov.au/org/idn> ;
+.
+
+:Prefixes
+    sh:declare
+        [
+            sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
+            sh:prefix "dcterms" ;
+        ] ,
+        [
+            sh:namespace "http://www.w3.org/ns/dcat#"^^xsd:anyURI ;
+            sh:prefix "dcat" ;
+        ] ,
+        [
+            sh:namespace "http://www.w3.org/ns/odrl/2/"^^xsd:anyURI ;
+            sh:prefix "odrl" ;
+        ] ,
+        [
+            sh:namespace "https://data.idnau.org/pid/lc-ont#"^^xsd:anyURI ;
+            sh:prefix "lcont" ;
+        ] ,
+        [
+            sh:namespace "https://schema.org/"^^xsd:anyURI ;
+            sh:prefix "schema" ;
+        ] ;
+.
+
+# Catalogued resources are targeted both by their common schema.org types and by
+# actual use of the three predicates that participate in the Local Context model.
+# The predicate targets allow other CreativeWork subtypes to be reviewed without
+# requiring an RDFS or schema.org entailment regime.
+:LocalContextResourceShape
+    a sh:NodeShape ;
+    rdfs:isDefinedBy <https://data.idnau.org/pid/cp/validator/local-contexts> ;
+    schema:name "Local Contexts usage on a catalogued resource"@en ;
+    sh:severity sh:Warning ;
+    sh:targetClass
+        schema:CreativeWork ,
+        schema:DataCatalog ,
+        schema:Dataset ;
+    sh:targetSubjectsOf
+        dcat:qualifiedRelation ,
+        odrl:hasPolicy ,
+        schema:potentialAction ;
+    sh:sparql
+        [
+            a sh:SPARQLConstraint ;
+            sh:message "A TK or BC Label is attached with {$path}. The preferred direct pattern uses odrl:hasPolicy."@en ;
+            sh:prefixes :Prefixes ;
+            sh:select """
+                SELECT $this ?path ?value
+                WHERE {
+                    $this ?path ?value .
+                    FILTER (?path != odrl:hasPolicy)
+                    FILTER (
+                        (isIRI(?value) && (
+                            STRSTARTS(STR(?value), "https://data.idnau.org/pid/vocab/tk-labels/") ||
+                            STRSTARTS(STR(?value), "https://data.idnau.org/pid/vocab/bc-labels/")
+                        )) ||
+                        EXISTS {
+                            ?value a ?labelClass .
+                            FILTER (?labelClass IN (lcont:TKLabel, lcont:BCLabel))
+                        }
+                    )
+                }
+            """ ;
+        ] ,
+        [
+            a sh:SPARQLConstraint ;
+            sh:message "A Local Contexts Notice is attached with {$path}. The preferred direct pattern uses schema:potentialAction."@en ;
+            sh:prefixes :Prefixes ;
+            sh:select """
+                SELECT $this ?path ?value
+                WHERE {
+                    $this ?path ?value .
+                    FILTER (?path != schema:potentialAction)
+                    FILTER (
+                        (isIRI(?value) && STRSTARTS(STR(?value), "https://data.idnau.org/pid/vocab/lc-notices/")) ||
+                        EXISTS {
+                            ?value a ?noticeClass .
+                            FILTER (?noticeClass IN (lcont:LCNotice, lcont:CCNotice))
+                        }
+                    )
+                }
+            """ ;
+        ] ,
+        [
+            a sh:SPARQLConstraint ;
+            sh:message "This dcat:qualifiedRelation appears to describe a Local Contexts relationship but its value is not explicitly typed lcont:QualifiedLocalContext."@en ;
+            sh:prefixes :Prefixes ;
+            sh:select """
+                SELECT $this ?value
+                WHERE {
+                    $this dcat:qualifiedRelation ?value .
+                    ?value dcterms:relation ?term .
+                    FILTER NOT EXISTS { ?value a lcont:QualifiedLocalContext }
+                    FILTER (
+                        (isIRI(?term) && (
+                            STRSTARTS(STR(?term), "https://data.idnau.org/pid/vocab/tk-labels/") ||
+                            STRSTARTS(STR(?term), "https://data.idnau.org/pid/vocab/bc-labels/") ||
+                            STRSTARTS(STR(?term), "https://data.idnau.org/pid/vocab/lc-notices/")
+                        )) ||
+                        EXISTS {
+                            ?term a ?termClass .
+                            FILTER (?termClass IN (lcont:TKLabel, lcont:BCLabel, lcont:LCNotice, lcont:CCNotice))
+                        }
+                    )
+                }
+            """ ;
+        ] ,
+        [
+            a sh:SPARQLConstraint ;
+            sh:message "lcont:QualifiedLocalContext is an optional dcat:qualifiedRelation node, not the value of odrl:hasPolicy or schema:potentialAction. Prefer attaching the Label or Notice directly unless relationship-level qualification is needed."@en ;
+            sh:prefixes :Prefixes ;
+            sh:select """
+                SELECT $this ?path ?value
+                WHERE {
+                    $this ?path ?value .
+                    FILTER (?path IN (odrl:hasPolicy, schema:potentialAction))
+                    ?value a lcont:QualifiedLocalContext .
+                }
+            """ ;
+        ] ;
+.
+
+:QualifiedLocalContextShape
+    a sh:NodeShape ;
+    rdfs:isDefinedBy <https://data.idnau.org/pid/cp/validator/local-contexts> ;
+    schema:name "Qualified Local Context relationship"@en ;
+    sh:severity sh:Warning ;
+    sh:targetClass lcont:QualifiedLocalContext ;
+    sh:property
+        [
+            sh:message "A lcont:QualifiedLocalContext node should be the value of dcat:qualifiedRelation on at least one catalogued resource."@en ;
+            sh:minCount 1 ;
+            sh:path [ sh:inversePath dcat:qualifiedRelation ] ;
+            sh:severity sh:Warning ;
+        ] ,
+        [
+            sh:maxCount 1 ;
+            sh:message "A lcont:QualifiedLocalContext node should identify exactly one Label or Notice with dcterms:relation."@en ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:relation ;
+            sh:severity sh:Warning ;
+        ] ,
+        [
+            sh:message "schema:roleName values on a qualified Local Context relationship should be identified by IRIs, for example an applicable concept from the IDN ODRL Actions vocabulary."@en ;
+            sh:nodeKind sh:IRI ;
+            sh:path schema:roleName ;
+            sh:severity sh:Warning ;
+        ] ;
+    sh:sparql
+        [
+            a sh:SPARQLConstraint ;
+            sh:message "The dcterms:relation value on lcont:QualifiedLocalContext should identify a TK Label, BC Label, Local Contexts Notice, or Collections Care Notice."@en ;
+            sh:prefixes :Prefixes ;
+            sh:select """
+                SELECT $this ?value
+                WHERE {
+                    $this dcterms:relation ?value .
+                    FILTER NOT EXISTS {
+                        ?value a ?termClass .
+                        FILTER (?termClass IN (lcont:TKLabel, lcont:BCLabel, lcont:LCNotice, lcont:CCNotice))
+                    }
+                    FILTER (
+                        !isIRI(?value) ||
+                        !(
+                            STRSTARTS(STR(?value), "https://data.idnau.org/pid/vocab/tk-labels/") ||
+                            STRSTARTS(STR(?value), "https://data.idnau.org/pid/vocab/bc-labels/") ||
+                            STRSTARTS(STR(?value), "https://data.idnau.org/pid/vocab/lc-notices/")
+                        )
+                    )
+                }
+            """ ;
+        ] ;
+.
+
+# This deliberately emits an informational result whenever the qualified pattern
+# is found. It is not an error: it tells reviewers that the allowed but less
+# common pattern was chosen and points them back to the preferred direct model.
+:QualifiedLocalContextInformationShape
+    a sh:NodeShape ;
+    rdfs:isDefinedBy <https://data.idnau.org/pid/cp/validator/local-contexts> ;
+    schema:name "Qualified Local Context pattern information"@en ;
+    sh:severity sh:Info ;
+    sh:targetClass lcont:QualifiedLocalContext ;
+    sh:sparql
+        [
+            a sh:SPARQLConstraint ;
+            sh:message "Qualified Local Context pattern detected. This pattern is allowed when the relationship itself needs metadata; otherwise prefer direct odrl:hasPolicy or schema:potentialAction attachment."@en ;
+            sh:select "SELECT $this WHERE { }" ;
+        ] ;
+.
+
+:LocalContextTermShape
+    a sh:NodeShape ;
+    rdfs:isDefinedBy <https://data.idnau.org/pid/cp/validator/local-contexts> ;
+    schema:name "Local Contexts Label or Notice term"@en ;
+    sh:severity sh:Warning ;
+    sh:targetClass
+        lcont:BCLabel ,
+        lcont:CCNotice ,
+        lcont:LCNotice ,
+        lcont:TKLabel ;
+    sh:property
+        [
+            sh:datatype rdf:langString ;
+            sh:message "lcont:templateText should be a language-tagged string."@en ;
+            sh:path lcont:templateText ;
+            sh:severity sh:Warning ;
+        ] ,
+        [
+            sh:message "lcont:relatedNotice should identify a Local Contexts Notice by IRI."@en ;
+            sh:nodeKind sh:IRI ;
+            sh:path lcont:relatedNotice ;
+            sh:severity sh:Warning ;
+        ] ;
+.
+
+:LocalContextTermIdentifierShape
+    a sh:NodeShape ;
+    rdfs:isDefinedBy <https://data.idnau.org/pid/cp/validator/local-contexts> ;
+    schema:name "Local Contexts term identifier"@en ;
+    sh:message "A Local Contexts Label or Notice should be identified by an IRI rather than represented as a blank node or literal."@en ;
+    sh:nodeKind sh:IRI ;
+    sh:severity sh:Warning ;
+    sh:targetClass
+        lcont:BCLabel ,
+        lcont:CCNotice ,
+        lcont:LCNotice ,
+        lcont:TKLabel ;
+.

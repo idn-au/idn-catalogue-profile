@@ -1,0 +1,16 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX lcn: <https://data.idnau.org/pid/vocab/lc-notices/>
+PREFIX lcont: <https://data.idnau.org/pid/lc-ont#>
+PREFIX odrl-action: <https://linked.data.gov.au/def/odrl-action/>
+PREFIX schema: <https://schema.org/>
+
+<https://example.com/resource/qualified>
+    a schema:CreativeWork ;
+    dcat:qualifiedRelation
+        [
+            a lcont:QualifiedLocalContext ;
+            dcterms:relation lcn:caring ;
+            schema:roleName odrl-action:follow-protocol ;
+        ] ;
+.

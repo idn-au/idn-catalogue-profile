@@ -1,0 +1,13 @@
+PREFIX bc: <https://data.idnau.org/pid/vocab/bc-labels/>
+PREFIX lcn: <https://data.idnau.org/pid/vocab/lc-notices/>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX schema: <https://schema.org/>
+PREFIX tk: <https://data.idnau.org/pid/vocab/tk-labels/>
+
+<https://example.com/resource/direct>
+    a schema:CreativeWork ;
+    odrl:hasPolicy
+        bc:provenance ,
+        tk:non-commercial ;
+    schema:potentialAction lcn:open-to-collaborate ;
+.
