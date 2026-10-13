@@ -4077,18 +4077,52 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 
  		    <h4>TK Label example</h4>
 		    <p class="eg">
-		      <span>Example of a <code>lcont:TKLabel</code> policy from the TK Label Concept Scheme applied directly to a <code>schema:CreativeWork</code>.</span>
+		      <span>Example of a <code>lcont:TKLabel</code> policy with customised label text applied to a <code>schema:CreativeWork</code>.</span>
+
+PREFIX dcat: &lt;http://www.w3.org/ns/dcat#&gt;
 PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
-PREFIX odrl: &lt;http://www.w3.org/ns/odrl/2/&gt;
+PREFIX lcont: &lt;https://data.idnau.org/pid/lc-ont#&gt;
+PREFIX odrl-action: &lt;https://linked.data.gov.au/def/odrl-action/&gt;
 PREFIX schema: &lt;https://schema.org/&gt;
 PREFIX tk: &lt;https://data.idnau.org/pid/vocab/tk-labels/&gt;
 
+
 &lt;https://youtu.be/qOG4NAql5Ys?si=z9qePX7wSVGcm1Vi&gt;
-  a schema:CreativeWork ;
-  schema:name "E Reo Noku, Episode 1 - Araura-Aitutaki" ;
-  schema:creator "Oriana TV" ;
-  dcterms:source &lt;https://youtu.be/qOG4NAql5Ys?si=z9qePX7wSVGcm1Vi&gt;^^xsd:anyURI ;
-  odrl:hasPolicy tk:non-commercial ;
+    a schema:CreativeWork ;
+    schema:name "E Reo Noku, Episode 1 - Araura-Aitutaki" ;
+    schema:creator "Oriana TV" ;
+    dcterms:source &lt;https://youtu.be/qOG4NAql5Ys?si=z9qePX7wSVGcm1Vi&gt; ;
+    dcat:qualifiedRelation
+        [
+            a lcont:QualifiedLocalContext ;
+            dcterms:relation tk:attribution ;
+            schema:roleName odrl-action:follow-protocol ;
+            schema:description "This label asks for future users to attribute the presenters of this film."@en ;
+        ] ,
+        [
+            a lcont:QualifiedLocalContext ;
+            dcterms:relation tk:verified ;
+            schema:roleName odrl-action:follow-protocol ;
+            schema:description "This label affirms that the presenters are satisfied with the way they represented and presented in this film."@en ;
+        ] ,
+        [
+            a lcont:QualifiedLocalContext ;
+            dcterms:relation tk:non-commercial ;
+            schema:roleName odrl-action:follow-protocol ;
+            schema:description "This film is available for non-commercial use. It must not be used for economic benefits or used in any way that makes it a commodity for sale or purchase."@en ;
+        ] ,
+        [
+            a lcont:QualifiedLocalContext ;
+            dcterms:relation tk:outreach ;
+            schema:roleName odrl-action:follow-protocol ;
+            schema:description "This label is used to indicate that this film can be used for educational purposes."@en ;
+        ] ,
+        [
+            a lcont:QualifiedLocalContext ;
+            dcterms:relation tk:open-to-collaboration ;
+            schema:roleName odrl-action:follow-protocol ;
+            schema:description "This label indicates that the community is open to collaboration, future engagement and partnership around research opportunities."@en ;
+        ] ;
 .
 	</p>
 		  <H4>BC Label example</H4>
@@ -4136,21 +4170,52 @@ PREFIX schema: &lt;https://schema.org/&gt;
 		      qualification is needed.
 		    </p>
 		    <p class="eg">
-		      <span>Example: a Local Contexts Notice applied through an optional <code>lcont:QualifiedLocalContext</code> relationship.</span>
+		      <span>Example: a Local Contexts Notice applied through an optional <code>lcont:QualifiedLocalContext</code> class indicated with dcat:qualifiedRelation</span>
+
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#&gt;
 PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
 PREFIX lcn: &lt;https://data.idnau.org/pid/vocab/lc-notices/&gt;
 PREFIX lcont: &lt;https://data.idnau.org/pid/lc-ont#&gt;
 PREFIX odrl-action: &lt;https://linked.data.gov.au/def/odrl-action/&gt;
 PREFIX schema: &lt;https://schema.org/&gt;
+PREFIX tk: &lt;https://data.idnau.org/pid/vocab/tk-labels/&gt;
 
-&lt;https://data.kurrawong.ai/sb/examples/local-contexts-valid-qualified&gt;
-  a schema:CreativeWork ;
-  dcat:qualifiedRelation [
-    a lcont:QualifiedLocalContext ;
-    dcterms:relation lcn:caring ;
-    schema:roleName odrl-action:follow-protocol ;
-  ] ;
+&lt;https://youtu.be/qOG4NAql5Ys?si=z9qePX7wSVGcm1Vi&gt;
+    a schema:CreativeWork ;
+    schema:name "E Reo Noku, Episode 1 - Araura-Aitutaki" ;
+    schema:creator "Oriana TV" ;
+    dcterms:source &lt;https://youtu.be/qOG4NAql5Ys?si=z9qePX7wSVGcm1Vi&gt; ;
+    dcat:qualifiedRelation
+        [
+            a lcont:QualifiedLocalContext ;
+            dcterms:relation tk:attribution ;
+            schema:roleName odrl-action:follow-protocol ;
+            schema:description "This label asks for future users to attribute the presenters of this film."@en ;
+        ] ,
+        [
+            a lcont:QualifiedLocalContext ;
+            dcterms:relation tk:verified ;
+            schema:roleName odrl-action:follow-protocol ;
+            schema:description "This label affirms that the presenters are satisfied with the way they represented and presented in this film."@en ;
+        ] ,
+        [
+            a lcont:QualifiedLocalContext ;
+            dcterms:relation tk:non-commercial ;
+            schema:roleName odrl-action:follow-protocol ;
+            schema:description "This film is available for non-commercial use. It must not be used for economic benefits or used in any way that makes it a commodity for sale or purchase."@en ;
+        ] ,
+        [
+            a lcont:QualifiedLocalContext ;
+            dcterms:relation tk:outreach ;
+            schema:roleName odrl-action:follow-protocol ;
+            schema:description "This label is used to indicate that this film can be used for educational purposes."@en ;
+        ] ,
+        [
+            a lcont:QualifiedLocalContext ;
+            dcterms:relation tk:open-to-collaboration ;
+            schema:roleName odrl-action:follow-protocol ;
+            schema:description "This label indicates that the community is open to collaboration, future engagement and partnership around research opportunities."@en ;
+        ] ;
 .
 		    </p>
 	</section>
