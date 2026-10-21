@@ -66,11 +66,7 @@
     </li>
     <li><a href="#scores">6. Scores</a></li>
     <li>
-      <a href="#examples">7. Extended Examples</a>
-      <ul>
-        <li><a href="#eg-minimal">7.1 Minimal</a></li>
-        <li><a href="#eg-formats">7.2 Formats</a></li>
-      </ul>
+      <a href="#examples">7. Examples</a>
     </li>
   </ul>
   <p>Annexes</p>
@@ -87,9 +83,9 @@
     <li>
       <a href="#scores">B. Scores</a>
       <ul>
-        <li><a href="#a.1">B.1 FAIR</a></li>
-        <li><a href="#a.2">B.2 CARE</a></li>
-        <li><a href="#a.2">B.3 Data Gov. Dist</a></li>
+        <li><a href="#fair">B.1 FAIR</a></li>
+        <li><a href="#care">B.2 CARE</a></li>
+        <li><a href="#dgd">B.3 Data Gov. Dist</a></li>
       </ul>
     </li>
     <li><a href="#lc">C. Local Contexts</a></li>
@@ -405,7 +401,7 @@
       <p>
         Also, when using schema.org, you might indicate the theme of data by classifying a <code>CreativeWork</code>
         with
-        plain text keywords or perhaps indicate a <a href="linked.data.gov.au/def/anzsrc-for/2020">Fields of Research
+        plain text keywords or perhaps indicate a <a href="https://linked.data.gov.au/def/anzsrc-for/2020">Fields of Research
         Code</a>.
         When using this profile we recommend you draw terms from the <a href="https://data.idnau.org/pid/vocab/idn-th">IDN
         Themes vocabulary</a>
@@ -603,7 +599,7 @@
                 <li>shelf number / physical collection location</li>
                 <li>distribution-specific instructions</li>
               </ul>
-              <p>See the <a href="#class-distribution">Distribution Class</a> details in the <a href="#model">Model
+              <p>See the <a href="#cls-DataDownload">Distribution Class</a> details in the <a href="#model">Model
                 Section</a>.</p>
             </td>
           </tr>
@@ -612,7 +608,7 @@
             <td>
               <p>The time period covered by the data. can eb indicates as a date, date range, year range or named time
                 period.</p>
-              <p>See the <a href="#temporality">Temporality</a> pattern section.</p>
+              <p>See the <a href="#pred-temporalCoverage">temporal coverage</a> predicate.</p>
             </td>
           </tr>
           <tr>
@@ -622,7 +618,7 @@
               <p>Note this might be given as a geometry - point or polygon - but may best be given as a link to an
                 online spatial object, e.g. administrative areas within the <a href="https://asgs.linked.fsdf.org.au/">ASGS
                   online</a>.</p>
-              <p>See the <a href="#spatality">Spatiality</a> pattern section.</p>
+              <p>See the <a href="#pred-spatialCoverage">spatial coverage</a> predicate.</p>
             </td>
           </tr>
           <tr>
@@ -1412,7 +1408,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       <ul>
         <li><a href="#cls-CreativeWork">Creative Work</a></li>
         <li><a href="#cls-Place">Place</a></li>
-        <li><a href="#cls-Duration">Duration</a></li>
+        <li><a href="#cls-DateTime">Date Time</a></li>
         <li><a href="#cls-Attribution">Attribution</a></li>
         <li><a href="#cls-Person">Person</a></li>
         <li><a href="#cls-Organization">Organization</a></li>
@@ -1453,11 +1449,11 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
                   <ul>
                     <li><a href="#pred-name">title</a></li>
                     <li><a href="#pred-description">description</a></li>
-                    <li><a href="#pred-created">created</a></li>
-                    <li><a href="#pred-modified">modified</a></li>
+                    <li><a href="#pred-dateCreated">date created</a></li>
+                    <li><a href="#pred-dateModified">date modified</a></li>
                     <li><a href="#pred-spatialCoverage">spatial coverage</a></li>
                     <li><a href="#pred-temporalCoverage">temporal coverage</a></li>
-                    <li><a href="#pred-language">language</a></li>
+                    <li><a href="#pred-inLanguage">language</a></li>
                   </ul>
                 </div>
                 <div style="grid-column: 2;">
@@ -1480,8 +1476,8 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
                 <div style="grid-column: 4;">
                   classification:
                   <ul>
-                    <li><a href="#pred-additionalType">additional type</a></li>
-                    <li><a href="#pred-theme">theme</a></li>
+                    <li><a href="#theming">additional type</a></li>
+                    <li><a href="#theming">theme</a></li>
                     <li><a href="#pred-hasPolicy">has policy</a></li>
                     <li><a href="#pred-license">license</a></li>
                     <li><a href="#pred-hasScore">has score</a></li>
@@ -1690,16 +1686,16 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
             <th>Expected Properties</th>
             <td>
               <ul>
-                <li><a href="#pred-title">title</a></li>
-                <li><a href="#pred-format">format</a></li>
-                <li><a href="#pred-accessURL">access URL</a></li>
-                <li><a href="#pred-downloadURL">download URL</a></li>
+                <li><a href="#pred-name">title</a></li>
+                <li><a href="https://schema.org/encodingFormat">format</a></li>
+                <li><a href="http://www.w3.org/ns/dcat#accessURL">access URL</a></li>
+                <li><a href="http://www.w3.org/ns/dcat#downloadURL">download URL</a></li>
               </ul>
             </td>
           </tr>
           <tr>
             <th>Example</th>
-            <td>See the example for <a href="#class::schema:CreativeWork">schema:CreativeWork</a></td>
+            <td>See the example for <a href="#cls-CreativeWork">schema:CreativeWork</a></td>
           </tr>
         </table>
       </section>
@@ -1730,16 +1726,16 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
             <th>Expected Properties</th>
             <td>
               <ul>
-                <li><a href="#pred-title">title</a></li>
-                <li><a href="#pred-format">format</a></li>
-                <li><a href="#pred-accessURL">access URL</a></li>
-                <li><a href="#pred-downloadURL">download URL</a></li>
+                <li><a href="#pred-name">title</a></li>
+                <li><a href="https://schema.org/encodingFormat">format</a></li>
+                <li><a href="http://www.w3.org/ns/dcat#accessURL">access URL</a></li>
+                <li><a href="http://www.w3.org/ns/dcat#downloadURL">download URL</a></li>
               </ul>
             </td>
           </tr>
           <tr>
             <th>Example</th>
-            <td>See the example for <a href="#class::schema:CreativeWork">schema:CreativeWork</a></td>
+            <td>See the example for <a href="#cls-CreativeWork">schema:CreativeWork</a></td>
           </tr>
         </table>
       </section>
@@ -1857,16 +1853,16 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
             <th>Expected Properties</th>
             <td>
               <ul>
-                <li><a href="#pred-title">title</a></li>
-                <li><a href="#pred-format">format</a></li>
-                <li><a href="#pred-accessURL">access URL</a></li>
-                <li><a href="#pred-downloadURL">download URL</a></li>
+                <li><a href="#pred-name">title</a></li>
+                <li><a href="https://schema.org/encodingFormat">format</a></li>
+                <li><a href="http://www.w3.org/ns/dcat#accessURL">access URL</a></li>
+                <li><a href="http://www.w3.org/ns/dcat#downloadURL">download URL</a></li>
               </ul>
             </td>
           </tr>
           <tr>
             <th>Example</th>
-            <td>See the example for <a href="#class::schema:CreativeWork">schema:CreativeWork</a></td>
+            <td>See the example for <a href="#cls-CreativeWork">schema:CreativeWork</a></td>
           </tr>
         </table>
       </section>
@@ -2541,8 +2537,8 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       <section id="rr-qa">
         <h4>3.3.1 Qualified attribution equivalents</h4>
         <p>
-          The predicates above that indicate a relationship between a <a href="#cls-Resource">Resource</a> and an <a
-                href="#cls-Agent">Agent</a>
+          The predicates above that indicate a relationship between a <a href="#cls-CreativeWork">Resource</a> and an <a
+                href="#agents">Agent</a>
           have equivalents in the <a href="#pred-qualifiedAttribution">qualified attribution</a> pattern where
           particular
           roles are taken from the <a href="https://linked.data.gov.au/def/data-roles">IDN Role Codes</a> vocabulary or
@@ -2632,7 +2628,7 @@ WHERE {
             relationships are shown in dashed green</strong>
         </div>
         <p>
-          When a <a href="#cls-Resource">Resource</a> is attributed to an <a href="#cls-Agent">Agent</a> and that agent
+          When a <a href="#cls-CreativeWork">Resource</a> is attributed to an <a href="#agents">Agent</a> and that agent
           has relationships to other agents - perhaps the first is a person who is a member of a community - then we can
           reason direct relationships between the resource and those other agents.
         </p>
@@ -2844,9 +2840,9 @@ WHERE {
         These example valid and invalid RDF catalogue entries can be used to see the validator pass and fail:
       </p>
       <ul>
-        <li><a href="resources/tests/MPF1226.ttl">MPF1226.ttl</a> - valid</li>
-        <li><a href="resources/tests/MPF1226-invalid.ttl">MPF1226.ttl</a> - invalid - missing description</li>
-        <li><a href="resources/tests/MPF1226-invalid2.ttl">MPF1226.ttl</a> - invalid - declares contactPoint instead of qualifiedAttribution</li>
+        <li><a href="tests/MPF1226.ttl">MPF1226.ttl</a> - valid</li>
+        <li><a href="tests/MPF1226-invalid.ttl">MPF1226-invalid.ttl</a> - invalid - missing description</li>
+        <li><a href="tests/MPF1226-invalid.2.ttl">MPF1226-invalid.2.ttl</a> - invalid - declares contactPoint instead of qualifiedAttribution</li>
       </ul>
     </section>
     <section id="structural">
@@ -3471,8 +3467,8 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       </p>
       <ol>
         <li><a href="#rico-treat">Treat some RiCO classes as IDN CP catalogues resources</a></li>
-        <li><a href="#">Relate RiCO elements to IDN CP elements</a></li>
-        <li><a href="#">'Bubble up' Indigenous indicators to the catalogued resource</a></li>
+        <li><a href="#rico-sub-parts">Relate RiCO elements to IDN CP elements</a></li>
+        <li>'Bubble up' Indigenous indicators to the catalogued resource</li>
       </ol>
       <section id="rico-treat">
         <h4>Treat some RiCO classes as IDN CP catalogues resources</h4>
@@ -3482,7 +3478,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           any information about the object to it with IDN CP relations.
         </p>
         <p>
-          <a href="#rico-treat-fig.svg">Figure 6</a> below shows a <code>rico:RecordSet</code> treated as a
+          <a href="#rico-treat-fig">Figure 6</a> below shows a <code>rico:RecordSet</code> treated as a
           <code>schema:CreativeWork</code>. Some RiCO relations are shown - <code>rico:hasOrHadPart</code>, indicating
           constituent <code>rico:Record</code> instances - and many IDN CP relations, as per <a href="#structural-figure">Figure 3</a>
         </p>

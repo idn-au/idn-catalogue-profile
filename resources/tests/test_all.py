@@ -1,5 +1,15 @@
 from pathlib import Path
+
+from rdflib import Graph
 from kurra.shacl import validate
+
+
+def test_all_profile_turtle_files_parse():
+    resources = Path(__file__).parent.parent
+    for f in sorted(resources.rglob("*.ttl")):
+        if ".venv" not in f.parts:
+            Graph().parse(f, format="turtle")
+
 
 def test_all():
     for f in sorted(Path(__file__).parent.glob("*.ttl")):

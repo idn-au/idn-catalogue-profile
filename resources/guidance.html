@@ -33,7 +33,10 @@
       display: block;
       width: min(16rem, 100%);
       height: auto;
-      border: solid 1px #990000;
+      padding: 0.5rem;
+      border: solid 1px #ccc;
+      border-radius: 3px;
+      background-color: #fff;
       box-sizing: border-box;
     }
 
@@ -52,6 +55,18 @@
       display: block;
       width: 100%;
       height: auto;
+    }
+
+    .tool-note {
+      margin: 1.25rem 0;
+      padding: 1rem 1.25rem;
+      border-left: 4px solid #777;
+      border-radius: 3px;
+      background-color: #f2f2f2;
+    }
+
+    .tool-note p {
+      margin: 0;
     }
 
     .guidance-figure figcaption {
@@ -132,6 +147,7 @@
       a few resources, prepare a collection, seek advice about a larger catalogue, or build a catalogue of your own, start
       with the use case that best matches what you are trying to do.
     </p>
+    <p>You can create metadata like the examples on this page using the <a href="https://metadata.idnau.org">Metadata Entry Tool</a>, which guides you through the fields and shows the record as you build it.</p>
     <ul class="profile-resources" aria-label="Profile resources">
       <li><a href="specification.html">Specification</a></li>
       <li><a href="../profile.html">All Profile Resources</a></li>
@@ -177,7 +193,7 @@
       <li><a href="#examples">See some examples?</a></li>
       <li><a href="#create">Create metadata according to the profile?</a></li>
       <li><a href="#validate">Validate my metadata?</a></li>
-      <li><a href="#calculate-scores">Calculate and improve FAIR, CARE &amp; DGD scores?</a></li>
+      <li><a href="#calculate-scores">Calculate and improve FAIR and CARE scores?</a></li>
       <li><a href="#formats">Express my catalogue's metadata according to the profile but in other formats?</a></li>
     </ol>
   </section>
@@ -311,7 +327,14 @@
       <tr><td>Keywords</td><td>About Indigenous people; by Indigenous people</td></tr>
     </table>
     <h3>Comprehensive Metadata Record</h3>
-    <p>The following <a href="https://www.w3.org/TR/turtle/">Turtle</a> example adds a link to the University of Melbourne's <a href="https://data.idnau.org/pid/MPF1309">Collections Policy</a>, which the profile identifies as applying to resources in the Indigenous Studies Unit catalogue. More detailed dates, agents and governance information can be added when verified for the record.</p>
+    <p>This version adds a creation date, governance context and two further themes from the <a href="https://data.idnau.org/pid/vocab/idn-th">IDN Themes vocabulary</a>, matching the live catalogue record.</p>
+    <table class="properties">
+      <tr><th>Property</th><th>Value</th></tr>
+      <tr><td>Date created</td><td>2023</td></tr>
+      <tr><td>Governance policy</td><td><a href="https://data.idnau.org/pid/MPF1309">University of Melbourne Collections Policy</a>, which the profile identifies as applying to resources in the Indigenous Studies Unit catalogue</td></tr>
+      <tr><td>IDN Themes</td><td><a href="https://vocabularyserver.com/apais/xml.php?skosTema=1251">Law</a>; <a href="https://vocabularyserver.com/apais/xml.php?skosTema=13">Aboriginal history</a></td></tr>
+    </table>
+    <p>The following <a href="https://www.w3.org/TR/turtle/">Turtle</a> record brings together the details from all three stages. More detailed dates, agents and governance information can be added when verified for the record.</p>
     <pre class="eg">
 PREFIX id: &lt;http://id.loc.gov/vocabulary/identifiers/&gt;
 PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/&gt;
@@ -331,16 +354,33 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
     schema:identifier "9781760762827"^^id:isbn ;
     schema:keywords
         ind:about-indigenous-people ,
-        ind:by-indigenous-people ;
+        ind:by-indigenous-people ,
+        &lt;https://vocabularyserver.com/apais/xml.php?skosTema=1251&gt; ,
+        &lt;https://vocabularyserver.com/apais/xml.php?skosTema=13&gt; ;
     odrl:hasPolicy &lt;https://data.idnau.org/pid/MPF1309&gt; .
     </pre>
     </section>
   <section id="create">
     <h2>Create metadata according to the profile</h2>
-    <p>To create metadata in a format required by this Profile, such as in the <em>Comprehensive Metadata Record</em> above, you can:</p>
+    <p>The best way to create metadata in a format required by this Profile depends on the thing you are describing and
+      the kind of work you need to do.</p>
+    <h3>What kind of thing are you describing?</h3>
+    <p>Before choosing how to create its metadata, be clear about the thing the catalogue entry is about. A book, article,
+      photograph or cultural artefact is a creative work. A dataset is a collection of data—such as observations,
+      measurements, records or files—published or curated as a unit. A book about a dataset is still a creative work;
+      the dataset it discusses is a different resource.</p>
+    <p>The IDN Catalogue Profile uses <code>schema:CreativeWork</code> as the generic type for catalogued resources,
+      equivalent here to <code>dcat:Resource</code>. When the resource is a dataset, its more specific type is
+      indicated with <code>schema:additionalType</code>. The resource (the book or dataset) and the catalogue entry
+      describing it are related but distinct things; DCAT can also describe the entry itself with a
+      <code>dcat:CatalogRecord</code> when that distinction matters.</p>
+    <p>Vocabularies, data models, ontologies and validators are also resources, but they serve a different purpose from
+      the content or dataset being described. They may need specialised metadata, identifiers or relationships, so
+      don't assume the ordinary resource-type choices or entry workflow are suitable for them. If you're unsure, ask
+      the IDN for advice before creating records in bulk or building a pipeline.</p>
+    <p>Ways to create metadata include:</p>
     <ol>
       <li>Use the <a href="https://metadata.idnau.org">Metadata Entry Tool</a></li>
-      <li>Type out RDF data, manually</li>
       <li>Use Software</li>
     </ol>
     <h4>Use the <a href="https://metadata.idnau.org">Metadata Entry Tool</a></h4>
@@ -350,22 +390,18 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
     <p>The tool contains examples you can load, video tutorials and displays the metadata it creates as you fill in form
       fields.</p>
     <p>It auto-calculates CARE and FAIR scores as you go too.</p>
-    <a class="guidance-thumbnail-link" href="https://idn-au.github.io/idn-metadata-creator/">
-      <img class="guidance-thumbnail" src="images/metadataTool.png"
-           alt="Current Metadata Entry Tool workflow showing FAIR and CARE scores and the eleven form steps"/>
+    <aside class="tool-note" role="note">
+      <p><strong>Note:</strong> In the Metadata Entry Tool, you can identify a resource as a dataset using the
+        <strong>Resource Type</strong> field. This does not change the form or add dataset-specific fields and
+        relationships. For example, the tool cannot link a dataset to its member resources using
+        <code>schema:hasPart</code>. If you need to describe a dataset's composition, you can export and edit the
+        generated RDF directly—for example, to add <code>schema:hasPart</code> links to other items—or use another
+        workflow or seek advice from the IDN.</p>
+    </aside>
+    <a class="guidance-thumbnail-link" href="https://metadata.idnau.org">
+      <img class="guidance-thumbnail" src="images/metadata-entry-tool.png"
+           alt="Metadata Entry Tool form showing metadata fields and FAIR and CARE scores"/>
     </a>
-    <h4>Type out RDF data, manually</h4>
-    <p>The metadata format for the IDN's Catalogue Profile is <a
-            href="https://en.wikipedia.org/wiki/Resource_Description_Framework">RDF</a>, which can be created in a plain
-      text file.</p>
-    <p>The Metadata Entry Tool auto-generates RDF as you fill it out, but you are also able to manually type out data files if you like.</p>
-    <p>See this profile's <a href="specification.html#examples">Specification Document's Examples Section</a> for a
-      complete RDF data file and remember: you can <a
-              href="https://idn-au.github.io/idn-catalogue-profile/resources/guidance.html#validate">validate RDF data
-        files</a> supplied in this profile</p>
-    <p>Since the IDN CP is a profile of <a href="https://www.w3.org/TR/vocab-dcat/">DCAT, the Data Catalog
-      Vocabulary</a>, and reuses many DCAT elements, you can use DCAT's documentation that contains lots of RDF examples
-      too.</p>
     <h4>Use Software</h4>
     <p>Lots of catalogue tools are able to export metadata in formats that are compatible with this profile. For
       example, the open source <a href="https://ckan.org/">CKAN</a> tool can <a
@@ -376,31 +412,29 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
   <section id="validate">
     <h2>Validate my metadata</h2>
     <p>Whatever method you use to create your metadata, you can validate it against this profile.</p>
-    <p>To validate metadata that you create, there is a <em>Validation file</em> and a <em>Validation tool</em>
-      preloaded with the validation file. See the <a href="specification.html#validation">Specification Document</a>
-      <em>Validation Section</em> for valid metadata examples.</p>
-    <h3>Validation file</h3>
-    <p>One of the resources within this profile is a <a
-            href="https://data.idnau.org/pid/cp/validator">Validator in SHACL</a> data file. It
-      can be used with validation tools to automatically check the validity of metadata.</p>
+    <p>The Metadata Entry Tool checks your metadata as you create it. If you prepare or edit RDF yourself, you can use
+      the standalone validation tool below to check it against the profile. The Specification Document also provides
+      <a href="specification.html#examples">complete RDF examples</a> to work from.</p>
     <h3>Validation tool</h3>
-    <p>A <a href="https://tools.kurrawong.ai/validate">Validation tool</a> that uses the Validation data file is
-      also available. (Select the "IDN CP Validator" option from the <em>Use Validators</em> selector.)</p>
+    <p>Use the <a href="https://tools.kurrawong.ai/validate">Validation tool</a> to check your metadata against the
+      profile. Select the "IDN CP Validator" option from the <em>Use Validators</em> selector.</p>
     <a class="guidance-thumbnail-link" href="https://tools.kurrawong.ai/validate" target="_blank" rel="noopener noreferrer">
       <img class="guidance-thumbnail" src="images/shacl_validator_tool.png"
            alt="SHACL Validator tool with the IDN Catalogue Profile validator selected"/>
     </a>
-    <p>This validator file and the validator tool are only able to test for structural and values validation - is the
-      metadata correctly formatted and machine-readable - it can't test for the <em>appropriateness</em> or the <em>goodness</em>
-      of metadata. For that, you will need to try calculating FAIR or CARE scores and compare what you get to your own
-      expectations of your metadata.</p>
+    <p>The validator checks structure and values—for example, whether the metadata is correctly formatted and
+      machine-readable. It cannot assess the <em>appropriateness</em> or <em>quality</em> of the metadata. For that,
+      compare FAIR or CARE scores with your own expectations for the record.</p>
+    <p>For batch validation across a collection or catalogue, the IDN Catalogue Profile <a
+            href="https://data.idnau.org/pid/cp/validator">SHACL validator file</a> can be integrated into a pipeline
+      or used with another SHACL-compatible validation tool. See the <a href="specification.html#validation">Validation
+      Section of the Specification Document</a> for technical details.</p>
   </section>
   <section id="calculate-scores">
-    <h2>CARE, FAIR and DGD scores</h2>
-    <p>One aim of this catalogue profile is to support either manual or automated use of software to
-      calculate <a href="https://force11.org/info/the-fair-data-principles/">FAIR</a>, 
-      <ahref="https://www.gida-global.org/care">CARE</a> and <a href="https://data.idnau.org/pid/cp/spec#dgd">Data Governance Distance</a> scores for resources described by metadata. Doing this
-      automatically allows calculation for large numbers of items.
+    <h2>CARE and FAIR scores</h2>
+    <p>The Metadata Entry Tool calculates <a href="https://force11.org/info/the-fair-data-principles/">FAIR</a> and
+      <a href="https://www.gida-global.org/care">CARE</a> scores for resources described by metadata. The scoring
+      definitions can also be used to calculate scores automatically for large numbers of items.
     </p>
     <p>The score supports that judgement by assessing the metadata against defined indicators; it does not itself prove that the data is Indigenous, decide whether it belongs in a particular catalogue, or establish that its governance is adequate. The <a
                 href="https://github.com/idn-au/scores-calculator/blob/main/definitions/care.yaml" target="_blank" rel="noopener noreferrer">CARE scoring definition</a> specifies how the evidence should affect the score.
@@ -409,14 +443,14 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
     <p><strong>View and report scores</strong></p>
     <p>The <a href="https://idn-au.github.io/idn-metadata-creator/">Metadata Entry Tool</a> automatically calculates
       these scores as you use it, and it details how scores are created too.</p>
-    <p>The IDN also provides the underlying software to calculate scores from IDN CP metadata: <a
+    <p>The IDN also provides the underlying software to calculate scores from IDN Catalogue Profile metadata: <a
             href="https://github.com/idn-au/scores-calculator">Scores Calculator</a>. If you're technical, you can
       dive into the weeds of score creation - and please let us know what you think about the methods we have
       implemented!</p>
     <p>The FAIR and CARE principles are widely known and many other tools exist for at least FAIR self-assessment,
       such as the <a href="https://ardc.edu.au/resource/fair-data-self-assessment-tool/">ARDC's FAIR Data Self
         Assessment Tool</a>, so you can use these tools alongside the IDN's to cross-check.</p>
-    <p><strong>Improve FAIR, CARE or DGD scores</strong></p>
+    <p><strong>Improve FAIR or CARE scores</strong></p>
     <p>Since the <a href="https://idn-au.github.io/idn-metadata-creator/">Metadata Entry Tool</a> details how its
       scores are created, you should be able to see what to do to improve your scores. For example, for the
       <em>A1</em> part of the <em>Accessibility</em> score of FAIR, if you indicate access using standard terminology
@@ -434,20 +468,18 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
               href="https://github.com/idn-au/scores-calculator/blob/main/calculators/fair.py">calculate_a()</a>.</p>
   </section>
   <section id="formats">
-    <h2>Express my metadata in other formats</h2>
-    <p>You will need to do two things</p>
-    <ul>
-      <li>Work out conceptually how to express elements of your metadata in this profile's terms</li>
-      <li>Create a technical or an informal (written) mapping</li>
-    </ul>
-    <p>If you can work out the first part but cannot implement a technical mapping for automated translation, at least
-      describe your understanding of the mapping in prose. The IDN staff may be able to help.</p>
-    <p>The <a href="specification.html#mappings">Mappings Section of the Specification Document</a> describes some
-      mappings from the IDN CP to other models. Since the current profile primarily expresses catalogue metadata using
-      <a href="https://schema.org">schema.org</a>, mappings from schema.org to other metadata models are relevant. For
-      example, see <a href="https://www.w3.org/2015/spatial/wiki/ISO_19115_-_DCAT_-_Schema.html">the
-        W3C's DCAT/ISO mapping</a>.</p>
-    <p>Some systems use very different metadata formats, not just models.</p>
+    <h2>Use the Profile with another metadata model or format</h2>
+    <p>Another system may use a different <strong>RDF format</strong> or a different <strong>metadata model</strong>.
+      Changing format—for example, from Turtle to JSON-LD—changes how the same metadata is written. Mapping between
+      models—for example, from another catalogue schema to the IDN Catalogue Profile—requires decisions about what the
+      fields and values mean, and may not be a one-to-one conversion.</p>
+    <p>Start by checking the <a href="specification.html#mappings">mappings in the Specification Document</a>. If your
+      source system or model is not covered, document how its fields and values correspond to the Profile. Don’t assume
+      that fields with similar names mean the same thing, or force information into a Profile field when there is no
+      good match.</p>
+    <p>For a small trial, a written mapping and a few representative records may be enough to clarify what is involved.
+      For a batch conversion or pipeline, make the mapping repeatable and validate the resulting metadata. Contact the
+      IDN if you need advice on a larger conversion.</p>
   </section>
   <section id="metadata">
     <h2>Document Info</h2>
@@ -475,20 +507,21 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
           </tr>
           <tr>
             <td><a class="proplink" title="sdo:dateModified" href="https://schema.org/dateModified">Modified</a></td>
-            <td>2026-08-31</td>
+            <td>2026-10-21</td>
           </tr>
         </table>
       </dd>
       <dt><a class="proplink" title="owl#versionIRI" href="http://www.w3.org/2002/07/owl#versionIRI">Version</a></dt>
-      <dd><a href="https://data.idnau.org/pid/cp/guide/0.0.2">0.0.2</a></dd>
+      <dd><a href="https://data.idnau.org/pid/cp/guide/0.1.0">0.1.0</a></dd>
       <dt><a class="proplink" title="skos#historyNote" href="http://www.w3.org/2004/02/skos/core#historyNote">History note</a></dt>
-      <dd>2026-08: rewrote the guidance for describing data indigeneity as two evidence-based scenarios<br/>
+      <dd>2026-10: restructured guidance and updated advice on metadata creation, validation and mappings<br/>
+        2026-08: rewrote the guidance for describing data indigeneity as two evidence-based scenarios<br/>
         2026-05: changed examples from DCAT + DCTERMS to schema.org</dd>
       <dt><a class="proplink" title="sdo:license" href="https://schema.org/license">License</a></dt>
       <dd><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a></dd>
       <dt><a class="proplink" title="sdo:copyrightHolder" href="https://schema.org/copyrightHolder">Copyright</a>
       </dt>
-      <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a>, 2022 - 2024</dd>
+      <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a>, 2022 - 2026</dd>
     </dl>
   </section>
   <p>&nbsp;</p>
