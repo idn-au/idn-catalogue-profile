@@ -599,7 +599,7 @@
                 <li>shelf number / physical collection location</li>
                 <li>distribution-specific instructions</li>
               </ul>
-              <p>See the <a href="#cls-DataDownload">Distribution Class</a> details in the <a href="#model">Model
+              <p>See the <a href="#cls-DataDownload">Data Download</a> class details in the <a href="#model">Model
                 Section</a>.</p>
             </td>
           </tr>
@@ -1835,7 +1835,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Name</th>
-            <td>Distribution</td>
+            <td>Data Download</td>
           </tr>
           <tr>
             <th>Description</th>
@@ -2158,11 +2158,11 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Name</th>
-            <td></td>
+            <td>date created</td>
           </tr>
           <tr>
             <th>Description</th>
-            <td></td>
+            <td>The date on which the CreativeWork was created or the item was added to a DataFeed.</td>
           </tr>
           <tr>
             <th>Scope Note</th>
@@ -2170,7 +2170,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>
             </td>
           </tr>
           <tr>
@@ -2189,11 +2189,12 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Name</th>
-            <td></td>
+            <td>date modified</td>
           </tr>
           <tr>
             <th>Description</th>
-            <td></td>
+            <td>The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed.
+</td>
           </tr>
           <tr>
             <th>Scope Note</th>
@@ -2201,12 +2202,12 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>
             </td>
           </tr>
           <tr>
             <th>Example</th>
-            <td>
+            <td><code>schema:dateModified "2026-08-21"^^xsd:date</code>
             </td>
           </tr>
         </table>
@@ -2220,7 +2221,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Name</th>
-            <td></td>
+            <td>date published</td>
           </tr>
           <tr>
             <th>Description</th>
@@ -2232,12 +2233,12 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td>
+            <td><a href="#cls-CreativeWork">Creative Work
             </td>
           </tr>
           <tr>
             <th>Example</th>
-            <td>
+            <td><code>schema:datePublished "2023-09-01"^^xsd:date</code>
             </td>
           </tr>
         </table>
@@ -2251,11 +2252,11 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Name</th>
-            <td></td>
+            <td>date issued</td>
           </tr>
           <tr>
             <th>Description</th>
-            <td></td>
+            <td>The date of formal issuance (e.g., publication) of the CreativeWork.</td>
           </tr>
           <tr>
             <th>Scope Note</th>
@@ -2263,12 +2264,12 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td>
+            <td><a href="#cls-CreativeWork">Creative Work
             </td>
           </tr>
           <tr>
             <th>Example</th>
-            <td>
+            <td><code>schema:dateIssued "2023-11-01"^^xsd:date</code>
             </td>
           </tr>
         </table>
@@ -2282,20 +2283,26 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Name</th>
-            <td></td>
+            <td>keywords</td>
           </tr>
           <tr>
             <th>Description</th>
-            <td></td>
+            <td>Keywords or tags used to describe some item.</td>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td></td>
+            <td>Use Keywords to indicate the 'about-ness' of a catalogued resource. :
+              <ul>
+                <li><a href="https://data.idnau.org/pid/vocab/idn-th">IDN Themes</a></li>
+                <li><a href="https://data.idnau.org/pid/vocab/indigeneity">Data Indigeneity</a></li>
+                <li><a href="https://vocabs.ardc.edu.au/repository/api/lda/anzsrc-2020-for/resource?uri=https://linked.data.gov.au/def/anzsrc-for/2020">ANZSRC Field Of Research</a></li>
+                <li><a href="https://data.idnau.org/pid/austlang">AustLang</a></li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td>
-            </td>
+            <td><a href="#cls-CreativeWork">Creative Work</a></td>
           </tr>
           <tr>
             <th>Example</th>
@@ -2313,11 +2320,11 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Name</th>
-            <td></td>
+            <td>spatial coverage</td>
           </tr>
           <tr>
             <th>Description</th>
-            <td></td>
+            <td>The spatialCoverage of a CreativeWork indicates the place(s) which are the focus of the content.</td>
           </tr>
           <tr>
             <th>Scope Note</th>
