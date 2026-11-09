@@ -1,0 +1,30 @@
+name: Validate catalogue profile
+
+on:
+  push:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up uv and Python
+        uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
+        with:
+          python-version: "3.14"
+          enable-cache: true
+          cache-dependency-glob: resources/tests/uv.lock
+
+      - name: Install locked test dependencies
+        working-directory: resources/tests
+        run: uv sync --locked
+
+      - name: Run validation tests
+        working-directory: resources/tests
+        run: uv run --locked pytest -q

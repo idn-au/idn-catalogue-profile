@@ -12,7 +12,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     schema:dateCreated "2019"^^xsd:gYear ;
     schema:dateModified "2019"^^xsd:gYear ;
     schema:description "The objective of this policy is to articulate how the University accepts, cares for and manages human remains and burial artefacts."@en ;
-    schema:identifier "MPF1226" ;
+    schema:identifier "MPF1226"^^xsd:token ;
     schema:name "Human Remains and Burial Artefacts Policy" ;
     schema:publisher <https://linked.data.gov.au/org/isu> ;
     schema:url "https://policy.unimelb.edu.au/MPF1226/"^^xsd:anyURI ;

@@ -16,13 +16,13 @@ def _results(name: str):
 
 
 def test_preferred_direct_pattern_has_no_results():
-    conforms, results, _ = _results("direct.ttl")
+    conforms, results, _ = _results("local-contexts-valid-direct.ttl")
     assert conforms
     assert results == []
 
 
 def test_qualified_pattern_is_informational():
-    conforms, results, severities = _results("qualified.ttl")
+    conforms, results, severities = _results("local-contexts-valid-qualified.ttl")
     assert conforms
     assert len(results) == 1
     assert severities == [SH.Info]
