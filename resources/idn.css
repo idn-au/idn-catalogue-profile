@@ -6,8 +6,8 @@ body, html {
 
 body {
     display: grid;
-    grid-template-columns: 17em 80% 1fr ;
-    grid-template-rows: 280px auto 1fr;
+    grid-template-columns: 17rem minmax(0, 1fr) 2rem;
+    grid-template-rows: auto 1fr auto;
 
     color: rgb(50, 50, 50);
     line-height: 1.5em;
@@ -356,3 +356,187 @@ table.properties tr:nth-child(even){
       padding: 20px;
       border-left: solid 5px chartreuse;
   }
+
+/* Catalogue brand: https://data.idnau.org/. All visual assets are local. */
+@font-face {
+    font-family: "Neuzon";
+    src: url("fonts/neuzon-regular.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url("fonts/open-sans.ttf") format("truetype");
+    font-weight: 300 800;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url("fonts/open-sans-italic.ttf") format("truetype");
+    font-weight: 300 800;
+    font-style: italic;
+    font-display: swap;
+}
+:root {
+    --isu-blue: #00369c;
+    --isu-red: #c53f34;
+    --isu-black: #202523;
+    --tan-100: #ddc9a3;
+    --tan-50: #eee4d1;
+    --tan-25: #f7f2e8;
+    --link: #115cff;
+    --border: #dce2ea;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 1.5rem; }
+body {
+    min-height: 100vh;
+    color: #0f172a;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    background: linear-gradient(var(--tan-25), #f7f2e866),
+        url("images/idc-pattern.svg"), var(--tan-25);
+}
+p, li, a, dd, dt, th, td, div { font-family: inherit; }
+h1, h2, h3, h4, #idn-title {
+    font-family: "Neuzon", "Open Sans", sans-serif;
+    font-weight: 400;
+    line-height: 1.2;
+}
+h1 { font-size: clamp(2rem, 4vw, 3rem); margin: 1.5rem 0 2.625rem; color: var(--isu-black); }
+h2 { font-size: 1.875rem; margin: 1.5rem 0; color: var(--isu-blue); }
+h3 { font-size: 1.5rem; margin: .75rem 0; color: var(--isu-blue); }
+h4 { font-size: 1.25rem; margin: .5rem 0; color: var(--isu-blue); }
+a { color: var(--link); text-underline-offset: .2em; }
+a:hover { color: var(--isu-blue); text-decoration: underline; }
+a:focus-visible, .tabs input:focus-visible + label {
+    outline: 3px solid var(--isu-blue);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+.header {
+    background: var(--tan-25);
+    border-bottom: 1px solid var(--tan-100);
+}
+#header {
+    grid-template-columns: minmax(10rem, 15.5rem) 1fr !important;
+    gap: 2rem;
+    align-items: center;
+    min-height: 9rem;
+    padding: 1.5rem 0;
+}
+#logo img { display: block; width: 100%; max-width: 15.5rem; height: auto; }
+#idn-title { color: var(--isu-blue); font-size: clamp(1.5rem, 3vw, 2.5rem); }
+#content { min-width: 0; margin: 2rem 0 4rem; overflow-wrap: anywhere; }
+body:not(:has(#menu)) { grid-template-columns: minmax(1.25rem, 1fr) minmax(0, 75rem) minmax(1.25rem, 1fr); }
+#menu {
+    width: 15rem;
+    padding: 1.5rem 1rem;
+    border: 0;
+    border-right: 1px solid var(--tan-100);
+    background: var(--tan-25);
+    font-size: .875rem;
+}
+#menu > h3, #menu > h4 { font-size: 1.25rem; margin: 0 0 1rem; }
+#menu a { color: var(--isu-blue); }
+#menu ul { padding-left: .75rem; }
+#menu li { margin-top: .5rem; }
+#description { padding: 0; }
+#metadata, p.req, .profile-resources, #content > .profile-resources {
+    background: var(--tan-50);
+    border: 1px solid var(--tan-100);
+    border-radius: .625rem;
+    padding: 1.5rem;
+}
+#metadata { font-size: 1rem; }
+.profile-resources { float: right; max-width: 22rem; margin: 0 0 1.5rem 1.5rem; padding-left: 2.5rem; }
+#content > .profile-resources { float: none; margin: 1.5rem 0 2.5rem; padding-left: 2.5rem; }
+.proplink { color: inherit; }
+dd { margin-left: 1.5rem; }
+section { margin-top: 2.5rem; scroll-margin-top: 1.5rem; }
+img { max-width: 100%; height: auto; }
+.figure .caption { width: auto; max-width: 48rem; }
+p.quote { width: auto; max-width: 48rem; }
+table { max-width: 100%; }
+table.properties, .cls { width: 100%; border-collapse: collapse; }
+table.properties th, .cls th { background: var(--tan-50); }
+table.properties th, table.properties td, .cls th, .cls td { border: 1px solid var(--tan-100); }
+table.properties tr:nth-child(odd) { background: #fff9; }
+table.properties tr:nth-child(even) { background: #f7f2e8cc; }
+pre, code, p.eg { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .95em; }
+pre { max-width: 100%; overflow: auto; }
+p.eg, pre.eg, .guidance-code-sample {
+    background: #eee4d1 !important;
+    border: 1px solid var(--tan-100) !important;
+    border-radius: .625rem;
+}
+p.eg { overflow: auto; }
+.note, .tool-note { background: #e8f0eb; border-left: 4px solid #307756; }
+.tabs label { background: var(--tan-50); border-color: var(--tan-100); border-radius: .625rem .625rem 0 0; }
+.tabs label:hover { background: var(--tan-100); }
+.tabs input:checked + label { background: var(--tan-25); color: var(--isu-blue); }
+.tab-panels { background: var(--tan-25); border-color: var(--tan-100); }
+.footer {
+    background: #f1f5f9;
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+    min-width: 0;
+}
+.footer:has(img) {
+    background: linear-gradient(135deg, #f1f5f9 30%, #f1f5f980),
+        url("images/idc-network.svg") right bottom / 70% no-repeat, #f1f5f9;
+}
+.footer img { object-fit: contain; vertical-align: middle; margin: .5rem; max-height: 6rem; width: auto; }
+.footer a { color: var(--isu-blue); }
+#toc { border-color: var(--tan-100); background: var(--tan-25); }
+@media (min-width: 100rem) {
+    body { grid-template-columns: 17rem minmax(0, 80rem) 1fr; }
+}
+@media (max-width: 64rem) {
+    body { grid-template-columns: 14rem minmax(0, 1fr) 1.25rem; }
+    #menu { width: 12.75rem; }
+    #header { gap: 1rem; grid-template-columns: 11rem 1fr !important; }
+    .profile-resources { float: none; max-width: 100%; margin: 0 0 1.5rem; }
+}
+@media (max-width: 48rem) {
+    body, body:not(:has(#menu)) { display: flex; flex-direction: column; }
+    .header:empty, .footer:empty { display: none; }
+    #header { order: -2; padding: 1.25rem; min-height: auto; }
+    #idn-title { font-size: 1.5rem; }
+    #menu { order: -1; position: static; width: auto; height: auto; max-height: 18rem; border-bottom: 1px solid var(--tan-100); }
+    #content { margin: 1.5rem 1.25rem 3rem; }
+    .footer { display: block !important; padding: 1.5rem 1.25rem; }
+    .footer img { max-width: 100%; }
+    #toc { position: static; width: auto; height: auto; }
+    table { display: block; overflow-x: auto; }
+    .cls th { width: 8rem; }
+    dd { margin-left: .75rem; }
+}
+@media (max-width: 30rem) {
+    #header { grid-template-columns: 1fr !important; }
+    #idn-title { grid-column: 1 !important; }
+}
+@media print {
+    body, body:not(:has(#menu)) { display: block; background: white; color: black; }
+    #menu, #toc, .header:empty, .footer:empty { display: none; }
+    #header { display: flex !important; }
+    #content { margin: 0; }
+    .footer { background: white; }
+    a { color: inherit; }
+}
+
+/* Reserve a quarter of each properties table for its first column. */
+table.properties { table-layout: fixed; }
+table.properties tr > :first-child:not([colspan]) {
+    width: 25%;
+    overflow-wrap: anywhere;
+}
+table.properties th, table.properties td { overflow-wrap: anywhere; }
+
+/* Linked guidance screenshots occupy half the viewport, within the content area. */
+.guidance-thumbnail-link {
+    width: 50vw;
+    max-width: 100%;
+}
+.guidance-thumbnail-link .guidance-thumbnail { width: 100%; }

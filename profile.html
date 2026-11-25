@@ -2,15 +2,16 @@
 <html lang="en">
 <head lang="en">
     <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="resources/images/idn-logo-64.ico">
-    <link href="resources/idn.css" rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="resources/images/favicon.svg">
+    <link href="resources/idn.css" rel="stylesheet" type="text/css">
     <title>IDN Catalogue Profile</title>
 </head>
 <body>
 <div class="header" style="grid-column:1;"></div>
 <div id="header" class="header" style="grid-column:2; display:grid; grid-template-columns:300px auto;">
-    <div id="logo" style="grid-column:1; padding:3px;">
-        <img src="resources/images/idn-logo-250.png" alt="IDN logo" />
+    <div id="logo">
+        <a href="https://data.idnau.org/"><img src="resources/images/idc-logo.png" alt="Indigenous Data Catalogue"></a>
     </div>
     <div id="idn-title" style="grid-column:2;">
         Indigenous Data Network
@@ -18,7 +19,7 @@
 </div><!-- #header -->
 <div class="header" style="grid-column:3;"></div>
 <div id="content" style="grid-column:2;">
-    <ul style="width:25%; border-radius:5px; padding:15px 15px 15px 25px; margin-left: 10px; background-color:#ccc; float:right;">
+    <ul class="profile-resources">
         <li>
             <strong>Starting Point</strong>
             <ul><li>See the <a href="resources/guidance.html">Guidance Document</a></li></ul>
@@ -57,7 +58,7 @@
                     </tr>
                     <tr>
                         <td><a class="proplink" title="sdo:dateModified" href="https://schema.org/dateModified">Modified</a></td>
-                        <td>2026-07-08</td>
+                        <td>2026-11-25</td>
                     </tr>
                 </table>
             </dd>
@@ -81,8 +82,10 @@
                     </tr>
                 </table>
             </dd>
-        </dl>
-    </section>
+      <dt><a class="proplink" title="skos#historyNote" href="http://www.w3.org/2004/02/skos/core#historyNote">History note</a></dt>
+      <dd>2026-11: applied the new Indigenous Data Commons styling</dd>
+    </dl>
+  </section>
     <section id="resource-descriptors">
         <h2>Resource Descriptors <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
         <table class="properties">
