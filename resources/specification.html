@@ -29,8 +29,8 @@
         <li><a href="#all-elements">1.4 All Elements</a></li>
         <li><a href="#scoring">1.5 Scoring</a></li>
         <li><a href="#vocab-values">1.6 Vocab Values</a></li>
-        <li><a href="#tools">1.8 Tools</a></li>
-        <li><a href="#formats">1.7 Formats</a></li>
+        <li><a href="#tools">1.7 Tools</a></li>
+        <li><a href="#formats">1.8 Formats</a></li>
       </ul>
     </li>
     <li>
@@ -851,35 +851,34 @@
           <div id="panel1" class="tab-panel">
             <p>Turtle is a text-based, reasonably human-readable syntax for RDF.</p>
             <p class="eg">
+PREFIX autlang: &lt;https://data.idnau.org/pid/austlang/>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
 PREFIX schema: &lt;https://schema.org/>
 PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 
 &lt;https://trove.nla.gov.au/work/10128420>
   a schema:CreativeWork ;
-  schema:additionalType &lt;http://purl.org/dc/dcmitype/PhysicalObject> ;
+  schema:additionalType schema:Book ;
   schema:name "Tjukinya" ;
   schema:description "Folktale: The little red hen retold in Pitjantjatjara" ;
+  schema:dateIssued "1980"^^xsd:gYear ;
   schema:creator &lt;https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117> ;
-  schema:publisher &lt;https://example.com/agent/123456> ;
-  schema:keywords &lt;https://data.idnau.org/pid/austlang/C6> ;
+  schema:publisher &lt;https://data.idnau.org/pid/org/sum> ;
   prov:qualifiedAttribution [
     schema:roleName &lt;https://linked.data.gov.au/def/data-roles/custodian> ;
     schema:agent &lt;https://linked.data.gov.au/org/nla>
   ] ;
-  schema:dateIssued "1980"^^xsd:gYear ;
-  schema:keywords &lt;https://data.idnau.org/pid/austlang/C6> ;
+  schema:inLanguage austlang:C6 ;
+  schema:keywords &lt;https://data.idnau.org/pid/vocab/indigeneity/by-indigenous-people> ;
   schema:usageInfo "Not for Inter-Library Loan" ;
-  schema:inLanguage &lt;https://data.idnau.org/pid/austlang/C6> ;
 .
             </p>
             <p>
               Note that the reference to the <em>publisher</em>, the Summer Institute of Linguistics, is by persistent
-              identifier web address, <code>https://example.com/agent/456</code>, that resolves to more information
-              about
-              the Institute. This particular identifier is from the <a htef="https://agentsdb.idnau.org/">IDN Agents
-              Database</a>, so the IDN potentially knows more information about the Institute than just basic facts such
-              as its name, for example whether it is an Indigenous-led organisation.
+              identifier web address, <code>https://data.idnau.org/pid/org/sum</code>, that resolves to more information
+              about the Institute. This particular identifier is from the IDN's Agents Database, so the IDN potentially
+              knows more information about the Institute than just basic facts such as its name, for example whether it
+              is an Indigenous-led organisation.
             </p>
           </div>
           <div id="panel2" class="tab-panel">
