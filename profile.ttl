@@ -1,118 +1,175 @@
-PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
-PREFIX geo: <http://www.opengis.net/ont/geosparql#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX prof: <http://www.w3.org/ns/dx/prof/>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX role: <http://www.w3.org/ns/dx/prof/role/>
-PREFIX sdo: <https://schema.org/>
+PREFIX schema: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-
 <https://data.idnau.org/pid/cp>
-    a owl:Ontology , prof:Profile ;
+    a
+        owl:Ontology ,
+        prof:Profile ;
     dcterms:provenance "This profile of DCAT was made within the IDN's ID Catalogue project 2021 - 2022."@en ;
     owl:versionIRI <https://data.idnau.org/pid/cp/0.0.2> ;
     owl:versionInfo "0.0.2: April 2024 - simplified presentation" ;
-    sdo:codeRespository "https://github.com/idn-au/idn-catalogue-profile/"^^xsd:anyURI ;
-    sdo:copyrightHolder <https://linked.data.gov.au/org/idn> ;
-    sdo:copyrightNotice "(c) Indigenous Data Network, 2022" ;
-    sdo:copyrightYear "2022"^^xsd:gYear ;
-    sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
-    sdo:dateCreated "2022-07-18"^^xsd:date ;
-    sdo:dateIssued "2022-07-31"^^xsd:date ;
-    sdo:dateModified "2026-07-08"^^xsd:date ;
-    sdo:description "A profile of cataloguing, provenance and vocabulary standards designed for the representation of Indigenous data governance"@en ;
-    sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
-    sdo:name "IDN Catalogue Profile"@en ;
-    sdo:publisher <https://linked.data.gov.au/org/idn> ;
-    prof:hasResource [
-        rdfs:label "Specification Document" ;
-        prof:hasArtifact <https://data.idnau.org/pid/cp/spec> ;
-        dcterms:format "text/html" ;
-        prof:hasRole role:specification ;
-    ] ,
-    [
-        rdfs:label "SHACL Validator" ;
-        prof:hasArtifact <https://data.idnau.org/pid/cp/validator> ;
-        dcterms:format "text/turtle" ;
-        prof:hasRole role:validation ;
-    ], 
-    [
-        rdfs:label "Compounded Validator" ;
-        rdfs:comment "A validator that contains the IDN Catalogue Profile validator and those of Standards that the IDN Catalogue Profile profiles, particularly DCAT (the DCAT Null Profile)"@en ;
-        prof:hasArtifact <https://data.idnau.org/pid/cp/validator-compounded> ;
-        dcterms:format "text/turtle" ;
-        prof:hasRole role:validation ;
-    ],     
-    [
-        rdfs:label "Code Repository" ;
-        rdfs:comment "An online Git version control repository that contains most of this Profile's content in files" ;
-        prof:hasArtifact <https://data.idnau.org/pid/cp/repo> ;
-        prof:hasRole role:repository ;
-    ] ,
-    [
-        rdfs:label "Policy Roles Vocabulary" ;
-        rdfs:comment "The Indigenous Data Network's vocabulary of the roles policies play in relation to data governance and data licensing" ;
-        prof:hasArtifact <https://data.idnau.org/pid/vocab/policy-roles> ;
-        dcterms:format "text/turtle, text/html" ;
-        prof:hasRole role:vocabulary ;
-    ] ,
-    [
-        rdfs:label "schema.org mapping description" ;
-        rdfs:comment "Description of the mappings between IDN CP elements and schema.org elements" ;
-        prof:hasArtifact <https://data.idnau.org/pid/cp/sdo> ;
-        prof:hasRole role:mapping ;
-    ] ,
-    <https://data.idnau.org/pid/cp/sdo-mapping> ,
-    [
-        rdfs:label "schema.org conversion script" ;
-        rdfs:comment "A Python script that converts IDN CP RDF to schema.org RDF" ;
-        prof:hasArtifact <https://data.idnau.org/pid/cp/sdo.py> ;
-        prof:hasRole role:mapping ;
-    ] ,
-    [
-        rdfs:label "RIF-CS mapping description" ;
-        rdfs:comment "Description of the mappings between IDN CP elements and RIF-CS elements" ;
-        prof:hasArtifact <https://data.idnau.org/pid/cp/rif-cs> ;
-        prof:hasRole role:mapping ;
-    ] ;
+    skos:historyNote """2026-11: published the IDN Catalogue Profile Schema and synchronised RDF and HTML metadata
+2026-11: corrected spelling, HTML markup and internal navigation
+2026-11: applied the new Indigenous Data Commons styling"""@en ;
+    prof:hasResource 
+        [
+            a prof:ResourceDescriptor ;
+            dcterms:conformsTo <https://www.w3.org/TR/html52/> ;
+            dcterms:format "text/html" ;
+            prof:hasArtifact <https://data.idnau.org/pid/cp/spec> ;
+            prof:hasRole role:specification ;
+            schema:description "The normative, human-readable, listing of profile requirements" ;
+            schema:name "Specification Document" ;
+        ] ,
+        [
+            a prof:ResourceDescriptor ;
+            dcterms:conformsTo "Git version control" ;
+            dcterms:format "Git" ;
+            prof:hasArtifact <https://data.idnau.org/pid/cp/repo> ;
+            prof:hasRole role:repository ;
+            schema:description "Code repository storing all Profile artifacts" ;
+            schema:name "Profile Repository" ;
+        ] ,
+        [
+            a prof:ResourceDescriptor ;
+            dcterms:conformsTo <https://www.w3.org/TR/html52/> ;
+            dcterms:format "text/html" ;
+            prof:hasArtifact <https://data.idnau.org/pid/cp/sdo> ;
+            prof:hasRole role:mapping ;
+            schema:description "Description of the mappings between IDN CP elements and schema.org elements. This mapping is taken from the ANZGeoDCAT → schema.org mapping" ;
+            schema:name "schema.org mapping description" ;
+        ] ,
+        [
+            a prof:ResourceDescriptor ;
+            dcterms:conformsTo <https://www.w3.org/TR/shacl/> ;
+            dcterms:format "text/turtle" ;
+            prof:hasArtifact <https://data.idnau.org/pid/cp/validator> ;
+            prof:hasRole role:validation ;
+            schema:description "A SHACL Shapes file to be used to test the conformance of RDF data to this profile" ;
+            schema:name "Validator in SHACL" ;
+        ] ,
+        [
+            a prof:ResourceDescriptor ;
+            dcterms:conformsTo <https://www.w3.org/TR/html52/> ;
+            dcterms:format "text/html" ;
+            prof:hasArtifact <https://data.idnau.org/pid/cp/rif-cs> ;
+            prof:hasRole role:mapping ;
+            schema:description "Description of the mappings between IDN CP elements and RIF-CS elements." ;
+            schema:name "RIF-CS mapping description" ;
+        ] ,
+        [
+            a prof:ResourceDescriptor ;
+            dcterms:conformsTo <https://www.w3.org/TR/skos-reference/> ;
+            dcterms:format "text/turtle, text/html" ;
+            prof:hasArtifact <https://data.idnau.org/pid/vocab/policy-roles> ;
+            prof:hasRole role:vocabulary ;
+            schema:description "The Indigenous Data Network's vocabulary of the roles policies play in relation to data governance and data licensing" ;
+            schema:name "Policy Roles Vocabulary" ;
+        ] ,
+        [
+            a prof:ResourceDescriptor ;
+            dcterms:conformsTo "Python" ;
+            dcterms:format "Python (text)" ;
+            prof:hasArtifact <https://data.idnau.org/pid/cp/sdo.py> ;
+            prof:hasRole role:mapping ;
+            schema:description "A Python script that converts IDN CP RDF to schema.org RDF" ;
+            schema:name "schema.org conversion script" ;
+        ] ,
+        <https://data.idnau.org/pid/cp/care> ,
+        <https://data.idnau.org/pid/cp/data-roles> ,
+        <https://data.idnau.org/pid/cp/guide> ,
+        <https://data.idnau.org/pid/cp/schema> ,
+        <https://data.idnau.org/pid/cp/sdo-mapping> ;
     prof:isProfileOf
-        <https://www.w3.org/TR/vocab-dcat/> ,
+        <https://www.w3.org/TR/prov-o/> ,
         <https://www.w3.org/TR/skos-reference/> ,
-        <https://www.w3.org/TR/prov-o/> ;
+        <https://www.w3.org/TR/vocab-dcat/> ;
+    schema:codeRepository "https://github.com/idn-au/idn-catalogue-profile/"^^xsd:anyURI ;
+    schema:copyrightHolder <https://linked.data.gov.au/org/idn> ;
+    schema:copyrightNotice "(c) Indigenous Data Network, 2022" ;
+    schema:copyrightYear "2022"^^xsd:gYear ;
+    schema:creator <https://orcid.org/0000-0002-8742-7730> ;
+    schema:dateCreated "2022-07-18"^^xsd:date ;
+    schema:dateIssued "2022-07-31"^^xsd:date ;
+    schema:dateModified "2026-11-26"^^xsd:date ;
+    schema:description "A profile of cataloguing, provenance and vocabulary standards designed for the representation of Indigenous data governance"@en ;
+    schema:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
+    schema:name "IDN Catalogue Profile"@en ;
+    schema:publisher <https://linked.data.gov.au/org/idn> ;
+.
+
+<https://data.idnau.org/pid/cp/care>
+    a prof:ResourceDescriptor ;
+    dcterms:conformsTo <https://www.w3.org/TR/skos-reference/> ;
+    dcterms:format "text/turtle, text/html" ;
+    prof:hasArtifact <https://data.idnau.org/pid/vocab/care> ;
+    prof:hasRole role:vocabulary ;
+    schema:description "The CARE Principles for Indigenous Data Governance's elements as a SKOS vocabulary" ;
+    schema:name "CARE Vocabulary" ;
+.
+
+<https://data.idnau.org/pid/cp/data-roles>
+    a prof:ResourceDescriptor ;
+    dcterms:conformsTo <https://www.w3.org/TR/skos-reference/> ;
+    dcterms:format "text/turtle, text/html" ;
+    prof:hasArtifact <https://linked.data.gov.au/def/data-roles> ;
+    prof:hasRole role:vocabulary ;
+    schema:description "The Indigenous Data Network's vocabulary of the types of roles Agents - People and Organisations - play in relation to data" ;
+    schema:name "IDN Role Codes Vocabulary" ;
+.
+
+<https://data.idnau.org/pid/cp/guide>
+    a prof:ResourceDescriptor ;
+    dcterms:conformsTo <https://www.w3.org/TR/html52/> ;
+    dcterms:format "text/html" ;
+    prof:hasArtifact <https://data.idnau.org/pid/cp/guide> ;
+    prof:hasRole role:guidance ;
+    schema:description "A how-to-guide for creating metadata according to this Profile" ;
+    schema:name "Guidance Document" ;
+.
+
+<https://data.idnau.org/pid/cp/schema>
+    a prof:ResourceDescriptor ;
+    dcterms:conformsTo <https://linked.data.gov.au/def/ontpub> ;
+    dcterms:format "text/turtle" ;
+    prof:hasArtifact <https://data.idnau.org/pid/cp/schema> ;
+    prof:hasRole role:schema ;
+    schema:description "An OntPub-conformant ontology of the classes and predicates in the specification" ;
+    schema:name "IDN Catalogue Profile Schema" ;
 .
 
 <https://data.idnau.org/pid/cp/sdo-mapping>
     a prof:ResourceDescriptor ;
-    rdfs:label "schema.org RDF mapping" ;
-    rdfs:comment "RDF/OWL mappings between IDN CP elements and schema.org elements" ;
-    sdo:name "schema.org RDF mapping"@en ;
-    sdo:description "The RDF/OWL mapping artifact for IDN Catalogue Profile and schema.org elements."@en ;
+    dcterms:conformsTo <https://www.w3.org/TR/owl2-overview/> ;
+    dcterms:format "text/turtle" ;
     prof:hasArtifact <https://data.idnau.org/pid/cp/sdo.ttl> ;
     prof:hasRole role:mapping ;
-    dcterms:format "text/turtle" ;
-.
-
-<https://orcid.org/0000-0002-8742-7730>
-    a sdo:Person ;
-    sdo:name "Nicholas J. Car"@en ;
-    sdo:email "nick@kurrawong.ai"^^xsd:anyURI ;
-    sdo:affiliation <https://kurrawong.ai> ;
+    schema:description "An OWL/RDFS mapping of IDN CP elements to schema.org" ;
+    schema:name "schema.org RDF mapping" ;
 .
 
 <https://kurrawong.ai>
-    a sdo:Organization ;
-    sdo:name "KurrawongAI" ;
-    sdo:description "KurrawongAI is a small, Artificial Intelligence, company in Australia specialising in Knowledge Graphs." ;
-    sdo:url "https://kurrawong.ai"^^xsd:anyURI ;
+    a schema:Organization ;
+    schema:description "KurrawongAI is a small, Artificial Intelligence, company in Australia specialising in Knowledge Graphs." ;
+    schema:name "KurrawongAI" ;
+    schema:url "https://kurrawong.ai"^^xsd:anyURI ;
+.
+
+<https://orcid.org/0000-0002-8742-7730>
+    a schema:Person ;
+    schema:affiliation <https://kurrawong.ai> ;
+    schema:email "nick@kurrawong.ai"^^xsd:anyURI ;
+    schema:name "Nicholas J. Car"@en ;
 .
 
 <https://linked.data.gov.au/org/idn>
-    a sdo:Organization ;
-    sdo:name "Indigenous Data Network" ;
-    sdo:description "The IDN is within the University of Melbourne. It was established in 2018 to support and coordinate the governance of Indigenous data for Aboriginal and Torres Strait Islander peoples and empower Aboriginal and Torres Strait Islander communities to decide their own local data priorities." ;
-    sdo:url "https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network"^^xsd:anyURI ;
+    a schema:Organization ;
+    schema:description "The IDN is within the University of Melbourne. It was established in 2018 to support and coordinate the governance of Indigenous data for Aboriginal and Torres Strait Islander peoples and empower Aboriginal and Torres Strait Islander communities to decide their own local data priorities." ;
+    schema:name "Indigenous Data Network" ;
+    schema:url "https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network"^^xsd:anyURI ;
 .

@@ -433,7 +433,6 @@
         properties should be used. All the constraints are valid schema.org use, just narrower than basic use.
       </p>
     </section>
-    <p class="todo">UP TO HERE</p>
     <section id="minimum">
       <h3>1.3 Minimum Metadata <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
       <h4 style="font-style:italic;">What minimum elements are required?</h4>
@@ -853,7 +852,7 @@
           <div id="panel1" class="tab-panel">
             <p>Turtle is a text-based, reasonably human-readable syntax for RDF.</p>
             <p class="eg">
-PREFIX autlang: &lt;https://data.idnau.org/pid/austlang/>
+PREFIX austlang: &lt;https://data.idnau.org/pid/austlang/>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
 PREFIX schema: &lt;https://schema.org/>
 PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
@@ -895,59 +894,49 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
             <p class="eg">
 {
   "@context": {
-    "@vocab": "http://purl.org/dc/terms/",
-    "accessRights": "http://www.w3.org/ns/dcat#accessRights",
-    "theme": "http://www.w3.org/ns/dcat#theme",
-    "Resource": "http://www.w3.org/ns/dcat#Resource",
-    "year": "http://www.w3.org/2001/XMLSchema#gYear",
-    "PhysicalObject": "http://purl.org/dc/dcmitype/PhysicalObject",
-    "agent": "http://www.w3.org/ns/prov#agent",
-    "hadRole": "http://www.w3.org/ns/prov#hadRole",
-    "attribution": "http://www.w3.org/ns/prov#qualifiedAttribution",
-    "austlang": "https://data.idnau.org/pid/austlang/C6",
-    "droles": "https://linked.data.gov.au/def/data-roles/"
+    "@vocab": "https://schema.org/",
+    "austlang": "https://data.idnau.org/pid/austlang/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
   },
   "@graph": [
     {
       "@id": "https://trove.nla.gov.au/work/10128420",
-      "@type": "Resource",
-      "type": {
-      "@id": "http://purl.org/dc/dcmitype/PhysicalObject"
-    },
-    "title": "Tjukinya",
-    "description": "Folktale: The little red hen retold in Pitjantjatjara",
-    "creator": {
-    "@id": "https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117"
-    },
-    "publisher": {
-     "@id": "https://example.com/agent/123456"
-    },
-    "attribution": {
-      "@id": "_:nb0e54b223f37485b8555e8d45b468bf9b1"
-    },
-    "issued": {
-    "@type": "year",
-    "@value": "1980"
-    },
-    "theme": {
-      "@id": "https://data.idnau.org/pid/austlang/C6"
-    },
-      "accessRights": "Not for Inter-Library Loan"
+      "@type": "CreativeWork",
+      "additionalType": {
+        "@id": "https://schema.org/Book"
+      },
+      "creator": {
+        "@id": "https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117"
+      },
+      "dateIssued": {
+        "@type": "xsd:gYear",
+        "@value": "1980"
+      },
+      "description": "Folktale: The little red hen retold in Pitjantjatjara",
+      "inLanguage": {
+        "@id": "austlang:C6"
+      },
+      "keywords": {
+        "@id": "https://data.idnau.org/pid/vocab/indigeneity/by-indigenous-people"
+      },
+      "name": "Tjukinya",
+      "prov:qualifiedAttribution": {
+        "@id": "_:attribution"
+      },
+      "publisher": {
+        "@id": "https://data.idnau.org/pid/org/sum"
+      },
+      "usageInfo": "Not for Inter-Library Loan"
     },
     {
-    "@id": "_:nb0e54b223f37485b8555e8d45b468bf9b1",
-    "@type": [
-      "http://www.w3.org/ns/prov#Attribution"
-    ],
-    "agent": {
-      "@id": "https://linked.data.gov.au/org/nla"
-    },
-    "language": {
-      "@id": "https://data.idnau.org/pid/austlang/C6"
-    },
-    "hadRole": {
-      "@id": "droles:custodian"
-    }
+      "@id": "_:attribution",
+      "agent": {
+        "@id": "https://linked.data.gov.au/org/nla"
+      },
+      "roleName": {
+        "@id": "https://linked.data.gov.au/def/data-roles/custodian"
+      }
     }
   ]
 }
@@ -962,32 +951,30 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
               The following RDF/XML has been auto-converted from the Turtle-formatted data.
             </p>
             <p class="eg">
-&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;rdf:RDF
-  xmlns:dcat="http://www.w3.org/ns/dcat#"
-  xmlns:dcterms="http://purl.org/dc/terms/"
   xmlns:prov="http://www.w3.org/ns/prov#"
+  xmlns:schema="https://schema.org/"
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-  >
-  &lt;rdf:Description rdf:about="https://trove.nla.gov.au/work/10128420">
-    &lt;rdf:type rdf:resource="http://www.w3.org/ns/dcat#Resource"/>
-    &lt;schema:additionalType rdf:resource="http://purl.org/dc/dcmitype/PhysicalObject"/>
-    &lt;schema:name>Tjukinya&lt;/schema:name>
-    &lt;schema:description>Folktale: The little red hen retold in Pitjantjatjara&lt;/schema:description>
-    &lt;schema:creator rdf:resource="https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117"/>
-    &lt;schema:inLanguage rdf:resource="https://data.idnau.org/pid/austlang/C6"/"/>
-    &lt;schema:publisher rdf:resource="https://example.com/agent/123456"/>
-    &lt;prov:qualifiedAttribution rdf:nodeID="n09d0151a1e6140cfb188576200eb9d69b1"/>
-    &lt;schema:dateIssued rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1980&lt;/schema:dateIssued>
-    &lt;schema:keywords rdf:resource="https://data.idnau.org/pid/austlang/C6"/>
-    &lt;schema:usageInfo>Not for Inter-Library Loan&lt;/schema:usageInfo>
-  &lt;/rdf:Description>
-  &lt;rdf:Description rdf:nodeID="n09d0151a1e6140cfb188576200eb9d69b1">
-    &lt;rdf:type rdf:resource="http://www.w3.org/ns/prov#Attribution"/>
-    &lt;schema:roleName rdf:resource="https://linked.data.gov.au/def/data-roles/custodian"/>
-    &lt;schema:agent rdf:resource="https://linked.data.gov.au/org/nla"/>
-  &lt;/rdf:Description>
-&lt;/rdf:RDF>
+&gt;
+  &lt;schema:CreativeWork rdf:about="https://trove.nla.gov.au/work/10128420"&gt;
+    &lt;schema:additionalType rdf:resource="https://schema.org/Book"/&gt;
+    &lt;schema:name&gt;Tjukinya&lt;/schema:name&gt;
+    &lt;schema:description&gt;Folktale: The little red hen retold in Pitjantjatjara&lt;/schema:description&gt;
+    &lt;schema:dateIssued rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"&gt;1980&lt;/schema:dateIssued&gt;
+    &lt;schema:creator rdf:resource="https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117"/&gt;
+    &lt;schema:publisher rdf:resource="https://data.idnau.org/pid/org/sum"/&gt;
+    &lt;prov:qualifiedAttribution&gt;
+      &lt;rdf:Description rdf:nodeID="attribution"&gt;
+        &lt;schema:roleName rdf:resource="https://linked.data.gov.au/def/data-roles/custodian"/&gt;
+        &lt;schema:agent rdf:resource="https://linked.data.gov.au/org/nla"/&gt;
+      &lt;/rdf:Description&gt;
+    &lt;/prov:qualifiedAttribution&gt;
+    &lt;schema:inLanguage rdf:resource="https://data.idnau.org/pid/austlang/C6"/&gt;
+    &lt;schema:keywords rdf:resource="https://data.idnau.org/pid/vocab/indigeneity/by-indigenous-people"/&gt;
+    &lt;schema:usageInfo&gt;Not for Inter-Library Loan&lt;/schema:usageInfo&gt;
+  &lt;/schema:CreativeWork&gt;
+&lt;/rdf:RDF&gt;
             </p>
           </div>
         </div>
