@@ -1,0 +1,1369 @@
+PREFIX cp: <https://data.idnau.org/pid/cp>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX idncp: <https://data.idnau.org/pid/cp/>
+PREFIX lcont: <https://data.idnau.org/pid/lc-ont#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX odrl-action: <https://linked.data.gov.au/def/odrl-action/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
+PREFIX rifcs: <http://purl.org/au-research/vocabulary/RIFCS/RIFCSActivityType/>
+PREFIX schema: <https://schema.org/>
+PREFIX scores: <https://linked.data.gov.au/def/scores/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+idncp:schema
+    a owl:Ontology ;
+    dcterms:conformsTo <https://linked.data.gov.au/def/ontpub> ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:seeAlso idncp:validator ;
+    owl:versionIRI <https://data.idnau.org/pid/cp/schema/0.0.1> ;
+    owl:versionInfo "0.0.1" ;
+    skos:historyNote "2026-11: compiled the classes and predicates in the IDN Catalogue Profile specification, with constraints aligned to the IDN SHACL validator."@en ;
+    schema:codeRepository "https://github.com/idn-au/idn-catalogue-profile/"^^xsd:anyURI ;
+    schema:copyrightHolder <https://linked.data.gov.au/org/idn> ;
+    schema:copyrightNotice "(c) Indigenous Data Network, 2026" ;
+    schema:copyrightYear "2026"^^xsd:gYear ;
+    schema:creator <https://orcid.org/0000-0002-8742-7730> ;
+    schema:dateCreated "2026-11-26"^^xsd:date ;
+    schema:dateIssued "2026-11-26"^^xsd:date ;
+    schema:dateModified "2026-11-26"^^xsd:date ;
+    schema:description "An ontology documenting the classes and predicates used by the IDN Catalogue Profile specification, including its Local Contexts model. Reused terms retain their original IRIs. Context-dependent validation constraints are defined in the separate SHACL validator."@en ;
+    schema:hasPart
+        rifcs:project ,
+        dcterms:Location ,
+        dcterms:PeriodOfTime ,
+        dcterms:description ,
+        dcterms:relation ,
+        dcterms:rightsHolder ,
+        dcterms:source ,
+        dcterms:spatial ,
+        dcterms:temporal ,
+        dcterms:title ,
+        geo:Feature ,
+        rdf:type ,
+        rdfs:isDefinedBy ,
+        rdfs:label ,
+        rdfs:range ,
+        rdfs:subClassOf ,
+        owl:equivalentClass ,
+        owl:equivalentProperty ,
+        owl:propertyChainAxiom ,
+        skos:Concept ,
+        skos:ConceptScheme ,
+        skos:altLabel ,
+        skos:definition ,
+        skos:narrower ,
+        skos:prefLabel ,
+        time:Instant ,
+        time:Interval ,
+        dcat:Distribution ,
+        dcat:Relationship ,
+        dcat:Resource ,
+        dcat:qualifiedRelation ,
+        odrl:Action ,
+        odrl:Duty ,
+        odrl:action ,
+        odrl:hasPolicy ,
+        prov:Agent ,
+        prov:Attribution ,
+        prov:actedOnBehalfOf ,
+        prov:hadRole ,
+        prov:qualifiedAttribution ,
+        prov:wasAttributedTo ,
+        prov:wasGeneratedBy ,
+        lcont:BCLabel ,
+        lcont:CCNotice ,
+        lcont:CollectionsCareDuty ,
+        lcont:LCNotice ,
+        lcont:QualifiedLocalContext ,
+        lcont:TKLabel ,
+        lcont:relatedNotice ,
+        lcont:templateText ,
+        odrl-action:follow-protocol ,
+        scores:Score ,
+        scores:hasScore ,
+        schema:Book ,
+        schema:CreativeWork ,
+        schema:DataCatalog ,
+        schema:DataDownload ,
+        schema:Dataset ,
+        schema:DateTime ,
+        schema:Duration ,
+        schema:Organization ,
+        schema:Person ,
+        schema:Place ,
+        schema:Project ,
+        schema:ResearchProject ,
+        schema:additionalType ,
+        schema:affiliation ,
+        schema:agent ,
+        schema:alumniOf ,
+        schema:audienceType ,
+        schema:contactPoint ,
+        schema:contributor ,
+        schema:copyrightHolder ,
+        schema:creator ,
+        schema:dataset ,
+        schema:dateCreated ,
+        schema:dateIssued ,
+        schema:dateModified ,
+        schema:datePublished ,
+        schema:description ,
+        schema:distribution ,
+        schema:editor ,
+        schema:email ,
+        schema:endDate ,
+        schema:endTime ,
+        schema:funder ,
+        schema:geo ,
+        schema:hasPart ,
+        schema:id ,
+        schema:identifier ,
+        schema:inLanguage ,
+        schema:isPartOf ,
+        schema:isPartOfCatalog ,
+        schema:keywords ,
+        schema:license ,
+        schema:memberOf ,
+        schema:name ,
+        schema:owner ,
+        schema:parentOrganization ,
+        schema:potentialAction ,
+        schema:publisher ,
+        schema:roleName ,
+        schema:spatialCoverage ,
+        schema:sponsor ,
+        schema:startDate ,
+        schema:startTime ,
+        schema:temporalCoverage ,
+        schema:translator ,
+        schema:url ,
+        schema:usageInfo ,
+        rico:Agent ,
+        rico:Person ,
+        rico:Record ,
+        rico:RecordPart ,
+        rico:RecordResource ,
+        rico:RecordSet ,
+        rico:creationDate ,
+        rico:hasDirectPart ,
+        rico:hasOrHadHolder ,
+        rico:hasOrHadPart ,
+        rico:name ;
+    schema:isPartOf cp: ;
+    schema:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
+    schema:name "IDN Catalogue Profile Schema"@en ;
+    schema:publisher <https://linked.data.gov.au/org/idn> ;
+    schema:usageInfo "Use this ontology as a term catalogue. Supply resources/validator.ttl separately for validation. No global cardinality, domain or range is imposed on reused catalogue properties: their allowed values depend on the class being validated."@en ;
+.
+
+rifcs:project
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy rifcs: ;
+    skos:example "<https://example.org/project> a <http://purl.org/au-research/vocabulary/RIFCS/RIFCSActivityType/project> ." ;
+    schema:description "A project activity as represented in the RIF-CS activity vocabulary."@en ;
+    schema:name "Project"@en ;
+.
+
+dcterms:Location
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy dcterms: ;
+    skos:example "<https://example.org/resource> a <http://purl.org/dc/terms/Location> ." ;
+    schema:description "A spatial region or named place used to describe geographic coverage."@en ;
+    schema:name "Location"@en ;
+.
+
+dcterms:PeriodOfTime
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy dcterms: ;
+    skos:example "<https://example.org/resource> a <http://purl.org/dc/terms/PeriodOfTime> ." ;
+    schema:description "An interval of time identified by its limits or a name."@en ;
+    schema:name "Period Of Time"@en ;
+.
+
+dcterms:description
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy dcterms: ;
+    skos:example "<https://example.org/resource> <http://purl.org/dc/terms/description> \"Example value\" ." ;
+    schema:description "An account of the content or nature of a resource."@en ;
+    schema:name "description"@en ;
+.
+
+dcterms:relation
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy dcterms: ;
+    skos:example "<https://example.org/resource> <http://purl.org/dc/terms/relation> <https://example.org/value> ." ;
+    schema:description "A resource related to the described resource."@en ;
+    schema:name "relation"@en ;
+.
+
+dcterms:rightsHolder
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-rightsHolder"^^xsd:anyURI ;
+    rdfs:isDefinedBy dcterms: ;
+    skos:example "See the relevant modelling pattern in this specification." ;
+    skos:scopeNote "No executable constraint for this property is declared in validator.ttl."@en ;
+    schema:description "An Agent holding rights over a resource."@en ;
+    schema:name "rights holder"@en ;
+.
+
+dcterms:source
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy dcterms: ;
+    skos:example "<https://example.org/resource> dcterms:source \"https://example.org/source\"^^xsd:anyURI ." ;
+    schema:description "The source from which the described resource or definition was derived."@en ;
+    schema:name "source"@en ;
+.
+
+dcterms:spatial
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy dcterms: ;
+    skos:example "<https://example.org/resource> <http://purl.org/dc/terms/spatial> <https://example.org/value> ." ;
+    schema:description "The spatial characteristics or geographic coverage of a resource."@en ;
+    schema:name "spatial"@en ;
+.
+
+dcterms:temporal
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy dcterms: ;
+    skos:example "<https://example.org/resource> <http://purl.org/dc/terms/temporal> <https://example.org/value> ." ;
+    schema:description "The temporal characteristics or time coverage of a resource."@en ;
+    schema:name "temporal"@en ;
+.
+
+dcterms:title
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy dcterms: ;
+    skos:example "<https://example.org/resource> <http://purl.org/dc/terms/title> \"Example value\" ." ;
+    schema:description "A name given to a resource."@en ;
+    schema:name "title"@en ;
+.
+
+geo:Feature
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy geo: ;
+    skos:example "<https://example.org/resource> a <http://www.opengis.net/ont/geosparql#Feature> ." ;
+    schema:description "A real-world phenomenon with spatial characteristics that can be described by geometry."@en ;
+    schema:name "Feature"@en ;
+.
+
+rdf:type
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-type"^^xsd:anyURI ;
+    rdfs:isDefinedBy rdf: ;
+    skos:example "a schema:Person" ;
+    skos:scopeNote "An instance of prov:Agent MUST also be an instance of schema:Person or schema:Organization (AG1). The class test applies to the Agent, not to its rdf:type value. Additional types are allowed."@en ;
+    schema:description "States the class of a node."@en ;
+    schema:name "type"@en ;
+.
+
+rdfs:isDefinedBy
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy rdfs: ;
+    skos:example "<https://example.org/resource> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://example.org/value> ." ;
+    schema:description "Identifies the vocabulary or ontology providing a definition of a resource."@en ;
+    schema:name "is Defined By"@en ;
+.
+
+rdfs:label
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy rdfs: ;
+    skos:example "<https://example.org/resource> <http://www.w3.org/2000/01/rdf-schema#label> \"Example value\" ." ;
+    schema:description "A human-readable name for a resource."@en ;
+    schema:name "label"@en ;
+.
+
+rdfs:range
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy rdfs: ;
+    skos:example "<https://example.org/resource> <http://www.w3.org/2000/01/rdf-schema#range> <https://example.org/value> ." ;
+    schema:description "Identifies a class to which values of a property belong."@en ;
+    schema:name "range"@en ;
+.
+
+rdfs:subClassOf
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy rdfs: ;
+    skos:example "<https://example.org/resource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://example.org/value> ." ;
+    schema:description "Relates a class to a class containing all of its instances."@en ;
+    schema:name "sub Class Of"@en ;
+.
+
+owl:equivalentClass
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy owl: ;
+    skos:example "<https://example.org/resource> <http://www.w3.org/2002/07/owl#equivalentClass> <https://example.org/value> ." ;
+    schema:description "States that two class expressions have the same instances."@en ;
+    schema:name "equivalent Class"@en ;
+.
+
+owl:equivalentProperty
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy owl: ;
+    skos:example "<https://example.org/resource> <http://www.w3.org/2002/07/owl#equivalentProperty> <https://example.org/value> ." ;
+    schema:description "States that two properties relate the same subjects to the same objects."@en ;
+    schema:name "equivalent Property"@en ;
+.
+
+owl:propertyChainAxiom
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy owl: ;
+    skos:example "<https://example.org/resource> <http://www.w3.org/2002/07/owl#propertyChainAxiom> <https://example.org/value> ." ;
+    schema:description "Relates a property to an ordered list of properties whose composition implies it."@en ;
+    schema:name "property Chain Axiom"@en ;
+.
+
+skos:ConceptScheme
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#cls-ConceptScheme"^^xsd:anyURI ;
+    rdfs:isDefinedBy skos: ;
+    skos:example "<https://example.org/resource> a <http://www.w3.org/2004/02/skos/core#ConceptScheme> ." ;
+    skos:scopeNote "The target shape declares no property constraints. Its description refers to the VocPub Profile; validator.ttl itself does not import or implement those constraints."@en ;
+    schema:description "A controlled vocabulary grouping concepts."@en ;
+    schema:name "Concept Scheme"@en ;
+.
+
+skos:altLabel
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy skos: ;
+    skos:example "<https://example.org/resource> <http://www.w3.org/2004/02/skos/core#altLabel> \"Example value\" ." ;
+    schema:description "An alternative lexical label for a resource."@en ;
+    schema:name "alt Label"@en ;
+.
+
+skos:definition
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy skos: ;
+    skos:example "<https://example.org/resource> <http://www.w3.org/2004/02/skos/core#definition> \"Example value\" ." ;
+    schema:description "A statement explaining the meaning of a concept or vocabulary term."@en ;
+    schema:name "definition"@en ;
+.
+
+skos:narrower
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy skos: ;
+    skos:example "<https://example.org/resource> <http://www.w3.org/2004/02/skos/core#narrower> <https://example.org/value> ." ;
+    schema:description "Relates a concept to a concept with a more specific meaning."@en ;
+    schema:name "narrower"@en ;
+.
+
+skos:prefLabel
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy skos: ;
+    skos:example "<https://example.org/resource> <http://www.w3.org/2004/02/skos/core#prefLabel> <https://example.org/value> ." ;
+    schema:description "Pref Label is a reused predicate used in the IDN Catalogue Profile specification and its examples."@en ;
+    schema:name "pref Label"@en ;
+.
+
+time:Instant
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy time: ;
+    skos:example "<https://example.org/resource> a <http://www.w3.org/2006/time#Instant> ." ;
+    schema:description "An OWL-Time temporal entity with zero extent, usable as a created or modified date value."@en ;
+    schema:name "Instant"@en ;
+.
+
+time:Interval
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy time: ;
+    skos:example "<https://example.org/resource> a <http://www.w3.org/2006/time#Interval> ." ;
+    schema:description "An OWL-Time temporal entity with non-zero extent, usable as a created or modified date value."@en ;
+    schema:name "Interval"@en ;
+.
+
+dcat:Distribution
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy dcat: ;
+    skos:example "<https://example.org/resource> a <http://www.w3.org/ns/dcat#Distribution> ." ;
+    schema:description "Distribution is a reused class used in the IDN Catalogue Profile specification and its examples."@en ;
+    schema:name "Distribution"@en ;
+.
+
+dcat:Resource
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy dcat: ;
+    skos:example "<https://example.org/resource> a <http://www.w3.org/ns/dcat#Resource> ." ;
+    schema:description "Resource is a reused class used in the IDN Catalogue Profile specification and its examples."@en ;
+    schema:name "Resource"@en ;
+.
+
+dcat:qualifiedRelation
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy dcat: ;
+    skos:example "<https://example.org/resource> <http://www.w3.org/ns/dcat#qualifiedRelation> <https://example.org/value> ." ;
+    schema:description "Qualified Relation is a reused predicate used in the IDN Catalogue Profile specification and its examples."@en ;
+    schema:name "qualified Relation"@en ;
+.
+
+odrl:action
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy odrl: ;
+    skos:example "<https://example.org/resource> <http://www.w3.org/ns/odrl/2/action> <https://example.org/value> ." ;
+    schema:description "Action is a reused predicate used in the IDN Catalogue Profile specification and its examples."@en ;
+    schema:name "action"@en ;
+.
+
+odrl:hasPolicy
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-hasPolicy"^^xsd:anyURI ;
+    rdfs:isDefinedBy odrl: ;
+    skos:example "See the relevant modelling pattern in this specification." ;
+    skos:scopeNote "No executable constraint for this property is declared in validator.ttl."@en ;
+    schema:description "Links a resource to a policy governing its use."@en ;
+    schema:name "has policy"@en ;
+.
+
+prov:Agent
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#cls-Agent"^^xsd:anyURI ;
+    rdfs:isDefinedBy prov: ;
+    skos:example "<https://example.org/resource> a <http://www.w3.org/ns/prov#Agent> ." ;
+    skos:scopeNote "Exactly one schema:name is required, with datatype xsd:string or rdf:langString . Description is optional with at most one string or language-tagged value. Identifiers are optional; see identifier . A node typed prov:Agent MUST also be an instance of schema:Person or schema:Organization ; this is tested on the Agent itself. Additional types are allowed. Optional general Agent email and URL values MUST be xsd:anyURI literals. The Person and Organization shapes also apply when those types are used."@en ;
+    schema:description "A person or organization responsible for a role in relation to a resource."@en ;
+    schema:name "Agent"@en ;
+.
+
+prov:Attribution
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#cls-Attribution"^^xsd:anyURI ;
+    rdfs:isDefinedBy prov: ;
+    skos:example "prov:qualifiedAttribution [ a prov:Attribution; schema:agent <https://example.org/person/1>; prov:hadRole <https://example.org/role/1> ]" ;
+    skos:scopeNote "Link from the resource with prov:qualifiedAttribution . Exactly one schema:agent MUST identify an instance of schema:Organization or schema:Person (A1). At least one role value MUST be supplied across schema:roleName and prov:hadRole , and every role value MUST be an instance of skos:Concept . No maximum role count is imposed."@en ;
+    schema:description "A qualified association between a resource, an Agent and the role played by that Agent."@en ;
+    schema:name "Attribution"@en ;
+.
+
+prov:actedOnBehalfOf
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy prov: ;
+    skos:example "<https://example.org/resource> <http://www.w3.org/ns/prov#actedOnBehalfOf> <https://example.org/value> ." ;
+    schema:description "Acted On Behalf Of is a reused predicate used in the IDN Catalogue Profile specification and its examples."@en ;
+    schema:name "acted On Behalf Of"@en ;
+.
+
+prov:hadRole
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-hadRole"^^xsd:anyURI ;
+    rdfs:isDefinedBy prov: ;
+    skos:example "prov:hadRole <https://example.org/role/1>" ;
+    skos:scopeNote "An alternative to schema:roleName ; at least one value is required across both properties. Every value MUST be an instance of skos:Concept ; no maximum count."@en ;
+    schema:description "Identifies an Agent role using a controlled concept."@en ;
+    schema:name "had role"@en ;
+.
+
+prov:qualifiedAttribution
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-qualifiedAttribution"^^xsd:anyURI ;
+    rdfs:isDefinedBy prov: ;
+    skos:example "See the relevant modelling pattern in this specification." ;
+    skos:scopeNote "R4 requires qualified attribution in place of prohibited direct role properties. The validator does not impose a minimum count or value-class constraint on this linking property; nodes typed prov:Attribution are checked by the Attribution shape."@en ;
+    schema:description "Links a resource to a qualified attribution describing an Agent and role."@en ;
+    schema:name "qualified attribution"@en ;
+.
+
+prov:wasAttributedTo
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy prov: ;
+    skos:example "<https://example.org/resource> <http://www.w3.org/ns/prov#wasAttributedTo> <https://example.org/value> ." ;
+    schema:description "Was Attributed To is a reused predicate used in the IDN Catalogue Profile specification and its examples."@en ;
+    schema:name "was Attributed To"@en ;
+.
+
+prov:wasGeneratedBy
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-wasGeneratedBy"^^xsd:anyURI ;
+    rdfs:isDefinedBy prov: ;
+    skos:example "See the Projects pattern." ;
+    skos:scopeNote "Use this property to link a catalogued resource to a schema:Project or schema:ResearchProject . Do not use it to indicate Agent roles; use prov:qualifiedAttribution for Agent roles. No executable constraint for this property is declared in validator.ttl."@en ;
+    schema:description "Indicates an activity, such as a project, that generated a catalogued resource."@en ;
+    schema:name "was generated by"@en ;
+.
+
+lcont:CCNotice
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#c.2.4"^^xsd:anyURI ;
+    rdfs:isDefinedBy lcont: ;
+    rdfs:subClassOf lcont:LCNotice ;
+    skos:example "<https://example.org/resource> a <https://data.idnau.org/pid/lc-ont#CCNotice> ." ;
+    schema:description "A SKOS Concept representing a Collections Care Notice from the Local Contexts framework."@en ;
+    schema:name "Collections Care Notices"@en ;
+.
+
+lcont:CollectionsCareDuty
+    a
+        owl:NamedIndividual ,
+        odrl:Duty ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#c.2.6"^^xsd:anyURI ;
+    rdfs:isDefinedBy lcont: ;
+    skos:example "lcont:CollectionsCareDuty a odrl:Duty; odrl:action odrl-action:follow-protocol ." ;
+    odrl:action odrl-action:follow-protocol ;
+    schema:description "You are entering a space where Collections Care Notices are in use. Be prepared to follow the protocols for access, use, handling, and viewing associated with certain items or collections. These are in place for the care of the collections and the communities to whom they belong. For more information about Collections Care Notices, see localcontexts.org."@en ;
+    schema:name "Collections Care Duty"@en ;
+.
+
+lcont:QualifiedLocalContext
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#c.2.5"^^xsd:anyURI ;
+    rdfs:isDefinedBy lcont: ;
+    rdfs:subClassOf dcat:Relationship ;
+    skos:example "<https://example.org/resource> a <https://data.idnau.org/pid/lc-ont#QualifiedLocalContext> ." ;
+    schema:description "A qualified relationship between a catalogued resource and a Local Contexts Label or Notice, used when information about the application of that Label or Notice must be recorded on the relationship itself."@en ;
+    schema:name "Qualified Local Context"@en ;
+.
+
+lcont:relatedNotice
+    a owl:ObjectProperty ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#c.2.9"^^xsd:anyURI ;
+    rdfs:domain
+        [
+            a owl:Class ;
+            dcterms:source "https://data.idnau.org/pid/cp/spec#c.2"^^xsd:anyURI ;
+            rdfs:isDefinedBy lcont: ;
+            owl:unionOf (
+                lcont:BCLabel
+                lcont:TKLabel
+            ) ;
+            skos:example "An OWL union class expression used as the domain of a Local Contexts property." ;
+            schema:description "The union of the Local Contexts classes permitted as the subject of this property."@en ;
+            schema:name "Local Contexts domain union"@en ;
+        ] ;
+    rdfs:isDefinedBy lcont: ;
+    rdfs:range lcont:LCNotice ;
+    skos:example "<https://example.org/resource> <https://data.idnau.org/pid/lc-ont#relatedNotice> <https://example.org/value> ." ;
+    schema:description "Relates a Traditional Knowledge or Biocultural Label to a relevant Local Contexts Notice."@en ;
+    schema:name "Related Notice"@en ;
+.
+
+lcont:templateText
+    a owl:DatatypeProperty ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#c.2.7"^^xsd:anyURI ;
+    rdfs:domain
+        [
+            a owl:Class ;
+            dcterms:source "https://data.idnau.org/pid/cp/spec#c.2"^^xsd:anyURI ;
+            rdfs:isDefinedBy lcont: ;
+            owl:unionOf (
+                lcont:BCLabel
+                lcont:TKLabel
+                lcont:LCNotice
+            ) ;
+            skos:example "An OWL union class expression used as the domain of a Local Contexts property." ;
+            schema:description "The union of the Local Contexts classes permitted as the subject of this property."@en ;
+            schema:name "Local Contexts domain union"@en ;
+        ] ;
+    rdfs:isDefinedBy lcont: ;
+    rdfs:range rdf:langString ;
+    skos:example "<https://example.org/resource> <https://data.idnau.org/pid/lc-ont#templateText> <https://example.org/value> ." ;
+    schema:description "A prescriptive text string associated with a Label or Notice that provides boilerplate wording intended to be reused or customised by end-users. Distinct from skos:example, which is illustrative only."@en ;
+    schema:name "Template Text"@en ;
+.
+
+<https://kurrawong.ai>
+    a schema:Organization ;
+    schema:description "KurrawongAI is a small, Artificial Intelligence, company in Australia specialising in Knowledge Graphs." ;
+    schema:name "KurrawongAI" ;
+    schema:url "https://kurrawong.ai"^^xsd:anyURI ;
+.
+
+scores:Score
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#cls-Score"^^xsd:anyURI ;
+    rdfs:isDefinedBy scores: ;
+    skos:example "<https://example.org/resource> a <https://linked.data.gov.au/def/scores/Score> ." ;
+    skos:scopeNote "No node shape targets this class in validator.ttl . Its modelling guidance is additional to the executable validator. If a node also has a targeted class, the corresponding constraints still apply."@en ;
+    schema:description "A Score is a value, or set of values, for a catalogued resource that has been calculated from metadata or data elements known for the resource in accordance with a set of scoring principles or a metric system, such as the FAIR principles"@en ;
+    schema:name "Score"@en ;
+.
+
+scores:hasScore
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-hasScore"^^xsd:anyURI ;
+    rdfs:isDefinedBy scores: ;
+    skos:example "See the relevant modelling pattern in this specification." ;
+    skos:scopeNote "No executable constraint for this property is declared in validator.ttl."@en ;
+    schema:description "Links a resource to an assessment score."@en ;
+    schema:name "has score"@en ;
+.
+
+<https://orcid.org/0000-0002-8742-7730>
+    a schema:Person ;
+    schema:affiliation <https://kurrawong.ai> ;
+    schema:email "nick@kurrawong.ai"^^xsd:anyURI ;
+    schema:name "Nicholas J. Car"@en ;
+.
+
+schema:Book
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> a <https://schema.org/Book> ." ;
+    schema:description "A book described as a creative work."@en ;
+    schema:name "Book"@en ;
+.
+
+schema:CreativeWork
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#cls-CreativeWork"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "PREFIX schema: <https://schema.org/> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX ind: <https://data.idnau.org/pid/vocab/indigeneity/> <https://data.idnau.org/pid/762463a4-f8b1-4eec-a335-3689c8d86e9e> a schema:CreativeWork ; schema:name \"Law: The Way of the Ancestors\" ; schema:description \"The authors show how Indigenous law has enabled people to survive and thrive in Australia for more than 2000 generations. Nurturing people and places, law is the foundation of all Indigenous societies in Australia, giving them the tools to respond and adapt to major environmental and social changes.\" ; schema:additionalType <http://id.loc.gov/vocabulary/marcgt/boo> ; # Book schema:dateCreated \"2023\"^^xsd:gYear ; schema:dateModified \"2026-11-25\"^^xsd:date ; schema:isPartOf <https://example.org/catalogue> ; schema:creator <https://orcid.org/0000-0002-1398-7524> , # Marcia Langton <https://orcid.org/0000-0002-4797-9776> ; # Aaron Corn schema:identifier \"9781760762827\"^^xsd:token ; schema:keywords ind:about-indigenous-people , ind:by-indigenous-people ; . <https://example.org/catalogue> a schema:DataCatalog ; schema:name \"Example catalogue\" ; schema:description \"An example catalogue.\" ; schema:dateCreated \"2026-11-25\"^^xsd:date ; schema:dateModified \"2026-11-25\"^^xsd:date ; schema:hasPart <https://data.idnau.org/pid/762463a4-f8b1-4eec-a335-3689c8d86e9e> ; ." ;
+    skos:scopeNote "This is the generic class for things catalogued. You MAY use it without qualification but you SHOULD indicate a specialised class of object catalogued with the schema:additionalType predicate. Exactly one each of schema:name , schema:description , schema:dateCreated , schema:dateModified is required. Name and description MUST be xsd:string or rdf:langString . See date created for date value types. Optional schema:identifier values MUST be IRIs or xsd:token literals. The direct role properties schema:audienceType , schema:contactPoint , schema:contributor , schema:copyrightHolder , schema:editor , schema:funder , schema:owner , schema:sponsor , schema:translator MUST NOT be used; use prov:qualifiedAttribution instead. Direct schema:creator and schema:publisher are permitted. A Creative Work or Dataset MUST belong to at least one schema:DataCatalog , indicated by incoming schema:hasPart or outgoing schema:isPartOf (R5). Multiple catalogue memberships are permitted. Every supplied membership in either direction MUST identify a node typed schema:DataCatalog . A Data Catalog need not belong to another catalogue. schema:additionalType is optional and has no value-type constraint."@en ;
+    schema:description "The most generic kind of creative work, including books, movies, photographs, software programs, etc."@en ;
+    schema:name "Creative Work"@en ;
+.
+
+schema:DataCatalog
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#cls-DataCatalog"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> a <https://schema.org/DataCatalog> ." ;
+    skos:scopeNote "Exactly one each of schema:name , schema:description , schema:dateCreated , schema:dateModified is required. Name and description MUST be xsd:string or rdf:langString . See date created for date value types. Optional schema:identifier values MUST be IRIs or xsd:token literals. The direct role properties schema:audienceType , schema:contactPoint , schema:contributor , schema:copyrightHolder , schema:editor , schema:funder , schema:owner , schema:sponsor , schema:translator MUST NOT be used; use prov:qualifiedAttribution instead. Direct schema:creator and schema:publisher are permitted. At least one schema:hasPart value is required; each MUST be an instance of schema:CreativeWork or schema:Dataset . Catalogue membership is optional."@en ;
+    schema:description "A catalogue containing catalogued resources."@en ;
+    schema:name "Data Catalog"@en ;
+.
+
+schema:DataDownload
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#cls-DataDownload"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "See the example for schema:CreativeWork" ;
+    skos:scopeNote "No node shape targets this class in validator.ttl . Its modelling guidance is additional to the executable validator. If a node also has a targeted class, the corresponding constraints still apply."@en ;
+    schema:description "A downloadable representation of a dataset, such as a file or service response."@en ;
+    schema:name "Data Download"@en ;
+.
+
+schema:Dataset
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#cls-Dataset"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> a <https://schema.org/Dataset> ." ;
+    skos:scopeNote "Exactly one each of schema:name , schema:description , schema:dateCreated , schema:dateModified is required. Name and description MUST be xsd:string or rdf:langString . See date created for date value types. Optional schema:identifier values MUST be IRIs or xsd:token literals. The direct role properties schema:audienceType , schema:contactPoint , schema:contributor , schema:copyrightHolder , schema:editor , schema:funder , schema:owner , schema:sponsor , schema:translator MUST NOT be used; use prov:qualifiedAttribution instead. Direct schema:creator and schema:publisher are permitted. A Creative Work or Dataset MUST belong to at least one schema:DataCatalog , indicated by incoming schema:hasPart or outgoing schema:isPartOf (R5). Multiple catalogue memberships are permitted. Every supplied membership in either direction MUST identify a node typed schema:DataCatalog . A Data Catalog need not belong to another catalogue. schema:additionalType is optional and has no value-type constraint."@en ;
+    schema:description "A dataset described as a catalogued resource."@en ;
+    schema:name "Dataset"@en ;
+.
+
+schema:DateTime
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#cls-DateTime"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "PREFIX schema: <https://schema.org/> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> <https://example.com/cataloguedresource/def-456> a schema:CreativeWork ; schema:name \"Early encounters with Aboriginal People in South Australia\" ; # ... schema:temporalCoverage [ schema:startTime \"1825\"^^xsd:gYear ; schema:endTime \"1890\"^^xsd:gYear ; ] ; # ... or ... schema:temporalCoverage [ schema:name \"19th century\" ; ] ; . <https://www.geonames.org/8215867> a schema:Place ; schema:name \"Cable Beach, Western Australia\" ; schema:geo \"POINT(-35.11608, 117.90094)\" ; ." ;
+    skos:scopeNote "Use this object with a schema:startTime &/or schema:endTime to represent a period of time. No node shape targets this class in validator.ttl . Its modelling guidance is additional to the executable validator. If a node also has a targeted class, the corresponding constraints still apply."@en ;
+    schema:description "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]"@en ;
+    schema:name "Date Time"@en ;
+.
+
+schema:Duration
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> a <https://schema.org/Duration> ." ;
+    schema:description "A duration of time, commonly expressed using an ISO 8601 duration representation."@en ;
+    schema:name "Duration"@en ;
+.
+
+schema:Place
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#cls-Place"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "PREFIX schema: <https://schema.org/> <https://example.com/cataloguedresource/abc-123> a schema:CreativeWork ; schema:name \"Traditional hunting on Cable Beach\" ; # ... schema:spatialCoverage <https://www.geonames.org/8215867> ; # ... . <https://www.geonames.org/8215867> a schema:Place ; schema:name \"Cable Beach, Western Australia\" ; schema:geo \"POINT(-35.11608, 117.90094)\" ; ." ;
+    skos:scopeNote "Use this class to represent areas of country, cities, named regions, points etc. Preferentially select the Place from IDN reference datasets. No node shape targets this class in validator.ttl . Its modelling guidance is additional to the executable validator. If a node also has a targeted class, the corresponding constraints still apply."@en ;
+    schema:description "Entities that have a somewhat fixed, physical extension."@en ;
+    schema:name "Place"@en ;
+.
+
+schema:Project
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#cls-Project"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "See the Projects pattern." ;
+    skos:scopeNote "Use schema:ResearchProject for research projects. Link catalogued resources to projects with prov:wasGeneratedBy . Describe project participants and project roles using prov:qualifiedAttribution on the project. No node shape targets this class in validator.ttl . Its modelling guidance is additional to the executable validator. If a node also has a targeted class, the corresponding constraints still apply."@en ;
+    schema:description "A planned activity or body of work that may generate, fund, collect, curate or otherwise provide important context for catalogued resources."@en ;
+    schema:name "Project"@en ;
+.
+
+schema:ResearchProject
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#cls-Project"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "See the Projects pattern." ;
+    skos:scopeNote "Use schema:ResearchProject for research projects. Link catalogued resources to projects with prov:wasGeneratedBy . Describe project participants and project roles using prov:qualifiedAttribution on the project. No node shape targets this class in validator.ttl . Its modelling guidance is additional to the executable validator. If a node also has a targeted class, the corresponding constraints still apply."@en ;
+    schema:description "A planned research activity or body of research work that provides context for catalogued resources."@en ;
+    schema:name "Research Project"@en ;
+.
+
+schema:additionalType
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-additionalType"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "schema:additionalType <https://example.org/type/report>" ;
+    skos:scopeNote "The attached property shape declares only a path; no cardinality, datatype or class constraint is imposed."@en ;
+    schema:description "A more specific classification of the resource."@en ;
+    schema:name "additional type"@en ;
+.
+
+schema:affiliation
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/affiliation> <https://example.org/value> ." ;
+    schema:description "Affiliation is a reused predicate used in the IDN Catalogue Profile specification and its examples."@en ;
+    schema:name "affiliation"@en ;
+.
+
+schema:agent
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-agent"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "schema:agent <https://example.org/person/1>" ;
+    skos:scopeNote "Exactly one value, which MUST be an instance of schema:Person or schema:Organization (A1)."@en ;
+    schema:description "Identifies the Agent in a qualified attribution."@en ;
+    schema:name "agent"@en ;
+.
+
+schema:alumniOf
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/alumniOf> <https://example.org/value> ." ;
+    schema:description "Relates a Person to an educational organization with which they have an alumni association."@en ;
+    schema:name "alumni Of"@en ;
+.
+
+schema:audienceType
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-audienceType"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/audienceType> <https://example.org/value> ." ;
+    skos:scopeNote "MUST NOT occur directly on schema:CreativeWork , schema:Dataset and schema:DataCatalog (R4; maximum count 0 across the prohibited direct-role alternative path). Use prov:qualifiedAttribution with an appropriate role concept."@en ;
+    schema:description "A category of intended audience. This direct role property is prohibited on catalogued resources in this profile."@en ;
+    schema:name "audience type"@en ;
+.
+
+schema:contactPoint
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-contactPoint"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/contactPoint> <https://example.org/value> ." ;
+    skos:scopeNote "MUST NOT occur directly on schema:CreativeWork , schema:Dataset and schema:DataCatalog (R4; maximum count 0 across the prohibited direct-role alternative path). Use prov:qualifiedAttribution with an appropriate role concept."@en ;
+    schema:description "A point of contact for a resource or Agent."@en ;
+    schema:name "contact point"@en ;
+.
+
+schema:contributor
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-contributor"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "See the relevant modelling pattern in this specification." ;
+    skos:scopeNote "Use the Attribution pattern instead of this direct property. MUST NOT occur on schema:CreativeWork , schema:Dataset and schema:DataCatalog (R4). Use prov:qualifiedAttribution with an appropriate role instead."@en ;
+    schema:description "An Agent that contributed to a resource."@en ;
+    schema:name "contributor"@en ;
+.
+
+schema:copyrightHolder
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-copyrightHolder"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/copyrightHolder> <https://example.org/value> ." ;
+    skos:scopeNote "MUST NOT occur directly on schema:CreativeWork , schema:Dataset and schema:DataCatalog (R4; maximum count 0 across the prohibited direct-role alternative path). Use prov:qualifiedAttribution with an appropriate role concept."@en ;
+    schema:description "The Agent holding copyright in a resource."@en ;
+    schema:name "copyright holder"@en ;
+.
+
+schema:creator
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-creator"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "See the relevant modelling pattern in this specification." ;
+    skos:scopeNote "Permitted as a direct role property. This validator imposes no cardinality or value-type constraint on it."@en ;
+    schema:description "An Agent that created a resource."@en ;
+    schema:name "creator"@en ;
+.
+
+schema:dataset
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/dataset> <https://example.org/value> ." ;
+    schema:description "Dataset is a reused predicate used in the IDN Catalogue Profile specification and its examples."@en ;
+    schema:name "dataset"@en ;
+.
+
+schema:dateCreated
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-dateCreated"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "schema:dateCreated \"2026-11-25\"^^xsd:date" ;
+    skos:scopeNote "Exactly one value is required on schema:CreativeWork , schema:Dataset and schema:DataCatalog . Each value MUST be a literal of datatype xsd:date , xsd:dateTime , xsd:dateTimeStamp , xsd:gYear , xsd:gYearMonth , or a node typed time:Instant or time:Interval (R2/R3). OWL-Time classes are used as node types, not literal datatypes."@en ;
+    schema:description "The date on which a resource was created."@en ;
+    schema:name "date created"@en ;
+.
+
+schema:dateIssued
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-dateIssued"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "schema:dateIssued \"2023-11-01\"^^xsd:date" ;
+    skos:scopeNote "No executable constraint for this property is declared in validator.ttl."@en ;
+    schema:description "The date of formal issuance of a resource."@en ;
+    schema:name "date issued"@en ;
+.
+
+schema:dateModified
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-dateModified"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "schema:dateModified \"2026-08-21\"^^xsd:date" ;
+    skos:scopeNote "Exactly one value is required on schema:CreativeWork , schema:Dataset and schema:DataCatalog . Each value MUST be a literal of datatype xsd:date , xsd:dateTime , xsd:dateTimeStamp , xsd:gYear , xsd:gYearMonth , or a node typed time:Instant or time:Interval (R2/R3). OWL-Time classes are used as node types, not literal datatypes."@en ;
+    schema:description "The date on which a resource was most recently modified."@en ;
+    schema:name "date modified"@en ;
+.
+
+schema:datePublished
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-datePublished"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "schema:datePublished \"2023-09-01\"^^xsd:date" ;
+    skos:scopeNote "No executable constraint for this property is declared in validator.ttl."@en ;
+    schema:description "The date on which a resource was published."@en ;
+    schema:name "date published"@en ;
+.
+
+schema:description
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-description"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "schema:description \"An example catalogue record.\"@en" ;
+    skos:scopeNote "Resources require exactly one value; Agents allow 0..1. Each value MUST be xsd:string or rdf:langString ."@en ;
+    schema:description "A human-readable account of the resource or Agent."@en ;
+    schema:name "description"@en ;
+.
+
+schema:distribution
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-distribution"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "See the relevant modelling pattern in this specification." ;
+    skos:scopeNote "No executable constraint for this property is declared in validator.ttl."@en ;
+    schema:description "Links a dataset to an available distribution."@en ;
+    schema:name "distribution"@en ;
+.
+
+schema:editor
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-editor"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/editor> <https://example.org/value> ." ;
+    skos:scopeNote "MUST NOT occur directly on schema:CreativeWork , schema:Dataset and schema:DataCatalog (R4; maximum count 0 across the prohibited direct-role alternative path). Use prov:qualifiedAttribution with an appropriate role concept."@en ;
+    schema:description "An Agent that edited a resource."@en ;
+    schema:name "editor"@en ;
+.
+
+schema:email
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-email"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "schema:email \"mailto:contact@example.org\"^^xsd:anyURI" ;
+    skos:scopeNote "Person: 0..1 value of datatype xsd:anyURI . The general Agent shape allows any number of values but requires the same datatype. The SHOULD recommendation does not impose a minimum."@en ;
+    schema:description "An email contact value for an Agent."@en ;
+    schema:name "email"@en ;
+.
+
+schema:endDate
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/endDate> \"Example value\" ." ;
+    schema:description "The date on which a project, event or other activity ends."@en ;
+    schema:name "end Date"@en ;
+.
+
+schema:endTime
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/endTime> \"Example value\" ." ;
+    schema:description "The time at which an event or described time period ends."@en ;
+    schema:name "end Time"@en ;
+.
+
+schema:funder
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-funder"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/funder> <https://example.org/value> ." ;
+    skos:scopeNote "MUST NOT occur directly on schema:CreativeWork , schema:Dataset and schema:DataCatalog (R4; maximum count 0 across the prohibited direct-role alternative path). Use prov:qualifiedAttribution with an appropriate role concept."@en ;
+    schema:description "An Agent that funded a resource or activity."@en ;
+    schema:name "funder"@en ;
+.
+
+schema:geo
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/geo> <https://example.org/value> ." ;
+    schema:description "Geographic coordinates or a geometric description associated with a place."@en ;
+    schema:name "geo"@en ;
+.
+
+schema:hasPart
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-hasPart"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "schema:hasPart <https://example.org/dataset/1>" ;
+    skos:scopeNote "A Data Catalog MUST contain at least one resource using this predicate. Each value MUST be an instance of schema:CreativeWork or schema:Dataset . No maximum count is imposed. A Creative Work or Dataset MUST belong to at least one schema:DataCatalog , indicated by incoming schema:hasPart or outgoing schema:isPartOf (R5). Multiple catalogue memberships are permitted. Every supplied membership in either direction MUST identify a node typed schema:DataCatalog . A Data Catalog need not belong to another catalogue."@en ;
+    schema:description "Links a catalogue to a resource it contains."@en ;
+    schema:name "has part"@en ;
+.
+
+schema:id
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/id> <https://example.org/value> ." ;
+    schema:description "A legacy identifier predicate appearing in a Local Contexts example; use schema:identifier for current IDN records."@en ;
+    schema:name "id"@en ;
+.
+
+schema:identifier
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-identifier"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "schema:identifier \"record-123\"^^xsd:token" ;
+    skos:scopeNote "Optional and repeatable. Resource values MUST be IRIs or xsd:token literals. Agent and Organization values MUST be literals with datatype xsd:token , xsd:anyURI , xsd:string , rdf:langString , id:ror , id:ausbn , id:auscn , id:ausrn , id:viaf . Person values instead permit xsd:token , xsd:anyURI , xsd:string , rdf:langString , id:orcid , id:viaf . Here id: expands to http://id.loc.gov/vocabulary/identifiers/ . The R1 recommendation to use a persistent identifier is not enforced as a minimum count."@en ;
+    schema:description "An identifier for a resource or Agent."@en ;
+    schema:name "identifier"@en ;
+.
+
+schema:inLanguage
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-inLanguage"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "See the relevant modelling pattern in this specification." ;
+    skos:scopeNote "No executable constraint for this property is declared in validator.ttl."@en ;
+    schema:description "The language of a resource."@en ;
+    schema:name "in language"@en ;
+.
+
+schema:isPartOf
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-isPartOf"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "schema:isPartOf <https://example.org/catalogue/1>" ;
+    skos:scopeNote "A Creative Work or Dataset MUST belong to at least one schema:DataCatalog , indicated by incoming schema:hasPart or outgoing schema:isPartOf (R5). Multiple catalogue memberships are permitted. Every supplied membership in either direction MUST identify a node typed schema:DataCatalog . A Data Catalog need not belong to another catalogue."@en ;
+    schema:description "Links a resource to a containing catalogue."@en ;
+    schema:name "is part of"@en ;
+.
+
+schema:isPartOfCatalog
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/isPartOfCatalog> <https://example.org/value> ." ;
+    schema:description "A legacy catalogue-membership predicate appearing in an example; current validation uses schema:isPartOf or incoming schema:hasPart."@en ;
+    schema:name "is Part Of Catalog"@en ;
+.
+
+schema:keywords
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-keywords"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "See the relevant modelling pattern in this specification." ;
+    skos:scopeNote "Use Keywords to indicate the 'about-ness' of a catalogued resource. : IDN Themes Data Indigeneity ANZSRC Field Of Research AustLang No executable constraint for this property is declared in validator.ttl."@en ;
+    schema:description "Keywords or controlled concepts describing the subject of a resource."@en ;
+    schema:name "keywords"@en ;
+.
+
+schema:license
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-license"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "See the relevant modelling pattern in this specification." ;
+    skos:scopeNote "No executable constraint for this property is declared in validator.ttl."@en ;
+    schema:description "Links a resource to its license."@en ;
+    schema:name "license"@en ;
+.
+
+schema:memberOf
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/memberOf> <https://example.org/value> ." ;
+    schema:description "Relates a Person or Organization to an Organization of which it is a member."@en ;
+    schema:name "member Of"@en ;
+.
+
+schema:name
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-name"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "schema:name \"Example resource\"@en" ;
+    skos:scopeNote "Exactly one value, with datatype xsd:string or rdf:langString (R2/AG2)."@en ;
+    schema:description "A human-readable name or title."@en ;
+    schema:name "name"@en ;
+.
+
+schema:owner
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-owner"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/owner> <https://example.org/value> ." ;
+    skos:scopeNote "MUST NOT occur directly on schema:CreativeWork , schema:Dataset and schema:DataCatalog (R4; maximum count 0 across the prohibited direct-role alternative path). Use prov:qualifiedAttribution with an appropriate role concept."@en ;
+    schema:description "An Agent that owns a resource."@en ;
+    schema:name "owner"@en ;
+.
+
+schema:parentOrganization
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/parentOrganization> <https://example.org/value> ." ;
+    schema:description "Relates an Organization to a parent Organization."@en ;
+    schema:name "parent Organization"@en ;
+.
+
+schema:potentialAction
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/potentialAction> <https://example.org/value> ." ;
+    schema:description "An action that may be performed in relation to a resource; used for direct attachment of Local Contexts Notices."@en ;
+    schema:name "potential Action"@en ;
+.
+
+schema:publisher
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-publisher"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "See the relevant modelling pattern in this specification." ;
+    skos:scopeNote "Permitted as a direct role property. This validator imposes no cardinality or value-type constraint on it."@en ;
+    schema:description "An Agent that published a resource."@en ;
+    schema:name "publisher"@en ;
+.
+
+schema:roleName
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-roleName"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "schema:roleName <https://example.org/role/1>" ;
+    skos:scopeNote "At least one value is required across this property and prov:hadRole . Every value MUST be an instance of skos:Concept ; no maximum count."@en ;
+    schema:description "Identifies an Agent role using a controlled concept."@en ;
+    schema:name "role name"@en ;
+.
+
+schema:spatialCoverage
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-spatialCoverage"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "See the relevant modelling pattern in this specification." ;
+    skos:scopeNote "No executable constraint for this property is declared in validator.ttl."@en ;
+    schema:description "The places that are the focus of a resource."@en ;
+    schema:name "spatial coverage"@en ;
+.
+
+schema:sponsor
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-sponsor"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/sponsor> <https://example.org/value> ." ;
+    skos:scopeNote "MUST NOT occur directly on schema:CreativeWork , schema:Dataset and schema:DataCatalog (R4; maximum count 0 across the prohibited direct-role alternative path). Use prov:qualifiedAttribution with an appropriate role concept."@en ;
+    schema:description "An Agent that sponsors a resource or activity."@en ;
+    schema:name "sponsor"@en ;
+.
+
+schema:startDate
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/startDate> \"Example value\" ." ;
+    schema:description "The date on which a project, event or other activity begins."@en ;
+    schema:name "start Date"@en ;
+.
+
+schema:startTime
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/startTime> \"Example value\" ." ;
+    schema:description "The time at which an event or described time period begins."@en ;
+    schema:name "start Time"@en ;
+.
+
+schema:temporalCoverage
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-temporalCoverage"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "See the relevant modelling pattern in this specification." ;
+    skos:scopeNote "No executable constraint for this property is declared in validator.ttl."@en ;
+    schema:description "The time period that is the focus of a resource."@en ;
+    schema:name "temporal coverage"@en ;
+.
+
+schema:translator
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-translator"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/translator> <https://example.org/value> ." ;
+    skos:scopeNote "MUST NOT occur directly on schema:CreativeWork , schema:Dataset and schema:DataCatalog (R4; maximum count 0 across the prohibited direct-role alternative path). Use prov:qualifiedAttribution with an appropriate role concept."@en ;
+    schema:description "An Agent that translated a resource."@en ;
+    schema:name "translator"@en ;
+.
+
+schema:url
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#pred-url"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "schema:url \"https://example.org/\"^^xsd:anyURI" ;
+    skos:scopeNote "Organization: exactly one value of datatype xsd:anyURI . The general Agent shape allows any number of values of that datatype, with no minimum."@en ;
+    schema:description "A web address for an Agent."@en ;
+    schema:name "URL"@en ;
+.
+
+schema:usageInfo
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/resource> <https://schema.org/usageInfo> <https://example.org/value> ." ;
+    schema:description "Information or a link describing conditions, guidance or restrictions on use of a resource."@en ;
+    schema:name "usage Info"@en ;
+.
+
+rico:Agent
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy rico: ;
+    skos:example "<https://example.org/resource> a <https://www.ica.org/standards/RiC/ontology#Agent> ." ;
+    schema:description "An individual or collective entity involved in the creation, management or use of records."@en ;
+    schema:name "Agent"@en ;
+.
+
+rico:Person
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy rico: ;
+    skos:example "<https://example.org/resource> a <https://www.ica.org/standards/RiC/ontology#Person> ." ;
+    schema:description "A human Agent involved in activities associated with records."@en ;
+    schema:name "Person"@en ;
+.
+
+rico:Record
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy rico: ;
+    skos:example "<https://example.org/resource> a <https://www.ica.org/standards/RiC/ontology#Record> ." ;
+    schema:description "Information recorded and retained as evidence or for future reference."@en ;
+    schema:name "Record"@en ;
+.
+
+rico:RecordPart
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy rico: ;
+    skos:example "<https://example.org/resource> a <https://www.ica.org/standards/RiC/ontology#RecordPart> ." ;
+    schema:description "A component of a record that can be described separately."@en ;
+    schema:name "Record Part"@en ;
+.
+
+rico:RecordResource
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy rico: ;
+    skos:example "<https://example.org/resource> a <https://www.ica.org/standards/RiC/ontology#RecordResource> ." ;
+    schema:description "A record, part of a record or set of records treated as a resource for archival description."@en ;
+    schema:name "Record Resource"@en ;
+.
+
+rico:RecordSet
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy rico: ;
+    skos:example "<https://example.org/resource> a <https://www.ica.org/standards/RiC/ontology#RecordSet> ." ;
+    schema:description "A set of records grouped by shared characteristics, context or arrangement."@en ;
+    schema:name "Record Set"@en ;
+.
+
+rico:creationDate
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy rico: ;
+    skos:example "<https://example.org/resource> <https://www.ica.org/standards/RiC/ontology#creationDate> \"Example value\" ." ;
+    schema:description "A date associated with creation of a record resource."@en ;
+    schema:name "creation Date"@en ;
+.
+
+rico:hasDirectPart
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy rico: ;
+    skos:example "<https://example.org/resource> <https://www.ica.org/standards/RiC/ontology#hasDirectPart> <https://example.org/value> ." ;
+    schema:description "Relates a record resource to one of its immediate component parts."@en ;
+    schema:name "has Direct Part"@en ;
+.
+
+rico:hasOrHadHolder
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy rico: ;
+    skos:example "<https://example.org/resource> <https://www.ica.org/standards/RiC/ontology#hasOrHadHolder> <https://example.org/value> ." ;
+    schema:description "Relates a record resource to an Agent that holds or previously held it."@en ;
+    schema:name "has Or Had Holder"@en ;
+.
+
+rico:hasOrHadPart
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy rico: ;
+    skos:example "<https://example.org/resource> <https://www.ica.org/standards/RiC/ontology#hasOrHadPart> <https://example.org/value> ." ;
+    schema:description "Relates a record resource to a present or former component part."@en ;
+    schema:name "has Or Had Part"@en ;
+.
+
+rico:name
+    a rdf:Property ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy rico: ;
+    skos:example "<https://example.org/resource> <https://www.ica.org/standards/RiC/ontology#name> \"Example value\" ." ;
+    schema:description "A name identifying a record resource or other archival entity."@en ;
+    schema:name "name"@en ;
+.
+
+dcat:Relationship
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy dcat: ;
+    skos:example "<https://example.org/resource> a <http://www.w3.org/ns/dcat#Relationship> ." ;
+    schema:description "A qualified relationship between resources, capable of carrying a role and other relationship metadata."@en ;
+    schema:name "Relationship"@en ;
+.
+
+odrl:Action
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy odrl: ;
+    skos:example "<https://example.org/resource> a <http://www.w3.org/ns/odrl/2/Action> ." ;
+    schema:description "An operation or activity that can be the subject of a permission, prohibition or duty."@en ;
+    schema:name "Action"@en ;
+.
+
+odrl:Duty
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec"^^xsd:anyURI ;
+    rdfs:isDefinedBy odrl: ;
+    skos:example "<https://example.org/resource> a <http://www.w3.org/ns/odrl/2/Duty> ." ;
+    schema:description "An obligation that must be fulfilled in connection with a policy."@en ;
+    schema:name "Duty"@en ;
+.
+
+odrl-action:follow-protocol
+    a
+        owl:NamedIndividual ,
+        skos:Concept ,
+        odrl:Action ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#c.2.8"^^xsd:anyURI ;
+    rdfs:isDefinedBy odrl-action: ;
+    skos:broader odrl-action:fulfil-commitments ;
+    skos:example "lcont:CollectionsCareDuty odrl:action odrl-action:follow-protocol ." ;
+    schema:description "Follow the protocols identified by a policy for accessing, using, handling, viewing, sharing or otherwise interacting with an asset."@en ;
+    schema:name "follow protocol"@en ;
+.
+
+<https://linked.data.gov.au/org/idn>
+    a schema:Organization ;
+    schema:description "The IDN is within the University of Melbourne. It was established in 2018 to support and coordinate the governance of Indigenous data for Aboriginal and Torres Strait Islander peoples and empower Aboriginal and Torres Strait Islander communities to decide their own local data priorities." ;
+    schema:name "Indigenous Data Network" ;
+    schema:url "https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network"^^xsd:anyURI ;
+.
+
+schema:Person
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#cls-Person"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/person/1> a schema:Person; schema:name \"Example Person\" ." ;
+    skos:scopeNote "Use schema:Person as the Agent of a qualified attribution. Exactly one schema:name is required, with datatype xsd:string or rdf:langString (AG2). At most one schema:description is allowed, also with datatype xsd:string or rdf:langString (AG3). Identifiers are optional and repeatable; see identifier for permitted datatypes. At most one schema:email is allowed and its datatype MUST be xsd:anyURI ; no minimum is enforced."@en ;
+    schema:description "A person described as an Agent in catalogue metadata."@en ;
+    schema:name "Person"@en ;
+.
+
+lcont:BCLabel
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#c.2.1"^^xsd:anyURI ;
+    rdfs:isDefinedBy lcont: ;
+    rdfs:subClassOf skos:Concept ;
+    skos:example "<https://example.org/resource> a <https://data.idnau.org/pid/lc-ont#BCLabel> ." ;
+    schema:description "A label to be applied to data that define community expectations about appropriate use of biocultural collections and data. The BC Labels focus on accurate provenance, transparency and integrity in research engagements with Indigenous communities. The BC Labels ensure Indigenous people are represented in the metadata and create opportunities for future researchers to connect and support appropriate benefit sharing."@en ;
+    schema:name "Biocultural Label"@en ;
+.
+
+lcont:TKLabel
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#c.2.2"^^xsd:anyURI ;
+    rdfs:isDefinedBy lcont: ;
+    rdfs:subClassOf skos:Concept ;
+    skos:example "<https://example.org/resource> a <https://data.idnau.org/pid/lc-ont#TKLabel> ." ;
+    schema:description "A label to be applied to data that identifies and clarifies community-specific rules and responsibilities regarding access and future use of traditional knowledge. This includes sacred and/or ceremonial material, material that has gender restrictions, seasonal conditions of use and/or materials specifically designed for outreach purposes."@en ;
+    schema:name "Traditional Knowledge Label"@en ;
+.
+
+schema:Organization
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#cls-Organization"^^xsd:anyURI ;
+    rdfs:isDefinedBy schema: ;
+    skos:example "<https://example.org/organization/1> a schema:Organization; schema:name \"Example Organization\"; schema:url \"https://example.org/\"^^xsd:anyURI ." ;
+    skos:scopeNote "Use schema:Organization as the Agent of a qualified attribution. Exactly one schema:name is required, with datatype xsd:string or rdf:langString (AG2). At most one schema:description is allowed, also with datatype xsd:string or rdf:langString (AG3). Identifiers are optional and repeatable; see identifier for permitted datatypes. Exactly one schema:url is required and its datatype MUST be xsd:anyURI ."@en ;
+    schema:description "An organization described as an Agent in catalogue metadata."@en ;
+    schema:name "Organization"@en ;
+.
+
+lcont:LCNotice
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#c.2.3"^^xsd:anyURI ;
+    rdfs:isDefinedBy lcont: ;
+    rdfs:subClassOf skos:Concept ;
+    skos:example "<https://example.org/resource> a <https://data.idnau.org/pid/lc-ont#LCNotice> ." ;
+    schema:description "A notice to be applied to data that identifies Indigenous collections and data and recognizes Indigenous rights and interests. The Notices were developed to create pathways for partnership, collaboration, and support of Indigenous cultural authority."@en ;
+    schema:name "Local Contexts Notice"@en ;
+.
+
+skos:Concept
+    a owl:Class ;
+    dcterms:source "https://data.idnau.org/pid/cp/spec#cls-Concept"^^xsd:anyURI ;
+    rdfs:isDefinedBy skos: ;
+    skos:example "<https://example.org/resource> a <http://www.w3.org/2004/02/skos/core#Concept> ." ;
+    skos:scopeNote "The target shape declares no property constraints. Its description refers to the VocPub Profile; validator.ttl itself does not import or implement those constraints."@en ;
+    schema:description "A controlled vocabulary concept, including an attribution role."@en ;
+    schema:name "Concept"@en ;
+.

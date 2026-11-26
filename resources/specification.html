@@ -41,11 +41,12 @@
         <li><a href="#roles">2.3 Roles</a></li>
         <li><a href="#agents">2.4 Agents</a></li>
         <li><a href="#dating">2.5 Dating</a></li>
-        <li><a href="#theming">2.6 Theming</a></li>
-        <li><a href="#policies">2.7 Policies</a></li>
-        <li><a href="#language">2.8 Language</a></li>
-        <li><a href="#provenance">2.9 Provenance</a></li>
-        <li><a href="#projects">2.10 Projects</a></li>
+        <li><a href="#place-spatial">2.6 Place/Spatial</a></li>
+        <li><a href="#theming">2.7 Theming</a></li>
+        <li><a href="#policies">2.8 Policies</a></li>
+        <li><a href="#language">2.9 Language</a></li>
+        <li><a href="#provenance">2.10 Provenance</a></li>
+        <li><a href="#projects">2.11 Projects</a></li>
       </ul>
     </li>
     <li>
@@ -1137,8 +1138,12 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       <p>Please do <em>not</em> use junk values like 00:00:00 for time when you don't know it, instead select a format
         that effectively conveys what you do know about the data.</p>
     </section>
+    <section id="place-spatial">
+      <h3>2.6 Place/Spatial <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+      <p class="todo">TODO</p>
+    </section>
     <section id="theming">
-      <h3>2.6 Theming <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+      <h3>2.7 Theming <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
       <p>
         Theming is open-ended categorisation of a resource by linking it to concepts in categorisation vocabularies or
         to text keywords.
@@ -1198,7 +1203,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       </p>
     </section>
     <section id="policies">
-      <h3>2.7 Policies <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+      <h3>2.8 Policies <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
       <p>
         The policies that affect data resources greatly impact the status of Indigenous data governance,
         therefore a link from a resource to each policy known to affect it should be stated explicitly when known.
@@ -1245,7 +1250,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       </p>
     </section>
     <section id="language">
-      <h3>2.8 Language <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+      <h3>2.9 Language <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
       <p>Where a Resource includes text or spoken Indigenous languages, the Resource metadata <em>SHOULD</em> indicate
         this with languages selected from the <a href="https://data.idnau.org/pid/austlang">AustLang</a> vocabulary</p>
 
@@ -1260,11 +1265,11 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 .
       </p>
 
-      <p>See patterns under 2.6 Theming where the Resource is <em>about</em> an Indigenous language. Note that a
+      <p>See patterns under 2.7 Theming where the Resource is <em>about</em> an Indigenous language. Note that a
         Resource may be both about Indigenous language and written / spoken in Indigenous languages.</p>
     </section>
     <section id="provenance">
-      <h3>2.9 Provenance <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+      <h3>2.10 Provenance <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
       <p>
         The provenance of objects are facts about their origins. As used in this profile, provenance links resources to
         their sources - perhaps also catalogued resources - links resource to the <em>agents</em> who have roles to play
@@ -1318,7 +1323,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       </p>
       <p>
         In the above example, the University of Melbourne has a role - custodian - for which there is no direct DCAT /
-        schema.org property, so a PROV=O <em>qualified attribution</em> is used. Kristen Smith has two roles: Point of
+        schema.org property, so a PROV-O <em>qualified attribution</em> is used. Kristen Smith has two roles: Point of
         Contact and Principal Investigator.
       </p>
       <p>
@@ -1328,7 +1333,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       </p>
     </section>
     <section id="projects">
-      <h3>2.10 Projects <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
+      <h3>2.11 Projects <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
       <p>
         Projects are planned activities or bodies of work that may generate, fund, collect, curate or otherwise provide
         important context for catalogued resources. This profile represents projects with
@@ -1446,8 +1451,23 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>This is the generic class for things catalogued. You MAY use it without qualification but you SHOULD
-              indicate a specialised class of object catalogued with the <code>schema:additionalType</code> predicate.<p>Exactly one each of <code>schema:name</code>, <code>schema:description</code>, <code>schema:dateCreated</code>, <code>schema:dateModified</code> is required. Name and description MUST be <code>xsd:string</code> or <code>rdf:langString</code>. See <a href="#pred-dateCreated">date created</a> for date value types. Optional <code>schema:identifier</code> values MUST be IRIs or <code>xsd:token</code> literals. The direct role properties <code>schema:audienceType</code>, <code>schema:contactPoint</code>, <code>schema:contributor</code>, <code>schema:copyrightHolder</code>, <code>schema:editor</code>, <code>schema:funder</code>, <code>schema:owner</code>, <code>schema:sponsor</code>, <code>schema:translator</code> MUST NOT be used; use <code>prov:qualifiedAttribution</code> instead. Direct <code>schema:creator</code> and <code>schema:publisher</code> are permitted. A Creative Work or Dataset MUST belong to at least one <code>schema:DataCatalog</code>, indicated by incoming <code>schema:hasPart</code> or outgoing <code>schema:isPartOf</code> (R5). Multiple catalogue memberships are permitted. Every supplied membership in either direction MUST identify a node typed <code>schema:DataCatalog</code>. A Data Catalog need not belong to another catalogue. <code>schema:additionalType</code> is optional and has no value-type constraint.</p></td>
+            <td>
+              <ul>
+                <li>This is the generic class for things catalogued.</li>
+                <li>You MAY use it without qualification but you SHOULD indicate a specialised class of object catalogued with the <code>schema:additionalType</code> predicate.</li>
+                <li>Exactly one each of <code>schema:name</code>, <code>schema:description</code>, <code>schema:dateCreated</code>, <code>schema:dateModified</code> is required.</li>
+                <li>Name and description MUST be <code>xsd:string</code> or <code>rdf:langString</code>.</li>
+                <li>See <a href="#pred-dateCreated">date created</a> for date value types.</li>
+                <li>Optional <code>schema:identifier</code> values MUST be IRIs or <code>xsd:token</code> literals.</li>
+                <li>The direct role properties <code>schema:audienceType</code>, <code>schema:contactPoint</code>, <code>schema:contributor</code>, <code>schema:copyrightHolder</code>, <code>schema:editor</code>, <code>schema:funder</code>, <code>schema:owner</code>, <code>schema:sponsor</code>, <code>schema:translator</code> MUST NOT be used; use <code>prov:qualifiedAttribution</code> instead.</li>
+                <li>Direct <code>schema:creator</code> and <code>schema:publisher</code> are permitted.</li>
+                <li>A Creative Work or Dataset MUST belong to at least one <code>schema:DataCatalog</code>, indicated by incoming <code>schema:hasPart</code> or outgoing <code>schema:isPartOf</code> (R5).</li>
+                <li>Multiple catalogue memberships are permitted.</li>
+                <li>Every supplied membership in either direction MUST identify a node typed <code>schema:DataCatalog</code>.</li>
+                <li>A Data Catalog need not belong to another catalogue.</li>
+                <li><code>schema:additionalType</code> is optional and has no value-type constraint.</li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <th>Equivalent Classes</th>
@@ -1501,37 +1521,36 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           <tr>
             <th>Example</th>
             <td>
-              <pre><code>
-PREFIX schema: &lt;https://schema.org/>
-PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
-PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
+              <pre><code>PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/&gt;
+PREFIX schema: &lt;https://schema.org/&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 
-&lt;https://data.idnau.org/pid/762463a4-f8b1-4eec-a335-3689c8d86e9e>
-  a schema:CreativeWork ;
-  schema:name "Law: The Way of the Ancestors" ;
-  schema:description "The authors show how Indigenous law has enabled people to survive and thrive in Australia for more than 2000 generations. Nurturing people and places, law is the foundation of all Indigenous societies in Australia, giving them the tools to respond and adapt to major environmental and social changes." ;
-  schema:additionalType &lt;http://id.loc.gov/vocabulary/marcgt/boo> ;  # Book
-  schema:dateCreated "2023"^^xsd:gYear ;
-  schema:dateModified "2026-11-25"^^xsd:date ;
-  schema:isPartOf &lt;https://example.org/catalogue> ;
-  schema:creator
-    &lt;https://orcid.org/0000-0002-1398-7524> ,  # Marcia Langton
-    &lt;https://orcid.org/0000-0002-4797-9776> ;  # Aaron Corn
-  schema:identifier "9781760762827"^^xsd:token ;
-  schema:keywords
-    ind:about-indigenous-people ,
-    ind:by-indigenous-people ;
+&lt;https://data.idnau.org/pid/762463a4-f8b1-4eec-a335-3689c8d86e9e&gt;
+    a schema:CreativeWork ;
+    schema:additionalType &lt;http://id.loc.gov/vocabulary/marcgt/boo&gt; ;
+    schema:creator
+        &lt;https://orcid.org/0000-0002-1398-7524&gt; ,
+        &lt;https://orcid.org/0000-0002-4797-9776&gt; ;
+    schema:dateCreated "2023"^^xsd:gYear ;
+    schema:dateModified "2026-11-25"^^xsd:date ;
+    schema:description "The authors show how Indigenous law has enabled people to survive and thrive in Australia for more than 2000 generations. Nurturing people and places, law is the foundation of all Indigenous societies in Australia, giving them the tools to respond and adapt to major environmental and social changes." ;
+    schema:identifier "9781760762827"^^xsd:token ;
+    schema:isPartOf &lt;https://example.org/catalogue&gt; ;
+    schema:keywords
+        ind:about-indigenous-people ,
+        ind:by-indigenous-people ;
+    schema:name "Law: The Way of the Ancestors" ;
 .
 
-&lt;https://example.org/catalogue>
-  a schema:DataCatalog ;
-  schema:name "Example catalogue" ;
-  schema:description "An example catalogue." ;
-  schema:dateCreated "2026-11-25"^^xsd:date ;
-  schema:dateModified "2026-11-25"^^xsd:date ;
-  schema:hasPart &lt;https://data.idnau.org/pid/762463a4-f8b1-4eec-a335-3689c8d86e9e> ;
+&lt;https://example.org/catalogue&gt;
+    a schema:DataCatalog ;
+    schema:dateCreated "2026-11-25"^^xsd:date ;
+    schema:dateModified "2026-11-25"^^xsd:date ;
+    schema:description "An example catalogue." ;
+    schema:hasPart &lt;https://data.idnau.org/pid/762463a4-f8b1-4eec-a335-3689c8d86e9e&gt; ;
+    schema:name "Example catalogue" ;
 .</code></pre>
-            </td>
+</td>
           </tr>
         </table>
       </section>
@@ -1552,10 +1571,15 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>Use this class to represent areas of country, cities, named regions, points etc. Preferentially select
-              the Place from IDN reference datasets.<p>No node shape targets this class in <a href="validator.ttl"> validator.ttl </a> . Its modelling guidance
-              is additional to the executable validator. If a node also has a targeted class, the corresponding
-              constraints still apply.</p></td>
+            <td>
+              <ul>
+                <li>Use this class to represent areas of country, cities, named regions, points etc.</li>
+                <li>Preferentially select the Place from IDN reference datasets.</li>
+                <li>No node shape targets this class in <a href="validator.ttl"> validator.ttl </a> .</li>
+                <li>Its modelling guidance is additional to the executable validator.</li>
+                <li>If a node also has a targeted class, the corresponding constraints still apply.</li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <th>Subclass Of</th>
@@ -1570,24 +1594,20 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
           <tr>
             <th>Example</th>
             <td>
-              <pre><code>
-PREFIX schema: &lt;https://schema.org/>
+              <pre><code>PREFIX schema: &lt;https://schema.org/&gt;
 
-&lt;https://example.com/cataloguedresource/abc-123>
-  a schema:CreativeWork ;
-  schema:name "Traditional hunting on Cable Beach" ;
-  # ...
-  schema:spatialCoverage &lt;https://www.geonames.org/8215867> ;
-  # ...
+&lt;https://example.com/cataloguedresource/abc-123&gt;
+    a schema:CreativeWork ;
+    schema:name "Traditional hunting on Cable Beach" ;
+    schema:spatialCoverage &lt;https://www.geonames.org/8215867&gt; ;
 .
 
-&lt;https://www.geonames.org/8215867>
-  a schema:Place ;
-  schema:name "Cable Beach, Western Australia" ;
-  schema:geo "POINT(-35.11608, 117.90094)" ;
-.
-							</code></pre>
-            </td>
+&lt;https://www.geonames.org/8215867&gt;
+    a schema:Place ;
+    schema:geo "POINT(-35.11608, 117.90094)" ;
+    schema:name "Cable Beach, Western Australia" ;
+.</code></pre>
+</td>
           </tr>
         </table>
       </section>
@@ -1608,10 +1628,14 @@ PREFIX schema: &lt;https://schema.org/>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>Use this object with a <code>schema:startTime</code> &amp;/or <code>schema:endTime</code> to
-              represent a period of time.<p>No node shape targets this class in <a href="validator.ttl"> validator.ttl </a> . Its modelling guidance
-              is additional to the executable validator. If a node also has a targeted class, the corresponding
-              constraints still apply.</p></td>
+            <td>
+              <ul>
+                <li>Use this object with a <code>schema:startTime</code> &amp;/or <code>schema:endTime</code> to represent a period of time.</li>
+                <li>No node shape targets this class in <a href="validator.ttl"> validator.ttl </a> .</li>
+                <li>Its modelling guidance is additional to the executable validator.</li>
+                <li>If a node also has a targeted class, the corresponding constraints still apply.</li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <th>Subclass of</th>
@@ -1626,31 +1650,28 @@ PREFIX schema: &lt;https://schema.org/>
           <tr>
             <th>Example</th>
             <td>
-              <pre><code>
-PREFIX schema: &lt;https://schema.org/>
-PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
+              <pre><code>PREFIX schema: &lt;https://schema.org/&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 
-&lt;https://example.com/cataloguedresource/def-456>
-  a schema:CreativeWork ;
-  schema:name "Early encounters with Aboriginal People in South Australia" ;
-  # ...
-  schema:temporalCoverage [
-      schema:startTime "1825"^^xsd:gYear ;
-      schema:endTime "1890"^^xsd:gYear ;
-  ] ;
-  # ... or ...
-  schema:temporalCoverage [
-      schema:name "19th century" ;
-  ] ;
+&lt;https://example.com/cataloguedresource/def-456&gt;
+    a schema:CreativeWork ;
+    schema:name "Early encounters with Aboriginal People in South Australia" ;
+    schema:temporalCoverage
+        [
+            schema:endTime "1890"^^xsd:gYear ;
+            schema:startTime "1825"^^xsd:gYear ;
+        ] ,
+        [
+            schema:name "19th century" ;
+        ] ;
 .
 
-&lt;https://www.geonames.org/8215867>
+&lt;https://www.geonames.org/8215867&gt;
     a schema:Place ;
-    schema:name "Cable Beach, Western Australia" ;
     schema:geo "POINT(-35.11608, 117.90094)" ;
-.
-							</code></pre>
-            </td>
+    schema:name "Cable Beach, Western Australia" ;
+.</code></pre>
+</td>
           </tr>
         </table>
       </section>
@@ -1671,9 +1692,14 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>Link from the resource with <code>prov:qualifiedAttribution</code>.<p>Exactly one <code>schema:agent</code> MUST identify an instance of <code>schema:Organization</code>
-              or <code>schema:Person</code> (A1). At least one role value MUST be supplied across <code>schema:roleName</code> and <code>prov:hadRole</code> , and every role value MUST be an instance of
-              <code>skos:Concept</code> . No maximum role count is imposed.</p></td>
+            <td>
+              <ul>
+                <li>Link from the resource with <code>prov:qualifiedAttribution</code>.</li>
+                <li>Exactly one <code>schema:agent</code> MUST identify an instance of <code>schema:Organization</code> or <code>schema:Person</code> (A1).</li>
+                <li>At least one role value MUST be supplied across <code>schema:roleName</code> and <code>prov:hadRole</code> , and every role value MUST be an instance of <code>skos:Concept</code> .</li>
+                <li>No maximum role count is imposed.</li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <th>Equivalent Classes</th>
@@ -1681,12 +1707,18 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected Properties</th>
-            <td><code>schema:agent</code>, and <code>schema:roleName</code> or <code>prov:hadRole</code>.</td>
+            <td><a href="#pred-agent">agent</a>, and <a href="#pred-roleName">role name</a> or <a href="#pred-hadRole">had role</a>.</td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>prov:qualifiedAttribution [ a prov:Attribution; schema:agent &lt;https://example.org/person/1&gt;;
-              prov:hadRole &lt;https://example.org/role/1&gt; ]</code></td>
+            <td>
+              <pre><code>    prov:qualifiedAttribution
+        [
+            a prov:Attribution ;
+            prov:hadRole &lt;https://example.org/role/1&gt; ;
+            schema:agent &lt;https://example.org/person/1&gt; ;
+        ] ;</code></pre>
+</td>
           </tr>
         </table>
       </section>
@@ -1707,21 +1739,30 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>Use <code>schema:Person</code> as the Agent of a qualified attribution.<p>Exactly one <code>schema:name</code> is required, with datatype <code>xsd:string</code> or <code>rdf:langString</code> (AG2). At most one <code>schema:description</code> is allowed, also with datatype
-              <code>xsd:string</code> or <code>rdf:langString</code> (AG3). Identifiers are optional and repeatable;
-              see <a href="#pred-identifier"> identifier </a> for permitted datatypes. At most one <code>schema:email</code> is allowed and its datatype MUST be <code>xsd:anyURI</code> ; no minimum is enforced.</p></td>
-          </tr>
-          <tr>
-            <th>Equivalent Classes</th>
-            <td>No equivalent class is asserted by <code>validator.ttl</code>.</td>
+            <td>
+              <ul>
+                <li>Use <code>schema:Person</code> as the Agent of a qualified attribution.</li>
+                <li>Exactly one <code>schema:name</code> is required, with datatype <code>xsd:string</code> or <code>rdf:langString</code> (AG2).</li>
+                <li>At most one <code>schema:description</code> is allowed, also with datatype <code>xsd:string</code> or <code>rdf:langString</code> (AG3).</li>
+                <li>Identifiers are optional and repeatable; see <a href="#pred-identifier"> identifier </a> for permitted datatypes.</li>
+                <li>At most one <code>schema:email</code> is allowed and its datatype MUST be <code>xsd:anyURI</code> ; no minimum is enforced.</li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <th>Expected Properties</th>
-            <td><code>schema:name</code> (required); <code>schema:description</code> , <code>schema:identifier</code> and <code>schema:email</code> (optional).</td>
+            <td><a href="#pred-name">name</a> (required); <a href="#pred-description">description</a> , <a href="#pred-identifier">identifier</a> and <a href="#pred-email">email</a> (optional).</td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>&lt;https://example.org/person/1&gt; a schema:Person; schema:name "Example Person" .</code></td>
+            <td>
+              <pre><code>PREFIX schema: &lt;https://schema.org/&gt;
+
+&lt;https://example.org/person/1&gt;
+    a schema:Person ;
+    schema:name "Example Person" ;
+.</code></pre>
+</td>
           </tr>
         </table>
       </section>
@@ -1742,23 +1783,33 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>Use <code>schema:Organization</code> as the Agent of a qualified attribution.<p>Exactly one <code>schema:name</code> is required, with datatype <code>xsd:string</code> or <code>rdf:langString</code> (AG2). At most one <code>schema:description</code> is allowed, also with datatype
-              <code>xsd:string</code> or <code>rdf:langString</code> (AG3). Identifiers are optional and repeatable;
-              see <a href="#pred-identifier"> identifier </a> for permitted datatypes. Exactly one <code>schema:url</code> is required and its datatype MUST be <code>xsd:anyURI</code> .</p></td>
-          </tr>
-          <tr>
-            <th>Equivalent Classes</th>
-            <td>No equivalent class is asserted by <code>validator.ttl</code>.</td>
+            <td>
+              <ul>
+                <li>Use <code>schema:Organization</code> as the Agent of a qualified attribution.</li>
+                <li>Exactly one <code>schema:name</code> is required, with datatype <code>xsd:string</code> or <code>rdf:langString</code> (AG2).</li>
+                <li>At most one <code>schema:description</code> is allowed, also with datatype <code>xsd:string</code> or <code>rdf:langString</code> (AG3).</li>
+                <li>Identifiers are optional and repeatable; see <a href="#pred-identifier"> identifier </a> for permitted datatypes.</li>
+                <li>Exactly one <code>schema:url</code> is required and its datatype MUST be <code>xsd:anyURI</code> .</li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <th>Expected Properties</th>
-            <td><code>schema:name</code> and <code>schema:url</code> (required); <code>schema:description</code>
-              and <code>schema:identifier</code> (optional).</td>
+            <td><a href="#pred-name">name</a> and <a href="#pred-url">URL</a> (required); <a href="#pred-description">description</a>
+              and <a href="#pred-identifier">identifier</a> (optional).</td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>&lt;https://example.org/organization/1&gt; a schema:Organization; schema:name "Example
-              Organization"; schema:url "https://example.org/"^^xsd:anyURI .</code></td>
+            <td>
+              <pre><code>PREFIX schema: &lt;https://schema.org/&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+
+&lt;https://example.org/organization/1&gt;
+    a schema:Organization ;
+    schema:name "Example Organization" ;
+    schema:url "https://example.org/"^^xsd:anyURI ;
+.</code></pre>
+</td>
           </tr>
         </table>
       </section>
@@ -1767,7 +1818,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         <table class="cls">
           <tr>
             <th>IRI</th>
-            <td><code>schema:Project</code>, <code>schema:ResearchProject</code></td>
+            <td><code>schema:Project</code></td>
           </tr>
           <tr>
             <th>Name</th>
@@ -1780,11 +1831,16 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>Use <code>schema:ResearchProject</code> for research projects. Link catalogued resources to projects
-              with <code>prov:wasGeneratedBy</code>. Describe project participants and project roles using
-              <code>prov:qualifiedAttribution</code> on the project.<p>No node shape targets this class in <a href="validator.ttl"> validator.ttl </a> . Its modelling guidance
-              is additional to the executable validator. If a node also has a targeted class, the corresponding
-              constraints still apply.</p></td>
+            <td>
+              <ul>
+                <li>Use <code>schema:ResearchProject</code> for research projects.</li>
+                <li>Link catalogued resources to projects with <code>prov:wasGeneratedBy</code>.</li>
+                <li>Describe project participants and project roles using <code>prov:qualifiedAttribution</code> on the project.</li>
+                <li>No node shape targets this class in <a href="validator.ttl"> validator.ttl </a> .</li>
+                <li>Its modelling guidance is additional to the executable validator.</li>
+                <li>If a node also has a targeted class, the corresponding constraints still apply.</li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <th>Equivalent Classes</th>
@@ -1800,15 +1856,17 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
               <ul>
                 <li><a href="#pred-name">name</a></li>
                 <li><a href="#pred-description">description</a></li>
-                <li><code>schema:startDate</code></li>
-                <li><code>schema:endDate</code></li>
+                <li><a href="#pred-startDate">start date</a></li>
+                <li><a href="#pred-endDate">end date</a></li>
                 <li><a href="#pred-qualifiedAttribution">qualified attribution</a></li>
               </ul>
             </td>
           </tr>
           <tr>
             <th>Example</th>
-            <td>See the <a href="#projects">Projects</a> pattern.</td>
+            <td>
+              <pre>See the <a href="#projects">Projects</a> pattern.</pre>
+</td>
           </tr>
         </table>
       </section>
@@ -1833,22 +1891,12 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td><p>No node shape targets this class in <a href="validator.ttl"> validator.ttl </a> . Its modelling guidance
-              is additional to the executable validator. If a node also has a targeted class, the corresponding
-              constraints still apply.</p></td>
-          </tr>
-          <tr>
-            <th>Equivalent Classes</th>
-            <td><code></code></td>
-          </tr>
-          <tr>
-            <th>Expected Properties</th>
             <td>
-            </td>
-          </tr>
-          <tr>
-            <th>Example</th>
-            <td>
+              <ul>
+                <li>No node shape targets this class in <a href="validator.ttl"> validator.ttl </a> .</li>
+                <li>Its modelling guidance is additional to the executable validator.</li>
+                <li>If a node also has a targeted class, the corresponding constraints still apply.</li>
+              </ul>
             </td>
           </tr>
         </table>
@@ -1865,18 +1913,14 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
             <td>Data Download</td>
           </tr>
           <tr>
-            <th>Description</th>
-            <td></td>
-          </tr>
-          <tr>
             <th>Scope Note</th>
-            <td><p>No node shape targets this class in <a href="validator.ttl"> validator.ttl </a> . Its modelling guidance
-              is additional to the executable validator. If a node also has a targeted class, the corresponding
-              constraints still apply.</p></td>
-          </tr>
-          <tr>
-            <th>Equivalent Classes</th>
-            <td><code></code></td>
+            <td>
+              <ul>
+                <li>No node shape targets this class in <a href="validator.ttl"> validator.ttl </a> .</li>
+                <li>Its modelling guidance is additional to the executable validator.</li>
+                <li>If a node also has a targeted class, the corresponding constraints still apply.</li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <th>Expected Properties</th>
@@ -1891,7 +1935,9 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Example</th>
-            <td>See the example for <a href="#cls-CreativeWork">schema:CreativeWork</a></td>
+            <td>
+              <pre>See the example for <a href="#cls-CreativeWork">schema:CreativeWork</a></pre>
+</td>
           </tr>
         </table>
       </section>
@@ -1912,17 +1958,18 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>Exactly one each of <code>schema:name</code>, <code>schema:description</code>,
-              <code>schema:dateCreated</code>, <code>schema:dateModified</code> is required. Name and description MUST be
-              <code>xsd:string</code> or <code>rdf:langString</code>. See <a href="#pred-dateCreated">date created</a>
-              for date value types. Optional <code>schema:identifier</code> values MUST be IRIs or <code>xsd:token</code>
-              literals. The direct role properties <code>schema:audienceType</code>, <code>schema:contactPoint</code>,
-              <code>schema:contributor</code>, <code>schema:copyrightHolder</code>, <code>schema:editor</code>,
-              <code>schema:funder</code>, <code>schema:owner</code>, <code>schema:sponsor</code>,
-              <code>schema:translator</code> MUST NOT be used; use <code>prov:qualifiedAttribution</code> instead. Direct
-              <code>schema:creator</code> and <code>schema:publisher</code> are permitted. At least one
-              <code>schema:hasPart</code> value is required; each MUST be an instance of <code>schema:CreativeWork</code>
-              or <code>schema:Dataset</code>. Catalogue membership is optional.</td>
+            <td>
+              <ul>
+                <li>Exactly one each of <code>schema:name</code>, <code>schema:description</code>, <code>schema:dateCreated</code>, <code>schema:dateModified</code> is required.</li>
+                <li>Name and description MUST be <code>xsd:string</code> or <code>rdf:langString</code>.</li>
+                <li>See <a href="#pred-dateCreated">date created</a> for date value types.</li>
+                <li>Optional <code>schema:identifier</code> values MUST be IRIs or <code>xsd:token</code> literals.</li>
+                <li>The direct role properties <code>schema:audienceType</code>, <code>schema:contactPoint</code>, <code>schema:contributor</code>, <code>schema:copyrightHolder</code>, <code>schema:editor</code>, <code>schema:funder</code>, <code>schema:owner</code>, <code>schema:sponsor</code>, <code>schema:translator</code> MUST NOT be used; use <code>prov:qualifiedAttribution</code> instead.</li>
+                <li>Direct <code>schema:creator</code> and <code>schema:publisher</code> are permitted.</li>
+                <li>At least one <code>schema:hasPart</code> value is required; each MUST be an instance of <code>schema:CreativeWork</code> or <code>schema:Dataset</code>.</li>
+                <li>Catalogue membership is optional.</li>
+              </ul>
+            </td>
           </tr>
         </table>
       </section>
@@ -1943,20 +1990,21 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>Exactly one each of <code>schema:name</code>, <code>schema:description</code>,
-              <code>schema:dateCreated</code>, <code>schema:dateModified</code> is required. Name and description MUST be
-              <code>xsd:string</code> or <code>rdf:langString</code>. See <a href="#pred-dateCreated">date created</a>
-              for date value types. Optional <code>schema:identifier</code> values MUST be IRIs or <code>xsd:token</code>
-              literals. The direct role properties <code>schema:audienceType</code>, <code>schema:contactPoint</code>,
-              <code>schema:contributor</code>, <code>schema:copyrightHolder</code>, <code>schema:editor</code>,
-              <code>schema:funder</code>, <code>schema:owner</code>, <code>schema:sponsor</code>,
-              <code>schema:translator</code> MUST NOT be used; use <code>prov:qualifiedAttribution</code> instead. Direct
-              <code>schema:creator</code> and <code>schema:publisher</code> are permitted. A Creative Work or Dataset
-              MUST belong to at least one <code>schema:DataCatalog</code>, indicated by incoming
-              <code>schema:hasPart</code> or outgoing <code>schema:isPartOf</code> (R5). Multiple catalogue memberships
-              are permitted. Every supplied membership in either direction MUST identify a node typed
-              <code>schema:DataCatalog</code>. A Data Catalog need not belong to another catalogue.
-              <code>schema:additionalType</code> is optional and has no value-type constraint.</td>
+            <td>
+              <ul>
+                <li>Exactly one each of <code>schema:name</code>, <code>schema:description</code>, <code>schema:dateCreated</code>, <code>schema:dateModified</code> is required.</li>
+                <li>Name and description MUST be <code>xsd:string</code> or <code>rdf:langString</code>.</li>
+                <li>See <a href="#pred-dateCreated">date created</a> for date value types.</li>
+                <li>Optional <code>schema:identifier</code> values MUST be IRIs or <code>xsd:token</code> literals.</li>
+                <li>The direct role properties <code>schema:audienceType</code>, <code>schema:contactPoint</code>, <code>schema:contributor</code>, <code>schema:copyrightHolder</code>, <code>schema:editor</code>, <code>schema:funder</code>, <code>schema:owner</code>, <code>schema:sponsor</code>, <code>schema:translator</code> MUST NOT be used; use <code>prov:qualifiedAttribution</code> instead.</li>
+                <li>Direct <code>schema:creator</code> and <code>schema:publisher</code> are permitted.</li>
+                <li>A Creative Work or Dataset MUST belong to at least one <code>schema:DataCatalog</code>, indicated by incoming <code>schema:hasPart</code> or outgoing <code>schema:isPartOf</code> (R5).</li>
+                <li>Multiple catalogue memberships are permitted.</li>
+                <li>Every supplied membership in either direction MUST identify a node typed <code>schema:DataCatalog</code>.</li>
+                <li>A Data Catalog need not belong to another catalogue.</li>
+                <li><code>schema:additionalType</code> is optional and has no value-type constraint.</li>
+              </ul>
+            </td>
           </tr>
         </table>
       </section>
@@ -1977,13 +2025,17 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>Exactly one <code>schema:name</code> is required, with datatype <code>xsd:string</code> or
-              <code>rdf:langString</code>. Description is optional with at most one string or language-tagged value.
-              Identifiers are optional; see <a href="#pred-identifier">identifier</a>. A node typed
-              <code>prov:Agent</code> MUST also be an instance of <code>schema:Person</code> or
-              <code>schema:Organization</code>; this is tested on the Agent itself. Additional types are allowed.
-              Optional general Agent email and URL values MUST be <code>xsd:anyURI</code> literals. The Person and
-              Organization shapes also apply when those types are used.</td>
+            <td>
+              <ul>
+                <li>Exactly one <code>schema:name</code> is required, with datatype <code>xsd:string</code> or <code>rdf:langString</code>.</li>
+                <li>Description is optional with at most one string or language-tagged value.</li>
+                <li>Identifiers are optional; see <a href="#pred-identifier">identifier</a>.</li>
+                <li>A node typed <code>prov:Agent</code> MUST also be an instance of <code>schema:Person</code> or <code>schema:Organization</code>; this is tested on the Agent itself.</li>
+                <li>Additional types are allowed.</li>
+                <li>Optional general Agent email and URL values MUST be <code>xsd:anyURI</code> literals.</li>
+                <li>The Person and Organization shapes also apply when those types are used.</li>
+              </ul>
+            </td>
           </tr>
         </table>
       </section>
@@ -2002,11 +2054,6 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
             <th>Description</th>
             <td>A controlled vocabulary concept, including an attribution role.</td>
           </tr>
-          <tr>
-            <th>Scope Note</th>
-            <td>The target shape declares no property constraints. Its description refers to the VocPub Profile;
-              <code>validator.ttl</code> itself does not import or implement those constraints.</td>
-          </tr>
         </table>
       </section>
       <section id="cls-ConceptScheme">
@@ -2023,11 +2070,6 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           <tr>
             <th>Description</th>
             <td>A controlled vocabulary grouping concepts.</td>
-          </tr>
-          <tr>
-            <th>Scope Note</th>
-            <td>The target shape declares no property constraints. Its description refers to the VocPub Profile;
-              <code>validator.ttl</code> itself does not import or implement those constraints.</td>
           </tr>
         </table>
       </section>
@@ -2055,6 +2097,8 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
             <li><a href="#pred-dateModified">date modified</a></li>
             <li><a href="#pred-datePublished">date published</a></li>
             <li><a href="#pred-dateIssued">date issued</a></li>
+            <li><a href="#pred-startDate">start date</a></li>
+            <li><a href="#pred-endDate">end date</a></li>
           </ul>
         </li>
         <li><a href="#pred-keywords">keywords</a></li>
@@ -2108,12 +2152,14 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code>
-              , <code>prov:Agent</code> , <code>schema:Person</code> and <code>schema:Organization</code></td>
+            <td><a href="#cls-CreativeWork">Creative Work</a> , <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a>
+              , <a href="#cls-Agent">Agent</a> , <a href="#cls-Person">Person</a> and <a href="#cls-Organization">Organization</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>schema:name "Example resource"@en</code></td>
+            <td>
+              <pre><code>    schema:name "Example resource"@en ;</code></pre>
+</td>
           </tr>
         </table>
       </section>
@@ -2134,16 +2180,22 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td><p>Resources require exactly one value; Agents allow 0..1. Each value MUST be <code>xsd:string</code> or
-              <code>rdf:langString</code> .</p></td>
+            <td>
+              <ul>
+                <li>Resources require exactly one value; Agents allow 0..1.</li>
+                <li>Each value MUST be <code>xsd:string</code> or <code>rdf:langString</code> .</li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code> and Agents</td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>, <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a> and <a href="#cls-Agent">Agents</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>schema:description "An example catalogue record."@en</code></td>
+            <td>
+              <pre><code>    schema:description "An example catalogue record."@en ;</code></pre>
+</td>
           </tr>
         </table>
       </section>
@@ -2164,16 +2216,23 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>Use the <a href="#cls-Attribution">Attribution</a> pattern instead of this direct property.<p>MUST NOT occur on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> (R4). Use <code>prov:qualifiedAttribution</code> with an appropriate role
-              instead.</p></td>
+            <td>
+              <ul>
+                <li>Use the <a href="#cls-Attribution">Attribution</a> pattern instead of this direct property.</li>
+                <li>MUST NOT occur on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> (R4).</li>
+                <li>Use <code>prov:qualifiedAttribution</code> with an appropriate role instead.</li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code></td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>, <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>See the relevant modelling pattern in this specification.</code></td>
+            <td>
+              See the <a href="#agents">Agents</a> modelling pattern in this specification.
+            </td>
           </tr>
         </table>
       </section>
@@ -2194,15 +2253,22 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td><p>Permitted as a direct role property. This validator imposes no cardinality or value-type constraint on it.</p></td>
+            <td>
+              <ul>
+                <li>Permitted as a direct role property.</li>
+                <li>This validator imposes no cardinality or value-type constraint on it.</li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code></td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>, <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>See the relevant modelling pattern in this specification.</code></td>
+            <td>
+              See the <a href="#agents">Agents</a> modelling pattern in this specification.
+            </td>
           </tr>
         </table>
       </section>
@@ -2223,15 +2289,22 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td><p>Permitted as a direct role property. This validator imposes no cardinality or value-type constraint on it.</p></td>
+            <td>
+              <ul>
+                <li>Permitted as a direct role property.</li>
+                <li>This validator imposes no cardinality or value-type constraint on it.</li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code></td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>, <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>See the relevant modelling pattern in this specification.</code></td>
+            <td>
+              See the <a href="#agents">Agents</a> modelling pattern in this specification.
+            </td>
           </tr>
         </table>
       </section>
@@ -2256,11 +2329,13 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code></td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>, <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>See the relevant modelling pattern in this specification.</code></td>
+            <td>
+              See the <a href="#agents">Agents</a> modelling pattern in this specification.
+            </td>
           </tr>
         </table>
       </section>
@@ -2281,16 +2356,22 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td><p>R4 requires qualified attribution in place of prohibited direct role properties. The validator does not
-              impose a minimum count or value-class constraint on this linking property; nodes typed <code>prov:Attribution</code> are checked by the Attribution shape.</p></td>
+            <td>
+              <ul>
+                <li>R4 requires qualified attribution in place of prohibited direct role properties.</li>
+                <li>The validator does not impose a minimum count or value-class constraint on this linking property; nodes typed <code>prov:Attribution</code> are checked by the Attribution shape.</li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code></td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>, <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>See the relevant modelling pattern in this specification.</code></td>
+            <td>
+              See the <a href="#agents">Agents</a> modelling pattern in this specification.
+            </td>
           </tr>
         </table>
       </section>
@@ -2311,9 +2392,13 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>Use this property to link a catalogued resource to a <code>schema:Project</code> or
-              <code>schema:ResearchProject</code>. Do not use it to indicate Agent roles; use
-              <code>prov:qualifiedAttribution</code> for Agent roles.<p>No executable constraint for this property is declared in validator.ttl.</p></td>
+            <td>
+              <ul>
+                <li>Use this property to link a catalogued resource to a <code>schema:Project</code> or <code>schema:ResearchProject</code>.</li>
+                <li>Do not use it to indicate Agent roles; use <code>prov:qualifiedAttribution</code> for Agent roles.</li>
+                <li>No executable constraint for this property is declared in validator.ttl.</li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <th>Expected to be used on</th>
@@ -2321,7 +2406,9 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Example</th>
-            <td>See the <a href="#projects">Projects</a> pattern.</td>
+            <td>
+              <pre>See the <a href="#projects">Projects</a> pattern.</pre>
+            </td>
           </tr>
         </table>
       </section>
@@ -2342,19 +2429,24 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>Exactly one value is required on <code>schema:CreativeWork</code>, <code>schema:Dataset</code> and
-              <code>schema:DataCatalog</code>. Each value MUST be a literal of datatype <code>xsd:date</code>,
-              <code>xsd:dateTime</code>, <code>xsd:dateTimeStamp</code>, <code>xsd:gYear</code>,
-              <code>xsd:gYearMonth</code>, or a node typed <code>time:Instant</code> or <code>time:Interval</code>
-              (R2/R3). OWL-Time classes are used as node types, not literal datatypes.</td>
+            <td>
+              <ul>
+                <li>Exactly one value is required on <code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code>.</li>
+                <li>Each value MUST be a literal of datatype <code>xsd:date</code>, <code>xsd:dateTime</code>, <code>xsd:dateTimeStamp</code>, <code>xsd:gYear</code>, <code>xsd:gYearMonth</code>, or a node typed <code>time:Instant</code>.</li>
+                <li>OWL-Time classes are used as node types, not literal datatypes.</li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code></td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>, <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>schema:dateCreated "2026-11-25"^^xsd:date</code></td>
+            <td>
+              <pre><code>    schema:dateCreated "2026-11-25"^^xsd:date ;</code></pre><br />
+              See the <a href="#dating">Dating</a> modelling pattern in this specification.
+            </td>
           </tr>
         </table>
       </section>
@@ -2375,19 +2467,23 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>Exactly one value is required on <code>schema:CreativeWork</code>, <code>schema:Dataset</code> and
-              <code>schema:DataCatalog</code>. Each value MUST be a literal of datatype <code>xsd:date</code>,
-              <code>xsd:dateTime</code>, <code>xsd:dateTimeStamp</code>, <code>xsd:gYear</code>,
-              <code>xsd:gYearMonth</code>, or a node typed <code>time:Instant</code> or <code>time:Interval</code>
-              (R2/R3). OWL-Time classes are used as node types, not literal datatypes.</td>
+            <td>
+              <ul>
+                <li>Exactly one value is required on <code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code>.</li>
+                <li>Each value MUST be a literal of datatype <code>xsd:date</code>, <code>xsd:dateTime</code>, <code>xsd:dateTimeStamp</code>, <code>xsd:gYear</code>, <code>xsd:gYearMonth</code>, or a node typed <code>time:Instant</code>.</li>
+                <li>OWL-Time classes are used as node types, not literal datatypes.</li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code></td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>, <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>schema:dateModified "2026-08-21"^^xsd:date</code>
+            <td>
+              <pre><code>    schema:dateModified "2026-08-21"^^xsd:date ;</code></pre><br />
+              See the <a href="#dating">Dating</a> modelling pattern in this specification.
             </td>
           </tr>
         </table>
@@ -2413,11 +2509,13 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code></td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>, <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>schema:datePublished "2023-09-01"^^xsd:date</code>
+            <td>
+              <pre><code>    schema:datePublished "2023-09-01"^^xsd:date ;</code></pre><br />
+              See the <a href="#dating">Dating</a> modelling pattern in this specification.
             </td>
           </tr>
         </table>
@@ -2443,17 +2541,93 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code></td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>, <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>schema:dateIssued "2023-11-01"^^xsd:date</code>
+            <td>
+              <pre><code>    schema:dateIssued "2023-11-01"^^xsd:date ;</code></pre><br />
+              See the <a href="#dating">Dating</a> modelling pattern in this specification.
+            </td>
+          </tr>
+        </table>
+      </section>
+      <section id="pred-startDate">
+        <h4>3.2.16 start date</h4>
+        <table class="cls">
+          <tr>
+            <th>IRI</th>
+            <td><code>schema:startDate</code></td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td>start date</td>
+          </tr>
+          <tr>
+            <th>Description</th>
+            <td>The date on which a project, event or other activity begins.</td>
+          </tr>
+          <tr>
+            <th>Scope Note</th>
+            <td>
+              <ul>
+                <li>Use this property for the start of a project or activity.</li>
+                <li>No executable constraint for this property is declared in <code>validator.ttl</code>.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Expected to be used on</th>
+            <td><a href="#cls-Project">Project / Research Project</a></td>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <td>
+              <pre><code>    schema:startDate "2023-01-01"^^xsd:date ;</code></pre><br />
+              See the <a href="#dating">Dating</a> modelling pattern in this specification.
+            </td>
+          </tr>
+        </table>
+      </section>
+      <section id="pred-endDate">
+        <h4>3.2.17 end date</h4>
+        <table class="cls">
+          <tr>
+            <th>IRI</th>
+            <td><code>schema:endDate</code></td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td>end date</td>
+          </tr>
+          <tr>
+            <th>Description</th>
+            <td>The date on which a project, event or other activity ends.</td>
+          </tr>
+          <tr>
+            <th>Scope Note</th>
+            <td>
+              <ul>
+                <li>Use this property for the end of a project or activity.</li>
+                <li>No executable constraint for this property is declared in <code>validator.ttl</code>.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Expected to be used on</th>
+            <td><a href="#cls-Project">Project / Research Project</a></td>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <td>
+              <pre><code>    schema:endDate "2024-12-31"^^xsd:date ;</code></pre><br />
+              See the <a href="#dating">Dating</a> modelling pattern in this specification.
             </td>
           </tr>
         </table>
       </section>
       <section id="pred-keywords">
-        <h4>3.2.16 keywords</h4>
+        <h4>3.2.18 keywords</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2469,26 +2643,27 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>Use Keywords to indicate the 'about-ness' of a catalogued resource. :
+            <td>
               <ul>
-                <li><a href="https://data.idnau.org/pid/vocab/idn-th">IDN Themes</a></li>
-                <li><a href="https://data.idnau.org/pid/vocab/indigeneity">Data Indigeneity</a></li>
-                <li><a href="https://vocabs.ardc.edu.au/repository/api/lda/anzsrc-2020-for/resource?uri=https://linked.data.gov.au/def/anzsrc-for/2020">ANZSRC Field Of Research</a></li>
-                <li><a href="https://data.idnau.org/pid/austlang">AustLang</a></li>
-              </ul><p>No executable constraint for this property is declared in validator.ttl.</p></td>
+                <li>Use Keywords to indicate the 'about-ness' of a catalogued resource. : <ul> <li><a href="https://data.idnau.org/pid/vocab/idn-th">IDN Themes</a></li> <li><a href="https://data.idnau.org/pid/vocab/indigeneity">Data Indigeneity</a></li> <li><a href="https://vocabs.ardc.edu.au/repository/api/lda/anzsrc-2020-for/resource?uri=https://linked.data.gov.au/def/anzsrc-for/2020">ANZSRC Field Of Research</a></li> <li><a href="https://data.idnau.org/pid/austlang">AustLang</a></li> </ul></li>
+                <li>No executable constraint for this property is declared in validator.ttl.</li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code></td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>, <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>See the relevant modelling pattern in this specification.</code></td>
+            <td>
+              See the <a href="#theming">Themeing</a> modelling pattern in this specification.
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-spatialCoverage">
-        <h4>3.2.17 spatial coverage</h4>
+        <h4>3.2.19 spatial coverage</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2508,16 +2683,18 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code></td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>, <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>See the relevant modelling pattern in this specification.</code></td>
+            <td>
+              See the <a href="#place-spatial">Place/Spatial</a> modelling pattern in this specification.
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-temporalCoverage">
-        <h4>3.2.18 temporal coverage</h4>
+        <h4>3.2.20 temporal coverage</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2537,16 +2714,18 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code></td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>, <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>See the relevant modelling pattern in this specification.</code></td>
+            <td>
+              See the <a href="#dating">Dating</a> modelling pattern in this specification.
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-inLanguage">
-        <h4>3.2.19 in language</h4>
+        <h4>3.2.21 in language</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2566,16 +2745,12 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code></td>
-          </tr>
-          <tr>
-            <th>Example</th>
-            <td><code>See the relevant modelling pattern in this specification.</code></td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>, <a href="#cls-Dataset">Dataset</a></td>
           </tr>
         </table>
       </section>
       <section id="pred-hasPolicy">
-        <h4>3.2.20 has policy</h4>
+        <h4>3.2.22 has policy</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2595,16 +2770,18 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code></td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>, <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>See the relevant modelling pattern in this specification.</code></td>
+            <td>
+              See the <a href="#policies">Policies</a> modelling pattern in this specification.
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-license">
-        <h4>3.2.21 license</h4>
+        <h4>3.2.23 license</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2624,16 +2801,18 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code></td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>, <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>See the relevant modelling pattern in this specification.</code></td>
+            <td>
+              See the <a href="#policies">Policies</a> modelling pattern in this specification.
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-hasScore">
-        <h4>3.2.22 hasScore</h4>
+        <h4>3.2.24 hasScore</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2653,16 +2832,18 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code></td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>, <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>See the relevant modelling pattern in this specification.</code></td>
+            <td>
+              See the <a href="#scoring">Scoring</a> section in the Introduction.
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-distribution">
-        <h4>3.2.23 distribution</h4>
+        <h4>3.2.25 distribution</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2682,16 +2863,18 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code></td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>, <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>See the relevant modelling pattern in this specification.</code></td>
+            <td>
+              <p class="todo">TODO</p>
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-identifier">
-        <h4>3.2.24 identifier</h4>
+        <h4>3.2.26 identifier</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2707,25 +2890,31 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code>, <code>schema:Dataset</code> and <code>schema:DataCatalog</code> and Agents</td>
+            <td><a href="#cls-CreativeWork">Creative Work</a>, <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a> and <a href="#cls-Agent">Agents</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>schema:identifier "record-123"^^xsd:token</code></td>
+            <td>
+              See the <a href="#identifiers">Identifiers</a> modelling pattern in this specification.
+            </td>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>Optional and repeatable. Resource values MUST be IRIs or <code>xsd:token</code> literals. Agent and
-              Organization values MUST be literals with datatype <code>xsd:token</code> , <code>xsd:anyURI</code> ,
-              <code>xsd:string</code> , <code>rdf:langString</code> , <code>id:ror</code> , <code>id:ausbn</code>
-              , <code>id:auscn</code> , <code>id:ausrn</code> , <code>id:viaf</code> . Person values instead permit
-              <code>xsd:token</code> , <code>xsd:anyURI</code> , <code>xsd:string</code> , <code>rdf:langString</code> , <code>id:orcid</code> , <code>id:viaf</code> . Here <code>id:</code> expands to <code>http://id.loc.gov/vocabulary/identifiers/</code> . The R1 recommendation to use a persistent identifier is
-              not enforced as a minimum count.</td>
+            <td>
+              <ul>
+                <li>Optional and repeatable.</li>
+                <li>Resource values MUST be IRIs or <code>xsd:token</code> literals.</li>
+                <li>Agent and Organization values MUST be literals with datatype <code>xsd:token</code> , <code>xsd:anyURI</code> , <code>xsd:string</code> , <code>rdf:langString</code> , <code>id:ror</code> , <code>id:ausbn</code> , <code>id:auscn</code> , <code>id:ausrn</code> , <code>id:viaf</code> .</li>
+                <li>Person values instead permit <code>xsd:token</code> , <code>xsd:anyURI</code> , <code>xsd:string</code> , <code>rdf:langString</code> , <code>id:orcid</code> , <code>id:viaf</code> .</li>
+                <li>Here <code>id:</code> expands to <code>http://id.loc.gov/vocabulary/identifiers/</code> .</li>
+                <li>The R1 recommendation to use a persistent identifier is not enforced as a minimum count.</li>
+              </ul>
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-additionalType">
-        <h4>3.2.25 additional type</h4>
+        <h4>3.2.27 additional type</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2741,11 +2930,14 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code> and <code>schema:Dataset</code></td>
+            <td><a href="#cls-CreativeWork">Creative Work</a> and <a href="#cls-Dataset">Dataset</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>schema:additionalType &lt;https://example.org/type/report&gt;</code></td>
+            <td>
+              <pre><code>    schema:additionalType &lt;https://example.org/type/report&gt; ;</code></pre>
+              <p class="todo">TODO</p>
+            </td>
           </tr>
           <tr>
             <th>Scope Note</th>
@@ -2754,7 +2946,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         </table>
       </section>
       <section id="pred-hasPart">
-        <h4>3.2.26 has part</h4>
+        <h4>3.2.28 has part</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2770,25 +2962,26 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:DataCatalog</code></td>
-          </tr>
-          <tr>
-            <th>Example</th>
-            <td><code>schema:hasPart &lt;https://example.org/dataset/1&gt;</code></td>
+            <td><a href="#cls-DataCatalog">Data Catalog</a></td>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>A Data Catalog MUST contain at least one resource using this predicate. Each value MUST be an instance of
-              <code>schema:CreativeWork</code> or <code>schema:Dataset</code>. No maximum count is imposed. A Creative
-              Work or Dataset MUST belong to at least one <code>schema:DataCatalog</code>, indicated by incoming
-              <code>schema:hasPart</code> or outgoing <code>schema:isPartOf</code> (R5). Multiple catalogue memberships
-              are permitted. Every supplied membership in either direction MUST identify a node typed
-              <code>schema:DataCatalog</code>. A Data Catalog need not belong to another catalogue.</td>
+            <td>
+              <ul>
+                <li>A Data Catalog MUST contain at least one resource using this predicate.</li>
+                <li>Each value MUST be an instance of <code>schema:CreativeWork</code> or <code>schema:Dataset</code>.</li>
+                <li>No maximum count is imposed.</li>
+                <li>A Creative Work or Dataset MUST belong to at least one <code>schema:DataCatalog</code>, indicated by incoming <code>schema:hasPart</code> or outgoing <code>schema:isPartOf</code> (R5).</li>
+                <li>Multiple catalogue memberships are permitted.</li>
+                <li>Every supplied membership in either direction MUST identify a node typed <code>schema:DataCatalog</code>.</li>
+                <li>A Data Catalog need not belong to another catalogue.</li>
+              </ul>
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-isPartOf">
-        <h4>3.2.27 is part of</h4>
+        <h4>3.2.29 is part of</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2804,23 +2997,23 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:CreativeWork</code></td>
-          </tr>
-          <tr>
-            <th>Example</th>
-            <td><code>schema:isPartOf &lt;https://example.org/catalogue/1&gt;</code></td>
+            <td><a href="#cls-CreativeWork">Creative Work</a></td>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>A Creative Work or Dataset MUST belong to at least one <code>schema:DataCatalog</code>, indicated by
-              incoming <code>schema:hasPart</code> or outgoing <code>schema:isPartOf</code> (R5). Multiple catalogue
-              memberships are permitted. Every supplied membership in either direction MUST identify a node typed
-              <code>schema:DataCatalog</code>. A Data Catalog need not belong to another catalogue.</td>
+            <td>
+              <ul>
+                <li>A Creative Work or Dataset MUST belong to at least one <code>schema:DataCatalog</code>, indicated by incoming <code>schema:hasPart</code> or outgoing <code>schema:isPartOf</code> (R5).</li>
+                <li>Multiple catalogue memberships are permitted.</li>
+                <li>Every supplied membership in either direction MUST identify a node typed <code>schema:DataCatalog</code>.</li>
+                <li>A Data Catalog need not belong to another catalogue.</li>
+              </ul>
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-agent">
-        <h4>3.2.28 agent</h4>
+        <h4>3.2.30 agent</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2836,11 +3029,13 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>prov:Attribution</code></td>
+            <td><a href="#cls-Attribution">Attribution</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>schema:agent &lt;https://example.org/person/1&gt;</code></td>
+            <td>
+              See the <a href="#provenance">Provenance</a> modelling pattern in this specification.
+            </td>
           </tr>
           <tr>
             <th>Scope Note</th>
@@ -2849,7 +3044,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         </table>
       </section>
       <section id="pred-roleName">
-        <h4>3.2.29 role name</h4>
+        <h4>3.2.31 role name</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2865,21 +3060,27 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>prov:Attribution</code></td>
+            <td><a href="#cls-Attribution">Attribution</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>schema:roleName &lt;https://example.org/role/1&gt;</code></td>
+            <td>
+              See the <a href="#provenance">Provenance</a> modelling pattern in this specification.
+            </td>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>At least one value is required across this property and <code>prov:hadRole</code> . Every value MUST be
-              an instance of <code>skos:Concept</code> ; no maximum count.</td>
+            <td>
+              <ul>
+                <li>At least one value is required across this property and <code>prov:hadRole</code> .</li>
+                <li>Every value MUST be an instance of <code>skos:Concept</code> ; no maximum count.</li>
+              </ul>
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-hadRole">
-        <h4>3.2.30 had role</h4>
+        <h4>3.2.32 had role</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2895,21 +3096,27 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>prov:Attribution</code></td>
+            <td><a href="#cls-Attribution">Attribution</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>prov:hadRole &lt;https://example.org/role/1&gt;</code></td>
+            <td>
+              See the <a href="#provenance">Provenance</a> modelling pattern in this specification.
+            </td>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>An alternative to <code>schema:roleName</code> ; at least one value is required across both properties.
-              Every value MUST be an instance of <code>skos:Concept</code> ; no maximum count.</td>
+            <td>
+              <ul>
+                <li>An alternative to <code>schema:roleName</code> ; at least one value is required across both properties.</li>
+                <li>Every value MUST be an instance of <code>skos:Concept</code> ; no maximum count.</li>
+              </ul>
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-email">
-        <h4>3.2.31 email</h4>
+        <h4>3.2.33 email</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2925,21 +3132,28 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:Person</code> or <code>prov:Agent</code></td>
+            <td><a href="#cls-Person">Person</a> or <a href="#cls-Agent">Agent</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>schema:email "mailto:contact@example.org"^^xsd:anyURI</code></td>
+            <td>
+              See the <a href="#provenance">Provenance</a> modelling pattern in this specification.
+            </td>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>Person: 0..1 value of datatype <code>xsd:anyURI</code> . The general Agent shape allows any number of
-              values but requires the same datatype. The SHOULD recommendation does not impose a minimum.</td>
+            <td>
+              <ul>
+                <li>Person: 0..1 value of datatype <code>xsd:anyURI</code> .</li>
+                <li>The general Agent shape allows any number of values but requires the same datatype.</li>
+                <li>The SHOULD recommendation does not impose a minimum.</li>
+              </ul>
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-url">
-        <h4>3.2.32 URL</h4>
+        <h4>3.2.34 URL</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2955,21 +3169,27 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>schema:Organization</code> or <code>prov:Agent</code></td>
+            <td><a href="#cls-Organization">Organization</a> or <a href="#cls-Agent">Agent</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>schema:url "https://example.org/"^^xsd:anyURI</code></td>
+            <td>
+              See the <a href="#provenance">Provenance</a> modelling pattern in this specification.
+            </td>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>Organization: exactly one value of datatype <code>xsd:anyURI</code> . The general Agent shape allows
-              any number of values of that datatype, with no minimum.</td>
+            <td>
+              <ul>
+                <li>Organization: exactly one value of datatype <code>xsd:anyURI</code> .</li>
+                <li>The general Agent shape allows any number of values of that datatype, with no minimum.</li>
+              </ul>
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-type">
-        <h4>3.2.33 type</h4>
+        <h4>3.2.35 type</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -2985,22 +3205,27 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td><code>prov:Agent</code></td>
+            <td><a href="#cls-Agent">Agent</a></td>
           </tr>
           <tr>
             <th>Example</th>
-            <td><code>a schema:Person</code></td>
+            <td>
+              <pre><code>    a schema:Person ;</code></pre>
+            </td>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>An instance of <code>prov:Agent</code> MUST also be an instance of <code>schema:Person</code> or
-              <code>schema:Organization</code> (AG1). The class test applies to the Agent, not to its
-              <code>rdf:type</code> value. Additional types are allowed.</td>
+            <td>
+              <ul>
+                <li>An instance of <code>prov:Agent</code> MUST also be an instance of <code>schema:Person</code> or <code>schema:Organization</code> (AG1).</li>
+                <li>The class test applies to the Agent, not to its <code>rdf:type</code> value.</li>
+              </ul>
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-audienceType">
-        <h4>3.2.34 audience type</h4>
+        <h4>3.2.36 audience type</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -3012,17 +3237,21 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td>An attribution pattern instead of a direct property on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> .</td>
+            <td>An attribution pattern instead of a direct property on <a href="#cls-CreativeWork">Creative Work</a> , <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a> .</td>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>MUST NOT occur directly on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> (R4; maximum count 0 across the prohibited direct-role alternative path). Use
-              <code>prov:qualifiedAttribution</code> with an appropriate role concept.</td>
+            <td>
+              <ul>
+                <li>MUST NOT occur directly on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> (R4; maximum count 0 across the prohibited direct-role alternative path).</li>
+                <li>Use <code>prov:qualifiedAttribution</code> with an appropriate role concept.</li>
+              </ul>
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-contactPoint">
-        <h4>3.2.35 contact point</h4>
+        <h4>3.2.37 contact point</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -3034,17 +3263,21 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td>An attribution pattern instead of a direct property on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> .</td>
+            <td>An attribution pattern instead of a direct property on <a href="#cls-CreativeWork">Creative Work</a> , <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a> .</td>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>MUST NOT occur directly on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> (R4; maximum count 0 across the prohibited direct-role alternative path). Use
-              <code>prov:qualifiedAttribution</code> with an appropriate role concept.</td>
+            <td>
+              <ul>
+                <li>MUST NOT occur directly on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> (R4; maximum count 0 across the prohibited direct-role alternative path).</li>
+                <li>Use <code>prov:qualifiedAttribution</code> with an appropriate role concept.</li>
+              </ul>
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-copyrightHolder">
-        <h4>3.2.36 copyright holder</h4>
+        <h4>3.2.38 copyright holder</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -3056,17 +3289,27 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td>An attribution pattern instead of a direct property on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> .</td>
+            <td>An attribution pattern instead of a direct property on <a href="#cls-CreativeWork">Creative Work</a> , <a href="#cls-Dataset">Dataset</a>.</td>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>MUST NOT occur directly on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> (R4; maximum count 0 across the prohibited direct-role alternative path). Use
-              <code>prov:qualifiedAttribution</code> with an appropriate role concept.</td>
+            <td>
+              <ul>
+                <li>MUST NOT occur directly on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> (R4; maximum count 0 across the prohibited direct-role alternative path).</li>
+                <li>Use <code>prov:qualifiedAttribution</code> with an appropriate role concept.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Example</th>
+            <td>
+              See the <a href="#provenance">Provenance</a> modelling pattern in this specification.
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-editor">
-        <h4>3.2.37 editor</h4>
+        <h4>3.2.39 editor</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -3078,17 +3321,21 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td>An attribution pattern instead of a direct property on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> .</td>
+            <td>An attribution pattern instead of a direct property on <a href="#cls-CreativeWork">Creative Work</a> , <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a> .</td>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>MUST NOT occur directly on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> (R4; maximum count 0 across the prohibited direct-role alternative path). Use
-              <code>prov:qualifiedAttribution</code> with an appropriate role concept.</td>
+            <td>
+              <ul>
+                <li>MUST NOT occur directly on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> (R4; maximum count 0 across the prohibited direct-role alternative path).</li>
+                <li>Use <code>prov:qualifiedAttribution</code> with an appropriate role concept.</li>
+              </ul>
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-funder">
-        <h4>3.2.38 funder</h4>
+        <h4>3.2.40 funder</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -3100,17 +3347,21 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td>An attribution pattern instead of a direct property on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> .</td>
+            <td>An attribution pattern instead of a direct property on <a href="#cls-CreativeWork">Creative Work</a> , <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a> .</td>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>MUST NOT occur directly on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> (R4; maximum count 0 across the prohibited direct-role alternative path). Use
-              <code>prov:qualifiedAttribution</code> with an appropriate role concept.</td>
+            <td>
+              <ul>
+                <li>MUST NOT occur directly on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> (R4; maximum count 0 across the prohibited direct-role alternative path).</li>
+                <li>Use <code>prov:qualifiedAttribution</code> with an appropriate role concept.</li>
+              </ul>
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-owner">
-        <h4>3.2.39 owner</h4>
+        <h4>3.2.41 owner</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -3122,17 +3373,21 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td>An attribution pattern instead of a direct property on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> .</td>
+            <td>An attribution pattern instead of a direct property on <a href="#cls-CreativeWork">Creative Work</a> , <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a> .</td>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>MUST NOT occur directly on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> (R4; maximum count 0 across the prohibited direct-role alternative path). Use
-              <code>prov:qualifiedAttribution</code> with an appropriate role concept.</td>
+            <td>
+              <ul>
+                <li>MUST NOT occur directly on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> (R4; maximum count 0 across the prohibited direct-role alternative path).</li>
+                <li>Use <code>prov:qualifiedAttribution</code> with an appropriate role concept.</li>
+              </ul>
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-sponsor">
-        <h4>3.2.40 sponsor</h4>
+        <h4>3.2.42 sponsor</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -3144,17 +3399,21 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td>An attribution pattern instead of a direct property on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> .</td>
+            <td>An attribution pattern instead of a direct property on <a href="#cls-CreativeWork">Creative Work</a> , <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a> .</td>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>MUST NOT occur directly on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> (R4; maximum count 0 across the prohibited direct-role alternative path). Use
-              <code>prov:qualifiedAttribution</code> with an appropriate role concept.</td>
+            <td>
+              <ul>
+                <li>MUST NOT occur directly on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> (R4; maximum count 0 across the prohibited direct-role alternative path).</li>
+                <li>Use <code>prov:qualifiedAttribution</code> with an appropriate role concept.</li>
+              </ul>
+            </td>
           </tr>
         </table>
       </section>
       <section id="pred-translator">
-        <h4>3.2.41 translator</h4>
+        <h4>3.2.43 translator</h4>
         <table class="cls">
           <tr>
             <th>IRI</th>
@@ -3166,12 +3425,16 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
           <tr>
             <th>Expected to be used on</th>
-            <td>An attribution pattern instead of a direct property on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> .</td>
+            <td>An attribution pattern instead of a direct property on <a href="#cls-CreativeWork">Creative Work</a> , <a href="#cls-Dataset">Dataset</a> and <a href="#cls-DataCatalog">Data Catalog</a> .</td>
           </tr>
           <tr>
             <th>Scope Note</th>
-            <td>MUST NOT occur directly on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> (R4; maximum count 0 across the prohibited direct-role alternative path). Use
-              <code>prov:qualifiedAttribution</code> with an appropriate role concept.</td>
+            <td>
+              <ul>
+                <li>MUST NOT occur directly on <code>schema:CreativeWork</code> , <code>schema:Dataset</code> and <code>schema:DataCatalog</code> (R4; maximum count 0 across the prohibited direct-role alternative path).</li>
+                <li>Use <code>prov:qualifiedAttribution</code> with an appropriate role concept.</li>
+              </ul>
+            </td>
           </tr>
         </table>
       </section>
@@ -3542,7 +3805,7 @@ WHERE {
           <code>schema:dateCreated</code> &amp; <code>schema:dateModified</code>.</p>
         <p class="req"><strong>Req R3:</strong> Created and modified values MUST be literals of datatype
           <code>xsd:date</code>, <code>xsd:dateTime</code>, <code>xsd:dateTimeStamp</code>, <code>xsd:gYear</code>
-          or <code>xsd:gYearMonth</code>, or nodes typed <code>time:Instant</code> or <code>time:Interval</code>.</p>
+          or <code>xsd:gYearMonth</code>, or nodes typed <code>time:Instant</code>.</p>
         <p class="req"><strong>Req R4:</strong> Resources MUST NOT use the direct role properties
           <code>schema:audienceType</code>, <code>schema:contactPoint</code>, <code>schema:contributor</code>,
           <code>schema:copyrightHolder</code>, <code>schema:editor</code>, <code>schema:funder</code>,
@@ -4421,7 +4684,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
 			    <tr>
 			      <td>Expected Properties</td>
-			      <td><code>lcont:templateText</code></td>
+			      <td><a href="#c.2.7">Template Text</a></td>
 			    </tr>
         </table>
       </section>
@@ -4466,7 +4729,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
 			    <tr>
 			      <td>Expected Properties</td>
-			      <td><code>lcont:templateText</code></td>
+			      <td><a href="#c.2.7">Template Text</a></td>
 			    </tr>
 			  </table>
 			</section>
@@ -4509,7 +4772,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           </tr>
 			    <tr>
 			      <td>Expected Properties</td>
-			      <td><code>lcont:templateText</code></td>
+			      <td><a href="#c.2.7">Template Text</a></td>
 			    </tr>
 
 			  </table>
@@ -4522,7 +4785,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			    <tr><td>Name</td><td>Collections Care Notices</td></tr>
 			    <tr><td>Definition</td><td>A SKOS Concept representing a Collections Care Notice from the Local Contexts framework.</td></tr>
 			    <tr><td>Subclass Of</td><td><code>lcont:LCNotice</code></td></tr>
-			    <tr><td>Expected Properties</td><td><code>lcont:templateText</code></td></tr>
+			    <tr><td>Expected Properties</td><td><a href="#c.2.7">Template Text</a></td></tr>
 			  </table>
 			</section>
 			<section id="c.2.5">
@@ -4566,7 +4829,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			            <code>dcterms:relation</code> - identifies the Label or Notice participating in the qualified relationship.
 			          </li>
 			          <li>
-			            <code>schema:roleName</code> - optionally identifies the role played by that Label or Notice.
+			            <a href="#pred-roleName">role name</a> - optionally identifies the role played by that Label or Notice.
 			          </li>
 			        </ul>
 			      </td>
