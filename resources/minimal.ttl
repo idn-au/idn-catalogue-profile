@@ -1,40 +1,22 @@
-PREFIX dcat: <http://www.w3.org/ns/dcat#>
-PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX austlang: <https://data.idnau.org/pid/austlang/>
 PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX sdo: <https://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <https://trove.nla.gov.au/work/10128420>
-    a dcat:Resource ;
-    dcterms:type <http://purl.org/dc/dcmitype/PhysicalObject> ;
-    dcterms:title "Tjukinya" ;
-    dcterms:description "Folktale: The little red hen retold in Pitjantjatjara" ;
-    dcterms:creator <https://example.com/agent/123> ;
-    dcterms:publisher <https://example.com/agent/123456> ;
-    dcat:theme <https://data.idnau.org/pid/austlang/C6> ;
-    prov:qualifiedAttribution [
-        prov:hadRole <https://linked.data.gov.au/def/data-roles/custodian> ;
-        prov:agent <https://linked.data.gov.au/org/nla>
-    ] ;
-    dcterms:published "1980"^^xsd:gYear ;
-    dcterms:theme <https://data.idnau.org/pid/austlang/C6> ;
-    dcat:accessRights "Not for Inter-Library Loan" ;
+    a schema:CreativeWork ;
+    prov:qualifiedAttribution
+        [
+            schema:agent <https://linked.data.gov.au/org/nla> ;
+            schema:roleName <https://linked.data.gov.au/def/data-roles/custodian> ;
+        ] ;
+    schema:additionalType schema:Book ;
+    schema:creator <https://data.idnau.org/pid/person/2ac04c2b-7d85-4376-b4a3-8fd5b92c3117> ;
+    schema:dateIssued "1980"^^xsd:gYear ;
+    schema:description "Folktale: The little red hen retold in Pitjantjatjara" ;
+    schema:inLanguage austlang:C6 ;
+    schema:keywords <https://data.idnau.org/pid/vocab/indigeneity/by-indigenous-people> ;
+    schema:name "Tjukinya" ;
+    schema:publisher <https://data.idnau.org/pid/org/sum> ;
+    schema:usageInfo "Not for Inter-Library Loan" ;
 .
-
-<https://linked.data.gov.au/org/nla>
-    a sdo:Organization ;
-    sdo:name "National Library of Australia" ;
-    sdo:url "https://nla.gov.au"^^xsd:anyURI ;
-.
-
-<https://example.com/agent/456>
-    a sdo:Organization ;
-    sdo:name "Summer Institute of Linguistics" ;
-    sdo:url "https://www.sila.org.au"^^xsd:anyURI ;
-.
-
-<https://example.com/agent/123>
-    a sdo:Person ;
-    sdo:name "Roderick Munti" ;
-.
-
