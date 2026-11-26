@@ -163,7 +163,7 @@
           </tr>
           <tr>
             <td><a class="proplink" title="schema:dateModified" href="https://schema.org/dateModified">Modified</a></td>
-            <td>2026-11-25</td>
+            <td>2026-11-26</td>
           </tr>
         </table>
       </dd>
@@ -171,11 +171,12 @@
       <dd><a href="https://data.idnau.org/pid/cp/spec/1.2.0">1.2.0</a></dd>
       <dt><a class="proplink" title="schema:license" href="https://schema.org/license">License</a></dt>
       <dd><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a></dd>
-      <dt><a class="proplink" title="schema:copyrightHolderame" href="https://schema.org/copyrightHolder">Copyright</a>
+      <dt><a class="proplink" title="schema:copyrightHolder" href="https://schema.org/copyrightHolder">Copyright</a>
       </dt>
       <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a>, 2022 - 2026</dd>
       <dt><a class="proplink" title="skos#historyNote" href="http://www.w3.org/2004/02/skos/core#historyNote">History note</a></dt>
-      <dd>2026-11: corrected Agent typing, catalogue membership and date constraints; integrated table constraints into scope notes<br/>
+      <dd>2026-11: corrected spelling, HTML markup and internal navigation<br/>
+        2026-11: corrected Agent typing, catalogue membership and date constraints; integrated table constraints into scope notes<br/>
         2026-11: aligned the Classes and Predicates tables with validator.ttl<br/>
         2026-11: applied the new Indigenous Data Commons styling</dd>
     </dl>
@@ -218,7 +219,7 @@
         validator
         are also described and made available.
       </p>
-      <!--                    <p>This document specifies requirements of data that must be met for that data to claim conformance to the IDN Catalogue Profile. Data that conforms to this profile necessarily conforms to DCAT also. This profile also provides mappings from it to models of assessments of principles such as <a href="https://force11.org/info/the-fair-data-principles/">FAIR</a> and <a href="https://www.gida-global.org/care">CARE</a> so it also specifies additional sub-profiles' requirements necissary for those and other mappings.</p>-->
+      <!--                    <p>This document specifies requirements of data that must be met for that data to claim conformance to the IDN Catalogue Profile. Data that conforms to this profile necessarily conforms to DCAT also. This profile also provides mappings from it to models of assessments of principles such as <a href="https://force11.org/info/the-fair-data-principles/">FAIR</a> and <a href="https://www.gida-global.org/care">CARE</a> so it also specifies additional sub-profiles' requirements necessary for those and other mappings.</p>-->
     </section>
     <section id="parts">
       <h3>Parts</h3>
@@ -355,7 +356,7 @@
       <li>Where do I get specific values for some properties from? See <a href="#vocab-values">Vocab Values</a></li>
       <li>What support tooling is available? See <a href="#tools">Tools</a></li>
       <li>What data formats can I use for this metadata? See <a href="#formats">Formats</a></li>
-      <li>How does the metadata model relate to others like RO Crates & Local Context Labels? <a href="#mappings">Mappings</a>
+      <li>How does the metadata model relate to others like RO Crates &amp; Local Context Labels? <a href="#mappings">Mappings</a>
       </li>
     </ol>
     <section id="purpose">
@@ -578,7 +579,7 @@
           </td>
         </tr>
       </table>
-      <p>It has a simple title, brief description and a few <em>Agent</em>s (organisations & persons) associated with
+      <p>It has a simple title, brief description and a few <em>Agent</em>s (organisations &amp; persons) associated with
         it. This item is easily understood to be Indigenous as it is themed with an indigenous language - Pitjantjatjara
         - and controlled access is indicated.</p>
       <p>This item will gain some form of FAIR and CARE scores, but they could be improved: see the next section.</p>
@@ -833,10 +834,11 @@
       <p>
         It's critical that metadata is supplied in one of the RDF syntaxes, or able to be converted to it, so that it
         can be validated with this profile's supplied validators - see the <a href="#validation">Validation Section</a>.
+      </p>
       <p>
         Here are the contents of the <em>Tjukinya</em> resource shown in the <a href="#minimum">Minimum Metadata</a>
         section above
-        expressed in Turtle, JSON-LD & RDF/XML.
+        expressed in Turtle, JSON-LD &amp; RDF/XML.
       </p>
       <div class="tabs">
         <input type="radio" name="tabs" id="tab1" checked>
@@ -1026,7 +1028,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       <p>If you have a non web address identifier, try and use it to create a web identifier. For example, if your
         organisation IDs a dataset as
         <code>ABC123</code>, then you could create the IDN identifier of <code>https://data.idnau.org/pid/ABC123</code>
-        whcih preserved the original ID part but would redirect to an online catalogue entry.</p>
+        which preserved the original ID part but would redirect to an online catalogue entry.</p>
       <p>It is also possible to use existing web addresses as identifiers for Organisations and Persons. See the guide
         to <a href="https://docs.kurrawong.ai/concepts/agents/patterns/#reusing-identifiers-as-a-pid" target="_blank"
               rel="noopener noreferrer">Agent Patterns</a> for examples that use addresses from the Research
@@ -1039,7 +1041,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         provides values that should be used to indicate the indigeneity of data whereas the <a
                 href="https://data.idnau.org/pid/vocab/org-indigeneity">Organisations Indigeneity vocabulary</a> and the
         <a href="https://data.idnau.org/pid/vocab/persons-indigenous-status">Indigenous Status of Persons vocabulary</a>
-        should be used for Organisations & Persons, respectively.</p>
+        should be used for Organisations &amp; Persons, respectively.</p>
     </section>
     <section id="roles">
       <h3>2.3 Roles <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
@@ -1156,7 +1158,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         When using the <a href="#ref-dcat">DCAT</a> model, the predicate <code>schema:keywords</code> is used and should
         indicate a controlled
         term in a vocabulary. When using the <a href="#ref-schema.org">schema.org</a> model, the predicate <code>schema:keywords</code>
-        (note the 's') should be used and may indicate plain text as well as controlled terms.</code>
+        (note the 's') should be used and may indicate plain text as well as controlled terms.
       </p>
       <p>
         While it may be tempting to just theme a resource with words such as "Aboriginal" or "Wiradjuri", and this is
@@ -1403,7 +1405,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       This section defines the model of this catalogue profile: the classes and predicates used to form metadata.
     </p>
     <p>
-      Most od the metadata elements - classes and predicates - used in this profile exist in standard cataloging model.
+      Most of the metadata elements - classes and predicates - used in this profile exist in standard catalogue models.
       They are reused here as originally intended but with conventions that optimise the use for the representation
       of Indigenous data characterisation. For example, using <code>schema:keywords</code> for a <code>schema:CreativeWork</code>
       to indicate a theme taken from the <a href="https://data.idnau.org/pid/vocab/idn-th">IDN Themes vocabulary</a>.
@@ -1458,7 +1460,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           <tr>
             <th>Scope Note</th>
             <td>This is the generic class for things catalogued. You MAY use it without qualification but you SHOULD
-              indicate a specialised class of object catalogues with the <code>schema:additionalType</code> predicate.<p>Exactly one each of <code>schema:name</code>, <code>schema:description</code>, <code>schema:dateCreated</code>, <code>schema:dateModified</code> is required. Name and description MUST be <code>xsd:string</code> or <code>rdf:langString</code>. See <a href="#pred-dateCreated">date created</a> for date value types. Optional <code>schema:identifier</code> values MUST be IRIs or <code>xsd:token</code> literals. The direct role properties <code>schema:audienceType</code>, <code>schema:contactPoint</code>, <code>schema:contributor</code>, <code>schema:copyrightHolder</code>, <code>schema:editor</code>, <code>schema:funder</code>, <code>schema:owner</code>, <code>schema:sponsor</code>, <code>schema:translator</code> MUST NOT be used; use <code>prov:qualifiedAttribution</code> instead. Direct <code>schema:creator</code> and <code>schema:publisher</code> are permitted. A Creative Work or Dataset MUST belong to at least one <code>schema:DataCatalog</code>, indicated by incoming <code>schema:hasPart</code> or outgoing <code>schema:isPartOf</code> (R5). Multiple catalogue memberships are permitted. Every supplied membership in either direction MUST identify a node typed <code>schema:DataCatalog</code>. A Data Catalog need not belong to another catalogue. <code>schema:additionalType</code> is optional and has no value-type constraint.</p></td>
+              indicate a specialised class of object catalogued with the <code>schema:additionalType</code> predicate.<p>Exactly one each of <code>schema:name</code>, <code>schema:description</code>, <code>schema:dateCreated</code>, <code>schema:dateModified</code> is required. Name and description MUST be <code>xsd:string</code> or <code>rdf:langString</code>. See <a href="#pred-dateCreated">date created</a> for date value types. Optional <code>schema:identifier</code> values MUST be IRIs or <code>xsd:token</code> literals. The direct role properties <code>schema:audienceType</code>, <code>schema:contactPoint</code>, <code>schema:contributor</code>, <code>schema:copyrightHolder</code>, <code>schema:editor</code>, <code>schema:funder</code>, <code>schema:owner</code>, <code>schema:sponsor</code>, <code>schema:translator</code> MUST NOT be used; use <code>prov:qualifiedAttribution</code> instead. Direct <code>schema:creator</code> and <code>schema:publisher</code> are permitted. A Creative Work or Dataset MUST belong to at least one <code>schema:DataCatalog</code>, indicated by incoming <code>schema:hasPart</code> or outgoing <code>schema:isPartOf</code> (R5). Multiple catalogue memberships are permitted. Every supplied membership in either direction MUST identify a node typed <code>schema:DataCatalog</code>. A Data Catalog need not belong to another catalogue. <code>schema:additionalType</code> is optional and has no value-type constraint.</p></td>
           </tr>
           <tr>
             <th>Equivalent Classes</th>
@@ -1512,7 +1514,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           <tr>
             <th>Example</th>
             <td>
-              <code><pre>
+              <pre><code>
 PREFIX schema: &lt;https://schema.org/>
 PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
@@ -1541,7 +1543,7 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
   schema:dateCreated "2026-11-25"^^xsd:date ;
   schema:dateModified "2026-11-25"^^xsd:date ;
   schema:hasPart &lt;https://data.idnau.org/pid/762463a4-f8b1-4eec-a335-3689c8d86e9e> ;
-.</pre></code>
+.</code></pre>
             </td>
           </tr>
         </table>
@@ -1581,7 +1583,7 @@ PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
           <tr>
             <th>Example</th>
             <td>
-              <code><pre>
+              <pre><code>
 PREFIX schema: &lt;https://schema.org/>
 
 &lt;https://example.com/cataloguedresource/abc-123>
@@ -1597,7 +1599,7 @@ PREFIX schema: &lt;https://schema.org/>
   schema:name "Cable Beach, Western Australia" ;
   schema:geo "POINT(-35.11608, 117.90094)" ;
 .
-							</pre></code>
+							</code></pre>
             </td>
           </tr>
         </table>
@@ -1637,7 +1639,7 @@ PREFIX schema: &lt;https://schema.org/>
           <tr>
             <th>Example</th>
             <td>
-              <code><pre>
+              <pre><code>
 PREFIX schema: &lt;https://schema.org/>
 PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 
@@ -1645,12 +1647,12 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
   a schema:CreativeWork ;
   schema:name "Early encounters with Aboriginal People in South Australia" ;
   # ...
-  schema:temproralCoverage [
+  schema:temporalCoverage [
       schema:startTime "1825"^^xsd:gYear ;
-      schema:sendTime "1890"^^xsd:gYear ;
+      schema:endTime "1890"^^xsd:gYear ;
   ] ;
   # ... or ...
-  schema:temproralCoverage [
+  schema:temporalCoverage [
       schema:name "19th century" ;
   ] ;
 .
@@ -1660,7 +1662,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
     schema:name "Cable Beach, Western Australia" ;
     schema:geo "POINT(-35.11608, 117.90094)" ;
 .
-							</pre></code>
+							</code></pre>
             </td>
           </tr>
         </table>
@@ -1837,8 +1839,8 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           <tr>
             <th>Description</th>
             <td>
-              A Score is a value, or set of values, for a catalogues resource that has been calculated from metadata or
-              data elements known for the resource in accordance with a scoring principles or metric system, such as the
+              A Score is a value, or set of values, for a catalogued resource that has been calculated from metadata or
+              data elements known for the resource in accordance with a set of scoring principles or a metric system, such as the
               FAIR principles
             </td>
           </tr>
@@ -3214,16 +3216,14 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           the predicate
           <code>schema:publisher</code> is:
         </p>
-        <p>
         <pre>
 &lt;X> prov:qualifiedAttribution [
   schema:agent &lt;Y> ;
   schema:roleName &lt;https://linked.data.gov.au/def/data-roles/publisher>
 ] .</pre>
-        </p>
         <p>
           Not all direct predicates match role code concepts exactly so here is a pairing of equivalents for the
-          direct agent associating predicated listed above:
+          direct Agent-associating predicates listed above:
         </p>
         <table class="properties">
           <tr>
@@ -3269,7 +3269,6 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
                 href="#pred-creator">creator</a> to
           its qualified attribution equivalent is:
         </p>
-        <p>
         <pre>
 PREFIX rc: &lt;https://linked.data.gov.au/def/data-roles/>
 
@@ -3282,15 +3281,14 @@ CONSTRUCT {
 WHERE {
   &lt;X> prov:qualifiedAttribution &lt;Y>
 }</pre>
-        </p>
       </section>
       <section id="rr-at">
         <h4> 3.3.2 Attribution transitivity</h4>
         <div id="attributions-figure" class="figure">
-          <a href="images/attribution-transitivity.svg"><img src="images/attribution-transitivity.svg"
+          <a href="images/attribution-transitivity.svg"><img src="images/attribution-transitivity.svg" alt="Attribution transitivity between resources and Agents"
                                                              style="width:50%"/></a>
           <p class="caption"><strong>Figure 4: Several attributional transitivity reasoning scenarios. Reasoned
-            relationships are shown in dashed green</strong>
+            relationships are shown in dashed green</strong></p>
         </div>
         <p>
           When a <a href="#cls-CreativeWork">Resource</a> is attributed to an <a href="#agents">Agent</a> and that agent
@@ -3310,7 +3308,7 @@ WHERE {
           <tr>
             <th>Logic</th>
             <th>Rule Implementation</th>
-            <th>Substitutions
+            <th>Substitutions</th>
           </tr>
           <tr>
             <td style="width:30%; padding:10px;">
@@ -3381,16 +3379,13 @@ WHERE {
         <p>
           For example, an Indigenous data <code>ResourceX</code> may be indicated as being affected <code>PolicyY</code>:
         </p>
-        <p>
         <pre>
 &lt;ResourceX> odrl:hasPolicy &lt;PolicyY> .</pre>
-        </p>
         <p>
-          but <code>ResourceX</code> may also be custodianed by <code>UnitH</code> within <code>UniversityI</code> and
+          but <code>ResourceX</code> may also be held in custody by <code>UnitH</code> within <code>UniversityI</code> and
           that university may have implemented a university-wide
           Indigenous Data Governance Policy which applied to all units, <code>PolicyK</code>, so we have:
         </p>
-        <p>
         <pre>
 &lt;ResourceX>
     prov:wasAttributedTo [
@@ -3401,15 +3396,12 @@ WHERE {
 
 &lt;UnitH> schema:parentOrganization &lt;UniversityI> .
 					</pre>
-        </p>
         <p>
           We can then reason:
         </p>
-        <p>
         <pre>
 &lt;ResourceX> odrl:hasPolicy &lt;PolicyK> .
 					</pre>
-        </p>
       </section>
     </section>
   </section>
@@ -3620,7 +3612,7 @@ WHERE {
         <h4>5.2.3 <code>Dataset</code></h4>
         <p>There are no structural requirements specifically for <code>CreativeWork</code> instances: the requirements for
           <code>Resource</code> also apply to <code>Dataset</code>.</p>
-        <p>Note that there are <em>values</em> requirements for <code>Dataset</code> instnaces, as per the next section.
+        <p>Note that there are <em>values</em> requirements for <code>Dataset</code> instances, as per the next section.
         </p>
       </section>
       <section id="project">
@@ -3705,7 +3697,7 @@ WHERE {
           property with a <code>schema:roleName</code> indicating a <code>skos:Concept</code> from the <a
                   href="https://data.idnau.org/pid/vocab/aarr">Agent to Agent Relationship Roles</a> vocabulary.</p>
         <p class="eg">
-          <span>Example: An Organization with an example Australian Business Number identifer and a Person affiliated with it</span>
+          <span>Example: An Organization with an example Australian Business Number identifier and a Person affiliated with it</span>
 &lt;https://kurrawong.ai&gt;
   a schema:Organization ;
   schema:identifier "31353542036"^^ids:ausbn ;
@@ -4129,12 +4121,12 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         This mapping of RiCO to this profile is achieved by stating 3 mapping principles:
       </p>
       <ol>
-        <li><a href="#rico-treat">Treat some RiCO classes as IDN CP catalogues resources</a></li>
+        <li><a href="#rico-treat">Treat some RiCO classes as IDN CP catalogued resources</a></li>
         <li><a href="#rico-sub-parts">Relate RiCO elements to IDN CP elements</a></li>
         <li>'Bubble up' Indigenous indicators to the catalogued resource</li>
       </ol>
       <section id="rico-treat">
-        <h4>Treat some RiCO classes as IDN CP catalogues resources</h4>
+        <h4>Treat some RiCO classes as IDN CP catalogued resources</h4>
         <p>
           As per <a href="#rico-class-mapping-figure">Figure 5</a> above, by treating some RiCO classes as specialised
           forms of this profile's catalogued resource class - <code>schema:CreativeWork</code> - we can just attach
@@ -4433,11 +4425,13 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			      </td>
 			      <td>Developed for this data model, based on standard Linked Data graph patterns</td>
 			    </tr>
-			    <td>
+			    <tr>
+            <td>
 			      <a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/source"
 			         title="A related resource from which the described resource is derived">Source</a></td>
 			    <td><a href="https://localcontexts.org/labels/biocultural-labels/">https://localcontexts.org/labels/biocultural-labels/</a>
 			    </td>
+          </tr>
 			    <tr>
 			      <td>Expected Properties</td>
 			      <td><code>lcont:templateText</code></td>
@@ -4476,11 +4470,13 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			      </td>
 			      <td>Developed for this data model, based on standard Linked Data graph patterns</td>
 			    </tr>
-			    <td>
+			    <tr>
+            <td>
 			      <a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/source"
 			         title="A related resource from which the described resource is derived">Source</a></td>
 			    <td><a href="https://localcontexts.org/labels/traditional-knowledge-labels/">https://localcontexts.org/labels/traditional-knowledge-labels/</a>
 			    </td>
+          </tr>
 			    <tr>
 			      <td>Expected Properties</td>
 			      <td><code>lcont:templateText</code></td>
@@ -4517,11 +4513,13 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
 			      </td>
 			      <td>Developed for this data model, based on standard Linked Data graph patterns</td>
 			    </tr>
-			    <td>
+			    <tr>
+            <td>
 			      <a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/source"
 			         title="A related resource from which the described resource is derived">Source</a></td>
 			    <td><a href="https://localcontexts.org/notices/about-the-notices/">https://localcontexts.org/notices/about-the-notices/</a>
 			    </td>
+          </tr>
 			    <tr>
 			      <td>Expected Properties</td>
 			      <td><code>lcont:templateText</code></td>
@@ -4790,7 +4788,7 @@ PREFIX tk: &lt;https://data.idnau.org/pid/vocab/tk-labels/&gt;
         ] ;
 .
 	</p>
-		  <H4>BC Label example</H4>
+		  <h4>BC Label example</h4>
 		    <p class="eg">
 		      <span>Example: a <code>schema:CreativeWork</code> with a <code>lcont:BCLabel</code> policy from the BC Label Concept Scheme applied directly.</span>
 PREFIX bc: &lt;https://data.idnau.org/pid/vocab/bc-labels/&gt;
@@ -4809,7 +4807,7 @@ odrl:hasPolicy bc:provenance ;
 dcterms:source &lt;https://localcontextshub.org/projects/c57b53f1-2089-42ff-93aa-9a179636e4d0&gt;^^xsd:anyURI ;
 .
   </p>
-      <H4>LC Notice example</H4>
+      <h4>LC Notice example</h4>
 		    <p class="eg">
 		      <span>Example: a collection-level record typed as a Dataset, with a <code>lcont:LCNotice</code> from the LC Notices Concept Scheme applied directly.</span>
 PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;

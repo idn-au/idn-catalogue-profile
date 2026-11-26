@@ -1,52 +1,643 @@
+PREFIX : <https://data.idnau.org/pid/cp/validator/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX id: <http://id.loc.gov/vocabulary/identifiers/>
+PREFIX ont: <https://data.idnau.org/pid/cp/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX sdo: <https://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX sh: <http://www.w3.org/ns/shacl#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX time: <http://www.w3.org/2006/time#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-
-<https://data.idnau.org/pid/cp/validator-compounded>
+ont:validator-compounded
     a owl:Ontology ;
-    dcterms:provenance "A validator that contains the IDN Catalogue Profile validator and those of Standards that the IDN Catalogue Profile profiles, particularly DCAT (the DCAT Null Profile)"@en ;
-    owl:versionIRI <https://data.idnau.org/pid/cp/0.0.1> ;
-    owl:versionInfo "0.0.1" ;    
-    sdo:codeRespository "https://github.com/idn-au/idn-catalogue-profile/"^^xsd:anyURI ;
-    sdo:copyrightHolder <https://orcid.org/0000-0002-8742-7730> ;
-    sdo:copyrightNotice "(c) Indigenous Data Network, 2022" ;
-    sdo:copyrightYear "2022"^^xsd:gYear ;
-    sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
-    sdo:dateCreated "2022-07-18"^^xsd:date ;
-    sdo:dateIssued "2022-07-19"^^xsd:date ;
-    sdo:dateModified "2026-07-25"^^xsd:date ;
-    sdo:description "A validator that contains the IDN Catalogue Profile validator and those of Standards that the IDN Catalogue Profile profiles, particularly DCAT (the DCAT Null Profile)"@en ;
-    sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
-    sdo:name "IDN CP Compounded Validator"@en ;
-    sdo:publisher <https://linked.data.gov.au/org/idn> ;
-    owl:imports <https://data.idnau.org/pid/cp/validator> ;
+    dcterms:provenance "A self-contained validator embedding the complete local IDN Catalogue Profile shapes for offline validation."@en ;
+    dcterms:source ont:validator ;
+    owl:versionIRI ont:0.0.1 ;
+    owl:versionInfo "0.0.1" ;
+    skos:historyNote "2026-11: embedded the corrected local IDN Catalogue Profile shapes, including Agent typing, catalogue membership and temporal values."@en ;
+    schema:codeRepository "https://github.com/idn-au/idn-catalogue-profile/"^^xsd:anyURI ;
+    schema:copyrightHolder <https://orcid.org/0000-0002-8742-7730> ;
+    schema:copyrightNotice "(c) Indigenous Data Network, 2022" ;
+    schema:copyrightYear "2022"^^xsd:gYear ;
+    schema:creator <https://orcid.org/0000-0002-8742-7730> ;
+    schema:dateCreated "2022-07-18"^^xsd:date ;
+    schema:dateIssued "2022-07-19"^^xsd:date ;
+    schema:dateModified "2026-11-26"^^xsd:date ;
+    schema:description "A self-contained validator embedding the complete local IDN Catalogue Profile shapes for offline validation."@en ;
+    schema:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
+    schema:name "IDN CP Compounded Validator"@en ;
+    schema:publisher <https://linked.data.gov.au/org/idn> ;
 .
 
-<https://orcid.org/0000-0002-8742-7730>
-    a sdo:Person ;
-    sdo:name "Nicholas J. Car"@en ;
-    sdo:email "nick@kurrawong.ai"^^xsd:anyURI ;
-    sdo:affiliation <https://kurrawong.ai> ;
+:agent
+    a sh:NodeShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:node :agent-as-org-or-person ;
+    sh:property
+        :agent-description ,
+        :agent-email ,
+        :agent-name ,
+        :agent-url ;
+    sh:targetClass prov:Agent ;
+    schema:description "IDN shape for Agent" ;
+    schema:name "IDN shape for Agent" ;
+.
+
+:attribution
+    a sh:NodeShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:property
+        :attribution-agent ,
+        :attribution-roleCode ;
+    sh:targetClass prov:Attribution ;
+    schema:description "IDN shape for Attribution" ;
+    schema:name "IDN shape for Attribution" ;
+.
+
+:catalog
+    a sh:NodeShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:property
+        :catalog-hasPart ,
+        :resource-created ,
+        :resource-description ,
+        :resource-direct-roles ,
+        :resource-identifier ,
+        :resource-modified ,
+        :resource-name ;
+    sh:targetClass schema:DataCatalog ;
+    schema:description "IDN shape for Catalog" ;
+    schema:name "IDN shape for Catalog" ;
+.
+
+:concept
+    a sh:NodeShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:targetClass skos:Concept ;
+    schema:description "This shape adds no constraints for Concept. Validate separately against the VocPub Profile of SKOS when VocPub conformance is required." ;
+    schema:name "IDN shape for Concept" ;
+.
+
+:conceptScheme
+    a sh:NodeShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:targetClass skos:ConceptScheme ;
+    schema:description "This shape adds no constraints for ConceptScheme. Validate separately against the VocPub Profile of SKOS when VocPub conformance is required." ;
+    schema:name "IDN shape for ConceptScheme" ;
+.
+
+:dataset
+    a sh:NodeShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:node :resource-membership ;
+    sh:property
+        :resource-additionalType ,
+        :resource-created ,
+        :resource-description ,
+        :resource-direct-roles ,
+        :resource-identifier ,
+        :resource-modified ,
+        :resource-name ;
+    sh:targetClass schema:Dataset ;
+    schema:description "IDN shape for Dataset" ;
+    schema:name "IDN shape for Dataset" ;
+.
+
+:organization
+    a sh:NodeShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:property
+        :agent-description ,
+        :agent-identifier ,
+        :agent-name ,
+        :organization-url ;
+    sh:targetClass schema:Organization ;
+    schema:description "IDN shape for Organization" ;
+    schema:name "IDN shape for Organization" ;
+.
+
+:person
+    a sh:NodeShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:property
+        :agent-description ,
+        :agent-name ,
+        :person-email ,
+        :person-identifier ;
+    sh:targetClass schema:Person ;
+    schema:description "IDN shape for Person" ;
+    schema:name "IDN shape for Person" ;
+.
+
+:resource
+    a sh:NodeShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:node :resource-membership ;
+    sh:property
+        :resource-additionalType ,
+        :resource-created ,
+        :resource-description ,
+        :resource-direct-roles ,
+        :resource-identifier ,
+        :resource-modified ,
+        :resource-name ;
+    sh:targetClass schema:CreativeWork ;
+    schema:description "IDN shape for catalogued resource" ;
+    schema:name "IDN shape for catalogued resource" ;
+.
+
+:agent-as-org-or-person
+    a sh:NodeShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:message "Req AG1: Each Agent instance MUST be either a schema:Organization or a schema:Person instance." ;
+    sh:or (
+        
+        [
+            sh:class schema:Organization ;
+        ]
+        
+        [
+            sh:class schema:Person ;
+        ]
+    ) ;
+    schema:name "Agent as Org or Person" ;
+.
+
+:agent-email
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:datatype xsd:anyURI ;
+    sh:message "Req AG2: Each supplied Agent email MUST be an xsd:anyURI literal." ;
+    sh:path schema:email ;
+    schema:name "Person email" ;
+.
+
+:agent-identifier
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:message "Req AG3: Each Agent instance SHOULD be described with a schema:description property and, if the Agent has them, identifiers for it should be indicated with schema:identifier with either xsd:anyURI, xsd:token or a datatype from the Library of Congress Standard Identifiers vocabulary." ;
+    sh:or (
+        
+        [
+            sh:datatype xsd:token ;
+        ]
+        
+        [
+            sh:datatype xsd:anyURI ;
+        ]
+        
+        [
+            sh:datatype xsd:string ;
+        ]
+        
+        [
+            sh:datatype rdf:langString ;
+        ]
+        
+        [
+            sh:datatype id:ror ;
+        ]
+        
+        [
+            sh:datatype id:ausbn ;
+        ]
+        
+        [
+            sh:datatype id:auscn ;
+        ]
+        
+        [
+            sh:datatype id:ausrn ;
+        ]
+        
+        [
+            sh:datatype id:viaf ;
+        ]
+    ) ;
+    sh:path schema:identifier ;
+    schema:name "Agent identifier" ;
+.
+
+:agent-url
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:datatype xsd:anyURI ;
+    sh:message "Req AG2: Each supplied Agent URL MUST be an xsd:anyURI literal." ;
+    sh:path schema:url ;
+    schema:name "Agent URL" ;
+.
+
+:attribution-agent
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:maxCount 1 ;
+    sh:message "Req A1: Each Attribution instance MUST indicate an Agent instance with the property schema:agent." ;
+    sh:minCount 1 ;
+    sh:or (
+        
+        [
+            sh:class schema:Organization ;
+        ]
+        
+        [
+            sh:class schema:Person ;
+        ]
+    ) ;
+    sh:path schema:agent ;
+    schema:name "Attribution Agent" ;
+.
+
+:attribution-roleCode
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:class skos:Concept ;
+    sh:message "Req A1: Each Attribution instance MUST indicate a role for the Agent, as a skos:Concept, using either the schema:roleName or prov:hadRole property." ;
+    sh:minCount 1 ;
+    sh:path
+        [
+            sh:alternativePath (
+                schema:roleName
+                prov:hadRole
+            ) ;
+        ] ;
+    schema:name "Attribution Role" ;
+.
+
+:catalog-hasPart
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:message "Req C2: Each Catalog instance MUST contain at least one Resource indicated by the hasPart property." ;
+    sh:minCount 1 ;
+    sh:or (
+        
+        [
+            sh:class schema:CreativeWork ;
+        ]
+        
+        [
+            sh:class schema:Dataset ;
+        ]
+    ) ;
+    sh:path schema:hasPart ;
+    schema:name "Catalogue Parts" ;
+.
+
+:organization-url
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:datatype xsd:anyURI ;
+    sh:maxCount 1 ;
+    sh:message "Req AG2: Each Organization MUST have exactly one schema:url value, an xsd:anyURI literal." ;
+    sh:minCount 1 ;
+    sh:path schema:url ;
+    schema:name "Organization URL" ;
+.
+
+:person-email
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:datatype xsd:anyURI ;
+    sh:maxCount 1 ;
+    sh:message "Req AG2: A Person SHOULD have an email. If supplied, schema:email MUST have at most one value, an xsd:anyURI literal." ;
+    sh:path schema:email ;
+    schema:name "Person email" ;
+.
+
+:person-identifier
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:message "Req AG3: Each Person instance SHOULD be described with a schema:description property and, if the Person has them, identifiers for it should be indicated with schema:identifier with either xsd:anyURI, xsd:token or a datatype from the Library of Congress Standard Identifiers vocabulary, including id:orcid." ;
+    sh:or (
+        
+        [
+            sh:datatype xsd:token ;
+        ]
+        
+        [
+            sh:datatype xsd:anyURI ;
+        ]
+        
+        [
+            sh:datatype xsd:string ;
+        ]
+        
+        [
+            sh:datatype rdf:langString ;
+        ]
+        
+        [
+            sh:datatype id:orcid ;
+        ]
+        
+        [
+            sh:datatype id:viaf ;
+        ]
+    ) ;
+    sh:path schema:identifier ;
+    schema:name "Person identifier" ;
+.
+
+:resource-incoming-catalog
+    a sh:PropertyShape ;
+    sh:class schema:DataCatalog ;
+    sh:message "Req R5: Each incoming schema:hasPart membership MUST originate from a schema:DataCatalog." ;
+    sh:path
+        [
+            sh:inversePath schema:hasPart ;
+        ] ;
+.
+
+:resource-outgoing-catalog
+    a sh:PropertyShape ;
+    sh:class schema:DataCatalog ;
+    sh:message "Req R5: Each schema:isPartOf membership MUST identify a schema:DataCatalog." ;
+    sh:path schema:isPartOf ;
 .
 
 <https://kurrawong.ai>
-    a sdo:Organization ;
-    sdo:name "KurrawongAI" ;
-    sdo:description "KurrawongAI is a small, Artificial Intelligence, company in Australia specialising in Knowledge Graphs." ;
-    sdo:url "https://kurrawong.ai"^^xsd:anyURI ;
+    a schema:Organization ;
+    schema:description "KurrawongAI is a small, Artificial Intelligence, company in Australia specialising in Knowledge Graphs." ;
+    schema:name "KurrawongAI" ;
+    schema:url "https://kurrawong.ai"^^xsd:anyURI ;
+.
+
+:resource-additionalType
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:path schema:additionalType ;
+    schema:description "Nothing to test" ;
+    schema:name "Nothing to test" ;
+.
+
+:resource-membership
+    a sh:NodeShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:message "Req R5: Each CreativeWork or Dataset MUST belong to at least one DataCatalog, via incoming schema:hasPart or outgoing schema:isPartOf. Catalogue membership is optional for a DataCatalog." ;
+    sh:or (
+        
+        [
+            sh:class schema:DataCatalog ;
+        ]
+        
+        [
+            sh:property
+                [
+                    sh:minCount 1 ;
+                    sh:path
+                        [
+                            sh:inversePath schema:hasPart ;
+                        ] ;
+                ] ;
+        ]
+        
+        [
+            sh:property
+                [
+                    sh:minCount 1 ;
+                    sh:path schema:isPartOf ;
+                ] ;
+        ]
+    ) ;
+    sh:property
+        :resource-incoming-catalog ,
+        :resource-outgoing-catalog ;
+    schema:name "Resource catalogue membership" ;
 .
 
 <https://linked.data.gov.au/org/idn>
-    a sdo:Organization ;
-    sdo:name "Indigenous Data Network" ;
-    sdo:description "The IDN is within the University of Melbourne. It was established in 2018 to support and coordinate the governance of Indigenous data for Aboriginal and Torres Strait Islander peoples and empower Aboriginal and Torres Strait Islander communities to decide their own local data priorities." ;
-    sdo:url "https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network"^^xsd:anyURI ;
+    a schema:Organization ;
+    schema:description "The IDN is within the University of Melbourne. It was established in 2018 to support and coordinate the governance of Indigenous data for Aboriginal and Torres Strait Islander peoples and empower Aboriginal and Torres Strait Islander communities to decide their own local data priorities." ;
+    schema:name "Indigenous Data Network" ;
+    schema:url "https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network"^^xsd:anyURI ;
+.
+
+:agent-description
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:maxCount 1 ;
+    sh:message "Req AG3: An Agent SHOULD have a description. If supplied, schema:description MUST have at most one value, an xsd:string or rdf:langString literal." ;
+    sh:or (
+        
+        [
+            sh:datatype xsd:string ;
+        ]
+        
+        [
+            sh:datatype rdf:langString ;
+        ]
+    ) ;
+    sh:path schema:description ;
+    schema:name "Agent description" ;
+.
+
+:agent-name
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:maxCount 1 ;
+    sh:message "Req AG2: Each Agent MUST have exactly one schema:name value, an xsd:string or rdf:langString literal." ;
+    sh:minCount 1 ;
+    sh:or (
+        
+        [
+            sh:datatype xsd:string ;
+        ]
+        
+        [
+            sh:datatype rdf:langString ;
+        ]
+    ) ;
+    sh:path schema:name ;
+    schema:name "Agent name" ;
+.
+
+:resource-created
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:maxCount 1 ;
+    sh:message "Req R2: Each Resource instance MUST provide basic Resource metadata so that exactly one of each of the following properties is required with range value as per Resource requirements: name, description, created & modified. The particular validator violated here is for created. Req R3: Each date value MUST be an xsd:date, xsd:dateTime, xsd:dateTimeStamp, xsd:gYear or xsd:gYearMonth literal, or a node of class time:Instant or time:Interval" ;
+    sh:minCount 1 ;
+    sh:or (
+        
+        [
+            sh:datatype xsd:dateTime ;
+        ]
+        
+        [
+            sh:datatype xsd:date ;
+        ]
+        
+        [
+            sh:datatype xsd:dateTimeStamp ;
+        ]
+        
+        [
+            sh:datatype xsd:gYear ;
+        ]
+        
+        [
+            sh:datatype xsd:gYearMonth ;
+        ]
+        
+        [
+            sh:class time:Interval ;
+        ]
+        
+        [
+            sh:class time:Instant ;
+        ]
+    ) ;
+    sh:path schema:dateCreated ;
+    schema:name "Catalog basic resource metadata" ;
+.
+
+:resource-description
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:maxCount 1 ;
+    sh:message "Req R2: Each Resource instance MUST provide basic Resource metadata so that exactly one of each of the following properties is required with range value as per Resource requirements: name, description, created & modified. The particular validator violated here is for description." ;
+    sh:minCount 1 ;
+    sh:or (
+        
+        [
+            sh:datatype xsd:string ;
+        ]
+        
+        [
+            sh:datatype rdf:langString ;
+        ]
+    ) ;
+    sh:path schema:description ;
+    schema:name "Catalog basic resource metadata" ;
+.
+
+:resource-direct-roles
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:maxCount 0 ;
+    sh:message "Req R4: Each Resource instance MUST NOT indicate Agent roles with direct properties other than publisher and creator and MUST instead indicate them with PROV qualified attribution pattern with each prov:Attribution indicated with the property prov:qualifiedAttribution." ;
+    sh:path
+        [
+            sh:alternativePath (
+                schema:audienceType
+                schema:contactPoint
+                schema:contributor
+                schema:copyrightHolder
+                schema:editor
+                schema:funder
+                schema:owner
+                schema:sponsor
+                schema:translator
+            ) ;
+        ] ;
+    schema:name "Not direct Agent roles" ;
+.
+
+:resource-identifier
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:message "Req R1: Each Resource instance SHOULD indicate a persistent identifier to be used to gain access to its point-of-truth metadata. The PID SHOULD be used as the Dataset instance's IRI, if it is an HTTP/HTTPS IRI, or else it SHOULD be quoted as a literal value, indicated with the property schema:identifier of datatype xsd:token." ;
+    sh:or (
+        
+        [
+            sh:nodeKind sh:IRI ;
+        ]
+        
+        [
+            sh:datatype xsd:token ;
+        ]
+    ) ;
+    sh:path schema:identifier ;
+    schema:name "Resource persistent identifier" ;
+.
+
+:resource-modified
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:maxCount 1 ;
+    sh:message "Req R2: Each Resource instance MUST provide basic Resource metadata so that exactly one of each of the following properties is required with range value as per Resource requirements: name, description, created & modified. The particular validator violated here is for modified. Req R3: Each date value MUST be an xsd:date, xsd:dateTime, xsd:dateTimeStamp, xsd:gYear or xsd:gYearMonth literal, or a node of class time:Instant or time:Interval" ;
+    sh:minCount 1 ;
+    sh:or (
+        
+        [
+            sh:datatype xsd:dateTime ;
+        ]
+        
+        [
+            sh:datatype xsd:date ;
+        ]
+        
+        [
+            sh:datatype xsd:dateTimeStamp ;
+        ]
+        
+        [
+            sh:datatype xsd:gYear ;
+        ]
+        
+        [
+            sh:datatype xsd:gYearMonth ;
+        ]
+        
+        [
+            sh:class time:Interval ;
+        ]
+        
+        [
+            sh:class time:Instant ;
+        ]
+    ) ;
+    sh:path schema:dateModified ;
+    schema:name "Catalog basic resource metadata" ;
+.
+
+:resource-name
+    a sh:PropertyShape ;
+    rdfs:isDefinedBy ont:validator ;
+    sh:maxCount 1 ;
+    sh:message "Req R2: Each Resource instance MUST provide basic Resource metadata so that exactly one of each of the following properties is required with range value as per Resource requirements: name, description, created & modified. The particular validator violated here is for name." ;
+    sh:minCount 1 ;
+    sh:or (
+        
+        [
+            sh:datatype xsd:string ;
+        ]
+        
+        [
+            sh:datatype rdf:langString ;
+        ]
+    ) ;
+    sh:path schema:name ;
+    schema:name "Catalog basic resource metadata" ;
+.
+
+<https://orcid.org/0000-0002-8742-7730>
+    a schema:Person ;
+    schema:affiliation <https://kurrawong.ai> ;
+    schema:email "nick@kurrawong.ai"^^xsd:anyURI ;
+    schema:name "Nicholas J. Car"@en ;
+.
+
+ont:validator
+    a owl:Ontology ;
+    owl:versionIRI ont:1.0.0 ;
+    owl:versionInfo "1.0.1" ;
+    skos:historyNote
+        "2026-11: corrected Agent typing, catalogue membership and temporal value constraints."@en ,
+        "This validator for the IDN Catalogue Profile was made within the IDN's ID Catalogue project 2021 - 2022."@en ;
+    schema:codeRepository "https://github.com/idn-au/idn-catalogue-profile/"^^xsd:anyURI ;
+    schema:copyrightHolder <https://orcid.org/0000-0002-8742-7730> ;
+    schema:copyrightNotice "(c) Indigenous Data Network, 2026" ;
+    schema:copyrightYear "2026"^^xsd:gYear ;
+    schema:creator <https://orcid.org/0000-0002-8742-7730> ;
+    schema:dateCreated "2022-07-18"^^xsd:date ;
+    schema:dateIssued "2022-07-19"^^xsd:date ;
+    schema:dateModified "2026-11-25"^^xsd:date ;
+    schema:description "A SHACL validator IDN Catalogue Profile."@en ;
+    schema:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
+    schema:name "IDN CP Validator"@en ;
+    schema:publisher <https://linked.data.gov.au/org/idn> ;
 .

@@ -6,6 +6,14 @@
     <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
     <link href="../idn.css" rel="stylesheet" type="text/css">
     <title>IDN Catalogue Profile - SDO mapping</title>
+<style>
+                table tr td {
+                    vertical-align: top;
+                }
+                table tr td code {
+                    font-size: small;
+                }
+            </style>
 </head>
 <body>
 <div id="menu" style="grid-column:1;">
@@ -16,7 +24,7 @@
             <a href="#mapping">Mapping</a>
             <ul>
                 <li><a href="#minimal">Minimal</a></li>
-                <li><a href="#full">RolesFull</a></li>
+                <li><a href="#full">Full</a></li>
             </ul>
         </li>
     </ul>
@@ -49,7 +57,7 @@
             <dd>IDN CP &rarr; schema.org Mapping</dd>
             <dt><a class="proplink" title="sdo:description" href="https://schema.org/description">Description</a></dt>
             <dd>This document defines the <a href="https://data.idnau.org/pid/cp">IDN CP</a>'s official mapping between its elements and <a href="https://schema.org">schema.org</a>'s elements.</dd>
-            <dt><a href="https://schema.org/isPartOf">Is Part Of</a> (a <a href="https://www.w3.org/TR/dx-prof/#Class:ResourceDescriptor">Profile Resource Descriptor</a> of)</a></dt>
+            <dt><a href="https://schema.org/isPartOf">Is Part Of</a> (a <a href="https://www.w3.org/TR/dx-prof/#Class:ResourceDescriptor">Profile Resource Descriptor</a> of)</dt>
             <dd><a href="https://data.idnau.org/pid/cp">IDN's Catalogue Profile</a><br/></dd>
             <dt><a class="proplink" title="sdo:publisher" href="https://schema.org/publisher">Publisher</a>(s)</dt>
             <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a><br/></dd>
@@ -58,7 +66,7 @@
             <dt><a class="proplink" title="sdo:created" href="https://schema.org/created">Created</a></dt>
             <dd>2022-12-19</dd>
             <dt><a class="proplink" title="sdo:dateModified" href="https://schema.org/dateModified">Modified</a></dt>
-            <dd>2026-11-25</dd>
+            <dd>2026-11-26</dd>
             <dt><a class="proplink" title="sdo:dateIssued" href="https://schema.org/dateIssued">Issued</a></dt>
             <dd>2022-12-20</dd>
             <dt><a class="proplink" title="owl#versionInfo" href="http://www.w3.org/2002/07/owl#versionInfo">Version
@@ -70,18 +78,19 @@
             <dt><a class="proplink" title="sdo:license" href="https://schema.org/license">License</a></dt>
             <dd><a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a>
             </dd>
-            <dt><a class="proplink" title="sdo:copyrightHolderame" href="https://schema.org/copyrightHolder">Copyright
+            <dt><a class="proplink" title="sdo:copyrightHolder" href="https://schema.org/copyrightHolder">Copyright
                 Holder</a></dt>
             <dd><a href="https://linked.data.gov.au/org/idn">Indigenous Data Network</a></dd>
             <dt><a class="proplink" title="sdo:copyrightYear" href="https://schema.org/copyrightYear">Copyright Year</a>
             </dt>
             <dd>2022</dd>
-            <dt><a class="proplink" title="sdo:codeRespository" href="https://schema.org/codeRespository">Code
+            <dt><a class="proplink" title="sdo:codeRepository" href="https://schema.org/codeRepository">Code
                 Repository</a></dt>
             <dd><a href="https://github.com/idn-au/idn-catalogue-profile/">https://github.com/idn-au/idn-catalogue-profile/</a>
             </dd>
       <dt><a class="proplink" title="skos#historyNote" href="http://www.w3.org/2004/02/skos/core#historyNote">History note</a></dt>
-      <dd>2026-11: applied the new Indigenous Data Commons styling</dd>
+      <dd>2026-11: corrected spelling, HTML markup and internal navigation<br/>
+        2026-11: applied the new Indigenous Data Commons styling</dd>
     </dl>
   </section>
     <section id="mapping">
@@ -111,17 +120,9 @@
             <dt>xsd</dt>
             <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
         </dl>
-        <section id="minmal">
+        <section id="minimal">
             <h3>Minimal</h3>
             <p>This first mapping is for the elements of <em>Minimal Metadata</em> as per the IDN CP's <a href="https://data.idnau.org/pid/cp/guide">Guide</a>. The examples used are also from the Guide's minimal example.</p>
-            <style>
-                table tr td {
-                    vertical-align: top;
-                }
-                table tr td code {
-                    font-size: small;
-                }
-            </style>
             <table class="properties">
                 <tr>
                     <th>IDN CP Element</th>
@@ -211,7 +212,7 @@
                 </tr>
             </table>
             <h4>Coded Equivalents</h4>
-            <p>The following is a slightly extended version of the <a href="https://data.idnau.org/pid/cp/guide">Guide</a>'s mimimal example:</p>
+            <p>The following is a slightly extended version of the <a href="https://data.idnau.org/pid/cp/guide">Guide</a>'s minimal example:</p>
             <h5>IDN CP</h5>
             <p class="eg">
 PREFIX dcat: &lt;http://www.w3.org/ns/dcat#>
@@ -251,14 +252,6 @@ PREFIX sdo: &lt;https://schema.org/>
             <h3>Full</h3>
             <p>This second mapping is for the elements of <em>Full Metadata</em> as per the IDN CP's <a href="https://data.idnau.org/pid/cp/guide">Guide</a>. The examples used are also from the Guide's full example.</p>
             <p><strong>NOTE</strong>: the elements already covered in the minimal mapping above are not repeated in the table</p>
-            <style>
-                table tr td {
-                    vertical-align: top;
-                }
-                table tr td code {
-                    font-size: small;
-                }
-            </style>
             <table class="properties">
                 <tr>
                     <th>IDN CP Element</th>
@@ -351,20 +344,21 @@ PREFIX sdo: &lt;https://schema.org/>
 ] ;</pre></td>
                     <td><code>sdo:temporalCoverage "2021/2026" ;</code></td>
                 </tr>
+                    <tr>
                     <td><code>dcterms:accessRights</code></td>
                     <td><code>sdo:conditionsOfAccess</code></td>
                     <td>equivalent property</td>
                     <td><code>dcterms:accessRights &lt;https://linked.data.gov.au/def/data-access-rights/open> ;</code></td>
                     <td><code>sdo:conditionsOfAccess "open" ;</code></td>
                 </tr>
-                </tr>
+                <tr>
                     <td><code>dcat:accessURL</code></td>
                     <td><code>sdo:url</code></td>
                     <td>equivalent property</td>
                     <td><code>dcat:accessURL "https://linked.data.gov.au/dataset/asgsed3/ILOC"^^xsd:anyURI ;</code></td>
                     <td><code>sdo:url "https://linked.data.gov.au/dataset/asgsed3/ILOC" ;</code></td>
                 </tr>
-                </tr>
+                <tr>
                     <td><code>dcterms:theme</code></td>
                     <td><code>sdo:keywords</code></td>
                     <td>equivalent elements</td>
@@ -473,7 +467,7 @@ PREFIX sdo: &lt;https://schema.org/>
 <div class="footer" style="grid-column:1;"></div>
 <div class="footer" style="grid-column:2; display:grid; grid-template-columns:70% 30%;">
     <div style="grid-column:1;">
-        The <a href="https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network">Indigenous Data Network (IDN)</a> is within the <a href="https://www.unimelb.edu.au">University of Melbourne</a>. It was established in 2018 to support and coordinate the governance of Indigenous data for Aboriginal and Torres Strait Islander peoples and empower Aboriginal and Torres Strait Islander communities to decide their own local data priorities.</a>
+        The <a href="https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network">Indigenous Data Network (IDN)</a> is within the <a href="https://www.unimelb.edu.au">University of Melbourne</a>. It was established in 2018 to support and coordinate the governance of Indigenous data for Aboriginal and Torres Strait Islander peoples and empower Aboriginal and Torres Strait Islander communities to decide their own local data priorities.
     </div>
     <div style="grid-column:2;">
     </div>
