@@ -413,7 +413,7 @@
         Organisations
         drawn from there may provide a lot more extended information specific to Indigenous data governance concerns
         than
-        <a href="https://orcid.org/">ORCID</a> - international researcher identifier - and similar identifiers often
+        <a href="https://orcid.org/">ORCID</a> - an international researcher identifier - and similar identifiers often
         used for people
         in data cataloguing unknown to the database.
       </p>
@@ -460,7 +460,7 @@
         <tr>
           <th>Agents</th>
           <td>
-            <p>Persons Organisations associated with the resource and the roles they play.</p>
+            <p>Persons and/or Organisations associated with the resource and the roles they play.</p>
             <dl>
               <dt><a href="https://linked.data.gov.au/def/data-roles/author">Creator</a></dt>
               <dd>The ID of a Person or an Organisation in our <a href="#agents">IDN Data Agents DB</a></dd>
@@ -634,8 +634,8 @@
             <td>
               <p>The spatial area covered by the data</p>
               <p>Note this might be given as a geometry - point or polygon - but may best be given as a link to an
-                online spatial object, e.g. administrative areas within the <a href="https://asgs.linked.fsdf.org.au/">ASGS
-                  online</a>.</p>
+                online spatial object, e.g. administrative areas within the <a href="https://data.idnau.org/pid/asgs-is">Australian 
+                  Statistical Geography Standard (ASGS)</a>.</p> 
               <p>See the <a href="#pred-spatialCoverage">spatial coverage</a> predicate.</p>
             </td>
           </tr>
@@ -700,8 +700,8 @@
             <th>Spatial coverage</th>
             <td>
               <p>Indicating the spatial coverage of the resource, or its place of origin, with reference to a names
-                spatial feature, in particular Indigenous spatial features, such as those provided by the Indigenous
-                Data Network's reference <a href="https://data.idnau.org/s">Spatial Data Catalog</a>.</p>
+                spatial feature, in particular Indigenous spatial features, such as those provided by the 
+                <a href="https://data.idnau.org/pid/indigenous-data-catalogue">Indigenous Data Catalog</a>.</p>
             </td>
           </tr>
           <tr>
@@ -726,8 +726,8 @@
         catalogued resource.</p>
       <p>The most well-known of these is scores is the FAIR score, based on the <a
               href="https://force11.org/info/the-fair-data-principles/">FAIR Principles</a> which indicate the
-        findability, accessibility, interoperability and reusability of data. The CARE score is facilitated is the first
-        known metric-ification of the <a href="https://www.gida-global.org/care">CARE Principles for Indigenous Data
+        findability, accessibility, interoperability and reusability of data. The CARE score is facilitated as the first
+        known metric-ification of the <a href="https://www.gida-global.org/careprinciples">CARE Principles for Indigenous Data
           Governance</a>.</p>
       <p>This profile also specifies a <em>Data Governance Distance</em> score, see the <a href="#dgd">B.3. Data
         Governance Distance</a> annex. for details</p>
@@ -762,10 +762,10 @@
         and published with a set of other vocabularies all about Indigenous Australian concerns.
       </p>
       <p>
-        The Indigenous Data Network published a reference catalogue of vocabularies for metadata use:
+        The Indigenous Data Network published vocabularies for metadata use:
       </p>
       <ul>
-        <li><a href="https://data.idnau.org/pid/vocabs">IDN Vocabularies</a></li>
+        <li><a href="https://data.dev.idnau.org/?facets={%22https://schema.org/additionalType%22:%22https://schema.org/DefinedTermSet%22}">IDN Vocabularies</a></li>
       </ul>
       <p>
         some particular vocabularies of interest there are:
@@ -800,16 +800,6 @@
           conformance of metadata to this profile
         </li>
       </ul>
-      <p>
-        Additional tools are the IDN's <a href="https://data.idnau.org/pid/demo-catalogue">demonstration</a>,
-        <a href="https://data.idnau.org/pid/vocabs">vocabularies</a> and <a
-              href="https://data.idnau.org/pid/spatial-data">spatial reference data</a>
-        catalogues that provide examples and reference data elements that can be used in the creation of new records.
-      </p>
-      <p>
-        See the <a href="https://data.idnau.org/catalogs">IDN's catalogue of catalogues</a> to see all the catalogues
-        that may be of help.
-      </p>
     </section>
     <section id="formats">
       <h3>1.8 Format <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h3>
@@ -987,7 +977,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
           code library</a> are fine.</p>
         <p>If you need to create RDF data for the first time, you can use the:</p>
         <ul>
-          <li><a href="https://metadata.idnau.org/">IDN Metadata Creator tool</a></li>
+          <li><a href="https://metadata.idnau.org/">IDN Metadata Entry Tool</a></li>
         </ul>
       </section>
     </section>
@@ -1017,9 +1007,8 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
         organisation IDs a dataset as
         <code>ABC123</code>, then you could create the IDN identifier of <code>https://data.idnau.org/pid/ABC123</code>
         which preserved the original ID part but would redirect to an online catalogue entry.</p>
-      <p>It is also possible to use existing web addresses as identifiers for Organisations and Persons. See the guide
-        to <a href="https://docs.kurrawong.ai/concepts/agents/patterns/#reusing-identifiers-as-a-pid" target="_blank"
-              rel="noopener noreferrer">Agent Patterns</a> for examples that use addresses from the Research
+      <p>It is also possible to use existing web addresses as identifiers for Organisations and Persons. See 
+         <a href="#agents">Agents</a> for examples that use addresses from the Research
         Organization Registry (ROR) and the Open Researcher and Contributor Identifier (ORCID) registry.</p>
     </section>
     <section id="indigeneity">
@@ -1061,7 +1050,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
       </p>
       <p>
         All Agents referred to in IDN metadata <em>MUST</em> be identified with a persistent identifier and
-        <em>SHOULD</em> be registered within the <a href="https://idnau.org/resources/agentsdb">IDN Data Agents DB</a>.
+        <em>SHOULD</em> be registered within the <a href="https://agentsdb.idnau.org">IDN Data Agents DB</a>.
       </p>
       <p>
         So, instead of referring to a person like this:
@@ -1936,7 +1925,7 @@ PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
           <tr>
             <th>Example</th>
             <td>
-              <pre>See the example for <a href="#cls-CreativeWork">schema:CreativeWork</a></pre>
+              <pre class="todo">TODO - add example for a schema:CreativeWork</pre>
 </td>
           </tr>
         </table>
@@ -4050,7 +4039,7 @@ WHERE {
     <h2>7. Examples <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
     <p>
       Here is the source code for the metadata of the <em>Yirrkala LPC Dataset</em>, as stored within the IDN's
-      <a href="https://data.idnau.org/catalogs/pid:kp-catalogue">Keeping Place</a> catalogue at:
+      <a href="https://data.idnau.org/pid/indigenous-data-catalogue">Indigenous Data Catalogue</a> catalogue at:
     </p>
     <ul>
       <li><a href="https://data.idnau.org/pid/resource/debd1b90-aeb4-403e-82fc-7db7c474b2fd">https://data.idnau.org/pid/resource/debd1b90-aeb4-403e-82fc-7db7c474b2fd</a>
@@ -4060,6 +4049,7 @@ WHERE {
       <span>Example: Turtle formatted RDF metadata for the <em>Yirrkala LPC Dataset</em></span>
 PREFIX dataaccessrights: &lt;https://linked.data.gov.au/def/data-access-rights/>
 PREFIX dataroles: &lt;https://linked.data.gov.au/def/data-roles/>
+PREFIX ind: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 PREFIX indigeneity: &lt;https://data.idnau.org/pid/vocab/indigeneity/>
 PREFIX orcidorg: &lt;https://orcid.org/>
 PREFIX prov: &lt;http://www.w3.org/ns/prov#>
@@ -5197,6 +5187,7 @@ PREFIX tk: &lt;https://data.idnau.org/pid/vocab/tk-labels/&gt;
 	    <li>Update 1.4.1 spatial coverage ASGS ref</li>
 	    <li>Update 1.4.2 spatial coverage Cat link</li>
 	    <li>Run link checker</li>
+      <li>Add example for 3.1.9 Data Download</li>
 	  </ul>
 	</section>
 </div><!-- #content -->
